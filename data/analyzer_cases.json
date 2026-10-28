@@ -1,6 +1,6 @@
 {
   "purpose": "Author-constructed functional and counterexample checks for a bounded rule prototype; not independent clinical accuracy evaluation.",
-  "version": "prototype-3",
+  "version": "prototype-4",
   "clinical_expert_approvals": 0,
   "cases": [
     {
@@ -1067,6 +1067,172 @@
           "MONDO:0005083"
         ],
         "target_evidence_status": "NO_CUE_DETECTED"
+      }
+    },
+    {
+      "id": "r3-R1-comma-own-predicate",
+      "keyword": "Eczema",
+      "text": "No psoriasis, eczema present.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "NCIT:C3001"
+        ],
+        "target_evidence_status": "NO_CUE_DETECTED"
+      }
+    },
+    {
+      "id": "r3-R1-comma-list-continues",
+      "keyword": "Psoriasis",
+      "text": "No migraine, psoriasis, or asthma.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005083"
+        ],
+        "all_assertions": "NEGATED",
+        "target_evidence_status": "NEGATED"
+      }
+    },
+    {
+      "id": "r3-R1-comma-unresolved",
+      "keyword": "Psoriasis",
+      "text": "No migraine, psoriasis with nail changes.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005083"
+        ],
+        "target_evidence_status": "UNKNOWN",
+        "unsupported": "COORDINATED_NEGATION_UNRESOLVED"
+      }
+    },
+    {
+      "id": "r3-R2-modified-longer-name",
+      "keyword": "Psoriasis",
+      "text": "Patients with pustular plaque psoriasis.",
+      "expected": {
+        "decision": "HOLD_MODIFIED_MENTION",
+        "concept_keys": [],
+        "blocked_mention": true,
+        "target_evidence_status": "UNRESOLVED"
+      }
+    },
+    {
+      "id": "r3-R3-control",
+      "keyword": "Hypertension",
+      "text": "Patients with uncontrolled hypertension.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005044"
+        ],
+        "attributes": [
+          "control_status:uncontrolled"
+        ],
+        "ownership_status": "SINGLE_CONCEPT_IN_CLAUSE"
+      }
+    },
+    {
+      "id": "r3-R3-documented",
+      "keyword": "Heart failure",
+      "text": "Patients with documented heart failure.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005252"
+        ]
+      }
+    },
+    {
+      "id": "r3-R3-stage",
+      "keyword": "Chronic kidney disease",
+      "text": "Patients with stage 3 chronic kidney disease.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005300"
+        ],
+        "attributes": [
+          "stage:stage 3"
+        ]
+      }
+    },
+    {
+      "id": "r3-R3-extent",
+      "keyword": "Melanoma",
+      "text": "Patients with advanced melanoma.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005105"
+        ],
+        "attributes": [
+          "extent:advanced"
+        ]
+      }
+    },
+    {
+      "id": "r3-R3-activity",
+      "keyword": "Rheumatoid arthritis",
+      "text": "Adults with moderately to severely active rheumatoid arthritis.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0008383"
+        ],
+        "attributes": [
+          "disease_activity:moderately to severely active"
+        ]
+      }
+    },
+    {
+      "id": "r3-R3-severity-range",
+      "keyword": "Asthma",
+      "text": "Patients with mild-to-moderate asthma.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0004979"
+        ],
+        "attributes": [
+          "severity:mild-to-moderate"
+        ]
+      }
+    },
+    {
+      "id": "r3-R3-negated-modified",
+      "keyword": "Hypertension",
+      "text": "No uncontrolled hypertension.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005044"
+        ],
+        "target_evidence_status": "NEGATED"
+      }
+    },
+    {
+      "id": "r3-R3-concept-changing-stays",
+      "keyword": "Hypertension",
+      "text": "Patients with secondary hypertension.",
+      "expected": {
+        "decision": "HOLD_MODIFIED_MENTION",
+        "concept_keys": [],
+        "blocked_mention": true
+      }
+    },
+    {
+      "id": "r3-R4-coordinated-requirement",
+      "keyword": "Hypertension",
+      "text": "Hypertension or diabetes is not required.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005044"
+        ],
+        "target_evidence_status": "UNSUPPORTED_REQUIREMENT",
+        "unsupported": "REQUIREMENT_NECESSITY"
       }
     }
   ]

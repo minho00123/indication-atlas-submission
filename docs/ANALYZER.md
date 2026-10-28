@@ -4,11 +4,11 @@
 
 입력한 대상 표현·원문을 브라우저에서 실행 중 분석합니다. 입력은 브라우저 메모리에서만 처리하며 서버나 외부 모델로 보내지 않습니다. 기존 300행·사전의 판정을 자동 수정하지 않으며, 분석 JSON을 내려받을 수 있습니다.
 
-## 현재 하는 일 · prototype-3
+## 현재 하는 일 · prototype-4
 
 검토한 287개 개념·별칭의 이름을 단어 경계와 긴 표현 우선으로 찾습니다. 문서에 명시된 긴 이름(약어)을 확인해 기존 개념과 대조합니다. CD·AML은 의미 후보가 하나 남더라도 문서 정의 없이는 단일 의미로 고르지 않습니다. 문서에서 새로 확인한 약어를 다음 입력으로 전파하지 않습니다.
 
-non-small / non small / nonsmall cell 표현은 검토한 제한된 변형으로 대조해 SCLC 부분 구간으로 연결하지 않습니다. 의미를 가르는 HER2 부호나 유형 숫자를 전역 정규화로 삭제하지 않습니다. 인접한 접두·수식어는 기본적으로 검토 대상으로 둡니다. 문법적 경계 또는 검토한 추가 조건 수식어만 허용합니다. severe·recurrent는 추가 조건으로 보존하고, 가장 긴 검토 이름 안에 있으면 이름 구성 요소로 둡니다. 알려지지 않은 수식어는 HOLD_MODIFIED_MENTION으로 표시해 이름 자체의 미검출과 구별합니다. 모든 수식어와 표기 변형을 이해하는 일반 모델은 아닙니다.
+non-small / non small / nonsmall cell 표현은 검토한 제한된 변형으로 대조해 SCLC 부분 구간으로 연결하지 않습니다. 의미를 가르는 HER2 부호나 유형 숫자를 전역 정규화로 삭제하지 않습니다. 인접한 접두·수식어는 기본적으로 검토 대상으로 둡니다. 문법적 경계 또는 검토한 추가 조건 수식어만 허용합니다. 중증도(mild·moderate·severe, moderate-to-severe, moderately to severely active), 조절 상태(uncontrolled·controlled), 병기(stage 3, stage IIIb 등), 진행 범위(advanced·locally advanced·unresectable), recurrent·active는 개념을 바꾸지 않고 상태를 덧붙이는 수식어로 검토해 추가 조건으로 보존합니다. 가장 긴 검토 이름 안에 있으면 이름 구성 요소로 둡니다. smoldering·latent·portal·secondary·pseudo- 같이 개념 자체를 바꿀 수 있는 수식어는 이 목록에 넣지 않았습니다. 알려지지 않은 수식어는 HOLD_MODIFIED_MENTION으로 표시해 이름 자체의 미검출과 구별합니다. pustular plaque psoriasis처럼 대상 이름을 포함한 더 긴 이름이 수식된 경우도 같습니다. 모든 수식어와 표기 변형을 이해하는 일반 모델은 아닙니다.
 
 원문에 대상 개념을 확인하지 못하면 사전 후보와 원문 근거 미확인을 구별합니다. 다른 개념이 나와도 검토된 범위 관계가 없으면 관계 미검토로 남기며 입력 오류·상하위를 단정하지 않습니다. 기존 자체 개념(LOCAL)은 재사용하되 새 LOCAL을 만들지 않습니다.
 
@@ -27,15 +27,15 @@ non-small / non small / nonsmall cell 표현은 검토한 제한된 변형으로
 
 ## 질환명과 문서 조건
 
-Metastatic·Relapsed·Refractory·Recurrent·prior therapy, 일부 기간 표현을 추출합니다. 인식한 이름 구간의 acute·chronic·HER2·Severe·Castration-resistant 등은 이름 구성 요소로 구별합니다.
+Metastatic·Relapsed·Refractory·Recurrent·Active·prior therapy, 중증도·질환 활성도·조절 상태·병기·진행 범위, 일부 기간 표현을 추출합니다. 겹치는 구간은 가장 긴 구간 하나만 남깁니다. 인식한 이름 구간의 acute·chronic·HER2·Severe·Castration-resistant 등은 이름 구성 요소로 구별합니다.
 
 한 절에서 단일 개념만 확인한 제한된 경우에 조건의 소유 언급을 연결합니다. 여러 질환·미해소 표현이 있어 소유자가 불명확하면 UNKNOWN입니다. 같은 절 전체에 부정을 복사하지 않습니다.
 
 `No chronic kidney disease for at least 3 months`는 기간 표현과 부정된 CKD 언급의 범위를 연결합니다. 기간 값 자체를 부정된 수치로 바꾸지 않습니다. `DURATION_OF_NEGATED_MENTION`과 소유 언급의 NEGATED를 함께 보존합니다.
 
-`History of psoriasis is not required`는 건선 부재라는 뜻이 아닙니다. 요건 필수성 문형으로 인식해 UNSUPPORTED_REQUIREMENT를 표시하며 적격성을 추론하지 않습니다. 조건을 찾지 못했다는 결과도 조건 부재 확정이 아닙니다.
+`History of psoriasis is not required`는 건선 부재라는 뜻이 아닙니다. 요건 필수성 문형으로 인식해 UNSUPPORTED_REQUIREMENT를 표시하며(`Hypertension or diabetes is not required`처럼 등위 주어도 포함) 적격성을 추론하지 않습니다. 조건을 찾지 못했다는 결과도 조건 부재 확정이 아닙니다.
 
-do/does/did/must not have, free of, absence of, 직접적인 excluded 등의 표지를 제한적으로 인식합니다. 이미 부정된 언급과 다음 언급 사이가 or/and/nor/쉼표뿐인 경우에 인접 표지를 연결합니다. 첫 피연산자가 미등록이거나 범위를 확인하지 못하면 UNKNOWN으로 둡니다. 가족력·과거력·선정/제외 기준 절은 unsupported_patterns에 표시하고 환자 본인의 현재 상태를 확정하지 않습니다.
+do/does/did/must not have, free of, absence of, 직접적인 excluded 등의 표지를 제한적으로 인식합니다. 이미 부정된 언급과 다음 언급 사이가 or/and/nor/쉼표뿐인 경우에 인접 표지를 연결합니다. 다음 언급 뒤에 present·allowed·eligible·is 같은 자체 술어가 있으면 연결하지 않습니다(`No psoriasis, eczema present`의 eczema는 부정이 아닙니다). 쉼표만 있는 경우는 목록이 문장 끝이나 or/and/nor로 이어질 때만 연결하고, 그 밖에는 UNKNOWN입니다. 첫 피연산자가 미등록이거나 범위를 확인하지 못하면 UNKNOWN으로 둡니다. 가족력·과거력·선정/제외 기준 절은 unsupported_patterns에 표시하고 환자 본인의 현재 상태를 확정하지 않습니다.
 
 ## 논리 구조와 개념 해소
 

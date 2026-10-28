@@ -1,6 +1,6 @@
 // Bounded, offline mention-normalization prototype. It does not diagnose patients.
 // New text is evaluated at runtime. Stored raw contexts and rationales are not used.
-export const ENGINE_VERSION = 'prototype-3';
+export const ENGINE_VERSION = 'prototype-4';
 const fold = s => String(s ?? '').normalize('NFKC').toLowerCase().replaceAll('ß','ss').replaceAll('ς','σ').replaceAll('’',"'");
 const normalize = s => fold(s).replace(/\s+/gu,' ').trim();
 const word = ch => !!ch && /[\p{L}\p{N}_]/u.test(ch);
@@ -12,8 +12,13 @@ const escapeRE = s => s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
 const documentRequired = new Set(['cd','aml']);
 // Unknown adjacent lexical prefixes require review. These are grammatical boundaries,
 // not a blacklist of diseases. Reviewed context modifiers retain their source spans.
-const boundaryWords=new Set('with of for and or nor but however whereas no not without patients patient adults adult children child in among during after before from to by under following within has have had having is are was were mentions mentioned reports reported confirms confirmed diagnosed known a an the both either suspected possible probable potential only'.split(' '));
-const contextModifiers=new Set(['metastatic','relapsed','refractory','recurrent','severe','active']);
+const boundaryWords=new Set('with of for and or nor but however whereas no not without patients patient adults adult children child in among during after before from to by under following within has have had having is are was were mentions mentioned reports reported confirms confirmed documented diagnosed known a an the both either suspected possible probable potential only'.split(' '));
+// State modifiers add severity, control, stage or extent; they do not change the named concept.
+// Concept-changing prefixes (smoldering, latent, portal, secondary, pseudo-) stay unreviewed.
+const contextModifiers=new Set(['metastatic','relapsed','refractory','recurrent','severe','active','mild','moderate','moderately','severely',
+  'mild-to-moderate','moderate-to-severe','uncontrolled','controlled','well-controlled','poorly-controlled','advanced','locally','unresectable']);
+const stageValue=/^(?:[0-4][a-c]?|i{1,3}[a-c]?|iv[a-c]?)$/u;
+const modifierRun=`(?:(?:${[...contextModifiers].map(escapeRE).join('|')}|stage\\s+(?:[0-4][a-c]?|i{1,3}[a-c]?|iv[a-c]?))\\s+)*`;
 function modifierAt(text,start,keys) {
   let cursor=start;
   while(cursor>0) {
@@ -22,6 +27,7 @@ function modifierAt(text,start,keys) {
     const token=fold(m[1]),span={text:m[0].trim(),start:m.index,end:m.index+m[0].trimEnd().length};
     if(m[2])return {...span,status:'UNREVIEWED_PREFIX'};
     if(boundaryWords.has(token))return null;
+    if(stageValue.test(token) && /\bstage\s+$/iu.test(text.slice(0,m.index))) { cursor=text.slice(0,m.index).search(/stage\s+$/iu);continue; }
     if(contextModifiers.has(token) || (token==='autoimmune' && keys.length===1 && keys[0]==='MONDO:0005147')) { cursor=m.index;continue; }
     return {...span,status:'UNREVIEWED_PREFIX'};
   }
@@ -80,12 +86,17 @@ function shortFormFits(shortForm,longForm) {
   return sf.length>=2;
 }
 
+const negationCue=new RegExp(`\\b(?:no(?: history of| evidence of)?|neither|not|without(?: evidence of)?|negative for|(?:do|does|did|must|should)\\s+not\\s+have|free of|absence of)\\s+${modifierRun}$`,'iu');
+const uncertaintyCue=new RegExp(`\\b(?:suspected|possible|probable|potential|rule out)\\s+${modifierRun}$`,'iu');
+// Affirmative predicates end a negated list: "No A, B present" does not negate B.
+const affirmativePredicate=/^\s*(?:is|are|was|were|present|allowed|permitted|eligible|accepted|required)\b/iu;
 function assertionAt(text,start,end) {
   const clause=clauseAt(text,start,end),left=text.slice(Math.max(clause.start,start-150),start),right=text.slice(end,Math.min(clause.end,end+90));
-  if(/^\s*(?:(?:is|was|are|were)\s+)?not\s+(?:required|(?:an?\s+)?exclusion criteri(?:on|a))\b/iu.test(right))return 'UNSUPPORTED_REQUIREMENT';
-  if(/\b(?:no(?: history of| evidence of)?|neither|not|without(?: evidence of)?|negative for|(?:do|does|did|must|should)\s+not\s+have|free of|absence of)\s+(?:(?:metastatic|relapsed|refractory|recurrent|severe|active)\s+)*$/iu.test(left)
+  // A coordinated subject shares the predicate: "A or B is not required".
+  if(/^\s*(?:(?:,\s*)?(?:or|and|nor)\s+[^.;,!?\n]{1,60}?\s+)?(?:(?:is|was|are|were)\s+)?not\s+(?:required|(?:an?\s+)?exclusion criteri(?:on|a))\b/iu.test(right))return 'UNSUPPORTED_REQUIREMENT';
+  if(negationCue.test(left)
       || /^\s*(?:(?:was|were|is|are|has been)\s+)?(?:ruled out|excluded|absent|not present)\b/iu.test(right))return 'NEGATED';
-  if(/\b(?:suspected|possible|probable|potential|rule out)\s+(?:(?:metastatic|relapsed|refractory|recurrent|severe|active)\s+)*$/iu.test(left)
+  if(uncertaintyCue.test(left)
       || /^\s*(?:is|was)\s+(?:suspected|possible|probable)\b/iu.test(right))return 'UNCERTAIN';
   if(contextFlagsAt(text,start,end).length)return 'UNKNOWN';
   // A cue before an unrecognized first operand cannot establish the full scope.
@@ -96,6 +107,10 @@ function coordinateAssertions(text,mentions) {
   for(let i=1;i<mentions.length;i++) {
     const a=mentions[i-1],b=mentions[i],gap=text.slice(a.end,b.start);
     if(a.assertion==='NEGATED' && ['NO_CUE_DETECTED','UNKNOWN'].includes(b.assertion) && !b.context_flags?.length && /^\s*(?:(?:,\s*)?(?:or|and|nor)|,)\s*$/iu.test(gap)) {
+      const after=text.slice(b.end,clauseAt(text,b.start,b.end).end),commaOnly=/^\s*,\s*$/u.test(gap);
+      // "No A, B present": B has its own predicate. A bare comma propagates only to a list end.
+      if(affirmativePredicate.test(after)) { if(!commaOnly){b.assertion='UNKNOWN';b.assertion_basis='COORDINATED_PREDICATE_UNRESOLVED';} continue; }
+      if(commaOnly && after.trim() && !/^\s*(?:,\s*)?(?:or|and|nor)\b/iu.test(after)) { b.assertion='UNKNOWN';b.assertion_basis='COMMA_SCOPE_UNRESOLVED';continue; }
       b.assertion='NEGATED';b.assertion_basis='ADJACENT_COORDINATED_CUE';b.assertion_scope={from:a.start,to:b.end};
     }
   }
@@ -110,7 +125,11 @@ const patterns = [
   {type:'disease_status',value:'active',pattern:/\bactive\b/giu},
   {type:'etiology',value:'autoimmune',pattern:/\bautoimmune\b/giu},
   {type:'treatment_requirement',value:'insulin_required',pattern:/\brequiring\s+insulin\b/giu},
-  {type:'severity',value:'severe',pattern:/\bsevere\b/giu},
+  {type:'severity',pattern:/\b(?:mild|moderate)(?:[- ]to[- ](?:moderate|severe))?\b|\bsevere\b/giu},
+  {type:'disease_activity',pattern:/\b(?:mildly|moderately|severely)(?:\s+to\s+(?:moderately|severely))?\s+active\b/giu},
+  {type:'control_status',pattern:/\b(?:uncontrolled|(?:well|poorly)[- ]controlled|controlled)\b/giu},
+  {type:'stage',pattern:/\bstage\s+(?:[0-4][a-c]?|iv[a-c]?|i{1,3}[a-c]?)\b/giu},
+  {type:'extent',pattern:/\b(?:locally\s+advanced|advanced|unresectable)\b/giu},
   {type:'treatment_response',value:'castration-resistant',pattern:/\bcastration[- ]resistant\b/giu,nameOnly:true},
   {type:'chronicity',value:'acute',pattern:/\bacute\b/giu,nameOnly:true},
   {type:'chronicity',value:'chronic',pattern:/\bchronic\b/giu,nameOnly:true},
@@ -224,7 +243,9 @@ export function createAnalyzer(catalog) {
         (owner?name_components:attributes).push(item);
       }
     }
-    return {attributes,name_components};
+    // Keep the longest span: "moderately to severely active" is one activity, not also "active".
+    const outer=items=>items.filter(x=>!items.some(y=>y!==x && y.start<=x.start && y.end>=x.end && y.end-y.start>x.end-x.start));
+    return {attributes:outer(attributes),name_components:outer(name_components)};
   }
 
   function analyze({keyword='',text=''}={}) {
@@ -302,7 +323,9 @@ export function createAnalyzer(catalog) {
       const bodyKeys=unique(mentions.map(m=>m.concept_key).filter(Boolean));
       const targetPresent=mentions.some(m=>m.concept_key===keys[0]);
       if(body.trim() && !targetPresent) {
-        const modified=mentions.some(m=>m.status==='UNSUPPORTED_MODIFIER' && m.candidate_keys.includes(keys[0]));
+        // A modified longer name that ends with a target name ("plaque psoriasis") is also a modified mention.
+        const targetTerms=unique([keyOf(keyword),...catalog.aliases.filter(a=>a.concept_key===keys[0]).map(a=>keyOf(a.term))]);
+        const modified=mentions.some(m=>m.status==='UNSUPPORTED_MODIFIER' && (m.candidate_keys.includes(keys[0]) || targetTerms.some(t=>keyOf(m.text).endsWith(' '+t))));
         decision=modified?'HOLD_MODIFIED_MENTION':bodyKeys.length===1 && scopePairs.has([keys[0],bodyKeys[0]].sort().join('|'))?'HOLD_SCOPE_REVIEW':
           bodyKeys.length?'HOLD_RELATION_UNREVIEWED':'HOLD_TARGET_NOT_IN_TEXT';
         keys=[];reason(decision==='HOLD_SCOPE_REVIEW'?'G03':'G01',decision,
@@ -325,7 +348,7 @@ export function createAnalyzer(catalog) {
     const targetMentions=mentions.filter(m=>keys.includes(m.concept_key));
     const unresolvedTarget=mentions.some(m=>!m.concept_key && keyOf(m.text)===keyOf(keyword));
     const assertionValues=unique(targetMentions.map(m=>m.assertion));
-    const target_evidence_status=!body.trim()?'NO_TEXT':decision==='HOLD_EXPRESSION_UNRESOLVED'?'UNRESOLVED':!targetMentions.length?(unresolvedTarget?'UNRESOLVED':'NOT_FOUND'):assertionValues.length>1?'MIXED':assertionValues[0];
+    const target_evidence_status=!body.trim()?'NO_TEXT':['HOLD_EXPRESSION_UNRESOLVED','HOLD_MODIFIED_MENTION'].includes(decision)?'UNRESOLVED':!targetMentions.length?(unresolvedTarget?'UNRESOLVED':'NOT_FOUND'):assertionValues.length>1?'MIXED':assertionValues[0];
     const normalization_status=decision==='SPLIT_OR'?'EXPRESSION_RESOLVED':decision==='HOLD_EXPRESSION_UNRESOLVED'?'EXPRESSION_UNRESOLVED':
       ['LINKED','LOCAL_LINKED','ROUTE_ENTITY'].includes(decision)?'LINKED':decision==='UNREGISTERED'?'UNREGISTERED':'REVIEW_REQUIRED';
     const unsupported_patterns=unique(mentions.flatMap(m=>m.context_flags));

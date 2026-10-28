@@ -1,10 +1,10 @@
 {
-  "engine_version": "prototype-3",
+  "engine_version": "prototype-4",
   "purpose": "Development regression checks for reviewed inputs; not independent accuracy.",
   "dependencies": {
-    "app/analyzer.mjs": "8c5c943fe650500432768ef9d267186b6012597e4e197355dde8d97cf47e07b6",
+    "app/analyzer.mjs": "398a1b7a91bc812ad552acae20709897fd1a4940ffb90ef2d9d7d3aab60cca97",
     "app/analyzer-checks.mjs": "0621b02c98f269045be3664325256301fb8df85af232e75241c8ed1a658927c1",
-    "data/analyzer_cases.json": "3fdf4525f4da1c733c6309949fec5ebcd1ee8e5308a6aa3cdc0b78d8bbf887d5",
+    "data/analyzer_cases.json": "c258638cfa6a6622349103a1d8d10e2d9e647b9effc945d277235b8ffbf62a54",
     "data/dictionary.json": "db21be58d5bc4a06722d82c6bf65b8a4669b16944e5f93f385366cd2aa95fb32",
     "data/records.json": "afc19eac57e8600e10788856880202926436fdd35642d7541796632dcdeceda3",
     "data/comparisons.json": "282cf7fef0781ca14053bc57db2ffd7342f984f4c2991b13a34d20a05dce2f52",
@@ -31,7 +31,7 @@
       },
       "passed": true,
       "result": {
-        "engine_version": "prototype-3",
+        "engine_version": "prototype-4",
         "normalization_status": "LINKED",
         "target_evidence_status": "NO_CUE_DETECTED",
         "eligibility_status": "NOT_EVALUATED",
@@ -153,7 +153,7 @@
       },
       "passed": true,
       "result": {
-        "engine_version": "prototype-3",
+        "engine_version": "prototype-4",
         "normalization_status": "LINKED",
         "target_evidence_status": "NO_CUE_DETECTED",
         "eligibility_status": "NOT_EVALUATED",
@@ -296,7 +296,7 @@
       },
       "passed": true,
       "result": {
-        "engine_version": "prototype-3",
+        "engine_version": "prototype-4",
         "normalization_status": "LINKED",
         "target_evidence_status": "NO_CUE_DETECTED",
         "eligibility_status": "NOT_EVALUATED",
@@ -441,7 +441,7 @@
       },
       "passed": true,
       "result": {
-        "engine_version": "prototype-3",
+        "engine_version": "prototype-4",
         "normalization_status": "REVIEW_REQUIRED",
         "target_evidence_status": "UNRESOLVED",
         "eligibility_status": "NOT_EVALUATED",
@@ -524,7 +524,7 @@
       },
       "passed": true,
       "result": {
-        "engine_version": "prototype-3",
+        "engine_version": "prototype-4",
         "normalization_status": "REVIEW_REQUIRED",
         "target_evidence_status": "UNRESOLVED",
         "eligibility_status": "NOT_EVALUATED",
@@ -607,7 +607,7 @@
       },
       "passed": true,
       "result": {
-        "engine_version": "prototype-3",
+        "engine_version": "prototype-4",
         "normalization_status": "REVIEW_REQUIRED",
         "target_evidence_status": "UNRESOLVED",
         "eligibility_status": "NOT_EVALUATED",
@@ -690,7 +690,7 @@
       },
       "passed": true,
       "result": {
-        "engine_version": "prototype-3",
+        "engine_version": "prototype-4",
         "normalization_status": "REVIEW_REQUIRED",
         "target_evidence_status": "UNRESOLVED",
         "eligibility_status": "NOT_EVALUATED",
@@ -773,7 +773,7 @@
       },
       "passed": true,
       "result": {
-        "engine_version": "prototype-3",
+        "engine_version": "prototype-4",
         "normalization_status": "REVIEW_REQUIRED",
         "target_evidence_status": "UNRESOLVED",
         "eligibility_status": "NOT_EVALUATED",
@@ -857,7 +857,7 @@
       },
       "passed": true,
       "result": {
-        "engine_version": "prototype-3",
+        "engine_version": "prototype-4",
         "normalization_status": "LINKED",
         "target_evidence_status": "NEGATED",
         "eligibility_status": "NOT_EVALUATED",
@@ -949,7 +949,7 @@
       },
       "passed": true,
       "result": {
-        "engine_version": "prototype-3",
+        "engine_version": "prototype-4",
         "normalization_status": "LINKED",
         "target_evidence_status": "NEGATED",
         "eligibility_status": "NOT_EVALUATED",
@@ -1068,7 +1068,7 @@
       },
       "passed": true,
       "result": {
-        "engine_version": "prototype-3",
+        "engine_version": "prototype-4",
         "normalization_status": "LINKED",
         "target_evidence_status": "NEGATED",
         "eligibility_status": "NOT_EVALUATED",
@@ -1160,7 +1160,7 @@
       },
       "passed": true,
       "result": {
-        "engine_version": "prototype-3",
+        "engine_version": "prototype-4",
         "normalization_status": "LINKED",
         "target_evidence_status": "UNKNOWN",
         "eligibility_status": "NOT_EVALUATED",
@@ -1256,7 +1256,7 @@
       },
       "passed": true,
       "result": {
-        "engine_version": "prototype-3",
+        "engine_version": "prototype-4",
         "normalization_status": "LINKED",
         "target_evidence_status": "NEGATED",
         "eligibility_status": "NOT_EVALUATED",
@@ -1408,7 +1408,7 @@
       },
       "passed": true,
       "result": {
-        "engine_version": "prototype-3",
+        "engine_version": "prototype-4",
         "normalization_status": "LINKED",
         "target_evidence_status": "UNKNOWN",
         "eligibility_status": "NOT_EVALUATED",
@@ -1506,7 +1506,7 @@
       },
       "passed": true,
       "result": {
-        "engine_version": "prototype-3",
+        "engine_version": "prototype-4",
         "normalization_status": "LINKED",
         "target_evidence_status": "UNKNOWN",
         "eligibility_status": "NOT_EVALUATED",
@@ -1604,7 +1604,7 @@
       },
       "passed": true,
       "result": {
-        "engine_version": "prototype-3",
+        "engine_version": "prototype-4",
         "normalization_status": "LINKED",
         "target_evidence_status": "UNKNOWN",
         "eligibility_status": "NOT_EVALUATED",
@@ -1700,7 +1700,7 @@
       },
       "passed": true,
       "result": {
-        "engine_version": "prototype-3",
+        "engine_version": "prototype-4",
         "normalization_status": "LINKED",
         "target_evidence_status": "NO_CUE_DETECTED",
         "eligibility_status": "NOT_EVALUATED",
@@ -1836,7 +1836,7 @@
       },
       "passed": true,
       "result": {
-        "engine_version": "prototype-3",
+        "engine_version": "prototype-4",
         "normalization_status": "UNREGISTERED",
         "target_evidence_status": "NOT_FOUND",
         "eligibility_status": "NOT_EVALUATED",
@@ -1903,7 +1903,7 @@
       },
       "passed": true,
       "result": {
-        "engine_version": "prototype-3",
+        "engine_version": "prototype-4",
         "normalization_status": "UNREGISTERED",
         "target_evidence_status": "NOT_FOUND",
         "eligibility_status": "NOT_EVALUATED",
@@ -1972,7 +1972,7 @@
       },
       "passed": true,
       "result": {
-        "engine_version": "prototype-3",
+        "engine_version": "prototype-4",
         "normalization_status": "LINKED",
         "target_evidence_status": "NO_CUE_DETECTED",
         "eligibility_status": "NOT_EVALUATED",
@@ -2152,7 +2152,7 @@
       },
       "passed": true,
       "result": {
-        "engine_version": "prototype-3",
+        "engine_version": "prototype-4",
         "normalization_status": "LINKED",
         "target_evidence_status": "UNSUPPORTED_REQUIREMENT",
         "eligibility_status": "NOT_EVALUATED",
