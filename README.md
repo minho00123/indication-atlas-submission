@@ -4,7 +4,9 @@
 
 **로컬 실행:** `python3 tools/serve.py` → http://127.0.0.1:8787
 
-소스 저장소: [minho00123/indication-atlas-submission](https://github.com/minho00123/indication-atlas-submission). Netlify에서 이 저장소를 연결하면 공개 웹으로 배포할 수 있습니다.
+**웹에서 확인:** [Indication Atlas](https://indication-atlas.netlify.app/)
+
+**소스 저장소:** [minho00123/indication-atlas-submission](https://github.com/minho00123/indication-atlas-submission)
 
 ![Indication Atlas 웹 화면](docs/preview.png)
 
