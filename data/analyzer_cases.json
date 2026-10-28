@@ -1,0 +1,423 @@
+{
+  "purpose": "Author-constructed functional and counterexample checks for a bounded rule prototype; not independent clinical accuracy evaluation.",
+  "version": "prototype-1",
+  "clinical_expert_approvals": 0,
+  "cases": [
+    {
+      "id": "ambiguous-cd",
+      "keyword": "CD",
+      "text": "Patients with CD.",
+      "expected": {
+        "decision": "HOLD_AMBIGUOUS",
+        "concept_keys": []
+      }
+    },
+    {
+      "id": "defined-crohn",
+      "keyword": "CD",
+      "text": "Crohn disease (CD) is the target. Patients with CD are included.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005011"
+        ]
+      }
+    },
+    {
+      "id": "defined-celiac",
+      "keyword": "CD",
+      "text": "Celiac disease (CD) is the target. Patients with CD are included.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005130"
+        ]
+      }
+    },
+    {
+      "id": "new-short-form",
+      "keyword": "T2D",
+      "text": "Type 2 diabetes (T2D) is mentioned.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005148"
+        ]
+      }
+    },
+    {
+      "id": "defined-aml",
+      "keyword": "AML",
+      "text": "Acute myeloid leukemia (AML) is specified.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0018874"
+        ]
+      }
+    },
+    {
+      "id": "defined-other-aml",
+      "keyword": "AML",
+      "text": "Kidney angiomyolipoma (AML) is specified.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0004555"
+        ]
+      }
+    },
+    {
+      "id": "ambiguous-aml",
+      "keyword": "AML",
+      "text": "Patients with AML.",
+      "expected": {
+        "decision": "HOLD_AMBIGUOUS",
+        "concept_keys": []
+      }
+    },
+    {
+      "id": "conflicting-definitions",
+      "keyword": "CD",
+      "text": "Crohn disease (CD) and Celiac disease (CD) are both discussed.",
+      "expected": {
+        "decision": "HOLD_AMBIGUOUS",
+        "concept_keys": []
+      }
+    },
+    {
+      "id": "cooccurrence-is-not-definition",
+      "keyword": "CD",
+      "text": "CD is mentioned. Crohn disease and Celiac disease are discussed.",
+      "expected": {
+        "decision": "HOLD_AMBIGUOUS",
+        "concept_keys": []
+      }
+    },
+    {
+      "id": "unknown-definition",
+      "keyword": "CD",
+      "text": "Completely unknown disorder (CD) is mentioned.",
+      "expected": {
+        "decision": "HOLD_DEFINITION",
+        "concept_keys": []
+      }
+    },
+    {
+      "id": "invalid-definition",
+      "keyword": "T2DM",
+      "text": "Celiac disease (T2DM) is specified.",
+      "expected": {
+        "decision": "HOLD_DEFINITION",
+        "concept_keys": []
+      }
+    },
+    {
+      "id": "known-t2dm",
+      "keyword": "T2DM",
+      "text": "Patients with T2DM.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005148"
+        ]
+      }
+    },
+    {
+      "id": "known-without-document",
+      "keyword": "T2DM",
+      "text": "",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005148"
+        ]
+      }
+    },
+    {
+      "id": "known-nsclc",
+      "keyword": "NSCLC",
+      "text": "Patients with NSCLC.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005233"
+        ]
+      }
+    },
+    {
+      "id": "no-source-attribute-transfer",
+      "keyword": "NSCLC",
+      "text": "Patients with NSCLC.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005233"
+        ],
+        "attributes": []
+      }
+    },
+    {
+      "id": "add-metastasis",
+      "keyword": "NSCLC",
+      "text": "Metastatic non-small cell lung cancer after prior therapy.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005233"
+        ],
+        "attributes": [
+          "disease_status:metastatic",
+          "treatment_history:prior_therapy"
+        ]
+      }
+    },
+    {
+      "id": "relapse-vs-name",
+      "keyword": "Acute myeloid leukemia",
+      "text": "Relapsed acute myeloid leukemia in adults.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0018874"
+        ],
+        "attributes": [
+          "disease_status:relapsed"
+        ],
+        "name_components": [
+          "chronicity:acute"
+        ]
+      }
+    },
+    {
+      "id": "chronic-name-not-observation",
+      "keyword": "Chronic lymphocytic leukemia",
+      "text": "Chronic lymphocytic leukemia is mentioned.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0004948"
+        ],
+        "attributes": [],
+        "name_components": [
+          "chronicity:chronic"
+        ]
+      }
+    },
+    {
+      "id": "her2-name-component",
+      "keyword": "HER2-positive breast cancer",
+      "text": "HER2-positive breast cancer confirmed by testing.",
+      "expected": {
+        "decision": "LOCAL_LINKED",
+        "concept_keys": [
+          "LOCAL:HER2_POSITIVE_BREAST_CANCER"
+        ],
+        "attributes": [],
+        "name_components": [
+          "biomarker:HER2-positive"
+        ]
+      }
+    },
+    {
+      "id": "her2-negative",
+      "keyword": "HER2-negative breast cancer",
+      "text": "HER2-negative breast cancer is mentioned.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0000618"
+        ],
+        "name_components": [
+          "biomarker:HER2-negative"
+        ]
+      }
+    },
+    {
+      "id": "source-conflict",
+      "keyword": "eczema",
+      "text": "Adults with plaque psoriasis.",
+      "expected": {
+        "decision": "HOLD_SOURCE_CONFLICT",
+        "concept_keys": []
+      }
+    },
+    {
+      "id": "wrapped-source-conflict",
+      "keyword": "eczema",
+      "text": "원문: Adults with plaque psoriasis. 정규화 결과: eczema.",
+      "expected": {
+        "decision": "HOLD_SOURCE_CONFLICT",
+        "concept_keys": []
+      }
+    },
+    {
+      "id": "scope-change",
+      "keyword": "eczema",
+      "text": "Patients with atopic dermatitis.",
+      "expected": {
+        "decision": "HOLD_SCOPE_REVIEW",
+        "concept_keys": []
+      }
+    },
+    {
+      "id": "eczema-unspecified",
+      "keyword": "eczema",
+      "text": "Adults with eczema and persistent itching.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "NCIT:C3001"
+        ]
+      }
+    },
+    {
+      "id": "atopic-specificity",
+      "keyword": "Atopic dermatitis",
+      "text": "Adults with atopic dermatitis.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0004980"
+        ]
+      }
+    },
+    {
+      "id": "symptom-preserved",
+      "keyword": "Thirst",
+      "text": "Thirst is reported.",
+      "expected": {
+        "decision": "ROUTE_ENTITY",
+        "concept_keys": [
+          "MeSH:M0021391"
+        ]
+      }
+    },
+    {
+      "id": "unregistered-term",
+      "keyword": "Unregistered example condition",
+      "text": "Patients with an unregistered example condition.",
+      "expected": {
+        "decision": "UNREGISTERED",
+        "concept_keys": []
+      }
+    },
+    {
+      "id": "negated-mention",
+      "keyword": "NSCLC",
+      "text": "No NSCLC is reported.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005233"
+        ],
+        "assertions": [
+          "NEGATED"
+        ]
+      }
+    },
+    {
+      "id": "suspected-mention",
+      "keyword": "NSCLC",
+      "text": "Suspected NSCLC is reported.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005233"
+        ],
+        "assertions": [
+          "UNCERTAIN"
+        ]
+      }
+    },
+    {
+      "id": "not-word-fragment",
+      "keyword": "AML",
+      "text": "FAMILY history is recorded.",
+      "expected": {
+        "decision": "HOLD_AMBIGUOUS",
+        "concept_keys": [],
+        "mention_texts": []
+      }
+    },
+    {
+      "id": "additional-details-not-negative",
+      "keyword": "NSCLC",
+      "text": "NSCLC is mentioned. No further diagnostic details are provided.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005233"
+        ],
+        "assertions": [
+          "AFFIRMED"
+        ]
+      }
+    },
+    {
+      "id": "explicit-or",
+      "keyword": "MDS/AML",
+      "text": "Myelodysplastic syndrome or acute myeloid leukemia; either diagnosis is eligible.",
+      "expected": {
+        "decision": "SPLIT_OR",
+        "concept_keys": [
+          "MONDO:0018881",
+          "MONDO:0018874"
+        ],
+        "logical_operator": "OR"
+      }
+    },
+    {
+      "id": "cooccurrence-not-or",
+      "keyword": "NSCLC",
+      "text": "NSCLC and type 2 diabetes mellitus are mentioned.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005233"
+        ],
+        "logical_operator": null
+      }
+    },
+    {
+      "id": "fullwidth-alias",
+      "keyword": "Ｔ２ＤＭ",
+      "text": "Patients with Ｔ２ＤＭ.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005148"
+        ]
+      }
+    },
+    {
+      "id": "unicode-offsets",
+      "keyword": "NSCLC",
+      "text": "🧬 재발: Relapsed NSCLC after prior therapy.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005233"
+        ],
+        "attributes": [
+          "disease_status:relapsed",
+          "treatment_history:prior_therapy"
+        ]
+      }
+    },
+    {
+      "id": "negated-attribute",
+      "keyword": "NSCLC",
+      "text": "NSCLC without prior therapy.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005233"
+        ],
+        "attribute_assertions": [
+          "NEGATED"
+        ]
+      }
+    }
+  ]
+}

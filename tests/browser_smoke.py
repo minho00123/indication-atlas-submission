@@ -164,8 +164,59 @@ def run(base_url,browser_executable=None,output=None):
         }''')
         assert not normalization_errors,normalization_errors
         results.append('Browser normalization equals all reviewed alias keys')
+        page.goto(base_url,wait_until='networkidle')
+        page.get_by_role('link',name='새 문장 분석 열기 ↗').click()
+        expect(page.locator('#analyzer-decision')).to_have_text('약어 의미 보류')
+        page.get_by_role('button',name='크론병으로 정의',exact=True).click()
+        expect(page.locator('.runtime-concepts')).to_contain_text('MONDO:0005011')
+        page.get_by_role('button',name='셀리악병으로 변경',exact=True).click()
+        expect(page.locator('.runtime-concepts')).to_contain_text('MONDO:0005130')
+        page.locator('#analyzer-text').fill('Patients with CD and gluten-triggered enteropathy.')
+        page.get_by_role('button',name='이 원문 분석하기').click()
+        expect(page.locator('#analyzer-decision')).to_have_text('약어 의미 보류')
+        page.locator('#analyzer-keyword').fill('T2D')
+        page.locator('#analyzer-text').fill('A new paragraph: Type 2 diabetes (T2D) is mentioned for 12 months.')
+        page.get_by_role('button',name='이 원문 분석하기').click()
+        expect(page.locator('.runtime-concepts')).to_contain_text('MONDO:0005148')
+        with page.expect_download() as download:
+            page.get_by_role('button',name='분석 JSON 내려받기 ↓').click()
+        with tempfile.TemporaryDirectory() as tmp:
+            dest=Path(tmp)/'analysis.json';download.value.save_as(dest);report=json.loads(dest.read_text())
+            assert report['input']['keyword']=='T2D'
+            assert report['attributes'][0]['quantity']['amount']==12
+            for span in report['mentions']+report['attributes']:
+                assert report['input']['text'][span['start']:span['end']]==span['text']
+        page.locator('#analyzer-text').fill('Patients with T2D.')
+        page.get_by_role('button',name='이 원문 분석하기').click()
+        expect(page.locator('#analyzer-decision')).to_have_text('미등록 표현 · 검토 필요')
+        results.append('Editable runtime inputs, CD meaning changes, no definition leakage and analysis JSON download')
+        page.get_by_role('button',name='질환명과 재발·치료',exact=True).click()
+        expect(page.locator('.runtime-conditions section').nth(0)).to_contain_text('acute')
+        expect(page.locator('.runtime-conditions section').nth(1)).to_contain_text('relapsed')
+        expect(page.locator('.runtime-conditions section').nth(1)).to_contain_text('prior_therapy')
+        page.get_by_role('button',name='키워드·원문 충돌',exact=True).click()
+        expect(page.locator('#analyzer-decision')).to_have_text('입력 충돌 · 보류')
+        page.get_by_role('button',name='부정 표현',exact=True).click()
+        expect(page.locator('.runtime-concepts')).to_contain_text('MONDO:0005233')
+        expect(page.locator('.runtime-mentions')).to_contain_text('직접 부정 표지')
+        page.locator('#analyzer-text').fill('<img src=x onerror="window.__injected=true"> No NSCLC is reported.')
+        page.get_by_role('button',name='이 원문 분석하기').click()
+        assert page.evaluate('window.__injected') is None
+        expect(page.locator('.runtime-source img')).to_have_count(0)
+        page.get_by_role('button',name='검사 실행',exact=True).click()
+        fixtures=page.request.get(base_url+'data/analyzer-cases.json').json()
+        total=len(fixtures['cases'])
+        expect(page.locator('.runtime-check-count')).to_have_text(f'개발·반례 검사 {total}건 중 {total}건 통과')
+        size_checks=page.evaluate('''async()=>{
+          const {createAnalyzer}=await import('./analyzer.mjs');
+          const a=createAnalyzer(await(await fetch('./data/catalog.json')).json());
+          return [{keyword:'',text:'NSCLC'},{keyword:'NSCLC',text:'x'.repeat(10001)}].every(input=>{try{a.analyze(input);return false;}catch{return true;}});
+        }''')
+        assert size_checks
+        results.append('Runtime conditions/name components, conflicts, negation, escaped input and all development cases executed')
+        if output:page.screenshot(path=str(output/'analyzer.png'),full_page=True)
         page.set_viewport_size({'width':390,'height':844})
-        for route in ['#dictionary','#records','#cases','#cases/cd','#materials/guidelines','#materials/research','#materials/methodology','#materials/downloads','#materials/boundaries','#aliases']:
+        for route in ['#dictionary','#records','#cases','#cases/cd','#materials/guidelines','#materials/research','#materials/methodology','#materials/downloads','#materials/boundaries','#aliases','#analyze','#materials/analyzer']:
             page.goto(base_url+route,wait_until='networkidle')
             assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth'),route
         for case in ['cd','eczema','nsclc','masld','conflict','or','her2','gca','sense','long-covid']:
@@ -186,6 +237,11 @@ def run(base_url,browser_executable=None,output=None):
         expect(page.locator('#dictionary-detail')).not_to_contain_text('K260')
         if output:page.screenshot(path=str(output/'mobile.png'),full_page=True)
         results.append('390px mobile routes, no page overflow and result return')
+        page.goto(base_url+'#analyze',wait_until='networkidle')
+        page.get_by_role('button',name='크론병으로 정의',exact=True).click()
+        expect(page.locator('.runtime-concepts')).to_contain_text('MONDO:0005011')
+        assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth')
+        results.append('Mobile runtime input, result interaction and no page overflow')
         assert not errors,errors
         browser.close()
     return {'passed':len(results),'checks':results,'page_errors':errors}

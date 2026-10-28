@@ -1,4 +1,5 @@
 import {normalize, searchCatalog, filterRecords} from './search.js';
+import {mountAnalyzer} from './analyzer-ui.js';
 
 const $ = (s, root=document) => root.querySelector(s);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -98,6 +99,7 @@ function dictionaryPage() {
     <div class="stats" aria-label="딕셔너리 요약">
       ${[['제공된 입력',m.records,'건','#records','전체 입력 보기'],['개념 그룹',m.concepts,'개','#dictionary?view=concepts','개념 목록 보기'],['별칭 연결',m.aliases,'건','#aliases','별칭 목록 보기'],['문맥·입력 보류',m.holds,'건','#records?decision=HOLD','보류된 입력 보기']].map(([label,n,u,href,action])=>`<a class="stat" href="${href}"${href.includes('view=concepts')?' data-concept-list':''} aria-label="${label} ${n}${u} · ${action}"><span class="stat-label">${label}</span><span class="stat-value">${n}<small>${u}</small></span><span class="stat-action">${action} <span aria-hidden="true">↗</span></span></a>`).join('')}
     </div>
+    <div class="runtime-entry"><div><strong>새 원문에 규칙을 직접 적용해 보세요.</strong><span>문서 내 약어 정의와 일부 추가 조건을 계산하는 시제품입니다.</span></div><a href="#analyze">새 문장 분석 열기 ↗</a></div>
     <section id="concept-explorer" aria-labelledby="search-heading"><div class="section-heading"><div><h2 id="search-heading" tabindex="-1">딕셔너리 탐색</h2><p>등록된 표현과 연결된 개념을 찾아보세요.</p></div><a href="#records">전체 원본 보기 ↗</a></div>
     <label class="search-box">${icon}<input id="dictionary-search" type="search" autocomplete="off" aria-label="질환명·약어·원본 번호 검색" placeholder="질환명, 약어 또는 원본 번호를 입력하세요"><span class="search-key" aria-hidden="true">/</span></label>
     <div class="examples"><span>예시 검색</span>${['CD','AML','T2DM','PASC','NAFLD'].map(q=>`<button class="example-chip" data-query="${q}">${q}</button>`).join('')}<span>· ${m.unique_alias_spellings}개 검색 문자열</span></div>
@@ -278,7 +280,7 @@ function casesPage() {
   }).join('')}<div class="detail-section"><h3>반례·적용 조건</h3><p>${esc(story.exception)}</p><a href="#materials/guidelines">판단 가이드라인에서 원칙 확인 ↗</a></div></article></div></div>`;
 }
 
-const materials={guidelines:['판단 가이드라인','guidelines'],research:['유사 서비스 조사','research'],methodology:['구축 방법·검증·한계','methodology'],boundaries:['반례·후속 연구','boundaries'],downloads:['실행·다운로드','run']};
+const materials={guidelines:['판단 가이드라인','guidelines'],research:['유사 서비스 조사','research'],methodology:['구축 방법·검증·한계','methodology'],analyzer:['문장 분석 시제품','analyzer'],boundaries:['반례·후속 연구','boundaries'],downloads:['실행·다운로드','run']};
 async function materialsPage() {
   const tab=materials[route.sub]?route.sub:'guidelines';
   $('#main-content').innerHTML=`<div class="container">${heading('방법과 제출 자료','구축 방법부터, 실행까지','판단 규칙과 조사 자료를 읽고, 데이터와 실행 코드를 내려받을 수 있습니다.')}<nav class="materials-tabs" aria-label="구축·제출 자료">${Object.entries(materials).map(([key,[label]])=>`<a class="${tab===key?'active':''}" href="#materials/${key}">${label}</a>`).join('')}</nav>
@@ -303,15 +305,16 @@ async function materialsPage() {
 function render() {
   route=readRoute();
   document.querySelectorAll('[data-nav]').forEach(a=>{
-    const active=a.dataset.nav===(route.page==='aliases'?'dictionary':route.page);a.classList.toggle('active',active);
+    const active=a.dataset.nav===(['aliases','analyze'].includes(route.page)?'dictionary':route.page);a.classList.toggle('active',active);
     if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');
   });
-  const titles={dictionary:'딕셔너리',aliases:'별칭 연결',records:'원본 300건',cases:'판단 사례',materials:'구축·제출 자료'};
+  const titles={dictionary:'딕셔너리',aliases:'별칭 연결',analyze:'새 문장 분석',records:'원본 300건',cases:'판단 사례',materials:'구축·제출 자료'};
   document.title=`${titles[route.page] ?? '딕셔너리'} | Indication Atlas`;
   if(route.page==='records')recordsPage();
   else if(route.page==='aliases')aliasesPage();
   else if(route.page==='cases')casesPage();
   else if(route.page==='materials')materialsPage();
+  else if(route.page==='analyze')mountAnalyzer($('#main-content'),data);
   else dictionaryPage();
 }
 

@@ -112,8 +112,15 @@ class SubmissionBuild(unittest.TestCase):
         self.assertNotIn('<script>',output)
         self.assertNotIn('href="javascript:',output)
         self.assertIn('&lt;strong&gt;code&lt;/strong&gt;',output)
-        for name in ('guidelines','research','methodology','boundaries','run'):
+        for name in ('guidelines','research','methodology','analyzer','boundaries','run'):
             self.assertTrue((ROOT/'dist/content'/f'{name}.html').is_file())
+
+    def test_runtime_module_and_development_inputs_are_published_in_source_package(self):
+        cases=load('analyzer_cases.json')
+        self.assertEqual(json.loads((ROOT/'dist/data/analyzer-cases.json').read_text()),cases)
+        with zipfile.ZipFile(ROOT/'dist/downloads/indication-atlas-submission.zip') as archive:
+            for name in ('app/analyzer.mjs','app/analyzer-checks.mjs','app/analyzer-ui.js','data/analyzer_cases.json','tests/test_analyzer.mjs'):
+                self.assertEqual(archive.read('indication-atlas-submission/'+name),(ROOT/name).read_bytes())
 
     def test_supplements_are_published_and_packaged_without_full_corpus(self):
         manifest=json.loads((ROOT/'evidence/boundary_checks/manifest.json').read_text())

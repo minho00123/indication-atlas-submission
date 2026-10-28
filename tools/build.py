@@ -13,7 +13,7 @@ from verify_supplement import verify as verify_supplement
 
 DIST = ROOT / 'dist'
 DOCS = {'guidelines':'GUIDELINES.md','research':'SERVICE_RESEARCH.md',
-        'methodology':'METHODOLOGY.md','boundaries':'BOUNDARIES.md','run':'RUN.md'}
+        'methodology':'METHODOLOGY.md','analyzer':'ANALYZER.md','boundaries':'BOUNDARIES.md','run':'RUN.md'}
 
 
 def dump(path, value):
@@ -56,6 +56,7 @@ def build():
         if not set(story['source_ids']).issubset(known):raise ValueError('Case references missing row')
     dump(DIST/'data/catalog.json',dict(metadata=stats,**core,records=brief,sources=sources,stories=stories,comparisons=load('comparisons.json')))
     for row in records:dump(DIST/'data/records'/f"{row['source_id']}.json",row)
+    dump(DIST/'data/analyzer-cases.json',load('analyzer_cases.json'))
     for key, filename in DOCS.items():
         content=render((ROOT/'docs'/filename).read_text(encoding='utf8'))
         if key=='methodology':
