@@ -101,13 +101,17 @@ function dictionaryPage() {
     <div class="stats" aria-label="딕셔너리 요약">
       ${[['제공된 입력',m.records,'건','#records','전체 입력 보기'],['개념 그룹',m.concepts,'개','#dictionary?view=concepts','개념 목록 보기'],['별칭 연결',m.aliases,'건','#aliases','별칭 목록 보기'],['문맥·입력 보류',m.holds,'건','#records?decision=HOLD','보류된 입력 보기']].map(([label,n,u,href,action])=>`<a class="stat" href="${href}"${href.includes('view=concepts')?' data-concept-list':''} aria-label="${label} ${n}${u} · ${action}"><span class="stat-label">${label}</span><span class="stat-value">${n}<small>${u}</small></span><span class="stat-action">${action} <span aria-hidden="true">↗</span></span></a>`).join('')}
     </div>
+    <section class="key-points" aria-label="핵심 포인트">${[
+      ['판단 원칙','글자가 아니라 원문의 범위로 묶었습니다.','CD는 두 질환으로 나누고, eczema를 아토피 피부염으로 좁히지 않았습니다. 근거가 부족한 '+m.holds+'건은 추측하지 않고 보류했습니다.','#materials/guidelines','가이드라인 G01–G12'],
+      ['유사 서비스와 다른 점','동의어 목록에 판단 근거를 붙였습니다.','Open Targets·NCIt·MeSH 등은 개념별 이름·동의어를 보여줍니다. 이 사전은 원문 한 행마다 왜 묶었는지, 왜 묶지 않았는지를 출처와 함께 보여줍니다.','#materials/research','유사 서비스 조사'],
+      ['검증','반례로 문제를 찾아 고쳤습니다.','NAFLD 약어 누락과 질환명 수식어를 환자 조건으로 읽은 문제를 고쳤고, 원천 용어체계의 의심스러운 계층(CLL→ALL)은 병합에 쓰지 않았습니다. 300행 전체를 다시 실행한 결과도 공개했습니다.','#materials/methodology?section=counterexamples','반례와 후속 연구']
+    ].map(([kicker,title,body,href,action])=>`<a class="key-point" href="${href}"><span class="feature-kicker">${kicker}</span><h2>${title}</h2><p>${body}</p><span class="feature-link">${action} <span aria-hidden="true">↗</span></span></a>`).join('')}</section>
     <div class="runtime-entry"><div><strong>새 원문에 규칙을 직접 적용해 보세요.</strong><span>문서 내 약어 정의와 일부 추가 조건을 계산하는 시제품입니다.</span></div><a href="#analyze">새 문장 분석 열기 ↗</a></div><p class="home-evidence-links"><a href="#materials/audit">검증 리포트·300건 대조 ↗</a></p>
     <section id="concept-explorer" aria-labelledby="search-heading"><div class="section-heading"><div><h2 id="search-heading" tabindex="-1">딕셔너리 탐색</h2><p>등록된 표현과 연결된 개념을 찾아보세요.</p></div><a href="#records">전체 원본 보기 ↗</a></div>
     <label class="search-box">${icon}<input id="dictionary-search" type="search" autocomplete="off" aria-label="질환명·약어·원본 번호 검색" placeholder="질환명, 약어 또는 원본 번호를 입력하세요"><span class="search-key" aria-hidden="true">/</span></label>
     <div class="examples"><span>예시 검색</span>${['CD','AML','T2DM','PASC','NAFLD'].map(q=>`<button class="example-chip" data-query="${q}">${q}</button>`).join('')}<span>· ${m.unique_alias_spellings}개 검색 문자열</span></div>
     <div class="explorer"><div id="results" class="panel result-panel"></div><div id="dictionary-detail" class="panel detail"></div></div></section>
     <section class="featured-section"><div class="section-heading"><div><h2>대표 판단 사례</h2><p>다의 약어·범위 차이·추가 조건·명칭 변경·입력 충돌의 판단을 확인하세요.</p></div><a href="#cases">모든 사례 ↗</a></div><div class="featured-grid">${featureCards(['cd','eczema','nsclc','masld','conflict'].map(id=>data.stories.find(s=>s.id===id)))}</div></section>
-    <a class="boundary-card" href="#materials/methodology?section=counterexamples"><div><p class="eyebrow">판정 근거에서 후속 검증까지</p><h2>분류 기준과 적용 한계</h2><p>후보를 채택하거나 보류한 이유, 원천 용어체계에서 재검토가 필요한 관계, 추가 검증이 필요한 지점을 정리했습니다.</p></div><span>자세히 보기 ↗</span></a>
   </div>`;
   const input=$('#dictionary-search'); input.value=route.params.get('q') ?? '';
   selectedKey=route.params.get('concept'); searchPage=0;
@@ -137,7 +141,6 @@ function updateSearch({autoSelect=true}={}) {
   const pages=Math.max(1,Math.ceil(keys.length/pageSize)); searchPage=Math.min(searchPage,pages-1);
   const visible=keys.slice(searchPage*pageSize,(searchPage+1)*pageSize);
   if(autoSelect && !selectedKey && result.exactKeys.length===1) selectedKey=result.exactKeys[0];
-  if(autoSelect && !selectedKey && !normalize(q) && window.innerWidth>760) selectedKey=keys[0];
   let previousGroup='';
   const items=visible.map(key=>{
     const type=!normalize(q)?'browse':result.exactKeys.includes(key)?'exact':relatedKeys.includes(key)?'related':'partial';

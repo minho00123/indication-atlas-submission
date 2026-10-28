@@ -44,6 +44,12 @@ def render(text):
             out.append('<div class="table-scroll"><table><thead><tr>'+''.join('<th>'+inline(c)+'</th>' for c in rows[0])+'</tr></thead><tbody>')
             out.extend('<tr>'+''.join('<td>'+inline(c)+'</td>' for c in row)+'</tr>' for row in rows[1:])
             out.append('</tbody></table></div>');continue
+        # "!> " lines form the key-point summary shown before the detailed text.
+        if line.startswith('!> '):
+            points=[]
+            while i<len(lines) and lines[i].strip().startswith('!> '):
+                points.append(lines[i].strip()[3:]);i+=1
+            out.append('<aside class="doc-summary" aria-label="핵심 요약"><p class="doc-summary-label">핵심 요약</p><ul>'+''.join('<li>'+inline(p)+'</li>' for p in points)+'</ul></aside>');continue
         if line.startswith('>'):
             quote=[]
             while i<len(lines) and lines[i].strip().startswith('>'):

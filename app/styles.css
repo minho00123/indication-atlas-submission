@@ -435,3 +435,14 @@ summary>.badge { flex-shrink:0; }
  .materials-tabs a { font-size:11px; padding:8px 2px; text-align:center; white-space:nowrap; }
  #concept-comparison,#method-counterexamples,#method-future,#audit-method-section { scroll-margin-top:135px; }
 }
+
+.key-points { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin:0 0 22px; }
+.key-point { display:flex; flex-direction:column; gap:6px; background:var(--surface); border:1px solid var(--line); border-radius:13px; padding:20px; color:var(--ink); transition:transform .15s,border-color .15s; }
+.key-point:hover { text-decoration:none; border-color:#a7c8bd; transform:translateY(-2px); }
+.key-point h2 { margin:0; font-size:17px; line-height:1.45; }
+.key-point p { margin:0; color:var(--muted); font-size:13px; flex:1; }
+.doc-summary { margin:0 0 26px; padding:16px 20px; background:var(--tint); border:1px solid #cfe6dd; border-radius:12px; }
+.doc-summary-label { margin:0 0 6px !important; color:var(--accent-dark); font-size:12px; font-weight:750; letter-spacing:.4px; }
+.doc-summary ul { margin:0; padding-left:20px; }
+.doc-summary li { margin:5px 0; color:var(--ink); }
+@media (max-width:760px) { .key-points { grid-template-columns:1fr; } }
