@@ -1,0 +1,805 @@
+{
+ "_about": "Build the frozen eligibility seed set from real ClinicalTrials.gov records (fetched 2026-10-28).\n\nLabels are PROVISIONAL_RESEARCHER_LABEL by a single annotator (Claude). They are NOT expert gold.\nTwo separate labels per item:\n  concept_id_match      : best MONDO class for the sponsor's condition text (or NONE / HOLD)\n  eligibility_equivalence: is \"patients with <bare concept>\" the same population as the excerpt?\n       EQUIVALENT | NARROWER (excerpt restricts) | BROADER (excerpt admits more) | DIFFERENT | NOT_DISEASE | UNKNOWN\nThis file must not be used to write rules; it is a TEST candidate and is frozen by sha256 below.\n",
+ "frozen_sha256_of_items": "1caff406af3045ea6d88f047861ce93b54165ca79c943b1c57b6f672d324098a",
+ "n": 42,
+ "items": [
+  {
+   "item_id": "E01",
+   "nct": "NCT07198867",
+   "url": "https://clinicaltrials.gov/study/NCT07198867",
+   "category": "treatment_history",
+   "title": "A Study of A-CAR028 Treatment in Subjects With Relapsed or Refractory Acute Myeloid Leukemia",
+   "condition_text": "Acute Myeloid Leukemia (AML)",
+   "eligibility_excerpt": "Inclusion Criteria: / 18 to 75 years old at the time of signing the Informed Consent Form (ICF) / More than 12 weeks of expected survival / ECOG score 0 or 1",
+   "concept_id_match": "MONDO:0018874",
+   "concept_relation": "EXACT",
+   "eligibility_equivalence": "NARROWER",
+   "qualifiers": "relapsed/refractory; CAR-T candidate",
+   "hazard_note": "bare AML loses R/R status",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E02",
+   "nct": "NCT05413850",
+   "url": "https://clinicaltrials.gov/study/NCT05413850",
+   "category": "treatment_history",
+   "title": "Anti-tumour Activity of (177Lu) rhPSMA-10.1 Injection",
+   "condition_text": "Metastatic Castration-resistant Prostate Cancer",
+   "eligibility_excerpt": "Inclusion Criteria: / 1. Male subjects, 18 years of age or older with histologically confirmed adenocarcinoma of the prostate. / 2. Serum testosterone levels \\<50 ng/dL (1.73 nmol/L) after surgical or continued chemical castration. / 3. Presence of disease target or non target lesions (per RECIST v1.1) on CT/MRI and/or presence of disease on full body 99mTc bone scan performed within 28 days of screening.",
+   "concept_id_match": "MONDO:0850353",
+   "concept_relation": "BROADER",
+   "eligibility_equivalence": "NARROWER",
+   "qualifiers": "metastatic; testosterone <50 ng/dL",
+   "hazard_note": "MONDO has no mCRPC class; candidate is broader",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E03",
+   "nct": "NCT05504707",
+   "url": "https://clinicaltrials.gov/study/NCT05504707",
+   "category": "biomarker",
+   "title": "DecipHER Trial - DC1 Tx for Early-Stage TNBC and ER Low Positive Breast Cancer",
+   "condition_text": "Triple Negative Breast Cancer",
+   "eligibility_excerpt": "Inclusion Criteria: / A diagnosis of HER2-negative breast cancer. / Diagnosis of HR negative or HR low positive tumor. / Clinical stage T1c, nodal stage N1-N2 or stage T2-4, nodal stage N0-N2 breast cancer.",
+   "concept_id_match": "MONDO:0005494",
+   "concept_relation": "EXACT",
+   "eligibility_equivalence": "BROADER",
+   "qualifiers": "eligibility admits ER-low positive",
+   "hazard_note": "condition label narrower than eligibility",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E04",
+   "nct": "NCT05504707",
+   "url": "https://clinicaltrials.gov/study/NCT05504707",
+   "category": "biomarker",
+   "title": "DecipHER Trial - DC1 Tx for Early-Stage TNBC and ER Low Positive Breast Cancer",
+   "condition_text": "HER2-negative Breast Cancer",
+   "eligibility_excerpt": "Inclusion Criteria: / A diagnosis of HER2-negative breast cancer. / Diagnosis of HR negative or HR low positive tumor. / Clinical stage T1c, nodal stage N1-N2 or stage T2-4, nodal stage N0-N2 breast cancer.",
+   "concept_id_match": "MONDO:0000618",
+   "concept_relation": "EXACT",
+   "eligibility_equivalence": "NARROWER",
+   "qualifiers": "HR-negative or HR-low",
+   "hazard_note": "",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E05",
+   "nct": "NCT07548060",
+   "url": "https://clinicaltrials.gov/study/NCT07548060",
+   "category": "biomarker",
+   "title": "A Phase II Study of Sacituzumab Tirumotecan in Combination With Furmonertinib in Patients With Non-squamous Non-Small Cell Lung Cancer Who Have Progressed After EGFR-TKI and Platinum-Based Chemotherapy",
+   "condition_text": "NSCLC Stage IV",
+   "eligibility_excerpt": "Inclusion Criteria: / Histologically or cytologically confirmed non-squamous NSCLC that is locally advanced (Stage ⅢB/ⅢC) or metastatic (Stage Ⅳ) and not amenable to curative surgery and/or curative concurrent/sequential chemoradiotherapy \\[according to the 8th edition TNM staging system for lung cancer by the Union for International Cancer Control (UICC) and American Joint Committee on Cancer (AJCC)\\], with tissue or blood-based genetic testing showing EGFR-sensitive mutations (19del and L858R). / Subjects must have received prior EGFR-TKI therapy for locally advanced or metastatic disease and experienced treatment failure (documented radiographic disease progression), and must meet one of the following requirements: a) progressed after first- or second-generation EGFR-TKI, and histologically confirmed T790M-negative after treatment failure; b) progressed after third-generation EGFR-TKI regardless of T790M mutation status; and progressed after platinum-based chemotherapy or have chemotherapy intolerance. / Note: For subjects who have received neoadjuvant or adjuvant EGFR-TKI therapy, if disease progression occurs ≤12 months from the last dose, this EGFR-TKI is considered first-line therapy for locally advanced or metastatic disease.",
+   "concept_id_match": "MONDO:0005233",
+   "concept_relation": "BROADER",
+   "eligibility_equivalence": "NARROWER",
+   "qualifiers": "non-squamous; stage IIIB-IV; EGFR-mutant; post EGFR-TKI",
+   "hazard_note": "stage folded into condition string",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E06",
+   "nct": "NCT07548060",
+   "url": "https://clinicaltrials.gov/study/NCT07548060",
+   "category": "biomarker",
+   "title": "A Phase II Study of Sacituzumab Tirumotecan in Combination With Furmonertinib in Patients With Non-squamous Non-Small Cell Lung Cancer Who Have Progressed After EGFR-TKI and Platinum-Based Chemotherapy",
+   "condition_text": "EGFR Gene Mutation",
+   "eligibility_excerpt": "Inclusion Criteria: / Histologically or cytologically confirmed non-squamous NSCLC that is locally advanced (Stage ⅢB/ⅢC) or metastatic (Stage Ⅳ) and not amenable to curative surgery and/or curative concurrent/sequential chemoradiotherapy \\[according to the 8th edition TNM staging system for lung cancer by the Union for International Cancer Control (UICC) and American Joint Committee on Cancer (AJCC)\\], with tissue or blood-based genetic testing showing EGFR-sensitive mutations (19del and L858R). / Subjects must have received prior EGFR-TKI therapy for locally advanced or metastatic disease and experienced treatment failure (documented radiographic disease progression), and must meet one of the following requirements: a) progressed after first- or second-generation EGFR-TKI, and histologically confirmed T790M-negative after treatment failure; b) progressed after third-generation EGFR-TKI regardless of T790M mutation status; and progressed after platinum-based chemotherapy or have chemotherapy intolerance. / Note: For subjects who have received neoadjuvant or adjuvant EGFR-TKI therapy, if disease progression occurs ≤12 months from the last dose, this EGFR-TKI is considered first-line therapy for locally advanced or metastatic disease.",
+   "concept_id_match": "NONE",
+   "concept_relation": "NOT_APPLICABLE",
+   "eligibility_equivalence": "NOT_DISEASE",
+   "qualifiers": "biomarker listed as condition",
+   "hazard_note": "must route to biomarker field",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E07",
+   "nct": "NCT05749276",
+   "url": "https://clinicaltrials.gov/study/NCT05749276",
+   "category": "or_condition",
+   "title": "Escalation of Doses of Daratumumab in Combination With Chemotherapy (Idarubicin and Cytarabine or CPX-351) in Patients of 60 Years Old or More With Adverse Risk Acute Myeloblastic Leukemia (AML) (DARALAM)",
+   "condition_text": "Adult Patients With Adverse Risk Acute Myeloblastic Leukemia",
+   "eligibility_excerpt": "Inclusion Criteria: / Age \\>= 60 ans / Poor prognosis AML defined according to the following criteria:1. For first-line AML:intermediate or unfavorable risk according to ELN 2022 2.for Relapsed AML:regardless of the ELN risk group / Patient eligible for intensive chemotherapy",
+   "concept_id_match": "MONDO:0018874",
+   "concept_relation": "BROADER",
+   "eligibility_equivalence": "DIFFERENT",
+   "qualifiers": "first-line intermediate/adverse ELN2022 OR relapsed any risk; age>=60",
+   "hazard_note": "title narrower than eligibility",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E08",
+   "nct": "NCT07070362",
+   "url": "https://clinicaltrials.gov/study/NCT07070362",
+   "category": "renamed_definition",
+   "title": "Digital Early Warning System for Acute Lung Injury in Liver Surgery",
+   "condition_text": "MASLD/MASH ... NAFLD (Nonalcoholic Fatty Liver Disease)",
+   "eligibility_excerpt": "Inclusion Criteria: / Age ≥ 18 years / Undergoing major liver surgery (including two-segment or more hepatectomy, liver transplantation, etc.) / Voluntary participation with signed informed consent",
+   "concept_id_match": "MONDO:0013209",
+   "concept_relation": "EXACT",
+   "eligibility_equivalence": "DIFFERENT",
+   "qualifiers": "population = major liver surgery",
+   "hazard_note": "sponsor condition list is not eligibility",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E09",
+   "nct": "NCT07242222",
+   "url": "https://clinicaltrials.gov/study/NCT07242222",
+   "category": "renamed_definition",
+   "title": "Erdosteine in the Treatment of Nonalcoholic Fatty Liver Disease",
+   "condition_text": "Fatty Liver",
+   "eligibility_excerpt": "Inclusion Criteria: / Either male or female adult patients (\\>18 years) with fatty liver diagnosis by using upper abdominal ultrasound echography (US).",
+   "concept_id_match": "MONDO:0004790",
+   "concept_relation": "EXACT",
+   "eligibility_equivalence": "BROADER",
+   "qualifiers": "ultrasound fatty liver; no alcohol exclusion in excerpt",
+   "hazard_note": "title says NAFLD; NAFLD!=MASLD criteria",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E10",
+   "nct": "NCT07166211",
+   "url": "https://clinicaltrials.gov/study/NCT07166211",
+   "category": "subtype",
+   "title": "Study of CM512 Injection in Subjects With Chronic Spontaneous Urticaria(CSU)",
+   "condition_text": "Chronic Spontaneous Urticaria (CSU)",
+   "eligibility_excerpt": "Inclusion Criteria: / Voluntarily sign the Informed Consent Form. / Age ≥ 18 years old and ≤ 75 years old. / Patients with a diagnosis of CSU before screening visit, and the duration was ≥6 months.",
+   "concept_id_match": "HOLD",
+   "concept_relation": "UNKNOWN",
+   "eligibility_equivalence": "UNKNOWN",
+   "qualifiers": "excerpt uninformative",
+   "hazard_note": "no exact MONDO class; nearest MONDO:0044212 (CIU)",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E11",
+   "nct": "NCT07596069",
+   "url": "https://clinicaltrials.gov/study/NCT07596069",
+   "category": "symptom_vs_disease",
+   "title": "Prevalence of Menopause-associated Symptoms Throughout the Menopausal Transition in Women Aged 40 to 70 Residing in Spain and Its Relationship With Physical Activity - MdH Study",
+   "condition_text": "Menopausal Symptoms",
+   "eligibility_excerpt": "Inclusion Criteria: / Age 40 to 70 years. / Residence in Spain. / Ability to understand and complete the online questionnaire.",
+   "concept_id_match": "NONE",
+   "concept_relation": "NOT_APPLICABLE",
+   "eligibility_equivalence": "NOT_DISEASE",
+   "qualifiers": "women 40-70, prevalence study",
+   "hazard_note": "",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E12",
+   "nct": "NCT07288294",
+   "url": "https://clinicaltrials.gov/study/NCT07288294",
+   "category": "symptom_vs_disease",
+   "title": "PRImary Care Strategies for Weight Management (PRISM) Study",
+   "condition_text": "Obesity",
+   "eligibility_excerpt": "Inclusion Criteria: / 1. For run-in: prescribed liraglutide, semaglutide, or tirzepatide or newer medication approved by the FDA for long-term use for obesity treatment for the purpose of weight managment by a primary care provider at Rush University System for Health and have received at least one dose of the medication concurrent with enrollment in the study. / 2. For randomization: discontinue their prescribed anti-obesity medication.",
+   "concept_id_match": "MONDO:0011122",
+   "concept_relation": "EXACT",
+   "eligibility_equivalence": "NARROWER",
+   "qualifiers": "prescribed GLP-1 class AOM, then discontinuation",
+   "hazard_note": "treatment history",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E13",
+   "nct": "NCT04752826",
+   "url": "https://clinicaltrials.gov/study/NCT04752826",
+   "category": "hierarchy",
+   "title": "BI-1808 as a Single Agent and With Pembrolizumab (KEYTRUDA® ) in Treatment of Advanced Malignancies(Keynote-D20)",
+   "condition_text": "T-cell Lymphoma",
+   "eligibility_excerpt": "Inclusion Criteria: / Able and willing to provide written informed consent. / Aged 18 years or older. / Histologically confirmed advanced or metastatic malignancy eligible for an enrolling study cohort.",
+   "concept_id_match": "MONDO:0015760",
+   "concept_relation": "EXACT",
+   "eligibility_equivalence": "NARROWER",
+   "qualifiers": "advanced malignancy basket",
+   "hazard_note": "",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E14",
+   "nct": "NCT07313982",
+   "url": "https://clinicaltrials.gov/study/NCT07313982",
+   "category": "hierarchy",
+   "title": "LEF1 EXPRESSION IN B-CELL CHRONIC LYMPHOCYTIC LEUKEMIA PATIENTS: A MARKER FOR DIAGNOSIS AND SURVIVAL PREDICTION",
+   "condition_text": "Chronic Lymphocytic Leukemia (CLL) / Small Lymphocytic Lymphoma (SLL)",
+   "eligibility_excerpt": "Inclusion Criteria: / Patients with a confirmed diagnosis of SLL/CLL - B / Males and females, adults at diagnosis / Patients with available tissue (lymph node, extralymph node, or bone marrow) on which immunohistochemical analysis including LEF-1 has been performed and who have already submitted mutational and/or cytogenetic analysis data.",
+   "concept_id_match": "MONDO:0003864",
+   "concept_relation": "EXACT",
+   "eligibility_equivalence": "EQUIVALENT",
+   "qualifiers": "",
+   "hazard_note": "MONDO places this under ALL via MONDO:0004948 (rollup hazard)",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E15",
+   "nct": "NCT06860750",
+   "url": "https://clinicaltrials.gov/study/NCT06860750",
+   "category": "subtype",
+   "title": "A Trial of SHR-1314 Injection in Adult Patients With Active Non-radiographic Axial Spondyloarthritis",
+   "condition_text": "Active Non-radiographic Axial Spondyloarthritis",
+   "eligibility_excerpt": "Inclusion Criteria: / 1. Age ≥ 18 years at the time of signing the informed consent form, regardless of gender. / 2. BMI (Body Mass Index) ≥ 18 kg/m² at the time of screening. / 3. Presence of objective signs of inflammation at the time of screening.",
+   "concept_id_match": "MONDO:0005095",
+   "concept_relation": "BROADER",
+   "eligibility_equivalence": "NARROWER",
+   "qualifiers": "active disease",
+   "hazard_note": "no nr-axSpA class in MONDO",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E16",
+   "nct": "NCT06922370",
+   "url": "https://clinicaltrials.gov/study/NCT06922370",
+   "category": "hierarchy",
+   "title": "The Osteoarticular Manifestations in Patients With Gitelman Syndrome",
+   "condition_text": "CPPD - Calcium Pyrophosphate Deposition Disease",
+   "eligibility_excerpt": "Inclusion Criteria: / Patients confirmed with Gitelman Syndrome",
+   "concept_id_match": "MONDO:0001314",
+   "concept_relation": "EXACT",
+   "eligibility_equivalence": "DIFFERENT",
+   "qualifiers": "population = Gitelman syndrome; CPPD is an outcome",
+   "hazard_note": "condition list includes outcomes",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E17",
+   "nct": "NCT06327295",
+   "url": "https://clinicaltrials.gov/study/NCT06327295",
+   "category": "hierarchy",
+   "title": "A Study of ATB1651 in Adults With Mild to Moderate Onchomycosis",
+   "condition_text": "Onychomycosis",
+   "eligibility_excerpt": "Inclusion Criteria: / 1. Confirmation of onychomycosis by positive mycological (KOH) staining and positive culture from affected great toenail(s). / 2. Appearance of onychomycosis involving 20% to 60% of 1 (or both) affected great toenail(s), as determined by visual inspection after the nail has been trimmed. If the percentage of infection is outside this range but is still considered appropriate for this study, based on the overall impression of the Principal Investigator (PI), participation can be considered in consultation with the Medical Monitor (MM). The visual inspection results of the appearance of onychomycosis involving 20% to 60% of 1 (or both) affected great toenail(s) will be reviewed by the Sponsor before enrollment. / 3. The combined thickness of the distal nail plate at the associated hyperkeratotic nail bed is \\< 2 mm.",
+   "concept_id_match": "MONDO:0001628",
+   "concept_relation": "EXACT",
+   "eligibility_equivalence": "NARROWER",
+   "qualifiers": "KOH+ and culture+; 20-60% great toenail",
+   "hazard_note": "MONDO class sits under dermatophytosis",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E18",
+   "nct": "NCT06600412",
+   "url": "https://clinicaltrials.gov/study/NCT06600412",
+   "category": "definition",
+   "title": "The Evaluation of the Drug R3R01 for the Excretion of Protein in the Urine in Patients With Diabetic Kidney Disease.",
+   "condition_text": "Diabetic Kidney Disease",
+   "eligibility_excerpt": "Inclusion Criteria: / 1. Adults (above 18 years of age) with controlled type 2 diabetes (hemoglobin A1c less than 10.5%). / 2. Stable antihypertensive treatment 4 weeks before start of study drug and throughout study duration. / 3. Titrated to the maximal dose or maximal tolerated dose of renin-angiotensin blocking treatment.",
+   "concept_id_match": "MONDO:0005016",
+   "concept_relation": "EXACT",
+   "eligibility_equivalence": "NARROWER",
+   "qualifiers": "type 2 diabetes, HbA1c<10.5%",
+   "hazard_note": "",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E19",
+   "nct": "NCT06918808",
+   "url": "https://clinicaltrials.gov/study/NCT06918808",
+   "category": "phenotype_qualifier",
+   "title": "DB-3Q bmMSC-EVs in Patients With Perianal Fistulizing Crohn's Disease",
+   "condition_text": "Perianal Fistula Due to Crohn's Disease",
+   "eligibility_excerpt": "Inclusion Criteria: / 1. Written informed consent from participant / 2. Men and women 18-75 years of age with a diagnosis of Crohn's Disease for at least six months duration prior to Day 1 / 3. One or two perianal fistula(s) with 1 or two external openings, that are actively draining",
+   "concept_id_match": "MONDO:0005011",
+   "concept_relation": "BROADER",
+   "eligibility_equivalence": "NARROWER",
+   "qualifiers": "perianal fistulizing; CD >=6 months",
+   "hazard_note": "phenotype qualifier",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E20",
+   "nct": "NCT07239336",
+   "url": "https://clinicaltrials.gov/study/NCT07239336",
+   "category": "subtype",
+   "title": "Study of DONQ52 in Active Celiac Disease",
+   "condition_text": "Celiac Disease",
+   "eligibility_excerpt": "Inclusion Criteria: / Body mass index (BMI) of 18 to 40 (kg/m2) at screening. / Willingness to ingest a gluten-free product and Simulated Inadvertent Gluten Exposure (SIGE) products as per the study protocol. / History of medically diagnosed, and adequately documented (i.e., included in the participant's medical records), CeD",
+   "concept_id_match": "MONDO:0005130",
+   "concept_relation": "EXACT",
+   "eligibility_equivalence": "NARROWER",
+   "qualifiers": "active disease; gluten exposure protocol",
+   "hazard_note": "",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E21",
+   "nct": "NCT07598058",
+   "url": "https://clinicaltrials.gov/study/NCT07598058",
+   "category": "subtype",
+   "title": "PPDTM CorEvitasTM Chronic Hand Eczema (CHE) Drug Safety and Effectiveness Registry",
+   "condition_text": "Chronic Hand Eczema",
+   "eligibility_excerpt": "Inclusion Criteria: / To be eligible to participate in this registry, an individual must meet all of the following criteria: / 1. Diagnosed with moderate-to-severe CHE by a dermatologist or other qualified healthcare provider at the time of enrollment and initiating an eligible medication. / 2. Is at least 18 years of age or older and has attained the legal age for consent to procedures involved in the research, under the applicable law of the jurisdiction in which the research is being conducted at the time of enrollment",
+   "concept_id_match": "HOLD",
+   "concept_relation": "UNKNOWN",
+   "eligibility_equivalence": "NARROWER",
+   "qualifiers": "moderate-to-severe CHE",
+   "hazard_note": "no exact MONDO class",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E22",
+   "nct": "NCT03937635",
+   "url": "https://clinicaltrials.gov/study/NCT03937635",
+   "category": "precursor_vs_disease",
+   "title": "Lenalidomide, and Dexamethasone With or Without Daratumumab in Treating Patients With High-Risk Smoldering Myeloma",
+   "condition_text": "Smoldering Plasma Cell Myeloma",
+   "eligibility_excerpt": "Inclusion Criteria: / Patients must be diagnosed with asymptomatic high-risk smoldering multiple myeloma (SMM) within the past 12 months. High-risk is defined by the presence of 2 or more of the following factors: / Abnormal serum free light chain ratio of involved to uninvolved \\>20, but less than 100 if the involved FLC is \\>= 10 mg/dL by serum free light chain (FLC) assay / Serum M-protein level \\>= 2 gm/dL",
+   "concept_id_match": "MONDO:0005235",
+   "concept_relation": "EXACT",
+   "eligibility_equivalence": "NARROWER",
+   "qualifiers": "high-risk; diagnosed within 12 months",
+   "hazard_note": "must not merge with multiple myeloma",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E23",
+   "nct": "NCT07446777",
+   "url": "https://clinicaltrials.gov/study/NCT07446777",
+   "category": "precursor_vs_disease",
+   "title": "FAST-M: Prolonged Overnight Fasting and Mediterranean Dietary Intervention for Patients With Multiple Myeloma or Its Precursor Disease",
+   "condition_text": "Multiple Myeloma | MGUS | Smoldering Multiple Myeloma",
+   "eligibility_excerpt": "Inclusion Criteria: / 1. 18 years of age or older. / 2. Any sex/gender. / 3. Able to provide consent.",
+   "concept_id_match": "MONDO:0009693+MONDO:0004225+MONDO:0005235",
+   "concept_relation": "SPLIT",
+   "eligibility_equivalence": "DIFFERENT",
+   "qualifiers": "OR of three entities",
+   "hazard_note": "",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E24",
+   "nct": "NCT04602338",
+   "url": "https://clinicaltrials.gov/study/NCT04602338",
+   "category": "biomarker",
+   "title": "Diagnosis and OutcoMes evaluAtIoN of Multicenter Patients With HFpEF Using Multimodality Imaging",
+   "condition_text": "Heart Failure, Diastolic",
+   "eligibility_excerpt": "Inclusion Criteria: / left ventricular ejection fraction (LVEF)≥50%； / N-terminal pro-b type natriuretic peptide (NT-proBNP)\\>220pg/ml or b type natriuretic peptide (BNP) \\>80 pg/ml; / symptoms and syndromes of heart failure;",
+   "concept_id_match": "MONDO:0006727",
+   "concept_relation": "RELATED",
+   "eligibility_equivalence": "NARROWER",
+   "qualifiers": "LVEF>=50%; NT-proBNP>220",
+   "hazard_note": "HFpEF is not identical to diastolic dysfunction",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E25",
+   "nct": "NCT07064018",
+   "url": "https://clinicaltrials.gov/study/NCT07064018",
+   "category": "biomarker",
+   "title": "Trial of Single Protein Encapsulated Doxorubicin, SPEDOX-6 in Advanced Malignancies",
+   "condition_text": "Triple Negative Breast Cancer (basket)",
+   "eligibility_excerpt": "Inclusion Criteria: / Subjects ≥ 18 years at the first screening examination/visit. / Subjects with advanced histologically or cytologically confirmed solid tumors (see below) refractory to or relapse from at least two previous therapies. / Tumor types expected to express lower levels of FcRn relative to normal tissue including: STS, TNBC, cervical cancer, NSCLC, ovarian cancer, and KRAS mutated pancreatic ductal adenocarcinoma without requirement for testing FcRn level.",
+   "concept_id_match": "MONDO:0005494",
+   "concept_relation": "EXACT",
+   "eligibility_equivalence": "NARROWER",
+   "qualifiers": ">=2 prior therapies; advanced",
+   "hazard_note": "",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E26",
+   "nct": "NCT04647227",
+   "url": "https://clinicaltrials.gov/study/NCT04647227",
+   "category": "phenotype_qualifier",
+   "title": "SEVENFACT® for Bleeding Events in Hemophilia With Inhibitors",
+   "condition_text": "Hemophilia A With Inhibitor | Hemophilia B With Inhibitor",
+   "eligibility_excerpt": "Inclusion Criteria: / 1. Have a diagnosis of hemophilia A or B with inhibitors. / 2. Be 12 years of age and older / 3. Be capable of understanding and willing to comply with the conditions of the protocol or have a legal guardian who is capable of understanding and complying with the conditions of the protocol",
+   "concept_id_match": "MONDO:0010602+MONDO:0010604",
+   "concept_relation": "SPLIT",
+   "eligibility_equivalence": "NARROWER",
+   "qualifiers": "inhibitor-positive",
+   "hazard_note": "inhibitor status lost on mapping",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E27",
+   "nct": "NCT07400848",
+   "url": "https://clinicaltrials.gov/study/NCT07400848",
+   "category": "definition",
+   "title": "Clinical Laboratory Evaluation, Assessment of Symptoms and Recovery in Patients With Post-COVID-19-Vaccination Syndrome",
+   "condition_text": "Post-Acute COVID-19 Vaccination Syndrome",
+   "eligibility_excerpt": "General Criteria (apply to all study parts: PROGRESS, ENDOCLOT, REAL, patients and matched healthy controls) / Inclusion Criteria / 1. Age ≥ 18 years / 2. Sufficient knowledge of German to complete study-related questionnaires and procedures",
+   "concept_id_match": "NONE",
+   "concept_relation": "UNKNOWN",
+   "eligibility_equivalence": "DIFFERENT",
+   "qualifiers": "",
+   "hazard_note": "must NOT map to long COVID MONDO:0100233",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E28",
+   "nct": "NCT01212003",
+   "url": "https://clinicaltrials.gov/study/NCT01212003",
+   "category": "precursor_vs_disease",
+   "title": "Training Protocol on the Natural History of Tuberculosis",
+   "condition_text": "Latent Tuberculosis | Tuberculosis",
+   "eligibility_excerpt": "INCLUSION CRITERIA: / FOR ALL PATIENTS / Patients may be included in this study who: / Have or are suspected to have TB infection.",
+   "concept_id_match": "MONDO:0040753+MONDO:0018076",
+   "concept_relation": "SPLIT",
+   "eligibility_equivalence": "DIFFERENT",
+   "qualifiers": "infection state vs disease",
+   "hazard_note": "",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E29",
+   "nct": "NCT03712722",
+   "url": "https://clinicaltrials.gov/study/NCT03712722",
+   "category": "treatment_history",
+   "title": "Fecal Microbiota Transplantation (FMT) for Clostridium Difficile",
+   "condition_text": "Clostridioides Difficile Infection",
+   "eligibility_excerpt": "Inclusion Criteria: / age 18 or higher / documented Clostridioides difficile infection",
+   "concept_id_match": "MONDO:0000705",
+   "concept_relation": "EXACT",
+   "eligibility_equivalence": "UNKNOWN",
+   "qualifiers": "documented CDI; FMT study",
+   "hazard_note": "MONDO label says colitis",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E30",
+   "nct": "NCT07508514",
+   "url": "https://clinicaltrials.gov/study/NCT07508514",
+   "category": "subtype",
+   "title": "Early Temporal Dynamics of Optic Nerve Sheath Diameter After Therapy in GCA",
+   "condition_text": "Giant Cell Arteritis | Temporal Arteritis",
+   "eligibility_excerpt": "Inclusion Criteria: / 1. Participants must be enrolled in SONIC-GCA and must have: / completed the baseline optic nerve sheath ultrasound / confirmed GCA as determined by the baseline standardized GCA assessment in SONIC-GCA.",
+   "concept_id_match": "MONDO:0008538",
+   "concept_relation": "EXACT",
+   "eligibility_equivalence": "NARROWER",
+   "qualifiers": "SONIC-GCA participants",
+   "hazard_note": "two strings, one concept",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E31",
+   "nct": "NCT06833645",
+   "url": "https://clinicaltrials.gov/study/NCT06833645",
+   "category": "stage",
+   "title": "[18F]AV45(Aβ) and [18F]AV1451(Tau)PET/CT in the Diagnosis of Early Pathological Changes of Alzheimer's Disease",
+   "condition_text": "Alzheimer's Disease",
+   "eligibility_excerpt": "Inclusion Criteria: / Meet the MCI diagnostic criteria of Peterson in 2004; / The clinicaldementiarating Scale (CDR) score was 0.5; / Prominent memory loss may also be accompanied by impairment of other cognitive domains;",
+   "concept_id_match": "MONDO:0004975",
+   "concept_relation": "BROADER",
+   "eligibility_equivalence": "DIFFERENT",
+   "qualifiers": "MCI (Petersen 2004), CDR 0.5",
+   "hazard_note": "stage; AD pathology not required in excerpt",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E32",
+   "nct": "NCT06964087",
+   "url": "https://clinicaltrials.gov/study/NCT06964087",
+   "category": "stage",
+   "title": "Pharmacokinetic and Early Efficacy of OPT101 in Patients With Type 1 Diabetes Mellitus",
+   "condition_text": "Type I Diabetes",
+   "eligibility_excerpt": "Inclusion Criteria: / 1\\. Able and willing and able to give informed consent for the trial (separate consent must be obtained for Parts B or C). / 2\\. Willing to wear a continuous glucose monitor for the duration of the trial (e.g., Freestyle Libre 3). / 3\\. Male or female aged ≥18 to 50 years on the day of signing informed consent. 4. Diagnosis of T1DM within the last 20 years for Part A, within 1 to 10 years \\[N=15 at \\>5 to 10, N=12 at 1 to 5 yrs\\] for Part B, within less than or equal to 1 year for Part C.",
+   "concept_id_match": "MONDO:0005147",
+   "concept_relation": "EXACT",
+   "eligibility_equivalence": "UNKNOWN",
+   "qualifiers": "excerpt uninformative",
+   "hazard_note": "",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E33",
+   "nct": "NCT07570862",
+   "url": "https://clinicaltrials.gov/study/NCT07570862",
+   "category": "subtype",
+   "title": "A Phase 2, Open-Label, Single-Arm Trial of FT819 in Participants With Lupus Nephritis",
+   "condition_text": "Lupus Nephritis - WHO Class III / IV",
+   "eligibility_excerpt": "INCLUSION CRITERIA: / Age ≥12 to ≤70 years / Diagnosis of SLE per EULAR/ACR 2019 classification criteria / Biopsy-proven proliferative Class III or IV LN, with or without concomitant Class V involvement, based on the 2003/2018 ISN/RPS classification",
+   "concept_id_match": "MONDO:0005556",
+   "concept_relation": "BROADER",
+   "eligibility_equivalence": "NARROWER",
+   "qualifiers": "class III/IV; SLE by EULAR/ACR 2019",
+   "hazard_note": "SLE listed is parent, not separate population",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E34",
+   "nct": "NCT06906016",
+   "url": "https://clinicaltrials.gov/study/NCT06906016",
+   "category": "chronicity",
+   "title": "New HBV Infection Biomarkers: Clinical Characterization and Impact on Management",
+   "condition_text": "Chronic Hepatitis B Virus (HBV) Infection",
+   "eligibility_excerpt": "Inclusion Criteria: / Chronic HBV infection (HbsAg positive carrier for more than 6 months) / Patient under care within the Henri Mondor-Albert Chenevier University Hospital group",
+   "concept_id_match": "MONDO:0005366",
+   "concept_relation": "EXACT",
+   "eligibility_equivalence": "EQUIVALENT",
+   "qualifiers": "HBsAg+ >6 months",
+   "hazard_note": "parent MONDO:0005344 would be broader",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E35",
+   "nct": "NCT07856641",
+   "url": "https://clinicaltrials.gov/study/NCT07856641",
+   "category": "hierarchy",
+   "title": "Circadian Variation of Anti-Factor Xa in Hospitalized Trauma Patients",
+   "condition_text": "Circadian Variation in Anti-Factor Xa Activity",
+   "eligibility_excerpt": "Inclusion Criteria: / Inpatient admission for acute traumatic injury ≥72 hours / Prescribed LMWH subcutaneous for VTE chemoprophylaxis",
+   "concept_id_match": "NONE",
+   "concept_relation": "NOT_APPLICABLE",
+   "eligibility_equivalence": "NOT_DISEASE",
+   "qualifiers": "trauma inpatients on VTE prophylaxis",
+   "hazard_note": "at-risk population",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E36",
+   "nct": "NCT07055542",
+   "url": "https://clinicaltrials.gov/study/NCT07055542",
+   "category": "allergen",
+   "title": "Creating A Risk Assessment Tool for Thunderstorm Asthma: the CARISTA Study",
+   "condition_text": "Seasonal Allergic Rhinitis | Grass Pollen Allergy",
+   "eligibility_excerpt": "Inclusion Criteria: / Consenting adults aged 18 to 70 years with seasonal allergic rhinitis / willing to undertake: / Lung function testing",
+   "concept_id_match": "MONDO:0005324",
+   "concept_relation": "EXACT",
+   "eligibility_equivalence": "DIFFERENT",
+   "qualifiers": "SAR adults; grass sensitisation not required",
+   "hazard_note": "allergen-specific concept not supported by eligibility",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E37",
+   "nct": "NCT07227350",
+   "url": "https://clinicaltrials.gov/study/NCT07227350",
+   "category": "stage",
+   "title": "L19IL2 or L19TNF or L19IL2/TNF in Patients With Basal Cell Carcinoma (BCC)",
+   "condition_text": "Locally Advanced Basal Cell Carcinoma",
+   "eligibility_excerpt": "Inclusion Criteria: / Patients with high risk, locally advanced histologically confirmed (non-metastatic, node negative, single or multifocal), BCC and amenable to intratumoral injection, not eligible or refusing surgery or radiation therapy according to the evaluation of a local interdisciplinary tumor board. / Patients with at least one injectable and measurable cutaneous or subcutaneous lesion. / Patients must not have received prior HHIs and checkpoint inhibitors systemic treatment.",
+   "concept_id_match": "MONDO:0005341",
+   "concept_relation": "BROADER",
+   "eligibility_equivalence": "NARROWER",
+   "qualifiers": "locally advanced, non-metastatic, cutaneous",
+   "hazard_note": "",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E38",
+   "nct": "NCT07747740",
+   "url": "https://clinicaltrials.gov/study/NCT07747740",
+   "category": "treatment_history",
+   "title": "Sequential Gemcitabine Plus Docetaxel Versus Gemcitabine Plus Mitomycin C for BCG-Unresponsive Non-Muscle-Invasive Bladder Cancer",
+   "condition_text": "BCG-Unresponsive Bladder Cancer (NMIBC)",
+   "eligibility_excerpt": "Inclusion Criteria: / 1. Age ≥18 years. / 2. Histologically confirmed BCG-unresponsive non-muscle-invasive urothelial bladder cancer (NMIBC). / 3. Complete transurethral resection of bladder tumor (TURBT) before study treatment.",
+   "concept_id_match": "MONDO:0004986",
+   "concept_relation": "BROADER",
+   "eligibility_equivalence": "NARROWER",
+   "qualifiers": "BCG-unresponsive; non-muscle-invasive urothelial",
+   "hazard_note": "",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E39",
+   "nct": "NCT07493161",
+   "url": "https://clinicaltrials.gov/study/NCT07493161",
+   "category": "biomarker",
+   "title": "Chemotherapy With Targeted-Immunotherapy for Newly Diagnosed Ph+ ALL",
+   "condition_text": "Ph+ ALL",
+   "eligibility_excerpt": "Inclusion Criteria: / Newly diagnosed ALL with t(9;22)(q34;q11) or BCR::ABL1 positivity (by PCR or FISH). / Age ≥ 14 years. / ECOG performance status ≤ 2.",
+   "concept_id_match": "MONDO:0035940",
+   "concept_relation": "EXACT",
+   "eligibility_equivalence": "NARROWER",
+   "qualifiers": "newly diagnosed; BCR::ABL1+; age>=14",
+   "hazard_note": "same MONDO class lists 'Philadelphia chromosome-like B-ALL' (BCR-ABL1-negative) as EXACT",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E40",
+   "nct": "NCT07166874",
+   "url": "https://clinicaltrials.gov/study/NCT07166874",
+   "category": "abbreviation",
+   "title": "The Impacts of Gluten-free Diet in Patients With Ankylosing Spondylitis",
+   "condition_text": "Ankylosing Spondylitis",
+   "eligibility_excerpt": "Inclusion Criteria: / diagnosis of axial SpA defined by ASAS criteria / Adults (aged 18-64 years) / stable treatment (NSAID and/or DMARD) for at least 3 months",
+   "concept_id_match": "MONDO:0005306",
+   "concept_relation": "EXACT",
+   "eligibility_equivalence": "BROADER",
+   "qualifiers": "axial SpA by ASAS criteria",
+   "hazard_note": "condition label narrower than eligibility",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E41",
+   "nct": "NCT06041594",
+   "url": "https://clinicaltrials.gov/study/NCT06041594",
+   "category": "abbreviation",
+   "title": "Treating Pulmonary Embolism With Laguna Thrombectomy System (TRUST)",
+   "condition_text": "Pulmonary Embolism",
+   "eligibility_excerpt": "Inclusion Criteria: / 1. ≥ 18 years of age; \\< 85 years old / 2. RV/LV ratio \\> 0.9 as determined by CTA / 3. Systolic blood pressure \\> 90 mmHg",
+   "concept_id_match": "MONDO:0005279",
+   "concept_relation": "EXACT",
+   "eligibility_equivalence": "NARROWER",
+   "qualifiers": "RV/LV>0.9 on CTA",
+   "hazard_note": "risk stratum",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  },
+  {
+   "item_id": "E42",
+   "nct": "NCT07345949",
+   "url": "https://clinicaltrials.gov/study/NCT07345949",
+   "category": "abbreviation",
+   "title": "Panniculitis in Dermatomyositis",
+   "condition_text": "Dermatomyositis | Panniculitis",
+   "eligibility_excerpt": "Inclusion Criteria: / Subject aged 1 year and older / With a confirmed diagnosis of dermatomyositis / With a confirmed diagnosis of panniculitis",
+   "concept_id_match": "MONDO:0016367",
+   "concept_relation": "EXACT",
+   "eligibility_equivalence": "DIFFERENT",
+   "qualifiers": "dermatomyositis any; panniculitis is the studied feature",
+   "hazard_note": "",
+   "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+   "annotators": [
+    "claude-single"
+   ],
+   "needs_independent_second_annotation": true
+  }
+ ]
+}

@@ -4,6 +4,7 @@ from pathlib import Path
 import sys
 import unittest
 import zipfile
+from copy import deepcopy
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'tools'))
@@ -11,6 +12,8 @@ from dataset import validate,lookup,normalize,load
 from markdown_render import render
 from build import build
 from score_legacy import score as score_legacy, judge
+from case_review import prepare_stories
+from verify_supplement import verify as verify_supplement, validate_summary
 
 
 class SubmissionDataset(unittest.TestCase):
@@ -109,8 +112,73 @@ class SubmissionBuild(unittest.TestCase):
         self.assertNotIn('<script>',output)
         self.assertNotIn('href="javascript:',output)
         self.assertIn('&lt;strong&gt;code&lt;/strong&gt;',output)
-        for name in ('guidelines','research','methodology','run'):
+        for name in ('guidelines','research','methodology','boundaries','run'):
             self.assertTrue((ROOT/'dist/content'/f'{name}.html').is_file())
+
+    def test_supplements_are_published_and_packaged_without_full_corpus(self):
+        manifest=json.loads((ROOT/'evidence/boundary_checks/manifest.json').read_text())
+        for name,digest in manifest['files'].items():
+            self.assertEqual(hashlib.sha256((ROOT/'dist/evidence/boundary_checks'/name).read_bytes()).hexdigest(),digest)
+        with zipfile.ZipFile(ROOT/'dist/downloads/indication-atlas-submission.zip') as archive:
+            self.assertFalse(any(n.endswith(('.obo','NCBItestset_corpus.txt')) for n in archive.namelist()))
+            self.assertEqual(archive.read('indication-atlas-submission/evidence/boundary_checks/manifest.json'),(ROOT/'evidence/boundary_checks/manifest.json').read_bytes())
+
+
+class StructuredCaseEvidence(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.records,cls.core,cls.sources,cls.manifest=validate()
+        cls.stories=load('stories.json')
+
+    def test_all_cases_keep_relations_separate_from_final_decisions(self):
+        stories=prepare_stories(self.stories,self.records,self.sources)
+        self.assertEqual(len(stories),10)
+        eczema=next(s for s in stories if s['id']=='eczema')
+        selected=[c for c in eczema['candidate_reviews'] if c['source_id']=='K001' and c['selected']]
+        self.assertEqual([c['candidate_key'] for c in selected],['NCIT:C3001'])
+        mondo=next(c for c in eczema['candidate_reviews'] if c['source_id']=='K001' and c['candidate_key']=='MONDO:0004980')
+        self.assertEqual(mondo['relation'],'BROADER')
+        self.assertFalse(mondo['selected'])
+        conflict=next(s for s in stories if s['id']=='conflict')
+        self.assertEqual(conflict['candidate_reviews'],[])
+        self.assertFalse(any('candidate_reviews' in s for s in self.stories))
+
+    def test_invented_source_quote_is_rejected(self):
+        stories=deepcopy(self.stories)
+        stories[0]['comparison_axes'][0]['source_items'][0]['quote']='a condition that is not in the source'
+        with self.assertRaisesRegex(ValueError,'source quote'):prepare_stories(stories,self.records,self.sources)
+
+    def test_unreviewed_candidate_and_unverified_definition_are_rejected(self):
+        stories=deepcopy(self.stories)
+        stories[0]['comparison_axes'][0]['candidate_items'][0]['candidate_key']='NCIT:UNKNOWN'
+        with self.assertRaisesRegex(ValueError,'candidate was not'):prepare_stories(stories,self.records,self.sources)
+        stories=deepcopy(self.stories)
+        ref=stories[0]['comparison_axes'][0]['candidate_items'][0]
+        ref.update(definition_index=0,quote='invented definition')
+        with self.assertRaisesRegex(ValueError,'definition quote'):prepare_stories(stories,self.records,self.sources)
+
+    def test_unrelated_evidence_and_unexplained_missingness_are_rejected(self):
+        stories=deepcopy(self.stories)
+        stories[0]['comparison_axes'][0]['evidence_refs']=['NOT_A_SOURCE']
+        with self.assertRaisesRegex(ValueError,'not grounded'):prepare_stories(stories,self.records,self.sources)
+        stories=deepcopy(self.stories)
+        item=stories[0]['comparison_axes'][1]['source_items'][0]
+        item['note']=''
+        with self.assertRaisesRegex(ValueError,'needs an explanation'):prepare_stories(stories,self.records,self.sources)
+
+
+class SupplementaryEvidence(unittest.TestCase):
+    def test_archive_counts_and_clinical_trial_provenance(self):
+        result=verify_supplement()
+        self.assertEqual((result['baseline_documents'],result['deduplicated_units']),(100,531))
+        self.assertEqual((result['trial_comparison_items'],result['unique_trials']),(42,40))
+        self.assertEqual(result['provisional_m2_categories']['CROSSWALK_ARTIFACT'],28)
+
+    def test_scoreable_precision_is_not_all_input_accuracy(self):
+        summary=json.loads((ROOT/'evidence/boundary_checks/results_concept_baselines.json').read_text())['methods']['M2_ontology_exact']['mention_level']
+        validate_summary(summary,960,'precision_scorable')
+        wrong=deepcopy(summary);wrong['precision_scorable']='280/960'
+        with self.assertRaisesRegex(ValueError,'denominator'):validate_summary(wrong,960,'precision_scorable')
 
 
 class ArchivedExperiment(unittest.TestCase):

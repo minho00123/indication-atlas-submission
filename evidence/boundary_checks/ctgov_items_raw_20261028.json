@@ -1,0 +1,721 @@
+[
+ {
+  "category": "treatment_history",
+  "query": "relapsed refractory acute myeloid leukemia",
+  "nct": "NCT07198867",
+  "title": "A Study of A-CAR028 Treatment in Subjects With Relapsed or Refractory Acute Myeloid Leukemia",
+  "conditions": [
+   "Acute Myeloid Leukemia (AML)",
+   "CAR-T Cell Therapy"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "18 to 75 years old at the time of signing the Informed Consent Form (ICF)",
+   "More than 12 weeks of expected survival",
+   "ECOG score 0 or 1"
+  ]
+ },
+ {
+  "category": "treatment_history",
+  "query": "metastatic castration-resistant prostate cancer",
+  "nct": "NCT05413850",
+  "title": "Anti-tumour Activity of (177Lu) rhPSMA-10.1 Injection",
+  "conditions": [
+   "Prostate Cancer",
+   "Metastatic Castration-resistant Prostate Cancer",
+   "mCRPC",
+   "Urogenital Neoplasms",
+   "Prostatic Neoplasms",
+   "Prostatic Diseases"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "1. Male subjects, 18 years of age or older with histologically confirmed adenocarcinoma of the prostate.",
+   "2. Serum testosterone levels \\<50 ng/dL (1.73 nmol/L) after surgical or continued chemical castration.",
+   "3. Presence of disease target or non target lesions (per RECIST v1.1) on CT/MRI and/or presence of disease on full body 99mTc bone scan performed within 28 days of screening."
+  ]
+ },
+ {
+  "category": "biomarker",
+  "query": "HER2-low breast cancer",
+  "nct": "NCT05504707",
+  "title": "DecipHER Trial - DC1 Tx for Early-Stage TNBC and ER Low Positive Breast Cancer",
+  "conditions": [
+   "Triple Negative Breast Cancer",
+   "HER2-negative Breast Cancer"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "A diagnosis of HER2-negative breast cancer.",
+   "Diagnosis of HR negative or HR low positive tumor.",
+   "Clinical stage T1c, nodal stage N1-N2 or stage T2-4, nodal stage N0-N2 breast cancer."
+  ]
+ },
+ {
+  "category": "biomarker",
+  "query": "EGFR mutation non-small cell lung cancer",
+  "nct": "NCT07548060",
+  "title": "A Phase II Study of Sacituzumab Tirumotecan in Combination With Furmonertinib in Patients With Non-squamous Non-Small Cell Lung Cancer Who Have Progressed After EGFR-TKI and Platinum-Based Chemotherapy",
+  "conditions": [
+   "NSCLC Stage IV",
+   "EGFR Gene Mutation"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "Histologically or cytologically confirmed non-squamous NSCLC that is locally advanced (Stage ⅢB/ⅢC) or metastatic (Stage Ⅳ) and not amenable to curative surgery and/or curative concurrent/sequential chemoradiotherapy \\[according to the 8th edition TNM staging system for lung cancer by the Union for International Cancer Control (UICC) and American Joint Committee on Cancer (AJCC)\\], with tissue or blood-based genetic testing showing EGFR-sensitive mutations (19del and L858R).",
+   "Subjects must have received prior EGFR-TKI therapy for locally advanced or metastatic disease and experienced treatment failure (documented radiographic disease progression), and must meet one of the following requirements: a) progressed after first- or second-generation EGFR-TKI, and histologically confirmed T790M-negative after treatment failure; b) progressed after third-generation EGFR-TKI regardless of T790M mutation status; and progressed after platinum-based chemotherapy or have chemotherapy intolerance.",
+   "Note: For subjects who have received neoadjuvant or adjuvant EGFR-TKI therapy, if disease progression occurs ≤12 months from the last dose, this EGFR-TKI is considered first-line therapy for locally advanced or metastatic disease."
+  ]
+ },
+ {
+  "category": "or_condition",
+  "query": "myelodysplastic syndrome OR acute myeloid leukemia",
+  "nct": "NCT05749276",
+  "title": "Escalation of Doses of Daratumumab in Combination With Chemotherapy (Idarubicin and Cytarabine or CPX-351) in Patients of 60 Years Old or More With Adverse Risk Acute Myeloblastic Leukemia (AML) (DARALAM)",
+  "conditions": [
+   "Adult Patients With Adverse Risk Acute Myeloblastic Leukemia"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "Age \\>= 60 ans",
+   "Poor prognosis AML defined according to the following criteria:1. For first-line AML:intermediate or unfavorable risk according to ELN 2022 2.for Relapsed AML:regardless of the ELN risk group",
+   "Patient eligible for intensive chemotherapy"
+  ]
+ },
+ {
+  "category": "renamed_definition",
+  "query": "MASH fibrosis",
+  "nct": "NCT07070362",
+  "title": "Digital Early Warning System for Acute Lung Injury in Liver Surgery",
+  "conditions": [
+   "Acute Lung Injury(ALI)",
+   "Liver Cirrhosis",
+   "ARDS, Human",
+   "MASLD",
+   "MASLD/MASH (Metabolic Dysfunction-Associated Steatotic Liver Disease / Metabolic Dysfunction-Associated Steatohepatitis)",
+   "NAFLD (Nonalcoholic Fatty Liver Disease)",
+   "Liver Cancer, Adult"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "Age ≥ 18 years",
+   "Undergoing major liver surgery (including two-segment or more hepatectomy, liver transplantation, etc.)",
+   "Voluntary participation with signed informed consent"
+  ]
+ },
+ {
+  "category": "renamed_definition",
+  "query": "nonalcoholic fatty liver disease",
+  "nct": "NCT07242222",
+  "title": "Erdosteine in the Treatment of Nonalcoholic Fatty Liver Disease",
+  "conditions": [
+   "Fatty Liver"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "Either male or female adult patients (\\>18 years) with fatty liver diagnosis by using upper abdominal ultrasound echography (US)."
+  ]
+ },
+ {
+  "category": "subtype",
+  "query": "chronic spontaneous urticaria",
+  "nct": "NCT07166211",
+  "title": "Study of CM512 Injection in Subjects With Chronic Spontaneous Urticaria(CSU)",
+  "conditions": [
+   "Chronic Spontaneous Urticaria (CSU)"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "Voluntarily sign the Informed Consent Form.",
+   "Age ≥ 18 years old and ≤ 75 years old.",
+   "Patients with a diagnosis of CSU before screening visit, and the duration was ≥6 months."
+  ]
+ },
+ {
+  "category": "symptom_vs_disease",
+  "query": "vasomotor symptoms menopause",
+  "nct": "NCT07596069",
+  "title": "Prevalence of Menopause-associated Symptoms Throughout the Menopausal Transition in Women Aged 40 to 70 Residing in Spain and Its Relationship With Physical Activity - MdH Study",
+  "conditions": [
+   "Menopausal Symptoms",
+   "Physical Activity and Sedentary Behavior"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "Age 40 to 70 years.",
+   "Residence in Spain.",
+   "Ability to understand and complete the online questionnaire."
+  ]
+ },
+ {
+  "category": "symptom_vs_disease",
+  "query": "overweight obesity weight management",
+  "nct": "NCT07288294",
+  "title": "PRImary Care Strategies for Weight Management (PRISM) Study",
+  "conditions": [
+   "Obesity"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "1. For run-in: prescribed liraglutide, semaglutide, or tirzepatide or newer medication approved by the FDA for long-term use for obesity treatment for the purpose of weight managment by a primary care provider at Rush University System for Health and have received at least one dose of the medication concurrent with enrollment in the study.",
+   "2. For randomization: discontinue their prescribed anti-obesity medication."
+  ]
+ },
+ {
+  "category": "state_vs_disease",
+  "query": "renal impairment pharmacokinetics",
+  "nct": "NCT05027906",
+  "title": "Safety, Pharmacokinetics, and Efficacy of AT 1501 in Patients Undergoing Kidney Transplant",
+  "conditions": [
+   "Prevention of Rejection in Kidney Transplant"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "1. Male or female ≥ 18 years of age",
+   "2. Recipient of their first kidney transplant from a living or deceased donor",
+   "3. Agree to comply with contraception requirements during and for at least 90 days after the last administration of study drug"
+  ]
+ },
+ {
+  "category": "subtype",
+  "query": "primary adrenal insufficiency",
+  "nct": "NCT06669949",
+  "title": "Natural History of Sphingosine Phosphate Lyase Insufficiency Syndrome (SPLIS)",
+  "conditions": [
+   "Sphingosine Phosphate Lyase Insufficiency Syndrome (SPLIS)"
+  ],
+  "inclusion_excerpt": [
+   "All identified patients with SPLIS diagnosed by genetic criteria are eligible for enrollment in this study, regardless of baseline demographic, biochemical or metabolic features and regardless of interventions such as vitamin B6 supplementation, dialysis or kidney transplantation at time of enrollment. This study may include siblings of index SPLIS cases if the sibling has been genetically confirmed to have SPLIS, regardless of whether they have active disease at the time of enrollment. Data from deceased SPLIS patients will also be collected.",
+   "Inclusion Criteria:",
+   "Potential subjects fulfilling the following criteria will be eligible to participate in this study:",
+   "1. Living or deceased patients diagnosed with SPLIS based on"
+  ]
+ },
+ {
+  "category": "hierarchy",
+  "query": "peripheral T-cell lymphoma",
+  "nct": "NCT04752826",
+  "title": "BI-1808 as a Single Agent and With Pembrolizumab (KEYTRUDA® ) in Treatment of Advanced Malignancies(Keynote-D20)",
+  "conditions": [
+   "Advanced Malignancies",
+   "Ovarian Cancer",
+   "T-cell Lymphoma",
+   "Melanoma"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "Able and willing to provide written informed consent.",
+   "Aged 18 years or older.",
+   "Histologically confirmed advanced or metastatic malignancy eligible for an enrolling study cohort."
+  ]
+ },
+ {
+  "category": "hierarchy",
+  "query": "small lymphocytic lymphoma",
+  "nct": "NCT07313982",
+  "title": "LEF1 EXPRESSION IN B-CELL CHRONIC LYMPHOCYTIC LEUKEMIA PATIENTS: A MARKER FOR DIAGNOSIS AND SURVIVAL PREDICTION",
+  "conditions": [
+   "Chronic Lymphocytic Leukemia (CLL) / Small Lymphocytic Lymphoma (SLL)"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "Patients with a confirmed diagnosis of SLL/CLL - B",
+   "Males and females, adults at diagnosis",
+   "Patients with available tissue (lymph node, extralymph node, or bone marrow) on which immunohistochemical analysis including LEF-1 has been performed and who have already submitted mutational and/or cytogenetic analysis data."
+  ]
+ },
+ {
+  "category": "subtype",
+  "query": "non-radiographic axial spondyloarthritis",
+  "nct": "NCT06860750",
+  "title": "A Trial of SHR-1314 Injection in Adult Patients With Active Non-radiographic Axial Spondyloarthritis",
+  "conditions": [
+   "Active Non-radiographic Axial Spondyloarthritis"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "1. Age ≥ 18 years at the time of signing the informed consent form, regardless of gender.",
+   "2. BMI (Body Mass Index) ≥ 18 kg/m² at the time of screening.",
+   "3. Presence of objective signs of inflammation at the time of screening."
+  ]
+ },
+ {
+  "category": "hierarchy",
+  "query": "calcium pyrophosphate deposition disease",
+  "nct": "NCT06922370",
+  "title": "The Osteoarticular Manifestations in Patients With Gitelman Syndrome",
+  "conditions": [
+   "Gitelman Syndrome",
+   "CPPD - Calcium Pyrophosphate Deposition Disease"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "Patients confirmed with Gitelman Syndrome"
+  ]
+ },
+ {
+  "category": "hierarchy",
+  "query": "onychomycosis",
+  "nct": "NCT06327295",
+  "title": "A Study of ATB1651 in Adults With Mild to Moderate Onchomycosis",
+  "conditions": [
+   "Onychomycosis"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "1. Confirmation of onychomycosis by positive mycological (KOH) staining and positive culture from affected great toenail(s).",
+   "2. Appearance of onychomycosis involving 20% to 60% of 1 (or both) affected great toenail(s), as determined by visual inspection after the nail has been trimmed. If the percentage of infection is outside this range but is still considered appropriate for this study, based on the overall impression of the Principal Investigator (PI), participation can be considered in consultation with the Medical Monitor (MM). The visual inspection results of the appearance of onychomycosis involving 20% to 60% of 1 (or both) affected great toenail(s) will be reviewed by the Sponsor before enrollment.",
+   "3. The combined thickness of the distal nail plate at the associated hyperkeratotic nail bed is \\< 2 mm."
+  ]
+ },
+ {
+  "category": "definition",
+  "query": "metabolic syndrome",
+  "nct": "NCT06218433",
+  "title": "Urothelial Cancer Screening in Individuals With Lynch Syndrome Using a Urine Tumor DNA Panel (LS-URO Study)",
+  "conditions": [
+   "Urothelial Carcinoma",
+   "Lynch Syndrome"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "Willing and able to provide informed consent",
+   "Diagnosis of Lynch syndrome",
+   "Age 50 - 75 years at study recruitment"
+  ]
+ },
+ {
+  "category": "definition",
+  "query": "diabetic kidney disease",
+  "nct": "NCT06600412",
+  "title": "The Evaluation of the Drug R3R01 for the Excretion of Protein in the Urine in Patients With Diabetic Kidney Disease.",
+  "conditions": [
+   "Diabetic Kidney Disease"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "1. Adults (above 18 years of age) with controlled type 2 diabetes (hemoglobin A1c less than 10.5%).",
+   "2. Stable antihypertensive treatment 4 weeks before start of study drug and throughout study duration.",
+   "3. Titrated to the maximal dose or maximal tolerated dose of renin-angiotensin blocking treatment."
+  ]
+ },
+ {
+  "category": "phenotype_qualifier",
+  "query": "perianal fistulizing Crohn's disease",
+  "nct": "NCT06918808",
+  "title": "DB-3Q bmMSC-EVs in Patients With Perianal Fistulizing Crohn's Disease",
+  "conditions": [
+   "Perianal Fistula Due to Crohn's Disease"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "1. Written informed consent from participant",
+   "2. Men and women 18-75 years of age with a diagnosis of Crohn's Disease for at least six months duration prior to Day 1",
+   "3. One or two perianal fistula(s) with 1 or two external openings, that are actively draining"
+  ]
+ },
+ {
+  "category": "subtype",
+  "query": "celiac disease",
+  "nct": "NCT07239336",
+  "title": "Study of DONQ52 in Active Celiac Disease",
+  "conditions": [
+   "Celiac Disease"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "Body mass index (BMI) of 18 to 40 (kg/m2) at screening.",
+   "Willingness to ingest a gluten-free product and Simulated Inadvertent Gluten Exposure (SIGE) products as per the study protocol.",
+   "History of medically diagnosed, and adequately documented (i.e., included in the participant's medical records), CeD"
+  ]
+ },
+ {
+  "category": "subtype",
+  "query": "chronic hand eczema",
+  "nct": "NCT07598058",
+  "title": "PPDTM CorEvitasTM Chronic Hand Eczema (CHE) Drug Safety and Effectiveness Registry",
+  "conditions": [
+   "Chronic Hand Eczema"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "To be eligible to participate in this registry, an individual must meet all of the following criteria:",
+   "1. Diagnosed with moderate-to-severe CHE by a dermatologist or other qualified healthcare provider at the time of enrollment and initiating an eligible medication.",
+   "2. Is at least 18 years of age or older and has attained the legal age for consent to procedures involved in the research, under the applicable law of the jurisdiction in which the research is being conducted at the time of enrollment"
+  ]
+ },
+ {
+  "category": "precursor_vs_disease",
+  "query": "smoldering multiple myeloma",
+  "nct": "NCT03937635",
+  "title": "Lenalidomide, and Dexamethasone With or Without Daratumumab in Treating Patients With High-Risk Smoldering Myeloma",
+  "conditions": [
+   "Smoldering Plasma Cell Myeloma"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "Patients must be diagnosed with asymptomatic high-risk smoldering multiple myeloma (SMM) within the past 12 months. High-risk is defined by the presence of 2 or more of the following factors:",
+   "Abnormal serum free light chain ratio of involved to uninvolved \\>20, but less than 100 if the involved FLC is \\>= 10 mg/dL by serum free light chain (FLC) assay",
+   "Serum M-protein level \\>= 2 gm/dL"
+  ]
+ },
+ {
+  "category": "precursor_vs_disease",
+  "query": "monoclonal gammopathy of undetermined significance",
+  "nct": "NCT07446777",
+  "title": "FAST-M: Prolonged Overnight Fasting and Mediterranean Dietary Intervention for Patients With Multiple Myeloma or Its Precursor Disease",
+  "conditions": [
+   "Multiple Myeloma",
+   "Monoclonal Gammopathy of Undetermined Significance",
+   "Smoldering Multiple Myeloma"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "1. 18 years of age or older.",
+   "2. Any sex/gender.",
+   "3. Able to provide consent."
+  ]
+ },
+ {
+  "category": "biomarker",
+  "query": "heart failure with preserved ejection fraction",
+  "nct": "NCT04602338",
+  "title": "Diagnosis and OutcoMes evaluAtIoN of Multicenter Patients With HFpEF Using Multimodality Imaging",
+  "conditions": [
+   "Heart Failure, Diastolic",
+   "Multicenter Study"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "left ventricular ejection fraction (LVEF)≥50%；",
+   "N-terminal pro-b type natriuretic peptide (NT-proBNP)\\>220pg/ml or b type natriuretic peptide (BNP) \\>80 pg/ml;",
+   "symptoms and syndromes of heart failure;"
+  ]
+ },
+ {
+  "category": "biomarker",
+  "query": "triple negative breast cancer",
+  "nct": "NCT07064018",
+  "title": "Trial of Single Protein Encapsulated Doxorubicin, SPEDOX-6 in Advanced Malignancies",
+  "conditions": [
+   "Soft-tissue Sarcoma",
+   "Triple Negative Breast Cancer",
+   "Non-small Cell Lung Cancer",
+   "Cervical Cancer",
+   "Ovarian Cancer",
+   "KRAS Mutation-Related Tumors"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "Subjects ≥ 18 years at the first screening examination/visit.",
+   "Subjects with advanced histologically or cytologically confirmed solid tumors (see below) refractory to or relapse from at least two previous therapies.",
+   "Tumor types expected to express lower levels of FcRn relative to normal tissue including: STS, TNBC, cervical cancer, NSCLC, ovarian cancer, and KRAS mutated pancreatic ductal adenocarcinoma without requirement for testing FcRn level."
+  ]
+ },
+ {
+  "category": "phenotype_qualifier",
+  "query": "hemophilia A with inhibitors",
+  "nct": "NCT04647227",
+  "title": "SEVENFACT® for Bleeding Events in Hemophilia With Inhibitors",
+  "conditions": [
+   "Hemophilia A With Inhibitor",
+   "Hemophilia B With Inhibitor"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "1. Have a diagnosis of hemophilia A or B with inhibitors.",
+   "2. Be 12 years of age and older",
+   "3. Be capable of understanding and willing to comply with the conditions of the protocol or have a legal guardian who is capable of understanding and complying with the conditions of the protocol"
+  ]
+ },
+ {
+  "category": "definition",
+  "query": "post COVID-19 condition",
+  "nct": "NCT07400848",
+  "title": "Clinical Laboratory Evaluation, Assessment of Symptoms and Recovery in Patients With Post-COVID-19-Vaccination Syndrome",
+  "conditions": [
+   "Post-Acute COVID-19 Vaccination Syndrome",
+   "Postviral Fatigue"
+  ],
+  "inclusion_excerpt": [
+   "General Criteria (apply to all study parts: PROGRESS, ENDOCLOT, REAL, patients and matched healthy controls)",
+   "Inclusion Criteria",
+   "1. Age ≥ 18 years",
+   "2. Sufficient knowledge of German to complete study-related questionnaires and procedures"
+  ]
+ },
+ {
+  "category": "precursor_vs_disease",
+  "query": "latent tuberculosis infection",
+  "nct": "NCT01212003",
+  "title": "Training Protocol on the Natural History of Tuberculosis",
+  "conditions": [
+   "Mycobacterium Infections",
+   "Tuberculosis, Multidrug-Resistant",
+   "Latent Tuberculosis",
+   "Tuberculosis",
+   "Extensively Drug-Resistant Tuberculosis"
+  ],
+  "inclusion_excerpt": [
+   "INCLUSION CRITERIA:",
+   "FOR ALL PATIENTS",
+   "Patients may be included in this study who:",
+   "Have or are suspected to have TB infection."
+  ]
+ },
+ {
+  "category": "treatment_history",
+  "query": "recurrent Clostridioides difficile infection",
+  "nct": "NCT03712722",
+  "title": "Fecal Microbiota Transplantation (FMT) for Clostridium Difficile",
+  "conditions": [
+   "Clostridium Difficile Infection",
+   "Clostridioides Difficile Infection"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "age 18 or higher",
+   "documented Clostridioides difficile infection"
+  ]
+ },
+ {
+  "category": "precursor_vs_disease",
+  "query": "prediabetes",
+  "nct": "NCT06684106",
+  "title": "Ursodeoxycholic Acid Attenuates Statin-Induced Impaired Glucose Tolerance",
+  "conditions": [
+   "Hyperlipidemia",
+   "Ursodeoxycholic Acid",
+   "Statin Therapy",
+   "Glucose Intolerance"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "Age 18-75 years old.",
+   "LDL-C≥3.4mmol/l (130 mg/dL).",
+   "Glycosylated hemoglobin ≤ 6.0% (42 mmol/mol)."
+  ]
+ },
+ {
+  "category": "subtype",
+  "query": "giant cell arteritis",
+  "nct": "NCT07508514",
+  "title": "Early Temporal Dynamics of Optic Nerve Sheath Diameter After Therapy in GCA",
+  "conditions": [
+   "Giant Cell Arteritis",
+   "Temporal Arteritis",
+   "Optic Nerve Diseases",
+   "Diagnosis"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "1. Participants must be enrolled in SONIC-GCA and must have:",
+   "completed the baseline optic nerve sheath ultrasound",
+   "confirmed GCA as determined by the baseline standardized GCA assessment in SONIC-GCA."
+  ]
+ },
+ {
+  "category": "stage",
+  "query": "early Alzheimer's disease",
+  "nct": "NCT06833645",
+  "title": "[18F]AV45(Aβ) and [18F]AV1451(Tau)PET/CT in the Diagnosis of Early Pathological Changes of Alzheimer's Disease",
+  "conditions": [
+   "Alzheimer's Disease"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "Meet the MCI diagnostic criteria of Peterson in 2004;",
+   "The clinicaldementiarating Scale (CDR) score was 0.5;",
+   "Prominent memory loss may also be accompanied by impairment of other cognitive domains;"
+  ]
+ },
+ {
+  "category": "stage",
+  "query": "stage 2 type 1 diabetes",
+  "nct": "NCT06964087",
+  "title": "Pharmacokinetic and Early Efficacy of OPT101 in Patients With Type 1 Diabetes Mellitus",
+  "conditions": [
+   "Type I Diabetes"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "1\\. Able and willing and able to give informed consent for the trial (separate consent must be obtained for Parts B or C).",
+   "2\\. Willing to wear a continuous glucose monitor for the duration of the trial (e.g., Freestyle Libre 3).",
+   "3\\. Male or female aged ≥18 to 50 years on the day of signing informed consent. 4. Diagnosis of T1DM within the last 20 years for Part A, within 1 to 10 years \\[N=15 at \\>5 to 10, N=12 at 1 to 5 yrs\\] for Part B, within less than or equal to 1 year for Part C."
+  ]
+ },
+ {
+  "category": "subtype",
+  "query": "lupus nephritis class III IV",
+  "nct": "NCT07570862",
+  "title": "A Phase 2, Open-Label, Single-Arm Trial of FT819 in Participants With Lupus Nephritis",
+  "conditions": [
+   "Lupus Nephritis",
+   "Systemic Lupus Erythematosus",
+   "SLE - Systemic Lupus Erythematosus",
+   "Lupus Nephritis - WHO Class III",
+   "Lupus Nephritis - WHO Class IV"
+  ],
+  "inclusion_excerpt": [
+   "INCLUSION CRITERIA:",
+   "Age ≥12 to ≤70 years",
+   "Diagnosis of SLE per EULAR/ACR 2019 classification criteria",
+   "Biopsy-proven proliferative Class III or IV LN, with or without concomitant Class V involvement, based on the 2003/2018 ISN/RPS classification"
+  ]
+ },
+ {
+  "category": "chronicity",
+  "query": "chronic hepatitis B",
+  "nct": "NCT06906016",
+  "title": "New HBV Infection Biomarkers: Clinical Characterization and Impact on Management",
+  "conditions": [
+   "Chronic Hepatitis B Virus (HBV) Infection"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "Chronic HBV infection (HbsAg positive carrier for more than 6 months)",
+   "Patient under care within the Henri Mondor-Albert Chenevier University Hospital group"
+  ]
+ },
+ {
+  "category": "hierarchy",
+  "query": "venous thromboembolism",
+  "nct": "NCT07856641",
+  "title": "Circadian Variation of Anti-Factor Xa in Hospitalized Trauma Patients",
+  "conditions": [
+   "Circadian Variation in Anti-Factor Xa (Anti-FXa) Activity"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "Inpatient admission for acute traumatic injury ≥72 hours",
+   "Prescribed LMWH subcutaneous for VTE chemoprophylaxis"
+  ]
+ },
+ {
+  "category": "allergen",
+  "query": "grass pollen allergic rhinitis",
+  "nct": "NCT07055542",
+  "title": "Creating A Risk Assessment Tool for Thunderstorm Asthma: the CARISTA Study",
+  "conditions": [
+   "Allergic Asthma",
+   "Thunderstorm Asthma",
+   "Seasonal Allergic Rhinitis",
+   "Grass Pollen Allergy",
+   "Asthma Exacerbation Due to Thunderstorm",
+   "Asthma Acute"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "Consenting adults aged 18 to 70 years with seasonal allergic rhinitis",
+   "willing to undertake:",
+   "Lung function testing"
+  ]
+ },
+ {
+  "category": "stage",
+  "query": "locally advanced basal cell carcinoma",
+  "nct": "NCT07227350",
+  "title": "L19IL2 or L19TNF or L19IL2/TNF in Patients With Basal Cell Carcinoma (BCC)",
+  "conditions": [
+   "Locally Advanced Basal Cell Carcinoma"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "Patients with high risk, locally advanced histologically confirmed (non-metastatic, node negative, single or multifocal), BCC and amenable to intratumoral injection, not eligible or refusing surgery or radiation therapy according to the evaluation of a local interdisciplinary tumor board.",
+   "Patients with at least one injectable and measurable cutaneous or subcutaneous lesion.",
+   "Patients must not have received prior HHIs and checkpoint inhibitors systemic treatment."
+  ]
+ },
+ {
+  "category": "treatment_history",
+  "query": "BCG-unresponsive non-muscle invasive bladder cancer",
+  "nct": "NCT07747740",
+  "title": "Sequential Gemcitabine Plus Docetaxel Versus Gemcitabine Plus Mitomycin C for BCG-Unresponsive Non-Muscle-Invasive Bladder Cancer",
+  "conditions": [
+   "Non-Muscle-Invasive Bladder Cancer",
+   "BCG-Unresponsive Bladder Cancer"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "1. Age ≥18 years.",
+   "2. Histologically confirmed BCG-unresponsive non-muscle-invasive urothelial bladder cancer (NMIBC).",
+   "3. Complete transurethral resection of bladder tumor (TURBT) before study treatment."
+  ]
+ },
+ {
+  "category": "biomarker",
+  "query": "Philadelphia chromosome positive acute lymphoblastic leukemia",
+  "nct": "NCT07493161",
+  "title": "Chemotherapy With Targeted-Immunotherapy for Newly Diagnosed Ph+ ALL",
+  "conditions": [
+   "Ph+ ALL"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "Newly diagnosed ALL with t(9;22)(q34;q11) or BCR::ABL1 positivity (by PCR or FISH).",
+   "Age ≥ 14 years.",
+   "ECOG performance status ≤ 2."
+  ]
+ },
+ {
+  "category": "abbreviation",
+  "query": "CSU",
+  "nct": "NCT07166211",
+  "title": "Study of CM512 Injection in Subjects With Chronic Spontaneous Urticaria(CSU)",
+  "conditions": [
+   "Chronic Spontaneous Urticaria (CSU)"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "Voluntarily sign the Informed Consent Form.",
+   "Age ≥ 18 years old and ≤ 75 years old.",
+   "Patients with a diagnosis of CSU before screening visit, and the duration was ≥6 months."
+  ]
+ },
+ {
+  "category": "abbreviation",
+  "query": "AS ankylosing spondylitis",
+  "nct": "NCT07166874",
+  "title": "The Impacts of Gluten-free Diet in Patients With Ankylosing Spondylitis",
+  "conditions": [
+   "Ankylosing Spondylitis"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "diagnosis of axial SpA defined by ASAS criteria",
+   "Adults (aged 18-64 years)",
+   "stable treatment (NSAID and/or DMARD) for at least 3 months"
+  ]
+ },
+ {
+  "category": "abbreviation",
+  "query": "PE pulmonary embolism",
+  "nct": "NCT06041594",
+  "title": "Treating Pulmonary Embolism With Laguna Thrombectomy System (TRUST)",
+  "conditions": [
+   "Pulmonary Embolism"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "1. ≥ 18 years of age; \\< 85 years old",
+   "2. RV/LV ratio \\> 0.9 as determined by CTA",
+   "3. Systolic blood pressure \\> 90 mmHg"
+  ]
+ },
+ {
+  "category": "abbreviation",
+  "query": "DM dermatomyositis",
+  "nct": "NCT07345949",
+  "title": "Panniculitis in Dermatomyositis",
+  "conditions": [
+   "Panniculitis",
+   "Dermatomyositis"
+  ],
+  "inclusion_excerpt": [
+   "Inclusion Criteria:",
+   "Subject aged 1 year and older",
+   "With a confirmed diagnosis of dermatomyositis",
+   "With a confirmed diagnosis of panniculitis"
+  ]
+ }
+]

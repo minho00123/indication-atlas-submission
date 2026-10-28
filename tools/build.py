@@ -8,10 +8,12 @@ import zipfile
 from dataset import ROOT, validate, summary, load
 from markdown_render import render
 from score_legacy import score as score_legacy
+from case_review import prepare_stories
+from verify_supplement import verify as verify_supplement
 
 DIST = ROOT / 'dist'
 DOCS = {'guidelines':'GUIDELINES.md','research':'SERVICE_RESEARCH.md',
-        'methodology':'METHODOLOGY.md','run':'RUN.md'}
+        'methodology':'METHODOLOGY.md','boundaries':'BOUNDARIES.md','run':'RUN.md'}
 
 
 def dump(path, value):
@@ -33,13 +35,14 @@ def source_files():
             if path.is_file() and '__pycache__' not in path.parts and path.suffix!='.pyc':
                 if path.is_symlink():raise ValueError('Source package cannot contain symlinks')
                 names.append(path)
-    names.extend(ROOT/name for name in ('README.md','netlify.toml','.gitignore'))
+    names.extend(ROOT/name for name in ('README.md','netlify.toml','.gitignore','.gitattributes'))
     return sorted(names)
 
 
 def build():
     records, core, sources, manifest = validate()
     score_legacy()
+    verify_supplement()
     for name in DOCS.values():
         if not (ROOT/'docs'/name).is_file():raise ValueError('Missing submission document: '+name)
     for folder in ('data/records','content','downloads'):(DIST/folder).mkdir(parents=True,exist_ok=True)
@@ -47,7 +50,7 @@ def build():
         if path.is_file():shutil.copyfile(path,DIST/path.name)
     stats=summary(records,core,manifest)
     brief=[{k:v for k,v in r.items() if k!='reviewed_candidates'} for r in records]
-    stories=load('stories.json')
+    stories=prepare_stories(load('stories.json'),records,sources)
     known={r['source_id'] for r in records}
     for story in stories:
         if not set(story['source_ids']).issubset(known):raise ValueError('Case references missing row')
@@ -58,7 +61,12 @@ def build():
         if key=='methodology':
             supplement=render((ROOT/'docs/LEGACY_EXPERIMENT.md').read_text(encoding='utf8'))
             content+='<details class="legacy-experiment"><summary>초기 탐색 실험(구 정책 기준)</summary><div class="legacy-content">'+supplement+'</div></details>'
+        if key=='boundaries':
+            for filename,title in [('EXTERNAL_BASELINES.md','보조 자료 1 · 외부 코퍼스 문자열 매칭 기준선(과거 탐색)'),('EXTERNAL_TRIALS.md','보조 자료 2 · 실제 임상시험 문구 비교(잠정 라벨)')]:
+                supplement=render((ROOT/'docs'/filename).read_text(encoding='utf8'))
+                content+='<details class="legacy-experiment external-supplement"><summary>'+title+'</summary><div class="legacy-content">'+supplement+'</div></details>'
         (DIST/'content'/f'{key}.html').write_text(content,encoding='utf8')
+    shutil.copytree(ROOT/'evidence/boundary_checks',DIST/'evidence/boundary_checks',dirs_exist_ok=True,ignore=shutil.ignore_patterns('__pycache__','*.pyc'))
     fields=['source_id','keyword','raw_context','input_normalized_condition','standard_name','concept_key','entity_type',
             'research_decision','selected_standard_id','rationale_ko','context_required','evidence_refs',
             'clinical_attributes','concept_name_components','scope_assumptions','definition_warnings']

@@ -6,7 +6,8 @@
 2. 개념을 선택하고 원문별 판단·후보 정의·공식 출처를 확인합니다.
 3. 원본 300건에서 보류·자체 개념 등을 필터합니다.
 4. 판단 사례에서 같은 개념과 다른 범위의 구별을 살펴봅니다.
-5. 가이드라인·서비스 조사·방법과 한계를 읽고 필요한 파일을 내려받습니다.
+5. 판단 사례의 비교 축·후보별 관계·최종 처리를 확인하고, 분류 기준과 적용 한계에서 반례·후속 연구·보조 자료를 읽습니다.
+6. 실행·다운로드에서 필요한 파일을 내려받습니다.
 
 ## 로컬 실행
 
@@ -24,6 +25,7 @@ python3 tools/serve.py
 python3 tools/build.py
 python3 tools/dataset.py --term CD
 python3 tools/score_legacy.py
+python3 tools/verify_supplement.py
 python3 -m unittest discover -s tests -p 'test_*.py'
 ```
 

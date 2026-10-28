@@ -68,6 +68,28 @@ function featureCards(stories) {
   return stories.map(s=>`<button class="feature-card" data-case="${esc(s.id)}"><span class="feature-kicker">${esc(s.tag)}</span><h3>${esc(s.title)}</h3><p>${esc(s.teaser)}</p><span class="feature-link">판단 과정 보기 <span aria-hidden="true">↗</span></span></button>`).join('');
 }
 
+function recordProofLink(id,label=id,values={}) {
+  return `<a class="source-link" href="${esc(pathFor('records',{record:id,...values}))}">${esc(label)} ↗</a>`;
+}
+
+function structuredReviewHTML(story) {
+  const statuses={EXPLICIT:'명시',NOT_STATED:'미명시',NOT_APPLICABLE:'해당 없음',NOT_VERIFIED:'근거 미확인'};
+  const fields={keyword:'키워드',raw_context:'원문',input_normalized_condition:'제공된 정규화 열'};
+  const criteria={added_restriction:'추가되는 제한',information_preservation:'정보 보존',uncertainty:'불확실성과 적용 조건'};
+  return `<section class="case-review" aria-label="구조화한 비교 기준"><h3>무엇을 비교했나요?</h3>
+    <p class="source-note">기존 판정의 근거를 구조화했습니다. 미명시는 해당 조건이 없다고 확인했다는 뜻이 아닙니다.</p>
+    <p class="case-scroll-note">표를 좌우로 밀어 원문·후보·판정 영향을 비교할 수 있습니다.</p>
+    <div class="table-wrap" tabindex="0" role="region" aria-label="사례 비교 축 표 · 좌우 스크롤 가능"><table class="comparison-table"><thead><tr><th>비교 축</th><th>원문에서 확인한 정보</th><th>후보·비교 기준</th><th>판정에 미친 영향</th></tr></thead><tbody>
+    ${story.comparison_axes.map(axis=>`<tr><th scope="row">${esc(axis.axis)}</th><td>${axis.source_items.map(item=>`<div class="evidence-item">${recordProofLink(item.source_id,item.source_id+' · '+fields[item.field])}${badge(statuses[item.status],item.status==='NOT_VERIFIED'?'amber':'gray')}${item.quote?`<blockquote class="evidence-quote">${esc(item.quote)}</blockquote>`:''}${item.note?`<p>${esc(item.note)}</p>`:''}</div>`).join('')}</td>
+    <td>${axis.candidate_items.map(item=>`<div class="evidence-item">${recordProofLink(item.source_id,item.source_id+' → '+item.candidate_key,{candidate:item.candidate_key})}<strong>${esc(item.label)}</strong>${badge(relations[item.relation] ?? item.relation,item.relation==='UNKNOWN'?'amber':'gray')}${item.quote?`<blockquote class="evidence-quote">${esc(item.quote)}</blockquote><span class="source-note">정의 발췌 · ${esc(item.definition_source)}</span>`:''}${item.note?`<p>${esc(item.note)}</p>`:''}</div>`).join('')}${axis.comparison_note?`<p>${esc(axis.comparison_note)}</p>`:''}</td>
+    <td><p>${esc(axis.impact_ko)}</p><details class="axis-sources"><summary>판정 근거</summary><div>${sourcesHTML(axis.evidence_refs)}</div></details></td></tr>`).join('')}
+    </tbody></table></div>
+    <h3 class="label-spaced">어떤 기준으로 결정했나요?</h3><div class="table-wrap"><table class="criteria-table"><tbody>${story.decision_criteria.map(item=>`<tr><th scope="row">${esc(criteria[item.kind])}</th><td><p>${esc(item.text_ko)}</p><div>${item.source_ids.map(id=>recordProofLink(id)).join('')}</div></td></tr>`).join('')}</tbody></table></div>
+    <details class="case-candidates"><summary>후보별 관계 ${story.candidate_reviews.length}개와 대표 선택 확인</summary><p class="source-note">관계 방향은 원문 → 후보입니다. 입력의 최종 처리 상태는 아래 원문별로 따로 표시합니다.</p>
+    ${story.candidate_reviews.length?`<div class="table-wrap"><table class="candidate-review-table"><thead><tr><th>원본</th><th>검토한 후보</th><th>후보와의 관계</th><th>대표 선택</th></tr></thead><tbody>${story.candidate_reviews.map(item=>`<tr><td>${recordProofLink(item.source_id)}</td><td>${recordProofLink(item.source_id,item.source_id+' → '+item.candidate_key,{candidate:item.candidate_key})}<br>${esc(item.label)}</td><td>${badge(relations[item.relation] ?? item.relation,item.relation==='UNKNOWN'?'amber':'gray')}</td><td>${item.selected?'대표 ID로 선택':'검토 기록 보존'}</td></tr>`).join('')}</tbody></table></div>`:'<p class="source-note">이 사례는 입력 충돌로 후보를 채택하지 않았습니다. 아래 최종 처리와 원문을 확인해 주세요.</p>'}</details>
+    </section>`;
+}
+
 function dictionaryPage() {
   const m=data.metadata;
   $('#main-content').innerHTML=`<div class="container">
@@ -81,6 +103,7 @@ function dictionaryPage() {
     <div class="examples"><span>예시 검색</span>${['CD','AML','T2DM','PASC','NAFLD'].map(q=>`<button class="example-chip" data-query="${q}">${q}</button>`).join('')}<span>· ${m.unique_alias_spellings}개 검색 문자열</span></div>
     <div class="explorer"><div id="results" class="panel result-panel"></div><div id="dictionary-detail" class="panel detail"></div></div></section>
     <section class="featured-section"><div class="section-heading"><div><h2>대표 판단 사례</h2><p>다의 약어·범위 차이·추가 조건·명칭 변경·입력 충돌의 판단을 확인하세요.</p></div><a href="#cases">모든 사례 ↗</a></div><div class="featured-grid">${featureCards(['cd','eczema','nsclc','masld','conflict'].map(id=>data.stories.find(s=>s.id===id)))}</div></section>
+    <a class="boundary-card" href="#materials/boundaries"><div><p class="eyebrow">판정 근거에서 후속 검증까지</p><h2>분류 기준과 적용 한계</h2><p>후보를 채택하거나 보류한 이유, 원천 용어체계에서 재검토가 필요한 관계, 추가 검증이 필요한 지점을 정리했습니다.</p></div><span>자세히 보기 ↗</span></a>
   </div>`;
   const input=$('#dictionary-search'); input.value=route.params.get('q') ?? '';
   selectedKey=route.params.get('concept'); searchPage=0;
@@ -179,7 +202,12 @@ async function loadCandidates(id) {
     const items=row.reviewed_candidates ?? [];
     const selected=items.find(c=>c.candidate_key===row.selected_standard_id), code=document.getElementById('code-'+id);
     if(selected && code && safeURL(selected.source_url))code.innerHTML=`<a href="${esc(safeURL(selected.source_url))}" target="_blank" rel="noopener noreferrer">${esc(row.selected_standard_id)} ↗</a>`;
-    target.innerHTML=items.map(c=>`<details><summary>${badge(relations[c.relation] ?? c.relation,c.relation==='UNKNOWN'?'amber':c.relation==='EXACT'?'':'gray')}<span class="candidate-heading"><span>${esc(c.label)}</span><span class="candidate-origin">${badge(c.system || c.candidate_key.split(':')[0],'gray')}<span>${esc(c.candidate_key)}</span></span></span></summary><div class="candidate-body"><div class="candidate-meta">${esc(c.candidate_key)}${c.candidate_key===row.selected_standard_id?' · 선택한 대표 ID':''} · ${esc(c.version.startsWith('LIVE_')?'조회 시점 스냅샷':c.version)}${c.active===false?' · 비활성':''}</div>${c.definitions.map(d=>`<p class="candidate-definition"><b>${esc(d.source)}</b>${esc(d.text || '정의가 제공되지 않았습니다.')}</p>`).join('')}<a class="source-link" href="${esc(safeURL(c.source_url))}" target="_blank" rel="noopener noreferrer">공식 출처 확인 ↗</a></div></details>`).join('') || '<p class="source-note">범위 관계를 확정해 기록한 외부 후보가 없습니다. 위 판단 이유와 출처를 확인해 주세요.</p>';
+    target.innerHTML=items.map(c=>`<details data-candidate-key="${esc(c.candidate_key)}"><summary>${badge(relations[c.relation] ?? c.relation,c.relation==='UNKNOWN'?'amber':c.relation==='EXACT'?'':'gray')}<span class="candidate-heading"><span>${esc(c.label)}</span><span class="candidate-origin">${badge(c.system || c.candidate_key.split(':')[0],'gray')}<span>${esc(c.candidate_key)}</span></span></span></summary><div class="candidate-body"><div class="candidate-meta">${esc(c.candidate_key)}${c.candidate_key===row.selected_standard_id?' · 선택한 대표 ID':''} · ${esc(c.version.startsWith('LIVE_')?'조회 시점 스냅샷':c.version)}${c.active===false?' · 비활성':''}</div>${c.definitions.map(d=>`<p class="candidate-definition"><b>${esc(d.source)}</b>${esc(d.text || '정의가 제공되지 않았습니다.')}</p>`).join('')}<a class="source-link" href="${esc(safeURL(c.source_url))}" target="_blank" rel="noopener noreferrer">공식 출처 확인 ↗</a></div></details>`).join('') || '<p class="source-note">범위 관계를 확정해 기록한 외부 후보가 없습니다. 위 판단 이유와 출처를 확인해 주세요.</p>';
+    const requested=route.params.get('candidate');
+    if(route.page==='records' && route.params.get('record')===id && requested) {
+      const detail=[...target.querySelectorAll('details')].find(node=>node.dataset.candidateKey===requested);
+      if(detail) { detail.open=true;detail.querySelector('summary').focus({preventScroll:true});detail.scrollIntoView({block:'start',behavior:'instant'}); }
+    }
   } catch {
     detailCache.delete(id);
     const target=document.getElementById('candidates-'+id);
@@ -245,12 +273,12 @@ function casesPage() {
     $('#main-content').innerHTML=`<div class="container">${heading('문맥으로 살펴보는 판단','어떤 표현을 묶고, 왜 구별했을까요?','원문에서 결정까지, 대표 사례의 판단 과정을 따라가 보세요.')}<div class="case-grid">${featureCards(data.stories)}</div>
     <section class="section-space"><details><summary>${data.comparisons.length}쌍의 비교 사례 전체 보기</summary><div class="table-wrap"><table><thead><tr><th>비교 원본</th><th>판단 이유</th></tr></thead><tbody>${data.comparisons.map(c=>`<tr><td><a href="${pathFor('records',{record:c.left_source_id})}">${esc(c.left_keyword)} · ${c.left_source_id}</a><br><a href="${pathFor('records',{record:c.right_source_id})}">${esc(c.right_keyword)} · ${c.right_source_id}</a></td><td>${esc(c.rationale_ko)}</td></tr>`).join('')}</tbody></table></div></details><p class="source-note">현재 구축 규칙의 일관성을 확인하는 사례이며 독립 평가셋은 아닙니다.</p></section></div>`; return;
   }
-  $('#main-content').innerHTML=`<div class="container">${heading('문맥으로 살펴보는 판단','판단 사례','문맥, 개념 범위, 그리고 보존할 조건을 구별합니다.')}<div class="case-layout"><nav class="case-sidebar" aria-label="판단 사례 목록">${data.stories.map(s=>`<a class="${s.id===story.id?'active':''}" href="#cases/${s.id}">${esc(s.short_title)}</a>`).join('')}</nav><article class="panel case-story"><span class="feature-kicker">${esc(story.tag)}</span><h2>${esc(story.title)}</h2><p>${esc(story.explanation)}</p><div class="info-note"><strong>판단 원칙</strong>${esc(story.principle)}</div>${story.source_ids.map(id=>{
+  $('#main-content').innerHTML=`<div class="container">${heading('문맥으로 살펴보는 판단','판단 사례','문맥, 개념 범위, 그리고 보존할 조건을 구별합니다.')}<div class="case-layout"><nav class="case-sidebar" aria-label="판단 사례 목록">${data.stories.map(s=>`<a class="${s.id===story.id?'active':''}" href="#cases/${s.id}">${esc(s.short_title)}</a>`).join('')}</nav><article class="panel case-story"><span class="feature-kicker">${esc(story.tag)}</span><h2>${esc(story.title)}</h2><p>${esc(story.explanation)}</p><div class="info-note"><strong>판단 원칙</strong>${esc(story.principle)}</div>${structuredReviewHTML(story)}<h3 class="case-final-heading">최종 처리와 원문 근거</h3>${story.source_ids.map(id=>{
     const r=recordById.get(id);return `<section class="case-row"><div class="case-row-head">${badge(id,'gray')}<span>${esc(r.keyword)}</span>${decisionBadge(r)}</div><blockquote class="source-quote">${esc(r.raw_context)}</blockquote><p><b>선택:</b> ${esc(r.standard_name || '단일 개념 연결 보류')}</p><p>${esc(r.rationale_ko)}</p><a href="${pathFor('records',{record:id})}">후보 정의와 전체 출처 확인 ↗</a></section>`;
   }).join('')}<div class="detail-section"><h3>반례·적용 조건</h3><p>${esc(story.exception)}</p><a href="#materials/guidelines">판단 가이드라인에서 원칙 확인 ↗</a></div></article></div></div>`;
 }
 
-const materials={guidelines:['판단 가이드라인','guidelines'],research:['유사 서비스 조사','research'],methodology:['구축 방법·검증·한계','methodology'],downloads:['실행·다운로드','run']};
+const materials={guidelines:['판단 가이드라인','guidelines'],research:['유사 서비스 조사','research'],methodology:['구축 방법·검증·한계','methodology'],boundaries:['반례·후속 연구','boundaries'],downloads:['실행·다운로드','run']};
 async function materialsPage() {
   const tab=materials[route.sub]?route.sub:'guidelines';
   $('#main-content').innerHTML=`<div class="container">${heading('방법과 제출 자료','구축 방법부터, 실행까지','판단 규칙과 조사 자료를 읽고, 데이터와 실행 코드를 내려받을 수 있습니다.')}<nav class="materials-tabs" aria-label="구축·제출 자료">${Object.entries(materials).map(([key,[label]])=>`<a class="${tab===key?'active':''}" href="#materials/${key}">${label}</a>`).join('')}</nav>
@@ -298,7 +326,7 @@ document.addEventListener('click', async event=>{
   if(d.searchPage) { searchPage+=Number(d.searchPage);updateSearch();return; }
   if(d.recordPage) { recordPage+=Number(d.recordPage);updateRecords();return; }
   if(d.aliasPage) { aliasPage+=Number(d.aliasPage);updateAliases();return; }
-  if('recordsBack' in d) { const p=currentParams();delete p.record;delete p.concept;navigate('records',p);return; }
+  if('recordsBack' in d) { const p=currentParams();delete p.record;delete p.concept;delete p.candidate;navigate('records',p);return; }
   if('resultsBack' in d) { selectedKey=null; const q=$('#dictionary-search').value; history.replaceState(null,'',pathFor('dictionary',{q}));route=readRoute();updateSearch({autoSelect:false});$('#results').scrollIntoView({block:'start'});return; }
   if('copyLink' in d) { try { await navigator.clipboard.writeText(location.href);toast('현재 판단의 주소를 복사했습니다.'); } catch { toast('주소창의 링크를 복사해 주세요.'); } return; }
   if(d.retryCandidate)loadCandidates(d.retryCandidate);

@@ -19,6 +19,8 @@
 
 현재 데이터는 300행, 287개 개념 그룹, 419개 별칭 연결(고유 문자열 404개), 보류 2행입니다. 질환군·소견·상태도 포함합니다. 연구 판정 스냅샷이며 전문가 승인 또는 독립 정확도 평가를 의미하지 않습니다.
 
+![원문과 후보를 비교한 분류 근거](docs/case-preview.png)
+
 ## 실행과 검사
 
 Python 3.9 이상, 표준 라이브러리만 사용합니다.
@@ -28,6 +30,7 @@ python3 tools/serve.py
 python3 tools/build.py
 python3 tools/dataset.py --term CD
 python3 tools/score_legacy.py
+python3 tools/verify_supplement.py
 python3 -m unittest discover -s tests -p 'test_*.py'
 ```
 
@@ -56,5 +59,7 @@ python3 -m unittest discover -s tests -p 'test_*.py'
 제공된 XLSX는 수정하지 않았습니다. `data/manifest.json`에 기준 파일 해시가 있고 빌드 시 확인합니다. `data/records.json`은 근거를 대조해 작성한 고정 판정입니다. 빌드가 판정을 다시 추론하는 것은 아닙니다.
 
 MONDO v2026-10-06 사용 항목을 발췌했으며 전체 온톨로지를 포함하지 않습니다. [MONDO 공식 릴리스](https://github.com/monarch-initiative/mondo/releases/tag/v2026-10-06), [MONDO 귀속·이용 안내](https://mondo.monarchinitiative.org/pages/download/). NCIt는 NCI EVS, MeSH는 NLM, HPO는 Jackson Laboratory의 공식 응답을 보존했습니다. 자료별 URL·시각·원본 해시는 `evidence/api-manifest.json`과 `data/sources.json`에서 추적합니다.
+
+대표 10개 사례의 비교 축·후보별 관계·최종 처리와 원문 근거를 구조화했습니다. [분류 기준과 적용 한계](docs/BOUNDARIES.md)에는 현재 검토 기록과 후속 연구를, [외부 기준선](docs/EXTERNAL_BASELINES.md)·[임상시험 탐색](docs/EXTERNAL_TRIALS.md)에는 과거 보조 분석과 한계를 구별했습니다. 보조 분석은 현재 사전의 성능 평가가 아닙니다.
 
 AI를 후보 탐색·초안·구현·교차 검토에 사용했고 원문과 공식 자료로 대조했습니다. 초기 실험의 재채점 자료와 한계는 [구 정책 실험 기록](docs/LEGACY_EXPERIMENT.md)에 별도로 보존했습니다. 이 수치는 현재 사전의 정확도가 아닙니다.

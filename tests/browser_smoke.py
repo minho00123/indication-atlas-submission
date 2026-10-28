@@ -109,6 +109,37 @@ def run(base_url,browser_executable=None,output=None):
         page.goto(base_url+'#materials/guidelines',wait_until='networkidle')
         expect(page.locator('#document-content')).to_contain_text('G12')
         results.append('Case studies and rendered research/guidelines')
+        page.goto(base_url,wait_until='networkidle')
+        card=page.locator('.boundary-card')
+        expect(card).to_contain_text('분류 기준과 적용 한계')
+        assert not re.search(r'\d',card.inner_text())
+        card.click()
+        expect(page.locator('#document-content>h1')).to_have_text('분류 기준과 적용 한계')
+        expect(page.locator('.external-supplement')).to_have_count(2)
+        for supplement in page.locator('.external-supplement').all():
+            assert not supplement.evaluate('(el)=>el.open')
+        page.locator('.external-supplement>summary').nth(0).click()
+        expect(page.locator('.external-supplement').nth(0)).to_contain_text('280/348')
+        expect(page.locator('.external-supplement').nth(0)).to_contain_text('미채점')
+        page.locator('.external-supplement>summary').nth(1).click()
+        expect(page.locator('.external-supplement').nth(1)).to_contain_text('40개 임상시험')
+        expect(page.locator('.external-supplement').nth(1)).to_contain_text('단일 AI')
+        response=page.request.get(base_url+'evidence/boundary_checks/manifest.json')
+        assert response.ok and response.json()['clinical_trials']['unique_trials']==40
+        results.append('Boundary card, separated exploratory appendices and published evidence')
+        for case in ['cd','eczema','nsclc','masld','conflict','or','her2','gca','sense','long-covid']:
+            page.goto(base_url+'#cases/'+case,wait_until='networkidle')
+            expect(page.locator('.comparison-table')).to_be_visible()
+            expect(page.locator('.criteria-table tbody tr')).to_have_count(3)
+            expect(page.get_by_role('heading',name='최종 처리와 원문 근거')).to_be_visible()
+        page.goto(base_url+'#cases/her2',wait_until='networkidle')
+        page.locator('.comparison-table a[href*="candidate=NCIT%3AC53556"]').click()
+        target=page.locator('details[data-candidate-key="NCIT:C53556"]')
+        expect(target).to_have_attribute('open','')
+        expect(target).to_contain_text('lack of expression of estrogen receptor')
+        page.reload(wait_until='networkidle')
+        expect(page.locator('details[data-candidate-key="NCIT:C53556"]')).to_have_attribute('open','')
+        results.append('All ten structured cases and linked original candidate definition')
         page.goto(base_url+'#materials/methodology',wait_until='networkidle')
         expect(page.locator('#document-content>h2')).to_have_count(7)
         expect(page.locator('.legacy-experiment')).not_to_have_attribute('open','')
@@ -134,9 +165,12 @@ def run(base_url,browser_executable=None,output=None):
         assert not normalization_errors,normalization_errors
         results.append('Browser normalization equals all reviewed alias keys')
         page.set_viewport_size({'width':390,'height':844})
-        for route in ['#dictionary','#records','#cases','#cases/cd','#materials/guidelines','#materials/research','#materials/methodology','#materials/downloads','#aliases']:
+        for route in ['#dictionary','#records','#cases','#cases/cd','#materials/guidelines','#materials/research','#materials/methodology','#materials/downloads','#materials/boundaries','#aliases']:
             page.goto(base_url+route,wait_until='networkidle')
             assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth'),route
+        for case in ['cd','eczema','nsclc','masld','conflict','or','her2','gca','sense','long-covid']:
+            page.goto(base_url+'#cases/'+case,wait_until='networkidle')
+            assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth'),case
         page.goto(base_url+'#dictionary',wait_until='networkidle')
         page.locator('[data-concept-list]').click()
         expect(page.locator('#search-heading')).to_be_focused()

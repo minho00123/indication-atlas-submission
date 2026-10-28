@@ -1,0 +1,3329 @@
+{
+ "method": "M2 + doc-level abbreviation resolution (P3 prototype)",
+ "summary": {
+  "n": 960,
+  "outcomes": {
+   "ABSTAIN": 466,
+   "CORRECT": 319,
+   "UNSCORABLE": 123,
+   "WRONG": 52
+  },
+  "coverage": 0.515,
+  "precision": "319/371",
+  "precision_wilson95": [
+   0.821,
+   0.891
+  ],
+  "false_auto_merge": "52/960",
+  "defined_abbrevs": 120,
+  "doc_level": {
+   "n": 531,
+   "outcomes": {
+    "ABSTAIN": 288,
+    "CORRECT": 159,
+    "UNSCORABLE": 64,
+    "WRONG": 20
+   },
+   "precision": "159/179",
+   "precision_wilson95": [
+    0.834,
+    0.926
+   ],
+   "false_auto_merge": "20/531"
+  }
+ },
+ "changed": [
+  {
+   "pmid": "9949209",
+   "text": "WD",
+   "gold": [
+    "D006527"
+   ],
+   "how": "expanded",
+   "long_form": "Wilson disease",
+   "pred": "MONDO:0010200",
+   "pred_label": "Wilson disease",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9949209",
+   "text": "CT",
+   "gold": [
+    "OMIM:215600"
+   ],
+   "how": "expanded",
+   "long_form": "copper toxicosis",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9949209",
+   "text": "WD",
+   "gold": [
+    "D006527"
+   ],
+   "how": "expanded",
+   "long_form": "Wilson disease",
+   "pred": "MONDO:0010200",
+   "pred_label": "Wilson disease",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9949209",
+   "text": "CT",
+   "gold": [
+    "OMIM:215600"
+   ],
+   "how": "expanded",
+   "long_form": "copper toxicosis",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9949209",
+   "text": "CT",
+   "gold": [
+    "OMIM:215600"
+   ],
+   "how": "expanded",
+   "long_form": "copper toxicosis",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9949209",
+   "text": "WD",
+   "gold": [
+    "D006527"
+   ],
+   "how": "expanded",
+   "long_form": "Wilson disease",
+   "pred": "MONDO:0010200",
+   "pred_label": "Wilson disease",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9949209",
+   "text": "CT",
+   "gold": [
+    "OMIM:215600"
+   ],
+   "how": "expanded",
+   "long_form": "copper toxicosis",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9949209",
+   "text": "CT",
+   "gold": [
+    "OMIM:215600"
+   ],
+   "how": "expanded",
+   "long_form": "copper toxicosis",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9950360",
+   "text": "APC",
+   "gold": [
+    "D011125"
+   ],
+   "how": "expanded",
+   "long_form": "adenomatous polyposis coli",
+   "pred": "MONDO:0021055",
+   "pred_label": "classic familial adenomatous polyposis",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9950360",
+   "text": "FAP",
+   "gold": [
+    "D011125"
+   ],
+   "how": "expanded",
+   "long_form": "familial adenomatous polyposis",
+   "pred": "MONDO:0021055",
+   "pred_label": "classic familial adenomatous polyposis",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9950360",
+   "text": "APC",
+   "gold": [
+    "D011125"
+   ],
+   "how": "expanded",
+   "long_form": "adenomatous polyposis coli",
+   "pred": "MONDO:0021055",
+   "pred_label": "classic familial adenomatous polyposis",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9950360",
+   "text": "FAP",
+   "gold": [
+    "D011125"
+   ],
+   "how": "expanded",
+   "long_form": "familial adenomatous polyposis",
+   "pred": "MONDO:0021055",
+   "pred_label": "classic familial adenomatous polyposis",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9950360",
+   "text": "APC",
+   "gold": [
+    "D011125"
+   ],
+   "how": "expanded",
+   "long_form": "adenomatous polyposis coli",
+   "pred": "MONDO:0021055",
+   "pred_label": "classic familial adenomatous polyposis",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9950360",
+   "text": "APC",
+   "gold": [
+    "D011125"
+   ],
+   "how": "expanded",
+   "long_form": "adenomatous polyposis coli",
+   "pred": "MONDO:0021055",
+   "pred_label": "classic familial adenomatous polyposis",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9950360",
+   "text": "APC",
+   "gold": [
+    "D011125"
+   ],
+   "how": "expanded",
+   "long_form": "adenomatous polyposis coli",
+   "pred": "MONDO:0021055",
+   "pred_label": "classic familial adenomatous polyposis",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9950360",
+   "text": "APC",
+   "gold": [
+    "D011125"
+   ],
+   "how": "expanded",
+   "long_form": "adenomatous polyposis coli",
+   "pred": "MONDO:0021055",
+   "pred_label": "classic familial adenomatous polyposis",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9950360",
+   "text": "FAP",
+   "gold": [
+    "D011125"
+   ],
+   "how": "expanded",
+   "long_form": "familial adenomatous polyposis",
+   "pred": "MONDO:0021055",
+   "pred_label": "classic familial adenomatous polyposis",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9950360",
+   "text": "FAP",
+   "gold": [
+    "D011125"
+   ],
+   "how": "expanded",
+   "long_form": "familial adenomatous polyposis",
+   "pred": "MONDO:0021055",
+   "pred_label": "classic familial adenomatous polyposis",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9950360",
+   "text": "FAP",
+   "gold": [
+    "D011125"
+   ],
+   "how": "expanded",
+   "long_form": "familial adenomatous polyposis",
+   "pred": "MONDO:0021055",
+   "pred_label": "classic familial adenomatous polyposis",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9950360",
+   "text": "FAP",
+   "gold": [
+    "D011125"
+   ],
+   "how": "expanded",
+   "long_form": "familial adenomatous polyposis",
+   "pred": "MONDO:0021055",
+   "pred_label": "classic familial adenomatous polyposis",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9634518",
+   "text": "PKU",
+   "gold": [
+    "D010661"
+   ],
+   "how": "expanded",
+   "long_form": "Phenylketonuria",
+   "pred": "MONDO:0009861",
+   "pred_label": "phenylketonuria",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9634518",
+   "text": "MHP",
+   "gold": [
+    "D010661"
+   ],
+   "how": "expanded",
+   "long_form": "mild hyperphenylalaninemia",
+   "pred": "MONDO:0019335",
+   "pred_label": "mild hyperphenylalaninemia",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9563950",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "expanded",
+   "long_form": "dystrophy. Myotonic dystrophy",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9563950",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "expanded",
+   "long_form": "dystrophy. Myotonic dystrophy",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9563950",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "expanded",
+   "long_form": "dystrophy. Myotonic dystrophy",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9563950",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "expanded",
+   "long_form": "dystrophy. Myotonic dystrophy",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9563950",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "expanded",
+   "long_form": "dystrophy. Myotonic dystrophy",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9674903",
+   "text": "PWS",
+   "gold": [
+    "D011218"
+   ],
+   "how": "expanded",
+   "long_form": "Prader-Willi syndrome",
+   "pred": "MONDO:0008300",
+   "pred_label": "Prader-Willi syndrome",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9674903",
+   "text": "PWS",
+   "gold": [
+    "D011218"
+   ],
+   "how": "expanded",
+   "long_form": "Prader-Willi syndrome",
+   "pred": "MONDO:0008300",
+   "pred_label": "Prader-Willi syndrome",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9674903",
+   "text": "PWS",
+   "gold": [
+    "D011218"
+   ],
+   "how": "expanded",
+   "long_form": "Prader-Willi syndrome",
+   "pred": "MONDO:0008300",
+   "pred_label": "Prader-Willi syndrome",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9674903",
+   "text": "PWS",
+   "gold": [
+    "D011218"
+   ],
+   "how": "expanded",
+   "long_form": "Prader-Willi syndrome",
+   "pred": "MONDO:0008300",
+   "pred_label": "Prader-Willi syndrome",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9674903",
+   "text": "PWS",
+   "gold": [
+    "D011218"
+   ],
+   "how": "expanded",
+   "long_form": "Prader-Willi syndrome",
+   "pred": "MONDO:0008300",
+   "pred_label": "Prader-Willi syndrome",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9674903",
+   "text": "PWS",
+   "gold": [
+    "D011218"
+   ],
+   "how": "expanded",
+   "long_form": "Prader-Willi syndrome",
+   "pred": "MONDO:0008300",
+   "pred_label": "Prader-Willi syndrome",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9674903",
+   "text": "PWS",
+   "gold": [
+    "D011218"
+   ],
+   "how": "expanded",
+   "long_form": "Prader-Willi syndrome",
+   "pred": "MONDO:0008300",
+   "pred_label": "Prader-Willi syndrome",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9863607",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "expanded",
+   "long_form": "dystrophy. Myotonic dystrophy",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9863607",
+   "text": "CDM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9863607",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "expanded",
+   "long_form": "dystrophy. Myotonic dystrophy",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9863607",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "expanded",
+   "long_form": "dystrophy. Myotonic dystrophy",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9863607",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "expanded",
+   "long_form": "dystrophy. Myotonic dystrophy",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9863607",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "expanded",
+   "long_form": "dystrophy. Myotonic dystrophy",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9863607",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "expanded",
+   "long_form": "dystrophy. Myotonic dystrophy",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9863607",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "expanded",
+   "long_form": "dystrophy. Myotonic dystrophy",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9863607",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "expanded",
+   "long_form": "dystrophy. Myotonic dystrophy",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9863607",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "expanded",
+   "long_form": "dystrophy. Myotonic dystrophy",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9443866",
+   "text": "A-T",
+   "gold": [
+    "D001260"
+   ],
+   "how": "expanded",
+   "long_form": "ataxia-telangiectasia",
+   "pred": "MONDO:0008840",
+   "pred_label": "ataxia telangiectasia",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9443866",
+   "text": "A-T",
+   "gold": [
+    "D001260"
+   ],
+   "how": "expanded",
+   "long_form": "ataxia-telangiectasia",
+   "pred": "MONDO:0008840",
+   "pred_label": "ataxia telangiectasia",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9668171",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9668171",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9668171",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9668171",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9463314",
+   "text": "A-T",
+   "gold": [
+    "D001260"
+   ],
+   "how": "expanded",
+   "long_form": "ataxia-telangiectasia",
+   "pred": "MONDO:0008840",
+   "pred_label": "ataxia telangiectasia",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9463314",
+   "text": "A-T",
+   "gold": [
+    "D001260"
+   ],
+   "how": "expanded",
+   "long_form": "ataxia-telangiectasia",
+   "pred": "MONDO:0008840",
+   "pred_label": "ataxia telangiectasia",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9463314",
+   "text": "A-T",
+   "gold": [
+    "D001260"
+   ],
+   "how": "expanded",
+   "long_form": "ataxia-telangiectasia",
+   "pred": "MONDO:0008840",
+   "pred_label": "ataxia telangiectasia",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9463314",
+   "text": "A-T",
+   "gold": [
+    "D001260"
+   ],
+   "how": "expanded",
+   "long_form": "ataxia-telangiectasia",
+   "pred": "MONDO:0008840",
+   "pred_label": "ataxia telangiectasia",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9463314",
+   "text": "A-T",
+   "gold": [
+    "D001260"
+   ],
+   "how": "expanded",
+   "long_form": "ataxia-telangiectasia",
+   "pred": "MONDO:0008840",
+   "pred_label": "ataxia telangiectasia",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9790667",
+   "text": "CTX",
+   "gold": [
+    "D019294"
+   ],
+   "how": "expanded",
+   "long_form": "cerebrotendinous xanthomatosis",
+   "pred": "MONDO:0008948",
+   "pred_label": "cerebrotendinous xanthomatosis",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9702690",
+   "text": "ALD",
+   "gold": [
+    "D000326"
+   ],
+   "how": "expanded",
+   "long_form": "adrenoleukodystrophy",
+   "pred": "MONDO:0018544",
+   "pred_label": "adrenoleukodystrophy",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9702690",
+   "text": "ALD",
+   "gold": [
+    "D000326"
+   ],
+   "how": "expanded",
+   "long_form": "adrenoleukodystrophy",
+   "pred": "MONDO:0018544",
+   "pred_label": "adrenoleukodystrophy",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9702690",
+   "text": "ALD",
+   "gold": [
+    "D000326"
+   ],
+   "how": "expanded",
+   "long_form": "adrenoleukodystrophy",
+   "pred": "MONDO:0018544",
+   "pred_label": "adrenoleukodystrophy",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9702690",
+   "text": "AD",
+   "gold": [
+    "D000544"
+   ],
+   "how": "expanded",
+   "long_form": "Alzheimers disease",
+   "pred": "MONDO:0004975",
+   "pred_label": "Alzheimer disease",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9702690",
+   "text": "ALD",
+   "gold": [
+    "D000326"
+   ],
+   "how": "expanded",
+   "long_form": "adrenoleukodystrophy",
+   "pred": "MONDO:0018544",
+   "pred_label": "adrenoleukodystrophy",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9702690",
+   "text": "ALD",
+   "gold": [
+    "D000326"
+   ],
+   "how": "expanded",
+   "long_form": "adrenoleukodystrophy",
+   "pred": "MONDO:0018544",
+   "pred_label": "adrenoleukodystrophy",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9702690",
+   "text": "ALD",
+   "gold": [
+    "D000326"
+   ],
+   "how": "expanded",
+   "long_form": "adrenoleukodystrophy",
+   "pred": "MONDO:0018544",
+   "pred_label": "adrenoleukodystrophy",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9618166",
+   "text": "PDS",
+   "gold": [
+    "C536648"
+   ],
+   "how": "expanded",
+   "long_form": "Pendred, the disease gene",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9618166",
+   "text": "PDS",
+   "gold": [
+    "C536648"
+   ],
+   "how": "expanded",
+   "long_form": "Pendred, the disease gene",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9427148",
+   "text": "AGU",
+   "gold": [
+    "D054880"
+   ],
+   "how": "expanded",
+   "long_form": "Aspartylglucosaminuria",
+   "pred": "MONDO:0008830",
+   "pred_label": "aspartylglucosaminuria",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9427148",
+   "text": "AGU",
+   "gold": [
+    "D054880"
+   ],
+   "how": "expanded",
+   "long_form": "Aspartylglucosaminuria",
+   "pred": "MONDO:0008830",
+   "pred_label": "aspartylglucosaminuria",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9427148",
+   "text": "AGU",
+   "gold": [
+    "D054880"
+   ],
+   "how": "expanded",
+   "long_form": "Aspartylglucosaminuria",
+   "pred": "MONDO:0008830",
+   "pred_label": "aspartylglucosaminuria",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9427148",
+   "text": "AGU",
+   "gold": [
+    "D054880"
+   ],
+   "how": "expanded",
+   "long_form": "Aspartylglucosaminuria",
+   "pred": "MONDO:0008830",
+   "pred_label": "aspartylglucosaminuria",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9467011",
+   "text": "CD",
+   "gold": [
+    "D006223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9467011",
+   "text": "CD",
+   "gold": [
+    "D006223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9467011",
+   "text": "BZS",
+   "gold": [
+    "D006223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9467011",
+   "text": "CD",
+   "gold": [
+    "D006223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9467011",
+   "text": "CD",
+   "gold": [
+    "D006223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9467011",
+   "text": "CD",
+   "gold": [
+    "D006223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9467011",
+   "text": "BZS",
+   "gold": [
+    "D006223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9467011",
+   "text": "CD",
+   "gold": [
+    "D006223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9467011",
+   "text": "BZS",
+   "gold": [
+    "D006223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9467011",
+   "text": "BZS",
+   "gold": [
+    "D006223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9467011",
+   "text": "CD",
+   "gold": [
+    "D006223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9467011",
+   "text": "CD",
+   "gold": [
+    "D006223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9467011",
+   "text": "CD",
+   "gold": [
+    "D006223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9831355",
+   "text": "HNPCC",
+   "gold": [
+    "D003123"
+   ],
+   "how": "expanded",
+   "long_form": "hereditary non-polyposis colorectal cancer",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9358014",
+   "text": "HH",
+   "gold": [
+    "D006432"
+   ],
+   "how": "expanded",
+   "long_form": "hemochromatosis",
+   "pred": "MONDO:0021001",
+   "pred_label": "hemochromatosis type 1",
+   "outcome": "WRONG"
+  },
+  {
+   "pmid": "9358014",
+   "text": "HH",
+   "gold": [
+    "D006432"
+   ],
+   "how": "expanded",
+   "long_form": "hemochromatosis",
+   "pred": "MONDO:0021001",
+   "pred_label": "hemochromatosis type 1",
+   "outcome": "WRONG"
+  },
+  {
+   "pmid": "9358014",
+   "text": "HH",
+   "gold": [
+    "D006432"
+   ],
+   "how": "expanded",
+   "long_form": "hemochromatosis",
+   "pred": "MONDO:0021001",
+   "pred_label": "hemochromatosis type 1",
+   "outcome": "WRONG"
+  },
+  {
+   "pmid": "9382108",
+   "text": "HD",
+   "gold": [
+    "D006816"
+   ],
+   "how": "expanded",
+   "long_form": "Huntington disease",
+   "pred": "MONDO:0007739",
+   "pred_label": "Huntington disease",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9382108",
+   "text": "HD",
+   "gold": [
+    "D006816"
+   ],
+   "how": "expanded",
+   "long_form": "Huntington disease",
+   "pred": "MONDO:0007739",
+   "pred_label": "Huntington disease",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9382108",
+   "text": "HD",
+   "gold": [
+    "D006816"
+   ],
+   "how": "expanded",
+   "long_form": "Huntington disease",
+   "pred": "MONDO:0007739",
+   "pred_label": "Huntington disease",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9771706",
+   "text": "WFS",
+   "gold": [
+    "OMIM:222300"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9771706",
+   "text": "WFS",
+   "gold": [
+    "OMIM:222300"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9771706",
+   "text": "WFS",
+   "gold": [
+    "OMIM:222300"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9472666",
+   "text": "C6D",
+   "gold": [
+    "OMIM:612446"
+   ],
+   "how": "expanded",
+   "long_form": "C6 deficiency",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9472666",
+   "text": "C6D",
+   "gold": [
+    "OMIM:612446"
+   ],
+   "how": "expanded",
+   "long_form": "C6 deficiency",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9472666",
+   "text": "C6D",
+   "gold": [
+    "OMIM:612446"
+   ],
+   "how": "expanded",
+   "long_form": "C6 deficiency",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9733027",
+   "text": "FRDA",
+   "gold": [
+    "D005621"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9733027",
+   "text": "FRDA",
+   "gold": [
+    "D005621"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9506545",
+   "text": "SCA1",
+   "gold": [
+    "OMIM:164400"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9506545",
+   "text": "SCA2",
+   "gold": [
+    "OMIM:183090"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9506545",
+   "text": "SCA3",
+   "gold": [
+    "D017827"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9506545",
+   "text": "MJD",
+   "gold": [
+    "D017827"
+   ],
+   "how": "expanded",
+   "long_form": "SCA3/Machado-Joseph disease",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9506545",
+   "text": "SCA1",
+   "gold": [
+    "OMIM:164400"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9506545",
+   "text": "SCA2",
+   "gold": [
+    "OMIM:183090"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9506545",
+   "text": "SCA3",
+   "gold": [
+    "D017827"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9506545",
+   "text": "SCA1",
+   "gold": [
+    "OMIM:164400"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9506545",
+   "text": "SCA2",
+   "gold": [
+    "OMIM:183090"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9506545",
+   "text": "SCA3",
+   "gold": [
+    "D017827"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9506545",
+   "text": "SCA1",
+   "gold": [
+    "OMIM:164400"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9506545",
+   "text": "SCA2",
+   "gold": [
+    "OMIM:183090"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9506545",
+   "text": "SCA3",
+   "gold": [
+    "D017827"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9288106",
+   "text": "A-T",
+   "gold": [
+    "D001260"
+   ],
+   "how": "expanded",
+   "long_form": "Ataxia-telangiectasia",
+   "pred": "MONDO:0008840",
+   "pred_label": "ataxia telangiectasia",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9288106",
+   "text": "A-T",
+   "gold": [
+    "D001260"
+   ],
+   "how": "expanded",
+   "long_form": "Ataxia-telangiectasia",
+   "pred": "MONDO:0008840",
+   "pred_label": "ataxia telangiectasia",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9288106",
+   "text": "T-PLL",
+   "gold": [
+    "D015461"
+   ],
+   "how": "expanded",
+   "long_form": "T-cell prolymphocytic leukaemia",
+   "pred": "MONDO:0019468",
+   "pred_label": "T-cell prolymphocytic leukemia",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9288106",
+   "text": "A-T",
+   "gold": [
+    "D001260"
+   ],
+   "how": "expanded",
+   "long_form": "Ataxia-telangiectasia",
+   "pred": "MONDO:0008840",
+   "pred_label": "ataxia telangiectasia",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9288106",
+   "text": "T-PLL",
+   "gold": [
+    "D015461"
+   ],
+   "how": "expanded",
+   "long_form": "T-cell prolymphocytic leukaemia",
+   "pred": "MONDO:0019468",
+   "pred_label": "T-cell prolymphocytic leukemia",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9288106",
+   "text": "A-T",
+   "gold": [
+    "D001260"
+   ],
+   "how": "expanded",
+   "long_form": "Ataxia-telangiectasia",
+   "pred": "MONDO:0008840",
+   "pred_label": "ataxia telangiectasia",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9288106",
+   "text": "T-PLL",
+   "gold": [
+    "D015461"
+   ],
+   "how": "expanded",
+   "long_form": "T-cell prolymphocytic leukaemia",
+   "pred": "MONDO:0019468",
+   "pred_label": "T-cell prolymphocytic leukemia",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9288106",
+   "text": "A-T",
+   "gold": [
+    "D001260"
+   ],
+   "how": "expanded",
+   "long_form": "Ataxia-telangiectasia",
+   "pred": "MONDO:0008840",
+   "pred_label": "ataxia telangiectasia",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9288106",
+   "text": "B-NHL",
+   "gold": [
+    "D016393"
+   ],
+   "how": "expanded",
+   "long_form": "B-cell non-Hodgkins lymphomas",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9288106",
+   "text": "B-NHL",
+   "gold": [
+    "D016393"
+   ],
+   "how": "expanded",
+   "long_form": "B-cell non-Hodgkins lymphomas",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9288106",
+   "text": "T-PLL",
+   "gold": [
+    "D015461"
+   ],
+   "how": "expanded",
+   "long_form": "T-cell prolymphocytic leukaemia",
+   "pred": "MONDO:0019468",
+   "pred_label": "T-cell prolymphocytic leukemia",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9580132",
+   "text": "FNDI",
+   "gold": [
+    "OMIM:125700"
+   ],
+   "how": "expanded",
+   "long_form": "Familial neurohypophyseal diabetes insipidus",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9580132",
+   "text": "FNDI",
+   "gold": [
+    "OMIM:125700"
+   ],
+   "how": "expanded",
+   "long_form": "Familial neurohypophyseal diabetes insipidus",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9580132",
+   "text": "FNDI",
+   "gold": [
+    "OMIM:125700"
+   ],
+   "how": "expanded",
+   "long_form": "Familial neurohypophyseal diabetes insipidus",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9714764",
+   "text": "IDDM",
+   "gold": [
+    "D003922"
+   ],
+   "how": "expanded",
+   "long_form": "insulin-dependent diabetes mellitus",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9792409",
+   "text": "A-T",
+   "gold": [
+    "D001260"
+   ],
+   "how": "expanded",
+   "long_form": "ataxia-telangiectasia",
+   "pred": "MONDO:0008840",
+   "pred_label": "ataxia telangiectasia",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9792409",
+   "text": "A-T",
+   "gold": [
+    "D001260"
+   ],
+   "how": "expanded",
+   "long_form": "ataxia-telangiectasia",
+   "pred": "MONDO:0008840",
+   "pred_label": "ataxia telangiectasia",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9792409",
+   "text": "A-T",
+   "gold": [
+    "D001260"
+   ],
+   "how": "expanded",
+   "long_form": "ataxia-telangiectasia",
+   "pred": "MONDO:0008840",
+   "pred_label": "ataxia telangiectasia",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9792409",
+   "text": "A-T",
+   "gold": [
+    "D001260"
+   ],
+   "how": "expanded",
+   "long_form": "ataxia-telangiectasia",
+   "pred": "MONDO:0008840",
+   "pred_label": "ataxia telangiectasia",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9792409",
+   "text": "A-T",
+   "gold": [
+    "D001260"
+   ],
+   "how": "expanded",
+   "long_form": "ataxia-telangiectasia",
+   "pred": "MONDO:0008840",
+   "pred_label": "ataxia telangiectasia",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9674906",
+   "text": "SJS",
+   "gold": [
+    "D010009"
+   ],
+   "how": "expanded",
+   "long_form": "Schwartz-Jampel syndrome",
+   "pred": "MONDO:0009717",
+   "pred_label": "Schwartz-Jampel syndrome",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9674906",
+   "text": "SWS",
+   "gold": [
+    "C537502"
+   ],
+   "how": "expanded",
+   "long_form": "Stuve-Wiedemann syndrome",
+   "pred": "MONDO:0031280",
+   "pred_label": "Stuve-Wiedemann syndrome",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9674906",
+   "text": "SWS",
+   "gold": [
+    "C537502"
+   ],
+   "how": "expanded",
+   "long_form": "Stuve-Wiedemann syndrome",
+   "pred": "MONDO:0031280",
+   "pred_label": "Stuve-Wiedemann syndrome",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9674906",
+   "text": "SJS",
+   "gold": [
+    "D010009"
+   ],
+   "how": "expanded",
+   "long_form": "Schwartz-Jampel syndrome",
+   "pred": "MONDO:0009717",
+   "pred_label": "Schwartz-Jampel syndrome",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9674906",
+   "text": "SWS",
+   "gold": [
+    "C537502"
+   ],
+   "how": "expanded",
+   "long_form": "Stuve-Wiedemann syndrome",
+   "pred": "MONDO:0031280",
+   "pred_label": "Stuve-Wiedemann syndrome",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9674906",
+   "text": "SWS",
+   "gold": [
+    "C537502"
+   ],
+   "how": "expanded",
+   "long_form": "Stuve-Wiedemann syndrome",
+   "pred": "MONDO:0031280",
+   "pred_label": "Stuve-Wiedemann syndrome",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9674906",
+   "text": "SWS",
+   "gold": [
+    "C537502"
+   ],
+   "how": "expanded",
+   "long_form": "Stuve-Wiedemann syndrome",
+   "pred": "MONDO:0031280",
+   "pred_label": "Stuve-Wiedemann syndrome",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9729124",
+   "text": "CLD",
+   "gold": [
+    "C536210"
+   ],
+   "how": "expanded",
+   "long_form": "chloride diarrhea",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9729124",
+   "text": "CLD",
+   "gold": [
+    "C536210"
+   ],
+   "how": "expanded",
+   "long_form": "chloride diarrhea",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9729124",
+   "text": "CLD",
+   "gold": [
+    "C536210"
+   ],
+   "how": "expanded",
+   "long_form": "chloride diarrhea",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9729124",
+   "text": "CLD",
+   "gold": [
+    "C536210"
+   ],
+   "how": "expanded",
+   "long_form": "chloride diarrhea",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9729124",
+   "text": "CLD",
+   "gold": [
+    "C536210"
+   ],
+   "how": "expanded",
+   "long_form": "chloride diarrhea",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9729124",
+   "text": "PDS",
+   "gold": [
+    "C536648"
+   ],
+   "how": "expanded",
+   "long_form": "Pendred syndrome gene",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9585605",
+   "text": "AS",
+   "gold": [
+    "D017204"
+   ],
+   "how": "expanded",
+   "long_form": "Angelman syndrome",
+   "pred": "MONDO:0007113",
+   "pred_label": "Angelman syndrome",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9585605",
+   "text": "UPD",
+   "gold": [
+    "D024182"
+   ],
+   "how": "expanded",
+   "long_form": "uniparental disomy",
+   "pred": "MONDO:0700086",
+   "pred_label": "uniparental disomy",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9585605",
+   "text": "AS",
+   "gold": [
+    "D017204"
+   ],
+   "how": "expanded",
+   "long_form": "Angelman syndrome",
+   "pred": "MONDO:0007113",
+   "pred_label": "Angelman syndrome",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9585605",
+   "text": "AS",
+   "gold": [
+    "D017204"
+   ],
+   "how": "expanded",
+   "long_form": "Angelman syndrome",
+   "pred": "MONDO:0007113",
+   "pred_label": "Angelman syndrome",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9585605",
+   "text": "AS",
+   "gold": [
+    "D017204"
+   ],
+   "how": "expanded",
+   "long_form": "Angelman syndrome",
+   "pred": "MONDO:0007113",
+   "pred_label": "Angelman syndrome",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9585605",
+   "text": "AS",
+   "gold": [
+    "D017204"
+   ],
+   "how": "expanded",
+   "long_form": "Angelman syndrome",
+   "pred": "MONDO:0007113",
+   "pred_label": "Angelman syndrome",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9360520",
+   "text": "ADNDI",
+   "gold": [
+    "OMIM:125700"
+   ],
+   "how": "expanded",
+   "long_form": "Autosomal dominant neurohypophyseal diabetes insipidus",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9360520",
+   "text": "ADNDI",
+   "gold": [
+    "OMIM:125700"
+   ],
+   "how": "expanded",
+   "long_form": "Autosomal dominant neurohypophyseal diabetes insipidus",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9600235",
+   "text": "A-T",
+   "gold": [
+    "D001260"
+   ],
+   "how": "expanded",
+   "long_form": "ataxia-telangiectasia",
+   "pred": "MONDO:0008840",
+   "pred_label": "ataxia telangiectasia",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9600235",
+   "text": "A-T",
+   "gold": [
+    "D001260"
+   ],
+   "how": "expanded",
+   "long_form": "ataxia-telangiectasia",
+   "pred": "MONDO:0008840",
+   "pred_label": "ataxia telangiectasia",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9600235",
+   "text": "A-T",
+   "gold": [
+    "D001260"
+   ],
+   "how": "expanded",
+   "long_form": "ataxia-telangiectasia",
+   "pred": "MONDO:0008840",
+   "pred_label": "ataxia telangiectasia",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9770531",
+   "text": "VHL",
+   "gold": [
+    "D006623"
+   ],
+   "how": "expanded",
+   "long_form": "von Hippel-Lindau",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9770531",
+   "text": "VHL",
+   "gold": [
+    "D006623"
+   ],
+   "how": "expanded",
+   "long_form": "von Hippel-Lindau",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9770531",
+   "text": "VHL",
+   "gold": [
+    "D006623"
+   ],
+   "how": "expanded",
+   "long_form": "von Hippel-Lindau",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9603435",
+   "text": "TSD",
+   "gold": [
+    "D013661"
+   ],
+   "how": "expanded",
+   "long_form": "Tay-Sachs disease",
+   "pred": "MONDO:0010100",
+   "pred_label": "Tay-Sachs disease",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9603435",
+   "text": "TSD",
+   "gold": [
+    "D013661"
+   ],
+   "how": "expanded",
+   "long_form": "Tay-Sachs disease",
+   "pred": "MONDO:0010100",
+   "pred_label": "Tay-Sachs disease",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9294109",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9294109",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9618170",
+   "text": "DMD",
+   "gold": [
+    "D020388"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9618170",
+   "text": "XLDCM",
+   "gold": [
+    "D002311"
+   ],
+   "how": "expanded",
+   "long_form": "X-linked dilated cardiomyopathy",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9618170",
+   "text": "XLDCM",
+   "gold": [
+    "D002311"
+   ],
+   "how": "expanded",
+   "long_form": "X-linked dilated cardiomyopathy",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9618170",
+   "text": "XLDCM",
+   "gold": [
+    "D002311"
+   ],
+   "how": "expanded",
+   "long_form": "X-linked dilated cardiomyopathy",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9618170",
+   "text": "XLDCM",
+   "gold": [
+    "D002311"
+   ],
+   "how": "expanded",
+   "long_form": "X-linked dilated cardiomyopathy",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9618170",
+   "text": "XLDCM",
+   "gold": [
+    "D002311"
+   ],
+   "how": "expanded",
+   "long_form": "X-linked dilated cardiomyopathy",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9852676",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9852676",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9852676",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9852676",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9852676",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9852676",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9852676",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9888388",
+   "text": "HC",
+   "gold": [
+    "D046349"
+   ],
+   "how": "expanded",
+   "long_form": "Hereditary coproporphyria",
+   "pred": "MONDO:0007369",
+   "pred_label": "hereditary coproporphyria",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9888388",
+   "text": "HC",
+   "gold": [
+    "D046349"
+   ],
+   "how": "expanded",
+   "long_form": "Hereditary coproporphyria",
+   "pred": "MONDO:0007369",
+   "pred_label": "hereditary coproporphyria",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9888388",
+   "text": "HC",
+   "gold": [
+    "D046349"
+   ],
+   "how": "expanded",
+   "long_form": "Hereditary coproporphyria",
+   "pred": "MONDO:0007369",
+   "pred_label": "hereditary coproporphyria",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9585611",
+   "text": "AAPC",
+   "gold": [
+    "C538265"
+   ],
+   "how": "expanded",
+   "long_form": "adenomatous polyposis coli",
+   "pred": "MONDO:0021055",
+   "pred_label": "classic familial adenomatous polyposis",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9585611",
+   "text": "FAP",
+   "gold": [
+    "D011125"
+   ],
+   "how": "expanded",
+   "long_form": "familial adenomatous polyposis",
+   "pred": "MONDO:0021055",
+   "pred_label": "classic familial adenomatous polyposis",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9585611",
+   "text": "AAPC",
+   "gold": [
+    "C538265"
+   ],
+   "how": "expanded",
+   "long_form": "adenomatous polyposis coli",
+   "pred": "MONDO:0021055",
+   "pred_label": "classic familial adenomatous polyposis",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9585611",
+   "text": "AAPC",
+   "gold": [
+    "C538265"
+   ],
+   "how": "expanded",
+   "long_form": "adenomatous polyposis coli",
+   "pred": "MONDO:0021055",
+   "pred_label": "classic familial adenomatous polyposis",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9585611",
+   "text": "APC",
+   "gold": [
+    "D011125"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9585611",
+   "text": "AAPC",
+   "gold": [
+    "C538265"
+   ],
+   "how": "expanded",
+   "long_form": "adenomatous polyposis coli",
+   "pred": "MONDO:0021055",
+   "pred_label": "classic familial adenomatous polyposis",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9585611",
+   "text": "APC",
+   "gold": [
+    "D011125"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9585611",
+   "text": "APC",
+   "gold": [
+    "D011125"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9585611",
+   "text": "AAPC",
+   "gold": [
+    "C538265"
+   ],
+   "how": "expanded",
+   "long_form": "adenomatous polyposis coli",
+   "pred": "MONDO:0021055",
+   "pred_label": "classic familial adenomatous polyposis",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9585611",
+   "text": "AAPC",
+   "gold": [
+    "C538265"
+   ],
+   "how": "expanded",
+   "long_form": "adenomatous polyposis coli",
+   "pred": "MONDO:0021055",
+   "pred_label": "classic familial adenomatous polyposis",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9585611",
+   "text": "APC",
+   "gold": [
+    "D011125"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9585611",
+   "text": "FAP",
+   "gold": [
+    "D011125"
+   ],
+   "how": "expanded",
+   "long_form": "familial adenomatous polyposis",
+   "pred": "MONDO:0021055",
+   "pred_label": "classic familial adenomatous polyposis",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9724771",
+   "text": "APC",
+   "gold": [
+    "D011125"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9724771",
+   "text": "FAP",
+   "gold": [
+    "D011125"
+   ],
+   "how": "expanded",
+   "long_form": "familial adenomatous polyposis",
+   "pred": "MONDO:0021055",
+   "pred_label": "classic familial adenomatous polyposis",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9724771",
+   "text": "APC",
+   "gold": [
+    "D011125"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9724771",
+   "text": "FAP",
+   "gold": [
+    "D011125"
+   ],
+   "how": "expanded",
+   "long_form": "familial adenomatous polyposis",
+   "pred": "MONDO:0021055",
+   "pred_label": "classic familial adenomatous polyposis",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9724771",
+   "text": "APC",
+   "gold": [
+    "D011125"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9724771",
+   "text": "FAP",
+   "gold": [
+    "D011125"
+   ],
+   "how": "expanded",
+   "long_form": "familial adenomatous polyposis",
+   "pred": "MONDO:0021055",
+   "pred_label": "classic familial adenomatous polyposis",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9724771",
+   "text": "APC",
+   "gold": [
+    "D011125"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9724771",
+   "text": "APC",
+   "gold": [
+    "D011125"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9724771",
+   "text": "APC",
+   "gold": [
+    "D011125"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9724771",
+   "text": "APC",
+   "gold": [
+    "D011125"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9724771",
+   "text": "FAP",
+   "gold": [
+    "D011125"
+   ],
+   "how": "expanded",
+   "long_form": "familial adenomatous polyposis",
+   "pred": "MONDO:0021055",
+   "pred_label": "classic familial adenomatous polyposis",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9448273",
+   "text": "RCC",
+   "gold": [
+    "D002292"
+   ],
+   "how": "expanded",
+   "long_form": "renal cell carcinomas",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9448273",
+   "text": "RCC",
+   "gold": [
+    "D002292"
+   ],
+   "how": "expanded",
+   "long_form": "renal cell carcinomas",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9448273",
+   "text": "VHL",
+   "gold": [
+    "D006623"
+   ],
+   "how": "expanded",
+   "long_form": "von Hippel-Lindau",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9448273",
+   "text": "VHL",
+   "gold": [
+    "D006623"
+   ],
+   "how": "expanded",
+   "long_form": "von Hippel-Lindau",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9448273",
+   "text": "RCC",
+   "gold": [
+    "D002292"
+   ],
+   "how": "expanded",
+   "long_form": "renal cell carcinomas",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9448273",
+   "text": "VHL",
+   "gold": [
+    "D006623"
+   ],
+   "how": "expanded",
+   "long_form": "von Hippel-Lindau",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9448273",
+   "text": "VHL",
+   "gold": [
+    "D006623"
+   ],
+   "how": "expanded",
+   "long_form": "von Hippel-Lindau",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9448273",
+   "text": "VHL",
+   "gold": [
+    "D006623"
+   ],
+   "how": "expanded",
+   "long_form": "von Hippel-Lindau",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9448273",
+   "text": "VHL",
+   "gold": [
+    "D006623"
+   ],
+   "how": "expanded",
+   "long_form": "von Hippel-Lindau",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9848786",
+   "text": "HUS",
+   "gold": [
+    "D006463"
+   ],
+   "how": "expanded",
+   "long_form": "hemolytic uremic syndrome",
+   "pred": "MONDO:0001549",
+   "pred_label": "hemolytic-uremic syndrome",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9848786",
+   "text": "HUS",
+   "gold": [
+    "D006463"
+   ],
+   "how": "expanded",
+   "long_form": "hemolytic uremic syndrome",
+   "pred": "MONDO:0001549",
+   "pred_label": "hemolytic-uremic syndrome",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9848786",
+   "text": "HUS",
+   "gold": [
+    "D006463"
+   ],
+   "how": "expanded",
+   "long_form": "hemolytic uremic syndrome",
+   "pred": "MONDO:0001549",
+   "pred_label": "hemolytic-uremic syndrome",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9521325",
+   "text": "IVF",
+   "gold": [
+    "C537182"
+   ],
+   "how": "expanded",
+   "long_form": "idiopathic ventricular fibrillation",
+   "pred": "MONDO:0100234",
+   "pred_label": "paroxysmal familial ventricular fibrillation",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9521325",
+   "text": "IVF",
+   "gold": [
+    "C537182"
+   ],
+   "how": "expanded",
+   "long_form": "idiopathic ventricular fibrillation",
+   "pred": "MONDO:0100234",
+   "pred_label": "paroxysmal familial ventricular fibrillation",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9521325",
+   "text": "IVF",
+   "gold": [
+    "C537182"
+   ],
+   "how": "expanded",
+   "long_form": "idiopathic ventricular fibrillation",
+   "pred": "MONDO:0100234",
+   "pred_label": "paroxysmal familial ventricular fibrillation",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9521325",
+   "text": "IVF",
+   "gold": [
+    "C537182"
+   ],
+   "how": "expanded",
+   "long_form": "idiopathic ventricular fibrillation",
+   "pred": "MONDO:0100234",
+   "pred_label": "paroxysmal familial ventricular fibrillation",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9521325",
+   "text": "IVF",
+   "gold": [
+    "C537182"
+   ],
+   "how": "expanded",
+   "long_form": "idiopathic ventricular fibrillation",
+   "pred": "MONDO:0100234",
+   "pred_label": "paroxysmal familial ventricular fibrillation",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9521325",
+   "text": "IVF",
+   "gold": [
+    "C537182"
+   ],
+   "how": "expanded",
+   "long_form": "idiopathic ventricular fibrillation",
+   "pred": "MONDO:0100234",
+   "pred_label": "paroxysmal familial ventricular fibrillation",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9869602",
+   "text": "APC",
+   "gold": [
+    "D011125"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9869602",
+   "text": "APC",
+   "gold": [
+    "D011125"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9336417",
+   "text": "AS",
+   "gold": [
+    "D013167"
+   ],
+   "how": "expanded",
+   "long_form": "ankylosing spondylitis",
+   "pred": "MONDO:0005306",
+   "pred_label": "ankylosing spondylitis",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9336417",
+   "text": "AS",
+   "gold": [
+    "D013167"
+   ],
+   "how": "expanded",
+   "long_form": "ankylosing spondylitis",
+   "pred": "MONDO:0005306",
+   "pred_label": "ankylosing spondylitis",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9336417",
+   "text": "AS",
+   "gold": [
+    "D013167"
+   ],
+   "how": "expanded",
+   "long_form": "ankylosing spondylitis",
+   "pred": "MONDO:0005306",
+   "pred_label": "ankylosing spondylitis",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9336417",
+   "text": "AS",
+   "gold": [
+    "D013167"
+   ],
+   "how": "expanded",
+   "long_form": "ankylosing spondylitis",
+   "pred": "MONDO:0005306",
+   "pred_label": "ankylosing spondylitis",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9336417",
+   "text": "AS",
+   "gold": [
+    "D013167"
+   ],
+   "how": "expanded",
+   "long_form": "ankylosing spondylitis",
+   "pred": "MONDO:0005306",
+   "pred_label": "ankylosing spondylitis",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9731533",
+   "text": "FAP",
+   "gold": [
+    "D011125"
+   ],
+   "how": "expanded",
+   "long_form": "familial adenomatous polyposis",
+   "pred": "MONDO:0021055",
+   "pred_label": "classic familial adenomatous polyposis",
+   "outcome": "UNSCORABLE"
+  },
+  {
+   "pmid": "9731533",
+   "text": "CRC",
+   "gold": [
+    "D015179"
+   ],
+   "how": "expanded",
+   "long_form": "colorectal cancer",
+   "pred": "MONDO:0005575",
+   "pred_label": "colorectal cancer",
+   "outcome": "WRONG"
+  },
+  {
+   "pmid": "9731533",
+   "text": "APC",
+   "gold": [
+    "D011125"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9731533",
+   "text": "CRC",
+   "gold": [
+    "D015179"
+   ],
+   "how": "expanded",
+   "long_form": "colorectal cancer",
+   "pred": "MONDO:0005575",
+   "pred_label": "colorectal cancer",
+   "outcome": "WRONG"
+  },
+  {
+   "pmid": "9425239",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9425239",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9425239",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9425239",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9973276",
+   "text": "APC",
+   "gold": [
+    "D011125"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9973276",
+   "text": "APC",
+   "gold": [
+    "D011125"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9973276",
+   "text": "APC",
+   "gold": [
+    "D011125"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9927033",
+   "text": "NF1",
+   "gold": [
+    "D009456"
+   ],
+   "how": "expanded",
+   "long_form": "neurofibromatosis type 1",
+   "pred": "MONDO:0018975",
+   "pred_label": "neurofibromatosis type 1",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9800909",
+   "text": "DMD",
+   "gold": [
+    "D020388"
+   ],
+   "how": "expanded",
+   "long_form": "Duchenne muscular dystrophy",
+   "pred": "MONDO:0010679",
+   "pred_label": "Duchenne muscular dystrophy",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9800909",
+   "text": "DMD",
+   "gold": [
+    "D020388"
+   ],
+   "how": "expanded",
+   "long_form": "Duchenne muscular dystrophy",
+   "pred": "MONDO:0010679",
+   "pred_label": "Duchenne muscular dystrophy",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9800909",
+   "text": "DMD",
+   "gold": [
+    "D020388"
+   ],
+   "how": "expanded",
+   "long_form": "Duchenne muscular dystrophy",
+   "pred": "MONDO:0010679",
+   "pred_label": "Duchenne muscular dystrophy",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9800909",
+   "text": "DMD",
+   "gold": [
+    "D020388"
+   ],
+   "how": "expanded",
+   "long_form": "Duchenne muscular dystrophy",
+   "pred": "MONDO:0010679",
+   "pred_label": "Duchenne muscular dystrophy",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9800909",
+   "text": "DMD",
+   "gold": [
+    "D020388"
+   ],
+   "how": "expanded",
+   "long_form": "Duchenne muscular dystrophy",
+   "pred": "MONDO:0010679",
+   "pred_label": "Duchenne muscular dystrophy",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9861003",
+   "text": "BPAD",
+   "gold": [
+    "D001714"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9861003",
+   "text": "BPAD",
+   "gold": [
+    "D001714"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9861003",
+   "text": "BPAD",
+   "gold": [
+    "D001714"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9861003",
+   "text": "BPAD",
+   "gold": [
+    "D001714"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9861003",
+   "text": "BPAD",
+   "gold": [
+    "D001714"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9861003",
+   "text": "BPAD",
+   "gold": [
+    "D001714"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "932197",
+   "text": "C5D",
+   "gold": [
+    "OMIM:609536"
+   ],
+   "how": "expanded",
+   "long_form": "C5-deficient",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "932197",
+   "text": "C5D",
+   "gold": [
+    "OMIM:609536"
+   ],
+   "how": "expanded",
+   "long_form": "C5-deficient",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "932197",
+   "text": "C5D",
+   "gold": [
+    "OMIM:609536"
+   ],
+   "how": "expanded",
+   "long_form": "C5-deficient",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "932197",
+   "text": "C5D",
+   "gold": [
+    "OMIM:609536"
+   ],
+   "how": "expanded",
+   "long_form": "C5-deficient",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9439660",
+   "text": "A-T",
+   "gold": [
+    "D001260"
+   ],
+   "how": "expanded",
+   "long_form": "ataxia-telangiectasia",
+   "pred": "MONDO:0008840",
+   "pred_label": "ataxia telangiectasia",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9439660",
+   "text": "A-T",
+   "gold": [
+    "D001260"
+   ],
+   "how": "expanded",
+   "long_form": "ataxia-telangiectasia",
+   "pred": "MONDO:0008840",
+   "pred_label": "ataxia telangiectasia",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9439660",
+   "text": "A-T",
+   "gold": [
+    "D001260"
+   ],
+   "how": "expanded",
+   "long_form": "ataxia-telangiectasia",
+   "pred": "MONDO:0008840",
+   "pred_label": "ataxia telangiectasia",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9439660",
+   "text": "A-T",
+   "gold": [
+    "D001260"
+   ],
+   "how": "expanded",
+   "long_form": "ataxia-telangiectasia",
+   "pred": "MONDO:0008840",
+   "pred_label": "ataxia telangiectasia",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9439660",
+   "text": "A-T",
+   "gold": [
+    "D001260"
+   ],
+   "how": "expanded",
+   "long_form": "ataxia-telangiectasia",
+   "pred": "MONDO:0008840",
+   "pred_label": "ataxia telangiectasia",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9439660",
+   "text": "A-T",
+   "gold": [
+    "D001260"
+   ],
+   "how": "expanded",
+   "long_form": "ataxia-telangiectasia",
+   "pred": "MONDO:0008840",
+   "pred_label": "ataxia telangiectasia",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9744473",
+   "text": "MLD",
+   "gold": [
+    "D007966"
+   ],
+   "how": "expanded",
+   "long_form": "metachromatic leukodystrophy",
+   "pred": "MONDO:0018868",
+   "pred_label": "metachromatic leukodystrophy",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9744473",
+   "text": "MLD",
+   "gold": [
+    "D007966"
+   ],
+   "how": "expanded",
+   "long_form": "metachromatic leukodystrophy",
+   "pred": "MONDO:0018868",
+   "pred_label": "metachromatic leukodystrophy",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9744473",
+   "text": "MLD",
+   "gold": [
+    "D007966"
+   ],
+   "how": "expanded",
+   "long_form": "metachromatic leukodystrophy",
+   "pred": "MONDO:0018868",
+   "pred_label": "metachromatic leukodystrophy",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9744473",
+   "text": "MLD",
+   "gold": [
+    "D007966"
+   ],
+   "how": "expanded",
+   "long_form": "metachromatic leukodystrophy",
+   "pred": "MONDO:0018868",
+   "pred_label": "metachromatic leukodystrophy",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9888390",
+   "text": "MLD",
+   "gold": [
+    "D007966"
+   ],
+   "how": "expanded",
+   "long_form": "metachromatic leukodystrophy",
+   "pred": "MONDO:0018868",
+   "pred_label": "metachromatic leukodystrophy",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9888390",
+   "text": "MLD",
+   "gold": [
+    "D007966"
+   ],
+   "how": "expanded",
+   "long_form": "metachromatic leukodystrophy",
+   "pred": "MONDO:0018868",
+   "pred_label": "metachromatic leukodystrophy",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9888390",
+   "text": "MLD",
+   "gold": [
+    "D007966"
+   ],
+   "how": "expanded",
+   "long_form": "metachromatic leukodystrophy",
+   "pred": "MONDO:0018868",
+   "pred_label": "metachromatic leukodystrophy",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9888390",
+   "text": "MLD",
+   "gold": [
+    "D007966"
+   ],
+   "how": "expanded",
+   "long_form": "metachromatic leukodystrophy",
+   "pred": "MONDO:0018868",
+   "pred_label": "metachromatic leukodystrophy",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9888390",
+   "text": "MLD",
+   "gold": [
+    "D007966"
+   ],
+   "how": "expanded",
+   "long_form": "metachromatic leukodystrophy",
+   "pred": "MONDO:0018868",
+   "pred_label": "metachromatic leukodystrophy",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "941901",
+   "text": "TSD",
+   "gold": [
+    "D013661"
+   ],
+   "how": "expanded",
+   "long_form": "Tay-Sachs disease",
+   "pred": "MONDO:0010100",
+   "pred_label": "Tay-Sachs disease",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "941901",
+   "text": "TSD",
+   "gold": [
+    "D013661"
+   ],
+   "how": "expanded",
+   "long_form": "Tay-Sachs disease",
+   "pred": "MONDO:0010100",
+   "pred_label": "Tay-Sachs disease",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "941901",
+   "text": "TSD",
+   "gold": [
+    "D013661"
+   ],
+   "how": "expanded",
+   "long_form": "Tay-Sachs disease",
+   "pred": "MONDO:0010100",
+   "pred_label": "Tay-Sachs disease",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "941901",
+   "text": "TSD",
+   "gold": [
+    "D013661"
+   ],
+   "how": "expanded",
+   "long_form": "Tay-Sachs disease",
+   "pred": "MONDO:0010100",
+   "pred_label": "Tay-Sachs disease",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9590284",
+   "text": "PWS",
+   "gold": [
+    "D011218"
+   ],
+   "how": "expanded",
+   "long_form": "Prader-Willi syndrome",
+   "pred": "MONDO:0008300",
+   "pred_label": "Prader-Willi syndrome",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9590284",
+   "text": "PWS",
+   "gold": [
+    "D011218"
+   ],
+   "how": "expanded",
+   "long_form": "Prader-Willi syndrome",
+   "pred": "MONDO:0008300",
+   "pred_label": "Prader-Willi syndrome",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9590284",
+   "text": "PWS",
+   "gold": [
+    "D011218"
+   ],
+   "how": "expanded",
+   "long_form": "Prader-Willi syndrome",
+   "pred": "MONDO:0008300",
+   "pred_label": "Prader-Willi syndrome",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9590284",
+   "text": "PWS",
+   "gold": [
+    "D011218"
+   ],
+   "how": "expanded",
+   "long_form": "Prader-Willi syndrome",
+   "pred": "MONDO:0008300",
+   "pred_label": "Prader-Willi syndrome",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9843038",
+   "text": "HCP",
+   "gold": [
+    "D046349"
+   ],
+   "how": "expanded",
+   "long_form": "Hereditary coproporphyria",
+   "pred": "MONDO:0007369",
+   "pred_label": "hereditary coproporphyria",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9843038",
+   "text": "HCP",
+   "gold": [
+    "D046349"
+   ],
+   "how": "expanded",
+   "long_form": "Hereditary coproporphyria",
+   "pred": "MONDO:0007369",
+   "pred_label": "hereditary coproporphyria",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9529364",
+   "text": "DDS",
+   "gold": [
+    "D030321"
+   ],
+   "how": "expanded",
+   "long_form": "Denys-Drash syndrome",
+   "pred": "MONDO:0008682",
+   "pred_label": "Denys-Drash syndrome",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9529364",
+   "text": "DMS",
+   "gold": [
+    "C537346"
+   ],
+   "how": "expanded",
+   "long_form": "diffuse mesangial sclerosis",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9529364",
+   "text": "WT",
+   "gold": [
+    "D009396"
+   ],
+   "how": "expanded",
+   "long_form": "Wilms tumor",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9529364",
+   "text": "DDS",
+   "gold": [
+    "D030321"
+   ],
+   "how": "expanded",
+   "long_form": "Denys-Drash syndrome",
+   "pred": "MONDO:0008682",
+   "pred_label": "Denys-Drash syndrome",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9529364",
+   "text": "IDMS",
+   "gold": [
+    "C537346"
+   ],
+   "how": "expanded",
+   "long_form": "isolated DMS",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9529364",
+   "text": "DDS",
+   "gold": [
+    "D030321"
+   ],
+   "how": "expanded",
+   "long_form": "Denys-Drash syndrome",
+   "pred": "MONDO:0008682",
+   "pred_label": "Denys-Drash syndrome",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9529364",
+   "text": "WT",
+   "gold": [
+    "D009396"
+   ],
+   "how": "expanded",
+   "long_form": "Wilms tumor",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9529364",
+   "text": "IDMS",
+   "gold": [
+    "C537346"
+   ],
+   "how": "expanded",
+   "long_form": "isolated DMS",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9529364",
+   "text": "IDMS",
+   "gold": [
+    "C537346"
+   ],
+   "how": "expanded",
+   "long_form": "isolated DMS",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9529364",
+   "text": "IDMS",
+   "gold": [
+    "C537346"
+   ],
+   "how": "expanded",
+   "long_form": "isolated DMS",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9529364",
+   "text": "DDS",
+   "gold": [
+    "D030321"
+   ],
+   "how": "expanded",
+   "long_form": "Denys-Drash syndrome",
+   "pred": "MONDO:0008682",
+   "pred_label": "Denys-Drash syndrome",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9529364",
+   "text": "IDMS",
+   "gold": [
+    "C537346"
+   ],
+   "how": "expanded",
+   "long_form": "isolated DMS",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9529364",
+   "text": "DMS",
+   "gold": [
+    "C537346"
+   ],
+   "how": "expanded",
+   "long_form": "diffuse mesangial sclerosis",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9529364",
+   "text": "DMS",
+   "gold": [
+    "C537346"
+   ],
+   "how": "expanded",
+   "long_form": "diffuse mesangial sclerosis",
+   "pred": null,
+   "pred_label": "",
+   "outcome": "ABSTAIN"
+  },
+  {
+   "pmid": "9391889",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9391889",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9391889",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9391889",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9391889",
+   "text": "DM",
+   "gold": [
+    "D009223"
+   ],
+   "how": "undefined_abbrev_abstain"
+  },
+  {
+   "pmid": "9949197",
+   "text": "EDMD",
+   "gold": [
+    "D020389"
+   ],
+   "how": "expanded",
+   "long_form": "Emery-Dreifuss muscular dystrophy",
+   "pred": "MONDO:0016830",
+   "pred_label": "Emery-Dreifuss muscular dystrophy",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9949197",
+   "text": "EDMD",
+   "gold": [
+    "D020389"
+   ],
+   "how": "expanded",
+   "long_form": "Emery-Dreifuss muscular dystrophy",
+   "pred": "MONDO:0016830",
+   "pred_label": "Emery-Dreifuss muscular dystrophy",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9949197",
+   "text": "EDMD",
+   "gold": [
+    "D020389"
+   ],
+   "how": "expanded",
+   "long_form": "Emery-Dreifuss muscular dystrophy",
+   "pred": "MONDO:0016830",
+   "pred_label": "Emery-Dreifuss muscular dystrophy",
+   "outcome": "CORRECT"
+  },
+  {
+   "pmid": "9949197",
+   "text": "EDMD",
+   "gold": [
+    "D020389"
+   ],
+   "how": "expanded",
+   "long_form": "Emery-Dreifuss muscular dystrophy",
+   "pred": "MONDO:0016830",
+   "pred_label": "Emery-Dreifuss muscular dystrophy",
+   "outcome": "CORRECT"
+  }
+ ]
+}

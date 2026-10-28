@@ -1,0 +1,129 @@
+{
+  "release": "2026-10-06",
+  "source_url": "https://github.com/monarch-initiative/mondo/releases/tag/v2026-10-06",
+  "source_obo_sha256": "2631e8e165d41def1a46749adb1ce0a336c8aba7f6bc0978729592cee8fed60b",
+  "scope": "Selected statements only; not a complete ontology or a clinical validation.",
+  "terms": {
+    "MONDO:0004948": {
+      "name": "B-cell chronic lymphocytic leukemia",
+      "definition_lines": [
+        "def: \"B-cell chronic lymphocytic leukemia (B-CLL) is a type of B-cell non-Hodgkin lymphoma, and the most common form of leukemia in Western countries, affecting elderly adults (mean age of 67 and 72 years) with a slight male predominance (1.7:1), and characterized by a highly variable clinical presentation that can include asymptomatic disease or non-specific B-symptoms such as unintentional weight loss, severe fatigue, fever (without evidence of infection), and night sweats as well as cervical lymphadenopathy, splenomegaly and frequent infections. Some patients can also develop autoimmune complications such as autoimmune hemolytic anemia or immune thrombocytopenia. The clinical course is extremely heterogeneous with survival ranging from a few months to several decades.\" [Orphanet:67038]"
+      ],
+      "parent_lines": [
+        "is_a: MONDO:0001014 {source=\"NCIT:C3163\"} ! chronic leukemia",
+        "is_a: MONDO:0004949 {source=\"EFO:0000095\", source=\"NCIT:C3163/inferred\"} ! neoplasm of mature B-cells",
+        "is_a: MONDO:0004967 {source=\"DOID:1040\", source=\"MONDO:Redundant\", source=\"MONDO:indirect\"} ! acute lymphoblastic leukemia",
+        "is_a: MONDO:0017594 {source=\"Orphanet:67038\"} ! indolent B-cell non-Hodgkin lymphoma"
+      ],
+      "synonym_lines": [
+        "synonym: \"B cell chronic lymphocytic leukaemia\" EXACT OMO:0003005 []",
+        "synonym: \"B cell chronic lymphocytic leukemia\" EXACT [NCIT:C3163]",
+        "synonym: \"B cell CLL\" EXACT [NCIT:C3163]",
+        "synonym: \"B cell lymphocytic leukaemia\" EXACT OMO:0003005 []",
+        "synonym: \"B cell lymphocytic leukemia\" EXACT [NCIT:C3163]",
+        "synonym: \"B-cell chronic lymphocytic leukemia\" EXACT [DOID:1040, NCIT:C3163, Orphanet:67038]",
+        "synonym: \"B-cell chronic lymphogenous leukaemia\" EXACT OMO:0003005 []",
+        "synonym: \"B-cell chronic lymphogenous leukemia\" EXACT []",
+        "synonym: \"B-cell chronic lymphoid leukaemia\" EXACT OMO:0003005 []",
+        "synonym: \"B-cell chronic lymphoid leukemia\" EXACT [NCIT:C3163, Orphanet:67038]",
+        "synonym: \"B-cell CLL\" EXACT [NCIT:C3163]",
+        "synonym: \"B-cell lymphocytic leukaemia\" EXACT OMO:0003005 []",
+        "synonym: \"B-cell lymphocytic leukemia\" EXACT [NCIT:C3163]",
+        "synonym: \"B-CLL\" EXACT ABBREVIATION [Orphanet:67038]",
+        "synonym: \"BCLL\" EXACT ABBREVIATION [NCIT:C3163]",
+        "synonym: \"chronic B-cell lymphocytic leukaemia\" EXACT OMO:0003005 []",
+        "synonym: \"chronic B-cell lymphocytic leukemia\" EXACT [NCIT:C3163]",
+        "synonym: \"chronic lymphatic leukemia\" EXACT [DOID:1040, NCIT:C3163]",
+        "synonym: \"chronic lymphocytic leukaemia (CLL)\" EXACT OMO:0003005 []",
+        "synonym: \"Chronic Lymphocytic Leukemia\" EXACT [DOID:1040, NCIT:C3163, NORD:971, Orphanet:67038] {OMO:0002001=\"https://w3id.org/information-resource-registry/nord\"}",
+        "synonym: \"chronic lymphocytic leukemia\" EXACT [DOID:1040, NCIT:C3163, Orphanet:67038]",
+        "synonym: \"chronic lymphocytic leukemia (CLL)\" EXACT [NCIT:C3163]",
+        "synonym: \"chronic lymphogenous leukaemia\" EXACT OMO:0003005 []",
+        "synonym: \"chronic lymphogenous leukemia\" EXACT []",
+        "synonym: \"CLL\" EXACT ABBREVIATION [DOID:1040, NCIT:C3163, OMIM:151400, Orphanet:67038]",
+        "synonym: \"hematopoeitic - chronic lymphocytic leukaemia (CLL)\" EXACT OMO:0003005 []",
+        "synonym: \"hematopoeitic - chronic lymphocytic leukemia (CLL)\" EXACT [NCIT:C3163]",
+        "synonym: \"leukemia, chronic LYMPHOCYTIC\" RELATED []",
+        "synonym: \"leukemia, lymphocytic, chronic\" RELATED [GARD:0006104]",
+        "synonym: \"lymphoplasmacytic leukemia\" EXACT [DOID:1040, ICD10CM:C91.1]"
+      ]
+    },
+    "MONDO:0004949": {
+      "name": "neoplasm of mature B-cells",
+      "definition_lines": [
+        "def: \"A neoplasm of follicle center B cells which has at least a partial follicular pattern. Follicular lymphomas comprise about 35% of adult non-Hodgkin lymphomas in the U.S. and 22% worldwide. Most patients have widespread disease at diagnosis. Morphologically, follicular lymphomas are classified as Grade 1, Grade 2, and Grade 3, depending on the percentage of the large lymphocytes present. The vast majority of cases (70-95%) express the BCL-2 rearrangement [t(14;18)]. Histological grade correlates with prognosis. Grades 1 and 2 follicular lymphomas are indolent and grade 3 is more aggressive (adapted from WHO, 2001).\" [NCIT:P378]"
+      ],
+      "parent_lines": [
+        "is_a: MONDO:0004095 {source=\"DOID:706\", source=\"NCIT:C27910\"} ! B-cell neoplasm"
+      ],
+      "synonym_lines": [
+        "synonym: \"mature B-cell lymphocytic neoplasm\" EXACT [DOID:706, NCIT:C27910]",
+        "synonym: \"mature B-cell neoplasm\" EXACT [DOID:706, NCIT:C27910]",
+        "synonym: \"mature B-cell neoplasms\" RELATED [ONCOTREE:MBN]"
+      ]
+    },
+    "MONDO:0004967": {
+      "name": "acute lymphoblastic leukemia",
+      "definition_lines": [
+        "def: \"Leukemia with an acute onset, characterized by the presence of lymphoblasts in the bone marrow and the peripheral blood. It includes the acute B lymphoblastic leukemia and acute T lymphoblastic leukemia.\" [NCIT:C3167]"
+      ],
+      "parent_lines": [
+        "is_a: MONDO:0003538 {source=\"EFO:0000220\", source=\"NCIT:C3167\"} ! precursor lymphoblastic lymphoma/leukemia",
+        "is_a: MONDO:0005168 {source=\"EFO:0000220\"} ! neoplasm of immature B and T cells",
+        "is_a: MONDO:0005402 {source=\"NCIT:C3167\"} ! lymphoid leukemia",
+        "is_a: MONDO:0010643 {source=\"DOID:9952\", source=\"NCIT:C3167\"} ! acute leukemia",
+        "is_a: MONDO:0018908 {source=\"Orphanet:513\"} ! non-Hodgkin lymphoma"
+      ],
+      "synonym_lines": [
+        "synonym: \"acute lymphoblastic leukaemia (ALL)\" EXACT OMO:0003005 []",
+        "synonym: \"acute lymphoblastic leukaemia (disease)\" EXACT OMO:0003005 []",
+        "synonym: \"acute lymphoblastic leukemia\" EXACT [DOID:9952, ICD10CM:C91.0, MONDO:ambiguous, NCIT:C3167, Orphanet:513]",
+        "synonym: \"acute lymphoblastic leukemia (ALL)\" EXACT [NCIT:C3167]",
+        "synonym: \"acute lymphoblastic leukemia (disease)\" EXACT [https://orcid.org/0000-0002-6601-2165]",
+        "synonym: \"acute lymphoblastic leukemia/lymphoma\" EXACT [Orphanet:513]",
+        "synonym: \"acute lymphocytic leukaemia\" EXACT OMO:0003005 [DOID:9952, NCIT:C3167]",
+        "synonym: \"acute lymphocytic leukemia\" EXACT [GARD:0000522, NCIT:C3167, Orphanet:513]",
+        "synonym: \"acute lymphocytic leukemias\" EXACT [NCIT:C3167]",
+        "synonym: \"acute lymphogenous leukaemia\" EXACT OMO:0003005 []",
+        "synonym: \"acute lymphogenous leukemia\" EXACT [NCIT:C3167]",
+        "synonym: \"acute lymphoid leukaemia\" EXACT OMO:0003005 []",
+        "synonym: \"acute lymphoid leukemia\" EXACT [NCIT:C3167]",
+        "synonym: \"ALL\" EXACT ABBREVIATION [DOID:9952, GARD:0000522, NCIT:C3167, Orphanet:513]",
+        "synonym: \"ALL - acute lymphocytic leukaemia\" EXACT OMO:0003005 []",
+        "synonym: \"ALL - acute lymphocytic leukemia\" EXACT [NCIT:C3167]",
+        "synonym: \"leukemia, lymphoblastic, malignant\" EXACT [NCIT:C3167]",
+        "synonym: \"lymphoblastic leukaemia\" BROAD OMO:0003005 []",
+        "synonym: \"lymphoblastic leukemia\" BROAD []",
+        "synonym: \"lymphoblastic leukemia, acute\" EXACT [MONDO:patterns/acute]",
+        "synonym: \"precursor cell lymphoblastic leukaemia\" EXACT OMO:0003005 []",
+        "synonym: \"precursor cell lymphoblastic leukemia\" EXACT [NCIT:C3167]",
+        "synonym: \"precursor Lymphoblasic leukaemia\" EXACT OMO:0003005 []",
+        "synonym: \"precursor Lymphoblasic leukemia\" EXACT [NCIT:C3167]",
+        "synonym: \"precursor lymphoblastic leukaemia\" EXACT OMO:0003005 []",
+        "synonym: \"precursor lymphoblastic leukemia\" EXACT [NCIT:C3167]"
+      ]
+    },
+    "MONDO:0005168": {
+      "name": "neoplasm of immature B and T cells",
+      "definition_lines": [
+        "def: \"A neoplasm arising from immature B and T cells\" [EFO:0002425]"
+      ],
+      "parent_lines": [
+        "is_a: MONDO:0005157 {source=\"EFO:0002425\"} ! lymphoid neoplasm"
+      ],
+      "synonym_lines": []
+    },
+    "MONDO:0035940": {
+      "name": "B-lymphoblastic leukemia/lymphoma with t(9;22)(q34.1;q11.2)",
+      "definition_lines": [],
+      "parent_lines": [
+        "is_a: MONDO:0035605 {source=\"NCIT:C80331\", source=\"Orphanet:585909\"} ! B-lymphoblastic leukemia/lymphoma with recurrent genetic abnormality"
+      ],
+      "synonym_lines": [
+        "synonym: \"B-ALL with t(9;22)(q34.1;q11.2)\" EXACT [Orphanet:585909]",
+        "synonym: \"BCR-ABL1-like B-ALL\" EXACT [Orphanet:585909]",
+        "synonym: \"Philadelphia chromosome-like B-ALL\" EXACT [Orphanet:585909]"
+      ]
+    }
+  }
+}

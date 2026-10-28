@@ -272,3 +272,42 @@ summary>.badge { flex-shrink:0; }
 .alias-table td:nth-child(3) { white-space:nowrap; }
 .alias-scroll-note { display:none; }
 @media(max-width:760px) { .alias-scroll-note { display:block; padding:0 16px; color:var(--muted); font-size:10px; } }
+
+/* Case-specific evidence stays tied to the reviewed source and candidate. */
+.boundary-card { display:flex; justify-content:space-between; align-items:center; gap:30px; padding:27px 30px; margin:-20px 0 48px; background:#eef5f2; border:1px solid #d7e6df; border-radius:var(--radius); color:var(--ink); }
+.boundary-card:hover { text-decoration:none; border-color:#8cb8a7; }
+.boundary-card .eyebrow { margin-bottom:6px; }
+.boundary-card p:not(.eyebrow) { margin:8px 0 0; font-size:13px; color:var(--muted); max-width:850px; }
+.boundary-card>span { color:var(--accent); font-size:12px; font-weight:650; white-space:nowrap; }
+.case-review { margin:26px 0 30px; }
+.case-review h3 { margin-top:24px; }
+.case-review>.table-wrap { margin-top:13px; border:1px solid var(--line); border-radius:10px; }
+.comparison-table { min-width:800px; table-layout:fixed; }
+.comparison-table th:first-child { width:13%; }
+.comparison-table th:nth-child(2) { width:29%; }
+.comparison-table th:nth-child(3) { width:31%; }
+.comparison-table td,.comparison-table tbody th { overflow-wrap:anywhere; }
+.comparison-table tbody th { word-break:keep-all; white-space:normal; vertical-align:top; font-size:12px; }
+.case-review td p { margin:0 0 8px; font-size:12px; line-height:1.8; }
+.evidence-item { margin:0 0 15px; }
+.evidence-item:last-child { margin-bottom:0; }
+.evidence-item>strong { display:block; font-size:12px; margin-bottom:6px; }
+.evidence-quote { margin:8px 0; padding:8px 10px; background:#f5f8fa; border-left:2px solid #c2d5cc; color:#49616d; font-size:11px; line-height:1.75; overflow-wrap:anywhere; }
+.evidence-item .badge { font-size:9px; }
+.criteria-table th { word-break:keep-all; width:135px; white-space:normal; vertical-align:top; font-size:12px; }
+.axis-sources { margin-top:13px; }
+.axis-sources summary { padding:7px 9px; font-size:10px; }
+.axis-sources>div { padding:0 9px 9px; }
+.case-candidates { margin-top:17px; }
+.case-candidates>.source-note { padding:0 14px 12px; }
+.candidate-review-table { min-width:620px; }
+.case-final-heading { margin-top:32px; }
+.case-scroll-note { display:none; }
+@media(max-width:760px) {
+ .boundary-card { display:block; margin-top:-8px; padding:21px; }
+ .boundary-card>span { display:block; margin-top:15px; }
+ .boundary-card p:not(.eyebrow) { font-size:12px; }
+ .case-scroll-note { display:block; color:var(--muted); font-size:10px; margin:10px 0 0; }
+ .criteria-table th { width:90px; }
+ .criteria-table td,.criteria-table th { padding:11px 12px; }
+}

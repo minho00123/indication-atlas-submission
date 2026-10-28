@@ -1,0 +1,51 @@
+{
+  "scope": "Archived exploratory analyses, separate from the current 300-row dictionary.",
+  "original_analysis_date": "2026-10-28",
+  "corpus": {
+    "source_url": "https://www.ncbi.nlm.nih.gov/CBBresearch/Dogan/DISEASE/",
+    "download_url": "https://www.ncbi.nlm.nih.gov/CBBresearch/Dogan/DISEASE/NCBItestset_corpus.zip",
+    "input_txt_sha256": "61c8050bf6979ef7b943ec1158dfc03b651ea3367d4c37356f9de4841e85c9a3",
+    "mentions_in_recorded_run": 960,
+    "documents_in_recorded_run": 100,
+    "deduplicated_units": 531,
+    "included": false
+  },
+  "mondo": {
+    "release": "2026-10-06",
+    "source_url": "https://github.com/monarch-initiative/mondo/releases/download/v2026-10-06/mondo.obo",
+    "sha256": "2631e8e165d41def1a46749adb1ce0a336c8aba7f6bc0978729592cee8fed60b",
+    "full_obo_included": false
+  },
+  "clinical_trials": {
+    "source": "ClinicalTrials.gov API v2",
+    "collection_date_claimed_by_original_artifact": "2026-10-28",
+    "comparison_items": 42,
+    "unique_trials": 40,
+    "label_status": "PROVISIONAL_RESEARCHER_LABEL",
+    "annotators": [
+      "claude-single"
+    ],
+    "independent_expert_approvals": 0
+  },
+  "limitations": [
+    "Current dictionary is not used by these string-matching baselines.",
+    "WRONG means no gold/xref ID intersection, not expert-confirmed semantic error; false_auto_merge is a legacy output field.",
+    "The abbreviation prototype was developed while inspecting the same test set.",
+    "Clinical-trial examples were manually selected and provisionally labeled by one AI.",
+    "NCBI corpus and full MONDO OBO are not bundled; offline verification checks archived outputs, not re-execution of the benchmark."
+  ],
+  "files": {
+    "README.md": "24c1cee088bcc0b60782232f10545334c9a9efa619badc497ca7ab1735eac25e",
+    "abbrev_resolution.py": "1cf1737acc2a918afa7c5ebee31df1862543a84a8684c597581d7183f45fc258",
+    "build_eligibility_seed.py": "c4e974fbbb6d0144b54dbf048c1e0cc8b97fd701c2ced103f82c99e8395c586a",
+    "concept_baselines.py": "a14653aca83625186bb8ba4f1e7bc248842a46e7fd4ffb12b4037f75737c1b7c",
+    "ctgov_items_raw_20261028.json": "80bdeb01e061b0ac4ad8ae5b5db9f4306a7356959343d9b007532e4081a85314",
+    "eligibility_seed_v1.csv": "368714e5641197b86e9976dbd6a14b5bb80f8e44c68cd3d6b6da6f7e32b6c9b1",
+    "eligibility_seed_v1.json": "3a4868d3a3a97215aa065f4fc3246bb3f83fd776efd0d770ac2aed5e83c1aa64",
+    "fetch_ctgov_items.py": "e66c618c11003a2bdd65864b18d70ef7534a276fd19dbd7109a831a9ff369658",
+    "mondo_hierarchy_excerpt.json": "a8bdc8c20ab7e58c77c8f90952729b1532c7dd1891d821e1e56482edccea5873",
+    "results_abbrev_resolution.json": "2c82836849dd726ec91bada2dea8ca817757e60fbaf1c98809fa90990dee1ed5",
+    "results_concept_baselines.json": "d0664ee3cf827aaf1ce801b00f9d10512052868535f6247a3e3ca75a24e4673f",
+    "wrong_case_adjudication.csv": "38780c2aa213c50cb0f7bee2903dc1a56e6364e0f1821bfe3a055a25739869c9"
+  }
+}

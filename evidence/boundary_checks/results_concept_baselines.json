@@ -1,0 +1,1429 @@
+{
+ "gold": "NCBI Disease Corpus test set (expert annotation; external to this project)",
+ "corpus_sha256": "61c8050bf6979ef7b943ec1158dfc03b651ea3367d4c37356f9de4841e85c9a3",
+ "obo_header": [
+  "data-version: releases/2026-10-06"
+ ],
+ "obo_sha256": "2631e8e165d41def1a46749adb1ce0a336c8aba7f6bc0978729592cee8fed60b",
+ "n_mentions": 960,
+ "n_docs": 100,
+ "llm_arms": "NOT RUN (see CLAUDE_BENCHMARK_PLAN.md)",
+ "methods": {
+  "M1_string_exact": {
+   "mention_level": {
+    "n": 960,
+    "outcomes": {
+     "ABSTAIN": 729,
+     "CORRECT": 149,
+     "WRONG": 27,
+     "UNSCORABLE": 55
+    },
+    "coverage": 0.241,
+    "abstention": 0.759,
+    "precision_scorable": "149/176",
+    "precision_scorable_value": 0.847,
+    "precision_wilson95": [
+     0.786,
+     0.892
+    ],
+    "false_auto_merge": "27/960",
+    "correct_over_all": "149/960"
+   },
+   "doc_level": {
+    "n": 531,
+    "outcomes": {
+     "ABSTAIN": 399,
+     "CORRECT": 88,
+     "WRONG": 9,
+     "UNSCORABLE": 35
+    },
+    "coverage": 0.249,
+    "abstention": 0.751,
+    "precision_scorable": "88/97",
+    "precision_scorable_value": 0.907,
+    "precision_wilson95": [
+     0.833,
+     0.95
+    ],
+    "false_auto_merge": "9/531",
+    "correct_over_all": "88/531"
+   },
+   "latency_ms_total": 0.9,
+   "cost_usd": 0,
+   "wrong_examples": [
+    {
+     "pmid": "9950360",
+     "text": "colorectal cancer",
+     "type": "Modifier",
+     "gold": [
+      "D015179"
+     ],
+     "pred": "MONDO:0005575",
+     "pred_label": "colorectal cancer",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9950360",
+     "text": "colorectal cancer",
+     "type": "SpecificDisease",
+     "gold": [
+      "D015179"
+     ],
+     "pred": "MONDO:0005575",
+     "pred_label": "colorectal cancer",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9950360",
+     "text": "colorectal cancer",
+     "type": "SpecificDisease",
+     "gold": [
+      "D015179"
+     ],
+     "pred": "MONDO:0005575",
+     "pred_label": "colorectal cancer",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9950360",
+     "text": "colorectal cancer",
+     "type": "Modifier",
+     "gold": [
+      "D015179"
+     ],
+     "pred": "MONDO:0005575",
+     "pred_label": "colorectal cancer",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9950360",
+     "text": "colorectal cancer",
+     "type": "Modifier",
+     "gold": [
+      "D015179"
+     ],
+     "pred": "MONDO:0005575",
+     "pred_label": "colorectal cancer",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9950360",
+     "text": "colorectal cancer",
+     "type": "Modifier",
+     "gold": [
+      "D015179"
+     ],
+     "pred": "MONDO:0005575",
+     "pred_label": "colorectal cancer",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9831355",
+     "text": "colorectal cancer",
+     "type": "SpecificDisease",
+     "gold": [
+      "D015179"
+     ],
+     "pred": "MONDO:0005575",
+     "pred_label": "colorectal cancer",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9792860",
+     "text": "autosomal recessive Alport syndrome",
+     "type": "SpecificDisease",
+     "gold": [
+      "C536587"
+     ],
+     "pred": "MONDO:0008762",
+     "pred_label": "autosomal recessive Alport syndrome",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9792860",
+     "text": "Autosomal recessive Alport syndrome",
+     "type": "SpecificDisease",
+     "gold": [
+      "C536587"
+     ],
+     "pred": "MONDO:0008762",
+     "pred_label": "autosomal recessive Alport syndrome",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9792860",
+     "text": "autosomal recessive Alport syndrome",
+     "type": "SpecificDisease",
+     "gold": [
+      "C536587"
+     ],
+     "pred": "MONDO:0008762",
+     "pred_label": "autosomal recessive Alport syndrome",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9771706",
+     "text": "Wolfram syndrome",
+     "type": "SpecificDisease",
+     "gold": [
+      "OMIM:222300"
+     ],
+     "pred": "MONDO:0018105",
+     "pred_label": "Wolfram syndrome",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9771706",
+     "text": "Wolfram syndrome",
+     "type": "SpecificDisease",
+     "gold": [
+      "OMIM:222300"
+     ],
+     "pred": "MONDO:0018105",
+     "pred_label": "Wolfram syndrome",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9463309",
+     "text": "anhaptoglobinemia",
+     "type": "SpecificDisease",
+     "gold": [
+      "D000740"
+     ],
+     "pred": "MONDO:0013564",
+     "pred_label": "anhaptoglobinemia",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9463309",
+     "text": "anhaptoglobinemia",
+     "type": "SpecificDisease",
+     "gold": [
+      "D000740"
+     ],
+     "pred": "MONDO:0013564",
+     "pred_label": "anhaptoglobinemia",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9463309",
+     "text": "anhaptoglobinemia",
+     "type": "SpecificDisease",
+     "gold": [
+      "D000740"
+     ],
+     "pred": "MONDO:0013564",
+     "pred_label": "anhaptoglobinemia",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9463309",
+     "text": "anhaptoglobinemia",
+     "type": "SpecificDisease",
+     "gold": [
+      "D000740"
+     ],
+     "pred": "MONDO:0013564",
+     "pred_label": "anhaptoglobinemia",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9585611",
+     "text": "colorectal cancer",
+     "type": "SpecificDisease",
+     "gold": [
+      "D015179"
+     ],
+     "pred": "MONDO:0005575",
+     "pred_label": "colorectal cancer",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9724771",
+     "text": "colorectal cancer",
+     "type": "SpecificDisease",
+     "gold": [
+      "D015179"
+     ],
+     "pred": "MONDO:0005575",
+     "pred_label": "colorectal cancer",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9869602",
+     "text": "colorectal cancer",
+     "type": "SpecificDisease",
+     "gold": [
+      "D015179"
+     ],
+     "pred": "MONDO:0005575",
+     "pred_label": "colorectal cancer",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9869602",
+     "text": "colorectal cancer",
+     "type": "Modifier",
+     "gold": [
+      "D015179"
+     ],
+     "pred": "MONDO:0005575",
+     "pred_label": "colorectal cancer",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9869602",
+     "text": "colorectal cancer",
+     "type": "Modifier",
+     "gold": [
+      "D015179"
+     ],
+     "pred": "MONDO:0005575",
+     "pred_label": "colorectal cancer",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9869602",
+     "text": "colorectal cancer",
+     "type": "SpecificDisease",
+     "gold": [
+      "D015179"
+     ],
+     "pred": "MONDO:0005575",
+     "pred_label": "colorectal cancer",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9869602",
+     "text": "colorectal cancer",
+     "type": "SpecificDisease",
+     "gold": [
+      "D015179"
+     ],
+     "pred": "MONDO:0005575",
+     "pred_label": "colorectal cancer",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9869602",
+     "text": "colorectal cancer",
+     "type": "SpecificDisease",
+     "gold": [
+      "D015179"
+     ],
+     "pred": "MONDO:0005575",
+     "pred_label": "colorectal cancer",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9731533",
+     "text": "colorectal cancer",
+     "type": "SpecificDisease",
+     "gold": [
+      "D015179"
+     ],
+     "pred": "MONDO:0005575",
+     "pred_label": "colorectal cancer",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9973276",
+     "text": "colorectal cancer",
+     "type": "SpecificDisease",
+     "gold": [
+      "D015179"
+     ],
+     "pred": "MONDO:0005575",
+     "pred_label": "colorectal cancer",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9973276",
+     "text": "colorectal cancer",
+     "type": "Modifier",
+     "gold": [
+      "D015179"
+     ],
+     "pred": "MONDO:0005575",
+     "pred_label": "colorectal cancer",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    }
+   ]
+  },
+  "M2_ontology_exact": {
+   "mention_level": {
+    "n": 960,
+    "outcomes": {
+     "ABSTAIN": 495,
+     "CORRECT": 280,
+     "UNSCORABLE": 117,
+     "WRONG": 68
+    },
+    "coverage": 0.484,
+    "abstention": 0.516,
+    "precision_scorable": "280/348",
+    "precision_scorable_value": 0.805,
+    "precision_wilson95": [
+     0.76,
+     0.843
+    ],
+    "false_auto_merge": "68/960",
+    "correct_over_all": "280/960"
+   },
+   "doc_level": {
+    "n": 531,
+    "outcomes": {
+     "ABSTAIN": 294,
+     "CORRECT": 150,
+     "UNSCORABLE": 63,
+     "WRONG": 24
+    },
+    "coverage": 0.446,
+    "abstention": 0.554,
+    "precision_scorable": "150/174",
+    "precision_scorable_value": 0.862,
+    "precision_wilson95": [
+     0.803,
+     0.906
+    ],
+    "false_auto_merge": "24/531",
+    "correct_over_all": "150/531"
+   },
+   "latency_ms_total": 2.3,
+   "cost_usd": 0,
+   "wrong_examples": [
+    {
+     "pmid": "9950360",
+     "text": "colorectal cancer",
+     "type": "Modifier",
+     "gold": [
+      "D015179"
+     ],
+     "pred": "MONDO:0005575",
+     "pred_label": "colorectal cancer",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9950360",
+     "text": "colorectal cancer",
+     "type": "SpecificDisease",
+     "gold": [
+      "D015179"
+     ],
+     "pred": "MONDO:0005575",
+     "pred_label": "colorectal cancer",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9950360",
+     "text": "colorectal cancer",
+     "type": "SpecificDisease",
+     "gold": [
+      "D015179"
+     ],
+     "pred": "MONDO:0005575",
+     "pred_label": "colorectal cancer",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9950360",
+     "text": "colorectal cancer",
+     "type": "Modifier",
+     "gold": [
+      "D015179"
+     ],
+     "pred": "MONDO:0005575",
+     "pred_label": "colorectal cancer",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9950360",
+     "text": "colorectal cancer",
+     "type": "Modifier",
+     "gold": [
+      "D015179"
+     ],
+     "pred": "MONDO:0005575",
+     "pred_label": "colorectal cancer",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9950360",
+     "text": "colorectal cancer",
+     "type": "Modifier",
+     "gold": [
+      "D015179"
+     ],
+     "pred": "MONDO:0005575",
+     "pred_label": "colorectal cancer",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9546397",
+     "text": "hemochromatosis",
+     "type": "Modifier",
+     "gold": [
+      "D006432"
+     ],
+     "pred": "MONDO:0021001",
+     "pred_label": "hemochromatosis type 1",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9546397",
+     "text": "hemochromatosis",
+     "type": "Modifier",
+     "gold": [
+      "D006432"
+     ],
+     "pred": "MONDO:0021001",
+     "pred_label": "hemochromatosis type 1",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9618166",
+     "text": "PDS",
+     "type": "Modifier",
+     "gold": [
+      "C536648"
+     ],
+     "pred": "MONDO:0020682",
+     "pred_label": "Ehlers-Danlos syndrome, spondylodysplastic type, 1",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9618166",
+     "text": "PDS",
+     "type": "Modifier",
+     "gold": [
+      "C536648"
+     ],
+     "pred": "MONDO:0020682",
+     "pred_label": "Ehlers-Danlos syndrome, spondylodysplastic type, 1",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9467011",
+     "text": "Bannayan-Zonana syndrome",
+     "type": "SpecificDisease",
+     "gold": [
+      "D006223"
+     ],
+     "pred": "MONDO:0007924",
+     "pred_label": "Bannayan-Riley-Ruvalcaba syndrome",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9831355",
+     "text": "colorectal cancer",
+     "type": "SpecificDisease",
+     "gold": [
+      "D015179"
+     ],
+     "pred": "MONDO:0005575",
+     "pred_label": "colorectal cancer",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9792860",
+     "text": "autosomal recessive Alport syndrome",
+     "type": "SpecificDisease",
+     "gold": [
+      "C536587"
+     ],
+     "pred": "MONDO:0008762",
+     "pred_label": "autosomal recessive Alport syndrome",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9792860",
+     "text": "Autosomal recessive Alport syndrome",
+     "type": "SpecificDisease",
+     "gold": [
+      "C536587"
+     ],
+     "pred": "MONDO:0008762",
+     "pred_label": "autosomal recessive Alport syndrome",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9792860",
+     "text": "autosomal recessive Alport syndrome",
+     "type": "SpecificDisease",
+     "gold": [
+      "C536587"
+     ],
+     "pred": "MONDO:0008762",
+     "pred_label": "autosomal recessive Alport syndrome",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9771706",
+     "text": "Wolfram syndrome",
+     "type": "SpecificDisease",
+     "gold": [
+      "OMIM:222300"
+     ],
+     "pred": "MONDO:0018105",
+     "pred_label": "Wolfram syndrome",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9771706",
+     "text": "Wolfram syndrome",
+     "type": "SpecificDisease",
+     "gold": [
+      "OMIM:222300"
+     ],
+     "pred": "MONDO:0018105",
+     "pred_label": "Wolfram syndrome",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9771706",
+     "text": "WFS",
+     "type": "SpecificDisease",
+     "gold": [
+      "OMIM:222300"
+     ],
+     "pred": "MONDO:0006015",
+     "pred_label": "Waterhouse-Friderichsen syndrome",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9771706",
+     "text": "WFS",
+     "type": "Modifier",
+     "gold": [
+      "OMIM:222300"
+     ],
+     "pred": "MONDO:0006015",
+     "pred_label": "Waterhouse-Friderichsen syndrome",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9771706",
+     "text": "WFS",
+     "type": "Modifier",
+     "gold": [
+      "OMIM:222300"
+     ],
+     "pred": "MONDO:0006015",
+     "pred_label": "Waterhouse-Friderichsen syndrome",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9867744",
+     "text": "hemochromatosis",
+     "type": "SpecificDisease",
+     "gold": [
+      "D006432"
+     ],
+     "pred": "MONDO:0021001",
+     "pred_label": "hemochromatosis type 1",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9867744",
+     "text": "hemochromatosis",
+     "type": "SpecificDisease",
+     "gold": [
+      "D006432"
+     ],
+     "pred": "MONDO:0021001",
+     "pred_label": "hemochromatosis type 1",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9867744",
+     "text": "hemochromatosis",
+     "type": "SpecificDisease",
+     "gold": [
+      "D006432"
+     ],
+     "pred": "MONDO:0021001",
+     "pred_label": "hemochromatosis type 1",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9867744",
+     "text": "hemochromatosis",
+     "type": "SpecificDisease",
+     "gold": [
+      "D006432"
+     ],
+     "pred": "MONDO:0021001",
+     "pred_label": "hemochromatosis type 1",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9867744",
+     "text": "hemochromatosis",
+     "type": "SpecificDisease",
+     "gold": [
+      "D006432"
+     ],
+     "pred": "MONDO:0021001",
+     "pred_label": "hemochromatosis type 1",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9674906",
+     "text": "SWS",
+     "type": "SpecificDisease",
+     "gold": [
+      "C537502"
+     ],
+     "pred": "MONDO:0008501",
+     "pred_label": "Sturge-Weber syndrome",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9674906",
+     "text": "SWS",
+     "type": "SpecificDisease",
+     "gold": [
+      "C537502"
+     ],
+     "pred": "MONDO:0008501",
+     "pred_label": "Sturge-Weber syndrome",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9674906",
+     "text": "SWS",
+     "type": "SpecificDisease",
+     "gold": [
+      "C537502"
+     ],
+     "pred": "MONDO:0008501",
+     "pred_label": "Sturge-Weber syndrome",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9674906",
+     "text": "SWS",
+     "type": "SpecificDisease",
+     "gold": [
+      "C537502"
+     ],
+     "pred": "MONDO:0008501",
+     "pred_label": "Sturge-Weber syndrome",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9674906",
+     "text": "SWS",
+     "type": "SpecificDisease",
+     "gold": [
+      "C537502"
+     ],
+     "pred": "MONDO:0008501",
+     "pred_label": "Sturge-Weber syndrome",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9729124",
+     "text": "PDS",
+     "type": "SpecificDisease",
+     "gold": [
+      "C536648"
+     ],
+     "pred": "MONDO:0020682",
+     "pred_label": "Ehlers-Danlos syndrome, spondylodysplastic type, 1",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9585605",
+     "text": "AS",
+     "type": "SpecificDisease",
+     "gold": [
+      "D017204"
+     ],
+     "pred": "MONDO:0042981",
+     "pred_label": "aortic valve stenosis",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9585605",
+     "text": "AS",
+     "type": "Modifier",
+     "gold": [
+      "D017204"
+     ],
+     "pred": "MONDO:0042981",
+     "pred_label": "aortic valve stenosis",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9585605",
+     "text": "AS",
+     "type": "Modifier",
+     "gold": [
+      "D017204"
+     ],
+     "pred": "MONDO:0042981",
+     "pred_label": "aortic valve stenosis",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9585605",
+     "text": "AS",
+     "type": "Modifier",
+     "gold": [
+      "D017204"
+     ],
+     "pred": "MONDO:0042981",
+     "pred_label": "aortic valve stenosis",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9585605",
+     "text": "AS",
+     "type": "Modifier",
+     "gold": [
+      "D017204"
+     ],
+     "pred": "MONDO:0042981",
+     "pred_label": "aortic valve stenosis",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9709714",
+     "text": "very-long-chain acyl-coenzyme A dehydrogenase deficiency",
+     "type": "SpecificDisease",
+     "gold": [
+      "C536353"
+     ],
+     "pred": "MONDO:0008723",
+     "pred_label": "very long chain acyl-CoA dehydrogenase deficiency",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9709714",
+     "text": "VLCAD deficiency",
+     "type": "SpecificDisease",
+     "gold": [
+      "C536353"
+     ],
+     "pred": "MONDO:0008723",
+     "pred_label": "very long chain acyl-CoA dehydrogenase deficiency",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9709714",
+     "text": "VLCAD deficiency",
+     "type": "SpecificDisease",
+     "gold": [
+      "C536353"
+     ],
+     "pred": "MONDO:0008723",
+     "pred_label": "very long chain acyl-CoA dehydrogenase deficiency",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9709714",
+     "text": "VLCAD deficiency",
+     "type": "SpecificDisease",
+     "gold": [
+      "C536353"
+     ],
+     "pred": "MONDO:0008723",
+     "pred_label": "very long chain acyl-CoA dehydrogenase deficiency",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    }
+   ]
+  },
+  "M3_ontology_greedy_anyscope": {
+   "mention_level": {
+    "n": 960,
+    "outcomes": {
+     "ABSTAIN": 385,
+     "CORRECT": 336,
+     "UNSCORABLE": 119,
+     "WRONG": 120
+    },
+    "coverage": 0.599,
+    "abstention": 0.401,
+    "precision_scorable": "336/456",
+    "precision_scorable_value": 0.737,
+    "precision_wilson95": [
+     0.695,
+     0.775
+    ],
+    "false_auto_merge": "120/960",
+    "correct_over_all": "336/960"
+   },
+   "doc_level": {
+    "n": 531,
+    "outcomes": {
+     "ABSTAIN": 260,
+     "CORRECT": 167,
+     "UNSCORABLE": 68,
+     "WRONG": 36
+    },
+    "coverage": 0.51,
+    "abstention": 0.49,
+    "precision_scorable": "167/203",
+    "precision_scorable_value": 0.823,
+    "precision_wilson95": [
+     0.764,
+     0.869
+    ],
+    "false_auto_merge": "36/531",
+    "correct_over_all": "167/531"
+   },
+   "latency_ms_total": 2.3,
+   "cost_usd": 0,
+   "wrong_examples": [
+    {
+     "pmid": "9950360",
+     "text": "colorectal cancer",
+     "type": "Modifier",
+     "gold": [
+      "D015179"
+     ],
+     "pred": "MONDO:0005575",
+     "pred_label": "colorectal cancer",
+     "n_hits": 2,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9950360",
+     "text": "colorectal cancer",
+     "type": "SpecificDisease",
+     "gold": [
+      "D015179"
+     ],
+     "pred": "MONDO:0005575",
+     "pred_label": "colorectal cancer",
+     "n_hits": 2,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9950360",
+     "text": "colorectal cancer",
+     "type": "SpecificDisease",
+     "gold": [
+      "D015179"
+     ],
+     "pred": "MONDO:0005575",
+     "pred_label": "colorectal cancer",
+     "n_hits": 2,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9950360",
+     "text": "colorectal cancer",
+     "type": "Modifier",
+     "gold": [
+      "D015179"
+     ],
+     "pred": "MONDO:0005575",
+     "pred_label": "colorectal cancer",
+     "n_hits": 2,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9950360",
+     "text": "colorectal cancer",
+     "type": "Modifier",
+     "gold": [
+      "D015179"
+     ],
+     "pred": "MONDO:0005575",
+     "pred_label": "colorectal cancer",
+     "n_hits": 2,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9950360",
+     "text": "colorectal cancer",
+     "type": "Modifier",
+     "gold": [
+      "D015179"
+     ],
+     "pred": "MONDO:0005575",
+     "pred_label": "colorectal cancer",
+     "n_hits": 2,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9563950",
+     "text": "DM",
+     "type": "SpecificDisease",
+     "gold": [
+      "D009223"
+     ],
+     "pred": "MONDO:0005015",
+     "pred_label": "diabetes mellitus",
+     "n_hits": 2,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9563950",
+     "text": "DM",
+     "type": "Modifier",
+     "gold": [
+      "D009223"
+     ],
+     "pred": "MONDO:0005015",
+     "pred_label": "diabetes mellitus",
+     "n_hits": 2,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9563950",
+     "text": "DM",
+     "type": "Modifier",
+     "gold": [
+      "D009223"
+     ],
+     "pred": "MONDO:0005015",
+     "pred_label": "diabetes mellitus",
+     "n_hits": 2,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9563950",
+     "text": "DM",
+     "type": "Modifier",
+     "gold": [
+      "D009223"
+     ],
+     "pred": "MONDO:0005015",
+     "pred_label": "diabetes mellitus",
+     "n_hits": 2,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9563950",
+     "text": "DM",
+     "type": "Modifier",
+     "gold": [
+      "D009223"
+     ],
+     "pred": "MONDO:0005015",
+     "pred_label": "diabetes mellitus",
+     "n_hits": 2,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9863607",
+     "text": "DM",
+     "type": "SpecificDisease",
+     "gold": [
+      "D009223"
+     ],
+     "pred": "MONDO:0005015",
+     "pred_label": "diabetes mellitus",
+     "n_hits": 2,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9863607",
+     "text": "DM",
+     "type": "SpecificDisease",
+     "gold": [
+      "D009223"
+     ],
+     "pred": "MONDO:0005015",
+     "pred_label": "diabetes mellitus",
+     "n_hits": 2,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9863607",
+     "text": "DM",
+     "type": "Modifier",
+     "gold": [
+      "D009223"
+     ],
+     "pred": "MONDO:0005015",
+     "pred_label": "diabetes mellitus",
+     "n_hits": 2,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9863607",
+     "text": "DM",
+     "type": "SpecificDisease",
+     "gold": [
+      "D009223"
+     ],
+     "pred": "MONDO:0005015",
+     "pred_label": "diabetes mellitus",
+     "n_hits": 2,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9863607",
+     "text": "DM",
+     "type": "SpecificDisease",
+     "gold": [
+      "D009223"
+     ],
+     "pred": "MONDO:0005015",
+     "pred_label": "diabetes mellitus",
+     "n_hits": 2,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9863607",
+     "text": "DM",
+     "type": "Modifier",
+     "gold": [
+      "D009223"
+     ],
+     "pred": "MONDO:0005015",
+     "pred_label": "diabetes mellitus",
+     "n_hits": 2,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9863607",
+     "text": "DM",
+     "type": "SpecificDisease",
+     "gold": [
+      "D009223"
+     ],
+     "pred": "MONDO:0005015",
+     "pred_label": "diabetes mellitus",
+     "n_hits": 2,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9863607",
+     "text": "DM",
+     "type": "Modifier",
+     "gold": [
+      "D009223"
+     ],
+     "pred": "MONDO:0005015",
+     "pred_label": "diabetes mellitus",
+     "n_hits": 2,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9863607",
+     "text": "DM",
+     "type": "Modifier",
+     "gold": [
+      "D009223"
+     ],
+     "pred": "MONDO:0005015",
+     "pred_label": "diabetes mellitus",
+     "n_hits": 2,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9668171",
+     "text": "DM",
+     "type": "SpecificDisease",
+     "gold": [
+      "D009223"
+     ],
+     "pred": "MONDO:0005015",
+     "pred_label": "diabetes mellitus",
+     "n_hits": 2,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9668171",
+     "text": "DM",
+     "type": "SpecificDisease",
+     "gold": [
+      "D009223"
+     ],
+     "pred": "MONDO:0005015",
+     "pred_label": "diabetes mellitus",
+     "n_hits": 2,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9668171",
+     "text": "DM",
+     "type": "Modifier",
+     "gold": [
+      "D009223"
+     ],
+     "pred": "MONDO:0005015",
+     "pred_label": "diabetes mellitus",
+     "n_hits": 2,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9668171",
+     "text": "DM",
+     "type": "Modifier",
+     "gold": [
+      "D009223"
+     ],
+     "pred": "MONDO:0005015",
+     "pred_label": "diabetes mellitus",
+     "n_hits": 2,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9618166",
+     "text": "deafness",
+     "type": "SpecificDisease",
+     "gold": [
+      "D003638"
+     ],
+     "pred": "MONDO:0005365",
+     "pred_label": "hearing loss disorder",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9467011",
+     "text": "Bannayan-Zonana syndrome",
+     "type": "SpecificDisease",
+     "gold": [
+      "D006223"
+     ],
+     "pred": "MONDO:0007924",
+     "pred_label": "Bannayan-Riley-Ruvalcaba syndrome",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9467011",
+     "text": "BZS",
+     "type": "Modifier",
+     "gold": [
+      "D006223"
+     ],
+     "pred": "MONDO:0007924",
+     "pred_label": "Bannayan-Riley-Ruvalcaba syndrome",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9467011",
+     "text": "BZS",
+     "type": "Modifier",
+     "gold": [
+      "D006223"
+     ],
+     "pred": "MONDO:0007924",
+     "pred_label": "Bannayan-Riley-Ruvalcaba syndrome",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9467011",
+     "text": "BZS",
+     "type": "Modifier",
+     "gold": [
+      "D006223"
+     ],
+     "pred": "MONDO:0007924",
+     "pred_label": "Bannayan-Riley-Ruvalcaba syndrome",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9467011",
+     "text": "BZS",
+     "type": "Modifier",
+     "gold": [
+      "D006223"
+     ],
+     "pred": "MONDO:0007924",
+     "pred_label": "Bannayan-Riley-Ruvalcaba syndrome",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9831355",
+     "text": "colorectal cancer",
+     "type": "SpecificDisease",
+     "gold": [
+      "D015179"
+     ],
+     "pred": "MONDO:0005575",
+     "pred_label": "colorectal cancer",
+     "n_hits": 2,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9792860",
+     "text": "autosomal recessive Alport syndrome",
+     "type": "SpecificDisease",
+     "gold": [
+      "C536587"
+     ],
+     "pred": "MONDO:0008762",
+     "pred_label": "autosomal recessive Alport syndrome",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9792860",
+     "text": "Autosomal recessive Alport syndrome",
+     "type": "SpecificDisease",
+     "gold": [
+      "C536587"
+     ],
+     "pred": "MONDO:0008762",
+     "pred_label": "autosomal recessive Alport syndrome",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9792860",
+     "text": "autosomal recessive Alport syndrome",
+     "type": "SpecificDisease",
+     "gold": [
+      "C536587"
+     ],
+     "pred": "MONDO:0008762",
+     "pred_label": "autosomal recessive Alport syndrome",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9771706",
+     "text": "Wolfram syndrome",
+     "type": "SpecificDisease",
+     "gold": [
+      "OMIM:222300"
+     ],
+     "pred": "MONDO:0018105",
+     "pred_label": "Wolfram syndrome",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9771706",
+     "text": "Wolfram syndrome",
+     "type": "SpecificDisease",
+     "gold": [
+      "OMIM:222300"
+     ],
+     "pred": "MONDO:0018105",
+     "pred_label": "Wolfram syndrome",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9771706",
+     "text": "WFS",
+     "type": "SpecificDisease",
+     "gold": [
+      "OMIM:222300"
+     ],
+     "pred": "MONDO:0006015",
+     "pred_label": "Waterhouse-Friderichsen syndrome",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9771706",
+     "text": "WFS",
+     "type": "Modifier",
+     "gold": [
+      "OMIM:222300"
+     ],
+     "pred": "MONDO:0006015",
+     "pred_label": "Waterhouse-Friderichsen syndrome",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9771706",
+     "text": "WFS",
+     "type": "Modifier",
+     "gold": [
+      "OMIM:222300"
+     ],
+     "pred": "MONDO:0006015",
+     "pred_label": "Waterhouse-Friderichsen syndrome",
+     "n_hits": 1,
+     "outcome": "WRONG"
+    },
+    {
+     "pmid": "9674906",
+     "text": "skeletal dysplasia",
+     "type": "SpecificDisease",
+     "gold": [
+      "MESH:C535662"
+     ],
+     "pred": "MONDO:0005516",
+     "pred_label": "osteochondrodysplasia",
+     "n_hits": 2,
+     "outcome": "WRONG"
+    }
+   ]
+  }
+ }
+}

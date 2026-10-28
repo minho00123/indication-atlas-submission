@@ -1,0 +1,20 @@
+method,mention_norm,mentions,gold_id,gold_label_mesh,pred_mondo,pred_label,category,note,label_status
+M2,as,5,D017204,Angelman Syndrome,MONDO:0042981,aortic valve stenosis,ABBREVIATION_SENSE,EXACT-scope abbreviation picked the wrong sense,PROVISIONAL_RESEARCHER_LABEL
+M2,as,5,D013167,"Spondylitis, Ankylosing",MONDO:0042981,aortic valve stenosis,ABBREVIATION_SENSE,,PROVISIONAL_RESEARCHER_LABEL
+M2,pds,3,C536648,Pendred syndrome,MONDO:0020682,"Ehlers-Danlos syndrome, spondylodysplastic type, 1",ABBREVIATION_SENSE,,PROVISIONAL_RESEARCHER_LABEL
+M2,sws,5,C537502,Stuve-Wiedemann syndrome,MONDO:0008501,Sturge-Weber syndrome,ABBREVIATION_SENSE,,PROVISIONAL_RESEARCHER_LABEL
+M2,wfs,3,OMIM:222300,Wolfram syndrome,MONDO:0006015,Waterhouse-Friderichsen syndrome,ABBREVIATION_SENSE,,PROVISIONAL_RESEARCHER_LABEL
+M2,hemochromatosis,12,D006432,Hemochromatosis,MONDO:0021001,hemochromatosis type 1,GRANULARITY_NARROWER,MONDO puts 'hemochromatosis' as EXACT on type 1,PROVISIONAL_RESEARCHER_LABEL
+M2,bannayan zonana syndrome,1,D006223,"Hamartoma Syndrome, Multiple",MONDO:0007924,Bannayan-Riley-Ruvalcaba syndrome,GRANULARITY_NARROWER,MeSH gold is the PTEN hamartoma umbrella,PROVISIONAL_RESEARCHER_LABEL
+M2,colorectal cancer,19,D015179,Colorectal Neoplasms,MONDO:0005575,colorectal cancer,CROSSWALK_ARTIFACT,MONDO class has only OMIM xref; meaning acceptable,PROVISIONAL_RESEARCHER_LABEL
+M2,anhaptoglobinemia,4,D000740,Anemia,MONDO:0013564,anhaptoglobinemia,GOLD_QUESTIONABLE,corpus gold maps anhaptoglobinemia to MeSH Anemia; prediction arguably more precise,PROVISIONAL_RESEARCHER_LABEL
+M2,hypohaptoglobinemia,2,D000740,Anemia,MONDO:0013564,anhaptoglobinemia,GOLD_QUESTIONABLE,hypo- vs an- and gold=Anemia,PROVISIONAL_RESEARCHER_LABEL
+M2,autosomal recessive alport syndrome,3,C536587,"Alport syndrome, recessive type",MONDO:0008762,autosomal recessive Alport syndrome,CROSSWALK_ARTIFACT,OMIM-only xref,PROVISIONAL_RESEARCHER_LABEL
+M2,vlcad deficiency,3,C536353,VLCAD deficiency,MONDO:0008723,very long chain acyl-CoA dehydrogenase deficiency,CROSSWALK_ARTIFACT,OMIM-only xref,PROVISIONAL_RESEARCHER_LABEL
+M2,very long chain acyl coenzyme a dehydrogenase deficiency,1,C536353,VLCAD deficiency,MONDO:0008723,very long chain acyl-CoA dehydrogenase deficiency,CROSSWALK_ARTIFACT,,PROVISIONAL_RESEARCHER_LABEL
+M2,wolfram syndrome,2,OMIM:222300,Wolfram syndrome,MONDO:0018105,Wolfram syndrome,CROSSWALK_ARTIFACT,MeSH-only xref vs OMIM gold,PROVISIONAL_RESEARCHER_LABEL
+M3(extra),dm,36,D009223,Myotonic Dystrophy,MONDO:0005015,diabetes mellitus,ABBREVIATION_SENSE,scope-ignoring matcher; 'DM' is not EXACT on diabetes,PROVISIONAL_RESEARCHER_LABEL
+M3(extra),mld,9,D007966,"Leukodystrophy, Metachromatic",MONDO:0009591,"metachromatic leukodystrophy, juvenile form",GRANULARITY_NARROWER,,PROVISIONAL_RESEARCHER_LABEL
+M3(extra),ivf,6,C537182,Paroxysmal ventricular fibrillation,MONDO:0011376,"ventricular fibrillation, paroxysmal familial, type 1",GRANULARITY_NARROWER,,PROVISIONAL_RESEARCHER_LABEL
+M3(extra),dms,3,C537346,"Mesangial sclerosis, diffuse",MONDO:0009733,"nephrotic syndrome, type 4",GRANULARITY_NARROWER,,PROVISIONAL_RESEARCHER_LABEL
+M3(extra),sensorineural deafness,2,D006319,"Hearing Loss, Sensorineural",MONDO:0010576,X-linked mixed hearing loss with perilymphatic gusher,WRONG_ENTITY,,PROVISIONAL_RESEARCHER_LABEL
