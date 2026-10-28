@@ -2,7 +2,7 @@
   "engine_version": "prototype-3",
   "purpose": "Development regression checks for reviewed inputs; not independent accuracy.",
   "dependencies": {
-    "app/analyzer.mjs": "0c1c58c3827a0593bd829c380f247b274e7ebaccbefc430e04d2e83a22ea3a01",
+    "app/analyzer.mjs": "8c5c943fe650500432768ef9d267186b6012597e4e197355dde8d97cf47e07b6",
     "app/analyzer-checks.mjs": "0621b02c98f269045be3664325256301fb8df85af232e75241c8ed1a658927c1",
     "data/analyzer_cases.json": "3fdf4525f4da1c733c6309949fec5ebcd1ee8e5308a6aa3cdc0b78d8bbf887d5",
     "data/dictionary.json": "db21be58d5bc4a06722d82c6bf65b8a4669b16944e5f93f385366cd2aa95fb32",
@@ -1234,7 +1234,7 @@
         ],
         "warnings": [
           "부정·추정 표지는 언급된 개념과 별도로 기록합니다. 해당 환자의 진단을 확정하지 않습니다.",
-          "필수성·논리식 또는 생략 문형 중 해석을 지원하지 않는 구간이 있습니다. 환자 조건을 확정하지 않습니다."
+          "지원하지 않는 문형이나 확인하지 못한 문맥 범위가 있습니다. 미지원 항목을 확인하고 환자 상태를 확정하지 않습니다."
         ],
         "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
       }
@@ -1484,7 +1484,7 @@
         ],
         "warnings": [
           "부정·추정 표지는 언급된 개념과 별도로 기록합니다. 해당 환자의 진단을 확정하지 않습니다.",
-          "필수성·논리식 또는 생략 문형 중 해석을 지원하지 않는 구간이 있습니다. 환자 조건을 확정하지 않습니다."
+          "지원하지 않는 문형이나 확인하지 못한 문맥 범위가 있습니다. 미지원 항목을 확인하고 환자 상태를 확정하지 않습니다."
         ],
         "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
       }
@@ -1582,7 +1582,7 @@
         ],
         "warnings": [
           "부정·추정 표지는 언급된 개념과 별도로 기록합니다. 해당 환자의 진단을 확정하지 않습니다.",
-          "필수성·논리식 또는 생략 문형 중 해석을 지원하지 않는 구간이 있습니다. 환자 조건을 확정하지 않습니다."
+          "지원하지 않는 문형이나 확인하지 못한 문맥 범위가 있습니다. 미지원 항목을 확인하고 환자 상태를 확정하지 않습니다."
         ],
         "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
       }
@@ -1680,7 +1680,7 @@
         ],
         "warnings": [
           "부정·추정 표지는 언급된 개념과 별도로 기록합니다. 해당 환자의 진단을 확정하지 않습니다.",
-          "필수성·논리식 또는 생략 문형 중 해석을 지원하지 않는 구간이 있습니다. 환자 조건을 확정하지 않습니다."
+          "지원하지 않는 문형이나 확인하지 못한 문맥 범위가 있습니다. 미지원 항목을 확인하고 환자 상태를 확정하지 않습니다."
         ],
         "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
       }
@@ -2226,7 +2226,7 @@
         ],
         "warnings": [
           "부정·추정 표지는 언급된 개념과 별도로 기록합니다. 해당 환자의 진단을 확정하지 않습니다.",
-          "필수성·논리식 또는 생략 문형 중 해석을 지원하지 않는 구간이 있습니다. 환자 조건을 확정하지 않습니다."
+          "지원하지 않는 문형이나 확인하지 못한 문맥 범위가 있습니다. 미지원 항목을 확인하고 환자 상태를 확정하지 않습니다."
         ],
         "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
       }

@@ -333,7 +333,7 @@ export function createAnalyzer(catalog) {
     if(mentions.some(m=>m.assertion==='UNSUPPORTED_REQUIREMENT'))unsupported_patterns.push('REQUIREMENT_NECESSITY');
     if(logical_relations.some(r=>r.operator==='AND'))unsupported_patterns.push('AND_ELIGIBILITY_INTERPRETATION');
     if(/\btype\s+1\s+or\s+type\s+2\b/iu.test(body))unsupported_patterns.push('COORDINATION_ELLIPSIS');
-    if(unsupported_patterns.length)warnings.push('필수성·논리식 또는 생략 문형 중 해석을 지원하지 않는 구간이 있습니다. 환자 조건을 확정하지 않습니다.');
+    if(unsupported_patterns.length)warnings.push('지원하지 않는 문형이나 확인하지 못한 문맥 범위가 있습니다. 미지원 항목을 확인하고 환자 상태를 확정하지 않습니다.');
     return {engine_version:ENGINE_VERSION,normalization_status,target_evidence_status,eligibility_status:'NOT_EVALUATED',unsupported_patterns,input:{keyword,text},offset_encoding:'UTF-16 code units',decision,
       concept_keys:keys,concepts:keys.map(describe),keyword_candidates:keywordCandidates.map(describe),
       mentions:mentions.map(m=>({...m,concept:m.concept_key?describe(m.concept_key):null})),
