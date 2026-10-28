@@ -1,0 +1,12 @@
+{
+  "source_file": "final_consistency_review_cases.tsv",
+  "source_sha256": "6153660743509dd1c930f46638b10c686b5ca3cb162bc207d080aa25809a5b6b",
+  "attribution": "Codex final consistency review record; no independent expert review",
+  "record": {
+    "source_id": "K004",
+    "keyword": "type-2 diabetes mellitus",
+    "outcome": "UPDATED_OR_CLARIFIED",
+    "review_note_ko": "원문에는 인슐린 치료 언급이 없다. 이전 설명의 인슐린 조건 주장을 삭제하고 대소문자·하이픈 표기가 다른 제2형 당뇨병 연결만 설명한다. 환자 속성 데이터에는 원래도 인슐린 조건을 생성하지 않았다.",
+    "evidence_refs": "MONDO | INPUT | ROUND3_K004 | ROUND3_SCOPE_REVIEW"
+  }
+}

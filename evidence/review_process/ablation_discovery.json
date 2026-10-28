@@ -1,0 +1,118 @@
+{
+  "stage": "prototype-2 development before ambiguity-policy guard",
+  "purpose": "Observed development counterexample, not independent accuracy evaluation.",
+  "findings": [
+    {
+      "source_id": "K007",
+      "input": {
+        "keyword": "CD",
+        "text": "CD with ileocolonic inflammation and fistula."
+      },
+      "expected": {
+        "decision": "PROVISIONAL_MAP",
+        "concept_key": "MONDO:0005011",
+        "expression": null
+      },
+      "before": {
+        "engine_version": "prototype-2",
+        "decision": "LINKED",
+        "normalization_status": "LINKED",
+        "target_evidence_status": "AFFIRMED",
+        "eligibility_status": "NOT_EVALUATED",
+        "concept_keys": [
+          "MONDO:0005130"
+        ],
+        "keyword_candidates": [
+          "MONDO:0005130"
+        ],
+        "mentions": [
+          {
+            "text": "CD",
+            "start": 0,
+            "end": 2,
+            "status": "RESOLVED",
+            "basis": "REVIEWED_ALIAS",
+            "assertion": "AFFIRMED",
+            "concept_key": "MONDO:0005130",
+            "candidate_keys": [
+              "MONDO:0005130"
+            ]
+          }
+        ],
+        "attributes": [],
+        "name_components": [],
+        "logical_relations": [],
+        "unsupported_patterns": [],
+        "reasons": [
+          {
+            "rule": "G04",
+            "code": "REVIEWED_ALIAS",
+            "message": "기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다."
+          }
+        ],
+        "warnings": []
+      },
+      "removed": {
+        "aliases": 2,
+        "comparisons": 2,
+        "expression": 0
+      }
+    },
+    {
+      "source_id": "K008",
+      "input": {
+        "keyword": "CD",
+        "text": "CD with gluten-triggered enteropathy."
+      },
+      "expected": {
+        "decision": "PROVISIONAL_MAP",
+        "concept_key": "MONDO:0005130",
+        "expression": null
+      },
+      "before": {
+        "engine_version": "prototype-2",
+        "decision": "LINKED",
+        "normalization_status": "LINKED",
+        "target_evidence_status": "AFFIRMED",
+        "eligibility_status": "NOT_EVALUATED",
+        "concept_keys": [
+          "MONDO:0005011"
+        ],
+        "keyword_candidates": [
+          "MONDO:0005011"
+        ],
+        "mentions": [
+          {
+            "text": "CD",
+            "start": 0,
+            "end": 2,
+            "status": "RESOLVED",
+            "basis": "REVIEWED_ALIAS",
+            "assertion": "AFFIRMED",
+            "concept_key": "MONDO:0005011",
+            "candidate_keys": [
+              "MONDO:0005011"
+            ]
+          }
+        ],
+        "attributes": [],
+        "name_components": [],
+        "logical_relations": [],
+        "unsupported_patterns": [],
+        "reasons": [
+          {
+            "rule": "G04",
+            "code": "REVIEWED_ALIAS",
+            "message": "기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다."
+          }
+        ],
+        "warnings": []
+      },
+      "removed": {
+        "aliases": 2,
+        "comparisons": 1,
+        "expression": 0
+      }
+    }
+  ]
+}

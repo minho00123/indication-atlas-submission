@@ -112,7 +112,7 @@ class SubmissionBuild(unittest.TestCase):
         self.assertNotIn('<script>',output)
         self.assertNotIn('href="javascript:',output)
         self.assertIn('&lt;strong&gt;code&lt;/strong&gt;',output)
-        for name in ('guidelines','research','methodology','analyzer','boundaries','run'):
+        for name in ('guidelines','research','methodology','analyzer','boundaries','run','audit-method','review'):
             self.assertTrue((ROOT/'dist/content'/f'{name}.html').is_file())
 
     def test_runtime_module_and_development_inputs_are_published_in_source_package(self):
@@ -209,5 +209,24 @@ class ArchivedExperiment(unittest.TestCase):
         self.assertFalse(judge(gold,{'decision':'mapped','conditions':['AML','MDS']}))
         self.assertFalse(judge({'decision':'ambiguous'}, {'decision':'mapped','conditions':['Diabetes']}))
 
+
+
+class RuntimeAuditArtifacts(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):build()
+
+    def test_audit_provenance_coverage_and_recalculated_aggregates(self):
+        from verify_rule_audit import verify
+        summary=verify()
+        self.assertEqual(summary['rows'],300)
+        self.assertEqual(summary['aliases'],419)
+
+    def test_all_audit_downloads_include_all_input_rows(self):
+        for mode in ['A','B','C']:
+            result=json.loads((ROOT/'dist/downloads'/f'rule-audit-{mode}.json').read_text())
+            self.assertEqual(len(result['rows']),300)
+            self.assertEqual(len({r['source_id'] for r in result['rows']}),300)
+        support=json.loads((ROOT/'dist/data/rule-support.json').read_text())
+        self.assertEqual([r['rule'] for r in support['rules']],[f'G{i:02d}' for i in range(1,13)])
 
 if __name__=='__main__':unittest.main()

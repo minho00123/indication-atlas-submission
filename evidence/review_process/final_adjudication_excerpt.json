@@ -1,0 +1,63 @@
+{
+  "source_file": "claude_final_review_adjudication.json",
+  "source_sha256": "7bf21c4dfec6a4b387fe3d7cb0ca183997b5708866e2ff1a349b5a9f39c965fb",
+  "stage": "curated-v2.1.1 to v2.2; historical review",
+  "reviewer_is_not_blinded": true,
+  "expert_approved": false,
+  "items": [
+    {
+      "finding_index": 1,
+      "source_ids": [
+        "K116",
+        "K117",
+        "K260",
+        "K204"
+      ],
+      "reviewer_category": "EVIDENCE_SUPPORTED_ERROR",
+      "disposition": "ACCEPT",
+      "rationale_ko": "별칭 누락을 재현했다. 보존된 NCIt 동의어와 새 MeSH Term→Concept 조회로 5개 별칭을 추가했다. 다른 문제인 NAFLD/MASLD 개념 병합은 별도 정책으로 다룬다.",
+      "reviewer_evidence_urls": "https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/C84444?include=summary ; https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/C179263?include=summary ; https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/C26862?include=summary ; https://id.nlm.nih.gov/mesh/sparql (concept→term query, 2026-10-28)"
+    },
+    {
+      "finding_index": 2,
+      "source_ids": [
+        "K262"
+      ],
+      "reviewer_category": "EVIDENCE_SUPPORTED_ERROR",
+      "disposition": "PARTIAL_ACCEPT",
+      "rationale_ko": "M0014288 후보 누락은 보완했다. 다만 MeSH 정의는 M. leprae를 포함하고 CDC는 NTM에서 제외하므로 범위 동등성을 확정하지 않는다. LOCAL·UNKNOWN과 경고를 유지한다.",
+      "reviewer_evidence_urls": "https://id.nlm.nih.gov/mesh/D009165.json ; https://meshb.nlm.nih.gov/record/ui?ui=D009165"
+    },
+    {
+      "finding_index": 3,
+      "source_ids": [
+        "K011",
+        "K106",
+        "K107",
+        "K111",
+        "K162",
+        "K163",
+        "K164",
+        "K212",
+        "K228",
+        "K248",
+        "K250"
+      ],
+      "reviewer_category": "EVIDENCE_SUPPORTED_ERROR",
+      "disposition": "PARTIAL_ACCEPT",
+      "rationale_ko": "해당 토큰은 원문에 실제 존재하므로 환자 사실을 지어낸 오류는 아니다. 그러나 의미 역할이 혼재되어 17행의 32구간을 질환명 구성 요소로 분리했다. 재발·전이·실제 기간·치료 등 추가 조건은 clinical_attributes에 유지한다.",
+      "reviewer_evidence_urls": "docs/JUDGMENT_GUIDELINES_V2_KO.md#G05 ; data/research_judgments_v1.json clinical_attributes"
+    },
+    {
+      "finding_index": 5,
+      "source_ids": [
+        "K116",
+        "K117"
+      ],
+      "reviewer_category": "POLICY_CHOICE",
+      "disposition": "POLICY_RETAIN_WITH_DISCOVERY_LINKS",
+      "rationale_ko": "과거 NAFLD 기준 범위와 현행 MASLD 기준 범위는 유지한다. AASLD의 심대사 위험 요건을 근거로 단순 명칭 변경과 구별한다. 두 개념은 검색에서 상호 관련 결과를 제공하며 EXACT 후보와 섞지 않는다.",
+      "reviewer_evidence_urls": "https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/C84444?include=summary ; https://purl.obolibrary.org/obo/MONDO_0013209 ; https://id.nlm.nih.gov/mesh/sparql (concept→term query, 2026-10-28) ; https://blog.opentargets.org/open-targets-platform-26-09-has-been-released/"
+    }
+  ]
+}

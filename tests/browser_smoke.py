@@ -195,7 +195,7 @@ def run(base_url,browser_executable=None,output=None):
         expect(page.locator('.runtime-conditions section').nth(1)).to_contain_text('relapsed')
         expect(page.locator('.runtime-conditions section').nth(1)).to_contain_text('prior_therapy')
         page.get_by_role('button',name='키워드·원문 충돌',exact=True).click()
-        expect(page.locator('#analyzer-decision')).to_have_text('입력 충돌 · 보류')
+        expect(page.locator('#analyzer-decision')).to_have_text('개념 차이 · 관계 미검토')
         page.get_by_role('button',name='부정 표현',exact=True).click()
         expect(page.locator('.runtime-concepts')).to_contain_text('MONDO:0005233')
         expect(page.locator('.runtime-mentions')).to_contain_text('직접 부정 표지')
@@ -215,8 +215,43 @@ def run(base_url,browser_executable=None,output=None):
         assert size_checks
         results.append('Runtime conditions/name components, conflicts, negation, escaped input and all development cases executed')
         if output:page.screenshot(path=str(output/'analyzer.png'),full_page=True)
+        page.goto(base_url+'#materials/audit',wait_until='networkidle')
+        expect(page.get_by_role('heading',name='규칙 적용과 남은 검토',exact=True)).to_be_visible()
+        expect(page.locator('#audit-row-count')).to_have_text('300 / 300행')
+        expect(page.locator('#audit-rows tr')).to_have_count(20)
+        page.locator('[data-audit-mode="B"]').click()
+        expect(page.locator('#audit-mode-description')).to_contain_text('전역 정책은 남습니다')
+        page.locator('[data-audit-category="UNREGISTERED"]').click()
+        count=page.locator('#audit-row-count').inner_text()
+        assert count.endswith(' / 300행') and count!='300 / 300행'
+        page.locator('#audit-reset').click()
+        page.locator('#audit-search').fill('K007')
+        expect(page.locator('#audit-rows tr')).to_have_count(1)
+        expect(page.locator('#audit-rows')).to_contain_text('HOLD_AMBIGUOUS')
+        page.locator('#audit-rows summary').click()
+        expect(page.locator('#audit-rows')).to_contain_text('제거: 별칭')
+        for suffix in ['A','B','C']:
+            payload=page.request.get(base_url+'downloads/rule-audit-'+suffix+'.json')
+            assert payload.ok and len(payload.json()['rows'])==300
+        expect(page.locator('.support-table tbody tr')).to_have_count(12)
+        results.append('Audit A/B filtering, row details, 12-rule support table and complete A/B/C downloads')
+        page.goto(base_url+'#materials/compare',wait_until='networkidle')
+        expect(page.locator('.compare-columns .compare-column')).to_have_count(2)
+        page.get_by_role('button',name='PTCL 질환군 / PTCL-NOS',exact=True).click()
+        expect(page.locator('.compare-columns')).to_contain_text('MONDO:0004964')
+        expect(page.locator('.compare-note')).to_contain_text('검토 후보')
+        page.get_by_role('button',name='GCA / temporal arteritis',exact=True).click()
+        expect(page.locator('.compare-columns')).to_contain_text('NCIT:C35065')
+        expect(page.locator('.compare-note')).to_contain_text('같은 개념')
+        results.append('Optional comparison distinguishes concept groups, narrower candidates and same-concept names')
+        page.goto(base_url+'#materials/review',wait_until='networkidle')
+        expect(page.locator('#document-content')).to_contain_text('블라인드 독립 검토나 임상 전문가 검증이 아닙니다')
+        evidence=page.request.get(base_url+'evidence/review_process/manifest.json')
+        assert evidence.ok and len(evidence.json()['files'])>=5
+        expect(page.locator('#document-content')).not_to_contain_text('/Users/')
+        results.append('AI cross-review page with linked evidence and no private paths')
         page.set_viewport_size({'width':390,'height':844})
-        for route in ['#dictionary','#records','#cases','#cases/cd','#materials/guidelines','#materials/research','#materials/methodology','#materials/downloads','#materials/boundaries','#aliases','#analyze','#materials/analyzer']:
+        for route in ['#dictionary','#records','#cases','#cases/cd','#materials/guidelines','#materials/research','#materials/methodology','#materials/downloads','#materials/boundaries','#aliases','#analyze','#materials/analyzer','#materials/audit','#materials/review','#materials/audit-method','#materials/compare']:
             page.goto(base_url+route,wait_until='networkidle')
             assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth'),route
         for case in ['cd','eczema','nsclc','masld','conflict','or','her2','gca','sense','long-covid']:

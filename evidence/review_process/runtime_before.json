@@ -1,0 +1,613 @@
+{
+  "commit": "05ebfe2",
+  "purpose": "Local reproduction of Claude review cases; development diagnostics, not independent accuracy evaluation.",
+  "cases": [
+    {
+      "id": "A1",
+      "input": {
+        "keyword": "NSCLC",
+        "text": "non small cell lung cancer after prior therapy."
+      },
+      "result": {
+        "engine_version": "prototype-1",
+        "input": {
+          "keyword": "NSCLC",
+          "text": "non small cell lung cancer after prior therapy."
+        },
+        "offset_encoding": "UTF-16 code units",
+        "decision": "HOLD_SOURCE_CONFLICT",
+        "concept_keys": [],
+        "concepts": [],
+        "keyword_candidates": [
+          {
+            "concept_key": "MONDO:0005233",
+            "preferred_name": "Non-small cell lung carcinoma",
+            "entity_type": "DISEASE_GROUP",
+            "source_ids": [
+              "K010",
+              "K131"
+            ]
+          }
+        ],
+        "mentions": [
+          {
+            "text": "small cell lung cancer",
+            "start": 4,
+            "end": 26,
+            "candidate_keys": [
+              "MONDO:0008433"
+            ],
+            "concept_key": "MONDO:0008433",
+            "status": "RESOLVED",
+            "basis": "REVIEWED_ALIAS",
+            "assertion": "AFFIRMED",
+            "concept": {
+              "concept_key": "MONDO:0008433",
+              "preferred_name": "small cell lung carcinoma",
+              "entity_type": "DISEASE_OR_CONDITION",
+              "source_ids": [
+                "K130"
+              ]
+            }
+          }
+        ],
+        "abbreviation_definitions": [],
+        "logical_relations": [],
+        "attributes": [
+          {
+            "type": "treatment_history",
+            "value": "prior_therapy",
+            "text": "after prior therapy",
+            "start": 27,
+            "end": 46,
+            "role": "CONTEXT_ATTRIBUTE",
+            "assertion": "AFFIRMED",
+            "owner_start": null
+          }
+        ],
+        "name_components": [],
+        "reasons": [
+          {
+            "rule": "G04",
+            "code": "REVIEWED_ALIAS",
+            "message": "기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다."
+          },
+          {
+            "rule": "G01",
+            "code": "HOLD_SOURCE_CONFLICT",
+            "message": "대상 표현과 원문에서 확인한 개념이 다릅니다. 범위 차이 또는 필드 충돌을 자동 정정하지 않고 검토 대상으로 남깁니다."
+          },
+          {
+            "rule": "G05",
+            "code": "CONTEXT_PRESERVED",
+            "message": "새 원문에서 지원하는 추가 조건 구간을 찾아 개념과 별도 필드로 보존했습니다."
+          }
+        ],
+        "warnings": [],
+        "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
+      }
+    },
+    {
+      "id": "A1b",
+      "input": {
+        "keyword": "non small cell lung cancer",
+        "text": "non small cell lung cancer after prior therapy."
+      },
+      "result": {
+        "engine_version": "prototype-1",
+        "input": {
+          "keyword": "non small cell lung cancer",
+          "text": "non small cell lung cancer after prior therapy."
+        },
+        "offset_encoding": "UTF-16 code units",
+        "decision": "UNREGISTERED",
+        "concept_keys": [],
+        "concepts": [],
+        "keyword_candidates": [],
+        "mentions": [
+          {
+            "text": "small cell lung cancer",
+            "start": 4,
+            "end": 26,
+            "candidate_keys": [
+              "MONDO:0008433"
+            ],
+            "concept_key": "MONDO:0008433",
+            "status": "RESOLVED",
+            "basis": "REVIEWED_ALIAS",
+            "assertion": "AFFIRMED",
+            "concept": {
+              "concept_key": "MONDO:0008433",
+              "preferred_name": "small cell lung carcinoma",
+              "entity_type": "DISEASE_OR_CONDITION",
+              "source_ids": [
+                "K130"
+              ]
+            }
+          }
+        ],
+        "abbreviation_definitions": [],
+        "logical_relations": [],
+        "attributes": [
+          {
+            "type": "treatment_history",
+            "value": "prior_therapy",
+            "text": "after prior therapy",
+            "start": 27,
+            "end": 46,
+            "role": "CONTEXT_ATTRIBUTE",
+            "assertion": "AFFIRMED",
+            "owner_start": null
+          }
+        ],
+        "name_components": [],
+        "reasons": [
+          {
+            "rule": "G04",
+            "code": "UNREGISTERED_TERM",
+            "message": "이름이나 문서 내 정의를 현재 사전의 개념으로 확인하지 못했습니다. 새로운 LOCAL 개념을 자동으로 만들지 않습니다."
+          },
+          {
+            "rule": "G05",
+            "code": "CONTEXT_PRESERVED",
+            "message": "새 원문에서 지원하는 추가 조건 구간을 찾아 개념과 별도 필드로 보존했습니다."
+          }
+        ],
+        "warnings": [],
+        "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
+      }
+    },
+    {
+      "id": "A2",
+      "input": {
+        "keyword": "Stable angina",
+        "text": "Unstable angina within 30 days."
+      },
+      "result": {
+        "engine_version": "prototype-1",
+        "input": {
+          "keyword": "Stable angina",
+          "text": "Unstable angina within 30 days."
+        },
+        "offset_encoding": "UTF-16 code units",
+        "decision": "LINKED",
+        "concept_keys": [
+          "NCIT:C66914"
+        ],
+        "concepts": [
+          {
+            "concept_key": "NCIT:C66914",
+            "preferred_name": "Stable angina",
+            "entity_type": "CLINICAL_CONDITION",
+            "source_ids": [
+              "K227"
+            ]
+          }
+        ],
+        "keyword_candidates": [
+          {
+            "concept_key": "NCIT:C66914",
+            "preferred_name": "Stable angina",
+            "entity_type": "CLINICAL_CONDITION",
+            "source_ids": [
+              "K227"
+            ]
+          }
+        ],
+        "mentions": [],
+        "abbreviation_definitions": [],
+        "logical_relations": [],
+        "attributes": [],
+        "name_components": [],
+        "reasons": [
+          {
+            "rule": "G04",
+            "code": "REVIEWED_ALIAS",
+            "message": "기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다."
+          }
+        ],
+        "warnings": [
+          "현재 사전에서 인식한 원문 내 표현이 없습니다. 전체 문장의 의미를 이해했다고 해석하지 않습니다."
+        ],
+        "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
+      }
+    },
+    {
+      "id": "B1",
+      "input": {
+        "keyword": "Psoriasis",
+        "text": "Patients without psoriasis but with eczema."
+      },
+      "result": {
+        "engine_version": "prototype-1",
+        "input": {
+          "keyword": "Psoriasis",
+          "text": "Patients without psoriasis but with eczema."
+        },
+        "offset_encoding": "UTF-16 code units",
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005083"
+        ],
+        "concepts": [
+          {
+            "concept_key": "MONDO:0005083",
+            "preferred_name": "psoriasis",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K033"
+            ]
+          }
+        ],
+        "keyword_candidates": [
+          {
+            "concept_key": "MONDO:0005083",
+            "preferred_name": "psoriasis",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K033"
+            ]
+          }
+        ],
+        "mentions": [
+          {
+            "text": "psoriasis",
+            "start": 17,
+            "end": 26,
+            "candidate_keys": [
+              "MONDO:0005083"
+            ],
+            "concept_key": "MONDO:0005083",
+            "status": "RESOLVED",
+            "basis": "REVIEWED_ALIAS",
+            "assertion": "NEGATED",
+            "concept": {
+              "concept_key": "MONDO:0005083",
+              "preferred_name": "psoriasis",
+              "entity_type": "DISEASE_OR_CONDITION",
+              "source_ids": [
+                "K033"
+              ]
+            }
+          },
+          {
+            "text": "eczema",
+            "start": 36,
+            "end": 42,
+            "candidate_keys": [
+              "NCIT:C3001"
+            ],
+            "concept_key": "NCIT:C3001",
+            "status": "RESOLVED",
+            "basis": "REVIEWED_ALIAS",
+            "assertion": "AFFIRMED",
+            "concept": {
+              "concept_key": "NCIT:C3001",
+              "preferred_name": "Eczema, unspecified",
+              "entity_type": "DISEASE_OR_CONDITION",
+              "source_ids": [
+                "K001",
+                "K002"
+              ]
+            }
+          }
+        ],
+        "abbreviation_definitions": [],
+        "logical_relations": [],
+        "attributes": [],
+        "name_components": [],
+        "reasons": [
+          {
+            "rule": "G04",
+            "code": "REVIEWED_ALIAS",
+            "message": "기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다."
+          }
+        ],
+        "warnings": [
+          "부정·추정 표지는 언급된 개념과 별도로 기록합니다. 해당 환자의 진단을 확정하지 않습니다."
+        ],
+        "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
+      }
+    },
+    {
+      "id": "B2",
+      "input": {
+        "keyword": "Chronic kidney disease",
+        "text": "No chronic kidney disease for at least 3 months."
+      },
+      "result": {
+        "engine_version": "prototype-1",
+        "input": {
+          "keyword": "Chronic kidney disease",
+          "text": "No chronic kidney disease for at least 3 months."
+        },
+        "offset_encoding": "UTF-16 code units",
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005300"
+        ],
+        "concepts": [
+          {
+            "concept_key": "MONDO:0005300",
+            "preferred_name": "Chronic kidney disease",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K017"
+            ]
+          }
+        ],
+        "keyword_candidates": [
+          {
+            "concept_key": "MONDO:0005300",
+            "preferred_name": "Chronic kidney disease",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K017"
+            ]
+          }
+        ],
+        "mentions": [
+          {
+            "text": "chronic kidney disease",
+            "start": 3,
+            "end": 25,
+            "candidate_keys": [
+              "MONDO:0005300"
+            ],
+            "concept_key": "MONDO:0005300",
+            "status": "RESOLVED",
+            "basis": "REVIEWED_ALIAS",
+            "assertion": "NEGATED",
+            "concept": {
+              "concept_key": "MONDO:0005300",
+              "preferred_name": "Chronic kidney disease",
+              "entity_type": "DISEASE_OR_CONDITION",
+              "source_ids": [
+                "K017"
+              ]
+            }
+          }
+        ],
+        "abbreviation_definitions": [],
+        "logical_relations": [],
+        "attributes": [
+          {
+            "type": "duration",
+            "value": "at least 3 months",
+            "text": "at least 3 months",
+            "start": 30,
+            "end": 47,
+            "role": "CONTEXT_ATTRIBUTE",
+            "assertion": "AFFIRMED",
+            "owner_start": null,
+            "quantity": {
+              "amount": 3,
+              "unit": "month",
+              "comparator": "GTE"
+            }
+          }
+        ],
+        "name_components": [
+          {
+            "type": "chronicity",
+            "value": "chronic",
+            "text": "chronic",
+            "start": 3,
+            "end": 10,
+            "role": "NAME_COMPONENT",
+            "assertion": "NEGATED",
+            "owner_start": 3
+          }
+        ],
+        "reasons": [
+          {
+            "rule": "G04",
+            "code": "REVIEWED_ALIAS",
+            "message": "기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다."
+          },
+          {
+            "rule": "G05",
+            "code": "CONTEXT_PRESERVED",
+            "message": "새 원문에서 지원하는 추가 조건 구간을 찾아 개념과 별도 필드로 보존했습니다."
+          }
+        ],
+        "warnings": [
+          "부정·추정 표지는 언급된 개념과 별도로 기록합니다. 해당 환자의 진단을 확정하지 않습니다."
+        ],
+        "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
+      }
+    },
+    {
+      "id": "B3",
+      "input": {
+        "keyword": "Psoriasis",
+        "text": "History of psoriasis is not required."
+      },
+      "result": {
+        "engine_version": "prototype-1",
+        "input": {
+          "keyword": "Psoriasis",
+          "text": "History of psoriasis is not required."
+        },
+        "offset_encoding": "UTF-16 code units",
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005083"
+        ],
+        "concepts": [
+          {
+            "concept_key": "MONDO:0005083",
+            "preferred_name": "psoriasis",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K033"
+            ]
+          }
+        ],
+        "keyword_candidates": [
+          {
+            "concept_key": "MONDO:0005083",
+            "preferred_name": "psoriasis",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K033"
+            ]
+          }
+        ],
+        "mentions": [
+          {
+            "text": "psoriasis",
+            "start": 11,
+            "end": 20,
+            "candidate_keys": [
+              "MONDO:0005083"
+            ],
+            "concept_key": "MONDO:0005083",
+            "status": "RESOLVED",
+            "basis": "REVIEWED_ALIAS",
+            "assertion": "AFFIRMED",
+            "concept": {
+              "concept_key": "MONDO:0005083",
+              "preferred_name": "psoriasis",
+              "entity_type": "DISEASE_OR_CONDITION",
+              "source_ids": [
+                "K033"
+              ]
+            }
+          }
+        ],
+        "abbreviation_definitions": [],
+        "logical_relations": [],
+        "attributes": [],
+        "name_components": [],
+        "reasons": [
+          {
+            "rule": "G04",
+            "code": "REVIEWED_ALIAS",
+            "message": "기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다."
+          }
+        ],
+        "warnings": [],
+        "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
+      }
+    },
+    {
+      "id": "C1",
+      "input": {
+        "keyword": "Hypertension",
+        "text": "Pulmonary arterial hypertension"
+      },
+      "result": {
+        "engine_version": "prototype-1",
+        "input": {
+          "keyword": "Hypertension",
+          "text": "Pulmonary arterial hypertension"
+        },
+        "offset_encoding": "UTF-16 code units",
+        "decision": "HOLD_SOURCE_CONFLICT",
+        "concept_keys": [],
+        "concepts": [],
+        "keyword_candidates": [
+          {
+            "concept_key": "MONDO:0005044",
+            "preferred_name": "Hypertension",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K224"
+            ]
+          }
+        ],
+        "mentions": [
+          {
+            "text": "Pulmonary arterial hypertension",
+            "start": 0,
+            "end": 31,
+            "candidate_keys": [
+              "MONDO:0015924"
+            ],
+            "concept_key": "MONDO:0015924",
+            "status": "RESOLVED",
+            "basis": "REVIEWED_ALIAS",
+            "assertion": "AFFIRMED",
+            "concept": {
+              "concept_key": "MONDO:0015924",
+              "preferred_name": "pulmonary arterial hypertension",
+              "entity_type": "DISEASE_GROUP",
+              "source_ids": [
+                "K225"
+              ]
+            }
+          }
+        ],
+        "abbreviation_definitions": [],
+        "logical_relations": [],
+        "attributes": [],
+        "name_components": [],
+        "reasons": [
+          {
+            "rule": "G04",
+            "code": "REVIEWED_ALIAS",
+            "message": "기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다."
+          },
+          {
+            "rule": "G01",
+            "code": "HOLD_SOURCE_CONFLICT",
+            "message": "대상 표현과 원문에서 확인한 개념이 다릅니다. 범위 차이 또는 필드 충돌을 자동 정정하지 않고 검토 대상으로 남깁니다."
+          }
+        ],
+        "warnings": [],
+        "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
+      }
+    },
+    {
+      "id": "D1",
+      "input": {
+        "keyword": "MDS/AML",
+        "text": "Patients with MDS or AML; either diagnosis is eligible."
+      },
+      "result": {
+        "engine_version": "prototype-1",
+        "input": {
+          "keyword": "MDS/AML",
+          "text": "Patients with MDS or AML; either diagnosis is eligible."
+        },
+        "offset_encoding": "UTF-16 code units",
+        "decision": "UNREGISTERED",
+        "concept_keys": [],
+        "concepts": [],
+        "keyword_candidates": [],
+        "mentions": [
+          {
+            "text": "AML",
+            "start": 21,
+            "end": 24,
+            "candidate_keys": [
+              "MONDO:0018874",
+              "MONDO:0004555"
+            ],
+            "concept_key": null,
+            "status": "AMBIGUOUS",
+            "basis": "REVIEWED_ALIAS",
+            "assertion": "AFFIRMED",
+            "concept": null
+          }
+        ],
+        "abbreviation_definitions": [],
+        "logical_relations": [],
+        "attributes": [],
+        "name_components": [],
+        "reasons": [
+          {
+            "rule": "G04",
+            "code": "UNREGISTERED_TERM",
+            "message": "이름이나 문서 내 정의를 현재 사전의 개념으로 확인하지 못했습니다. 새로운 LOCAL 개념을 자동으로 만들지 않습니다."
+          }
+        ],
+        "warnings": [
+          "해소하지 못한 문서 내 표현이 있습니다. 다른 개념의 언급만으로 약어를 추측하지 않습니다."
+        ],
+        "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
+      }
+    }
+  ]
+}

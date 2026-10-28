@@ -1,0 +1,52 @@
+{
+  "source_file": "claude_review_adjudication.json",
+  "source_sha256": "74f311d35436c2ac0715499b08d52387b4328f58ca332ff835ec972c986d5a6a",
+  "stage": "initial case-by-case research adjudication",
+  "cases": [
+    {
+      "source_id": "K043",
+      "review_part": "A1",
+      "review_keyword_matches_source": true,
+      "review_context_matches_source": true,
+      "review_relation_verbatim": "0044212=EXACT(이름 개정 관계, 잠정) · 0850230=BROADER",
+      "review_decision_verbatim": "HOLD",
+      "research_case_override_exists": true,
+      "source_to_candidate_relations": {
+        "MONDO:0044212": "EXACT",
+        "MONDO:0850230": "NARROWER"
+      },
+      "research_decision": "PROVISIONAL_MAP",
+      "note": "Original review is retained. Placeholder context is not imported; free-text relation directions are manually interpreted."
+    },
+    {
+      "source_id": "K139",
+      "review_part": "A1",
+      "review_keyword_matches_source": true,
+      "review_context_matches_source": true,
+      "review_relation_verbatim": "0001187=EXACT · 0004986=NARROWER",
+      "review_decision_verbatim": "HOLD",
+      "research_case_override_exists": true,
+      "source_to_candidate_relations": {
+        "MONDO:0001187": "EXACT",
+        "MONDO:0004986": "BROADER"
+      },
+      "research_decision": "PROVISIONAL_MAP",
+      "note": "Original review is retained. Placeholder context is not imported; free-text relation directions are manually interpreted."
+    },
+    {
+      "source_id": "K200",
+      "review_part": "A1",
+      "review_keyword_matches_source": true,
+      "review_context_matches_source": true,
+      "review_relation_verbatim": "0015129=EXACT(MeSH 기준) · 0100480=NARROWER(자가면역 원인)",
+      "review_decision_verbatim": "HOLD",
+      "research_case_override_exists": true,
+      "source_to_candidate_relations": {
+        "MONDO:0015129": "EXACT",
+        "MONDO:0100480": "BROADER"
+      },
+      "research_decision": "PROVISIONAL_MAP",
+      "note": "Original review is retained. Placeholder context is not imported; free-text relation directions are manually interpreted."
+    }
+  ]
+}

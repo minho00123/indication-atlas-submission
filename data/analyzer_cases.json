@@ -1,6 +1,6 @@
 {
   "purpose": "Author-constructed functional and counterexample checks for a bounded rule prototype; not independent clinical accuracy evaluation.",
-  "version": "prototype-1",
+  "version": "prototype-2",
   "clinical_expert_approvals": 0,
   "cases": [
     {
@@ -238,7 +238,7 @@
       "keyword": "eczema",
       "text": "Adults with plaque psoriasis.",
       "expected": {
-        "decision": "HOLD_SOURCE_CONFLICT",
+        "decision": "HOLD_RELATION_UNREVIEWED",
         "concept_keys": []
       }
     },
@@ -247,7 +247,7 @@
       "keyword": "eczema",
       "text": "원문: Adults with plaque psoriasis. 정규화 결과: eczema.",
       "expected": {
-        "decision": "HOLD_SOURCE_CONFLICT",
+        "decision": "HOLD_RELATION_UNREVIEWED",
         "concept_keys": []
       }
     },
@@ -359,11 +359,8 @@
       "keyword": "MDS/AML",
       "text": "Myelodysplastic syndrome or acute myeloid leukemia; either diagnosis is eligible.",
       "expected": {
-        "decision": "SPLIT_OR",
-        "concept_keys": [
-          "MONDO:0018881",
-          "MONDO:0018874"
-        ],
+        "decision": "HOLD_EXPRESSION_UNRESOLVED",
+        "concept_keys": [],
         "logical_operator": "OR"
       }
     },
@@ -376,7 +373,7 @@
         "concept_keys": [
           "MONDO:0005233"
         ],
-        "logical_operator": null
+        "logical_operator": "AND"
       }
     },
     {
@@ -417,6 +414,264 @@
         "attribute_assertions": [
           "NEGATED"
         ]
+      }
+    },
+    {
+      "id": "review-A1-non-small-spaces",
+      "keyword": "NSCLC",
+      "text": "non small cell lung cancer after prior therapy.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005233"
+        ],
+        "mention_texts": [
+          "non small cell lung cancer"
+        ],
+        "target_evidence_status": "AFFIRMED"
+      }
+    },
+    {
+      "id": "review-A1b-target-spaces",
+      "keyword": "non small cell lung cancer",
+      "text": "non small cell lung cancer after prior therapy.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005233"
+        ]
+      }
+    },
+    {
+      "id": "non-small-no-gap",
+      "keyword": "NSCLC",
+      "text": "nonsmall cell lung cancer.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005233"
+        ]
+      }
+    },
+    {
+      "id": "review-A2-no-source-target",
+      "keyword": "Stable angina",
+      "text": "Unstable angina within 30 days.",
+      "expected": {
+        "decision": "HOLD_TARGET_NOT_IN_TEXT",
+        "concept_keys": [],
+        "target_evidence_status": "NOT_FOUND"
+      }
+    },
+    {
+      "id": "review-B1-negated-target",
+      "keyword": "Psoriasis",
+      "text": "Patients without psoriasis but with eczema.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005083"
+        ],
+        "target_evidence_status": "NEGATED",
+        "assertions": [
+          "NEGATED"
+        ]
+      }
+    },
+    {
+      "id": "review-B2-negative-mention-duration",
+      "keyword": "Chronic kidney disease",
+      "text": "No chronic kidney disease for at least 3 months.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005300"
+        ],
+        "target_evidence_status": "NEGATED",
+        "condition_scope": "DURATION_OF_NEGATED_MENTION",
+        "owner_concept": "MONDO:0005300"
+      }
+    },
+    {
+      "id": "review-B3-not-required",
+      "keyword": "Psoriasis",
+      "text": "History of psoriasis is not required.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005083"
+        ],
+        "target_evidence_status": "UNSUPPORTED_REQUIREMENT",
+        "unsupported": "REQUIREMENT_NECESSITY"
+      }
+    },
+    {
+      "id": "review-C1-relation-unreviewed",
+      "keyword": "Hypertension",
+      "text": "Pulmonary arterial hypertension",
+      "expected": {
+        "decision": "HOLD_RELATION_UNREVIEWED",
+        "concept_keys": []
+      }
+    },
+    {
+      "id": "review-D1-unresolved-or",
+      "keyword": "MDS/AML",
+      "text": "Patients with MDS or AML; either diagnosis is eligible.",
+      "expected": {
+        "decision": "HOLD_EXPRESSION_UNRESOLVED",
+        "concept_keys": [],
+        "logical_operator": "OR",
+        "logical_resolution": "UNRESOLVED"
+      }
+    },
+    {
+      "id": "resolved-or-no-stored-expression",
+      "keyword": "Myelodysplastic syndrome or acute myeloid leukemia",
+      "text": "Myelodysplastic syndrome or acute myeloid leukemia is mentioned.",
+      "expected": {
+        "decision": "SPLIT_OR",
+        "concept_keys": [
+          "MONDO:0018881",
+          "MONDO:0018874"
+        ],
+        "logical_operator": "OR",
+        "logical_resolution": "RESOLVED"
+      }
+    },
+    {
+      "id": "partial-or-with-unregistered-operand",
+      "keyword": "Mystery/NSCLC",
+      "text": "Patients with MYSTERY or NSCLC.",
+      "expected": {
+        "decision": "HOLD_EXPRESSION_UNRESOLVED",
+        "concept_keys": [],
+        "logical_operator": "OR",
+        "logical_resolution": "PARTIAL"
+      }
+    },
+    {
+      "id": "and-structure-not-eligibility",
+      "keyword": "NSCLC and eczema",
+      "text": "NSCLC and eczema are mentioned.",
+      "expected": {
+        "decision": "HOLD_EXPRESSION_UNRESOLVED",
+        "concept_keys": [],
+        "logical_operator": "AND",
+        "unsupported": "AND_ELIGIBILITY_INTERPRETATION"
+      }
+    },
+    {
+      "id": "coordination-ellipsis-limited",
+      "keyword": "Type 2 diabetes",
+      "text": "type 1 or type 2 diabetes is mentioned.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005148"
+        ],
+        "unsupported": "COORDINATION_ELLIPSIS"
+      }
+    },
+    {
+      "id": "review-renal-aml-unknown-definition",
+      "keyword": "AML",
+      "text": "Renal angiomyolipoma (AML) is mentioned.",
+      "expected": {
+        "decision": "HOLD_DEFINITION",
+        "concept_keys": []
+      }
+    },
+    {
+      "id": "name-severe",
+      "keyword": "Severe eosinophilic asthma",
+      "text": "Severe eosinophilic asthma is mentioned.",
+      "expected": {
+        "decision": "LOCAL_LINKED",
+        "concept_keys": [
+          "LOCAL:K247"
+        ],
+        "attributes": [],
+        "name_components": [
+          "severity:severe"
+        ]
+      }
+    },
+    {
+      "id": "name-recurrent",
+      "keyword": "Recurrent herpes simplex",
+      "text": "Recurrent herpes simplex is mentioned.",
+      "expected": {
+        "decision": "LOCAL_LINKED",
+        "concept_keys": [
+          "LOCAL:K266"
+        ],
+        "attributes": [],
+        "name_components": [
+          "disease_status:recurrent"
+        ]
+      }
+    },
+    {
+      "id": "name-castration-resistant",
+      "keyword": "Castration-resistant prostate cancer",
+      "text": "Study eligibility mentions Castration-resistant prostate cancer. No further subtype or diagnostic details are provided.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0850353"
+        ],
+        "attributes": [],
+        "name_components": [
+          "treatment_response:castration-resistant"
+        ]
+      }
+    },
+    {
+      "id": "condition-multi-disease-owner-unknown",
+      "keyword": "NSCLC",
+      "text": "NSCLC and eczema after prior therapy.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005233"
+        ],
+        "ownership_status": "UNKNOWN"
+      }
+    },
+    {
+      "id": "condition-adversative-owner",
+      "keyword": "eczema",
+      "text": "No psoriasis but eczema after prior therapy.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "NCIT:C3001"
+        ],
+        "owner_concept": "NCIT:C3001",
+        "scope_assertion": "AFFIRMED"
+      }
+    },
+    {
+      "id": "mixed-target-assertions",
+      "keyword": "NSCLC",
+      "text": "No NSCLC is reported. Possible NSCLC is discussed.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005233"
+        ],
+        "target_evidence_status": "MIXED"
+      }
+    },
+    {
+      "id": "non-modifier-blocks-fragment",
+      "keyword": "Melanoma",
+      "text": "non melanoma is mentioned.",
+      "expected": {
+        "decision": "HOLD_TARGET_NOT_IN_TEXT",
+        "concept_keys": [],
+        "blocked_mention": true
       }
     }
   ]

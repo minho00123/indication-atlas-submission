@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "scope": "Historical review excerpts and local runtime diagnostics; not independent expert validation.",
+  "files": {
+    "ablation_discovery.json": "e59172e362444a081de5fc2b3ca0c51fe95db9e0b66172d12481f803dd9a07e9",
+    "final_adjudication_excerpt.json": "4f6a39cbdd030123ad45536c6457345c4dc99e2f04a999b370d8a105ed8a2754",
+    "initial_id_review_excerpt.json": "ef97fc1c00bcc00be4df92df25e2fdc7667f3b298cf9aa2e6d4e9418a40b3ada",
+    "k004_consistency_excerpt.json": "5067fa44b461b49b207cdd5e78901a87ff4c04b72a9cb443fc572c733cbf441a",
+    "proposal_corrections_excerpt.json": "a268a76f40609f49fc7f6244ed241f1ac39957f24855082b6d12d0586e48219d",
+    "runtime_after.json": "8a64051d0af1319130b5cabf7ff13b854cda44d065bac2e4bdad345c16760bb5",
+    "runtime_before.json": "3297c35acfc599210f2b6b792789c2615cc613ff0a4baf05c776bd1b1b5a4752"
+  }
+}

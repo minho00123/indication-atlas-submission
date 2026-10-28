@@ -10,10 +10,11 @@ from markdown_render import render
 from score_legacy import score as score_legacy
 from case_review import prepare_stories
 from verify_supplement import verify as verify_supplement
+from verify_rule_audit import verify as verify_rule_audit
 
 DIST = ROOT / 'dist'
 DOCS = {'guidelines':'GUIDELINES.md','research':'SERVICE_RESEARCH.md',
-        'methodology':'METHODOLOGY.md','analyzer':'ANALYZER.md','boundaries':'BOUNDARIES.md','run':'RUN.md'}
+        'methodology':'METHODOLOGY.md','analyzer':'ANALYZER.md','boundaries':'BOUNDARIES.md','run':'RUN.md','audit-method':'RULE_AUDIT.md','review':'AI_REVIEW.md'}
 
 
 def dump(path, value):
@@ -43,6 +44,7 @@ def build():
     records, core, sources, manifest = validate()
     score_legacy()
     verify_supplement()
+    verify_rule_audit()
     for name in DOCS.values():
         if not (ROOT/'docs'/name).is_file():raise ValueError('Missing submission document: '+name)
     for folder in ('data/records','content','downloads'):(DIST/folder).mkdir(parents=True,exist_ok=True)
@@ -57,6 +59,13 @@ def build():
     dump(DIST/'data/catalog.json',dict(metadata=stats,**core,records=brief,sources=sources,stories=stories,comparisons=load('comparisons.json')))
     for row in records:dump(DIST/'data/records'/f"{row['source_id']}.json",row)
     dump(DIST/'data/analyzer-cases.json',load('analyzer_cases.json'))
+    dump(DIST/'data/rule-support.json',load('rule_support.json'))
+    audit=load('rule_audit.json')
+    dump(DIST/'downloads/rule-audit.json',audit)
+    for mode in ('A','B'):
+        dump(DIST/'downloads'/f'rule-audit-{mode}.json',dict(engine_version=audit['engine_version'],purpose=audit['purpose'],limitations=audit['limitations'],summary=audit['summary'][mode],rows=[dict(source_id=r['source_id'],keyword=r['keyword'],raw_context=r['raw_context'],expected=r['expected'],**r[mode]) for r in audit['rows']]))
+    dump(DIST/'downloads/rule-audit-C.json',dict(engine_version=audit['engine_version'],purpose=audit['purpose'],limitations=audit['limitations'],summary=audit['summary'],rows=[dict(source_id=r['source_id'],A=r['A']['checks'],B=r['B']['checks']) for r in audit['rows']]))
+    dump(DIST/'downloads/rule-audit-lookup.json',audit['lookup'])
     for key, filename in DOCS.items():
         content=render((ROOT/'docs'/filename).read_text(encoding='utf8'))
         if key=='methodology':
@@ -67,6 +76,7 @@ def build():
                 supplement=render((ROOT/'docs'/filename).read_text(encoding='utf8'))
                 content+='<details class="legacy-experiment external-supplement"><summary>'+title+'</summary><div class="legacy-content">'+supplement+'</div></details>'
         (DIST/'content'/f'{key}.html').write_text(content,encoding='utf8')
+    shutil.copytree(ROOT/'evidence/review_process',DIST/'evidence/review_process',dirs_exist_ok=True)
     shutil.copytree(ROOT/'evidence/boundary_checks',DIST/'evidence/boundary_checks',dirs_exist_ok=True,ignore=shutil.ignore_patterns('__pycache__','*.pyc'))
     fields=['source_id','keyword','raw_context','input_normalized_condition','standard_name','concept_key','entity_type',
             'research_decision','selected_standard_id','rationale_ko','context_required','evidence_refs',

@@ -37,10 +37,17 @@ python3 -m unittest discover -s tests -p 'test_*.py'
 웹의 [새 문장 분석](#analyze)은 외부 모델 없이 브라우저에서 실행합니다. 새 문서의 명시적 정의와 일부 조건 구간을 처리하며 기존 300행을 수정하지 않습니다. 같은 작성자 구성 검사는 Node.js 22 환경에서 실행할 수도 있습니다. Node는 선택 검사에만 필요합니다.
 
 ```bash
-node --test tests/test_analyzer.mjs
+node --test tests/test_*.mjs
 ```
 
 검사 사례와 통과 수는 독립 임상 정확도를 뜻하지 않습니다. [실행 원리·지원 범위·한계](#materials/analyzer)를 함께 확인해 주세요.
+
+[규칙 실행 리포트](#materials/audit)에서 A/B/C 전체 결과를 내려받을 수 있습니다. [대조 설계·재실행](#materials/audit-method)과 [AI 교차 검토](#materials/review)를 함께 제공합니다.
+
+```bash
+node tools/run_rule_audit.mjs --check
+python3 tools/verify_rule_audit.py
+```
 
 ## GitHub와 Netlify
 
