@@ -1167,7 +1167,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=type-2+diabetes+mellitus&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "인슐린 저항성 중심의 제2형 당뇨병 개념이다. 원문의 인슐린 치료 조건은 보존하되 인슐린을 쓴다는 이유로 제1형으로 바꾸지 않는다.",
+    "supports": "인슐린 저항성 중심의 제2형 당뇨병 개념입니다. 원문의 인슐린 치료 조건은 보존하되 인슐린을 쓴다는 이유로 제1형으로 바꾸지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K004-mesh-term",
@@ -1179,7 +1179,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Type+2+diabetes+mellitus&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "제2형 당뇨병의 긴 이름에 대응한다. 제1형·임신성 당뇨병·당뇨 전단계와 구분하고 대소문자 변형은 같은 기본 개념으로 묶는다.",
+    "supports": "제2형 당뇨병의 긴 이름에 대응합니다. 제1형·임신성 당뇨병·당뇨 전단계와 구분하고 대소문자 변형은 같은 기본 개념으로 묶습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K005-mesh-term",
@@ -1191,7 +1191,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Type+1+diabetes+mellitus&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "인슐린 분비 결핍을 특징으로 하는 제1형 당뇨병 개념이다. 제2형의 인슐린 치료 여부와 구별한다.",
+    "supports": "인슐린 분비 결핍을 특징으로 하는 제1형 당뇨병 개념입니다. 제2형의 인슐린 치료 여부와 구별합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K006-mesh-term",
@@ -1203,7 +1203,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=CD&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "긴 이름을 추가 조회한 NCIt 크론병 정의와 회결장 염증·누공 원문을 비교한다. CD의 문맥 기반 잠정 해석을 유지하며 같은 표기의 K008/K009로 전파하지 않는다.",
+    "supports": "긴 이름을 추가 조회한 NCIt 크론병 정의와 회결장 염증·누공 원문을 비교합니다. CD의 문맥 기반 잠정 해석을 유지하며 같은 표기의 K008/K009로 전파하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K007-mesh-term",
@@ -1216,7 +1216,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=CD&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "추가 조회한 셀리악병의 글루텐 관련 장질환 정의와 원문을 비교한다. CD를 이 문맥에서만 셀리악병으로 해석하고 전역 약어로 고정하지 않는다.",
+    "supports": "추가 조회한 셀리악병의 글루텐 관련 장질환 정의와 원문을 비교합니다. CD를 이 문맥에서만 셀리악병으로 해석하고 전역 약어로 고정하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K008-mesh-term",
@@ -1229,7 +1229,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=CD&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "CD를 확장할 문맥이 없다. 추가 조회한 크론병 후보나 기존 검색의 국가·원소·측정단위 후보는 선택 근거가 되지 않으므로 명시적 보류를 유지한다.",
+    "supports": "CD를 확장할 문맥이 없습니다. 추가 조회한 크론병 후보나 기존 검색의 국가·원소·측정단위 후보는 선택 근거가 되지 않으므로 명시적 보류를 유지합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K009-mesh-term",
@@ -1242,7 +1242,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=NSCLC&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "원문의 긴 NSCLC 명칭이 후보와 맞는다. 전이와 이전 치료 조건은 관찰 구간으로 보존하며 K131과 환자 적격성까지 같다고 보지 않는다.",
+    "supports": "원문의 긴 NSCLC 명칭이 후보와 맞습니다. 전이와 이전 치료 조건은 관찰 구간으로 보존하며 K131과 환자 적격성까지 같다고 보지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K010-mesh-term",
@@ -1254,7 +1254,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=AML&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "원문이 AML의 뜻을 acute myeloid leukemia로 명시한다. 재발 상태를 별도 보존하며 K012의 신장 혈관근지방종과 구별한다.",
+    "supports": "원문이 AML의 뜻을 acute myeloid leukemia로 명시합니다. 재발 상태를 별도 보존하며 K012의 신장 혈관근지방종과 구별합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K011-mesh-term",
@@ -1266,7 +1266,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=AML&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "원문이 renal angiomyolipoma를 명시하여 긴 이름을 추가 조회했다. AML 검색의 백혈병 첫 결과를 거절하고 TSC 동반 조건을 유지한다.",
+    "supports": "원문이 renal angiomyolipoma를 명시하여 긴 이름을 추가 조회했습니다. AML 검색의 백혈병 첫 결과를 거절하고 TSC 동반 조건을 유지합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K012-mesh-term",
@@ -1279,7 +1279,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=breast+neoplasm&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "유방의 양성 또는 악성 신생물을 포괄한다. breast cancer보다 넓으며 악성·침윤성 또는 특정 조직형을 임의로 추가하지 않는다.",
+    "supports": "유방의 양성 또는 악성 신생물을 포괄합니다. breast cancer보다 넓으며 악성·침윤성 또는 특정 조직형을 임의로 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K013-mesh-term",
@@ -1291,7 +1291,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=HER2-positive+breast+cancer&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "일반 HER2 양성 유방암을 보존한다. MONDO와 NCIt 후보 정의는 ER 음성까지 요구하지만 NCI의 바이오마커 설명은 HER2 양성과 호르몬 수용체 상태를 구별하므로 해당 후보보다 넓은 로컬 범위를 선택한다.",
+    "supports": "일반 HER2 양성 유방암을 보존합니다. MONDO와 NCIt 후보 정의는 ER 음성까지 요구하지만 NCI의 바이오마커 설명은 HER2 양성과 호르몬 수용체 상태를 구별하므로 해당 후보보다 넓은 로컬 범위를 선택합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K014-mesh-term",
@@ -1303,7 +1303,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=HER2-negative+breast+cancer&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "HER2 음성 유방암 표현을 공식 활성 MONDO의 Her2-receptor negative breast cancer 명칭과 NCI 바이오마커 구별로 대조한다. HER2 양성이나 triple-negative로 바꾸지 않는다.",
+    "supports": "HER2 음성 유방암 표현을 공식 활성 MONDO의 Her2-receptor negative breast cancer 명칭과 NCI 바이오마커 구별로 대조합니다. HER2 양성이나 triple-negative로 바꾸지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K015-mesh-term",
@@ -1315,7 +1315,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=CKD&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "원문에 CKD 긴 이름과 3개월 초과 기간이 명시된다. 만성 신장질환에 연결하되 renal impairment 일반과 구분한다.",
+    "supports": "원문에 CKD 긴 이름과 3개월 초과 기간이 명시됩니다. 만성 신장질환에 연결하되 renal impairment 일반과 구분합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K017-mesh-term",
@@ -1328,7 +1328,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=MDS%2FAML&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "이 레코드의 실제 문맥은 MDS 또는 AML 중 하나가 적격한 OR 식이다. NCIt의 MDS/AML라는 결합 질환명 후보가 있어도 원문의 논리식을 우선하여 동의어 병합하지 않는다.",
+    "supports": "이 레코드의 실제 문맥은 MDS 또는 AML 중 하나가 적격한 OR 식입니다. NCIt의 MDS/AML라는 결합 질환명 후보가 있어도 원문의 논리식을 우선하여 동의어 병합하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K018-mesh-term",
@@ -1341,7 +1341,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=eczema&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "키워드 eczema와 문맥 plaque psoriasis가 충돌한다. 어느 입력 필드가 잘못됐는지 알 수 없어 외부 검색으로 한쪽을 정답 처리하지 않는다.",
+    "supports": "키워드 eczema와 문맥 plaque psoriasis가 충돌합니다. 어느 입력 필드가 잘못됐는지 알 수 없어 외부 검색으로 한쪽을 정답 처리하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K024-mesh-term",
@@ -1353,7 +1353,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Atopic+dermatitis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "아토피 피부염의 만성 염증성 습진 유형이다. 일반 eczema와 상하위 범위를 구별하고 atopic eczema 명칭은 같은 임상 개념으로 인정한다.",
+    "supports": "아토피 피부염의 만성 염증성 습진 유형입니다. 일반 eczema와 상하위 범위를 구별하고 atopic eczema 명칭은 같은 임상 개념으로 인정합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K025-mesh-term",
@@ -1365,7 +1365,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Contact+dermatitis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "접촉 물질에 의한 피부염 일반으로 자극성·알레르기성 기전을 포함한다. K027/K028 중 어느 아형인지 추론하지 않는다.",
+    "supports": "접촉 물질에 의한 피부염 일반으로 자극성·알레르기성 기전을 포함합니다. K027/K028 중 어느 아형인지 추론하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K026-mesh-term",
@@ -1377,7 +1377,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Allergic+contact+dermatitis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "알레르기 감작에 따른 접촉 피부염이다. 비알레르기성 자극 접촉 피부염과 별도로 유지한다.",
+    "supports": "알레르기 감작에 따른 접촉 피부염입니다. 비알레르기성 자극 접촉 피부염과 별도로 유지합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K027-mesh-term",
@@ -1389,7 +1389,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Irritant+contact+dermatitis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "자극 물질의 직접 작용에 의한 접촉 피부염이다. allergic contact dermatitis와 병합하지 않는다.",
+    "supports": "자극 물질의 직접 작용에 의한 접촉 피부염입니다. allergic contact dermatitis와 병합하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K028-mesh-term",
@@ -1401,7 +1401,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Dyshidrotic+eczema&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "MedlinePlus가 명시하는 dyshidrosis/dyshidrotic eczema 명칭 관계를 사용한다. 다른 습진 유형으로 확장하지 않는다.",
+    "supports": "MedlinePlus가 명시하는 dyshidrosis/dyshidrotic eczema 명칭 관계를 사용합니다. 다른 습진 유형으로 확장하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K029-mesh-term",
@@ -1413,7 +1413,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Seborrheic+dermatitis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "두피·중앙 얼굴·접히는 부위 등을 침범하는 지루성 피부염 개념이다. 모든 비듬이나 일반 피부염을 무조건 동의어로 등록하지 않는다.",
+    "supports": "두피·중앙 얼굴·접히는 부위 등을 침범하는 지루성 피부염 개념입니다. 모든 비듬이나 일반 피부염을 무조건 동의어로 등록하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K031-mesh-term",
@@ -1425,7 +1425,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Psoriasis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "건선 일반 개념으로 여러 형태를 포괄한다. 판상·물방울·농포성·홍피성 아형을 모두 동의어로 합치지 않는다.",
+    "supports": "건선 일반 개념으로 여러 형태를 포괄합니다. 판상·물방울·농포성·홍피성 아형을 모두 동의어로 합치지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K033-mesh-term",
@@ -1437,7 +1437,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Guttate+psoriasis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "감염 뒤 갑자기 발생할 수 있는 작은 물방울 모양 병변의 건선 형태다. 원문에 없는 병원체 확진은 추가하지 않는다.",
+    "supports": "감염 뒤 갑자기 발생할 수 있는 작은 물방울 모양 병변의 건선 형태입니다. 원문에 없는 병원체 확진은 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K035-mesh-term",
@@ -1449,7 +1449,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Pustular+psoriasis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "농포성 건선의 범위를 보존한다. AAD가 구별하는 건선 유형이며 generalized 또는 palmoplantar 등 위치·분포를 추가하지 않는다.",
+    "supports": "농포성 건선의 범위를 보존합니다. AAD가 구별하는 건선 유형이며 generalized 또는 palmoplantar 등 위치·분포를 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K036-mesh-term",
@@ -1461,7 +1461,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Psoriatic+arthritis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "건선과 연관된 관절염 개념이다. 피부 건선만 있는 경우나 모든 류마티스 관절염과 동일시하지 않는다.",
+    "supports": "건선과 연관된 관절염 개념입니다. 피부 건선만 있는 경우나 모든 류마티스 관절염과 동일시하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K038-mesh-term",
@@ -1473,7 +1473,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Acne+vulgaris&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "Acne vulgaris의 모낭피지샘 질환 범위를 유지한다. 여드름 모양 발진 전체로 확장하지 않으며 MONDO의 짧은 acne 라벨보다 원문 표준명을 유지한다.",
+    "supports": "Acne vulgaris의 모낭피지샘 질환 범위를 유지합니다. 여드름 모양 발진 전체로 확장하지 않으며 MONDO의 짧은 acne 라벨보다 원문 표준명을 유지합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K039-mesh-term",
@@ -1485,7 +1485,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Rosacea&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "얼굴의 만성 홍반·혈관 확장 등을 보이는 주사 개념이다. acne vulgaris와 이름의 유사성만으로 병합하지 않는다.",
+    "supports": "얼굴의 만성 홍반·혈관 확장 등을 보이는 주사 개념입니다. acne vulgaris와 이름의 유사성만으로 병합하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K040-mesh-term",
@@ -1497,7 +1497,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Hidradenitis+suppurativa&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "화농성 한선염의 임상 개념이다. 과거 샘 중심 정의를 기계적 진단 규칙으로 쓰거나 모든 피부 농양을 동의어로 만들지 않는다.",
+    "supports": "화농성 한선염의 임상 개념입니다. 과거 샘 중심 정의를 기계적 진단 규칙으로 쓰거나 모든 피부 농양을 동의어로 만들지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K041-mesh-term",
@@ -1509,7 +1509,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Urticaria&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "팽진을 보이는 두드러기 일반이다. 만성·자발성 또는 유발성 제한은 원문에 없어 추가하지 않는다.",
+    "supports": "팽진을 보이는 두드러기 일반입니다. 만성·자발성 또는 유발성 제한은 원문에 없어 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K042-mesh-term",
@@ -1521,7 +1521,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Chronic+spontaneous+urticaria&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "PCDS의 CSU/과거 CIU 명칭 설명을 MeSH의 CSU Concept으로 보강한다. chronic urticaria 일반보다 좁은 자발성 범위를 유지한다.",
+    "supports": "PCDS의 CSU/과거 CIU 명칭 설명을 MeSH의 CSU Concept으로 보강합니다. chronic urticaria 일반보다 좁은 자발성 범위를 유지합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K043-mesh-term",
@@ -1533,7 +1533,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Angioedema&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "진피 심부·피하·점막하 부종을 뜻하는 혈관부종이다. 표재성 두드러기와 동반될 수 있어도 동일 질환으로 합치지 않는다.",
+    "supports": "진피 심부·피하·점막하 부종을 뜻하는 혈관부종입니다. 표재성 두드러기와 동반될 수 있어도 동일 질환으로 합치지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K044-mesh-term",
@@ -1545,7 +1545,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Alopecia+areata&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "염증성 국소 탈모의 원형탈모 개념이다. NCIt 검색의 Alopecia는 원인과 형태를 폭넓게 포함하므로 그 일반 개념보다 좁게 유지한다.",
+    "supports": "염증성 국소 탈모의 원형탈모 개념입니다. NCIt 검색의 Alopecia는 원인과 형태를 폭넓게 포함하므로 그 일반 개념보다 좁게 유지합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K045-mesh-term",
@@ -1557,7 +1557,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Androgenetic+alopecia&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "남녀에서 나타나는 안드로겐성 탈모 개념이다. NLM Genetics의 설명을 함께 사용하며 남성 환자만으로 제한하거나 모든 탈모와 합치지 않는다.",
+    "supports": "남녀에서 나타나는 안드로겐성 탈모 개념입니다. NLM Genetics의 설명을 함께 사용하며 남성 환자만으로 제한하거나 모든 탈모와 합치지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K046-mesh-term",
@@ -1569,7 +1569,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Vitiligo&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "백반증의 국소 색소 소실 임상 개념이다. 모든 저색소증 또는 모든 전신성 탈색을 동의어로 복사하지 않는다.",
+    "supports": "백반증의 국소 색소 소실 임상 개념입니다. 모든 저색소증 또는 모든 전신성 탈색을 동의어로 복사하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K047-mesh-term",
@@ -1581,7 +1581,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Pemphigus+vulgaris&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "심상성 천포창이라는 특정 자가면역 수포 질환을 유지한다. pemphigus 질환군 전체나 bullous pemphigoid와 구별한다.",
+    "supports": "심상성 천포창이라는 특정 자가면역 수포 질환을 유지합니다. pemphigus 질환군 전체나 bullous pemphigoid와 구별합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K049-mesh-term",
@@ -1593,7 +1593,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Bullous+pemphigoid&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "수포성 유천포창 개념이다. 천포창과 구분하고 흔한 고령 발생을 실제 입력의 연령 제한으로 추가하지 않는다.",
+    "supports": "수포성 유천포창 개념입니다. 천포창과 구분하고 흔한 고령 발생을 실제 입력의 연령 제한으로 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K050-mesh-term",
@@ -1605,7 +1605,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Lichen+planus&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "피부·점막의 편평태선 개념이다. 간염과 관련될 수 있다는 설명을 HCV 감염의 동의어 또는 필수 동반 조건으로 사용하지 않는다.",
+    "supports": "피부·점막의 편평태선 개념입니다. 간염과 관련될 수 있다는 설명을 HCV 감염의 동의어 또는 필수 동반 조건으로 사용하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K051-mesh-term",
@@ -1617,7 +1617,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Lichen+sclerosus&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "Lichen Sclerosus와 Lichen Sclerosus et Atrophicus가 같은 MeSH Concept 안의 용어임을 재확인한다. 특정 외음부 위치는 원문에 없어 추가하지 않는다.",
+    "supports": "Lichen Sclerosus와 Lichen Sclerosus et Atrophicus가 같은 MeSH Concept 안의 용어임을 재확인합니다. 특정 외음부 위치는 원문에 없어 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K052-mesh-term",
@@ -1630,7 +1630,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Prurigo+nodularis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "AAD가 설명하는 가려운 결절성 피부 질환인 결절성 양진이다. 단순 소양증이나 모든 prurigo를 동일 개념으로 넓히지 않는다.",
+    "supports": "AAD가 설명하는 가려운 결절성 피부 질환인 결절성 양진입니다. 단순 소양증이나 모든 prurigo를 동일 개념으로 넓히지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K053-mesh-term",
@@ -1642,7 +1642,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Ichthyosis+vulgaris&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "Ichthyosis vulgaris 아형이다. 여러 원인의 ichthyosis 전체와 구분하고 원문 밖에서 환자의 특정 유전자·유전양식을 채우지 않는다.",
+    "supports": "Ichthyosis vulgaris 아형입니다. 여러 원인의 ichthyosis 전체와 구분하고 원문 밖에서 환자의 특정 유전자·유전양식을 채우지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K054-mesh-term",
@@ -1654,7 +1654,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Scabies&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "옴진드기에 의한 옴 감염 개념이다. 소양증 자체와 구별하고 crusted scabies 같은 중증 아형을 추가하지 않는다.",
+    "supports": "옴진드기에 의한 옴 감염 개념입니다. 소양증 자체와 구별하고 crusted scabies 같은 중증 아형을 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K055-mesh-term",
@@ -1666,7 +1666,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Tinea+corporis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "몸의 털 없는 피부에 생기는 체부 백선이다. 발·두피·손발톱의 백선과 부위가 달라 별도 개념을 유지한다.",
+    "supports": "몸의 털 없는 피부에 생기는 체부 백선입니다. 발·두피·손발톱의 백선과 부위가 달라 별도 개념을 유지합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K056-mesh-term",
@@ -1678,7 +1678,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Cellulitis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "피부 진피·피하 조직의 봉와직염 개념이다. 피부 농양·비감염성 부종과 구별하고 특정 병원체를 추가하지 않는다.",
+    "supports": "피부 진피·피하 조직의 봉와직염 개념입니다. 피부 농양·비감염성 부종과 구별하고 특정 병원체를 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K058-mesh-term",
@@ -1690,7 +1690,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Impetigo&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "농가진의 표재성 세균 피부 감염 개념이다. NCI의 흔한 소아·포도알균 설명을 필수 연령·병원체 조건으로 해석하지 않는다.",
+    "supports": "농가진의 표재성 세균 피부 감염 개념입니다. NCI의 흔한 소아·포도알균 설명을 필수 연령·병원체 조건으로 해석하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K059-mesh-term",
@@ -1702,7 +1702,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Pressure+ulcer&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "지속 압박에 의한 피부·조직 손상성 궤양이다. decubitus ulcer 명칭을 인정하되 정맥성·당뇨성 궤양과 원인을 구별한다.",
+    "supports": "지속 압박에 의한 피부·조직 손상성 궤양입니다. decubitus ulcer 명칭을 인정하되 정맥성·당뇨성 궤양과 원인을 구별합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K060-mesh-term",
@@ -1714,7 +1714,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Cutaneous+lupus+erythematosus&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "피부 루푸스 개념이며 단독으로 또는 전신성 루푸스와 동반될 수 있다. 전신성 루푸스의 무조건 동의어로 만들지 않는다.",
+    "supports": "피부 루푸스 개념이며 단독으로 또는 전신성 루푸스와 동반될 수 있습니다. 전신성 루푸스의 무조건 동의어로 만들지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K063-mesh-term",
@@ -1726,7 +1726,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Systemic+lupus+erythematosus&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "다기관 자가면역 질환인 전신성 홍반성 루푸스이다. 피부 병변이나 루푸스 신염 한 장기 표현과 범위를 구별한다.",
+    "supports": "다기관 자가면역 질환인 전신성 홍반성 루푸스입니다. 피부 병변이나 루푸스 신염 한 장기 표현과 범위를 구별합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K064-mesh-term",
@@ -1738,7 +1738,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Rheumatoid+arthritis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "류마티스 관절염의 자가면역성 관절 질환 개념이다. 모든 관절염과 합치거나 환자의 혈청 양성 여부를 정의 설명에서 추론하지 않는다.",
+    "supports": "류마티스 관절염의 자가면역성 관절 질환 개념입니다. 모든 관절염과 합치거나 환자의 혈청 양성 여부를 정의 설명에서 추론하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K065-mesh-term",
@@ -1750,7 +1750,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Osteoarthritis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "퇴행성 관절 질환인 골관절염이다. rheumatoid arthritis와 병인이 다르며 특정 관절 부위를 추가하지 않는다.",
+    "supports": "퇴행성 관절 질환인 골관절염입니다. rheumatoid arthritis와 병인이 다르며 특정 관절 부위를 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K066-mesh-term",
@@ -1762,7 +1762,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Ankylosing+spondylitis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "척추·천장관절을 침범하는 강직성 척추염이다. 축성 척추관절염 스펙트럼의 전부와 동일시하지 않는다.",
+    "supports": "척추·천장관절을 침범하는 강직성 척추염입니다. 축성 척추관절염 스펙트럼의 전부와 동일시하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K068-mesh-term",
@@ -1774,7 +1774,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Gout&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "요산염 결정 침착 관련 통풍이다. 칼슘 피로인산 결정의 pseudogout과 구별한다.",
+    "supports": "요산염 결정 침착 관련 통풍입니다. 칼슘 피로인산 결정의 pseudogout과 구별합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K069-mesh-term",
@@ -1786,7 +1786,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Systemic+sclerosis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "피부와 여러 장기의 경화를 보이는 전신성 경화증이다. 국소 피부경화증이나 모든 scleroderma 표기를 무조건 동의어로 쓰지 않는다.",
+    "supports": "피부와 여러 장기의 경화를 보이는 전신성 경화증입니다. 국소 피부경화증이나 모든 scleroderma 표기를 무조건 동의어로 쓰지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K071-mesh-term",
@@ -1798,7 +1798,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Sjogren+syndrome&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "침샘·눈물샘을 주로 침범하는 쇼그렌 질환 개념이다. 일차성·이차성 제한과 특정 자가항체 결과를 추가하지 않는다.",
+    "supports": "침샘·눈물샘을 주로 침범하는 쇼그렌 질환 개념입니다. 일차성·이차성 제한과 특정 자가항체 결과를 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K072-mesh-term",
@@ -1810,7 +1810,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Dermatomyositis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "피부와 근육 침범이 있는 피부근염이다. 다발근염과 구별하고 특정 종양 또는 항체 아형을 추론하지 않는다.",
+    "supports": "피부와 근육 침범이 있는 피부근염입니다. 다발근염과 구별하고 특정 종양 또는 항체 아형을 추론하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K073-mesh-term",
@@ -1822,7 +1822,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Polymyositis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "특발성 염증성 근병증으로 쓰이는 임상 진단명을 유지한다. MeSH의 다원인 근육 염증 일반 설명과 구별하여 모든 myositis를 별칭으로 등록하지 않는다.",
+    "supports": "특발성 염증성 근병증으로 쓰이는 임상 진단명을 유지합니다. MeSH의 다원인 근육 염증 일반 설명과 구별하여 모든 myositis를 별칭으로 등록하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K074-mesh-term",
@@ -1834,7 +1834,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Polymyalgia+rheumatica&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "어깨·골반대 등의 통증과 강직을 보이는 류마티스성 다발근통이다. 근육 염증성 질환인 polymyositis와 구별한다.",
+    "supports": "어깨·골반대 등의 통증과 강직을 보이는 류마티스성 다발근통입니다. 근육 염증성 질환인 polymyositis와 구별합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K075-mesh-term",
@@ -1846,7 +1846,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Giant+cell+arteritis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "Giant Cell Arteritis의 현행 명칭과 범위를 MeSH로 확인한다. NCIt Temporal Arteritis의 측두동맥 중심 정의는 더 좁을 수 있어 전역 범위 동등성은 별도로 남긴다.",
+    "supports": "Giant Cell Arteritis의 현행 명칭과 범위를 MeSH로 확인합니다. NCIt Temporal Arteritis의 측두동맥 중심 정의는 더 좁을 수 있어 전역 범위 동등성은 별도로 남깁니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K076-mesh-term",
@@ -1858,7 +1858,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Takayasu+arteritis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "대동맥과 주요 분지를 침범하는 다카야수 동맥염 개념이다. 모든 대혈관 혈관염이나 거대세포동맥염과 합치지 않는다.",
+    "supports": "대동맥과 주요 분지를 침범하는 다카야수 동맥염 개념입니다. 모든 대혈관 혈관염이나 거대세포동맥염과 합치지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K077-mesh-term",
@@ -1870,7 +1870,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Behcet+disease&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "재발성 점막 궤양과 다기관 침범을 보일 수 있는 베체트 질환이다. syndrome/disease 명칭 차이는 인정하되 단일 구강 궤양을 같은 진단으로 올리지 않는다.",
+    "supports": "재발성 점막 궤양과 다기관 침범을 보일 수 있는 베체트 질환입니다. syndrome/disease 명칭 차이는 인정하되 단일 구강 궤양을 같은 진단으로 올리지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K078-mesh-term",
@@ -1882,7 +1882,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Granulomatosis+with+polyangiitis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "괴사성 육아종성 혈관염인 GPA의 범위를 유지한다. 모든 ANCA 연관 혈관염 또는 microscopic polyangiitis와 동의어로 합치지 않는다.",
+    "supports": "괴사성 육아종성 혈관염인 GPA의 범위를 유지합니다. 모든 ANCA 연관 혈관염 또는 microscopic polyangiitis와 동의어로 합치지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K079-mesh-term",
@@ -1894,7 +1894,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Microscopic+polyangiitis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "현행 microscopic polyangiitis의 소혈관 혈관염 개념을 유지한다. NCIt의 과거 microscopic polyarteritis 설명은 용어·혈관 범위가 달라 별도 관련 연결로 남긴다.",
+    "supports": "현행 microscopic polyangiitis의 소혈관 혈관염 개념을 유지합니다. NCIt의 과거 microscopic polyarteritis 설명은 용어·혈관 범위가 달라 별도 관련 연결로 남깁니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K080-mesh-term",
@@ -1906,7 +1906,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Antiphospholipid+syndrome&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "항인지질항체 연관 임상 증후군이다. 항체 양성 소견만으로 증후군 진단을 생성하거나 모든 루푸스와 합치지 않는다.",
+    "supports": "항인지질항체 연관 임상 증후군입니다. 항체 양성 소견만으로 증후군 진단을 생성하거나 모든 루푸스와 합치지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K081-mesh-term",
@@ -1918,7 +1918,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Fibromyalgia&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "만성 광범위 통증을 보이는 섬유근육통 개념이다. 만성 피로 또는 모든 만성 통증의 동의어로 확장하지 않는다.",
+    "supports": "만성 광범위 통증을 보이는 섬유근육통 개념입니다. 만성 피로 또는 모든 만성 통증의 동의어로 확장하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K082-mesh-term",
@@ -1930,7 +1930,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Osteoporosis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "골량 감소와 골절 위험 증가를 특징으로 하는 골다공증이다. osteopenia와 별도 개념이며 원인·폐경 여부는 추가하지 않는다.",
+    "supports": "골량 감소와 골절 위험 증가를 특징으로 하는 골다공증입니다. osteopenia와 별도 개념이며 원인·폐경 여부는 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K083-mesh-term",
@@ -1942,7 +1942,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Crohn+disease&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "장벽 전층을 침범할 수 있는 크론병이다. 염증성 장질환 전체 또는 궤양성 대장염과 구별하며 K007의 문맥 해석 결과와 같은 기본 개념으로 묶는다.",
+    "supports": "장벽 전층을 침범할 수 있는 크론병입니다. 염증성 장질환 전체 또는 궤양성 대장염과 구별하며 K007의 문맥 해석 결과와 같은 기본 개념으로 묶습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K085-mesh-term",
@@ -1954,7 +1954,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Ulcerative+colitis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "대장·직장 점막 중심의 궤양성 대장염이다. Crohn disease와 같은 IBD 계열이라도 별도 질환으로 유지한다.",
+    "supports": "대장·직장 점막 중심의 궤양성 대장염입니다. Crohn disease와 같은 IBD 계열이라도 별도 질환으로 유지합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K086-mesh-term",
@@ -1966,7 +1966,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Inflammatory+bowel+disease&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "크론병·궤양성 대장염 등을 포괄하는 염증성 장질환군이다. 각 구성 질환과 상위 질환군을 동의어로 합치지 않는다.",
+    "supports": "크론병·궤양성 대장염 등을 포괄하는 염증성 장질환군입니다. 각 구성 질환과 상위 질환군을 동의어로 합치지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K087-mesh-term",
@@ -1978,7 +1978,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Irritable+bowel+syndrome&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "복통과 배변 습관 변화가 있는 기능성 장 질환인 IBS이다. 염증성 장질환 IBD와 비슷한 약어라는 이유로 합치지 않는다.",
+    "supports": "복통과 배변 습관 변화가 있는 기능성 장 질환인 IBS입니다. 염증성 장질환 IBD와 비슷한 약어라는 이유로 합치지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K088-mesh-term",
@@ -1990,7 +1990,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Celiac+disease&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "글루텐 유발 면역 장질환인 셀리악병이다. K008의 CD 해석과 같은 기본 개념이나 크론병의 CD와는 다르다.",
+    "supports": "글루텐 유발 면역 장질환인 셀리악병입니다. K008의 CD 해석과 같은 기본 개념이나 크론병의 CD와는 다릅니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K089-mesh-term",
@@ -2002,7 +2002,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Gastroesophageal+reflux+disease&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "위식도 역류 질환의 임상 진단명이다. MeSH의 역류 현상 일반과 질환 진단을 구별하고 모든 일시적 생리적 역류를 별칭으로 만들지 않는다.",
+    "supports": "위식도 역류 질환의 임상 진단명입니다. MeSH의 역류 현상 일반과 질환 진단을 구별하고 모든 일시적 생리적 역류를 별칭으로 만들지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K090-mesh-term",
@@ -2014,7 +2014,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Barrett+esophagus&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "식도 원주상피 화생인 바렛 식도 개념이다. GERD 또는 식도 선암과 연관되더라도 같은 질환으로 합치지 않는다.",
+    "supports": "식도 원주상피 화생인 바렛 식도 개념입니다. GERD 또는 식도 선암과 연관되더라도 같은 질환으로 합치지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K091-mesh-term",
@@ -2026,7 +2026,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Eosinophilic+esophagitis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "호산구성 식도염의 질환 개념을 유지한다. ACG 현행 설명에 따라 PPI 치료 실패를 필수 동의어·진단 조건으로 추가하지 않고 기존 MONDO·MeSH 정의의 과거 조건을 표시한다.",
+    "supports": "호산구성 식도염의 질환 개념을 유지합니다. ACG 현행 설명에 따라 PPI 치료 실패를 필수 동의어·진단 조건으로 추가하지 않고 기존 MONDO·MeSH 정의의 과거 조건을 표시합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K092-mesh-term",
@@ -2038,7 +2038,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Achalasia&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "이 임상 사전에서는 식도 하부 괄약근 이완 장애인 식도 이완불능증으로 해석한다. NCIt의 소화관 어느 접합부에서나 생기는 이완 장애 일반보다 좁다.",
+    "supports": "이 임상 사전에서는 식도 하부 괄약근 이완 장애인 식도 이완불능증으로 해석합니다. NCIt의 소화관 어느 접합부에서나 생기는 이완 장애 일반보다 좁습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K093-mesh-term",
@@ -2050,7 +2050,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Peptic+ulcer+disease&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "산·펩신 관련 소화관 점막 궤양 질환군이다. 위궤양과 십이지장궤양을 구성 아형으로 구별하고 둘을 무조건 동의어로 만들지 않는다.",
+    "supports": "산·펩신 관련 소화관 점막 궤양 질환군입니다. 위궤양과 십이지장궤양을 구성 아형으로 구별하고 둘을 무조건 동의어로 만들지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K094-mesh-term",
@@ -2062,7 +2062,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Gastric+ulcer&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "위 점막의 궤양이다. 십이지장이나 식도 궤양과 부위를 구별하고 H. pylori 원인 여부를 추가하지 않는다.",
+    "supports": "위 점막의 궤양입니다. 십이지장이나 식도 궤양과 부위를 구별하고 H. pylori 원인 여부를 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K095-mesh-term",
@@ -2074,7 +2074,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Duodenal+ulcer&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "십이지장 부위의 궤양이다. 일반 소화성 궤양보다 부위가 좁으며 위궤양과 동의어가 아니다.",
+    "supports": "십이지장 부위의 궤양입니다. 일반 소화성 궤양보다 부위가 좁으며 위궤양과 동의어가 아닙니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K096-mesh-term",
@@ -2086,7 +2086,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Helicobacter+pylori+infection&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "원문 병원체를 보존한 H. pylori 감염 개념에 연결한다. H. pylori 세균 자체·위염·소화성 궤양을 동일 개념으로 만들지 않는다.",
+    "supports": "원문 병원체를 보존한 H. pylori 감염 개념에 연결합니다. H. pylori 세균 자체·위염·소화성 궤양을 동일 개념으로 만들지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K097-mesh-term",
@@ -2098,7 +2098,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Gastritis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "위의 염증인 위염이다. 위궤양이나 H. pylori 감염과 동반될 수 있어도 동일 개념으로 합치지 않는다.",
+    "supports": "위의 염증인 위염입니다. 위궤양이나 H. pylori 감염과 동반될 수 있어도 동일 개념으로 합치지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K098-mesh-term",
@@ -2110,7 +2110,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Gastroparesis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "위 배출 지연을 보이는 위마비의 임상 개념이다. 당뇨병성 원인이나 기계적 폐색을 원문 밖에서 추가하지 않는다.",
+    "supports": "위 배출 지연을 보이는 위마비의 임상 개념입니다. 당뇨병성 원인이나 기계적 폐색을 원문 밖에서 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K099-mesh-term",
@@ -2122,7 +2122,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Chronic+diarrhea&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "NIDDK의 만성 설사 설명과 함께 만성 조건을 보존한다. 특정 감염·염증성 장질환·기능성 원인을 추론하지 않고 임상 증상/상태로 분류한다.",
+    "supports": "NIDDK의 만성 설사 설명과 함께 만성 조건을 보존합니다. 특정 감염·염증성 장질환·기능성 원인을 추론하지 않고 임상 증상/상태로 분류합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K102-mesh-term",
@@ -2134,7 +2134,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Diverticulitis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "게실의 염증을 뜻하는 게실염이다. 감염만을 필수 원인으로 좁히지 않으며 게실증 자체나 원문에 없는 대장 부위로 제한하지 않는다.",
+    "supports": "게실의 염증을 뜻하는 게실염입니다. 감염만을 필수 원인으로 좁히지 않으며 게실증 자체나 원문에 없는 대장 부위로 제한하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K103-mesh-term",
@@ -2146,7 +2146,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Microscopic+colitis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "현미경적 조직 소견으로 확인되는 대장염의 질환군이다. collagenous/lymphocytic 중 한 아형을 추가하지 않는다.",
+    "supports": "현미경적 조직 소견으로 확인되는 대장염의 질환군입니다. collagenous/lymphocytic 중 한 아형을 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K104-mesh-term",
@@ -2158,7 +2158,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Short+bowel+syndrome&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "장 길이 감소 또는 기능 소실에 따른 흡수장애성 단장 증후군이다. 환자의 실제 잔여 장 길이나 수술력을 정의에서 생성하지 않는다.",
+    "supports": "장 길이 감소 또는 기능 소실에 따른 흡수장애성 단장 증후군입니다. 환자의 실제 잔여 장 길이나 수술력을 정의에서 생성하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K105-mesh-term",
@@ -2170,7 +2170,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Acute+pancreatitis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "급성 췌장염 개념이다. 일부 NCIt·MONDO 정의의 괴사 표현을 모든 급성 췌장염의 필수 조건으로 복사하지 않는다.",
+    "supports": "급성 췌장염 개념입니다. 일부 NCIt·MONDO 정의의 괴사 표현을 모든 급성 췌장염의 필수 조건으로 복사하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K106-mesh-term",
@@ -2182,7 +2182,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Chronic+pancreatitis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "지속·반복 염증과 섬유화의 만성 췌장염이다. 급성 발작만 있거나 외분비 기능부전만 있는 개념과 구분한다.",
+    "supports": "지속·반복 염증과 섬유화의 만성 췌장염입니다. 급성 발작만 있거나 외분비 기능부전만 있는 개념과 구분합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K107-mesh-term",
@@ -2194,7 +2194,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Primary+biliary+cholangitis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "NIDDK가 명시한 구명칭 primary biliary cirrhosis와 현행 primary biliary cholangitis의 명칭 관계를 인정한다. 과거 이름에 cirrhosis가 있어도 모든 환자의 간경변을 추론하지 않는다.",
+    "supports": "NIDDK가 명시한 구명칭 primary biliary cirrhosis와 현행 primary biliary cholangitis의 명칭 관계를 인정합니다. 과거 이름에 cirrhosis가 있어도 모든 환자의 간경변을 추론하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K109-mesh-term",
@@ -2206,7 +2206,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Primary+sclerosing+cholangitis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "원발성 경화성 담관염의 담관 염증·섬유화 질환이다. 원발성 담즙성 담관염과 명칭이 비슷해도 별도 질환으로 둔다.",
+    "supports": "원발성 경화성 담관염의 담관 염증·섬유화 질환입니다. 원발성 담즙성 담관염과 명칭이 비슷해도 별도 질환으로 둡니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K110-mesh-term",
@@ -2218,7 +2218,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Autoimmune+hepatitis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "자가면역성 원인의 간염이다. HBV/HCV 감염성 간염과 구별하고 특정 약물 유발 여부는 추가하지 않는다.",
+    "supports": "자가면역성 원인의 간염입니다. HBV/HCV 감염성 간염과 구별하고 특정 약물 유발 여부는 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K111-mesh-term",
@@ -2230,7 +2230,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Hepatitis+B&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "B형간염 감염 일반에 대응한다. 급성·만성 조건이 없으므로 chronic hepatitis B 아형으로 좁히지 않는다.",
+    "supports": "B형간염 감염 일반에 대응합니다. 급성·만성 조건이 없으므로 chronic hepatitis B 아형으로 좁히지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K112-mesh-term",
@@ -2242,7 +2242,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Hepatitis+C&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "NCIt의 HCV 감염 질환 정의에 대응한다. 같은 검색의 Hepatitis C Virus는 병원체 자체이므로 선택하지 않으며 급성·만성을 추론하지 않는다.",
+    "supports": "NCIt의 HCV 감염 질환 정의에 대응합니다. 같은 검색의 Hepatitis C Virus는 병원체 자체이므로 선택하지 않으며 급성·만성을 추론하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K113-mesh-term",
@@ -2254,7 +2254,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Liver+cirrhosis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "Liver cirrhosis의 간 섬유화·재생성 변화 개념으로 연결한다. 어순 변형은 인정하되 알코올·바이러스 원인을 추가하지 않는다.",
+    "supports": "Liver cirrhosis의 간 섬유화·재생성 변화 개념으로 연결합니다. 어순 변형은 인정하되 알코올·바이러스 원인을 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K114-mesh-term",
@@ -2266,7 +2266,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Hepatic+encephalopathy&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "간 기능 장애·문맥전신 단락 등과 연관된 뇌병증 개념이다. 모든 뇌병증·간경변·치매와 동일시하지 않는다.",
+    "supports": "간 기능 장애·문맥전신 단락 등과 연관된 뇌병증 개념입니다. 모든 뇌병증·간경변·치매와 동일시하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K115-mesh-term",
@@ -2278,7 +2278,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Metabolic+dysfunction+associated+steatotic+liver+disease&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "현행 MASLD의 명칭을 공식 용어체계와 AASLD의 기준 설명으로 연결한다. 과거 NAFLD의 모든 환자군과 자동으로 동등하다고 보지 않는다.",
+    "supports": "현행 MASLD의 명칭을 공식 용어체계와 AASLD의 기준 설명으로 연결합니다. 과거 NAFLD의 모든 환자군과 자동으로 동등하다고 보지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K117-mesh-term",
@@ -2290,7 +2290,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Cholelithiasis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "담낭 또는 담도계의 결석 일반이다. NCIt의 담낭 한정 정의와 범위를 구별하여 담낭 위치를 강제하지 않는다.",
+    "supports": "담낭 또는 담도계의 결석 일반입니다. NCIt의 담낭 한정 정의와 범위를 구별하여 담낭 위치를 강제하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K118-mesh-term",
@@ -2302,7 +2302,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Cholecystitis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "담낭의 염증 개념이다. 결석의 존재 또는 급성/만성 상태를 추가하지 않고 cholelithiasis와 구별한다.",
+    "supports": "담낭의 염증 개념입니다. 결석의 존재 또는 급성/만성 상태를 추가하지 않고 cholelithiasis와 구별합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K119-mesh-term",
@@ -2314,7 +2314,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Hemorrhoids&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "항문·직장 부위의 치핵 개념이다. 단수·복수 표기는 같은 기본 개념이며 내치핵/외치핵을 원문 밖에서 고르지 않는다.",
+    "supports": "항문·직장 부위의 치핵 개념입니다. 단수·복수 표기는 같은 기본 개념이며 내치핵/외치핵을 원문 밖에서 고르지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K121-mesh-term",
@@ -2326,7 +2326,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Colorectal+cancer&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "결장 또는 직장의 악성 신생물 일반이다. carcinoma 한 조직형 후보보다 넓은 개념을 선택하고 결장암·직장암을 상하위로 구별한다.",
+    "supports": "결장 또는 직장의 악성 신생물 일반입니다. carcinoma 한 조직형 후보보다 넓은 개념을 선택하고 결장암·직장암을 상하위로 구별합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K122-mesh-term",
@@ -2338,7 +2338,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Colon+cancer&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "결장 부위의 악성 신생물이다. 결장 carcinoma만으로 좁히지 않으며 직장암과 구별한다.",
+    "supports": "결장 부위의 악성 신생물입니다. 결장 carcinoma만으로 좁히지 않으며 직장암과 구별합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K123-mesh-term",
@@ -2350,7 +2350,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Rectal+cancer&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "직장 부위의 악성 신생물 일반이다. 소아 또는 carcinoma 후보의 추가 제한은 채택하지 않는다.",
+    "supports": "직장 부위의 악성 신생물 일반입니다. 소아 또는 carcinoma 후보의 추가 제한은 채택하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K124-mesh-term",
@@ -2362,7 +2362,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Gastric+cancer&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "위의 악성 신생물 일반이다. 위 carcinoma 또는 선암 한 조직형으로 축소하지 않는다.",
+    "supports": "위의 악성 신생물 일반입니다. 위 carcinoma 또는 선암 한 조직형으로 축소하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K125-mesh-term",
@@ -2374,7 +2374,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Esophageal+cancer&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "식도의 악성 신생물 일반이다. 편평세포암·선암·소아 carcinoma 중 하나를 원문 밖에서 선택하지 않는다.",
+    "supports": "식도의 악성 신생물 일반입니다. 편평세포암·선암·소아 carcinoma 중 하나를 원문 밖에서 선택하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K126-mesh-term",
@@ -2386,7 +2386,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Pancreatic+cancer&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "췌장의 악성 신생물 일반이다. 췌관 선암이나 carcinoma 한 조직형으로 좁히지 않는다.",
+    "supports": "췌장의 악성 신생물 일반입니다. 췌관 선암이나 carcinoma 한 조직형으로 좁히지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K127-mesh-term",
@@ -2398,7 +2398,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Hepatocellular+carcinoma&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "간세포 유래 carcinoma의 명시적 조직형을 유지한다. 모든 간암·담관암 또는 동물 모델의 종양 개념과 구별한다.",
+    "supports": "간세포 유래 carcinoma의 명시적 조직형을 유지합니다. 모든 간암·담관암 또는 동물 모델의 종양 개념과 구별합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K128-mesh-term",
@@ -2410,7 +2410,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Cholangiocarcinoma&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "담관 상피 유래 carcinoma이다. 간내·간문부·원위부 중 한 위치를 원문 밖에서 확정하지 않고 간세포암과 구분한다.",
+    "supports": "담관 상피 유래 carcinoma입니다. 간내·간문부·원위부 중 한 위치를 원문 밖에서 확정하지 않고 간세포암과 구분합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K129-mesh-term",
@@ -2422,7 +2422,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Small+cell+lung+cancer&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "폐의 소세포 carcinoma이다. 모든 소세포암 또는 모든 폐암으로 확장하지 않는다.",
+    "supports": "폐의 소세포 carcinoma입니다. 모든 소세포암 또는 모든 폐암으로 확장하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K130-mesh-term",
@@ -2434,7 +2434,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Non-small+cell+lung+cancer&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "여러 조직형을 묶는 폐 비소세포 carcinoma 그룹이다. 폐 선암·폐 편평세포암 한 아형과 동의어로 합치지 않으며 K010의 전이·치료 조건은 별도로 보존한다.",
+    "supports": "여러 조직형을 묶는 폐 비소세포 carcinoma 그룹입니다. 폐 선암·폐 편평세포암 한 아형과 동의어로 합치지 않으며 K010의 전이·치료 조건은 별도로 보존합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K131-mesh-term",
@@ -2446,7 +2446,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Lung+adenocarcinoma&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "폐에서 발생한 선암 조직형이다. 모든 NSCLC나 다른 장기의 선암과 구별하고 특정 유전자 변이는 추론하지 않는다.",
+    "supports": "폐에서 발생한 선암 조직형입니다. 모든 NSCLC나 다른 장기의 선암과 구별하고 특정 유전자 변이는 추론하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K132-mesh-term",
@@ -2458,7 +2458,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Lung+squamous+cell+carcinoma&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "폐의 편평세포 carcinoma이다. 구강·피부·두경부의 같은 조직형과 발생 부위를 구별한다.",
+    "supports": "폐의 편평세포 carcinoma입니다. 구강·피부·두경부의 같은 조직형과 발생 부위를 구별합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K133-mesh-term",
@@ -2470,7 +2470,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Mesothelioma&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "중피종의 원문 개념을 유지한다. 폐기된 NCIt Mesothelioma 코드·더 넓은 mesothelial neoplasm·mouse mesothelioma를 선택하지 않으며 흉막 한 부위를 추가로 강제하지 않는다.",
+    "supports": "중피종의 원문 개념을 유지합니다. 폐기된 NCIt Mesothelioma 코드·더 넓은 mesothelial neoplasm·mouse mesothelioma를 선택하지 않으며 흉막 한 부위를 추가로 강제하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K134-mesh-term",
@@ -2482,7 +2482,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Invasive+ductal+breast+carcinoma&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "침윤성 관 유래 유방 carcinoma의 관행적 명칭과 NST 명칭 관계를 사용한다. 관상피내암 DCIS나 모든 유방 신생물과 합치지 않는다.",
+    "supports": "침윤성 관 유래 유방 carcinoma의 관행적 명칭과 NST 명칭 관계를 사용합니다. 관상피내암 DCIS나 모든 유방 신생물과 합치지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K135-mesh-term",
@@ -2494,7 +2494,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Triple-negative+breast+cancer&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "ER·PR·HER2 음성의 유방 carcinoma 개념이다. 검사 결과 Finding 개념과 구별하고 HER2 음성만 있는 K015를 triple-negative로 올리지 않는다.",
+    "supports": "ER·PR·HER2 음성의 유방 carcinoma 개념입니다. 검사 결과 Finding 개념과 구별하고 HER2 음성만 있는 K015를 triple-negative로 올리지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K136-mesh-term",
@@ -2506,7 +2506,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Prostate+cancer&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "전립선 부위의 암 일반이다. NCIt의 prostate carcinoma 후보는 조직형을 좁히므로 별도 범위 관계로 기록한다.",
+    "supports": "전립선 부위의 암 일반입니다. NCIt의 prostate carcinoma 후보는 조직형을 좁히므로 별도 범위 관계로 기록합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K137-mesh-term",
@@ -2518,7 +2518,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Castration-resistant+prostate+cancer&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "거세 저항성 전립선암의 치료 반응 제한을 보존한다. 일반 전립선암과 병합하거나 원문에 없는 전이 상태를 추가하지 않는다.",
+    "supports": "거세 저항성 전립선암의 치료 반응 제한을 보존합니다. 일반 전립선암과 병합하거나 원문에 없는 전이 상태를 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K138-mesh-term",
@@ -2530,7 +2530,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Bladder+cancer&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "방광의 악성 신생물 일반에 연결한다. 소아 또는 carcinoma 후보보다 넓게 유지하며 원문에 없는 조직형을 추가하지 않는다.",
+    "supports": "방광의 악성 신생물 일반에 연결합니다. 소아 또는 carcinoma 후보보다 넓게 유지하며 원문에 없는 조직형을 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K139-mesh-term",
@@ -2542,7 +2542,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Renal+cell+carcinoma&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "신장 세포 carcinoma의 조직형 그룹이다. 모든 신장 신생물이나 clear-cell 아형 하나로 축소하지 않는다.",
+    "supports": "신장 세포 carcinoma의 조직형 그룹입니다. 모든 신장 신생물이나 clear-cell 아형 하나로 축소하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K140-mesh-term",
@@ -2554,7 +2554,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Clear+cell+renal+cell+carcinoma&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "투명세포 신세포 carcinoma의 특정 조직형이다. 일반 RCC보다 좁으며 원문 밖에서 유전성 여부를 추가하지 않는다.",
+    "supports": "투명세포 신세포 carcinoma의 특정 조직형입니다. 일반 RCC보다 좁으며 원문 밖에서 유전성 여부를 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K141-mesh-term",
@@ -2566,7 +2566,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Ovarian+cancer&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "난소의 악성 신생물 일반이다. 표면 상피 carcinoma만으로 좁히지 않고 생식세포성 등 다른 악성 종양 가능성을 보존한다.",
+    "supports": "난소의 악성 신생물 일반입니다. 표면 상피 carcinoma만으로 좁히지 않고 생식세포성 등 다른 악성 종양 가능성을 보존합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K142-mesh-term",
@@ -2578,7 +2578,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Cervical+cancer&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "자궁경부의 악성 신생물 일반이다. cervical carcinoma 후보보다 넓은 범위를 유지하며 특정 HPV 상태를 추가하지 않는다.",
+    "supports": "자궁경부의 악성 신생물 일반입니다. cervical carcinoma 후보보다 넓은 범위를 유지하며 특정 HPV 상태를 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K143-mesh-term",
@@ -2590,7 +2590,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Endometrial+cancer&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "자궁내막의 악성 신생물 일반이다. carcinoma 한 조직형 또는 자궁 전체 암으로 바꾸지 않는다.",
+    "supports": "자궁내막의 악성 신생물 일반입니다. carcinoma 한 조직형 또는 자궁 전체 암으로 바꾸지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K144-mesh-term",
@@ -2602,7 +2602,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Uterine+leiomyosarcoma&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "자궁의 평활근육종을 보존한다. MONDO·추가 NCIt 후보는 자궁 체부를 명시하므로 원문에 없는 체부 위치를 확정하지 않는다.",
+    "supports": "자궁의 평활근육종을 보존합니다. MONDO·추가 NCIt 후보는 자궁 체부를 명시하므로 원문에 없는 체부 위치를 확정하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K145-mesh-term",
@@ -2615,7 +2615,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Melanoma&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "악성 멜라닌세포 종양인 흑색종이다. 피부에만 제한하거나 mouse melanoma 및 경로 개념을 선택하지 않는다.",
+    "supports": "악성 멜라닌세포 종양인 흑색종입니다. 피부에만 제한하거나 mouse melanoma 및 경로 개념을 선택하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K146-mesh-term",
@@ -2627,7 +2627,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Basal+cell+carcinoma&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "일반 basal cell carcinoma와 피부 한정 후보를 구별한다. 원문에 피부 위치가 없어 skin BCC만으로 좁히지 않고 실험동물 종양을 선택하지 않는다.",
+    "supports": "일반 basal cell carcinoma와 피부 한정 후보를 구별합니다. 원문에 피부 위치가 없어 skin BCC만으로 좁히지 않고 실험동물 종양을 선택하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K147-mesh-term",
@@ -2639,7 +2639,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Cutaneous+squamous+cell+carcinoma&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "피부 표피의 편평세포 carcinoma이다. 구강·폐·두경부 SCC와 부위를 구별한다.",
+    "supports": "피부 표피의 편평세포 carcinoma입니다. 구강·폐·두경부 SCC와 부위를 구별합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K148-mesh-term",
@@ -2651,7 +2651,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Head+and+neck+squamous+cell+carcinoma&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "두경부 여러 부위의 SCC 그룹이다. 구강 SCC와 같은 그룹으로 병합하지 않고 상하위 범위를 보존한다.",
+    "supports": "두경부 여러 부위의 SCC 그룹입니다. 구강 SCC와 같은 그룹으로 병합하지 않고 상하위 범위를 보존합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K149-mesh-term",
@@ -2663,7 +2663,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Thyroid+cancer&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "갑상선의 악성 신생물 일반이다. 검색된 thyroid carcinoma나 papillary thyroid carcinoma pathway보다 넓은 개념을 유지한다.",
+    "supports": "갑상선의 악성 신생물 일반입니다. 검색된 thyroid carcinoma나 papillary thyroid carcinoma pathway보다 넓은 개념을 유지합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K151-mesh-term",
@@ -2676,7 +2676,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Papillary+thyroid+carcinoma&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "갑상선 유두 carcinoma의 조직형이다. 수질암·일반 갑상선암·동물 모델의 유두 carcinoma와 구별한다.",
+    "supports": "갑상선 유두 carcinoma의 조직형입니다. 수질암·일반 갑상선암·동물 모델의 유두 carcinoma와 구별합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K152-mesh-term",
@@ -2688,7 +2688,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Medullary+thyroid+carcinoma&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "갑상선 C세포 유래 수질 carcinoma이다. 유두 carcinoma와 세포 기원이 다르며 MEN 동반 또는 유전성 여부를 추가하지 않는다.",
+    "supports": "갑상선 C세포 유래 수질 carcinoma입니다. 유두 carcinoma와 세포 기원이 다르며 MEN 동반 또는 유전성 여부를 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K153-mesh-term",
@@ -2700,7 +2700,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Glioblastoma&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "Glioblastoma의 미지정 질환명 범위를 유지한다. 연령·IDH 상태·분자형 또는 현행 분류의 세부 아형을 원문 밖에서 생성하지 않는다.",
+    "supports": "Glioblastoma의 미지정 질환명 범위를 유지합니다. 연령·IDH 상태·분자형 또는 현행 분류의 세부 아형을 원문 밖에서 생성하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K154-mesh-term",
@@ -2712,7 +2712,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Meningioma&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "수막종의 일반 종양 개념이다. 성인·소아·악성 등 추가 제한을 선택하지 않으며 모든 수막 종양으로 넓히지 않는다.",
+    "supports": "수막종의 일반 종양 개념입니다. 성인·소아·악성 등 추가 제한을 선택하지 않으며 모든 수막 종양으로 넓히지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K155-mesh-term",
@@ -2724,7 +2724,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Medulloblastoma&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "수모세포종의 일반 개념이다. 흔한 소아 발생을 환자 연령 조건으로 강제하지 않고 성인·소아 또는 분자군 중 하나를 고르지 않는다.",
+    "supports": "수모세포종의 일반 개념입니다. 흔한 소아 발생을 환자 연령 조건으로 강제하지 않고 성인·소아 또는 분자군 중 하나를 고르지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K156-mesh-term",
@@ -2736,7 +2736,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Neuroblastoma&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "신경모세포종의 일반 임상 개념이다. 소아 한정 코드나 동물 모델을 선택하지 않고 다른 neural tumor와 구별한다.",
+    "supports": "신경모세포종의 일반 임상 개념입니다. 소아 한정 코드나 동물 모델을 선택하지 않고 다른 neural tumor와 구별합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K157-mesh-term",
@@ -2748,7 +2748,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Osteosarcoma&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "종양성 골을 형성하는 골육종이다. 소아 제한·특정 위치·동물 종을 추가하지 않는다.",
+    "supports": "종양성 골을 형성하는 골육종입니다. 소아 제한·특정 위치·동물 종을 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K158-mesh-term",
@@ -2760,7 +2760,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Ewing+sarcoma&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "유잉 육종의 임상 진단명이다. 모든 소원형세포 종양이나 모든 골육종으로 합치지 않고 위치·융합 유전자 결과를 생성하지 않는다.",
+    "supports": "유잉 육종의 임상 진단명입니다. 모든 소원형세포 종양이나 모든 골육종으로 합치지 않고 위치·융합 유전자 결과를 생성하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K159-mesh-term",
@@ -2772,7 +2772,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Gastrointestinal+stromal+tumor&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "소화관 기질 종양 GIST의 진단명이다. 모든 소화관 간엽 종양을 동의어로 확장하거나 KIT/PDGFRA 상태를 추론하지 않는다.",
+    "supports": "소화관 기질 종양 GIST의 진단명입니다. 모든 소화관 간엽 종양을 동의어로 확장하거나 KIT/PDGFRA 상태를 추론하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K160-mesh-term",
@@ -2784,7 +2784,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Soft+tissue+sarcoma&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "연부조직 육종의 질환군이다. 성인·소아·국소성 후보를 구별하고 특정 조직형으로 축소하지 않는다.",
+    "supports": "연부조직 육종의 질환군입니다. 성인·소아·국소성 후보를 구별하고 특정 조직형으로 축소하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K161-mesh-term",
@@ -2796,7 +2796,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Acute+lymphoblastic+leukemia&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "급성 림프모구 백혈병의 질환명이다. leukemia-lymphoma 결합 그룹이나 의심스러운 CLL 계층을 이용해 범위를 확장하지 않는다.",
+    "supports": "급성 림프모구 백혈병의 질환명입니다. leukemia-lymphoma 결합 그룹이나 의심스러운 CLL 계층을 이용해 범위를 확장하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K162-mesh-term",
@@ -2808,7 +2808,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Chronic+myeloid+leukemia&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "현행 용어체계가 BCR-ABL1 연관 질환으로 정의하는 CML의 진단명을 연결한다. 정의의 분자 특성을 개별 환자에서 관찰한 검사값으로 생성하지 않는다.",
+    "supports": "현행 용어체계가 BCR-ABL1 연관 질환으로 정의하는 CML의 진단명을 연결합니다. 정의의 분자 특성을 개별 환자에서 관찰한 검사값으로 생성하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K163-mesh-term",
@@ -2820,7 +2820,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Chronic+lymphocytic+leukemia&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "만성 림프구성 백혈병의 CLL 표현을 유지한다. NCI/SEER의 CLL/SLL 발현 차이를 기록하고 급성 림프모구 백혈병과 구별한다.",
+    "supports": "만성 림프구성 백혈병의 CLL 표현을 유지합니다. NCI/SEER의 CLL/SLL 발현 차이를 기록하고 급성 림프모구 백혈병과 구별합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K164-mesh-term",
@@ -2832,7 +2832,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Myelodysplastic+syndrome&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "골수형성이상 증후군의 일반 질환군이다. 성인·소아 또는 특정 유전·위험도 아형을 추가하지 않는다.",
+    "supports": "골수형성이상 증후군의 일반 질환군입니다. 성인·소아 또는 특정 유전·위험도 아형을 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K165-mesh-term",
@@ -2844,7 +2844,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Multiple+myeloma&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "다발골수종과 plasma cell myeloma의 질환명 관계를 인정한다. MGUS 또는 모든 단클론성 감마글로불린병증과 구분한다.",
+    "supports": "다발골수종과 plasma cell myeloma의 질환명 관계를 인정합니다. MGUS 또는 모든 단클론성 감마글로불린병증과 구분합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K166-mesh-term",
@@ -2856,7 +2856,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Diffuse+large+B-cell+lymphoma&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "미만성 거대 B세포 림프종이다. 성인·소아 한정 후보 또는 다른 B세포 림프종과 구별한다.",
+    "supports": "미만성 거대 B세포 림프종입니다. 성인·소아 한정 후보 또는 다른 B세포 림프종과 구별합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K167-mesh-term",
@@ -2868,7 +2868,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Follicular+lymphoma&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "여포성 림프종의 임상 개념이다. 병리 등급·유전자 상태·대세포 전환을 원문 밖에서 추가하지 않는다.",
+    "supports": "여포성 림프종의 임상 개념입니다. 병리 등급·유전자 상태·대세포 전환을 원문 밖에서 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K168-mesh-term",
@@ -2880,7 +2880,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Hodgkin+lymphoma&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "호지킨 림프종 일반이다. 성인·소아 및 조직형의 추가 제한을 고르지 않고 다른 비호지킨 림프종과 구분한다.",
+    "supports": "호지킨 림프종 일반입니다. 성인·소아 및 조직형의 추가 제한을 고르지 않고 다른 비호지킨 림프종과 구분합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K169-mesh-term",
@@ -2892,7 +2892,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Mantle+cell+lymphoma&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "맨틀세포 림프종이다. 다른 성숙 B세포 림프종과 구별하며 원문 밖에서 cyclin D1 또는 전이 병기를 생성하지 않는다.",
+    "supports": "맨틀세포 림프종입니다. 다른 성숙 B세포 림프종과 구별하며 원문 밖에서 cyclin D1 또는 전이 병기를 생성하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K170-mesh-term",
@@ -2904,7 +2904,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Myelofibrosis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "골수 섬유화를 포괄하는 원문 범위를 유지한다. MeSH 검색의 Primary Myelofibrosis는 더 좁으며 검체 평가 Assessment는 질환 개념이 아니다.",
+    "supports": "골수 섬유화를 포괄하는 원문 범위를 유지합니다. MeSH 검색의 Primary Myelofibrosis는 더 좁으며 검체 평가 Assessment는 질환 개념이 아닙니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K172-mesh-term",
@@ -2916,7 +2916,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Polycythemia+vera&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "진성 적혈구증가증을 NCI의 질환 정의로 보강한다. 가족성 적혈구증가증으로 향하는 기존 MONDO 계층을 자동 승계하지 않는다.",
+    "supports": "진성 적혈구증가증을 NCI의 질환 정의로 보강합니다. 가족성 적혈구증가증으로 향하는 기존 MONDO 계층을 자동 승계하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K173-mesh-term",
@@ -2928,7 +2928,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Essential+thrombocythemia&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "지속 혈소판 증가를 보이는 본태성 혈소판증가증이다. 반응성 thrombocytosis 소견이나 모든 골수증식 종양과 합치지 않는다.",
+    "supports": "지속 혈소판 증가를 보이는 본태성 혈소판증가증입니다. 반응성 thrombocytosis 소견이나 모든 골수증식 종양과 합치지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K174-mesh-term",
@@ -2940,7 +2940,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Monoclonal+gammopathy+of+undetermined+significance&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "악성 질환 기준에 도달하지 않은 MGUS의 임상 개념이다. 다발골수종이나 단순 M단백 검출 소견과 구별한다.",
+    "supports": "악성 질환 기준에 도달하지 않은 MGUS의 임상 개념입니다. 다발골수종이나 단순 M단백 검출 소견과 구별합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K175-mesh-term",
@@ -2952,7 +2952,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Type+2+diabetes&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "Type 2 diabetes는 제2형 당뇨병의 짧은 질환명이다. type 2 diabetes mellitus와 같은 기본 개념이며 치료 방식은 추가하지 않는다.",
+    "supports": "Type 2 diabetes는 제2형 당뇨병의 짧은 질환명입니다. type 2 diabetes mellitus와 같은 기본 개념이며 치료 방식은 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K176-mesh-term",
@@ -2964,7 +2964,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=T2DM&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "T2DM은 제2형 당뇨병의 관행적 약어다. 긴 이름을 추가 조회해 근거를 연결하고 T1DM과 숫자 정보를 구별한다.",
+    "supports": "T2DM은 제2형 당뇨병의 관행적 약어입니다. 긴 이름을 추가 조회해 근거를 연결하고 T1DM과 숫자 정보를 구별합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K177-mesh-term",
@@ -2977,7 +2977,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Type-2+diabetes&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "Type-2의 하이픈은 동일 제2형 당뇨병 표현의 표기 변형이다. 숫자를 삭제하거나 type 1과 합치지 않는다.",
+    "supports": "Type-2의 하이픈은 동일 제2형 당뇨병 표현의 표기 변형입니다. 숫자를 삭제하거나 type 1과 합치지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K178-mesh-term",
@@ -2989,7 +2989,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=TYPE+2+DIABETES&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "대문자 TYPE 2 DIABETES는 같은 제2형 당뇨병 개념이다. 대소문자만 정리하며 type 숫자를 유지한다.",
+    "supports": "대문자 TYPE 2 DIABETES는 같은 제2형 당뇨병 개념입니다. 대소문자만 정리하며 type 숫자를 유지합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K179-mesh-term",
@@ -3001,7 +3001,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=T1DM&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "T1DM의 긴 이름을 추가 조회해 제1형 당뇨병에 연결한다. T2DM이나 인슐린 치료 중인 제2형과 구별한다.",
+    "supports": "T1DM의 긴 이름을 추가 조회해 제1형 당뇨병에 연결합니다. T2DM이나 인슐린 치료 중인 제2형과 구별합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K180-mesh-term",
@@ -3014,7 +3014,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Gestational+diabetes&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "임신성 당뇨병의 진단명이다. 정상 임신 또는 임신 전부터 있던 모든 당뇨병과 무조건 동일시하지 않는다.",
+    "supports": "임신성 당뇨병의 진단명입니다. 정상 임신 또는 임신 전부터 있던 모든 당뇨병과 무조건 동일시하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K181-mesh-term",
@@ -3026,7 +3026,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Prediabetes&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "당뇨병 진단 전단계의 고혈당 범위다. 제2형 당뇨병으로 올리거나 모든 인슐린 저항성과 합치지 않는다.",
+    "supports": "당뇨병 진단 전단계의 고혈당 범위입니다. 제2형 당뇨병으로 올리거나 모든 인슐린 저항성과 합치지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K182-mesh-term",
@@ -3038,7 +3038,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Diabetic+ketoacidosis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "당뇨병성 케톤산증이라는 급성 대사 합병증이다. 제1형·제2형 당뇨병 자체의 동의어로 합치지 않고 실제 산도·혈당값을 생성하지 않는다.",
+    "supports": "당뇨병성 케톤산증이라는 급성 대사 합병증입니다. 제1형·제2형 당뇨병 자체의 동의어로 합치지 않고 실제 산도·혈당값을 생성하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K183-mesh-term",
@@ -3050,7 +3050,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Diabetic+neuropathy&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "당뇨 원인 신경병증이다. 일반 말초신경병증보다 원인이 제한되며 모든 당뇨병과 동일 개념이 아니다.",
+    "supports": "당뇨 원인 신경병증입니다. 일반 말초신경병증보다 원인이 제한되며 모든 당뇨병과 동일 개념이 아닙니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K184-mesh-term",
@@ -3062,7 +3062,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Diabetic+retinopathy&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "당뇨 원인 망막병증이다. 모든 망막병증·당뇨병 또는 특정 증식성 단계와 합치지 않는다.",
+    "supports": "당뇨 원인 망막병증입니다. 모든 망막병증·당뇨병 또는 특정 증식성 단계와 합치지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K185-mesh-term",
@@ -3074,7 +3074,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Obesity&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "과도한 체지방을 특징으로 하는 비만 개념이다. overweight와 구별하며 원문에 없는 개인 BMI나 원인을 채우지 않는다.",
+    "supports": "과도한 체지방을 특징으로 하는 비만 개념입니다. overweight와 구별하며 원문에 없는 개인 BMI나 원인을 채우지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K187-mesh-term",
@@ -3086,7 +3086,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Familial+hypercholesterolemia&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "가족성 고콜레스테롤혈증의 전체 유전 질환 범위를 유지한다. NLM Genetics의 드문 열성 유형을 고려해 상염색체 우성으로 정의된 NCIt IIa 후보와 무조건 동등하게 보지 않는다.",
+    "supports": "가족성 고콜레스테롤혈증의 전체 유전 질환 범위를 유지합니다. NLM Genetics의 드문 열성 유형을 고려해 상염색체 우성으로 정의된 NCIt IIa 후보와 무조건 동등하게 보지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K190-mesh-term",
@@ -3098,7 +3098,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Hypertriglyceridemia&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "혈중 중성지방 증가의 임상 검사 소견이다. 고콜레스테롤혈증이나 원인 미지정 모든 dyslipidemia와 구별한다.",
+    "supports": "혈중 중성지방 증가의 임상 검사 소견입니다. 고콜레스테롤혈증이나 원인 미지정 모든 dyslipidemia와 구별합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K191-mesh-term",
@@ -3110,7 +3110,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Hypothyroidism&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "갑상선 기능저하의 일반 임상 개념이다. Hashimoto 자가면역 원인 또는 특정 중증도를 추가하지 않는다.",
+    "supports": "갑상선 기능저하의 일반 임상 개념입니다. Hashimoto 자가면역 원인 또는 특정 중증도를 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K193-mesh-term",
@@ -3122,7 +3122,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Hashimoto+thyroiditis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "하시모토 자가면역 갑상선염이다. 기능저하증과 연관되지만 기능저하 소견 자체의 동의어로 만들지 않는다.",
+    "supports": "하시모토 자가면역 갑상선염입니다. 기능저하증과 연관되지만 기능저하 소견 자체의 동의어로 만들지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K194-mesh-term",
@@ -3134,7 +3134,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Hyperthyroidism&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "갑상선 호르몬 과생산의 기능항진증 일반이다. Graves 한 원인으로 좁히거나 모든 갑상선중독증과 무검토 병합하지 않는다.",
+    "supports": "갑상선 호르몬 과생산의 기능항진증 일반입니다. Graves 한 원인으로 좁히거나 모든 갑상선중독증과 무검토 병합하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K195-mesh-term",
@@ -3146,7 +3146,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Graves+disease&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "그레이브스 자가면역 질환이다. 갑상선 기능항진증 전체와 구별하고 안병증·항체 검사값은 추가하지 않는다.",
+    "supports": "그레이브스 자가면역 질환입니다. 갑상선 기능항진증 전체와 구별하고 안병증·항체 검사값은 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K196-mesh-term",
@@ -3158,7 +3158,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Acromegaly&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "성장호르몬 과다 관련 말단비대증 개념이다. 거인증 또는 특정 뇌하수체 종양의 동의어로 확대하지 않는다.",
+    "supports": "성장호르몬 과다 관련 말단비대증 개념입니다. 거인증 또는 특정 뇌하수체 종양의 동의어로 확대하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K198-mesh-term",
@@ -3170,7 +3170,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Cushing+syndrome&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "내인성·외인성 당질코르티코이드 과다를 포함하는 쿠싱 증후군이다. 뇌하수체 원인의 Cushing disease로 좁히지 않는다.",
+    "supports": "내인성·외인성 당질코르티코이드 과다를 포함하는 쿠싱 증후군입니다. 뇌하수체 원인의 Cushing disease로 좁히지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K199-mesh-term",
@@ -3182,7 +3182,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Addison+disease&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "Addison disease의 원발성 부신기능부전 범위를 NIDDK와 대조한다. 자가면역 외 원인을 배제하거나 속발성 부신기능부전까지 합치지 않는다.",
+    "supports": "Addison disease의 원발성 부신기능부전 범위를 NIDDK와 대조합니다. 자가면역 외 원인을 배제하거나 속발성 부신기능부전까지 합치지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K200-mesh-term",
@@ -3194,7 +3194,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Primary+hyperaldosteronism&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "원발성 알도스테론 과다의 범위를 유지하며 선종과 과형성을 포함한다. MeSH Conn Syndrome의 선종 한정 정의와 구별하여 Conn 명칭을 전역 별칭으로 무조건 추가하지 않는다.",
+    "supports": "원발성 알도스테론 과다의 범위를 유지하며 선종과 과형성을 포함합니다. MeSH Conn Syndrome의 선종 한정 정의와 구별하여 Conn 명칭을 전역 별칭으로 무조건 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K201-mesh-term",
@@ -3206,7 +3206,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Hyperparathyroidism&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "부갑상선 호르몬 과다의 일반 개념이다. 원발성·이차성 또는 특정 칼슘 수치를 원문 밖에서 확정하지 않는다.",
+    "supports": "부갑상선 호르몬 과다의 일반 개념입니다. 원발성·이차성 또는 특정 칼슘 수치를 원문 밖에서 확정하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K202-mesh-term",
@@ -3218,7 +3218,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Hypoparathyroidism&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "부갑상선 호르몬 부족의 일반 개념이다. 수술 후 원인이나 선천성 유전형을 추가하지 않는다.",
+    "supports": "부갑상선 호르몬 부족의 일반 개념입니다. 수술 후 원인이나 선천성 유전형을 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K203-mesh-term",
@@ -3230,7 +3230,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Polycystic+Ovarian+Syndrome&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "PCOS의 입력 명칭을 보존하고 2026년 Monash·NICHD가 확인하는 PMOS 명칭과 연결한다. 병적 난소 낭종 자체를 같은 질환으로 만들지 않으며 두 NCIt 코드의 동일 라벨만으로 코드 동등성까지 단정하지 않는다.",
+    "supports": "PCOS의 입력 명칭을 보존하고 2026년 Monash·NICHD가 확인하는 PMOS 명칭과 연결합니다. 병적 난소 낭종 자체를 같은 질환으로 만들지 않으며 두 NCIt 코드의 동일 라벨만으로 코드 동등성까지 단정하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K204-cf-mesh-term",
@@ -3243,7 +3243,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Endometriosis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "자궁내막 유사 조직의 자궁 밖 존재와 관련된 자궁내막증 개념이다. 자궁선근증 또는 난소 한 부위만의 질환으로 바꾸지 않는다.",
+    "supports": "자궁내막 유사 조직의 자궁 밖 존재와 관련된 자궁내막증 개념입니다. 자궁선근증 또는 난소 한 부위만의 질환으로 바꾸지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K205-mesh-term",
@@ -3255,7 +3255,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Erectile+dysfunction&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "지속·재발하는 발기 기능 장애이다. 성기능 장애 전체나 불임의 동의어로 확대하지 않으며 두 NCIt 코드의 중복 문제는 별도로 보존한다.",
+    "supports": "지속·재발하는 발기 기능 장애입니다. 성기능 장애 전체나 불임의 동의어로 확대하지 않으며 두 NCIt 코드의 중복 문제는 별도로 보존합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K208-mesh-term",
@@ -3267,7 +3267,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Benign+prostatic+hyperplasia&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "전립선의 양성 과형성이다. 전립선암·전립선염 또는 모든 배뇨증상을 동의어로 만들지 않는다.",
+    "supports": "전립선의 양성 과형성입니다. 전립선암·전립선염 또는 모든 배뇨증상을 동의어로 만들지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K209-mesh-term",
@@ -3279,7 +3279,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Overactive+bladder&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "절박뇨 중심의 과민성 방광 임상 증후군이다. 요실금이 필수는 아니며 요역동학적 detrusor overactivity를 실제 검사 결과로 추론하지 않는다.",
+    "supports": "절박뇨 중심의 과민성 방광 임상 증후군입니다. 요실금이 필수는 아니며 요역동학적 detrusor overactivity를 실제 검사 결과로 추론하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K210-mesh-term",
@@ -3291,7 +3291,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Acute+kidney+injury&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "급성 신손상은 급성 신부전까지 포함하는 급성 기능 저하 스펙트럼이다. NCIt Acute Renal Failure의 구명칭·범위는 별도로 기록하고 만성 CKD와 구별한다.",
+    "supports": "급성 신손상은 급성 신부전까지 포함하는 급성 기능 저하 스펙트럼입니다. NCIt Acute Renal Failure의 구명칭·범위는 별도로 기록하고 만성 CKD와 구별합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K212-mesh-term",
@@ -3303,7 +3303,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=End-stage+kidney+disease&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "말기 신장질환의 질환 수준 연결이다. 해당 코드의 CKD 5단계 정의를 참고하되 실제 투석 여부나 개인 eGFR 수치를 추가하지 않는다.",
+    "supports": "말기 신장질환의 질환 수준 연결입니다. 해당 코드의 CKD 5단계 정의를 참고하되 실제 투석 여부나 개인 eGFR 수치를 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K213-mesh-term",
@@ -3315,7 +3315,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=IgA+nephropathy&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "메산지움 IgA 침착 관련 IgA 신병증이다. 원문의 IgA 조건을 유지하고 MONDO의 지나치게 짧은 일반 염증 정의로 범위를 넓히지 않는다.",
+    "supports": "메산지움 IgA 침착 관련 IgA 신병증입니다. 원문의 IgA 조건을 유지하고 MONDO의 지나치게 짧은 일반 염증 정의로 범위를 넓히지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K214-mesh-term",
@@ -3327,7 +3327,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Lupus+nephritis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "루푸스와 연관된 신염 개념이다. 전신성 루푸스 일반이나 모든 신염과 동의어로 만들지 않고 병리 등급을 추가하지 않는다.",
+    "supports": "루푸스와 연관된 신염 개념입니다. 전신성 루푸스 일반이나 모든 신염과 동의어로 만들지 않고 병리 등급을 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K215-mesh-term",
@@ -3339,7 +3339,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Membranous+nephropathy&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "사구체 기저막 면역 침착과 관련된 막성 신병증이다. 일차성·이차성 원인 또는 PLA2R 상태를 원문 밖에서 채우지 않는다.",
+    "supports": "사구체 기저막 면역 침착과 관련된 막성 신병증입니다. 일차성·이차성 원인 또는 PLA2R 상태를 원문 밖에서 채우지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K216-mesh-term",
@@ -3351,7 +3351,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Nephrotic+syndrome&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "단백뇨·저알부민혈증 등을 보이는 신증후군의 임상 개념이다. FSGS·막성 신병증 같은 특정 원인 병리와 동일시하지 않는다.",
+    "supports": "단백뇨·저알부민혈증 등을 보이는 신증후군의 임상 개념입니다. FSGS·막성 신병증 같은 특정 원인 병리와 동일시하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K217-mesh-term",
@@ -3363,7 +3363,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Focal+segmental+glomerulosclerosis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "국소 분절 사구체 경화의 임상병리 개념이다. 일차성·이차성 원인을 추가하지 않고 신증후군 전체와 구별한다.",
+    "supports": "국소 분절 사구체 경화의 임상병리 개념입니다. 일차성·이차성 원인을 추가하지 않고 신증후군 전체와 구별합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K218-mesh-term",
@@ -3375,7 +3375,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Polycystic+kidney+disease&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "다낭성 신장질환의 일반 유전 질환군이다. 우성 ADPKD·열성 ARPKD 중 하나를 선택하지 않고 단일 신장 낭종과 구별한다.",
+    "supports": "다낭성 신장질환의 일반 유전 질환군입니다. 우성 ADPKD·열성 ARPKD 중 하나를 선택하지 않고 단일 신장 낭종과 구별합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K219-mesh-term",
@@ -3387,7 +3387,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Kidney+stones&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "Kidney stones와 신장 부위 결석인 nephrolithiasis를 연결한다. 요관·방광을 포함한 요로 결석 전체로 넓히지 않는다.",
+    "supports": "Kidney stones와 신장 부위 결석인 nephrolithiasis를 연결합니다. 요관·방광을 포함한 요로 결석 전체로 넓히지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K220-mesh-term",
@@ -3399,7 +3399,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Urinary+tract+infection&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "요로 어느 부위의 감염인지 미지정인 UTI를 보존한다. CDC 설명과 대조하며 NCIt의 세균성 한정 정의만으로 모든 원인의 감염을 좁히지 않는다.",
+    "supports": "요로 어느 부위의 감염인지 미지정인 UTI를 보존합니다. CDC 설명과 대조하며 NCIt의 세균성 한정 정의만으로 모든 원인의 감염을 좁히지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K221-mesh-term",
@@ -3411,7 +3411,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Pyelonephritis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "신실질·신우 등을 침범하는 신우신염이다. 원문 밖에서 급성/만성 또는 세균 원인을 고르지 않고 같은 라벨의 두 NCIt 코드 범위는 별도 검토한다.",
+    "supports": "신실질·신우 등을 침범하는 신우신염입니다. 원문 밖에서 급성/만성 또는 세균 원인을 고르지 않고 같은 라벨의 두 NCIt 코드 범위는 별도 검토합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K222-mesh-term",
@@ -3423,7 +3423,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Interstitial+cystitis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "간질성 방광염의 만성 통증·배뇨 증상 임상 개념이다. 세균성 방광 감염이나 모든 골반 통증과 합치지 않는다.",
+    "supports": "간질성 방광염의 만성 통증·배뇨 증상 임상 개념입니다. 세균성 방광 감염이나 모든 골반 통증과 합치지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K223-mesh-term",
@@ -3435,7 +3435,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Hypertension&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "고혈압 일반 개념이다. 가족력 개념은 환자의 질환 자체가 아니며 본태성·이차성 원인을 추가하지 않는다.",
+    "supports": "고혈압 일반 개념입니다. 가족력 개념은 환자의 질환 자체가 아니며 본태성·이차성 원인을 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K224-mesh-term",
@@ -3447,7 +3447,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Pulmonary+arterial+hypertension&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "폐동맥 고혈압 PAH의 질환 그룹이다. 모든 pulmonary hypertension보다 좁으며 혈역학 검사값이나 특발성 원인을 생성하지 않는다.",
+    "supports": "폐동맥 고혈압 PAH의 질환 그룹입니다. 모든 pulmonary hypertension보다 좁으며 혈역학 검사값이나 특발성 원인을 생성하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K225-mesh-term",
@@ -3459,7 +3459,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Coronary+artery+disease&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "MeSH의 관상동맥 병적 과정 일반을 사용해 비죽상경화성 원인 가능성을 유지한다. MONDO·NCIt의 죽상경화성 협착 정의보다 넓은 원문 범위를 선택한다.",
+    "supports": "MeSH의 관상동맥 병적 과정 일반을 사용해 비죽상경화성 원인 가능성을 유지합니다. MONDO·NCIt의 죽상경화성 협착 정의보다 넓은 원문 범위를 선택합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K226-mesh-term",
@@ -3471,7 +3471,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Acute+coronary+syndrome&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "급성 심근 허혈의 임상 증후군이다. 심근경색·불안정 협심증 등 구성 질환 한 개와 무조건 동의어로 합치지 않는다.",
+    "supports": "급성 심근 허혈의 임상 증후군입니다. 심근경색·불안정 협심증 등 구성 질환 한 개와 무조건 동의어로 합치지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K228-mesh-term",
@@ -3483,7 +3483,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Myocardial+infarction&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "심근경색의 질환 개념이다. ECG에서 경색이 의심된다는 Finding 개념과 구별하고 STEMI/NSTEMI 중 하나를 추가하지 않는다.",
+    "supports": "심근경색의 질환 개념입니다. ECG에서 경색이 의심된다는 Finding 개념과 구별하고 STEMI/NSTEMI 중 하나를 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K229-mesh-term",
@@ -3495,7 +3495,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Heart+failure&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "심부전의 일반 임상 개념이다. 박출률 감소·보존 또는 좌우 심실 한 범주로 좁히지 않는다.",
+    "supports": "심부전의 일반 임상 개념입니다. 박출률 감소·보존 또는 좌우 심실 한 범주로 좁히지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K230-mesh-term",
@@ -3507,7 +3507,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Atrial+fibrillation&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "심방세동 부정맥의 질환 개념이다. ECG 소견 레코드나 심방조동과 구별하며 발작성·지속성 여부를 추가하지 않는다.",
+    "supports": "심방세동 부정맥의 질환 개념입니다. ECG 소견 레코드나 심방조동과 구별하며 발작성·지속성 여부를 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K233-mesh-term",
@@ -3519,7 +3519,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Atrial+flutter&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "심방조동 부정맥이다. 심방세동과 별개로 유지하고 ECG 소견 자체나 특정 조동 회로를 원문 밖에서 확정하지 않는다.",
+    "supports": "심방조동 부정맥입니다. 심방세동과 별개로 유지하고 ECG 소견 자체나 특정 조동 회로를 원문 밖에서 확정하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K234-mesh-term",
@@ -3531,7 +3531,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Ventricular+tachycardia&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "심실 기원의 빈맥 개념이다. ECG 해석 Finding이나 모든 빈맥과 합치지 않고 지속 시간·혈역학적 상태를 추가하지 않는다.",
+    "supports": "심실 기원의 빈맥 개념입니다. ECG 해석 Finding이나 모든 빈맥과 합치지 않고 지속 시간·혈역학적 상태를 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K235-mesh-term",
@@ -3543,7 +3543,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Hypertrophic+cardiomyopathy&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "비후성 심근병증 개념이다. 폐쇄성 아형·특정 유전형 또는 단순 고혈압성 비후를 같은 범위로 취급하지 않는다.",
+    "supports": "비후성 심근병증 개념입니다. 폐쇄성 아형·특정 유전형 또는 단순 고혈압성 비후를 같은 범위로 취급하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K236-mesh-term",
@@ -3555,7 +3555,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Dilated+cardiomyopathy&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "심실 확장과 수축 기능 저하의 확장성 심근병증이다. 원문 밖에서 특발성·허혈성·바이러스성 원인을 고르지 않는다.",
+    "supports": "심실 확장과 수축 기능 저하의 확장성 심근병증입니다. 원문 밖에서 특발성·허혈성·바이러스성 원인을 고르지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K237-mesh-term",
@@ -3567,7 +3567,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Aortic+stenosis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "MeSH의 정의는 판막 위·아래·판막 수준의 협착을 함께 포괄한다. 위치 단서가 없는 aortic stenosis를 판막 수준으로만 좁히지 않고 해당 넓은 범위를 명시한다.",
+    "supports": "MeSH의 정의는 판막 위·아래·판막 수준의 협착을 함께 포괄합니다. 위치 단서가 없는 aortic stenosis를 판막 수준으로만 좁히지 않고 해당 넓은 범위를 명시합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K238-mesh-term",
@@ -3579,7 +3579,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Mitral+regurgitation&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "승모판 regurgitation/insufficiency의 역류 용례를 연결한다. 승모판 협착이나 다른 판막 역류와 구분한다.",
+    "supports": "승모판 regurgitation/insufficiency의 역류 용례를 연결합니다. 승모판 협착이나 다른 판막 역류와 구분합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K239-mesh-term",
@@ -3591,7 +3591,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Peripheral+artery+disease&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "Peripheral artery/arterial disease의 말초 동맥 질환 개념이다. 정맥 질환이나 특정 부위·당뇨 원인을 추가하지 않는다.",
+    "supports": "Peripheral artery/arterial disease의 말초 동맥 질환 개념입니다. 정맥 질환이나 특정 부위·당뇨 원인을 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K240-mesh-term",
@@ -3603,7 +3603,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Pulmonary+embolism&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "색전에 의한 폐동맥계 폐색이다. 모든 DVT와 같은 질환으로 병합하지 않으며 혈전성 원인이나 쇼크를 원문 밖에서 확정하지 않는다.",
+    "supports": "색전에 의한 폐동맥계 폐색입니다. 모든 DVT와 같은 질환으로 병합하지 않으며 혈전성 원인이나 쇼크를 원문 밖에서 확정하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K242-mesh-term",
@@ -3615,7 +3615,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Ischemic+stroke&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "뇌 혈류 차단·감소에 의한 허혈성 뇌졸중이다. 출혈성 뇌졸중·TIA와 구별하고 원인 혈전 위치는 추가하지 않는다.",
+    "supports": "뇌 혈류 차단·감소에 의한 허혈성 뇌졸중입니다. 출혈성 뇌졸중·TIA와 구별하고 원인 혈전 위치는 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K243-mesh-term",
@@ -3627,7 +3627,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Hemorrhagic+stroke&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "뇌 실질 또는 주변 공간 출혈에 의한 뇌졸중이다. 허혈성 뇌졸중과 병합하지 않고 특정 출혈 위치를 선택하지 않는다.",
+    "supports": "뇌 실질 또는 주변 공간 출혈에 의한 뇌졸중입니다. 허혈성 뇌졸중과 병합하지 않고 특정 출혈 위치를 선택하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K244-mesh-term",
@@ -3639,7 +3639,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Transient+ischemic+attack&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "일과성 허혈성 신경학적 사건 TIA이다. 확정 뇌경색과 동의어로 합치지 않으며 과거 시간 기준을 입력 관찰값으로 생성하지 않는다.",
+    "supports": "일과성 허혈성 신경학적 사건 TIA입니다. 확정 뇌경색과 동의어로 합치지 않으며 과거 시간 기준을 입력 관찰값으로 생성하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K245-mesh-term",
@@ -3651,7 +3651,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Asthma&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "천식 일반 개념이다. 중증·호산구성·알레르기성 제한을 추가하지 않으며 COPD와 구별한다.",
+    "supports": "천식 일반 개념입니다. 중증·호산구성·알레르기성 제한을 추가하지 않으며 COPD와 구별합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K246-mesh-term",
@@ -3663,7 +3663,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Chronic+obstructive+pulmonary+disease&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "COPD의 일반 질환 개념이다. 폐기종·만성 기관지염과 관련되어도 각 표현을 동일 범위의 동의어로 합치지 않는다.",
+    "supports": "COPD의 일반 질환 개념입니다. 폐기종·만성 기관지염과 관련되어도 각 표현을 동일 범위의 동의어로 합치지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K248-mesh-term",
@@ -3675,7 +3675,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Emphysema&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "MeSH가 정의하는 조직·장기 내 병적 공기 축적의 미지정 emphysema 범위를 보존한다. 폐 위치가 없는 원문을 pulmonary emphysema만으로 제한하지 않는다.",
+    "supports": "MeSH가 정의하는 조직·장기 내 병적 공기 축적의 미지정 emphysema 범위를 보존합니다. 폐 위치가 없는 원문을 pulmonary emphysema만으로 제한하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K249-mesh-term",
@@ -3688,7 +3688,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Chronic+bronchitis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "만성 기관지염의 임상 개념이다. 급성 기관지염·모든 COPD와 구별하고 원문에 없는 개별 환자의 기간·객담 수치를 추가하지 않는다.",
+    "supports": "만성 기관지염의 임상 개념입니다. 급성 기관지염·모든 COPD와 구별하고 원문에 없는 개별 환자의 기간·객담 수치를 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K250-mesh-term",
@@ -3700,7 +3700,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Bronchiectasis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "지속적인 기관지 확장의 질환 개념이다. 낭성 섬유증 등 원인을 추가하지 않고 단순 기관지염과 구별한다.",
+    "supports": "지속적인 기관지 확장의 질환 개념입니다. 낭성 섬유증 등 원인을 추가하지 않고 단순 기관지염과 구별합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K251-mesh-term",
@@ -3712,7 +3712,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Idiopathic+pulmonary+fibrosis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "원인 미상 진행성 폐섬유화인 IPF이다. 모든 간질성 폐질환이나 모든 폐섬유화를 동의어로 넓히지 않는다.",
+    "supports": "원인 미상 진행성 폐섬유화인 IPF입니다. 모든 간질성 폐질환이나 모든 폐섬유화를 동의어로 넓히지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K252-mesh-term",
@@ -3724,7 +3724,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Interstitial+lung+disease&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "간질성 폐질환의 다양한 질환군이다. IPF 한 아형이나 특정 직업성·자가면역성 원인으로 좁히지 않는다.",
+    "supports": "간질성 폐질환의 다양한 질환군입니다. IPF 한 아형이나 특정 직업성·자가면역성 원인으로 좁히지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K253-mesh-term",
@@ -3736,7 +3736,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Sarcoidosis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "다기관 비건락 육아종성 질환인 사르코이드증이다. 폐에만 제한하거나 모든 육아종·결핵과 합치지 않는다.",
+    "supports": "다기관 비건락 육아종성 질환인 사르코이드증입니다. 폐에만 제한하거나 모든 육아종·결핵과 합치지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K254-mesh-term",
@@ -3748,7 +3748,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Obstructive+sleep+apnea&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "상기도 폐쇄에 의한 수면 무호흡이다. 중추성 수면 무호흡 또는 모든 수면 장애와 구별한다.",
+    "supports": "상기도 폐쇄에 의한 수면 무호흡입니다. 중추성 수면 무호흡 또는 모든 수면 장애와 구별합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K255-mesh-term",
@@ -3760,7 +3760,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Cystic+fibrosis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "낭성 섬유증의 질환명이다. 원문 밖에서 개별 CFTR 변이·췌장 기능부전 여부를 확정하지 않는다.",
+    "supports": "낭성 섬유증의 질환명입니다. 원문 밖에서 개별 CFTR 변이·췌장 기능부전 여부를 확정하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K256-mesh-term",
@@ -3772,7 +3772,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Pneumonia&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "폐렴의 감염성 폐 염증 일반이다. COVID-19 연관 폐렴이나 특정 병원체·분포를 원문 밖에서 선택하지 않는다.",
+    "supports": "폐렴의 감염성 폐 염증 일반입니다. COVID-19 연관 폐렴이나 특정 병원체·분포를 원문 밖에서 선택하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K257-mesh-term",
@@ -3784,7 +3784,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Influenza&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "인간 인플루엔자 감염의 임상 개념이다. 바이러스 자체나 특정 계절·유행주를 질환명과 동일시하지 않는다.",
+    "supports": "인간 인플루엔자 감염의 임상 개념입니다. 바이러스 자체나 특정 계절·유행주를 질환명과 동일시하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K258-mesh-term",
@@ -3796,7 +3796,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=COVID-19&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "SARS-CoV-2 감염 질환 COVID-19이다. 폐기된 MeSH Concept을 선택하지 않고 Long COVID 또는 병원체 자체와 구별한다.",
+    "supports": "SARS-CoV-2 감염 질환 COVID-19입니다. 폐기된 MeSH Concept을 선택하지 않고 Long COVID 또는 병원체 자체와 구별합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K259-mesh-term",
@@ -3808,7 +3808,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Long+COVID&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "감염 후 지속되는 Long COVID의 개념을 NCI·MeSH와 비교한다. 급성 COVID-19나 모든 감염 후 증후군과 합치지 않는다.",
+    "supports": "감염 후 지속되는 Long COVID의 개념을 NCI·MeSH와 비교합니다. 급성 COVID-19나 모든 감염 후 증후군과 합치지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K260-mesh-term",
@@ -3820,7 +3820,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Tuberculosis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "결핵 감염 질환의 일반 범위다. 폐 외 침범 가능성을 유지하고 폐결핵·잠복 감염 또는 약제내성을 임의로 고르지 않는다.",
+    "supports": "결핵 감염 질환의 일반 범위입니다. 폐 외 침범 가능성을 유지하고 폐결핵·잠복 감염 또는 약제내성을 임의로 고르지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K261-mesh-term",
@@ -3832,7 +3832,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Respiratory+syncytial+virus+infection&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "RSV 감염 질환이다. 바이러스 입자·분류군 자체나 세기관지염 한 발현으로 대체하지 않고 원문의 인간 임상 맥락을 유지한다.",
+    "supports": "RSV 감염 질환입니다. 바이러스 입자·분류군 자체나 세기관지염 한 발현으로 대체하지 않고 원문의 인간 임상 맥락을 유지합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K263-mesh-term",
@@ -3844,7 +3844,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=HIV+infection&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "HIV 감염의 질환 개념이다. HIV 바이러스 자체나 AIDS 진단을 자동으로 같은 범위에 넣지 않는다.",
+    "supports": "HIV 감염의 질환 개념입니다. HIV 바이러스 자체나 AIDS 진단을 자동으로 같은 범위에 넣지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K264-mesh-term",
@@ -3856,7 +3856,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Herpes+zoster&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "수두대상포진 바이러스 재활성화의 대상포진이다. HSV 감염·수두·대상포진 후 신경통과 별도로 둔다.",
+    "supports": "수두대상포진 바이러스 재활성화의 대상포진입니다. HSV 감염·수두·대상포진 후 신경통과 별도로 둡니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K265-mesh-term",
@@ -3868,7 +3868,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Cytomegalovirus+infection&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "CMV 감염의 일반 질환 개념이다. 선천성·장기 침범·면역저하 상태를 추가하지 않고 CMV 바이러스 자체와 구별한다.",
+    "supports": "CMV 감염의 일반 질환 개념입니다. 선천성·장기 침범·면역저하 상태를 추가하지 않고 CMV 바이러스 자체와 구별합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K267-mesh-term",
@@ -3880,7 +3880,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Alzheimer+disease&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "알츠하이머병의 임상 개념이다. 모든 치매·유전성 한 아형·병기를 추가하지 않는다.",
+    "supports": "알츠하이머병의 임상 개념입니다. 모든 치매·유전성 한 아형·병기를 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K270-mesh-term",
@@ -3892,7 +3892,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Parkinson+disease&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "파킨슨병의 임상 개념이다. 파킨슨증 증후군 전체나 특정 유전형으로 바꾸지 않는다.",
+    "supports": "파킨슨병의 임상 개념입니다. 파킨슨증 증후군 전체나 특정 유전형으로 바꾸지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K271-mesh-term",
@@ -3904,7 +3904,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Multiple+sclerosis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "중추신경계 탈수초성 다발성 경화증이다. 재발완화형·일차진행형 등의 경과를 원문 밖에서 고르지 않는다.",
+    "supports": "중추신경계 탈수초성 다발성 경화증입니다. 재발완화형·일차진행형 등의 경과를 원문 밖에서 고르지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K272-mesh-term",
@@ -3916,7 +3916,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Amyotrophic+lateral+sclerosis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "상·하위 운동신경원 변성의 ALS 개념이다. 모든 운동신경원 질환 또는 유전성 ALS만으로 범위를 바꾸지 않는다.",
+    "supports": "상·하위 운동신경원 변성의 ALS 개념입니다. 모든 운동신경원 질환 또는 유전성 ALS만으로 범위를 바꾸지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K273-mesh-term",
@@ -3928,7 +3928,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Huntington+disease&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "헌팅턴병의 질환명이다. 무도병 소견 전체 또는 환자에서 관찰한 특정 반복서열 길이로 변환하지 않는다.",
+    "supports": "헌팅턴병의 질환명입니다. 무도병 소견 전체 또는 환자에서 관찰한 특정 반복서열 길이로 변환하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K274-mesh-term",
@@ -3940,7 +3940,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Spinal+muscular+atrophy&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "척수 운동신경원 변성과 근위축의 SMA 질환군이다. SMN1 관련 5q 아형·발병 연령을 추가하지 않고 NCIt의 소뇌 침범 설명을 필수 조건으로 쓰지 않는다.",
+    "supports": "척수 운동신경원 변성과 근위축의 SMA 질환군입니다. SMN1 관련 5q 아형·발병 연령을 추가하지 않고 NCIt의 소뇌 침범 설명을 필수 조건으로 쓰지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K275-mesh-term",
@@ -3952,7 +3952,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Duchenne+muscular+dystrophy&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "뒤센 근이영양증의 특정 질환 개념이다. Becker 또는 모든 근이영양증과 구별하고 개별 DMD 변이 결과를 생성하지 않는다.",
+    "supports": "뒤센 근이영양증의 특정 질환 개념입니다. Becker 또는 모든 근이영양증과 구별하고 개별 DMD 변이 결과를 생성하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K276-mesh-term",
@@ -3964,7 +3964,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Myasthenia+gravis&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "자가면역성 신경근 접합부 질환인 중증근무력증이다. 선천성 근무력 증후군·전신/안구형 또는 항체 양성을 임의로 추가하지 않는다.",
+    "supports": "자가면역성 신경근 접합부 질환인 중증근무력증입니다. 선천성 근무력 증후군·전신/안구형 또는 항체 양성을 임의로 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K277-mesh-term",
@@ -3976,7 +3976,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Epilepsy&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "ILAE가 정의하는 뇌전증 질환 개념이다. 단일 유발 발작이나 모든 seizure disorder 표기를 무조건 전역 별칭으로 쓰지 않는다.",
+    "supports": "ILAE가 정의하는 뇌전증 질환 개념입니다. 단일 유발 발작이나 모든 seizure disorder 표기를 무조건 전역 별칭으로 쓰지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K278-mesh-term",
@@ -3988,7 +3988,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Focal+epilepsy&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "ILAE가 분류하는 국소 뇌전증의 질환군이다. 한 번의 focal seizure 사건과 구별하고 원문 밖에서 원인 병변·발작 의식 상태를 고르지 않는다.",
+    "supports": "ILAE가 분류하는 국소 뇌전증의 질환군입니다. 한 번의 focal seizure 사건과 구별하고 원문 밖에서 원인 병변·발작 의식 상태를 고르지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K279-mesh-term",
@@ -4001,7 +4001,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Migraine&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "편두통의 일반 질환 개념이다. 조짐·만성·특정 발작 빈도를 추가하지 않고 모든 두통과 구별한다.",
+    "supports": "편두통의 일반 질환 개념입니다. 조짐·만성·특정 발작 빈도를 추가하지 않고 모든 두통과 구별합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K280-mesh-term",
@@ -4013,7 +4013,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Cluster+headache&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "일측 안와·측두부 발작을 보이는 군발두통이다. 편두통 또는 모든 삼차자율신경두통과 동의어로 합치지 않는다.",
+    "supports": "일측 안와·측두부 발작을 보이는 군발두통입니다. 편두통 또는 모든 삼차자율신경두통과 동의어로 합치지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K282-mesh-term",
@@ -4025,7 +4025,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Essential+tremor&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "본태성 떨림의 운동 질환 개념이다. 파킨슨병 또는 모든 tremor 소견과 구별하고 유전성 여부를 추가하지 않는다.",
+    "supports": "본태성 떨림의 운동 질환 개념입니다. 파킨슨병 또는 모든 tremor 소견과 구별하고 유전성 여부를 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K283-mesh-term",
@@ -4037,7 +4037,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Peripheral+neuropathy&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "말초신경계 장애의 일반 개념이다. 당뇨병성 원인이나 통증의 존재를 원문 밖에서 확정하지 않는다.",
+    "supports": "말초신경계 장애의 일반 개념입니다. 당뇨병성 원인이나 통증의 존재를 원문 밖에서 확정하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K284-mesh-term",
@@ -4049,7 +4049,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Trigeminal+neuralgia&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "삼차신경 분포의 신경통이다. 모든 neuropathic pain이나 다른 신경 분포의 통증과 합치지 않는다.",
+    "supports": "삼차신경 분포의 신경통입니다. 모든 neuropathic pain이나 다른 신경 분포의 통증과 합치지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K285-mesh-term",
@@ -4061,7 +4061,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Major+depressive+disorder&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "주요우울장애의 임상 개념이다. 양극성 우울·일시적 우울감 또는 한 회기·재발성 여부를 원문 밖에서 선택하지 않는다.",
+    "supports": "주요우울장애의 임상 개념입니다. 양극성 우울·일시적 우울감 또는 한 회기·재발성 여부를 원문 밖에서 선택하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K288-mesh-term",
@@ -4073,7 +4073,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Bipolar+disorder&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "양극성 장애의 일반 개념이다. I형·II형·현재 조증/우울 상태를 추가하지 않고 주요우울장애와 구분한다.",
+    "supports": "양극성 장애의 일반 개념입니다. I형·II형·현재 조증/우울 상태를 추가하지 않고 주요우울장애와 구분합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K289-mesh-term",
@@ -4085,7 +4085,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Schizophrenia&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "조현병의 임상 개념이다. 정신병적 증상 전체·조현정동장애와 병합하지 않는다.",
+    "supports": "조현병의 임상 개념입니다. 정신병적 증상 전체·조현정동장애와 병합하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K290-mesh-term",
@@ -4097,7 +4097,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Generalized+anxiety+disorder&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "범불안장애의 진단명이다. MeSH의 과거 기간 설명을 서비스 진단 규칙으로 복사하지 않고 모든 걱정·불안 소견과 구별한다.",
+    "supports": "범불안장애의 진단명입니다. MeSH의 과거 기간 설명을 서비스 진단 규칙으로 복사하지 않고 모든 걱정·불안 소견과 구별합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K291-mesh-term",
@@ -4109,7 +4109,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Panic+disorder&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "예상치 못한 반복 공황 발작과 관련된 공황장애이다. 단일 공황 발작 또는 모든 불안장애와 합치지 않는다.",
+    "supports": "예상치 못한 반복 공황 발작과 관련된 공황장애입니다. 단일 공황 발작 또는 모든 불안장애와 합치지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K292-mesh-term",
@@ -4121,7 +4121,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Obsessive+compulsive+disorder&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "강박사고·강박행동의 강박장애이다. 강박성 인격장애와 이름이 비슷해도 다른 개념으로 유지한다.",
+    "supports": "강박사고·강박행동의 강박장애입니다. 강박성 인격장애와 이름이 비슷해도 다른 개념으로 유지합니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K293-mesh-term",
@@ -4133,7 +4133,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Post-traumatic+stress+disorder&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "외상 후 스트레스 장애의 질환명이다. 급성 스트레스 반응·모든 불안 또는 외상 노출 사건 자체와 동일시하지 않는다.",
+    "supports": "외상 후 스트레스 장애의 질환명입니다. 급성 스트레스 반응·모든 불안 또는 외상 노출 사건 자체와 동일시하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K294-mesh-term",
@@ -4145,7 +4145,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Attention+deficit+hyperactivity+disorder&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "ADHD의 발달 장애 개념이다. 성인/소아·부주의 우세형 등 세부 제한을 추가하지 않고 단순 집중력 저하를 같은 진단으로 올리지 않는다.",
+    "supports": "ADHD의 발달 장애 개념입니다. 성인/소아·부주의 우세형 등 세부 제한을 추가하지 않고 단순 집중력 저하를 같은 진단으로 올리지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K295-mesh-term",
@@ -4157,7 +4157,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Autism+spectrum+disorder&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "자폐 스펙트럼 장애의 현행 임상 개념을 유지한다. NCIt의 Rett 포함 과거 설명을 현재 질환 범위나 자동 하위 질환 확장에 사용하지 않는다.",
+    "supports": "자폐 스펙트럼 장애의 현행 임상 개념을 유지합니다. NCIt의 Rett 포함 과거 설명을 현재 질환 범위나 자동 하위 질환 확장에 사용하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K296-mesh-term",
@@ -4169,7 +4169,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Insomnia&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "불면증의 임상 개념이다. 만성·일차성 또는 단순 일회성 수면 부족을 무조건 같은 범위에 넣지 않는다.",
+    "supports": "불면증의 임상 개념입니다. 만성·일차성 또는 단순 일회성 수면 부족을 무조건 같은 범위에 넣지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K297-mesh-term",
@@ -4181,7 +4181,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Narcolepsy&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "기면증의 일반 수면 질환이다. 탈력발작·오렉신 결핍·1형/2형 여부를 추가하지 않는다.",
+    "supports": "기면증의 일반 수면 질환입니다. 탈력발작·오렉신 결핍·1형/2형 여부를 추가하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K298-mesh-term",
@@ -4193,7 +4193,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Anorexia+nervosa&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "신경성 식욕부진증의 섭식 장애 개념이다. 식욕 저하 증상 자체와 구별하고 과거 정의의 여성·무월경 조건을 모든 환자에게 강제하지 않는다.",
+    "supports": "신경성 식욕부진증의 섭식 장애 개념입니다. 식욕 저하 증상 자체와 구별하고 과거 정의의 여성·무월경 조건을 모든 환자에게 강제하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K299-mesh-term",
@@ -4205,7 +4205,7 @@
     "url": "https://id.nlm.nih.gov/mesh/lookup/term?label=Binge+eating+disorder&match=exact&limit=50",
     "type": "OFFICIAL_QUERY_TRAIL_AND_EXPLICIT_SCOPE_REVIEW",
     "checked_on": "2026-10-28",
-    "supports": "NIMH의 통제력 상실·고통을 동반하는 폭식장애 개념을 사용한다. MONDO의 짧은 과식 설명만으로 단순 overeating을 동의어로 확장하지 않는다.",
+    "supports": "NIMH의 통제력 상실·고통을 동반하는 폭식장애 개념을 사용합니다. MONDO의 짧은 과식 설명만으로 단순 overeating을 동의어로 확장하지 않습니다.",
     "locator": "data/records.json; evidence/api-manifest.json",
     "snapshot_keys": [
       "K300-mesh-term",

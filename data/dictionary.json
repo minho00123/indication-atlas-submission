@@ -997,7 +997,7 @@
           "evidence_refs": [
             "SRC-037"
           ],
-          "rationale_ko": "명칭 변경으로 연결되지만 현행 대사 위험 기준과 과거 정의의 차이를 보존한다.",
+          "rationale_ko": "명칭 변경으로 연결되지만 현행 대사 위험 기준과 과거 정의의 차이를 보존합니다.",
           "use_for_synonym_union": false
         }
       ]
@@ -1017,7 +1017,7 @@
           "evidence_refs": [
             "SRC-037"
           ],
-          "rationale_ko": "명칭 변경으로 연결되지만 현행 대사 위험 기준과 과거 정의의 차이를 보존한다.",
+          "rationale_ko": "명칭 변경으로 연결되지만 현행 대사 위험 기준과 과거 정의의 차이를 보존합니다.",
           "use_for_synonym_union": false
         }
       ]

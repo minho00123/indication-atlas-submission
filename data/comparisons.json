@@ -5,7 +5,7 @@
     "right_source_id": "K002",
     "right_keyword": "ECZEMA",
     "relation": "SAME_BASE_CONCEPT",
-    "rationale_ko": "대소문자만 다른 일반 습진이다.",
+    "rationale_ko": "대소문자만 다른 일반 습진입니다.",
     "evidence_refs": [
       "SRC-029",
       "SRC-030",
@@ -23,7 +23,7 @@
     "right_source_id": "K025",
     "right_keyword": "Atopic dermatitis",
     "relation": "BROADER",
-    "rationale_ko": "일반 습진과 아토피 아형은 범위가 다르다.",
+    "rationale_ko": "일반 습진과 아토피 아형은 범위가 다릅니다.",
     "evidence_refs": [
       "SRC-029",
       "SRC-030",
@@ -42,7 +42,7 @@
     "right_source_id": "K005",
     "right_keyword": "Type 2 diabetes mellitus",
     "relation": "SAME_BASE_CONCEPT",
-    "rationale_ko": "대소문자·하이픈 표기가 다른 같은 제2형 당뇨병이며 두 원문 모두 치료 조건을 명시하지 않는다.",
+    "rationale_ko": "대소문자·하이픈 표기가 다른 같은 제2형 당뇨병이며 두 원문 모두 치료 조건을 명시하지 않습니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -59,7 +59,7 @@
     "right_source_id": "K006",
     "right_keyword": "Type 1 diabetes mellitus",
     "relation": "DIFFERENT_CONCEPT",
-    "rationale_ko": "제2형과 제1형은 별도 개념이다. K006의 자가면역·인슐린 필요 조건을 K004에 전파하지 않는다.",
+    "rationale_ko": "제2형과 제1형은 별도 개념입니다. K006의 자가면역·인슐린 필요 조건을 K004에 전파하지 않습니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -76,7 +76,7 @@
     "right_source_id": "K008",
     "right_keyword": "CD",
     "relation": "DIFFERENT_SENSE_SAME_SURFACE",
-    "rationale_ko": "CD의 문맥에 따라 크론병과 셀리악병으로 나뉜다.",
+    "rationale_ko": "CD의 문맥에 따라 크론병과 셀리악병으로 나뉩니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -93,7 +93,7 @@
     "right_source_id": "K009",
     "right_keyword": "CD",
     "relation": "UNRESOLVED_SOURCE_CONTEXT",
-    "rationale_ko": "같은 CD 표기로도 K009는 질환을 결정할 수 없다.",
+    "rationale_ko": "같은 CD 표기로도 K009는 질환을 결정할 수 없습니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -110,7 +110,7 @@
     "right_source_id": "K131",
     "right_keyword": "Non-small cell lung cancer",
     "relation": "SAME_BASE_CONCEPT_DIFFERENT_CONTEXT",
-    "rationale_ko": "NSCLC는 같지만 전이와 이전 치료 조건은 동의어 병합으로 지우지 않는다.",
+    "rationale_ko": "NSCLC는 같지만 전이와 이전 치료 조건은 동의어 병합으로 지우지 않습니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -127,7 +127,7 @@
     "right_source_id": "K012",
     "right_keyword": "AML",
     "relation": "DIFFERENT_SENSE_SAME_SURFACE",
-    "rationale_ko": "AML은 백혈병 또는 신장 혈관근지방종이다.",
+    "rationale_ko": "AML은 백혈병 또는 신장 혈관근지방종입니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -144,7 +144,7 @@
     "right_source_id": "K014",
     "right_keyword": "HER2-positive breast cancer",
     "relation": "BROADER",
-    "rationale_ko": "양성·악성을 포함한 유방 신생물과 HER2 양성 암은 같은 범위가 아니다.",
+    "rationale_ko": "양성·악성을 포함한 유방 신생물과 HER2 양성 암은 같은 범위가 아닙니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -162,7 +162,7 @@
     "right_source_id": "K015",
     "right_keyword": "HER2-negative breast cancer",
     "relation": "DIFFERENT_BIOMARKER_SCOPE",
-    "rationale_ko": "HER2 양성과 음성의 부호를 구별한다.",
+    "rationale_ko": "HER2 양성과 음성의 부호를 구별합니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -180,7 +180,7 @@
     "right_source_id": "K136",
     "right_keyword": "Triple-negative breast cancer",
     "relation": "BROADER",
-    "rationale_ko": "HER2 음성만으로 ER/PR 음성까지 추론하지 않는다.",
+    "rationale_ko": "HER2 음성만으로 ER/PR 음성까지 추론하지 않습니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -198,7 +198,7 @@
     "right_source_id": "K017",
     "right_keyword": "CKD",
     "relation": "RELATED_NOT_SYNONYMS",
-    "rationale_ko": "신기능 저하 소견만으로 만성 기간과 CKD 진단을 보장하지 않는다.",
+    "rationale_ko": "신기능 저하 소견만으로 만성 기간과 CKD 진단을 보장하지 않습니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -215,7 +215,7 @@
     "right_source_id": "K165",
     "right_keyword": "Myelodysplastic syndrome",
     "relation": "EXPRESSION_COMPONENT_ONLY",
-    "rationale_ko": "MDS는 OR 식의 구성 개념이며 전체 식의 동의어가 아니다.",
+    "rationale_ko": "MDS는 OR 식의 구성 개념이며 전체 식의 동의어가 아닙니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -232,7 +232,7 @@
     "right_source_id": "K034",
     "right_keyword": "Plaque psoriasis",
     "relation": "SOURCE_CONFLICT_NOT_RESOLVED",
-    "rationale_ko": "K024 본문은 판상 건선이지만 키워드는 습진이므로 이 행의 매핑을 확정하지 않는다.",
+    "rationale_ko": "K024 본문은 판상 건선이지만 키워드는 습진이므로 이 행의 매핑을 확정하지 않습니다.",
     "evidence_refs": [
       "SRC-002",
       "SRC-036",
@@ -249,7 +249,7 @@
     "right_source_id": "K027",
     "right_keyword": "Allergic contact dermatitis",
     "relation": "BROADER",
-    "rationale_ko": "접촉 피부염 일반보다 알레르기성 아형이 좁다.",
+    "rationale_ko": "접촉 피부염 일반보다 알레르기성 아형이 좁습니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -266,7 +266,7 @@
     "right_source_id": "K028",
     "right_keyword": "Irritant contact dermatitis",
     "relation": "BROADER",
-    "rationale_ko": "접촉 피부염 일반보다 자극성 아형이 좁다.",
+    "rationale_ko": "접촉 피부염 일반보다 자극성 아형이 좁습니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -283,7 +283,7 @@
     "right_source_id": "K028",
     "right_keyword": "Irritant contact dermatitis",
     "relation": "DIFFERENT_ETIOLOGY_SCOPE",
-    "rationale_ko": "알레르기 감작과 직접 자극의 기전을 구별한다.",
+    "rationale_ko": "알레르기 감작과 직접 자극의 기전을 구별합니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -300,7 +300,7 @@
     "right_source_id": "K034",
     "right_keyword": "Plaque psoriasis",
     "relation": "BROADER",
-    "rationale_ko": "건선 일반과 판상 아형을 합치지 않는다.",
+    "rationale_ko": "건선 일반과 판상 아형을 합치지 않습니다.",
     "evidence_refs": [
       "SRC-002",
       "SRC-036",
@@ -318,7 +318,7 @@
     "right_source_id": "K037",
     "right_keyword": "Erythrodermic psoriasis",
     "relation": "DIFFERENT_PRESENTATION_SCOPE",
-    "rationale_ko": "판상·홍피성 형태가 진행 과정에서 연결돼도 동의어는 아니다.",
+    "rationale_ko": "판상·홍피성 형태가 진행 과정에서 연결돼도 동의어는 아닙니다.",
     "evidence_refs": [
       "SRC-002",
       "SRC-036",
@@ -334,7 +334,7 @@
     "right_source_id": "K043",
     "right_keyword": "Chronic spontaneous urticaria",
     "relation": "BROADER",
-    "rationale_ko": "두드러기 일반에 만성 자발성 제한을 추가하지 않는다.",
+    "rationale_ko": "두드러기 일반에 만성 자발성 제한을 추가하지 않습니다.",
     "evidence_refs": [
       "SRC-026",
       "SRC-036",
@@ -352,7 +352,7 @@
     "right_source_id": "K046",
     "right_keyword": "Androgenetic alopecia",
     "relation": "DIFFERENT_CONCEPT",
-    "rationale_ko": "원형탈모와 안드로겐성 탈모는 다르다.",
+    "rationale_ko": "원형탈모와 안드로겐성 탈모는 다릅니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -370,7 +370,7 @@
     "right_source_id": "K064",
     "right_keyword": "Systemic lupus erythematosus",
     "relation": "RELATED_NOT_SYNONYMS",
-    "rationale_ko": "피부 루푸스는 전신성 루푸스와 동반되거나 독립적으로 나타날 수 있다.",
+    "rationale_ko": "피부 루푸스는 전신성 루푸스와 동반되거나 독립적으로 나타날 수 있습니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -387,7 +387,7 @@
     "right_source_id": "K068",
     "right_keyword": "Ankylosing spondylitis",
     "relation": "BROADER",
-    "rationale_ko": "축성 척추관절염 스펙트럼에는 강직성 척추염 외 형태도 있다.",
+    "rationale_ko": "축성 척추관절염 스펙트럼에는 강직성 척추염 외 형태도 있습니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -404,7 +404,7 @@
     "right_source_id": "K070",
     "right_keyword": "Pseudogout",
     "relation": "DIFFERENT_CRYSTAL_DISEASE",
-    "rationale_ko": "요산염 통풍과 칼슘 피로인산 관련 가성통풍을 구별한다.",
+    "rationale_ko": "요산염 통풍과 칼슘 피로인산 관련 가성통풍을 구별합니다.",
     "evidence_refs": [
       "SRC-025",
       "SRC-036",
@@ -422,7 +422,7 @@
     "right_source_id": "K074",
     "right_keyword": "Polymyositis",
     "relation": "DIFFERENT_CONCEPT",
-    "rationale_ko": "피부근염과 다발근염은 별도 질환명이다.",
+    "rationale_ko": "피부근염과 다발근염은 별도 질환명입니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -439,7 +439,7 @@
     "right_source_id": "K084",
     "right_keyword": "Osteopenia",
     "relation": "DIFFERENT_DIAGNOSTIC_SCOPE",
-    "rationale_ko": "골다공증과 골감소증을 단일 동의어로 합치지 않는다.",
+    "rationale_ko": "골다공증과 골감소증을 단일 동의어로 합치지 않습니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -456,7 +456,7 @@
     "right_source_id": "K085",
     "right_keyword": "Crohn disease",
     "relation": "BROADER",
-    "rationale_ko": "IBD 질환군과 크론병은 상하위 범위다.",
+    "rationale_ko": "IBD 질환군과 크론병은 상하위 범위입니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -473,7 +473,7 @@
     "right_source_id": "K086",
     "right_keyword": "Ulcerative colitis",
     "relation": "BROADER",
-    "rationale_ko": "IBD 질환군과 궤양성 대장염은 상하위 범위다.",
+    "rationale_ko": "IBD 질환군과 궤양성 대장염은 상하위 범위입니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -490,7 +490,7 @@
     "right_source_id": "K086",
     "right_keyword": "Ulcerative colitis",
     "relation": "DIFFERENT_CONCEPT",
-    "rationale_ko": "크론병과 궤양성 대장염을 따로 유지한다.",
+    "rationale_ko": "크론병과 궤양성 대장염을 따로 유지합니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -507,7 +507,7 @@
     "right_source_id": "K087",
     "right_keyword": "Inflammatory bowel disease",
     "relation": "DIFFERENT_CONCEPT",
-    "rationale_ko": "기능성 IBS와 염증성 IBD는 약어가 비슷해도 다르다.",
+    "rationale_ko": "기능성 IBS와 염증성 IBD는 약어가 비슷해도 다릅니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -524,7 +524,7 @@
     "right_source_id": "K091",
     "right_keyword": "Barrett esophagus",
     "relation": "RELATED_NOT_SYNONYMS",
-    "rationale_ko": "역류 질환과 바렛 화생은 연관되나 같은 개념이 아니다.",
+    "rationale_ko": "역류 질환과 바렛 화생은 연관되나 같은 개념이 아닙니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -541,7 +541,7 @@
     "right_source_id": "K095",
     "right_keyword": "Gastric ulcer",
     "relation": "BROADER",
-    "rationale_ko": "소화성 궤양 질환군보다 위궤양이 부위상 좁다.",
+    "rationale_ko": "소화성 궤양 질환군보다 위궤양이 부위상 좁습니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -558,7 +558,7 @@
     "right_source_id": "K096",
     "right_keyword": "Duodenal ulcer",
     "relation": "BROADER",
-    "rationale_ko": "소화성 궤양 질환군보다 십이지장궤양이 부위상 좁다.",
+    "rationale_ko": "소화성 궤양 질환군보다 십이지장궤양이 부위상 좁습니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -575,7 +575,7 @@
     "right_source_id": "K096",
     "right_keyword": "Duodenal ulcer",
     "relation": "DIFFERENT_SITE_SCOPE",
-    "rationale_ko": "위와 십이지장의 부위를 구별한다.",
+    "rationale_ko": "위와 십이지장의 부위를 구별합니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -592,7 +592,7 @@
     "right_source_id": "K098",
     "right_keyword": "Gastritis",
     "relation": "RELATED_NOT_SYNONYMS",
-    "rationale_ko": "병원체 감염과 위염은 같은 개념이 아니다.",
+    "rationale_ko": "병원체 감염과 위염은 같은 개념이 아닙니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -609,7 +609,7 @@
     "right_source_id": "K107",
     "right_keyword": "Chronic pancreatitis",
     "relation": "DIFFERENT_CHRONICITY_SCOPE",
-    "rationale_ko": "급성과 만성 췌장염을 구별한다.",
+    "rationale_ko": "급성과 만성 췌장염을 구별합니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -626,7 +626,7 @@
     "right_source_id": "K108",
     "right_keyword": "Pancreatic insufficiency",
     "relation": "RELATED_NOT_SYNONYMS",
-    "rationale_ko": "췌장 염증과 외분비 기능부전은 동반 가능해도 다르다.",
+    "rationale_ko": "췌장 염증과 외분비 기능부전은 동반 가능해도 다릅니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -644,7 +644,7 @@
     "right_source_id": "K110",
     "right_keyword": "Primary sclerosing cholangitis",
     "relation": "DIFFERENT_CONCEPT",
-    "rationale_ko": "원발성 담즙성·경화성 담관염은 별도 질환이다.",
+    "rationale_ko": "원발성 담즙성·경화성 담관염은 별도 질환입니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -662,7 +662,7 @@
     "right_source_id": "K113",
     "right_keyword": "Hepatitis C",
     "relation": "DIFFERENT_PATHOGEN_SCOPE",
-    "rationale_ko": "B형과 C형 간염 감염을 구별한다.",
+    "rationale_ko": "B형과 C형 간염 감염을 구별합니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -679,7 +679,7 @@
     "right_source_id": "K117",
     "right_keyword": "Metabolic dysfunction associated steatotic liver disease",
     "relation": "HISTORICAL_RENAMING_WITH_CRITERIA_REVIEW",
-    "rationale_ko": "NAFLD/MASLD 명칭 관계와 환자 기준 동등성을 분리한다.",
+    "rationale_ko": "NAFLD/MASLD 명칭 관계와 환자 기준 동등성을 분리합니다.",
     "evidence_refs": [
       "SRC-016",
       "SRC-017",
@@ -699,7 +699,7 @@
     "right_source_id": "K119",
     "right_keyword": "Cholecystitis",
     "relation": "RELATED_NOT_SYNONYMS",
-    "rationale_ko": "결석 존재와 담낭 염증을 구별한다.",
+    "rationale_ko": "결석 존재와 담낭 염증을 구별합니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -716,7 +716,7 @@
     "right_source_id": "K123",
     "right_keyword": "Colon cancer",
     "relation": "BROADER",
-    "rationale_ko": "대장직장암보다 결장암이 부위상 좁다.",
+    "rationale_ko": "대장직장암보다 결장암이 부위상 좁습니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -733,7 +733,7 @@
     "right_source_id": "K124",
     "right_keyword": "Rectal cancer",
     "relation": "BROADER",
-    "rationale_ko": "대장직장암보다 직장암이 부위상 좁다.",
+    "rationale_ko": "대장직장암보다 직장암이 부위상 좁습니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -750,7 +750,7 @@
     "right_source_id": "K124",
     "right_keyword": "Rectal cancer",
     "relation": "DIFFERENT_SITE_SCOPE",
-    "rationale_ko": "결장과 직장 위치를 구별한다.",
+    "rationale_ko": "결장과 직장 위치를 구별합니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -767,7 +767,7 @@
     "right_source_id": "K131",
     "right_keyword": "Non-small cell lung cancer",
     "relation": "DIFFERENT_HISTOLOGY_SCOPE",
-    "rationale_ko": "소세포·비소세포 폐암을 구별한다.",
+    "rationale_ko": "소세포·비소세포 폐암을 구별합니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -784,7 +784,7 @@
     "right_source_id": "K132",
     "right_keyword": "Lung adenocarcinoma",
     "relation": "BROADER",
-    "rationale_ko": "NSCLC 그룹과 폐 선암을 구별한다.",
+    "rationale_ko": "NSCLC 그룹과 폐 선암을 구별합니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -801,7 +801,7 @@
     "right_source_id": "K133",
     "right_keyword": "Lung squamous cell carcinoma",
     "relation": "BROADER",
-    "rationale_ko": "NSCLC 그룹과 폐 편평세포암을 구별한다.",
+    "rationale_ko": "NSCLC 그룹과 폐 편평세포암을 구별합니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -818,7 +818,7 @@
     "right_source_id": "K138",
     "right_keyword": "Castration-resistant prostate cancer",
     "relation": "BROADER",
-    "rationale_ko": "일반 전립선암에 거세 저항성을 추가하지 않는다.",
+    "rationale_ko": "일반 전립선암에 거세 저항성을 추가하지 않습니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -835,7 +835,7 @@
     "right_source_id": "K141",
     "right_keyword": "Clear cell renal cell carcinoma",
     "relation": "BROADER",
-    "rationale_ko": "RCC 그룹과 투명세포 아형을 구별한다.",
+    "rationale_ko": "RCC 그룹과 투명세포 아형을 구별합니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -852,7 +852,7 @@
     "right_source_id": "K150",
     "right_keyword": "Oral squamous cell carcinoma",
     "relation": "BROADER",
-    "rationale_ko": "두경부 SCC 그룹보다 구강 SCC가 좁다.",
+    "rationale_ko": "두경부 SCC 그룹보다 구강 SCC가 좁습니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -869,7 +869,7 @@
     "right_source_id": "K152",
     "right_keyword": "Papillary thyroid carcinoma",
     "relation": "BROADER",
-    "rationale_ko": "갑상선 암 일반과 유두 carcinoma를 구별한다.",
+    "rationale_ko": "갑상선 암 일반과 유두 carcinoma를 구별합니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -886,7 +886,7 @@
     "right_source_id": "K153",
     "right_keyword": "Medullary thyroid carcinoma",
     "relation": "BROADER",
-    "rationale_ko": "갑상선 암 일반과 수질 carcinoma를 구별한다.",
+    "rationale_ko": "갑상선 암 일반과 수질 carcinoma를 구별합니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -903,7 +903,7 @@
     "right_source_id": "K164",
     "right_keyword": "Chronic lymphocytic leukemia",
     "relation": "DIFFERENT_CONCEPT",
-    "rationale_ko": "급성 림프모구 백혈병과 CLL을 계층 오류로 합치지 않는다.",
+    "rationale_ko": "급성 림프모구 백혈병과 CLL을 계층 오류로 합치지 않습니다.",
     "evidence_refs": [
       "SRC-023",
       "SRC-036",
@@ -921,7 +921,7 @@
     "right_source_id": "K175",
     "right_keyword": "Monoclonal gammopathy of undetermined significance",
     "relation": "RELATED_NOT_SYNONYMS",
-    "rationale_ko": "다발골수종과 MGUS는 악성 진단 범위가 다르다.",
+    "rationale_ko": "다발골수종과 MGUS는 악성 진단 범위가 다릅니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -938,7 +938,7 @@
     "right_source_id": "K179",
     "right_keyword": "TYPE 2 DIABETES",
     "relation": "SAME_BASE_CONCEPT",
-    "rationale_ko": "대소문자 변형의 제2형 당뇨병이다.",
+    "rationale_ko": "대소문자 변형의 제2형 당뇨병입니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -955,7 +955,7 @@
     "right_source_id": "K180",
     "right_keyword": "T1DM",
     "relation": "DIFFERENT_TYPE_NUMBER",
-    "rationale_ko": "T2DM과 T1DM의 숫자를 유지한다.",
+    "rationale_ko": "T2DM과 T1DM의 숫자를 유지합니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -972,7 +972,7 @@
     "right_source_id": "K176",
     "right_keyword": "Type 2 diabetes",
     "relation": "RELATED_NOT_SYNONYMS",
-    "rationale_ko": "당뇨 전단계를 제2형 당뇨병으로 올리지 않는다.",
+    "rationale_ko": "당뇨 전단계를 제2형 당뇨병으로 올리지 않습니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -989,7 +989,7 @@
     "right_source_id": "K006",
     "right_keyword": "Type 1 diabetes mellitus",
     "relation": "COMPLICATION_ASSOCIATION_NOT_SYNONYM",
-    "rationale_ko": "DKA는 제1형 당뇨병 자체의 동의어가 아니다.",
+    "rationale_ko": "DKA는 제1형 당뇨병 자체의 동의어가 아닙니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -1006,7 +1006,7 @@
     "right_source_id": "K188",
     "right_keyword": "Overweight",
     "relation": "DIFFERENT_DIAGNOSTIC_SCOPE",
-    "rationale_ko": "비만과 과체중의 범위를 구별한다.",
+    "rationale_ko": "비만과 과체중의 범위를 구별합니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -1023,7 +1023,7 @@
     "right_source_id": "K190",
     "right_keyword": "Familial hypercholesterolemia",
     "relation": "FINDING_ETIOLOGY_RELATED_NOT_SYNONYM",
-    "rationale_ko": "콜레스테롤 증가 소견만으로 가족성 유전 질환을 확정하지 않는다.",
+    "rationale_ko": "콜레스테롤 증가 소견만으로 가족성 유전 질환을 확정하지 않습니다.",
     "evidence_refs": [
       "SRC-018",
       "SRC-036",
@@ -1042,7 +1042,7 @@
     "right_source_id": "K194",
     "right_keyword": "Hashimoto thyroiditis",
     "relation": "FUNCTION_ETIOLOGY_RELATED_NOT_SYNONYM",
-    "rationale_ko": "기능저하 소견과 하시모토 자가면역 질환을 구별한다.",
+    "rationale_ko": "기능저하 소견과 하시모토 자가면역 질환을 구별합니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -1059,7 +1059,7 @@
     "right_source_id": "K196",
     "right_keyword": "Graves disease",
     "relation": "FUNCTION_ETIOLOGY_RELATED_NOT_SYNONYM",
-    "rationale_ko": "기능항진 전체와 그레이브스 원인을 구별한다.",
+    "rationale_ko": "기능항진 전체와 그레이브스 원인을 구별합니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -1076,7 +1076,7 @@
     "right_source_id": "K207",
     "right_keyword": "Infertility",
     "relation": "RELATED_NOT_SYNONYMS",
-    "rationale_ko": "PMOS/PCOS와 불임은 같은 개념이 아니다.",
+    "rationale_ko": "PMOS/PCOS와 불임은 같은 개념이 아닙니다.",
     "evidence_refs": [
       "SRC-019",
       "SRC-036",
@@ -1096,7 +1096,7 @@
     "right_source_id": "K145",
     "right_keyword": "Uterine leiomyosarcoma",
     "relation": "BENIGN_MALIGNANT_DISTINCT",
-    "rationale_ko": "자궁 근종과 평활근육종을 양성·악성 차이 없이 합치지 않는다.",
+    "rationale_ko": "자궁 근종과 평활근육종을 양성·악성 차이 없이 합치지 않습니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -1114,7 +1114,7 @@
     "right_source_id": "K211",
     "right_keyword": "Urinary incontinence",
     "relation": "RELATED_NOT_SYNONYMS",
-    "rationale_ko": "과민성 방광은 요실금을 반드시 요구하지 않는다.",
+    "rationale_ko": "과민성 방광은 요실금을 반드시 요구하지 않습니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -1131,7 +1131,7 @@
     "right_source_id": "K017",
     "right_keyword": "CKD",
     "relation": "DIFFERENT_CHRONICITY_SCOPE",
-    "rationale_ko": "급성 신손상과 CKD는 동반돼도 서로 동의어가 아니다.",
+    "rationale_ko": "급성 신손상과 CKD는 동반돼도 서로 동의어가 아닙니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -1148,7 +1148,7 @@
     "right_source_id": "K218",
     "right_keyword": "Focal segmental glomerulosclerosis",
     "relation": "SYNDROME_PATHOLOGY_RELATED_NOT_SYNONYM",
-    "rationale_ko": "신증후군과 FSGS 병리를 구별한다.",
+    "rationale_ko": "신증후군과 FSGS 병리를 구별합니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -1165,7 +1165,7 @@
     "right_source_id": "K231",
     "right_keyword": "Heart failure with reduced ejection fraction",
     "relation": "BROADER",
-    "rationale_ko": "심부전 일반보다 reduced EF 표현이 좁다.",
+    "rationale_ko": "심부전 일반보다 reduced EF 표현이 좁습니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -1183,7 +1183,7 @@
     "right_source_id": "K232",
     "right_keyword": "Heart failure with preserved ejection fraction",
     "relation": "BROADER",
-    "rationale_ko": "심부전 일반보다 preserved EF 표현이 좁다.",
+    "rationale_ko": "심부전 일반보다 preserved EF 표현이 좁습니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -1201,7 +1201,7 @@
     "right_source_id": "K232",
     "right_keyword": "Heart failure with preserved ejection fraction",
     "relation": "DIFFERENT_EF_SCOPE",
-    "rationale_ko": "감소·보존 박출률의 표현을 구별한다.",
+    "rationale_ko": "감소·보존 박출률의 표현을 구별합니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-079",
@@ -1217,7 +1217,7 @@
     "right_source_id": "K234",
     "right_keyword": "Atrial flutter",
     "relation": "DIFFERENT_RHYTHM_SCOPE",
-    "rationale_ko": "심방세동과 심방조동은 다르다.",
+    "rationale_ko": "심방세동과 심방조동은 다릅니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -1234,7 +1234,7 @@
     "right_source_id": "K242",
     "right_keyword": "Pulmonary embolism",
     "relation": "RELATED_NOT_SYNONYMS",
-    "rationale_ko": "DVT와 폐색전증의 원인·발현 관계를 동의어로 만들지 않는다.",
+    "rationale_ko": "DVT와 폐색전증의 원인·발현 관계를 동의어로 만들지 않습니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -1251,7 +1251,7 @@
     "right_source_id": "K244",
     "right_keyword": "Hemorrhagic stroke",
     "relation": "DIFFERENT_PATHOPHYSIOLOGY",
-    "rationale_ko": "허혈성과 출혈성 뇌졸중을 구별한다.",
+    "rationale_ko": "허혈성과 출혈성 뇌졸중을 구별합니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -1268,7 +1268,7 @@
     "right_source_id": "K245",
     "right_keyword": "Transient ischemic attack",
     "relation": "RELATED_NOT_SYNONYMS",
-    "rationale_ko": "뇌경색 질환과 일과성 허혈성 사건을 구별한다.",
+    "rationale_ko": "뇌경색 질환과 일과성 허혈성 사건을 구별합니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -1285,7 +1285,7 @@
     "right_source_id": "K247",
     "right_keyword": "Severe eosinophilic asthma",
     "relation": "BROADER",
-    "rationale_ko": "천식 일반에 중증·호산구성을 추가하지 않는다.",
+    "rationale_ko": "천식 일반에 중증·호산구성을 추가하지 않습니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -1303,7 +1303,7 @@
     "right_source_id": "K249",
     "right_keyword": "Emphysema",
     "relation": "SCOPE_RELATED_NOT_SYNONYMS",
-    "rationale_ko": "폐 위치 미지정 emphysema를 COPD 전체 또는 폐기종만의 별칭으로 쓰지 않는다.",
+    "rationale_ko": "폐 위치 미지정 emphysema를 COPD 전체 또는 폐기종만의 별칭으로 쓰지 않습니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-038",
@@ -1321,7 +1321,7 @@
     "right_source_id": "K252",
     "right_keyword": "Idiopathic pulmonary fibrosis",
     "relation": "BROADER",
-    "rationale_ko": "ILD 질환군과 IPF 한 질환을 구별한다.",
+    "rationale_ko": "ILD 질환군과 IPF 한 질환을 구별합니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -1338,7 +1338,7 @@
     "right_source_id": "K260",
     "right_keyword": "Long COVID",
     "relation": "DIFFERENT_COURSE_SCOPE",
-    "rationale_ko": "급성 COVID-19와 감염 후 Long COVID를 구별한다.",
+    "rationale_ko": "급성 COVID-19와 감염 후 Long COVID를 구별합니다.",
     "evidence_refs": [
       "SRC-009",
       "SRC-020",
@@ -1357,7 +1357,7 @@
     "right_source_id": "K262",
     "right_keyword": "Nontuberculous mycobacterial infection",
     "relation": "DIFFERENT_PATHOGEN_GROUP",
-    "rationale_ko": "결핵과 비결핵성 마이코박테리아 감염을 구별한다.",
+    "rationale_ko": "결핵과 비결핵성 마이코박테리아 감염을 구별합니다.",
     "evidence_refs": [
       "SRC-010",
       "SRC-011",
@@ -1377,7 +1377,7 @@
     "right_source_id": "K266",
     "right_keyword": "Recurrent herpes simplex",
     "relation": "DIFFERENT_PATHOGEN_SCOPE",
-    "rationale_ko": "대상포진과 재발성 HSV를 구별한다.",
+    "rationale_ko": "대상포진과 재발성 HSV를 구별합니다.",
     "evidence_refs": [
       "SRC-022",
       "SRC-036",
@@ -1396,7 +1396,7 @@
     "right_source_id": "K279",
     "right_keyword": "Focal epilepsy",
     "relation": "BROADER",
-    "rationale_ko": "뇌전증 전체와 국소 뇌전증을 구별한다.",
+    "rationale_ko": "뇌전증 전체와 국소 뇌전증을 구별합니다.",
     "evidence_refs": [
       "SRC-034",
       "SRC-035",
@@ -1415,7 +1415,7 @@
     "right_source_id": "K281",
     "right_keyword": "Chronic migraine",
     "relation": "BROADER",
-    "rationale_ko": "편두통 일반과 만성 아형을 구별한다.",
+    "rationale_ko": "편두통 일반과 만성 아형을 구별합니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -1432,7 +1432,7 @@
     "right_source_id": "K282",
     "right_keyword": "Cluster headache",
     "relation": "DIFFERENT_HEADACHE_DISORDER",
-    "rationale_ko": "편두통과 군발두통을 구별한다.",
+    "rationale_ko": "편두통과 군발두통을 구별합니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -1449,7 +1449,7 @@
     "right_source_id": "K286",
     "right_keyword": "Neuropathic pain",
     "relation": "RELATED_NOT_SYNONYMS",
-    "rationale_ko": "말초신경병증과 중추·말초를 포함하는 신경병성 통증을 구별한다.",
+    "rationale_ko": "말초신경병증과 중추·말초를 포함하는 신경병성 통증을 구별합니다.",
     "evidence_refs": [
       "SRC-032",
       "SRC-036",
@@ -1467,7 +1467,7 @@
     "right_source_id": "K287",
     "right_keyword": "Chronic pain",
     "relation": "RELATED_NOT_SYNONYMS",
-    "rationale_ko": "신경병성 통증과 모든 만성 통증은 같은 범위가 아니다.",
+    "rationale_ko": "신경병성 통증과 모든 만성 통증은 같은 범위가 아닙니다.",
     "evidence_refs": [
       "SRC-032",
       "SRC-036",
@@ -1485,7 +1485,7 @@
     "right_source_id": "K289",
     "right_keyword": "Bipolar disorder",
     "relation": "DIFFERENT_CONCEPT",
-    "rationale_ko": "주요우울장애와 양극성 장애를 구별한다.",
+    "rationale_ko": "주요우울장애와 양극성 장애를 구별합니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
@@ -1502,7 +1502,7 @@
     "right_source_id": "K300",
     "right_keyword": "Binge eating disorder",
     "relation": "DIFFERENT_EATING_DISORDER",
-    "rationale_ko": "신경성 식욕부진증과 폭식장애의 범위를 구별한다.",
+    "rationale_ko": "신경성 식욕부진증과 폭식장애의 범위를 구별합니다.",
     "evidence_refs": [
       "SRC-036",
       "SRC-042",
