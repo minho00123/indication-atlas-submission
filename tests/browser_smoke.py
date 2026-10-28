@@ -21,6 +21,7 @@ def run(base_url,browser_executable=None,output=None):
         expect(page.locator('#hero-title')).to_contain_text('287개 개념 그룹')
         cards=page.locator('.featured-grid [data-case]')
         assert cards.evaluate_all('(els)=>els.map(e=>e.dataset.case)')==['cd','eczema','nsclc','masld','conflict']
+        assert [tag.split(' · ',1)[0] for tag in cards.locator('.feature-kicker').all_text_contents()]==['01','02','03','04','05']
         counts=page.locator('#results .result-meta').all_text_contents()
         assert all('2개 원본' in text or '6개 원본' in text for text in counts[:6])
         assert all('1개 원본' in text for text in counts[6:])

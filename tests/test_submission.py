@@ -119,7 +119,11 @@ class ArchivedExperiment(unittest.TestCase):
         self.assertEqual(result['per_run']['A'],[12,12,12])
         self.assertEqual(result['per_run']['B'],[22,22,22])
         manifest=load('experiments/legacy/manifest.json')
+        runs=load('experiments/legacy/predictions.json')
         for sid in manifest['post_hoc_context_subset']:
+            keyword_only=[p for run in runs if run['condition']=='A' for p in run['predictions'] if p['id']==sid]
+            self.assertEqual(len(keyword_only),3)
+            self.assertTrue(all(p['decision']=='ambiguous' and p['conditions']==[] for p in keyword_only))
             self.assertEqual(result['hits']['A'][sid],0)
             self.assertEqual(result['hits']['B'][sid],3)
 
