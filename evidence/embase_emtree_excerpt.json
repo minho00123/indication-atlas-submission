@@ -1,0 +1,9 @@
+{
+  "url": "https://www.elsevier.support/embase/answer/how-do-i-search-in-embase",
+  "checked_on": "2026-10-28",
+  "locator": "PICO; default strategy /de versus /exp; step 4",
+  "verified_excerpt": "Add # synonyms",
+  "supports": "Official search help distinguishes preferred-term mapping, narrower-term explosion and selectable synonyms; no subscription UI was tested.",
+  "capture_method": "EXCERPT_TRANSCRIBED_FROM_OFFICIAL_PAGE_TEXT_VERIFIED_WITH_WEB_TOOL",
+  "snapshot_type": "VERIFIED_EXCERPT_NOT_ARCHIVED_FULL_PAGE"
+}

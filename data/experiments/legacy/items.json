@@ -1,0 +1,377 @@
+[
+  {
+    "source_id": "H01",
+    "keyword": "MS",
+    "raw_context": "Patients with MS presenting with relapsing optic neuritis and demyelinating brain lesions.",
+    "rule": "R3",
+    "decision": "mapped",
+    "accept": [
+      [
+        "Multiple sclerosis",
+        "Relapsing multiple sclerosis",
+        "Relapsing-remitting multiple sclerosis"
+      ]
+    ]
+  },
+  {
+    "source_id": "H02",
+    "keyword": "MS",
+    "raw_context": "MS with reduced mitral valve area on echocardiography.",
+    "rule": "R3",
+    "decision": "mapped",
+    "accept": [
+      [
+        "Mitral stenosis",
+        "Mitral valve stenosis"
+      ]
+    ]
+  },
+  {
+    "source_id": "H03",
+    "keyword": "PE",
+    "raw_context": "PE confirmed by CT pulmonary angiography.",
+    "rule": "R3",
+    "decision": "mapped",
+    "accept": [
+      [
+        "Pulmonary embolism"
+      ]
+    ]
+  },
+  {
+    "source_id": "H04",
+    "keyword": "PE",
+    "raw_context": "PE with new-onset hypertension and proteinuria after 20 weeks of gestation.",
+    "rule": "R3",
+    "decision": "mapped",
+    "accept": [
+      [
+        "Pre-eclampsia",
+        "Preeclampsia"
+      ]
+    ]
+  },
+  {
+    "source_id": "H05",
+    "keyword": "DM",
+    "raw_context": "DM with heliotrope rash and proximal muscle weakness.",
+    "rule": "R3",
+    "decision": "mapped",
+    "accept": [
+      [
+        "Dermatomyositis"
+      ]
+    ]
+  },
+  {
+    "source_id": "H06",
+    "keyword": "DM",
+    "raw_context": "Patients with DM; no further disease description.",
+    "rule": "R3",
+    "decision": "ambiguous",
+    "accept": []
+  },
+  {
+    "source_id": "H07",
+    "keyword": "AS",
+    "raw_context": "AS with bilateral sacroiliitis on pelvic radiograph and inflammatory back pain.",
+    "rule": "R3",
+    "decision": "mapped",
+    "accept": [
+      [
+        "Ankylosing spondylitis",
+        "Radiographic axial spondyloarthritis"
+      ]
+    ]
+  },
+  {
+    "source_id": "H08",
+    "keyword": "AS",
+    "raw_context": "Severe AS with aortic valve area below 1.0 cm2.",
+    "rule": "R3",
+    "decision": "mapped",
+    "accept": [
+      [
+        "Aortic stenosis",
+        "Aortic valve stenosis",
+        "Severe aortic stenosis"
+      ]
+    ]
+  },
+  {
+    "source_id": "H09",
+    "keyword": "eczema",
+    "raw_context": "Coin-shaped eczematous plaques on the lower legs.",
+    "rule": "R9",
+    "decision": "mapped",
+    "accept": [
+      [
+        "Nummular eczema",
+        "Discoid eczema",
+        "Nummular dermatitis"
+      ]
+    ]
+  },
+  {
+    "source_id": "H10",
+    "keyword": "eczema",
+    "raw_context": "Children with eczema and a personal history of asthma and allergic rhinitis.",
+    "rule": "R9",
+    "decision": "mapped",
+    "accept": [
+      [
+        "Atopic dermatitis",
+        "Atopic eczema"
+      ]
+    ]
+  },
+  {
+    "source_id": "H11",
+    "keyword": "NAFLD",
+    "raw_context": "NAFLD with hepatic steatosis on ultrasound and type 2 diabetes.",
+    "rule": "R8",
+    "decision": "mapped",
+    "accept": [
+      [
+        "Metabolic dysfunction associated steatotic liver disease",
+        "MASLD"
+      ]
+    ]
+  },
+  {
+    "source_id": "H12",
+    "keyword": "NASH",
+    "raw_context": "Biopsy-proven NASH with stage F2 to F3 fibrosis.",
+    "rule": "R8",
+    "decision": "mapped",
+    "accept": [
+      [
+        "Metabolic dysfunction associated steatohepatitis",
+        "MASH"
+      ]
+    ]
+  },
+  {
+    "source_id": "H13",
+    "keyword": "Wegener's granulomatosis",
+    "raw_context": "Wegener's granulomatosis with renal involvement.",
+    "rule": "R8",
+    "decision": "mapped",
+    "accept": [
+      [
+        "Granulomatosis with polyangiitis"
+      ]
+    ]
+  },
+  {
+    "source_id": "H14",
+    "keyword": "Primary biliary cirrhosis",
+    "raw_context": "Primary biliary cirrhosis with elevated alkaline phosphatase.",
+    "rule": "R8",
+    "decision": "mapped",
+    "accept": [
+      [
+        "Primary biliary cholangitis"
+      ]
+    ]
+  },
+  {
+    "source_id": "H15",
+    "keyword": "Clostridium difficile infection",
+    "raw_context": "Recurrent Clostridium difficile infection with diarrhea.",
+    "rule": "R8",
+    "decision": "mapped",
+    "accept": [
+      [
+        "Clostridioides difficile infection",
+        "Recurrent Clostridioides difficile infection"
+      ]
+    ]
+  },
+  {
+    "source_id": "H16",
+    "keyword": "kidney dysfunction",
+    "raw_context": "Decreased eGFR on a single measurement; chronicity not established.",
+    "rule": "R5",
+    "decision": "mapped",
+    "accept": [
+      [
+        "Renal impairment",
+        "Renal insufficiency",
+        "Kidney dysfunction"
+      ]
+    ]
+  },
+  {
+    "source_id": "H17",
+    "keyword": "breast tumor",
+    "raw_context": "Palpable breast mass; histology pending.",
+    "rule": "R4",
+    "decision": "mapped",
+    "accept": [
+      [
+        "Breast neoplasm",
+        "Breast mass",
+        "Breast tumor"
+      ]
+    ]
+  },
+  {
+    "source_id": "H18",
+    "keyword": "lung cancer",
+    "raw_context": "Lung cancer; histologic type not reported.",
+    "rule": "R4",
+    "decision": "mapped",
+    "accept": [
+      [
+        "Lung cancer",
+        "Lung carcinoma"
+      ]
+    ]
+  },
+  {
+    "source_id": "H19",
+    "keyword": "prostate cancer",
+    "raw_context": "Metastatic prostate cancer progressing despite castrate levels of testosterone.",
+    "rule": "R1/R4",
+    "decision": "mapped",
+    "accept": [
+      [
+        "Castration-resistant prostate cancer",
+        "Metastatic castration-resistant prostate cancer"
+      ]
+    ]
+  },
+  {
+    "source_id": "H20",
+    "keyword": "psoriasis",
+    "raw_context": "Psoriasis with swollen, tender joints and dactylitis.",
+    "rule": "R1",
+    "decision": "remapped",
+    "accept": [
+      [
+        "Psoriatic arthritis"
+      ]
+    ]
+  },
+  {
+    "source_id": "H21",
+    "keyword": "hay fever",
+    "raw_context": "Seasonal rhinoconjunctivitis triggered by grass pollen.",
+    "rule": "R10",
+    "decision": "mapped",
+    "accept": [
+      [
+        "Grass pollen allergy",
+        "Grass pollen allergic rhinitis",
+        "Grass pollen-induced allergic rhinitis",
+        "Grass pollen allergic rhinoconjunctivitis",
+        "Grass pollen-induced allergic rhinoconjunctivitis"
+      ]
+    ]
+  },
+  {
+    "source_id": "H22",
+    "keyword": "NSCLC/SCLC",
+    "raw_context": "Either non-small cell or small cell lung cancer is eligible.",
+    "rule": "R6",
+    "decision": "split",
+    "accept": [
+      [
+        "Non-small cell lung cancer"
+      ],
+      [
+        "Small cell lung cancer"
+      ]
+    ]
+  },
+  {
+    "source_id": "H23",
+    "keyword": "T2D",
+    "raw_context": "Adults with T2D inadequately controlled on metformin.",
+    "rule": "R2",
+    "decision": "mapped",
+    "accept": [
+      [
+        "Type 2 diabetes mellitus"
+      ]
+    ]
+  },
+  {
+    "source_id": "H24",
+    "keyword": "HER2+ BC",
+    "raw_context": "HER2-positive breast cancer, IHC 3+.",
+    "rule": "R2/R4",
+    "decision": "mapped",
+    "accept": [
+      [
+        "HER2-positive breast cancer"
+      ]
+    ]
+  },
+  {
+    "source_id": "H25",
+    "keyword": "SRE",
+    "raw_context": "Prevention of skeletal-related events in multiple myeloma.",
+    "rule": "R7",
+    "decision": "not_disease",
+    "accept": []
+  },
+  {
+    "source_id": "H26",
+    "keyword": "fatigue",
+    "raw_context": "Persistent fatigue; underlying cause not determined.",
+    "rule": "R7",
+    "decision": "not_disease",
+    "accept": []
+  },
+  {
+    "source_id": "H27",
+    "keyword": "healthy volunteers",
+    "raw_context": "Healthy adult volunteers in a pharmacokinetic study.",
+    "rule": "R7",
+    "decision": "not_disease",
+    "accept": []
+  },
+  {
+    "source_id": "H28",
+    "keyword": "overweight",
+    "raw_context": "Adults with BMI 27 to 29.9 kg/m2 and at least one weight-related comorbidity.",
+    "rule": "R7 경계",
+    "decision": "mapped",
+    "accept": [
+      [
+        "Overweight",
+        "Overweight with weight-related comorbidity"
+      ]
+    ]
+  },
+  {
+    "source_id": "H29",
+    "keyword": "hot flashes",
+    "raw_context": "Moderate to severe hot flashes associated with menopause.",
+    "rule": "R7 경계",
+    "decision": "mapped",
+    "accept": [
+      [
+        "Vasomotor symptoms associated with menopause",
+        "Menopausal vasomotor symptoms",
+        "Vasomotor symptoms",
+        "Hot flashes",
+        "Moderate to severe vasomotor symptoms associated with menopause"
+      ]
+    ]
+  },
+  {
+    "source_id": "H30",
+    "keyword": "CD",
+    "raw_context": "CD with perianal fistulas and terminal ileitis.",
+    "rule": "R3",
+    "decision": "mapped",
+    "accept": [
+      [
+        "Crohn disease"
+      ]
+    ]
+  }
+]

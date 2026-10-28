@@ -1,0 +1,2906 @@
+[
+  {
+    "run": "20261027-172004-holdout",
+    "condition": "A",
+    "model": "claude-sonnet-5-5",
+    "predictions": [
+      {
+        "id": "H01",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "'MS' could mean multiple sclerosis, mitral stenosis, or others, with no context to decide."
+      },
+      {
+        "id": "H02",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "'MS' is ambiguous without context."
+      },
+      {
+        "id": "H03",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "'PE' could be pulmonary embolism, pre-eclampsia, pleural effusion, etc."
+      },
+      {
+        "id": "H04",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "'PE' is ambiguous without context."
+      },
+      {
+        "id": "H05",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "'DM' could be diabetes mellitus, dermatomyositis, or myotonic dystrophy."
+      },
+      {
+        "id": "H06",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "'DM' is ambiguous without context."
+      },
+      {
+        "id": "H07",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "'AS' could be ankylosing spondylitis, aortic stenosis, or Angelman syndrome."
+      },
+      {
+        "id": "H08",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "'AS' is ambiguous without context."
+      },
+      {
+        "id": "H09",
+        "decision": "mapped",
+        "conditions": [
+          "Atopic dermatitis"
+        ],
+        "reason": "Eczema is commonly used as a synonym for atopic dermatitis."
+      },
+      {
+        "id": "H10",
+        "decision": "mapped",
+        "conditions": [
+          "Atopic dermatitis"
+        ],
+        "reason": "Eczema is commonly used as a synonym for atopic dermatitis."
+      },
+      {
+        "id": "H11",
+        "decision": "mapped",
+        "conditions": [
+          "Non-alcoholic fatty liver disease"
+        ],
+        "reason": "NAFLD is a single disease."
+      },
+      {
+        "id": "H12",
+        "decision": "mapped",
+        "conditions": [
+          "Non-alcoholic steatohepatitis"
+        ],
+        "reason": "NASH is a single disease."
+      },
+      {
+        "id": "H13",
+        "decision": "mapped",
+        "conditions": [
+          "Granulomatosis with polyangiitis"
+        ],
+        "reason": "Wegener's granulomatosis is the former name of GPA."
+      },
+      {
+        "id": "H14",
+        "decision": "mapped",
+        "conditions": [
+          "Primary biliary cholangitis"
+        ],
+        "reason": "Primary biliary cirrhosis is the former name of primary biliary cholangitis."
+      },
+      {
+        "id": "H15",
+        "decision": "mapped",
+        "conditions": [
+          "Clostridioides difficile infection"
+        ],
+        "reason": "Current standard name for the same infection."
+      },
+      {
+        "id": "H16",
+        "decision": "mapped",
+        "conditions": [
+          "Chronic kidney disease"
+        ],
+        "reason": "Kidney dysfunction is best normalized to kidney disease; chronic kidney disease is the closest standard term."
+      },
+      {
+        "id": "H17",
+        "decision": "mapped",
+        "conditions": [
+          "Breast cancer"
+        ],
+        "reason": "Breast tumor in trial context refers to breast cancer."
+      },
+      {
+        "id": "H18",
+        "decision": "mapped",
+        "conditions": [
+          "Lung cancer"
+        ],
+        "reason": "Single disease with standard name."
+      },
+      {
+        "id": "H19",
+        "decision": "mapped",
+        "conditions": [
+          "Prostate cancer"
+        ],
+        "reason": "Single disease with standard name."
+      },
+      {
+        "id": "H20",
+        "decision": "mapped",
+        "conditions": [
+          "Psoriasis"
+        ],
+        "reason": "Single disease with standard name."
+      },
+      {
+        "id": "H21",
+        "decision": "mapped",
+        "conditions": [
+          "Allergic rhinitis"
+        ],
+        "reason": "Hay fever is a common name for allergic rhinitis."
+      },
+      {
+        "id": "H22",
+        "decision": "split",
+        "conditions": [
+          "Non-small cell lung cancer",
+          "Small cell lung cancer"
+        ],
+        "reason": "Keyword names two distinct lung cancer types."
+      },
+      {
+        "id": "H23",
+        "decision": "mapped",
+        "conditions": [
+          "Type 2 diabetes mellitus"
+        ],
+        "reason": "T2D is type 2 diabetes."
+      },
+      {
+        "id": "H24",
+        "decision": "mapped",
+        "conditions": [
+          "HER2-positive breast cancer"
+        ],
+        "reason": "HER2+ BC is HER2-positive breast cancer."
+      },
+      {
+        "id": "H25",
+        "decision": "not_disease",
+        "conditions": [
+          "Skeletal-related events"
+        ],
+        "reason": "SRE is a clinical event, not a disease."
+      },
+      {
+        "id": "H26",
+        "decision": "not_disease",
+        "conditions": [
+          "Fatigue"
+        ],
+        "reason": "Fatigue is a symptom."
+      },
+      {
+        "id": "H27",
+        "decision": "not_disease",
+        "conditions": [
+          "Healthy volunteers"
+        ],
+        "reason": "Not a disease; a population descriptor."
+      },
+      {
+        "id": "H28",
+        "decision": "not_disease",
+        "conditions": [
+          "Overweight"
+        ],
+        "reason": "Overweight is a physiological state, not a disease."
+      },
+      {
+        "id": "H29",
+        "decision": "not_disease",
+        "conditions": [
+          "Hot flashes"
+        ],
+        "reason": "Hot flashes are a symptom."
+      },
+      {
+        "id": "H30",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "'CD' could be Crohn's disease, celiac disease, or others."
+      }
+    ]
+  },
+  {
+    "run": "20261027-172004-holdout",
+    "condition": "B",
+    "model": "claude-sonnet-5-5",
+    "predictions": [
+      {
+        "id": "H01",
+        "decision": "mapped",
+        "conditions": [
+          "Multiple sclerosis"
+        ],
+        "reason": "Relapsing optic neuritis and demyelinating lesions indicate multiple sclerosis."
+      },
+      {
+        "id": "H02",
+        "decision": "remapped",
+        "conditions": [
+          "Mitral stenosis"
+        ],
+        "reason": "Reduced mitral valve area indicates mitral stenosis, not multiple sclerosis."
+      },
+      {
+        "id": "H03",
+        "decision": "mapped",
+        "conditions": [
+          "Pulmonary embolism"
+        ],
+        "reason": "CT pulmonary angiography confirmation indicates pulmonary embolism."
+      },
+      {
+        "id": "H04",
+        "decision": "remapped",
+        "conditions": [
+          "Preeclampsia"
+        ],
+        "reason": "New-onset hypertension and proteinuria after 20 weeks gestation indicates preeclampsia."
+      },
+      {
+        "id": "H05",
+        "decision": "remapped",
+        "conditions": [
+          "Dermatomyositis"
+        ],
+        "reason": "Heliotrope rash and proximal weakness indicate dermatomyositis, not diabetes."
+      },
+      {
+        "id": "H06",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "DM could be diabetes mellitus, dermatomyositis, or other, with no context."
+      },
+      {
+        "id": "H07",
+        "decision": "remapped",
+        "conditions": [
+          "Ankylosing spondylitis"
+        ],
+        "reason": "Sacroiliitis and inflammatory back pain indicate ankylosing spondylitis."
+      },
+      {
+        "id": "H08",
+        "decision": "remapped",
+        "conditions": [
+          "Aortic stenosis"
+        ],
+        "reason": "Reduced aortic valve area indicates aortic stenosis."
+      },
+      {
+        "id": "H09",
+        "decision": "remapped",
+        "conditions": [
+          "Nummular eczema"
+        ],
+        "reason": "Coin-shaped eczematous plaques describe nummular eczema."
+      },
+      {
+        "id": "H10",
+        "decision": "remapped",
+        "conditions": [
+          "Atopic dermatitis"
+        ],
+        "reason": "Eczema in children with asthma and allergic rhinitis indicates atopic dermatitis."
+      },
+      {
+        "id": "H11",
+        "decision": "mapped",
+        "conditions": [
+          "Non-alcoholic fatty liver disease"
+        ],
+        "reason": "NAFLD with hepatic steatosis is a single disease."
+      },
+      {
+        "id": "H12",
+        "decision": "mapped",
+        "conditions": [
+          "Non-alcoholic steatohepatitis"
+        ],
+        "reason": "Biopsy-proven NASH with fibrosis is a single disease."
+      },
+      {
+        "id": "H13",
+        "decision": "mapped",
+        "conditions": [
+          "Granulomatosis with polyangiitis"
+        ],
+        "reason": "Wegener's granulomatosis is the former name of granulomatosis with polyangiitis."
+      },
+      {
+        "id": "H14",
+        "decision": "mapped",
+        "conditions": [
+          "Primary biliary cholangitis"
+        ],
+        "reason": "Primary biliary cirrhosis is the former name of primary biliary cholangitis."
+      },
+      {
+        "id": "H15",
+        "decision": "mapped",
+        "conditions": [
+          "Clostridioides difficile infection"
+        ],
+        "reason": "Current standard nomenclature for the same infection."
+      },
+      {
+        "id": "H16",
+        "decision": "not_disease",
+        "conditions": [
+          "Kidney dysfunction"
+        ],
+        "reason": "Single decreased eGFR without established chronicity is a finding, not a defined disease."
+      },
+      {
+        "id": "H17",
+        "decision": "not_disease",
+        "conditions": [
+          "Breast tumor"
+        ],
+        "reason": "Palpable mass with pending histology is a finding, not a defined disease."
+      },
+      {
+        "id": "H18",
+        "decision": "mapped",
+        "conditions": [
+          "Lung cancer"
+        ],
+        "reason": "Lung cancer is a valid disease even without histologic type."
+      },
+      {
+        "id": "H19",
+        "decision": "mapped",
+        "conditions": [
+          "Castration-resistant prostate cancer"
+        ],
+        "reason": "Progression despite castrate testosterone defines castration-resistant prostate cancer."
+      },
+      {
+        "id": "H20",
+        "decision": "remapped",
+        "conditions": [
+          "Psoriatic arthritis"
+        ],
+        "reason": "Psoriasis with swollen tender joints and dactylitis describes psoriatic arthritis."
+      },
+      {
+        "id": "H21",
+        "decision": "remapped",
+        "conditions": [
+          "Seasonal allergic rhinoconjunctivitis"
+        ],
+        "reason": "Grass pollen-triggered rhinoconjunctivitis describes seasonal allergic rhinitis with conjunctivitis."
+      },
+      {
+        "id": "H22",
+        "decision": "split",
+        "conditions": [
+          "Non-small cell lung cancer",
+          "Small cell lung cancer"
+        ],
+        "reason": "Two distinct lung cancer types are listed."
+      },
+      {
+        "id": "H23",
+        "decision": "mapped",
+        "conditions": [
+          "Type 2 diabetes mellitus"
+        ],
+        "reason": "T2D is type 2 diabetes mellitus."
+      },
+      {
+        "id": "H24",
+        "decision": "mapped",
+        "conditions": [
+          "HER2-positive breast cancer"
+        ],
+        "reason": "HER2+ BC is HER2-positive breast cancer."
+      },
+      {
+        "id": "H25",
+        "decision": "split",
+        "conditions": [
+          "Multiple myeloma",
+          "Skeletal-related events"
+        ],
+        "reason": "Row names the disease multiple myeloma and the complication SRE."
+      },
+      {
+        "id": "H26",
+        "decision": "not_disease",
+        "conditions": [
+          "Fatigue"
+        ],
+        "reason": "Fatigue is a symptom."
+      },
+      {
+        "id": "H27",
+        "decision": "not_disease",
+        "conditions": [
+          "Healthy volunteers"
+        ],
+        "reason": "Healthy volunteers is a population, not a disease."
+      },
+      {
+        "id": "H28",
+        "decision": "not_disease",
+        "conditions": [
+          "Overweight"
+        ],
+        "reason": "Overweight is a physiological state/weight category, not a disease."
+      },
+      {
+        "id": "H29",
+        "decision": "not_disease",
+        "conditions": [
+          "Hot flashes"
+        ],
+        "reason": "Hot flashes are a symptom of menopause."
+      },
+      {
+        "id": "H30",
+        "decision": "remapped",
+        "conditions": [
+          "Crohn's disease"
+        ],
+        "reason": "Perianal fistulas and terminal ileitis indicate Crohn's disease."
+      }
+    ]
+  },
+  {
+    "run": "20261027-172004-holdout",
+    "condition": "C",
+    "model": "claude-sonnet-5-5",
+    "predictions": [
+      {
+        "id": "H01",
+        "decision": "mapped",
+        "conditions": [
+          "Multiple sclerosis"
+        ],
+        "reason": "Context (relapsing optic neuritis, demyelinating lesions) resolves MS to multiple sclerosis."
+      },
+      {
+        "id": "H02",
+        "decision": "mapped",
+        "conditions": [
+          "Mitral stenosis"
+        ],
+        "reason": "Context (reduced mitral valve area) resolves MS to mitral stenosis."
+      },
+      {
+        "id": "H03",
+        "decision": "mapped",
+        "conditions": [
+          "Pulmonary embolism"
+        ],
+        "reason": "CT pulmonary angiography confirmation points to pulmonary embolism."
+      },
+      {
+        "id": "H04",
+        "decision": "mapped",
+        "conditions": [
+          "Preeclampsia"
+        ],
+        "reason": "New-onset hypertension and proteinuria after 20 weeks of gestation define preeclampsia."
+      },
+      {
+        "id": "H05",
+        "decision": "mapped",
+        "conditions": [
+          "Dermatomyositis"
+        ],
+        "reason": "Heliotrope rash and proximal weakness resolve DM to dermatomyositis."
+      },
+      {
+        "id": "H06",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "DM could be diabetes mellitus, dermatomyositis, or other, and context gives no disease information."
+      },
+      {
+        "id": "H07",
+        "decision": "mapped",
+        "conditions": [
+          "Ankylosing spondylitis"
+        ],
+        "reason": "Sacroiliitis and inflammatory back pain resolve AS to ankylosing spondylitis."
+      },
+      {
+        "id": "H08",
+        "decision": "mapped",
+        "conditions": [
+          "Aortic stenosis"
+        ],
+        "reason": "Reduced aortic valve area resolves AS to aortic stenosis."
+      },
+      {
+        "id": "H09",
+        "decision": "remapped",
+        "conditions": [
+          "Nummular eczema"
+        ],
+        "reason": "Coin-shaped eczematous plaques indicate nummular eczema rather than unqualified eczema."
+      },
+      {
+        "id": "H10",
+        "decision": "mapped",
+        "conditions": [
+          "Atopic dermatitis"
+        ],
+        "reason": "Unqualified eczema maps to atopic dermatitis, consistent with the atopic history."
+      },
+      {
+        "id": "H11",
+        "decision": "mapped",
+        "conditions": [
+          "Metabolic dysfunction associated steatotic liver disease"
+        ],
+        "reason": "NAFLD is renamed to MASLD."
+      },
+      {
+        "id": "H12",
+        "decision": "mapped",
+        "conditions": [
+          "Metabolic dysfunction associated steatohepatitis"
+        ],
+        "reason": "NASH is renamed to MASH."
+      },
+      {
+        "id": "H13",
+        "decision": "mapped",
+        "conditions": [
+          "Granulomatosis with polyangiitis"
+        ],
+        "reason": "Wegener's granulomatosis is the former name of granulomatosis with polyangiitis."
+      },
+      {
+        "id": "H14",
+        "decision": "mapped",
+        "conditions": [
+          "Primary biliary cholangitis"
+        ],
+        "reason": "Primary biliary cirrhosis is renamed primary biliary cholangitis."
+      },
+      {
+        "id": "H15",
+        "decision": "mapped",
+        "conditions": [
+          "Clostridioides difficile infection"
+        ],
+        "reason": "Current nomenclature is Clostridioides difficile infection."
+      },
+      {
+        "id": "H16",
+        "decision": "mapped",
+        "conditions": [
+          "Renal impairment"
+        ],
+        "reason": "Chronicity not established, so CKD criterion (>3 months) is not met."
+      },
+      {
+        "id": "H17",
+        "decision": "mapped",
+        "conditions": [
+          "Breast neoplasm"
+        ],
+        "reason": "Histology pending, so benign vs malignant is unknown; keep the broader term."
+      },
+      {
+        "id": "H18",
+        "decision": "mapped",
+        "conditions": [
+          "Lung cancer"
+        ],
+        "reason": "Histologic type not reported, so keep the broader term."
+      },
+      {
+        "id": "H19",
+        "decision": "mapped",
+        "conditions": [
+          "Castration-resistant prostate cancer"
+        ],
+        "reason": "Progression despite castrate testosterone defines castration-resistant prostate cancer."
+      },
+      {
+        "id": "H20",
+        "decision": "remapped",
+        "conditions": [
+          "Psoriatic arthritis"
+        ],
+        "reason": "Joint swelling, tenderness and dactylitis describe psoriatic arthritis, not psoriasis alone."
+      },
+      {
+        "id": "H21",
+        "decision": "remapped",
+        "conditions": [
+          "Grass pollen allergy"
+        ],
+        "reason": "Context specifies grass pollen as the allergen, so keep the allergen per allergen-specific rule."
+      },
+      {
+        "id": "H22",
+        "decision": "split",
+        "conditions": [
+          "Non-small cell lung cancer",
+          "Small cell lung cancer"
+        ],
+        "reason": "Both diseases are each eligible."
+      },
+      {
+        "id": "H23",
+        "decision": "mapped",
+        "conditions": [
+          "Type 2 diabetes mellitus"
+        ],
+        "reason": "T2D is a standard abbreviation for type 2 diabetes mellitus."
+      },
+      {
+        "id": "H24",
+        "decision": "mapped",
+        "conditions": [
+          "HER2-positive breast cancer"
+        ],
+        "reason": "Abbreviation expands to the stated subtype, which is retained."
+      },
+      {
+        "id": "H25",
+        "decision": "remapped",
+        "conditions": [
+          "Multiple myeloma"
+        ],
+        "reason": "SRE is a clinical event, not a disease; the context names multiple myeloma as the disease."
+      },
+      {
+        "id": "H26",
+        "decision": "not_disease",
+        "conditions": [
+          "Fatigue"
+        ],
+        "reason": "Symptom with no established underlying disease."
+      },
+      {
+        "id": "H27",
+        "decision": "not_disease",
+        "conditions": [
+          "Healthy volunteers"
+        ],
+        "reason": "Healthy status is not a disease."
+      },
+      {
+        "id": "H28",
+        "decision": "mapped",
+        "conditions": [
+          "Overweight"
+        ],
+        "reason": "BMI 27 to 29.9 is overweight and obesity criteria (BMI ≥30) are not met."
+      },
+      {
+        "id": "H29",
+        "decision": "not_disease",
+        "conditions": [
+          "Hot flashes"
+        ],
+        "reason": "Symptom of menopause, a physiological state, with no underlying disease established."
+      },
+      {
+        "id": "H30",
+        "decision": "mapped",
+        "conditions": [
+          "Crohn's disease"
+        ],
+        "reason": "Perianal fistulas and terminal ileitis resolve CD to Crohn's disease."
+      }
+    ]
+  },
+  {
+    "run": "20261027-172004-holdout",
+    "condition": "D",
+    "model": "claude-sonnet-5-5",
+    "predictions": [
+      {
+        "id": "H01",
+        "decision": "mapped",
+        "conditions": [
+          "Multiple sclerosis"
+        ],
+        "reason": "Context of relapsing optic neuritis and demyelinating brain lesions indicates multiple sclerosis."
+      },
+      {
+        "id": "H02",
+        "decision": "mapped",
+        "conditions": [
+          "Mitral stenosis"
+        ],
+        "reason": "Context of reduced mitral valve area indicates mitral stenosis."
+      },
+      {
+        "id": "H03",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "Context (CT pulmonary angiography) suggests pulmonary embolism, but PE is an ambiguous abbreviation and the context does not state the disease explicitly."
+      },
+      {
+        "id": "H04",
+        "decision": "mapped",
+        "conditions": [
+          "Preeclampsia"
+        ],
+        "reason": "New-onset hypertension and proteinuria after 20 weeks of gestation indicate preeclampsia."
+      },
+      {
+        "id": "H05",
+        "decision": "mapped",
+        "conditions": [
+          "Dermatomyositis"
+        ],
+        "reason": "Heliotrope rash and proximal muscle weakness indicate dermatomyositis."
+      },
+      {
+        "id": "H06",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "DM is ambiguous and the context gives no disease information."
+      },
+      {
+        "id": "H07",
+        "decision": "mapped",
+        "conditions": [
+          "Ankylosing spondylitis"
+        ],
+        "reason": "Sacroiliitis and inflammatory back pain indicate ankylosing spondylitis."
+      },
+      {
+        "id": "H08",
+        "decision": "mapped",
+        "conditions": [
+          "Aortic stenosis"
+        ],
+        "reason": "Reduced aortic valve area indicates aortic stenosis."
+      },
+      {
+        "id": "H09",
+        "decision": "mapped",
+        "conditions": [
+          "Nummular eczema"
+        ],
+        "reason": "Coin-shaped eczematous plaques indicate nummular eczema, not atopic dermatitis."
+      },
+      {
+        "id": "H10",
+        "decision": "mapped",
+        "conditions": [
+          "Atopic dermatitis"
+        ],
+        "reason": "Unqualified eczema maps to atopic dermatitis, consistent with the atopic history."
+      },
+      {
+        "id": "H11",
+        "decision": "mapped",
+        "conditions": [
+          "Metabolic dysfunction associated steatotic liver disease"
+        ],
+        "reason": "NAFLD was renamed MASLD."
+      },
+      {
+        "id": "H12",
+        "decision": "mapped",
+        "conditions": [
+          "Metabolic dysfunction associated steatohepatitis"
+        ],
+        "reason": "NASH was renamed MASH."
+      },
+      {
+        "id": "H13",
+        "decision": "mapped",
+        "conditions": [
+          "Granulomatosis with polyangiitis"
+        ],
+        "reason": "Wegener's granulomatosis is now called granulomatosis with polyangiitis."
+      },
+      {
+        "id": "H14",
+        "decision": "mapped",
+        "conditions": [
+          "Primary biliary cholangitis"
+        ],
+        "reason": "Primary biliary cirrhosis was renamed primary biliary cholangitis."
+      },
+      {
+        "id": "H15",
+        "decision": "mapped",
+        "conditions": [
+          "Clostridioides difficile infection"
+        ],
+        "reason": "Current nomenclature is Clostridioides difficile."
+      },
+      {
+        "id": "H16",
+        "decision": "mapped",
+        "conditions": [
+          "Renal impairment"
+        ],
+        "reason": "Chronicity not established, so chronic kidney disease criteria are not met."
+      },
+      {
+        "id": "H17",
+        "decision": "mapped",
+        "conditions": [
+          "Breast neoplasm"
+        ],
+        "reason": "Histology pending, so benign or malignant is not stated."
+      },
+      {
+        "id": "H18",
+        "decision": "mapped",
+        "conditions": [
+          "Lung cancer"
+        ],
+        "reason": "Histologic type not reported, so keep the broader term."
+      },
+      {
+        "id": "H19",
+        "decision": "mapped",
+        "conditions": [
+          "Metastatic castration-resistant prostate cancer"
+        ],
+        "reason": "Progression despite castrate testosterone levels defines castration-resistant disease."
+      },
+      {
+        "id": "H20",
+        "decision": "mapped",
+        "conditions": [
+          "Psoriatic arthritis"
+        ],
+        "reason": "Joint swelling, tenderness and dactylitis with psoriasis indicate psoriatic arthritis."
+      },
+      {
+        "id": "H21",
+        "decision": "mapped",
+        "conditions": [
+          "Grass pollen allergy"
+        ],
+        "reason": "Seasonal rhinoconjunctivitis triggered by grass pollen is an allergen-specific allergy."
+      },
+      {
+        "id": "H22",
+        "decision": "split",
+        "conditions": [
+          "Non-small cell lung cancer",
+          "Small cell lung cancer"
+        ],
+        "reason": "Both lung cancer types are stated as eligible."
+      },
+      {
+        "id": "H23",
+        "decision": "mapped",
+        "conditions": [
+          "Type 2 diabetes mellitus"
+        ],
+        "reason": "T2D is a standard abbreviation for type 2 diabetes mellitus."
+      },
+      {
+        "id": "H24",
+        "decision": "mapped",
+        "conditions": [
+          "HER2-positive breast cancer"
+        ],
+        "reason": "Standard abbreviation; keep the subtype."
+      },
+      {
+        "id": "H25",
+        "decision": "remapped",
+        "conditions": [
+          "Multiple myeloma"
+        ],
+        "reason": "SRE is a clinical event, and the underlying disease in the context is multiple myeloma."
+      },
+      {
+        "id": "H26",
+        "decision": "not_disease",
+        "conditions": [
+          "Fatigue"
+        ],
+        "reason": "A symptom with no established underlying disease."
+      },
+      {
+        "id": "H27",
+        "decision": "not_disease",
+        "conditions": [
+          "Healthy volunteers"
+        ],
+        "reason": "Healthy participants are not a disease."
+      },
+      {
+        "id": "H28",
+        "decision": "mapped",
+        "conditions": [
+          "Overweight"
+        ],
+        "reason": "BMI-defined overweight with comorbidity is a recognized anti-obesity treatment indication."
+      },
+      {
+        "id": "H29",
+        "decision": "not_disease",
+        "conditions": [
+          "Hot flashes"
+        ],
+        "reason": "A symptom of menopause, which is a physiological state rather than a disease."
+      },
+      {
+        "id": "H30",
+        "decision": "mapped",
+        "conditions": [
+          "Crohn's disease"
+        ],
+        "reason": "Perianal fistulas and terminal ileitis indicate Crohn's disease."
+      }
+    ]
+  },
+  {
+    "run": "20261027-172115-holdout",
+    "condition": "A",
+    "model": "claude-sonnet-5-5",
+    "predictions": [
+      {
+        "id": "H01",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "Abbreviation 'MS' could be multiple sclerosis, mitral stenosis, or metabolic syndrome, and no context is given."
+      },
+      {
+        "id": "H02",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "Abbreviation 'MS' is undetermined without context."
+      },
+      {
+        "id": "H03",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "'PE' could be pulmonary embolism, pre-eclampsia, or pleural effusion."
+      },
+      {
+        "id": "H04",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "'PE' is undetermined without context."
+      },
+      {
+        "id": "H05",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "'DM' could be diabetes mellitus, dermatomyositis, or myotonic dystrophy."
+      },
+      {
+        "id": "H06",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "'DM' is undetermined without context."
+      },
+      {
+        "id": "H07",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "'AS' could be ankylosing spondylitis, aortic stenosis, or Angelman syndrome."
+      },
+      {
+        "id": "H08",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "'AS' is undetermined without context."
+      },
+      {
+        "id": "H09",
+        "decision": "mapped",
+        "conditions": [
+          "Atopic dermatitis"
+        ],
+        "reason": "Eczema is commonly used as a synonym for atopic dermatitis."
+      },
+      {
+        "id": "H10",
+        "decision": "mapped",
+        "conditions": [
+          "Atopic dermatitis"
+        ],
+        "reason": "Eczema is commonly used as a synonym for atopic dermatitis."
+      },
+      {
+        "id": "H11",
+        "decision": "mapped",
+        "conditions": [
+          "Non-alcoholic fatty liver disease"
+        ],
+        "reason": "NAFLD is the standard abbreviation for this single disease."
+      },
+      {
+        "id": "H12",
+        "decision": "mapped",
+        "conditions": [
+          "Non-alcoholic steatohepatitis"
+        ],
+        "reason": "NASH is a single disease."
+      },
+      {
+        "id": "H13",
+        "decision": "mapped",
+        "conditions": [
+          "Granulomatosis with polyangiitis"
+        ],
+        "reason": "Wegener's granulomatosis is the former name of granulomatosis with polyangiitis."
+      },
+      {
+        "id": "H14",
+        "decision": "mapped",
+        "conditions": [
+          "Primary biliary cholangitis"
+        ],
+        "reason": "Primary biliary cirrhosis is the former name of primary biliary cholangitis."
+      },
+      {
+        "id": "H15",
+        "decision": "mapped",
+        "conditions": [
+          "Clostridioides difficile infection"
+        ],
+        "reason": "Standard current name for the single infection."
+      },
+      {
+        "id": "H16",
+        "decision": "mapped",
+        "conditions": [
+          "Chronic kidney disease"
+        ],
+        "reason": "Kidney dysfunction is best normalized to kidney disease; chronic kidney disease is the closest standard term."
+      },
+      {
+        "id": "H17",
+        "decision": "mapped",
+        "conditions": [
+          "Breast cancer"
+        ],
+        "reason": "Breast tumor in eligibility context refers to breast cancer."
+      },
+      {
+        "id": "H18",
+        "decision": "mapped",
+        "conditions": [
+          "Lung cancer"
+        ],
+        "reason": "Single disease with standard name."
+      },
+      {
+        "id": "H19",
+        "decision": "mapped",
+        "conditions": [
+          "Prostate cancer"
+        ],
+        "reason": "Single disease with standard name."
+      },
+      {
+        "id": "H20",
+        "decision": "mapped",
+        "conditions": [
+          "Psoriasis"
+        ],
+        "reason": "Single disease with standard name."
+      },
+      {
+        "id": "H21",
+        "decision": "mapped",
+        "conditions": [
+          "Allergic rhinitis"
+        ],
+        "reason": "Hay fever is a common name for allergic rhinitis."
+      },
+      {
+        "id": "H22",
+        "decision": "split",
+        "conditions": [
+          "Non-small cell lung cancer",
+          "Small cell lung cancer"
+        ],
+        "reason": "The keyword names two distinct lung cancer types."
+      },
+      {
+        "id": "H23",
+        "decision": "mapped",
+        "conditions": [
+          "Type 2 diabetes mellitus"
+        ],
+        "reason": "T2D is the abbreviation for type 2 diabetes."
+      },
+      {
+        "id": "H24",
+        "decision": "mapped",
+        "conditions": [
+          "HER2-positive breast cancer"
+        ],
+        "reason": "HER2+ BC expands to HER2-positive breast cancer."
+      },
+      {
+        "id": "H25",
+        "decision": "not_disease",
+        "conditions": [
+          "Skeletal-related events"
+        ],
+        "reason": "SRE is a clinical event, not a disease."
+      },
+      {
+        "id": "H26",
+        "decision": "not_disease",
+        "conditions": [
+          "Fatigue"
+        ],
+        "reason": "Fatigue is a symptom, not a disease."
+      },
+      {
+        "id": "H27",
+        "decision": "not_disease",
+        "conditions": [
+          "Healthy volunteers"
+        ],
+        "reason": "Healthy volunteers is a population, not a disease."
+      },
+      {
+        "id": "H28",
+        "decision": "not_disease",
+        "conditions": [
+          "Overweight"
+        ],
+        "reason": "Overweight is a physiological state, not a disease."
+      },
+      {
+        "id": "H29",
+        "decision": "not_disease",
+        "conditions": [
+          "Hot flashes"
+        ],
+        "reason": "Hot flashes are a symptom, not a disease."
+      },
+      {
+        "id": "H30",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "'CD' could be Crohn's disease, celiac disease, or Castleman disease."
+      }
+    ]
+  },
+  {
+    "run": "20261027-172115-holdout",
+    "condition": "B",
+    "model": "claude-sonnet-5-5",
+    "predictions": [
+      {
+        "id": "H01",
+        "decision": "remapped",
+        "conditions": [
+          "Multiple sclerosis"
+        ],
+        "reason": "MS here denotes multiple sclerosis given relapsing optic neuritis and demyelinating lesions."
+      },
+      {
+        "id": "H02",
+        "decision": "remapped",
+        "conditions": [
+          "Mitral stenosis"
+        ],
+        "reason": "MS here denotes mitral stenosis given reduced mitral valve area."
+      },
+      {
+        "id": "H03",
+        "decision": "remapped",
+        "conditions": [
+          "Pulmonary embolism"
+        ],
+        "reason": "PE confirmed by CT pulmonary angiography indicates pulmonary embolism."
+      },
+      {
+        "id": "H04",
+        "decision": "remapped",
+        "conditions": [
+          "Preeclampsia"
+        ],
+        "reason": "PE with hypertension and proteinuria after 20 weeks gestation is preeclampsia."
+      },
+      {
+        "id": "H05",
+        "decision": "remapped",
+        "conditions": [
+          "Dermatomyositis"
+        ],
+        "reason": "Heliotrope rash and proximal weakness indicate dermatomyositis."
+      },
+      {
+        "id": "H06",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "DM could be diabetes mellitus or dermatomyositis, with no context to decide."
+      },
+      {
+        "id": "H07",
+        "decision": "remapped",
+        "conditions": [
+          "Ankylosing spondylitis"
+        ],
+        "reason": "Sacroiliitis and inflammatory back pain indicate ankylosing spondylitis."
+      },
+      {
+        "id": "H08",
+        "decision": "remapped",
+        "conditions": [
+          "Aortic stenosis"
+        ],
+        "reason": "Reduced aortic valve area indicates aortic stenosis."
+      },
+      {
+        "id": "H09",
+        "decision": "remapped",
+        "conditions": [
+          "Nummular eczema"
+        ],
+        "reason": "Coin-shaped eczematous plaques describe nummular eczema."
+      },
+      {
+        "id": "H10",
+        "decision": "remapped",
+        "conditions": [
+          "Atopic dermatitis"
+        ],
+        "reason": "Eczema in children with asthma and allergic rhinitis describes atopic dermatitis."
+      },
+      {
+        "id": "H11",
+        "decision": "mapped",
+        "conditions": [
+          "Non-alcoholic fatty liver disease"
+        ],
+        "reason": "NAFLD is a single disease."
+      },
+      {
+        "id": "H12",
+        "decision": "mapped",
+        "conditions": [
+          "Non-alcoholic steatohepatitis"
+        ],
+        "reason": "NASH is a single disease."
+      },
+      {
+        "id": "H13",
+        "decision": "mapped",
+        "conditions": [
+          "Granulomatosis with polyangiitis"
+        ],
+        "reason": "Wegener's granulomatosis is the former name of granulomatosis with polyangiitis."
+      },
+      {
+        "id": "H14",
+        "decision": "mapped",
+        "conditions": [
+          "Primary biliary cholangitis"
+        ],
+        "reason": "Primary biliary cirrhosis is the former name of primary biliary cholangitis."
+      },
+      {
+        "id": "H15",
+        "decision": "mapped",
+        "conditions": [
+          "Clostridioides difficile infection"
+        ],
+        "reason": "Standard current name for the single infection."
+      },
+      {
+        "id": "H16",
+        "decision": "not_disease",
+        "conditions": [
+          "Kidney dysfunction"
+        ],
+        "reason": "A single decreased eGFR without established chronicity is a finding, not a defined disease."
+      },
+      {
+        "id": "H17",
+        "decision": "not_disease",
+        "conditions": [
+          "Breast tumor"
+        ],
+        "reason": "A palpable mass with pending histology is a clinical finding, not a defined disease."
+      },
+      {
+        "id": "H18",
+        "decision": "mapped",
+        "conditions": [
+          "Lung cancer"
+        ],
+        "reason": "Lung cancer is a single disease even without histologic type."
+      },
+      {
+        "id": "H19",
+        "decision": "mapped",
+        "conditions": [
+          "Metastatic castration-resistant prostate cancer"
+        ],
+        "reason": "Progression despite castrate testosterone defines castration-resistant disease."
+      },
+      {
+        "id": "H20",
+        "decision": "remapped",
+        "conditions": [
+          "Psoriatic arthritis"
+        ],
+        "reason": "Psoriasis with joint swelling and dactylitis describes psoriatic arthritis."
+      },
+      {
+        "id": "H21",
+        "decision": "remapped",
+        "conditions": [
+          "Seasonal allergic rhinoconjunctivitis"
+        ],
+        "reason": "Grass pollen-triggered rhinoconjunctivitis is seasonal allergic rhinitis with conjunctivitis."
+      },
+      {
+        "id": "H22",
+        "decision": "split",
+        "conditions": [
+          "Non-small cell lung cancer",
+          "Small cell lung cancer"
+        ],
+        "reason": "Two distinct lung cancer types are named."
+      },
+      {
+        "id": "H23",
+        "decision": "mapped",
+        "conditions": [
+          "Type 2 diabetes mellitus"
+        ],
+        "reason": "T2D abbreviates type 2 diabetes mellitus."
+      },
+      {
+        "id": "H24",
+        "decision": "mapped",
+        "conditions": [
+          "HER2-positive breast cancer"
+        ],
+        "reason": "HER2+ BC is a single disease."
+      },
+      {
+        "id": "H25",
+        "decision": "remapped",
+        "conditions": [
+          "Multiple myeloma"
+        ],
+        "reason": "SRE is a clinical event; the underlying disease described is multiple myeloma."
+      },
+      {
+        "id": "H26",
+        "decision": "not_disease",
+        "conditions": [
+          "Fatigue"
+        ],
+        "reason": "Fatigue is a symptom."
+      },
+      {
+        "id": "H27",
+        "decision": "not_disease",
+        "conditions": [
+          "Healthy volunteers"
+        ],
+        "reason": "Healthy volunteers are not a disease."
+      },
+      {
+        "id": "H28",
+        "decision": "not_disease",
+        "conditions": [
+          "Overweight"
+        ],
+        "reason": "Overweight is a physiological state, not a disease."
+      },
+      {
+        "id": "H29",
+        "decision": "not_disease",
+        "conditions": [
+          "Hot flashes"
+        ],
+        "reason": "Hot flashes are a symptom."
+      },
+      {
+        "id": "H30",
+        "decision": "remapped",
+        "conditions": [
+          "Crohn's disease"
+        ],
+        "reason": "Perianal fistulas and terminal ileitis indicate Crohn's disease."
+      }
+    ]
+  },
+  {
+    "run": "20261027-172115-holdout",
+    "condition": "C",
+    "model": "claude-sonnet-5-5",
+    "predictions": [
+      {
+        "id": "H01",
+        "decision": "mapped",
+        "conditions": [
+          "Multiple sclerosis"
+        ],
+        "reason": "Context of relapsing optic neuritis and demyelinating lesions indicates multiple sclerosis."
+      },
+      {
+        "id": "H02",
+        "decision": "mapped",
+        "conditions": [
+          "Mitral stenosis"
+        ],
+        "reason": "Context of reduced mitral valve area indicates mitral stenosis."
+      },
+      {
+        "id": "H03",
+        "decision": "mapped",
+        "conditions": [
+          "Pulmonary embolism"
+        ],
+        "reason": "CT pulmonary angiography confirmation indicates pulmonary embolism."
+      },
+      {
+        "id": "H04",
+        "decision": "mapped",
+        "conditions": [
+          "Preeclampsia"
+        ],
+        "reason": "New-onset hypertension and proteinuria after 20 weeks of gestation indicates preeclampsia."
+      },
+      {
+        "id": "H05",
+        "decision": "mapped",
+        "conditions": [
+          "Dermatomyositis"
+        ],
+        "reason": "Heliotrope rash and proximal muscle weakness indicate dermatomyositis."
+      },
+      {
+        "id": "H06",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "DM could be diabetes mellitus, dermatomyositis, or myotonic dystrophy, and the context gives no disease information."
+      },
+      {
+        "id": "H07",
+        "decision": "mapped",
+        "conditions": [
+          "Ankylosing spondylitis"
+        ],
+        "reason": "Sacroiliitis and inflammatory back pain indicate ankylosing spondylitis."
+      },
+      {
+        "id": "H08",
+        "decision": "mapped",
+        "conditions": [
+          "Aortic stenosis"
+        ],
+        "reason": "Reduced aortic valve area indicates aortic stenosis."
+      },
+      {
+        "id": "H09",
+        "decision": "remapped",
+        "conditions": [
+          "Nummular eczema"
+        ],
+        "reason": "Coin-shaped eczematous plaques point to nummular eczema rather than unqualified eczema."
+      },
+      {
+        "id": "H10",
+        "decision": "mapped",
+        "conditions": [
+          "Atopic dermatitis"
+        ],
+        "reason": "Unqualified eczema maps to atopic dermatitis, consistent with the atopic history."
+      },
+      {
+        "id": "H11",
+        "decision": "mapped",
+        "conditions": [
+          "Metabolic dysfunction associated steatotic liver disease"
+        ],
+        "reason": "NAFLD is renamed MASLD."
+      },
+      {
+        "id": "H12",
+        "decision": "mapped",
+        "conditions": [
+          "Metabolic dysfunction associated steatohepatitis"
+        ],
+        "reason": "NASH is renamed MASH."
+      },
+      {
+        "id": "H13",
+        "decision": "mapped",
+        "conditions": [
+          "Granulomatosis with polyangiitis"
+        ],
+        "reason": "Wegener's granulomatosis is the former name of granulomatosis with polyangiitis."
+      },
+      {
+        "id": "H14",
+        "decision": "mapped",
+        "conditions": [
+          "Primary biliary cholangitis"
+        ],
+        "reason": "Primary biliary cirrhosis is renamed primary biliary cholangitis."
+      },
+      {
+        "id": "H15",
+        "decision": "mapped",
+        "conditions": [
+          "Clostridioides difficile infection"
+        ],
+        "reason": "Current organism name is Clostridioides difficile."
+      },
+      {
+        "id": "H16",
+        "decision": "mapped",
+        "conditions": [
+          "Renal impairment"
+        ],
+        "reason": "Chronicity is not established, so chronic kidney disease criteria are not met."
+      },
+      {
+        "id": "H17",
+        "decision": "mapped",
+        "conditions": [
+          "Breast neoplasm"
+        ],
+        "reason": "Histology pending, so benign or malignant is not stated."
+      },
+      {
+        "id": "H18",
+        "decision": "mapped",
+        "conditions": [
+          "Lung cancer"
+        ],
+        "reason": "Histologic type is not reported, so keep the broader term."
+      },
+      {
+        "id": "H19",
+        "decision": "mapped",
+        "conditions": [
+          "Metastatic castration-resistant prostate cancer"
+        ],
+        "reason": "Progression despite castrate testosterone levels defines castration-resistant disease."
+      },
+      {
+        "id": "H20",
+        "decision": "remapped",
+        "conditions": [
+          "Psoriatic arthritis"
+        ],
+        "reason": "Psoriasis with swollen, tender joints and dactylitis describes psoriatic arthritis."
+      },
+      {
+        "id": "H21",
+        "decision": "remapped",
+        "conditions": [
+          "Grass pollen allergy"
+        ],
+        "reason": "Context specifies grass pollen as the allergen, so keep the allergen-specific allergy."
+      },
+      {
+        "id": "H22",
+        "decision": "split",
+        "conditions": [
+          "Non-small cell lung cancer",
+          "Small cell lung cancer"
+        ],
+        "reason": "Both lung cancer types are each eligible."
+      },
+      {
+        "id": "H23",
+        "decision": "mapped",
+        "conditions": [
+          "Type 2 diabetes mellitus"
+        ],
+        "reason": "T2D is a standard abbreviation for type 2 diabetes mellitus."
+      },
+      {
+        "id": "H24",
+        "decision": "mapped",
+        "conditions": [
+          "HER2-positive breast cancer"
+        ],
+        "reason": "Abbreviation expands to the subtype, which is kept."
+      },
+      {
+        "id": "H25",
+        "decision": "not_disease",
+        "conditions": [
+          "Skeletal-related events"
+        ],
+        "reason": "Skeletal-related events are a clinical event or endpoint, not a disease."
+      },
+      {
+        "id": "H26",
+        "decision": "not_disease",
+        "conditions": [
+          "Fatigue"
+        ],
+        "reason": "Symptom with no established underlying disease."
+      },
+      {
+        "id": "H27",
+        "decision": "not_disease",
+        "conditions": [
+          "Healthy volunteers"
+        ],
+        "reason": "Healthy volunteers are a population, not a disease."
+      },
+      {
+        "id": "H28",
+        "decision": "mapped",
+        "conditions": [
+          "Overweight"
+        ],
+        "reason": "BMI 27 to 29.9 with comorbidity is overweight, not obesity."
+      },
+      {
+        "id": "H29",
+        "decision": "not_disease",
+        "conditions": [
+          "Hot flashes"
+        ],
+        "reason": "Hot flashes are a symptom of menopause, a physiological state, not a disease."
+      },
+      {
+        "id": "H30",
+        "decision": "mapped",
+        "conditions": [
+          "Crohn's disease"
+        ],
+        "reason": "Perianal fistulas and terminal ileitis indicate Crohn's disease."
+      }
+    ]
+  },
+  {
+    "run": "20261027-172115-holdout",
+    "condition": "D",
+    "model": "claude-sonnet-5-5",
+    "predictions": [
+      {
+        "id": "H01",
+        "decision": "mapped",
+        "conditions": [
+          "Multiple sclerosis"
+        ],
+        "reason": "Context describes relapsing optic neuritis and demyelinating lesions, indicating multiple sclerosis."
+      },
+      {
+        "id": "H02",
+        "decision": "mapped",
+        "conditions": [
+          "Mitral stenosis"
+        ],
+        "reason": "Context of reduced mitral valve area indicates mitral stenosis."
+      },
+      {
+        "id": "H03",
+        "decision": "mapped",
+        "conditions": [
+          "Pulmonary embolism"
+        ],
+        "reason": "CT pulmonary angiography confirmation indicates pulmonary embolism."
+      },
+      {
+        "id": "H04",
+        "decision": "mapped",
+        "conditions": [
+          "Pre-eclampsia"
+        ],
+        "reason": "Hypertension and proteinuria after 20 weeks of gestation indicate pre-eclampsia."
+      },
+      {
+        "id": "H05",
+        "decision": "mapped",
+        "conditions": [
+          "Dermatomyositis"
+        ],
+        "reason": "Heliotrope rash and proximal muscle weakness indicate dermatomyositis."
+      },
+      {
+        "id": "H06",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "DM is ambiguous and the context gives no disease information."
+      },
+      {
+        "id": "H07",
+        "decision": "mapped",
+        "conditions": [
+          "Ankylosing spondylitis"
+        ],
+        "reason": "Sacroiliitis and inflammatory back pain indicate ankylosing spondylitis."
+      },
+      {
+        "id": "H08",
+        "decision": "mapped",
+        "conditions": [
+          "Aortic stenosis"
+        ],
+        "reason": "Reduced aortic valve area indicates aortic stenosis."
+      },
+      {
+        "id": "H09",
+        "decision": "mapped",
+        "conditions": [
+          "Nummular eczema"
+        ],
+        "reason": "Coin-shaped eczematous plaques indicate nummular eczema."
+      },
+      {
+        "id": "H10",
+        "decision": "mapped",
+        "conditions": [
+          "Atopic dermatitis"
+        ],
+        "reason": "Unqualified eczema with atopic history maps to atopic dermatitis."
+      },
+      {
+        "id": "H11",
+        "decision": "mapped",
+        "conditions": [
+          "Metabolic dysfunction associated steatotic liver disease"
+        ],
+        "reason": "NAFLD was renamed MASLD."
+      },
+      {
+        "id": "H12",
+        "decision": "mapped",
+        "conditions": [
+          "Metabolic dysfunction associated steatohepatitis"
+        ],
+        "reason": "NASH was renamed MASH."
+      },
+      {
+        "id": "H13",
+        "decision": "mapped",
+        "conditions": [
+          "Granulomatosis with polyangiitis"
+        ],
+        "reason": "Wegener's granulomatosis is the former name of granulomatosis with polyangiitis."
+      },
+      {
+        "id": "H14",
+        "decision": "mapped",
+        "conditions": [
+          "Primary biliary cholangitis"
+        ],
+        "reason": "Primary biliary cirrhosis was renamed primary biliary cholangitis."
+      },
+      {
+        "id": "H15",
+        "decision": "mapped",
+        "conditions": [
+          "Clostridioides difficile infection"
+        ],
+        "reason": "Current name of the organism is Clostridioides difficile."
+      },
+      {
+        "id": "H16",
+        "decision": "mapped",
+        "conditions": [
+          "Renal impairment"
+        ],
+        "reason": "Chronicity is not established, so chronic kidney disease criteria are not met."
+      },
+      {
+        "id": "H17",
+        "decision": "mapped",
+        "conditions": [
+          "Breast neoplasm"
+        ],
+        "reason": "Histology pending, so benign or malignant is not stated."
+      },
+      {
+        "id": "H18",
+        "decision": "mapped",
+        "conditions": [
+          "Lung cancer"
+        ],
+        "reason": "Histologic type is not reported, so keep the broader term."
+      },
+      {
+        "id": "H19",
+        "decision": "mapped",
+        "conditions": [
+          "Castration-resistant prostate cancer"
+        ],
+        "reason": "Progression despite castrate testosterone defines castration-resistant prostate cancer."
+      },
+      {
+        "id": "H20",
+        "decision": "remapped",
+        "conditions": [
+          "Psoriatic arthritis"
+        ],
+        "reason": "Joint swelling, tenderness and dactylitis indicate psoriatic arthritis rather than psoriasis."
+      },
+      {
+        "id": "H21",
+        "decision": "mapped",
+        "conditions": [
+          "Grass pollen allergy"
+        ],
+        "reason": "Seasonal rhinoconjunctivitis triggered by grass pollen is an allergen-specific allergy."
+      },
+      {
+        "id": "H22",
+        "decision": "split",
+        "conditions": [
+          "Non-small cell lung cancer",
+          "Small cell lung cancer"
+        ],
+        "reason": "Both lung cancer types are stated as eligible."
+      },
+      {
+        "id": "H23",
+        "decision": "mapped",
+        "conditions": [
+          "Type 2 diabetes mellitus"
+        ],
+        "reason": "T2D is a standard abbreviation for type 2 diabetes mellitus."
+      },
+      {
+        "id": "H24",
+        "decision": "mapped",
+        "conditions": [
+          "HER2-positive breast cancer"
+        ],
+        "reason": "Abbreviation expands to HER2-positive breast cancer, keeping the subtype."
+      },
+      {
+        "id": "H25",
+        "decision": "not_disease",
+        "conditions": [
+          "Skeletal-related events"
+        ],
+        "reason": "Skeletal-related events are clinical events, not a disease."
+      },
+      {
+        "id": "H26",
+        "decision": "not_disease",
+        "conditions": [
+          "Fatigue"
+        ],
+        "reason": "Symptom with no established underlying disease."
+      },
+      {
+        "id": "H27",
+        "decision": "not_disease",
+        "conditions": [
+          "Healthy volunteers"
+        ],
+        "reason": "Healthy participants are not a disease."
+      },
+      {
+        "id": "H28",
+        "decision": "mapped",
+        "conditions": [
+          "Overweight"
+        ],
+        "reason": "BMI-defined overweight with comorbidity is a recognized anti-obesity treatment indication."
+      },
+      {
+        "id": "H29",
+        "decision": "not_disease",
+        "conditions": [
+          "Hot flashes"
+        ],
+        "reason": "Menopause itself is a physiological state and hot flashes are a symptom; the guideline does not make them a disease."
+      },
+      {
+        "id": "H30",
+        "decision": "mapped",
+        "conditions": [
+          "Crohn's disease"
+        ],
+        "reason": "Perianal fistulas and terminal ileitis indicate Crohn's disease."
+      }
+    ]
+  },
+  {
+    "run": "20261027-172128-holdout",
+    "condition": "A",
+    "model": "claude-sonnet-5-5",
+    "predictions": [
+      {
+        "id": "H01",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "Abbreviation 'MS' could be multiple sclerosis, mitral stenosis, or metabolic syndrome, with no context to decide."
+      },
+      {
+        "id": "H02",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "Abbreviation 'MS' is ambiguous without further context."
+      },
+      {
+        "id": "H03",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "'PE' could be pulmonary embolism, pre-eclampsia, or pleural effusion."
+      },
+      {
+        "id": "H04",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "'PE' is ambiguous without further context."
+      },
+      {
+        "id": "H05",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "'DM' could be diabetes mellitus, dermatomyositis, or myotonic dystrophy."
+      },
+      {
+        "id": "H06",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "'DM' is ambiguous without further context."
+      },
+      {
+        "id": "H07",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "'AS' could be ankylosing spondylitis, aortic stenosis, or Angelman syndrome."
+      },
+      {
+        "id": "H08",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "'AS' is ambiguous without further context."
+      },
+      {
+        "id": "H09",
+        "decision": "mapped",
+        "conditions": [
+          "Atopic dermatitis"
+        ],
+        "reason": "Eczema is commonly used synonymously with atopic dermatitis."
+      },
+      {
+        "id": "H10",
+        "decision": "mapped",
+        "conditions": [
+          "Atopic dermatitis"
+        ],
+        "reason": "Eczema is commonly used synonymously with atopic dermatitis."
+      },
+      {
+        "id": "H11",
+        "decision": "mapped",
+        "conditions": [
+          "Non-alcoholic fatty liver disease"
+        ],
+        "reason": "NAFLD is the abbreviation for non-alcoholic fatty liver disease."
+      },
+      {
+        "id": "H12",
+        "decision": "mapped",
+        "conditions": [
+          "Non-alcoholic steatohepatitis"
+        ],
+        "reason": "NASH is the abbreviation for non-alcoholic steatohepatitis."
+      },
+      {
+        "id": "H13",
+        "decision": "mapped",
+        "conditions": [
+          "Granulomatosis with polyangiitis"
+        ],
+        "reason": "Wegener's granulomatosis is the former name of granulomatosis with polyangiitis."
+      },
+      {
+        "id": "H14",
+        "decision": "mapped",
+        "conditions": [
+          "Primary biliary cholangitis"
+        ],
+        "reason": "Primary biliary cirrhosis was renamed primary biliary cholangitis."
+      },
+      {
+        "id": "H15",
+        "decision": "mapped",
+        "conditions": [
+          "Clostridioides difficile infection"
+        ],
+        "reason": "Standard current name for the organism and infection."
+      },
+      {
+        "id": "H16",
+        "decision": "mapped",
+        "conditions": [
+          "Kidney disease"
+        ],
+        "reason": "Kidney dysfunction refers to impaired renal function, i.e. kidney disease."
+      },
+      {
+        "id": "H17",
+        "decision": "mapped",
+        "conditions": [
+          "Breast cancer"
+        ],
+        "reason": "Breast tumor in trial context refers to breast cancer."
+      },
+      {
+        "id": "H18",
+        "decision": "mapped",
+        "conditions": [
+          "Lung cancer"
+        ],
+        "reason": "Single disease, standard name."
+      },
+      {
+        "id": "H19",
+        "decision": "mapped",
+        "conditions": [
+          "Prostate cancer"
+        ],
+        "reason": "Single disease, standard name."
+      },
+      {
+        "id": "H20",
+        "decision": "mapped",
+        "conditions": [
+          "Psoriasis"
+        ],
+        "reason": "Single disease, standard name."
+      },
+      {
+        "id": "H21",
+        "decision": "mapped",
+        "conditions": [
+          "Allergic rhinitis"
+        ],
+        "reason": "Hay fever is seasonal allergic rhinitis."
+      },
+      {
+        "id": "H22",
+        "decision": "split",
+        "conditions": [
+          "Non-small cell lung cancer",
+          "Small cell lung cancer"
+        ],
+        "reason": "Keyword names two distinct lung cancer types."
+      },
+      {
+        "id": "H23",
+        "decision": "mapped",
+        "conditions": [
+          "Type 2 diabetes mellitus"
+        ],
+        "reason": "T2D abbreviates type 2 diabetes."
+      },
+      {
+        "id": "H24",
+        "decision": "mapped",
+        "conditions": [
+          "HER2-positive breast cancer"
+        ],
+        "reason": "HER2+ BC abbreviates HER2-positive breast cancer."
+      },
+      {
+        "id": "H25",
+        "decision": "not_disease",
+        "conditions": [
+          "Skeletal-related event"
+        ],
+        "reason": "SRE is a clinical event, not a disease."
+      },
+      {
+        "id": "H26",
+        "decision": "not_disease",
+        "conditions": [
+          "Fatigue"
+        ],
+        "reason": "Fatigue is a symptom, not a disease."
+      },
+      {
+        "id": "H27",
+        "decision": "not_disease",
+        "conditions": [
+          "Healthy volunteers"
+        ],
+        "reason": "Healthy volunteers is a population, not a disease."
+      },
+      {
+        "id": "H28",
+        "decision": "not_disease",
+        "conditions": [
+          "Overweight"
+        ],
+        "reason": "Overweight is a physiological state, not a disease."
+      },
+      {
+        "id": "H29",
+        "decision": "not_disease",
+        "conditions": [
+          "Hot flashes"
+        ],
+        "reason": "Hot flashes are a symptom, not a disease."
+      },
+      {
+        "id": "H30",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "'CD' could be Crohn's disease, celiac disease, or Castleman disease."
+      }
+    ]
+  },
+  {
+    "run": "20261027-172128-holdout",
+    "condition": "B",
+    "model": "claude-sonnet-5-5",
+    "predictions": [
+      {
+        "id": "H01",
+        "decision": "mapped",
+        "conditions": [
+          "Multiple sclerosis"
+        ],
+        "reason": "Relapsing optic neuritis and demyelinating lesions indicate multiple sclerosis."
+      },
+      {
+        "id": "H02",
+        "decision": "remapped",
+        "conditions": [
+          "Mitral stenosis"
+        ],
+        "reason": "Reduced mitral valve area indicates mitral stenosis, not multiple sclerosis."
+      },
+      {
+        "id": "H03",
+        "decision": "mapped",
+        "conditions": [
+          "Pulmonary embolism"
+        ],
+        "reason": "CT pulmonary angiography confirmation indicates pulmonary embolism."
+      },
+      {
+        "id": "H04",
+        "decision": "remapped",
+        "conditions": [
+          "Preeclampsia"
+        ],
+        "reason": "Hypertension and proteinuria after 20 weeks gestation indicate preeclampsia."
+      },
+      {
+        "id": "H05",
+        "decision": "mapped",
+        "conditions": [
+          "Dermatomyositis"
+        ],
+        "reason": "Heliotrope rash and proximal weakness indicate dermatomyositis."
+      },
+      {
+        "id": "H06",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "DM could be diabetes mellitus, dermatomyositis, or myotonic dystrophy with no context."
+      },
+      {
+        "id": "H07",
+        "decision": "mapped",
+        "conditions": [
+          "Ankylosing spondylitis"
+        ],
+        "reason": "Sacroiliitis and inflammatory back pain indicate ankylosing spondylitis."
+      },
+      {
+        "id": "H08",
+        "decision": "remapped",
+        "conditions": [
+          "Aortic stenosis"
+        ],
+        "reason": "Aortic valve area indicates aortic stenosis, not ankylosing spondylitis."
+      },
+      {
+        "id": "H09",
+        "decision": "mapped",
+        "conditions": [
+          "Nummular eczema"
+        ],
+        "reason": "Coin-shaped eczematous plaques describe nummular eczema."
+      },
+      {
+        "id": "H10",
+        "decision": "mapped",
+        "conditions": [
+          "Atopic dermatitis"
+        ],
+        "reason": "Eczema with atopic history indicates atopic dermatitis."
+      },
+      {
+        "id": "H11",
+        "decision": "split",
+        "conditions": [
+          "Non-alcoholic fatty liver disease",
+          "Type 2 diabetes mellitus"
+        ],
+        "reason": "Row describes both NAFLD and type 2 diabetes."
+      },
+      {
+        "id": "H12",
+        "decision": "mapped",
+        "conditions": [
+          "Non-alcoholic steatohepatitis"
+        ],
+        "reason": "Biopsy-proven NASH with fibrosis is a single disease."
+      },
+      {
+        "id": "H13",
+        "decision": "mapped",
+        "conditions": [
+          "Granulomatosis with polyangiitis"
+        ],
+        "reason": "Wegener's granulomatosis is the former name of granulomatosis with polyangiitis."
+      },
+      {
+        "id": "H14",
+        "decision": "mapped",
+        "conditions": [
+          "Primary biliary cholangitis"
+        ],
+        "reason": "Primary biliary cirrhosis is the former name of primary biliary cholangitis."
+      },
+      {
+        "id": "H15",
+        "decision": "mapped",
+        "conditions": [
+          "Clostridioides difficile infection"
+        ],
+        "reason": "Current standard nomenclature for the organism."
+      },
+      {
+        "id": "H16",
+        "decision": "not_disease",
+        "conditions": [
+          "Kidney dysfunction"
+        ],
+        "reason": "Single reduced eGFR without established chronicity is a finding, not a defined disease."
+      },
+      {
+        "id": "H17",
+        "decision": "not_disease",
+        "conditions": [
+          "Breast tumor"
+        ],
+        "reason": "Undiagnosed palpable mass with histology pending is a clinical finding, not a confirmed disease."
+      },
+      {
+        "id": "H18",
+        "decision": "mapped",
+        "conditions": [
+          "Lung cancer"
+        ],
+        "reason": "Lung cancer is a single disease even without histologic type."
+      },
+      {
+        "id": "H19",
+        "decision": "mapped",
+        "conditions": [
+          "Castration-resistant prostate cancer"
+        ],
+        "reason": "Progression despite castrate testosterone indicates castration-resistant prostate cancer."
+      },
+      {
+        "id": "H20",
+        "decision": "remapped",
+        "conditions": [
+          "Psoriatic arthritis"
+        ],
+        "reason": "Swollen tender joints and dactylitis indicate psoriatic arthritis."
+      },
+      {
+        "id": "H21",
+        "decision": "mapped",
+        "conditions": [
+          "Seasonal allergic rhinitis"
+        ],
+        "reason": "Hay fever is seasonal allergic rhinitis."
+      },
+      {
+        "id": "H22",
+        "decision": "split",
+        "conditions": [
+          "Non-small cell lung cancer",
+          "Small cell lung cancer"
+        ],
+        "reason": "Two distinct lung cancer types are named."
+      },
+      {
+        "id": "H23",
+        "decision": "mapped",
+        "conditions": [
+          "Type 2 diabetes mellitus"
+        ],
+        "reason": "T2D abbreviates type 2 diabetes mellitus."
+      },
+      {
+        "id": "H24",
+        "decision": "mapped",
+        "conditions": [
+          "HER2-positive breast cancer"
+        ],
+        "reason": "Single disease subtype of breast cancer."
+      },
+      {
+        "id": "H25",
+        "decision": "remapped",
+        "conditions": [
+          "Multiple myeloma"
+        ],
+        "reason": "SRE is a clinical event; the underlying disease described is multiple myeloma."
+      },
+      {
+        "id": "H26",
+        "decision": "not_disease",
+        "conditions": [
+          "Fatigue"
+        ],
+        "reason": "Fatigue is a symptom, not a disease."
+      },
+      {
+        "id": "H27",
+        "decision": "not_disease",
+        "conditions": [
+          "Healthy volunteers"
+        ],
+        "reason": "Healthy status is not a disease."
+      },
+      {
+        "id": "H28",
+        "decision": "not_disease",
+        "conditions": [
+          "Overweight"
+        ],
+        "reason": "Overweight is a physiological state/body-weight category, not a disease."
+      },
+      {
+        "id": "H29",
+        "decision": "not_disease",
+        "conditions": [
+          "Hot flashes"
+        ],
+        "reason": "Hot flashes are a symptom, not a disease."
+      },
+      {
+        "id": "H30",
+        "decision": "mapped",
+        "conditions": [
+          "Crohn's disease"
+        ],
+        "reason": "Perianal fistulas and terminal ileitis indicate Crohn's disease."
+      }
+    ]
+  },
+  {
+    "run": "20261027-172128-holdout",
+    "condition": "C",
+    "model": "claude-sonnet-5-5",
+    "predictions": [
+      {
+        "id": "H01",
+        "decision": "mapped",
+        "conditions": [
+          "Multiple sclerosis"
+        ],
+        "reason": "Context of relapsing optic neuritis and demyelinating lesions resolves MS to multiple sclerosis."
+      },
+      {
+        "id": "H02",
+        "decision": "mapped",
+        "conditions": [
+          "Mitral stenosis"
+        ],
+        "reason": "Reduced mitral valve area resolves MS to mitral stenosis."
+      },
+      {
+        "id": "H03",
+        "decision": "mapped",
+        "conditions": [
+          "Pulmonary embolism"
+        ],
+        "reason": "CT pulmonary angiography confirmation indicates pulmonary embolism."
+      },
+      {
+        "id": "H04",
+        "decision": "mapped",
+        "conditions": [
+          "Preeclampsia"
+        ],
+        "reason": "New-onset hypertension and proteinuria after 20 weeks gestation indicates preeclampsia."
+      },
+      {
+        "id": "H05",
+        "decision": "mapped",
+        "conditions": [
+          "Dermatomyositis"
+        ],
+        "reason": "Heliotrope rash with proximal weakness indicates dermatomyositis."
+      },
+      {
+        "id": "H06",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "DM could be diabetes mellitus, dermatomyositis, or others and context gives no information."
+      },
+      {
+        "id": "H07",
+        "decision": "mapped",
+        "conditions": [
+          "Ankylosing spondylitis"
+        ],
+        "reason": "Sacroiliitis and inflammatory back pain indicate ankylosing spondylitis."
+      },
+      {
+        "id": "H08",
+        "decision": "mapped",
+        "conditions": [
+          "Aortic stenosis"
+        ],
+        "reason": "Aortic valve area context indicates aortic stenosis."
+      },
+      {
+        "id": "H09",
+        "decision": "remapped",
+        "conditions": [
+          "Nummular eczema"
+        ],
+        "reason": "Coin-shaped eczematous plaques point to nummular eczema rather than unqualified eczema."
+      },
+      {
+        "id": "H10",
+        "decision": "mapped",
+        "conditions": [
+          "Atopic dermatitis"
+        ],
+        "reason": "Unqualified eczema maps to atopic dermatitis, consistent with atopic history."
+      },
+      {
+        "id": "H11",
+        "decision": "mapped",
+        "conditions": [
+          "Metabolic dysfunction associated steatotic liver disease"
+        ],
+        "reason": "NAFLD is renamed MASLD."
+      },
+      {
+        "id": "H12",
+        "decision": "mapped",
+        "conditions": [
+          "Metabolic dysfunction associated steatohepatitis"
+        ],
+        "reason": "NASH is renamed MASH."
+      },
+      {
+        "id": "H13",
+        "decision": "mapped",
+        "conditions": [
+          "Granulomatosis with polyangiitis"
+        ],
+        "reason": "Wegener's granulomatosis is the former name of granulomatosis with polyangiitis."
+      },
+      {
+        "id": "H14",
+        "decision": "mapped",
+        "conditions": [
+          "Primary biliary cholangitis"
+        ],
+        "reason": "Primary biliary cirrhosis is renamed primary biliary cholangitis."
+      },
+      {
+        "id": "H15",
+        "decision": "mapped",
+        "conditions": [
+          "Clostridioides difficile infection"
+        ],
+        "reason": "Current nomenclature is Clostridioides difficile."
+      },
+      {
+        "id": "H16",
+        "decision": "mapped",
+        "conditions": [
+          "Renal impairment"
+        ],
+        "reason": "Chronicity not established, so not chronic kidney disease."
+      },
+      {
+        "id": "H17",
+        "decision": "mapped",
+        "conditions": [
+          "Breast neoplasm"
+        ],
+        "reason": "Benign vs malignant not established, so keep the broader term."
+      },
+      {
+        "id": "H18",
+        "decision": "mapped",
+        "conditions": [
+          "Lung cancer"
+        ],
+        "reason": "Histologic type not reported, so keep the broader term."
+      },
+      {
+        "id": "H19",
+        "decision": "mapped",
+        "conditions": [
+          "Castration-resistant prostate cancer"
+        ],
+        "reason": "Progression despite castrate testosterone defines castration-resistant disease."
+      },
+      {
+        "id": "H20",
+        "decision": "remapped",
+        "conditions": [
+          "Psoriatic arthritis"
+        ],
+        "reason": "Psoriasis with swollen tender joints and dactylitis describes psoriatic arthritis."
+      },
+      {
+        "id": "H21",
+        "decision": "mapped",
+        "conditions": [
+          "Grass pollen allergy"
+        ],
+        "reason": "Allergen-specific allergy keeps the allergen; context specifies grass pollen."
+      },
+      {
+        "id": "H22",
+        "decision": "split",
+        "conditions": [
+          "Non-small cell lung cancer",
+          "Small cell lung cancer"
+        ],
+        "reason": "Both diseases are each eligible."
+      },
+      {
+        "id": "H23",
+        "decision": "mapped",
+        "conditions": [
+          "Type 2 diabetes mellitus"
+        ],
+        "reason": "T2D is an abbreviation of type 2 diabetes mellitus."
+      },
+      {
+        "id": "H24",
+        "decision": "mapped",
+        "conditions": [
+          "HER2-positive breast cancer"
+        ],
+        "reason": "Abbreviation expanded, subtype retained."
+      },
+      {
+        "id": "H25",
+        "decision": "remapped",
+        "conditions": [
+          "Multiple myeloma"
+        ],
+        "reason": "SRE is a clinical event; the disease described is multiple myeloma."
+      },
+      {
+        "id": "H26",
+        "decision": "not_disease",
+        "conditions": [
+          "Fatigue"
+        ],
+        "reason": "Symptom with no established underlying disease."
+      },
+      {
+        "id": "H27",
+        "decision": "not_disease",
+        "conditions": [
+          "Healthy volunteers"
+        ],
+        "reason": "Not a disease."
+      },
+      {
+        "id": "H28",
+        "decision": "mapped",
+        "conditions": [
+          "Overweight"
+        ],
+        "reason": "BMI 27 to 29.9 with comorbidity is overweight, a recognized condition term."
+      },
+      {
+        "id": "H29",
+        "decision": "not_disease",
+        "conditions": [
+          "Hot flashes"
+        ],
+        "reason": "Menopausal symptom, not a disease."
+      },
+      {
+        "id": "H30",
+        "decision": "mapped",
+        "conditions": [
+          "Crohn's disease"
+        ],
+        "reason": "Perianal fistulas and terminal ileitis resolve CD to Crohn's disease."
+      }
+    ]
+  },
+  {
+    "run": "20261027-172128-holdout",
+    "condition": "D",
+    "model": "claude-sonnet-5-5",
+    "predictions": [
+      {
+        "id": "H01",
+        "decision": "mapped",
+        "conditions": [
+          "Multiple sclerosis"
+        ],
+        "reason": "Context of relapsing optic neuritis and demyelinating lesions resolves MS to multiple sclerosis."
+      },
+      {
+        "id": "H02",
+        "decision": "mapped",
+        "conditions": [
+          "Mitral stenosis"
+        ],
+        "reason": "Reduced mitral valve area resolves MS to mitral stenosis."
+      },
+      {
+        "id": "H03",
+        "decision": "mapped",
+        "conditions": [
+          "Pulmonary embolism"
+        ],
+        "reason": "CT pulmonary angiography confirmation indicates pulmonary embolism."
+      },
+      {
+        "id": "H04",
+        "decision": "mapped",
+        "conditions": [
+          "Preeclampsia"
+        ],
+        "reason": "New-onset hypertension and proteinuria after 20 weeks gestation indicates preeclampsia."
+      },
+      {
+        "id": "H05",
+        "decision": "mapped",
+        "conditions": [
+          "Dermatomyositis"
+        ],
+        "reason": "Heliotrope rash and proximal weakness indicate dermatomyositis."
+      },
+      {
+        "id": "H06",
+        "decision": "ambiguous",
+        "conditions": [],
+        "reason": "DM could be diabetes mellitus, dermatomyositis, or other, and context gives no information."
+      },
+      {
+        "id": "H07",
+        "decision": "mapped",
+        "conditions": [
+          "Ankylosing spondylitis"
+        ],
+        "reason": "Sacroiliitis and inflammatory back pain indicate ankylosing spondylitis."
+      },
+      {
+        "id": "H08",
+        "decision": "mapped",
+        "conditions": [
+          "Aortic stenosis"
+        ],
+        "reason": "Aortic valve area below 1.0 cm2 indicates aortic stenosis."
+      },
+      {
+        "id": "H09",
+        "decision": "remapped",
+        "conditions": [
+          "Nummular eczema"
+        ],
+        "reason": "Coin-shaped eczematous plaques describe nummular eczema, not unqualified eczema."
+      },
+      {
+        "id": "H10",
+        "decision": "mapped",
+        "conditions": [
+          "Atopic dermatitis"
+        ],
+        "reason": "Unqualified eczema maps to atopic dermatitis, consistent with atopic history."
+      },
+      {
+        "id": "H11",
+        "decision": "mapped",
+        "conditions": [
+          "Metabolic dysfunction associated steatotic liver disease"
+        ],
+        "reason": "NAFLD is renamed to MASLD."
+      },
+      {
+        "id": "H12",
+        "decision": "mapped",
+        "conditions": [
+          "Metabolic dysfunction associated steatohepatitis"
+        ],
+        "reason": "NASH is renamed to MASH."
+      },
+      {
+        "id": "H13",
+        "decision": "mapped",
+        "conditions": [
+          "Granulomatosis with polyangiitis"
+        ],
+        "reason": "Wegener's granulomatosis is the former name of granulomatosis with polyangiitis."
+      },
+      {
+        "id": "H14",
+        "decision": "mapped",
+        "conditions": [
+          "Primary biliary cholangitis"
+        ],
+        "reason": "Primary biliary cirrhosis was renamed primary biliary cholangitis."
+      },
+      {
+        "id": "H15",
+        "decision": "mapped",
+        "conditions": [
+          "Clostridioides difficile infection"
+        ],
+        "reason": "Current name of the organism is Clostridioides difficile."
+      },
+      {
+        "id": "H16",
+        "decision": "mapped",
+        "conditions": [
+          "Renal impairment"
+        ],
+        "reason": "Chronicity not established, so not chronic kidney disease."
+      },
+      {
+        "id": "H17",
+        "decision": "mapped",
+        "conditions": [
+          "Breast neoplasm"
+        ],
+        "reason": "Histology pending, so benign vs malignant is unspecified."
+      },
+      {
+        "id": "H18",
+        "decision": "mapped",
+        "conditions": [
+          "Lung cancer"
+        ],
+        "reason": "Histologic type not reported, so keep the broader term."
+      },
+      {
+        "id": "H19",
+        "decision": "mapped",
+        "conditions": [
+          "Castration-resistant prostate cancer"
+        ],
+        "reason": "Progression despite castrate testosterone defines castration-resistant prostate cancer."
+      },
+      {
+        "id": "H20",
+        "decision": "remapped",
+        "conditions": [
+          "Psoriatic arthritis"
+        ],
+        "reason": "Joint swelling, tenderness and dactylitis describe psoriatic arthritis."
+      },
+      {
+        "id": "H21",
+        "decision": "mapped",
+        "conditions": [
+          "Seasonal allergic rhinoconjunctivitis due to grass pollen"
+        ],
+        "reason": "Hay fever triggered by grass pollen is an allergen-specific allergy, so keep the allergen (grass pollen allergy)."
+      },
+      {
+        "id": "H22",
+        "decision": "split",
+        "conditions": [
+          "Non-small cell lung cancer",
+          "Small cell lung cancer"
+        ],
+        "reason": "Context states both are eligible."
+      },
+      {
+        "id": "H23",
+        "decision": "mapped",
+        "conditions": [
+          "Type 2 diabetes mellitus"
+        ],
+        "reason": "T2D is an abbreviation for type 2 diabetes mellitus."
+      },
+      {
+        "id": "H24",
+        "decision": "mapped",
+        "conditions": [
+          "HER2-positive breast cancer"
+        ],
+        "reason": "Abbreviation expands to HER2-positive breast cancer; subtype retained."
+      },
+      {
+        "id": "H25",
+        "decision": "not_disease",
+        "conditions": [
+          "Skeletal-related events"
+        ],
+        "reason": "SRE is a clinical event/endpoint, not a disease."
+      },
+      {
+        "id": "H26",
+        "decision": "not_disease",
+        "conditions": [
+          "Fatigue"
+        ],
+        "reason": "Symptom with underlying cause not established."
+      },
+      {
+        "id": "H27",
+        "decision": "not_disease",
+        "conditions": [
+          "Healthy volunteers"
+        ],
+        "reason": "Healthy participants are not a disease."
+      },
+      {
+        "id": "H28",
+        "decision": "mapped",
+        "conditions": [
+          "Overweight"
+        ],
+        "reason": "BMI-defined overweight with comorbidity is a recognized anti-obesity treatment indication."
+      },
+      {
+        "id": "H29",
+        "decision": "not_disease",
+        "conditions": [
+          "Hot flashes"
+        ],
+        "reason": "Symptom of menopause, a physiological state, with no underlying disease established."
+      },
+      {
+        "id": "H30",
+        "decision": "mapped",
+        "conditions": [
+          "Crohn's disease"
+        ],
+        "reason": "Perianal fistulas and terminal ileitis resolve CD to Crohn's disease."
+      }
+    ]
+  }
+]

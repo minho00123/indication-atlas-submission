@@ -1,0 +1,1518 @@
+[
+  {
+    "left_source_id": "K001",
+    "left_keyword": "eczema",
+    "right_source_id": "K002",
+    "right_keyword": "ECZEMA",
+    "relation": "SAME_BASE_CONCEPT",
+    "rationale_ko": "대소문자만 다른 일반 습진이다.",
+    "evidence_refs": [
+      "SRC-029",
+      "SRC-030",
+      "SRC-036",
+      "SRC-042",
+      "SRC-043",
+      "SRC-044"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K001",
+    "left_keyword": "eczema",
+    "right_source_id": "K025",
+    "right_keyword": "Atopic dermatitis",
+    "relation": "BROADER",
+    "rationale_ko": "일반 습진과 아토피 아형은 범위가 다르다.",
+    "evidence_refs": [
+      "SRC-029",
+      "SRC-030",
+      "SRC-036",
+      "SRC-042",
+      "SRC-043",
+      "SRC-126",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K004",
+    "left_keyword": "type-2 diabetes mellitus",
+    "right_source_id": "K005",
+    "right_keyword": "Type 2 diabetes mellitus",
+    "relation": "SAME_BASE_CONCEPT",
+    "rationale_ko": "대소문자·하이픈 표기가 다른 같은 제2형 당뇨병이며 두 원문 모두 치료 조건을 명시하지 않는다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-111",
+      "SRC-112",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K004",
+    "left_keyword": "type-2 diabetes mellitus",
+    "right_source_id": "K006",
+    "right_keyword": "Type 1 diabetes mellitus",
+    "relation": "DIFFERENT_CONCEPT",
+    "rationale_ko": "제2형과 제1형은 별도 개념이다. K006의 자가면역·인슐린 필요 조건을 K004에 전파하지 않는다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-111",
+      "SRC-113",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K007",
+    "left_keyword": "CD",
+    "right_source_id": "K008",
+    "right_keyword": "CD",
+    "relation": "DIFFERENT_SENSE_SAME_SURFACE",
+    "rationale_ko": "CD의 문맥에 따라 크론병과 셀리악병으로 나뉜다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-114",
+      "SRC-115",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K007",
+    "left_keyword": "CD",
+    "right_source_id": "K009",
+    "right_keyword": "CD",
+    "relation": "UNRESOLVED_SOURCE_CONTEXT",
+    "rationale_ko": "같은 CD 표기로도 K009는 질환을 결정할 수 없다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-114",
+      "SRC-116",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K010",
+    "left_keyword": "NSCLC",
+    "right_source_id": "K131",
+    "right_keyword": "Non-small cell lung cancer",
+    "relation": "SAME_BASE_CONCEPT_DIFFERENT_CONTEXT",
+    "rationale_ko": "NSCLC는 같지만 전이와 이전 치료 조건은 동의어 병합으로 지우지 않는다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-117",
+      "SRC-216",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K011",
+    "left_keyword": "AML",
+    "right_source_id": "K012",
+    "right_keyword": "AML",
+    "relation": "DIFFERENT_SENSE_SAME_SURFACE",
+    "rationale_ko": "AML은 백혈병 또는 신장 혈관근지방종이다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-118",
+      "SRC-119",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K013",
+    "left_keyword": "breast neoplasm",
+    "right_source_id": "K014",
+    "right_keyword": "HER2-positive breast cancer",
+    "relation": "BROADER",
+    "rationale_ko": "양성·악성을 포함한 유방 신생물과 HER2 양성 암은 같은 범위가 아니다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-091",
+      "SRC-120",
+      "SRC-121",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K014",
+    "left_keyword": "HER2-positive breast cancer",
+    "right_source_id": "K015",
+    "right_keyword": "HER2-negative breast cancer",
+    "relation": "DIFFERENT_BIOMARKER_SCOPE",
+    "rationale_ko": "HER2 양성과 음성의 부호를 구별한다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-091",
+      "SRC-121",
+      "SRC-122",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K015",
+    "left_keyword": "HER2-negative breast cancer",
+    "right_source_id": "K136",
+    "right_keyword": "Triple-negative breast cancer",
+    "relation": "BROADER",
+    "rationale_ko": "HER2 음성만으로 ER/PR 음성까지 추론하지 않는다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-091",
+      "SRC-122",
+      "SRC-221",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K016",
+    "left_keyword": "renal impairment",
+    "right_source_id": "K017",
+    "right_keyword": "CKD",
+    "relation": "RELATED_NOT_SYNONYMS",
+    "rationale_ko": "신기능 저하 소견만으로 만성 기간과 CKD 진단을 보장하지 않는다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-046",
+      "SRC-123",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K018",
+    "left_keyword": "MDS/AML",
+    "right_source_id": "K165",
+    "right_keyword": "Myelodysplastic syndrome",
+    "relation": "EXPRESSION_COMPONENT_ONLY",
+    "rationale_ko": "MDS는 OR 식의 구성 개념이며 전체 식의 동의어가 아니다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-124",
+      "SRC-249",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K024",
+    "left_keyword": "eczema",
+    "right_source_id": "K034",
+    "right_keyword": "Plaque psoriasis",
+    "relation": "SOURCE_CONFLICT_NOT_RESOLVED",
+    "rationale_ko": "K024 본문은 판상 건선이지만 키워드는 습진이므로 이 행의 매핑을 확정하지 않는다.",
+    "evidence_refs": [
+      "SRC-002",
+      "SRC-036",
+      "SRC-054",
+      "SRC-125",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K026",
+    "left_keyword": "Contact dermatitis",
+    "right_source_id": "K027",
+    "right_keyword": "Allergic contact dermatitis",
+    "relation": "BROADER",
+    "rationale_ko": "접촉 피부염 일반보다 알레르기성 아형이 좁다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-127",
+      "SRC-128",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K026",
+    "left_keyword": "Contact dermatitis",
+    "right_source_id": "K028",
+    "right_keyword": "Irritant contact dermatitis",
+    "relation": "BROADER",
+    "rationale_ko": "접촉 피부염 일반보다 자극성 아형이 좁다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-127",
+      "SRC-129",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K027",
+    "left_keyword": "Allergic contact dermatitis",
+    "right_source_id": "K028",
+    "right_keyword": "Irritant contact dermatitis",
+    "relation": "DIFFERENT_ETIOLOGY_SCOPE",
+    "rationale_ko": "알레르기 감작과 직접 자극의 기전을 구별한다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-128",
+      "SRC-129",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K033",
+    "left_keyword": "Psoriasis",
+    "right_source_id": "K034",
+    "right_keyword": "Plaque psoriasis",
+    "relation": "BROADER",
+    "rationale_ko": "건선 일반과 판상 아형을 합치지 않는다.",
+    "evidence_refs": [
+      "SRC-002",
+      "SRC-036",
+      "SRC-042",
+      "SRC-054",
+      "SRC-132",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K034",
+    "left_keyword": "Plaque psoriasis",
+    "right_source_id": "K037",
+    "right_keyword": "Erythrodermic psoriasis",
+    "relation": "DIFFERENT_PRESENTATION_SCOPE",
+    "rationale_ko": "판상·홍피성 형태가 진행 과정에서 연결돼도 동의어는 아니다.",
+    "evidence_refs": [
+      "SRC-002",
+      "SRC-036",
+      "SRC-054",
+      "SRC-055"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K042",
+    "left_keyword": "Urticaria",
+    "right_source_id": "K043",
+    "right_keyword": "Chronic spontaneous urticaria",
+    "relation": "BROADER",
+    "rationale_ko": "두드러기 일반에 만성 자발성 제한을 추가하지 않는다.",
+    "evidence_refs": [
+      "SRC-026",
+      "SRC-036",
+      "SRC-042",
+      "SRC-139",
+      "SRC-140",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K045",
+    "left_keyword": "Alopecia areata",
+    "right_source_id": "K046",
+    "right_keyword": "Androgenetic alopecia",
+    "relation": "DIFFERENT_CONCEPT",
+    "rationale_ko": "원형탈모와 안드로겐성 탈모는 다르다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-108",
+      "SRC-142",
+      "SRC-143",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K063",
+    "left_keyword": "Cutaneous lupus erythematosus",
+    "right_source_id": "K064",
+    "right_keyword": "Systemic lupus erythematosus",
+    "relation": "RELATED_NOT_SYNONYMS",
+    "rationale_ko": "피부 루푸스는 전신성 루푸스와 동반되거나 독립적으로 나타날 수 있다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-156",
+      "SRC-157",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K067",
+    "left_keyword": "Axial spondyloarthritis",
+    "right_source_id": "K068",
+    "right_keyword": "Ankylosing spondylitis",
+    "relation": "BROADER",
+    "rationale_ko": "축성 척추관절염 스펙트럼에는 강직성 척추염 외 형태도 있다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-060",
+      "SRC-160",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K069",
+    "left_keyword": "Gout",
+    "right_source_id": "K070",
+    "right_keyword": "Pseudogout",
+    "relation": "DIFFERENT_CRYSTAL_DISEASE",
+    "rationale_ko": "요산염 통풍과 칼슘 피로인산 관련 가성통풍을 구별한다.",
+    "evidence_refs": [
+      "SRC-025",
+      "SRC-036",
+      "SRC-042",
+      "SRC-061",
+      "SRC-161",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K073",
+    "left_keyword": "Dermatomyositis",
+    "right_source_id": "K074",
+    "right_keyword": "Polymyositis",
+    "relation": "DIFFERENT_CONCEPT",
+    "rationale_ko": "피부근염과 다발근염은 별도 질환명이다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-164",
+      "SRC-165",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K083",
+    "left_keyword": "Osteoporosis",
+    "right_source_id": "K084",
+    "right_keyword": "Osteopenia",
+    "relation": "DIFFERENT_DIAGNOSTIC_SCOPE",
+    "rationale_ko": "골다공증과 골감소증을 단일 동의어로 합치지 않는다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-062",
+      "SRC-174",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K087",
+    "left_keyword": "Inflammatory bowel disease",
+    "right_source_id": "K085",
+    "right_keyword": "Crohn disease",
+    "relation": "BROADER",
+    "rationale_ko": "IBD 질환군과 크론병은 상하위 범위다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-175",
+      "SRC-177",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K087",
+    "left_keyword": "Inflammatory bowel disease",
+    "right_source_id": "K086",
+    "right_keyword": "Ulcerative colitis",
+    "relation": "BROADER",
+    "rationale_ko": "IBD 질환군과 궤양성 대장염은 상하위 범위다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-176",
+      "SRC-177",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K085",
+    "left_keyword": "Crohn disease",
+    "right_source_id": "K086",
+    "right_keyword": "Ulcerative colitis",
+    "relation": "DIFFERENT_CONCEPT",
+    "rationale_ko": "크론병과 궤양성 대장염을 따로 유지한다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-175",
+      "SRC-176",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K088",
+    "left_keyword": "Irritable bowel syndrome",
+    "right_source_id": "K087",
+    "right_keyword": "Inflammatory bowel disease",
+    "relation": "DIFFERENT_CONCEPT",
+    "rationale_ko": "기능성 IBS와 염증성 IBD는 약어가 비슷해도 다르다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-177",
+      "SRC-178",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K090",
+    "left_keyword": "Gastroesophageal reflux disease",
+    "right_source_id": "K091",
+    "right_keyword": "Barrett esophagus",
+    "relation": "RELATED_NOT_SYNONYMS",
+    "rationale_ko": "역류 질환과 바렛 화생은 연관되나 같은 개념이 아니다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-180",
+      "SRC-181",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K094",
+    "left_keyword": "Peptic ulcer disease",
+    "right_source_id": "K095",
+    "right_keyword": "Gastric ulcer",
+    "relation": "BROADER",
+    "rationale_ko": "소화성 궤양 질환군보다 위궤양이 부위상 좁다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-184",
+      "SRC-185",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K094",
+    "left_keyword": "Peptic ulcer disease",
+    "right_source_id": "K096",
+    "right_keyword": "Duodenal ulcer",
+    "relation": "BROADER",
+    "rationale_ko": "소화성 궤양 질환군보다 십이지장궤양이 부위상 좁다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-184",
+      "SRC-186",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K095",
+    "left_keyword": "Gastric ulcer",
+    "right_source_id": "K096",
+    "right_keyword": "Duodenal ulcer",
+    "relation": "DIFFERENT_SITE_SCOPE",
+    "rationale_ko": "위와 십이지장의 부위를 구별한다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-185",
+      "SRC-186",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K097",
+    "left_keyword": "Helicobacter pylori infection",
+    "right_source_id": "K098",
+    "right_keyword": "Gastritis",
+    "relation": "RELATED_NOT_SYNONYMS",
+    "rationale_ko": "병원체 감염과 위염은 같은 개념이 아니다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-187",
+      "SRC-188",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K106",
+    "left_keyword": "Acute pancreatitis",
+    "right_source_id": "K107",
+    "right_keyword": "Chronic pancreatitis",
+    "relation": "DIFFERENT_CHRONICITY_SCOPE",
+    "rationale_ko": "급성과 만성 췌장염을 구별한다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-194",
+      "SRC-195",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K107",
+    "left_keyword": "Chronic pancreatitis",
+    "right_source_id": "K108",
+    "right_keyword": "Pancreatic insufficiency",
+    "relation": "RELATED_NOT_SYNONYMS",
+    "rationale_ko": "췌장 염증과 외분비 기능부전은 동반 가능해도 다르다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-065",
+      "SRC-102",
+      "SRC-195",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K109",
+    "left_keyword": "Primary biliary cholangitis",
+    "right_source_id": "K110",
+    "right_keyword": "Primary sclerosing cholangitis",
+    "relation": "DIFFERENT_CONCEPT",
+    "rationale_ko": "원발성 담즙성·경화성 담관염은 별도 질환이다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-103",
+      "SRC-196",
+      "SRC-197",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K112",
+    "left_keyword": "Hepatitis B",
+    "right_source_id": "K113",
+    "right_keyword": "Hepatitis C",
+    "relation": "DIFFERENT_PATHOGEN_SCOPE",
+    "rationale_ko": "B형과 C형 간염 감염을 구별한다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-199",
+      "SRC-200",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K116",
+    "left_keyword": "Nonalcoholic fatty liver disease",
+    "right_source_id": "K117",
+    "right_keyword": "Metabolic dysfunction associated steatotic liver disease",
+    "relation": "HISTORICAL_RENAMING_WITH_CRITERIA_REVIEW",
+    "rationale_ko": "NAFLD/MASLD 명칭 관계와 환자 기준 동등성을 분리한다.",
+    "evidence_refs": [
+      "SRC-016",
+      "SRC-017",
+      "SRC-036",
+      "SRC-037",
+      "SRC-042",
+      "SRC-066",
+      "SRC-203",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K118",
+    "left_keyword": "Cholelithiasis",
+    "right_source_id": "K119",
+    "right_keyword": "Cholecystitis",
+    "relation": "RELATED_NOT_SYNONYMS",
+    "rationale_ko": "결석 존재와 담낭 염증을 구별한다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-204",
+      "SRC-205",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K122",
+    "left_keyword": "Colorectal cancer",
+    "right_source_id": "K123",
+    "right_keyword": "Colon cancer",
+    "relation": "BROADER",
+    "rationale_ko": "대장직장암보다 결장암이 부위상 좁다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-207",
+      "SRC-208",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K122",
+    "left_keyword": "Colorectal cancer",
+    "right_source_id": "K124",
+    "right_keyword": "Rectal cancer",
+    "relation": "BROADER",
+    "rationale_ko": "대장직장암보다 직장암이 부위상 좁다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-207",
+      "SRC-209",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K123",
+    "left_keyword": "Colon cancer",
+    "right_source_id": "K124",
+    "right_keyword": "Rectal cancer",
+    "relation": "DIFFERENT_SITE_SCOPE",
+    "rationale_ko": "결장과 직장 위치를 구별한다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-208",
+      "SRC-209",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K130",
+    "left_keyword": "Small cell lung cancer",
+    "right_source_id": "K131",
+    "right_keyword": "Non-small cell lung cancer",
+    "relation": "DIFFERENT_HISTOLOGY_SCOPE",
+    "rationale_ko": "소세포·비소세포 폐암을 구별한다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-215",
+      "SRC-216",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K131",
+    "left_keyword": "Non-small cell lung cancer",
+    "right_source_id": "K132",
+    "right_keyword": "Lung adenocarcinoma",
+    "relation": "BROADER",
+    "rationale_ko": "NSCLC 그룹과 폐 선암을 구별한다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-216",
+      "SRC-217",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K131",
+    "left_keyword": "Non-small cell lung cancer",
+    "right_source_id": "K133",
+    "right_keyword": "Lung squamous cell carcinoma",
+    "relation": "BROADER",
+    "rationale_ko": "NSCLC 그룹과 폐 편평세포암을 구별한다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-216",
+      "SRC-218",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K137",
+    "left_keyword": "Prostate cancer",
+    "right_source_id": "K138",
+    "right_keyword": "Castration-resistant prostate cancer",
+    "relation": "BROADER",
+    "rationale_ko": "일반 전립선암에 거세 저항성을 추가하지 않는다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-222",
+      "SRC-223",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K140",
+    "left_keyword": "Renal cell carcinoma",
+    "right_source_id": "K141",
+    "right_keyword": "Clear cell renal cell carcinoma",
+    "relation": "BROADER",
+    "rationale_ko": "RCC 그룹과 투명세포 아형을 구별한다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-225",
+      "SRC-226",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K149",
+    "left_keyword": "Head and neck squamous cell carcinoma",
+    "right_source_id": "K150",
+    "right_keyword": "Oral squamous cell carcinoma",
+    "relation": "BROADER",
+    "rationale_ko": "두경부 SCC 그룹보다 구강 SCC가 좁다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-068",
+      "SRC-234",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K151",
+    "left_keyword": "Thyroid cancer",
+    "right_source_id": "K152",
+    "right_keyword": "Papillary thyroid carcinoma",
+    "relation": "BROADER",
+    "rationale_ko": "갑상선 암 일반과 유두 carcinoma를 구별한다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-235",
+      "SRC-236",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K151",
+    "left_keyword": "Thyroid cancer",
+    "right_source_id": "K153",
+    "right_keyword": "Medullary thyroid carcinoma",
+    "relation": "BROADER",
+    "rationale_ko": "갑상선 암 일반과 수질 carcinoma를 구별한다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-235",
+      "SRC-237",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K162",
+    "left_keyword": "Acute lymphoblastic leukemia",
+    "right_source_id": "K164",
+    "right_keyword": "Chronic lymphocytic leukemia",
+    "relation": "DIFFERENT_CONCEPT",
+    "rationale_ko": "급성 림프모구 백혈병과 CLL을 계층 오류로 합치지 않는다.",
+    "evidence_refs": [
+      "SRC-023",
+      "SRC-036",
+      "SRC-042",
+      "SRC-246",
+      "SRC-248",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K166",
+    "left_keyword": "Multiple myeloma",
+    "right_source_id": "K175",
+    "right_keyword": "Monoclonal gammopathy of undetermined significance",
+    "relation": "RELATED_NOT_SYNONYMS",
+    "rationale_ko": "다발골수종과 MGUS는 악성 진단 범위가 다르다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-250",
+      "SRC-258",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K176",
+    "left_keyword": "Type 2 diabetes",
+    "right_source_id": "K179",
+    "right_keyword": "TYPE 2 DIABETES",
+    "relation": "SAME_BASE_CONCEPT",
+    "rationale_ko": "대소문자 변형의 제2형 당뇨병이다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-259",
+      "SRC-262",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K177",
+    "left_keyword": "T2DM",
+    "right_source_id": "K180",
+    "right_keyword": "T1DM",
+    "relation": "DIFFERENT_TYPE_NUMBER",
+    "rationale_ko": "T2DM과 T1DM의 숫자를 유지한다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-260",
+      "SRC-263",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K182",
+    "left_keyword": "Prediabetes",
+    "right_source_id": "K176",
+    "right_keyword": "Type 2 diabetes",
+    "relation": "RELATED_NOT_SYNONYMS",
+    "rationale_ko": "당뇨 전단계를 제2형 당뇨병으로 올리지 않는다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-259",
+      "SRC-265",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K183",
+    "left_keyword": "Diabetic ketoacidosis",
+    "right_source_id": "K006",
+    "right_keyword": "Type 1 diabetes mellitus",
+    "relation": "COMPLICATION_ASSOCIATION_NOT_SYNONYM",
+    "rationale_ko": "DKA는 제1형 당뇨병 자체의 동의어가 아니다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-113",
+      "SRC-266",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K187",
+    "left_keyword": "Obesity",
+    "right_source_id": "K188",
+    "right_keyword": "Overweight",
+    "relation": "DIFFERENT_DIAGNOSTIC_SCOPE",
+    "rationale_ko": "비만과 과체중의 범위를 구별한다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-071",
+      "SRC-269",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K189",
+    "left_keyword": "Hypercholesterolemia",
+    "right_source_id": "K190",
+    "right_keyword": "Familial hypercholesterolemia",
+    "relation": "FINDING_ETIOLOGY_RELATED_NOT_SYNONYM",
+    "rationale_ko": "콜레스테롤 증가 소견만으로 가족성 유전 질환을 확정하지 않는다.",
+    "evidence_refs": [
+      "SRC-018",
+      "SRC-036",
+      "SRC-042",
+      "SRC-072",
+      "SRC-109",
+      "SRC-270",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K193",
+    "left_keyword": "Hypothyroidism",
+    "right_source_id": "K194",
+    "right_keyword": "Hashimoto thyroiditis",
+    "relation": "FUNCTION_ETIOLOGY_RELATED_NOT_SYNONYM",
+    "rationale_ko": "기능저하 소견과 하시모토 자가면역 질환을 구별한다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-272",
+      "SRC-273",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K195",
+    "left_keyword": "Hyperthyroidism",
+    "right_source_id": "K196",
+    "right_keyword": "Graves disease",
+    "relation": "FUNCTION_ETIOLOGY_RELATED_NOT_SYNONYM",
+    "rationale_ko": "기능항진 전체와 그레이브스 원인을 구별한다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-274",
+      "SRC-275",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K204",
+    "left_keyword": "Polycystic ovary syndrome",
+    "right_source_id": "K207",
+    "right_keyword": "Infertility",
+    "relation": "RELATED_NOT_SYNONYMS",
+    "rationale_ko": "PMOS/PCOS와 불임은 같은 개념이 아니다.",
+    "evidence_refs": [
+      "SRC-019",
+      "SRC-036",
+      "SRC-041",
+      "SRC-042",
+      "SRC-076",
+      "SRC-098",
+      "SRC-282",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K206",
+    "left_keyword": "Uterine fibroids",
+    "right_source_id": "K145",
+    "right_keyword": "Uterine leiomyosarcoma",
+    "relation": "BENIGN_MALIGNANT_DISTINCT",
+    "rationale_ko": "자궁 근종과 평활근육종을 양성·악성 차이 없이 합치지 않는다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-075",
+      "SRC-092",
+      "SRC-230",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K210",
+    "left_keyword": "Overactive bladder",
+    "right_source_id": "K211",
+    "right_keyword": "Urinary incontinence",
+    "relation": "RELATED_NOT_SYNONYMS",
+    "rationale_ko": "과민성 방광은 요실금을 반드시 요구하지 않는다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-077",
+      "SRC-286",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K212",
+    "left_keyword": "Acute kidney injury",
+    "right_source_id": "K017",
+    "right_keyword": "CKD",
+    "relation": "DIFFERENT_CHRONICITY_SCOPE",
+    "rationale_ko": "급성 신손상과 CKD는 동반돼도 서로 동의어가 아니다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-123",
+      "SRC-287",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K217",
+    "left_keyword": "Nephrotic syndrome",
+    "right_source_id": "K218",
+    "right_keyword": "Focal segmental glomerulosclerosis",
+    "relation": "SYNDROME_PATHOLOGY_RELATED_NOT_SYNONYM",
+    "rationale_ko": "신증후군과 FSGS 병리를 구별한다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-292",
+      "SRC-293",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K230",
+    "left_keyword": "Heart failure",
+    "right_source_id": "K231",
+    "right_keyword": "Heart failure with reduced ejection fraction",
+    "relation": "BROADER",
+    "rationale_ko": "심부전 일반보다 reduced EF 표현이 좁다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-079",
+      "SRC-097",
+      "SRC-304",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K230",
+    "left_keyword": "Heart failure",
+    "right_source_id": "K232",
+    "right_keyword": "Heart failure with preserved ejection fraction",
+    "relation": "BROADER",
+    "rationale_ko": "심부전 일반보다 preserved EF 표현이 좁다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-080",
+      "SRC-097",
+      "SRC-304",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K231",
+    "left_keyword": "Heart failure with reduced ejection fraction",
+    "right_source_id": "K232",
+    "right_keyword": "Heart failure with preserved ejection fraction",
+    "relation": "DIFFERENT_EF_SCOPE",
+    "rationale_ko": "감소·보존 박출률의 표현을 구별한다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-079",
+      "SRC-080",
+      "SRC-097"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K233",
+    "left_keyword": "Atrial fibrillation",
+    "right_source_id": "K234",
+    "right_keyword": "Atrial flutter",
+    "relation": "DIFFERENT_RHYTHM_SCOPE",
+    "rationale_ko": "심방세동과 심방조동은 다르다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-305",
+      "SRC-306",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K241",
+    "left_keyword": "Deep vein thrombosis",
+    "right_source_id": "K242",
+    "right_keyword": "Pulmonary embolism",
+    "relation": "RELATED_NOT_SYNONYMS",
+    "rationale_ko": "DVT와 폐색전증의 원인·발현 관계를 동의어로 만들지 않는다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-081",
+      "SRC-313",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K243",
+    "left_keyword": "Ischemic stroke",
+    "right_source_id": "K244",
+    "right_keyword": "Hemorrhagic stroke",
+    "relation": "DIFFERENT_PATHOPHYSIOLOGY",
+    "rationale_ko": "허혈성과 출혈성 뇌졸중을 구별한다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-314",
+      "SRC-315",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K243",
+    "left_keyword": "Ischemic stroke",
+    "right_source_id": "K245",
+    "right_keyword": "Transient ischemic attack",
+    "relation": "RELATED_NOT_SYNONYMS",
+    "rationale_ko": "뇌경색 질환과 일과성 허혈성 사건을 구별한다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-314",
+      "SRC-316",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K246",
+    "left_keyword": "Asthma",
+    "right_source_id": "K247",
+    "right_keyword": "Severe eosinophilic asthma",
+    "relation": "BROADER",
+    "rationale_ko": "천식 일반에 중증·호산구성을 추가하지 않는다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-082",
+      "SRC-096",
+      "SRC-317",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K248",
+    "left_keyword": "Chronic obstructive pulmonary disease",
+    "right_source_id": "K249",
+    "right_keyword": "Emphysema",
+    "relation": "SCOPE_RELATED_NOT_SYNONYMS",
+    "rationale_ko": "폐 위치 미지정 emphysema를 COPD 전체 또는 폐기종만의 별칭으로 쓰지 않는다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-038",
+      "SRC-042",
+      "SRC-318",
+      "SRC-319",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K253",
+    "left_keyword": "Interstitial lung disease",
+    "right_source_id": "K252",
+    "right_keyword": "Idiopathic pulmonary fibrosis",
+    "relation": "BROADER",
+    "rationale_ko": "ILD 질환군과 IPF 한 질환을 구별한다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-322",
+      "SRC-323",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K259",
+    "left_keyword": "COVID-19",
+    "right_source_id": "K260",
+    "right_keyword": "Long COVID",
+    "relation": "DIFFERENT_COURSE_SCOPE",
+    "rationale_ko": "급성 COVID-19와 감염 후 Long COVID를 구별한다.",
+    "evidence_refs": [
+      "SRC-009",
+      "SRC-020",
+      "SRC-036",
+      "SRC-042",
+      "SRC-329",
+      "SRC-330",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K261",
+    "left_keyword": "Tuberculosis",
+    "right_source_id": "K262",
+    "right_keyword": "Nontuberculous mycobacterial infection",
+    "relation": "DIFFERENT_PATHOGEN_GROUP",
+    "rationale_ko": "결핵과 비결핵성 마이코박테리아 감염을 구별한다.",
+    "evidence_refs": [
+      "SRC-010",
+      "SRC-011",
+      "SRC-021",
+      "SRC-036",
+      "SRC-042",
+      "SRC-083",
+      "SRC-331",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K265",
+    "left_keyword": "Herpes zoster",
+    "right_source_id": "K266",
+    "right_keyword": "Recurrent herpes simplex",
+    "relation": "DIFFERENT_PATHOGEN_SCOPE",
+    "rationale_ko": "대상포진과 재발성 HSV를 구별한다.",
+    "evidence_refs": [
+      "SRC-022",
+      "SRC-036",
+      "SRC-042",
+      "SRC-084",
+      "SRC-334",
+      "SRC-364",
+      "SRC-366"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K278",
+    "left_keyword": "Epilepsy",
+    "right_source_id": "K279",
+    "right_keyword": "Focal epilepsy",
+    "relation": "BROADER",
+    "rationale_ko": "뇌전증 전체와 국소 뇌전증을 구별한다.",
+    "evidence_refs": [
+      "SRC-034",
+      "SRC-035",
+      "SRC-036",
+      "SRC-042",
+      "SRC-344",
+      "SRC-345",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K280",
+    "left_keyword": "Migraine",
+    "right_source_id": "K281",
+    "right_keyword": "Chronic migraine",
+    "relation": "BROADER",
+    "rationale_ko": "편두통 일반과 만성 아형을 구별한다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-087",
+      "SRC-346",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K280",
+    "left_keyword": "Migraine",
+    "right_source_id": "K282",
+    "right_keyword": "Cluster headache",
+    "relation": "DIFFERENT_HEADACHE_DISORDER",
+    "rationale_ko": "편두통과 군발두통을 구별한다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-346",
+      "SRC-347",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K284",
+    "left_keyword": "Peripheral neuropathy",
+    "right_source_id": "K286",
+    "right_keyword": "Neuropathic pain",
+    "relation": "RELATED_NOT_SYNONYMS",
+    "rationale_ko": "말초신경병증과 중추·말초를 포함하는 신경병성 통증을 구별한다.",
+    "evidence_refs": [
+      "SRC-032",
+      "SRC-036",
+      "SRC-042",
+      "SRC-088",
+      "SRC-349",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K286",
+    "left_keyword": "Neuropathic pain",
+    "right_source_id": "K287",
+    "right_keyword": "Chronic pain",
+    "relation": "RELATED_NOT_SYNONYMS",
+    "rationale_ko": "신경병성 통증과 모든 만성 통증은 같은 범위가 아니다.",
+    "evidence_refs": [
+      "SRC-032",
+      "SRC-036",
+      "SRC-042",
+      "SRC-088",
+      "SRC-089",
+      "SRC-110"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K288",
+    "left_keyword": "Major depressive disorder",
+    "right_source_id": "K289",
+    "right_keyword": "Bipolar disorder",
+    "relation": "DIFFERENT_CONCEPT",
+    "rationale_ko": "주요우울장애와 양극성 장애를 구별한다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-351",
+      "SRC-352",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  },
+  {
+    "left_source_id": "K299",
+    "left_keyword": "Anorexia nervosa",
+    "right_source_id": "K300",
+    "right_keyword": "Binge eating disorder",
+    "relation": "DIFFERENT_EATING_DISORDER",
+    "rationale_ko": "신경성 식욕부진증과 폭식장애의 범위를 구별한다.",
+    "evidence_refs": [
+      "SRC-036",
+      "SRC-042",
+      "SRC-105",
+      "SRC-106",
+      "SRC-362",
+      "SRC-363",
+      "SRC-364"
+    ],
+    "is_ontology_assertion": false,
+    "use_for_synonym_union": false
+  }
+]

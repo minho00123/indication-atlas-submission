@@ -1,0 +1,56 @@
+# 실행과 제출 자료
+
+## 웹에서 확인하는 순서
+
+1. 딕셔너리에서 CD·T2DM·PASC·NAFLD를 검색한다.
+2. 개념을 선택하고 원문별 판단·후보 정의·공식 출처를 확인한다.
+3. 원본 300건에서 보류·자체 개념 등을 필터한다.
+4. 판단 사례에서 같은 개념과 다른 범위의 구별을 살펴본다.
+5. 가이드라인·서비스 조사·방법과 한계를 읽고 필요한 파일을 내려받는다.
+
+## 로컬 실행
+
+Python 3.9 이상을 사용한다. 추가 패키지 설치나 API 키가 필요 없다. 저장소 최상위 폴더에서 실행한다.
+
+```bash
+python3 tools/serve.py
+```
+
+터미널에 표시되는 http://127.0.0.1:8787 주소를 연다. 종료는 Ctrl+C다. 다른 포트는 `python3 tools/serve.py --port 8790`으로 지정한다.
+
+## 빌드와 데이터 확인
+
+```bash
+python3 tools/build.py
+python3 tools/dataset.py --term CD
+python3 tools/score_legacy.py
+python3 -m unittest discover -s tests -p 'test_*.py'
+```
+
+정적 결과는 `dist/`에 생성된다. 파일을 더블클릭하는 대신 로컬 웹 서버 또는 배포 URL로 연다. 빌드는 고정한 판정을 검증·출력하며 새 의학 판정을 생성하지 않는다. score_legacy.py는 구 정책 실험의 저장된 예측을 재채점하며 현재 사전의 정확도를 평가하지 않는다.
+
+## GitHub와 Netlify
+
+이 폴더를 GitHub 저장소에 올리고 Netlify의 기존 프로젝트에서 저장소를 연결하거나 새 프로젝트로 가져온다. 아래 설정은 `netlify.toml`에도 기록되어 있다.
+
+| 항목 | 값 |
+|---|---|
+| Base directory | 비워 둠: 저장소 루트 |
+| Build command | python3 tools/build.py |
+| Publish directory | dist |
+| Production branch | main |
+
+GitHub에 push하면 Netlify가 정적 파일을 다시 빌드하도록 연결할 수 있다. 실제 배포 URL은 연결 후 Netlify가 제공하는 주소를 사용한다. [Netlify 공식 Git 배포 안내](https://docs.netlify.com/deploy/create-deploys/)
+
+## 파일 안내
+
+| 경로 | 내용 |
+|---|---|
+| app/ | 화면·스타일·브라우저 검색 코드 |
+| data/ | 300행 판정, 개념·별칭·비교 사례·근거 목록·원본 XLSX |
+| evidence/ | 공식 응답·MONDO 발췌·웹 인용 기록 |
+| docs/ | 가이드라인·서비스 조사·구축 방법·실행 설명 |
+| tools/ | 데이터 검증과 정적 빌드·로컬 실행 |
+| tests/ | 원문·검색·그룹·근거와 빌드 검증 |
+
+웹의 CSV·JSON·ZIP은 같은 판정 스냅샷에서 생성한다. ZIP에는 실행에 필요한 코드와 자료가 포함되고 Git 이력·가상환경·생성된 dist는 포함하지 않는다.

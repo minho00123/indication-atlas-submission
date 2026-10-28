@@ -1,0 +1,30 @@
+{
+  "dataset_version": "2.2.1",
+  "as_of": "2026-10-28",
+  "records": 300,
+  "concepts": 287,
+  "alias_connections": 419,
+  "unique_alias_spellings": 404,
+  "source_holds": [
+    "K009",
+    "K024"
+  ],
+  "comparison_pairs": 87,
+  "source_api_snapshots": 676,
+  "independent_expert_approvals": 0,
+  "interpretation": "Frozen research adjudications with citations; not a clinical diagnostic or patient eligibility system.",
+  "baseline_judgments_sha256": "ad8b93c7f61296ddd983c39f703e7b9d4dea77a7b56acc261f7d89c03bbb483a",
+  "files": {
+    "data/comparisons.json": "6c93429235ed7b7b469c18f400c4355560d87b46eb392bcb8ced6ae34c5773e2",
+    "data/dictionary.json": "99a172e6dfeb9a70f9bec2f0c483edc81727bbddb7a8789e23c89709dbcceb5f",
+    "data/input/indication_keywords_300.xlsx": "4b19bcd4f606888e46d7c7a295471057e7b59e3d42d6004482d0e53cf94ecf01",
+    "data/records.json": "8a22b5de857ef3f5658caba73c3c08b44c14e6549dcde97a2870578f56e5e740",
+    "data/sources.json": "b6ba2450fe62e202839077b83296699f87bea3cbdb3bdd136894979ce606ef8f",
+    "evidence/api-manifest.json": "5aa0d80b3a6e39c2e4a2d663baae8868cc4d9590f8abe6cd87c2d93c7ba867a7",
+    "evidence/cortellis_ontologies_excerpt.json": "bbb77182a8413590bc632123d9c207edf5c4b5451ed6c618924954a1bae1cfa6",
+    "evidence/embase_emtree_excerpt.json": "8a1522b8b2d465a9efd5126fa948dd15b9153d124950c5e31eb3b3cfe9db2ae0",
+    "evidence/monash_pmos_excerpt.json": "627a1118a935990248c7e2626b0683eb40a365e747ea05b902997f043a203493",
+    "evidence/mondo-terms.json": "0534305dbbb40f1c0b89636483a2d6c60f3cacbc4adc1e9267b242f25f97f4ca",
+    "evidence/official-api-responses.zip": "5c67a565982dae0d7ac569ee40e22c5c9839fc9eb6502ea1d669e988655da7a3"
+  }
+}

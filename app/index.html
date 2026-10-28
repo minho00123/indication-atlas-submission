@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="300개 질환 표현의 개념 연결, 동의어와 판단 근거를 탐색하는 Indication Atlas.">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#0e756c">
+  <title>Indication Atlas — 질환 동의어와 판단 근거</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">본문으로 이동</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#dictionary" aria-label="Indication Atlas 홈">
+        <svg class="brand-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true"><rect width="36" height="36" rx="10" fill="currentColor"/><path d="M10 26 18 9l8 17M13 20h10" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="18" cy="9" r="2.2" fill="#8ae0cc"/><circle cx="10" cy="26" r="2.2" fill="#8ae0cc"/><circle cx="26" cy="26" r="2.2" fill="#8ae0cc"/></svg>
+        <span>Indication<span class="brand-light"> Atlas</span><small>질환 동의어와 판단 근거</small></span>
+      </a>
+      <nav class="main-nav" aria-label="주 메뉴">
+        <a href="#dictionary" data-nav="dictionary">딕셔너리</a>
+        <a href="#records" data-nav="records">원본 300건</a>
+        <a href="#cases" data-nav="cases">판단 사례</a>
+        <a href="#materials" data-nav="materials">구축·제출 자료</a>
+      </nav>
+      <a class="header-download" href="#materials/downloads">자료 받기 <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+  <main id="main-content" tabindex="-1">
+    <div class="loading-state" role="status"><span class="loading-dot"></span>딕셔너리를 준비하고 있습니다.</div>
+  </main>
+  <footer class="site-footer"><div><span class="footer-brand">Indication Atlas</span><span>질환 표현과 판단 근거를 함께 살펴보는 연구용 사전</span></div><a href="#materials/methodology">구축 방법과 검증 범위 ↗</a><span id="data-version"></span></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <noscript><p class="noscript">검색에는 JavaScript가 필요합니다. <a href="./downloads/judgments.csv">300건 판단표 내려받기</a>로 전체 결과를 확인할 수 있습니다.</p></noscript>
+</body>
+</html>

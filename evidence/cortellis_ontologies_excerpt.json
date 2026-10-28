@@ -1,0 +1,9 @@
+{
+  "url": "https://cortellislabs.com/api/ontologies/",
+  "checked_on": "2026-10-28",
+  "locator": "Ontologies; taxonomy functions; idMappings; NER",
+  "verified_excerpt": "Search for synonyms for a given term",
+  "supports": "Public API documentation describes synonyms, hierarchy, identifier mapping and NER; no licensed API was called.",
+  "capture_method": "EXCERPT_TRANSCRIBED_FROM_OFFICIAL_PAGE_TEXT_VERIFIED_WITH_WEB_TOOL",
+  "snapshot_type": "VERIFIED_EXCERPT_NOT_ARCHIVED_FULL_PAGE"
+}

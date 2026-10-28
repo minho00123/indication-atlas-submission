@@ -1,0 +1,9 @@
+{
+  "url": "https://www.monash.edu/medicine/mchri/pcos/guideline",
+  "checked_on": "2026-10-28",
+  "locator": "PCOS Guideline/ PMOS Guideline; opening announcement",
+  "verified_excerpt": "Polyendocrine metabolic ovarian syndrome (PMOS) is the new name",
+  "supports": "The official guideline uses ovarian; the separately cited NICHD page uses Ovary.",
+  "capture_method": "EXCERPT_TRANSCRIBED_FROM_OFFICIAL_PAGE_TEXT_VERIFIED_WITH_WEB_TOOL",
+  "snapshot_type": "VERIFIED_EXCERPT_NOT_ARCHIVED_FULL_PAGE"
+}

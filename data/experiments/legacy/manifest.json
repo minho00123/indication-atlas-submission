@@ -1,0 +1,51 @@
+{
+  "description": "Archived exploratory experiment; historical labels, not current dictionary accuracy.",
+  "date": "2026-10-27",
+  "items": 30,
+  "repetitions": 3,
+  "models": [
+    "claude-sonnet-5-5"
+  ],
+  "input_fields": {
+    "A": [
+      "source_id",
+      "keyword"
+    ],
+    "B": [
+      "source_id",
+      "keyword",
+      "raw_context"
+    ],
+    "C": [
+      "source_id",
+      "keyword",
+      "raw_context"
+    ],
+    "D": [
+      "source_id",
+      "keyword",
+      "raw_context"
+    ]
+  },
+  "post_hoc_context_subset": [
+    "H01",
+    "H02",
+    "H03",
+    "H04",
+    "H05",
+    "H07",
+    "H08"
+  ],
+  "limitations": [
+    "Author-created labels; no independent expert approval",
+    "H28 shares a development concept; not a fully independent holdout",
+    "Historical policies differ from current NAFLD/MASLD, eczema and input-conflict handling",
+    "Three repetitions of the same items are not independent samples"
+  ],
+  "files": {
+    "items.json": "1c22fa1b7e35dd30d7c1920732f6a9af86f4aee45990c8bb50b8dae0cb91f323",
+    "predictions.json": "a8b422bc1f7bcdfcb447ba26f510b39a1bd4cccb1670d4315c74e43244dcb3a1",
+    "prompts.json": "e875f715d50231109dbacdee10b7b94b8714a4ce327d1ec22001eca3233e8ba9",
+    "reference-scores.json": "4ee324cabcb4fc439a4ded648a7a22921ebd6881e24acbfea0e183c64a2f7bf0"
+  }
+}
