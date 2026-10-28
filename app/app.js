@@ -15,7 +15,7 @@ const scopeLabels = {
   PULMONARY_EMPHYSEMA:'폐기종의 의미를 적용합니다. 피하 등 비폐성 위치를 명시한 문맥에는 적용하지 않습니다.',
   MYELOFIBROSIS_UNSPECIFIED_CAUSE:'원인 미지정 골수 섬유화의 범위를 유지합니다. MPN 또는 특정 약물의 적응증 문맥이 있으면 그 제한을 별도로 검토합니다.'
 };
-let data, conceptByKey, recordById, route, searchPage=0, recordPage=0, selectedKey=null;
+let data, conceptByKey, recordById, route, searchPage=0, recordPage=0, aliasPage=0, selectedKey=null;
 const detailCache=new Map(), docCache=new Map();
 const pageSize=9, rowPageSize=25;
 
@@ -74,9 +74,9 @@ function dictionaryPage() {
     <section class="hero" aria-labelledby="hero-title"><div><p class="eyebrow">질환 동의어 딕셔너리 · 구축 결과</p><h1 id="hero-title">${m.records}개 입력을 검토해,<br><span>${m.concepts}개 개념 그룹으로 정리했습니다.</span></h1><p class="hero-copy">같은 이름이라도 문맥·범위가 다르면 묶지 않았고, 근거가 부족한 ${m.holds}건은 보류했습니다.</p><p class="source-note">개념 그룹에는 질환군·소견·상태도 포함합니다. 같은 질환에 연결해도 원문별 전이·재발·치료 조건은 따로 보존합니다.</p></div>
     <div class="hero-example"><p class="eyebrow">같은 표현, 다른 의미</p><div class="mini-flow"><div class="mini-term">CD</div><div class="mini-branches"><div class="mini-branch"><b>Crohn disease</b><small>회결장 염증·누공 문맥</small></div><div class="mini-branch"><b>Celiac disease</b><small>글루텐 관련 장질환 문맥</small></div></div></div><a href="#cases/cd">왜 두 질환으로 구별했을까요? ↗</a></div></section>
     <div class="stats" aria-label="딕셔너리 요약">
-      ${[['제공된 입력',m.records,'건'],['개념 그룹',m.concepts,'개'],['별칭 연결',m.aliases,'건'],['문맥·입력 보류',m.holds,'건']].map(([label,n,u])=>`<div class="stat"><span class="stat-label">${label}</span><span class="stat-value">${n}<small>${u}</small></span></div>`).join('')}
+      ${[['제공된 입력',m.records,'건','#records','전체 입력 보기'],['개념 그룹',m.concepts,'개','#dictionary?view=concepts','개념 목록 보기'],['별칭 연결',m.aliases,'건','#aliases','별칭 목록 보기'],['문맥·입력 보류',m.holds,'건','#records?decision=HOLD','보류된 입력 보기']].map(([label,n,u,href,action])=>`<a class="stat" href="${href}"${href.includes('view=concepts')?' data-concept-list':''} aria-label="${label} ${n}${u} · ${action}"><span class="stat-label">${label}</span><span class="stat-value">${n}<small>${u}</small></span><span class="stat-action">${action} <span aria-hidden="true">↗</span></span></a>`).join('')}
     </div>
-    <section aria-labelledby="search-heading"><div class="section-heading"><div><h2 id="search-heading">딕셔너리 탐색</h2><p>등록된 표현과 연결된 개념을 찾아보세요.</p></div><a href="#records">전체 원본 보기 ↗</a></div>
+    <section id="concept-explorer" aria-labelledby="search-heading"><div class="section-heading"><div><h2 id="search-heading" tabindex="-1">딕셔너리 탐색</h2><p>등록된 표현과 연결된 개념을 찾아보세요.</p></div><a href="#records">전체 원본 보기 ↗</a></div>
     <label class="search-box">${icon}<input id="dictionary-search" type="search" autocomplete="off" aria-label="질환명·약어·원본 번호 검색" placeholder="질환명, 약어 또는 원본 번호를 입력하세요"><span class="search-key" aria-hidden="true">/</span></label>
     <div class="examples"><span>예시 검색</span>${['CD','AML','T2DM','PASC','NAFLD'].map(q=>`<button class="example-chip" data-query="${q}">${q}</button>`).join('')}<span>· ${m.unique_alias_spellings}개 검색 문자열</span></div>
     <div class="explorer"><div id="results" class="panel result-panel"></div><div id="dictionary-detail" class="panel detail"></div></div></section>
@@ -218,6 +218,27 @@ function updateRecords() {
   $('#record-table').innerHTML=`<div class="table-caption"><span id="record-count">${rows.length} / ${data.records.length}건</span><a href="./downloads/judgments.csv" download>전체 CSV 내려받기 ↓</a></div><div class="table-wrap"><table class="record-table"><thead><tr><th>원본 번호</th><th>입력 표현</th><th>선택한 개념</th><th>처리 상태</th><th>판단 요약</th></tr></thead><tbody>${rows.slice(recordPage*rowPageSize,(recordPage+1)*rowPageSize).map(r=>`<tr data-open-record="${r.source_id}"><td><button class="subtle-button" data-open-record="${r.source_id}" aria-label="${r.source_id} 판단 상세 보기">${r.source_id}</button></td><td class="keyword-cell">${esc(r.keyword)}</td><td>${esc(r.standard_name || '단일 개념 연결 보류')}</td><td>${decisionBadge(r)}</td><td class="reason-cell"><span class="truncate">${esc(r.rationale_ko)}</span></td></tr>`).join('') || '<tr><td colspan="5"><div class="empty-state">조건에 맞는 원본이 없습니다. 검색어나 필터를 바꿔 보세요.</div></td></tr>'}</tbody></table></div><div class="pager"><button data-record-page="-1" ${recordPage===0?'disabled':''}>← 이전</button><span>${recordPage+1} / ${pages}</span><button data-record-page="1" ${recordPage>=pages-1?'disabled':''}>다음 →</button></div>`;
 }
 
+function aliasesPage() {
+  $('#main-content').innerHTML=`<div class="container">${heading('표현과 개념의 연결','별칭 연결 목록',`${data.metadata.aliases}개 연결을 확인할 수 있습니다. 고유 검색 문자열은 ${data.metadata.unique_alias_spellings}개이며, 같은 표현도 원본이나 개념이 다르면 별도 연결로 기록합니다.`)}
+    <a class="back-link" href="#dictionary">← 딕셔너리로 돌아가기</a>
+    <label class="search-box">${icon}<input id="alias-search" type="search" placeholder="별칭·개념명·원본 번호 검색" aria-label="별칭 연결 검색"></label>
+    <div id="alias-table" class="panel section-space"></div></div>`;
+  const input=$('#alias-search');input.value=route.params.get('q') ?? '';aliasPage=0;
+  input.addEventListener('input',()=>{
+    aliasPage=0;history.replaceState(null,'',pathFor('aliases',{q:input.value}));route=readRoute();updateAliases();
+  });
+  updateAliases();
+}
+
+function updateAliases() {
+  const q=normalize($('#alias-search').value);
+  const rows=data.aliases.filter(a=>!q || [a.term,a.source_id,conceptByKey.get(a.concept_key)?.preferred_name ?? ''].some(value=>normalize(value).includes(q)));
+  const pages=Math.max(1,Math.ceil(rows.length/rowPageSize));aliasPage=Math.min(aliasPage,pages-1);
+  $('#alias-table').innerHTML=`<div class="table-caption"><span id="alias-count">${rows.length} / ${data.aliases.length}건</span><a href="./downloads/aliases.csv" download>전체 별칭 CSV 내려받기 ↓</a></div>
+    <p class="alias-scroll-note">표를 좌우로 밀면 연결한 개념과 근거 원본을 확인할 수 있습니다.</p><div class="table-wrap" tabindex="0" role="region" aria-label="별칭 연결 표 · 좌우 스크롤 가능"><table class="alias-table"><thead><tr><th>등록된 표현</th><th>연결한 개념</th><th>근거 원본</th><th>적용 조건</th></tr></thead><tbody>${rows.slice(aliasPage*rowPageSize,(aliasPage+1)*rowPageSize).map(a=>`<tr><td><strong>${esc(a.term)}</strong><br><span class="source-note">${esc(kindLabels[a.kind] ?? a.kind)}</span></td><td><a class="source-link" href="${esc(pathFor('dictionary',{concept:a.concept_key,record:a.source_id}))}">${esc(conceptByKey.get(a.concept_key)?.preferred_name ?? a.concept_key)} ↗</a></td><td><a class="source-link" href="${esc(pathFor('records',{record:a.source_id}))}">${esc(a.source_id)} · 판단 근거 ↗</a></td><td>${a.context_required?badge('문맥 확인 필요','amber'):badge('검토한 개념 연결','gray')}</td></tr>`).join('') || '<tr><td colspan="4"><div class="empty-state">일치하는 별칭 연결이 없습니다. 다른 표현으로 검색해 보세요.</div></td></tr>'}</tbody></table></div>
+    <div class="pager"><button data-alias-page="-1" ${aliasPage===0?'disabled':''} aria-label="이전 별칭 목록">← 이전</button><span>${aliasPage+1} / ${pages}</span><button data-alias-page="1" ${aliasPage>=pages-1?'disabled':''} aria-label="다음 별칭 목록">다음 →</button></div>`;
+}
+
 function casesPage() {
   const story=data.stories.find(s=>s.id===route.sub);
   if(!story) {
@@ -254,12 +275,13 @@ async function materialsPage() {
 function render() {
   route=readRoute();
   document.querySelectorAll('[data-nav]').forEach(a=>{
-    const active=a.dataset.nav===route.page;a.classList.toggle('active',active);
+    const active=a.dataset.nav===(route.page==='aliases'?'dictionary':route.page);a.classList.toggle('active',active);
     if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');
   });
-  const titles={dictionary:'딕셔너리',records:'원본 300건',cases:'판단 사례',materials:'구축·제출 자료'};
+  const titles={dictionary:'딕셔너리',aliases:'별칭 연결',records:'원본 300건',cases:'판단 사례',materials:'구축·제출 자료'};
   document.title=`${titles[route.page] ?? '딕셔너리'} | Indication Atlas`;
   if(route.page==='records')recordsPage();
+  else if(route.page==='aliases')aliasesPage();
   else if(route.page==='cases')casesPage();
   else if(route.page==='materials')materialsPage();
   else dictionaryPage();
@@ -275,12 +297,16 @@ document.addEventListener('click', async event=>{
   if(d.selectRecord) { navigate(route.page,{...currentParams(),concept:d.ownerConcept,record:d.selectRecord}); return; }
   if(d.searchPage) { searchPage+=Number(d.searchPage);updateSearch();return; }
   if(d.recordPage) { recordPage+=Number(d.recordPage);updateRecords();return; }
+  if(d.aliasPage) { aliasPage+=Number(d.aliasPage);updateAliases();return; }
   if('recordsBack' in d) { const p=currentParams();delete p.record;delete p.concept;navigate('records',p);return; }
   if('resultsBack' in d) { selectedKey=null; const q=$('#dictionary-search').value; history.replaceState(null,'',pathFor('dictionary',{q}));route=readRoute();updateSearch({autoSelect:false});$('#results').scrollIntoView({block:'start'});return; }
   if('copyLink' in d) { try { await navigator.clipboard.writeText(location.href);toast('현재 판단의 주소를 복사했습니다.'); } catch { toast('주소창의 링크를 복사해 주세요.'); } return; }
   if(d.retryCandidate)loadCandidates(d.retryCandidate);
 });
 document.addEventListener('click',event=>{
+  if(event.target.closest('[data-concept-list]') && route.page==='dictionary' && route.params.get('view')==='concepts') {
+    event.preventDefault();$('#search-heading').focus({preventScroll:true});$('#concept-explorer').scrollIntoView({block:'start',behavior:'instant'});return;
+  }
   if(event.target.closest('.skip-link')) {
     event.preventDefault();$('#main-content').focus();$('#main-content').scrollIntoView({block:'start'});return;
   }
@@ -290,13 +316,16 @@ document.addEventListener('click',event=>{
 });
 document.addEventListener('keydown',event=>{
   if(event.key==='/' && !['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName)) {
-    const input=$('#dictionary-search') ?? $('#record-search');
+    const input=$('#dictionary-search') ?? $('#record-search') ?? $('#alias-search');
     if(input) { event.preventDefault();input.focus(); }
   }
 });
 window.addEventListener('hashchange',()=>{
   const previous=route, next=readRoute(), scrollY=window.scrollY;
   render();
+  if(next.page==='dictionary' && next.params.get('view')==='concepts') {
+    $('#search-heading').focus({preventScroll:true});$('#concept-explorer').scrollIntoView({block:'start',behavior:'instant'});return;
+  }
   if(previous?.page==='dictionary' && next.page==='dictionary') {
     if(window.innerWidth<=760 && selectedKey)$('#dictionary-detail').scrollIntoView({block:'start',behavior:'instant'});
     else window.scrollTo({top:scrollY,behavior:'instant'});
@@ -311,6 +340,9 @@ try {
   recordById=new Map(data.records.map(r=>[r.source_id,r]));
   $('#data-version').textContent=`자료 기준 ${data.metadata.as_of} · v${data.metadata.dataset_version}`;
   render();
+  if(route.page==='dictionary' && route.params.get('view')==='concepts') {
+    $('#search-heading').focus({preventScroll:true});$('#concept-explorer').scrollIntoView({block:'start',behavior:'instant'});
+  }
 } catch {
   $('#main-content').innerHTML='<div class="container"><div class="empty-state"><h1>데이터를 불러오지 못했습니다.</h1><p>인터넷 연결을 확인한 뒤 새로고침해 주세요.</p><p>로컬 실행 시에는 README의 웹 서버 실행 방법을 사용해 주세요.</p><a href="./downloads/judgments.csv">전체 판단표 내려받기 ↓</a></div></div>';
 }
