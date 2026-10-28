@@ -1,10 +1,10 @@
 {
-  "engine_version": "prototype-2",
-  "purpose": "Development regression checks for the eight reviewed inputs; not independent accuracy.",
+  "engine_version": "prototype-3",
+  "purpose": "Development regression checks for reviewed inputs; not independent accuracy.",
   "dependencies": {
-    "app/analyzer.mjs": "500b48761f9254f7447810c5e2f2caf6a12395b3fd9e9834018f764b95022ef7",
-    "app/analyzer-checks.mjs": "96ca72bc7628d10f93e04f7d95caee13af5210f14baa36d4506ce642d451f60d",
-    "data/analyzer_cases.json": "3869ec07f6aada5901f822759c6aa5db987bc3964bdf0196fddf65e20223c86c",
+    "app/analyzer.mjs": "0c1c58c3827a0593bd829c380f247b274e7ebaccbefc430e04d2e83a22ea3a01",
+    "app/analyzer-checks.mjs": "0621b02c98f269045be3664325256301fb8df85af232e75241c8ed1a658927c1",
+    "data/analyzer_cases.json": "3fdf4525f4da1c733c6309949fec5ebcd1ee8e5308a6aa3cdc0b78d8bbf887d5",
     "data/dictionary.json": "db21be58d5bc4a06722d82c6bf65b8a4669b16944e5f93f385366cd2aa95fb32",
     "data/records.json": "afc19eac57e8600e10788856880202926436fdd35642d7541796632dcdeceda3",
     "data/comparisons.json": "282cf7fef0781ca14053bc57db2ffd7342f984f4c2991b13a34d20a05dce2f52",
@@ -26,13 +26,13 @@
         "mention_texts": [
           "non small cell lung cancer"
         ],
-        "target_evidence_status": "AFFIRMED"
+        "target_evidence_status": "NO_CUE_DETECTED"
       },
       "passed": true,
       "result": {
-        "engine_version": "prototype-2",
+        "engine_version": "prototype-3",
         "normalization_status": "LINKED",
-        "target_evidence_status": "AFFIRMED",
+        "target_evidence_status": "NO_CUE_DETECTED",
         "eligibility_status": "NOT_EVALUATED",
         "unsupported_patterns": [],
         "input": {
@@ -76,8 +76,11 @@
             ],
             "concept_key": "MONDO:0005233",
             "status": "RESOLVED",
+            "variant_sources": [],
             "basis": "REVIEWED_ALIAS",
-            "assertion": "AFFIRMED",
+            "modifier": null,
+            "context_flags": [],
+            "assertion": "NO_CUE_DETECTED",
             "concept": {
               "concept_key": "MONDO:0005233",
               "preferred_name": "Non-small cell lung carcinoma",
@@ -99,7 +102,7 @@
             "start": 27,
             "end": 46,
             "role": "CONTEXT_ATTRIBUTE",
-            "assertion": "AFFIRMED",
+            "assertion": "NO_CUE_DETECTED",
             "owner_start": null,
             "ownership": {
               "status": "SINGLE_CONCEPT_IN_CLAUSE",
@@ -109,7 +112,7 @@
             "scope": {
               "clause_start": 0,
               "clause_end": 46,
-              "mention_assertion": "AFFIRMED",
+              "mention_assertion": "NO_CUE_DETECTED",
               "kind": "MENTION_CONTEXT"
             }
           }
@@ -119,7 +122,7 @@
           {
             "rule": "G04",
             "code": "REVIEWED_ALIAS",
-            "message": "기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다."
+            "message": "검토한 이름·별칭 또는 선언한 type 1/2 diabetes 이름 변형과 일치합니다."
           },
           {
             "rule": "G05",
@@ -146,9 +149,9 @@
       },
       "passed": true,
       "result": {
-        "engine_version": "prototype-2",
+        "engine_version": "prototype-3",
         "normalization_status": "LINKED",
-        "target_evidence_status": "AFFIRMED",
+        "target_evidence_status": "NO_CUE_DETECTED",
         "eligibility_status": "NOT_EVALUATED",
         "unsupported_patterns": [],
         "input": {
@@ -192,8 +195,11 @@
             ],
             "concept_key": "MONDO:0005233",
             "status": "RESOLVED",
+            "variant_sources": [],
             "basis": "REVIEWED_ALIAS",
-            "assertion": "AFFIRMED",
+            "modifier": null,
+            "context_flags": [],
+            "assertion": "NO_CUE_DETECTED",
             "concept": {
               "concept_key": "MONDO:0005233",
               "preferred_name": "Non-small cell lung carcinoma",
@@ -215,7 +221,7 @@
             "start": 27,
             "end": 46,
             "role": "CONTEXT_ATTRIBUTE",
-            "assertion": "AFFIRMED",
+            "assertion": "NO_CUE_DETECTED",
             "owner_start": null,
             "ownership": {
               "status": "SINGLE_CONCEPT_IN_CLAUSE",
@@ -225,7 +231,7 @@
             "scope": {
               "clause_start": 0,
               "clause_end": 46,
-              "mention_assertion": "AFFIRMED",
+              "mention_assertion": "NO_CUE_DETECTED",
               "kind": "MENTION_CONTEXT"
             }
           }
@@ -235,7 +241,7 @@
           {
             "rule": "G04",
             "code": "REVIEWED_ALIAS",
-            "message": "기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다."
+            "message": "검토한 이름·별칭 또는 선언한 type 1/2 diabetes 이름 변형과 일치합니다."
           },
           {
             "rule": "G05",
@@ -261,7 +267,7 @@
       },
       "passed": true,
       "result": {
-        "engine_version": "prototype-2",
+        "engine_version": "prototype-3",
         "normalization_status": "REVIEW_REQUIRED",
         "target_evidence_status": "NOT_FOUND",
         "eligibility_status": "NOT_EVALUATED",
@@ -293,7 +299,7 @@
           {
             "rule": "G04",
             "code": "REVIEWED_ALIAS",
-            "message": "기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다."
+            "message": "검토한 이름·별칭 또는 선언한 type 1/2 diabetes 이름 변형과 일치합니다."
           },
           {
             "rule": "G01",
@@ -326,7 +332,7 @@
       },
       "passed": true,
       "result": {
-        "engine_version": "prototype-2",
+        "engine_version": "prototype-3",
         "normalization_status": "LINKED",
         "target_evidence_status": "NEGATED",
         "eligibility_status": "NOT_EVALUATED",
@@ -370,7 +376,10 @@
             ],
             "concept_key": "MONDO:0005083",
             "status": "RESOLVED",
+            "variant_sources": [],
             "basis": "REVIEWED_ALIAS",
+            "modifier": null,
+            "context_flags": [],
             "assertion": "NEGATED",
             "concept": {
               "concept_key": "MONDO:0005083",
@@ -390,8 +399,11 @@
             ],
             "concept_key": "NCIT:C3001",
             "status": "RESOLVED",
+            "variant_sources": [],
             "basis": "REVIEWED_ALIAS",
-            "assertion": "AFFIRMED",
+            "modifier": null,
+            "context_flags": [],
+            "assertion": "NO_CUE_DETECTED",
             "concept": {
               "concept_key": "NCIT:C3001",
               "preferred_name": "Eczema, unspecified",
@@ -411,7 +423,7 @@
           {
             "rule": "G04",
             "code": "REVIEWED_ALIAS",
-            "message": "기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다."
+            "message": "검토한 이름·별칭 또는 선언한 type 1/2 diabetes 이름 변형과 일치합니다."
           }
         ],
         "warnings": [
@@ -438,7 +450,7 @@
       },
       "passed": true,
       "result": {
-        "engine_version": "prototype-2",
+        "engine_version": "prototype-3",
         "normalization_status": "LINKED",
         "target_evidence_status": "NEGATED",
         "eligibility_status": "NOT_EVALUATED",
@@ -482,7 +494,10 @@
             ],
             "concept_key": "MONDO:0005300",
             "status": "RESOLVED",
+            "variant_sources": [],
             "basis": "REVIEWED_ALIAS",
+            "modifier": null,
+            "context_flags": [],
             "assertion": "NEGATED",
             "concept": {
               "concept_key": "MONDO:0005300",
@@ -504,7 +519,7 @@
             "start": 30,
             "end": 47,
             "role": "CONTEXT_ATTRIBUTE",
-            "assertion": "AFFIRMED",
+            "assertion": "NO_CUE_DETECTED",
             "owner_start": null,
             "ownership": {
               "status": "SINGLE_CONCEPT_IN_CLAUSE",
@@ -551,7 +566,7 @@
           {
             "rule": "G04",
             "code": "REVIEWED_ALIAS",
-            "message": "기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다."
+            "message": "검토한 이름·별칭 또는 선언한 type 1/2 diabetes 이름 변형과 일치합니다."
           },
           {
             "rule": "G05",
@@ -582,11 +597,12 @@
       },
       "passed": true,
       "result": {
-        "engine_version": "prototype-2",
+        "engine_version": "prototype-3",
         "normalization_status": "LINKED",
         "target_evidence_status": "UNSUPPORTED_REQUIREMENT",
         "eligibility_status": "NOT_EVALUATED",
         "unsupported_patterns": [
+          "HISTORICAL",
           "REQUIREMENT_NECESSITY"
         ],
         "input": {
@@ -628,7 +644,12 @@
             ],
             "concept_key": "MONDO:0005083",
             "status": "RESOLVED",
+            "variant_sources": [],
             "basis": "REVIEWED_ALIAS",
+            "modifier": null,
+            "context_flags": [
+              "HISTORICAL"
+            ],
             "assertion": "UNSUPPORTED_REQUIREMENT",
             "concept": {
               "concept_key": "MONDO:0005083",
@@ -648,7 +669,7 @@
           {
             "rule": "G04",
             "code": "REVIEWED_ALIAS",
-            "message": "기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다."
+            "message": "검토한 이름·별칭 또는 선언한 type 1/2 diabetes 이름 변형과 일치합니다."
           }
         ],
         "warnings": [
@@ -671,7 +692,7 @@
       },
       "passed": true,
       "result": {
-        "engine_version": "prototype-2",
+        "engine_version": "prototype-3",
         "normalization_status": "REVIEW_REQUIRED",
         "target_evidence_status": "NOT_FOUND",
         "eligibility_status": "NOT_EVALUATED",
@@ -704,8 +725,11 @@
             ],
             "concept_key": "MONDO:0015924",
             "status": "RESOLVED",
+            "variant_sources": [],
             "basis": "REVIEWED_ALIAS",
-            "assertion": "AFFIRMED",
+            "modifier": null,
+            "context_flags": [],
+            "assertion": "NO_CUE_DETECTED",
             "concept": {
               "concept_key": "MONDO:0015924",
               "preferred_name": "pulmonary arterial hypertension",
@@ -724,7 +748,7 @@
           {
             "rule": "G04",
             "code": "REVIEWED_ALIAS",
-            "message": "기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다."
+            "message": "검토한 이름·별칭 또는 선언한 type 1/2 diabetes 이름 변형과 일치합니다."
           },
           {
             "rule": "G01",
@@ -751,7 +775,7 @@
       },
       "passed": true,
       "result": {
-        "engine_version": "prototype-2",
+        "engine_version": "prototype-3",
         "normalization_status": "EXPRESSION_UNRESOLVED",
         "target_evidence_status": "UNRESOLVED",
         "eligibility_status": "NOT_EVALUATED",
@@ -774,7 +798,8 @@
             "concept_key": null,
             "status": "UNREGISTERED",
             "basis": "LOGICAL_OPERAND",
-            "assertion": "AFFIRMED",
+            "assertion": "NO_CUE_DETECTED",
+            "context_flags": [],
             "concept": null
           },
           {
@@ -787,8 +812,11 @@
             ],
             "concept_key": null,
             "status": "AMBIGUOUS",
+            "variant_sources": [],
             "basis": "REVIEWED_ALIAS",
-            "assertion": "AFFIRMED",
+            "modifier": null,
+            "context_flags": [],
+            "assertion": "NO_CUE_DETECTED",
             "concept": null
           }
         ],
@@ -831,7 +859,7 @@
           }
         ],
         "warnings": [
-          "해소하지 못한 문서 내 표현이 있습니다. 다른 개념의 언급만으로 약어를 추측하지 않습니다."
+          "다의·수식어·미등록 때문에 해소하지 못한 문서 내 표현이 있습니다. 다른 개념의 언급만으로 추측하지 않습니다."
         ],
         "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
       }

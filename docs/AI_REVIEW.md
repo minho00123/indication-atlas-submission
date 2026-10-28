@@ -20,6 +20,16 @@ AI를 초안 작성·공식 자료 대조·반례 탐색·구현에 사용했습
 | Codex → Claude 제안 | 부정 접두·절 전체의 부정 복사, 300행 재조회 해석 | [제안 발췌와 원본 해시](./evidence/review_process/proposal_corrections_excerpt.json), [대조 설계](#materials/audit-method) | 일괄 전파를 채택하지 않았습니다. 개념 식별·문장 주장·요건 필수성을 구별하고, PROVIDED_INPUT이 있는 297행과 전체 300행을 구별했습니다. |
 | Codex 대조 실행 중 발견 | 한 의미의 별칭을 제거한 뒤 CD가 반대 의미로 연결되는 위험 | [수정 전 출처 제거 반례](./evidence/review_process/ablation_discovery.json), [현재 B 대조](#materials/audit) | CD·AML의 문서 정의 요구 안전 규칙을 추가했습니다. B에도 남는 전역 정책이며 행 출처 제거를 독립 평가로 포장하지 않습니다. |
 
+## 재확인 후 보강
+
+Claude의 재확인에서 닫힌 수식어 차단 목록과 AFFIRMED 기본값의 문제가 추가로 제기됐습니다. [수정 전 입력 21개](./evidence/review_process/reverify_before.json)와 [수정 후 같은 입력](./evidence/review_process/reverify_after.json)을 제공합니다. 새 반례·지원 범위 확인과 유지 확인 입력을 포함한 개발 기록이며 독립 평가가 아닙니다. [보고서 발췌·원본 해시](./evidence/review_process/reverify_report_excerpt.json)와 대조할 수 있습니다.
+
+수식어를 모르면 기본 개념으로 확정하지 않고, severe·recurrent처럼 검토한 조건은 별도 구간으로 보존합니다. 이름 구간은 있지만 수식 범위를 확인하지 못한 경우를 원문 미검출과 구별했습니다. 기본 표지는 NO_CUE_DETECTED로 바꿨고, 가족력·과거력·기준 절과 불명확한 등위 부정은 미지원·미상으로 표시합니다.
+
+K006은 차단뿐 아니라 짧은 type 1 diabetes 이름 미인식도 확인해 제한된 이름 변형 규칙을 추가했습니다. 제1형 개념을 다른 질환에서 추론한 것이 아닙니다. 대조 A/B/C를 갱신했고, 검토하지 않은 Persistent thirst 수식 범위가 보류되는 변화도 전체 결과에 남겼습니다.
+
+보고서의 ‘정상 동작’ 중 일부는 정확한 대상 표현이 제시되지 않아, 명시적인 대상·원문 조합을 기록하고 실제 실행값을 기대 계약으로 삼았습니다. Uveal melanoma·Ventilator-associated pneumonia를 새로운 승인 개념으로 등록하지 않았습니다. 더 좁은 개념이 현재 사전에 없으면 검토·미등록으로 남기며, 다른 기본 질환에 자동 병합하지 않습니다.
+
 ## 근거를 추적하는 방법
 
 각 링크는 실제 판정 행, 보존한 검토 기록 발췌 또는 실행 결과로 연결됩니다. 검토 발췌에는 원본 파일명·원본 SHA-256·해당 항목을 남겼습니다. 발췌가 원본 전체 파일이라는 뜻은 아닙니다. [포함된 검토 자료의 해시 목록](./evidence/review_process/manifest.json)으로 제출 파일의 변경 여부를 확인할 수 있습니다.

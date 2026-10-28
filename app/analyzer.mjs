@@ -1,6 +1,6 @@
 // Bounded, offline mention-normalization prototype. It does not diagnose patients.
 // New text is evaluated at runtime. Stored raw contexts and rationales are not used.
-export const ENGINE_VERSION = 'prototype-2';
+export const ENGINE_VERSION = 'prototype-3';
 const fold = s => String(s ?? '').normalize('NFKC').toLowerCase().replaceAll('ß','ss').replaceAll('ς','σ').replaceAll('’',"'");
 const normalize = s => fold(s).replace(/\s+/gu,' ').trim();
 const word = ch => !!ch && /[\p{L}\p{N}_]/u.test(ch);
@@ -10,7 +10,31 @@ const keyOf = s => safeVariant(normalize(s));
 const escapeRE = s => s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
 // Declared G02 safety policy survives source ablation; it supplies no disease answer.
 const documentRequired = new Set(['cd','aml']);
-const unsupportedModifier = /\b(?:non|familial|acquired|idiopathic|eosinophilic|psoriatic|juvenile|guttate|pustular|atopic|subcutaneous|supravalvular|subvalvular|endocrine|exocrine|autoimmune|severe|recurrent|castration-resistant)[- ]+$/iu;
+// Unknown adjacent lexical prefixes require review. These are grammatical boundaries,
+// not a blacklist of diseases. Reviewed context modifiers retain their source spans.
+const boundaryWords=new Set('with of for and or nor but however whereas no not without patients patient adults adult children child in among during after before from to by under following within has have had having is are was were mentions mentioned reports reported confirms confirmed diagnosed known a an the both either suspected possible probable potential only'.split(' '));
+const contextModifiers=new Set(['metastatic','relapsed','refractory','recurrent','severe','active']);
+function modifierAt(text,start,keys) {
+  let cursor=start;
+  while(cursor>0) {
+    const prefix=text.slice(0,cursor),m=prefix.match(/([\p{L}\p{N}]+(?:[-‐‑–—][\p{L}\p{N}]+)*)([-‐‑–—]?) *$/u);
+    if(!m)return null;
+    const token=fold(m[1]),span={text:m[0].trim(),start:m.index,end:m.index+m[0].trimEnd().length};
+    if(m[2])return {...span,status:'UNREVIEWED_PREFIX'};
+    if(boundaryWords.has(token))return null;
+    if(contextModifiers.has(token) || (token==='autoimmune' && keys.length===1 && keys[0]==='MONDO:0005147')) { cursor=m.index;continue; }
+    return {...span,status:'UNREVIEWED_PREFIX'};
+  }
+  return null;
+}
+function contextFlagsAt(text,start,end) {
+  const left=text.slice(clauseAt(text,start,end).start,start),flags=[];
+  if(/\bfamily\s+history\s+of\s*$/iu.test(left))flags.push('EXPERIENCER_FAMILY_HISTORY');
+  else if(/\bhistory\s+of\s*$/iu.test(left))flags.push('HISTORICAL');
+  const line=text.slice(text.lastIndexOf('\n',start-1)+1,start);
+  if(/\b(?:exclusion|inclusion)\s+criteria\s*:/iu.test(line))flags.push('SECTION_CONTEXT');
+  return flags;
+}
 function clauseAt(text,start,end) {
   let left=0,right=text.length;
   for(const m of text.matchAll(/[.;!?\n]|\b(?:but|however|whereas)\b/giu)) {
@@ -57,14 +81,24 @@ function shortFormFits(shortForm,longForm) {
 }
 
 function assertionAt(text,start,end) {
-  const left=text.slice(Math.max(0,start-90),start).split(/[.;!?\n]/u).at(-1);
-  const clause=clauseAt(text,start,end),right=text.slice(end,Math.min(clause.end,end+75));
-  if(/^\s*(?:(?:is|was|are|were)\s+)?not required\b/iu.test(right))return 'UNSUPPORTED_REQUIREMENT';
-  if(/\b(?:no(?: history of| evidence of)?|not|without(?: evidence of)?|negative for)\s+(?:(?:metastatic|relapsed|refractory)\s+)?$/iu.test(left)
-      || /^\s*(?:(?:was|is|has been)\s+)?(?:ruled out|absent|not present)\b/iu.test(right))return 'NEGATED';
-  if(/\b(?:suspected|possible|probable|potential|rule out)\s+(?:(?:metastatic|relapsed|refractory)\s+)?$/iu.test(left)
+  const clause=clauseAt(text,start,end),left=text.slice(Math.max(clause.start,start-150),start),right=text.slice(end,Math.min(clause.end,end+90));
+  if(/^\s*(?:(?:is|was|are|were)\s+)?not\s+(?:required|(?:an?\s+)?exclusion criteri(?:on|a))\b/iu.test(right))return 'UNSUPPORTED_REQUIREMENT';
+  if(/\b(?:no(?: history of| evidence of)?|neither|not|without(?: evidence of)?|negative for|(?:do|does|did|must|should)\s+not\s+have|free of|absence of)\s+(?:(?:metastatic|relapsed|refractory|recurrent|severe|active)\s+)*$/iu.test(left)
+      || /^\s*(?:(?:was|were|is|are|has been)\s+)?(?:ruled out|excluded|absent|not present)\b/iu.test(right))return 'NEGATED';
+  if(/\b(?:suspected|possible|probable|potential|rule out)\s+(?:(?:metastatic|relapsed|refractory|recurrent|severe|active)\s+)*$/iu.test(left)
       || /^\s*(?:is|was)\s+(?:suspected|possible|probable)\b/iu.test(right))return 'UNCERTAIN';
-  return 'AFFIRMED';
+  if(contextFlagsAt(text,start,end).length)return 'UNKNOWN';
+  // A cue before an unrecognized first operand cannot establish the full scope.
+  if(/\b(?:no|without|neither|free of|absence of)\b[^.;!?\n]*\b(?:or|and|nor)\s*$/iu.test(left))return 'UNKNOWN';
+  return 'NO_CUE_DETECTED';
+}
+function coordinateAssertions(text,mentions) {
+  for(let i=1;i<mentions.length;i++) {
+    const a=mentions[i-1],b=mentions[i],gap=text.slice(a.end,b.start);
+    if(a.assertion==='NEGATED' && ['NO_CUE_DETECTED','UNKNOWN'].includes(b.assertion) && !b.context_flags?.length && /^\s*(?:(?:,\s*)?(?:or|and|nor)|,)\s*$/iu.test(gap)) {
+      b.assertion='NEGATED';b.assertion_basis='ADJACENT_COORDINATED_CUE';b.assertion_scope={from:a.start,to:b.end};
+    }
+  }
 }
 
 const patterns = [
@@ -73,7 +107,10 @@ const patterns = [
   {type:'disease_status',value:'refractory',pattern:/\brefractory\b/giu},
   {type:'treatment_history',value:'prior_therapy',pattern:/\b(?:after\s+)?prior\s+therapy\b/giu},
   {type:'disease_status',value:'recurrent',pattern:/\brecurrent\b/giu},
-  {type:'severity',value:'severe',pattern:/\bsevere\b/giu,nameOnly:true},
+  {type:'disease_status',value:'active',pattern:/\bactive\b/giu},
+  {type:'etiology',value:'autoimmune',pattern:/\bautoimmune\b/giu},
+  {type:'treatment_requirement',value:'insulin_required',pattern:/\brequiring\s+insulin\b/giu},
+  {type:'severity',value:'severe',pattern:/\bsevere\b/giu},
   {type:'treatment_response',value:'castration-resistant',pattern:/\bcastration[- ]resistant\b/giu,nameOnly:true},
   {type:'chronicity',value:'acute',pattern:/\bacute\b/giu,nameOnly:true},
   {type:'chronicity',value:'chronic',pattern:/\bchronic\b/giu,nameOnly:true},
@@ -88,6 +125,13 @@ export function createAnalyzer(catalog) {
     const key=keyOf(a.term);
     if(!index.has(key))index.set(key,[]);
     index.get(key).push(a);
+  }
+  for(const alias of catalog.aliases) {
+    const m=keyOf(alias.term).match(/^type ([12]) diabetes mellitus$/u);
+    if(!m)continue;
+    const term=`type ${m[1]} diabetes`;
+    if(!index.has(term))index.set(term,[]);
+    if(!index.get(term).some(a=>a.concept_key===alias.concept_key))index.get(term).push({...alias,term,variant_of:alias.term,generated_variant:true});
   }
   const trie={};
   for(const key of index.keys()) {
@@ -119,9 +163,9 @@ export function createAnalyzer(catalog) {
       }
       if(!last)continue;
       const start=view.starts[i],end=view.ends[last.end],candidate_keys=candidatesFor(last.key);
-      const blocked=unsupportedModifier.test(text.slice(0,start));
+      const modifier=modifierAt(text,start,candidate_keys),blocked=!!modifier;
       mentions.push({text:text.slice(start,end),start,end,candidate_keys,concept_key:!blocked && !documentRequired.has(keyOf(text.slice(start,end))) && candidate_keys.length===1?candidate_keys[0]:null,
-        status:blocked?'UNSUPPORTED_MODIFIER':documentRequired.has(keyOf(text.slice(start,end)))?'AMBIGUOUS':candidate_keys.length===1?'RESOLVED':'AMBIGUOUS',basis:'REVIEWED_ALIAS',assertion:assertionAt(text,start,end)});
+        status:blocked?'UNSUPPORTED_MODIFIER':documentRequired.has(keyOf(text.slice(start,end)))?'AMBIGUOUS':candidate_keys.length===1?'RESOLVED':'AMBIGUOUS',variant_sources:(index.get(last.key)??[]).filter(a=>a.generated_variant).map(a=>({source_id:a.source_id,variant_of:a.variant_of})),basis:index.get(last.key).every(a=>a.generated_variant)?'REVIEWED_NAME_VARIANT':'REVIEWED_ALIAS',modifier,context_flags:contextFlagsAt(text,start,end),assertion:assertionAt(text,start,end)});
       i=last.end;
     }
     return mentions;
@@ -215,6 +259,8 @@ export function createAnalyzer(catalog) {
       mentions.push({text:m[0],start,end,candidate_keys:[],concept_key:null,status:'UNREGISTERED',basis:'LOGICAL_OPERAND',assertion:assertionAt(text,start,end)});
     }
     mentions.sort((a,b)=>a.start-b.start);
+    for(const m of mentions)m.context_flags=contextFlagsAt(text,m.start,m.end);
+    coordinateAssertions(text,mentions);
     const logical_relations=[];
     for(let i=0;i<mentions.length-1;i++) {
       const a=mentions[i],b=mentions[i+1],between=text.slice(a.end,b.start),op=between.match(/^\s*(?:,\s*)?(or|and)\s*$/iu);
@@ -236,7 +282,7 @@ export function createAnalyzer(catalog) {
     } else if(documentRequired.has(keyOf(keyword))) {
       decision='HOLD_AMBIGUOUS';reason('G02','DECLARED_AMBIGUITY_POLICY','CD·AML은 검토 지식 일부를 제거해 후보가 하나 남아도 문서 정의 없이 단일 의미로 확정하지 않습니다.');
     } else if(keywordCandidates.length===1) {
-      keys=keywordCandidates;reason('G04','REVIEWED_ALIAS','기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다.');
+      keys=keywordCandidates;reason('G04','REVIEWED_ALIAS','검토한 이름·별칭 또는 선언한 type 1/2 diabetes 이름 변형과 일치합니다.');
     } else if(keywordCandidates.length>1) {
       decision='HOLD_AMBIGUOUS';reason('G02','AMBIGUOUS_ALIAS','여러 개념에 연결되는 표현이며 문서 내 명시적 정의가 없어 한쪽을 선택하지 않습니다.');
     } else {
@@ -256,9 +302,11 @@ export function createAnalyzer(catalog) {
       const bodyKeys=unique(mentions.map(m=>m.concept_key).filter(Boolean));
       const targetPresent=mentions.some(m=>m.concept_key===keys[0]);
       if(body.trim() && !targetPresent) {
-        decision=bodyKeys.length===1 && scopePairs.has([keys[0],bodyKeys[0]].sort().join('|'))?'HOLD_SCOPE_REVIEW':
+        const modified=mentions.some(m=>m.status==='UNSUPPORTED_MODIFIER' && m.candidate_keys.includes(keys[0]));
+        decision=modified?'HOLD_MODIFIED_MENTION':bodyKeys.length===1 && scopePairs.has([keys[0],bodyKeys[0]].sort().join('|'))?'HOLD_SCOPE_REVIEW':
           bodyKeys.length?'HOLD_RELATION_UNREVIEWED':'HOLD_TARGET_NOT_IN_TEXT';
         keys=[];reason(decision==='HOLD_SCOPE_REVIEW'?'G03':'G01',decision,
+          decision==='HOLD_MODIFIED_MENTION'?'대상 이름 구간은 원문에 있으나 검토하지 않은 수식어가 붙어 있습니다. 기본 개념으로 확정하지 않습니다.':
           decision==='HOLD_SCOPE_REVIEW'?'검토한 관계에서 범위 차이가 확인돼 재검토가 필요합니다.':
           decision==='HOLD_RELATION_UNREVIEWED'?'대상 표현과 원문 개념이 다릅니다. 관계 미검토 상태이며 입력 오류나 상하위를 단정하지 않습니다.':'원문에서 대상 개념을 확인하지 못했습니다. 사전 후보와 원문의 뒷받침을 구별해 검토 대상으로 남깁니다.');
       }
@@ -271,8 +319,8 @@ export function createAnalyzer(catalog) {
       if(decision==='ROUTE_ENTITY')reason('G07','ENTITY_TYPE','기존 개념의 개체 유형을 보존합니다. 원인 질환을 추론하지 않습니다.');
     }
     if(extracted.attributes.length)reason('G05','CONTEXT_PRESERVED','새 원문에서 지원하는 추가 조건 구간을 찾아 개념과 별도 필드로 보존했습니다.');
-    if(mentions.some(m=>m.assertion!=='AFFIRMED'))warnings.push('부정·추정 표지는 언급된 개념과 별도로 기록합니다. 해당 환자의 진단을 확정하지 않습니다.');
-    if(mentions.some(m=>!m.concept_key))warnings.push('해소하지 못한 문서 내 표현이 있습니다. 다른 개념의 언급만으로 약어를 추측하지 않습니다.');
+    if(mentions.some(m=>!['NO_CUE_DETECTED'].includes(m.assertion)))warnings.push('부정·추정 표지는 언급된 개념과 별도로 기록합니다. 해당 환자의 진단을 확정하지 않습니다.');
+    if(mentions.some(m=>!m.concept_key))warnings.push('다의·수식어·미등록 때문에 해소하지 못한 문서 내 표현이 있습니다. 다른 개념의 언급만으로 추측하지 않습니다.');
     if(text && !mentions.length)warnings.push('현재 사전에서 인식한 원문 내 표현이 없습니다. 전체 문장의 의미를 이해했다고 해석하지 않습니다.');
     const targetMentions=mentions.filter(m=>keys.includes(m.concept_key));
     const unresolvedTarget=mentions.some(m=>!m.concept_key && keyOf(m.text)===keyOf(keyword));
@@ -280,7 +328,8 @@ export function createAnalyzer(catalog) {
     const target_evidence_status=!body.trim()?'NO_TEXT':decision==='HOLD_EXPRESSION_UNRESOLVED'?'UNRESOLVED':!targetMentions.length?(unresolvedTarget?'UNRESOLVED':'NOT_FOUND'):assertionValues.length>1?'MIXED':assertionValues[0];
     const normalization_status=decision==='SPLIT_OR'?'EXPRESSION_RESOLVED':decision==='HOLD_EXPRESSION_UNRESOLVED'?'EXPRESSION_UNRESOLVED':
       ['LINKED','LOCAL_LINKED','ROUTE_ENTITY'].includes(decision)?'LINKED':decision==='UNREGISTERED'?'UNREGISTERED':'REVIEW_REQUIRED';
-    const unsupported_patterns=[];
+    const unsupported_patterns=unique(mentions.flatMap(m=>m.context_flags));
+    if(mentions.some(m=>m.assertion==='UNKNOWN' && !m.context_flags.length))unsupported_patterns.push('COORDINATED_NEGATION_UNRESOLVED');
     if(mentions.some(m=>m.assertion==='UNSUPPORTED_REQUIREMENT'))unsupported_patterns.push('REQUIREMENT_NECESSITY');
     if(logical_relations.some(r=>r.operator==='AND'))unsupported_patterns.push('AND_ELIGIBILITY_INTERPRETATION');
     if(/\btype\s+1\s+or\s+type\s+2\b/iu.test(body))unsupported_patterns.push('COORDINATION_ELLIPSIS');

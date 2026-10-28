@@ -53,7 +53,7 @@ function auditRules(row,result,catalog) {
 function project(result) {
   return {engine_version:result.engine_version,decision:result.decision,normalization_status:result.normalization_status,
     target_evidence_status:result.target_evidence_status,eligibility_status:result.eligibility_status,concept_keys:result.concept_keys,
-    keyword_candidates:result.keyword_candidates.map(c=>c.concept_key),mentions:result.mentions.map(({text,start,end,status,basis,assertion,concept_key,candidate_keys})=>({text,start,end,status,basis,assertion,concept_key,candidate_keys})),
+    keyword_candidates:result.keyword_candidates.map(c=>c.concept_key),mentions:result.mentions.map(({text,start,end,status,basis,assertion,assertion_basis,context_flags,modifier,variant_sources,concept_key,candidate_keys})=>({text,start,end,status,basis,assertion,assertion_basis,context_flags,modifier,variant_sources,concept_key,candidate_keys})),
     attributes:result.attributes,name_components:result.name_components,logical_relations:result.logical_relations,
     unsupported_patterns:result.unsupported_patterns,reasons:result.reasons,warnings:result.warnings};
 }

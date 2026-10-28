@@ -13,7 +13,7 @@ def run(base_url,browser_executable=None,output=None):
     with sync_playwright() as p:
         browser=p.chromium.launch(headless=True,**({'executable_path':browser_executable} if browser_executable else {}))
         page=browser.new_page(viewport={'width':1440,'height':1050})
-        errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
+        errors=[];console_errors=[];page.on('pageerror',lambda e:errors.append(str(e)));page.on('console',lambda m:console_errors.append(m.text) if m.type=='error' else None)
         page.goto(base_url,wait_until='networkidle')
         expect(page.get_by_role('heading',name='딕셔너리 탐색')).to_be_visible()
         results.append('Desktop entry and snapshot counts')
@@ -214,6 +214,27 @@ def run(base_url,browser_executable=None,output=None):
         }''')
         assert size_checks
         results.append('Runtime conditions/name components, conflicts, negation, escaped input and all development cases executed')
+        page.locator('#analyzer-keyword').fill('Asthma')
+        page.locator('#analyzer-text').fill('Patients with severe asthma.')
+        page.get_by_role('button',name='이 원문 분석하기').click()
+        expect(page.locator('#analyzer-decision')).to_have_text('기존 개념에 연결')
+        expect(page.locator('.runtime-conditions')).to_contain_text('severe')
+        expect(page.locator('.runtime-axes')).to_contain_text('부정·추정 표지 없음')
+        page.locator('#analyzer-text').fill('Patients with enigmatic asthma.')
+        page.get_by_role('button',name='이 원문 분석하기').click()
+        expect(page.locator('#analyzer-decision')).to_have_text('수식된 이름 · 범위 검토 필요')
+        expect(page.locator('.runtime-reasons')).to_contain_text('이름 구간은 원문에 있으나')
+        page.locator('#analyzer-keyword').fill('Psoriasis')
+        page.locator('#analyzer-text').fill('Patients who do not have psoriasis.')
+        page.get_by_role('button',name='이 원문 분석하기').click()
+        expect(page.locator('.runtime-axes')).to_contain_text('직접 부정 표지')
+        page.locator('#analyzer-keyword').fill('Colon cancer')
+        page.locator('#analyzer-text').fill('Family history of colon cancer.')
+        page.get_by_role('button',name='이 원문 분석하기').click()
+        expect(page.locator('.runtime-axes')).to_contain_text('원문 주장 범위 미상')
+        expect(page.locator('#analyzer-result')).to_contain_text('가족력: 환자 본인의 질환 상태로 해석하지 않습니다')
+        results.append('Reverification: default modifier review, reviewed context conditions, honest no-cue label and unsupported family history')
+
         if output:page.screenshot(path=str(output/'analyzer.png'),full_page=True)
         page.goto(base_url+'#materials/audit',wait_until='networkidle')
         expect(page.get_by_role('heading',name='규칙 적용과 남은 검토',exact=True)).to_be_visible()
@@ -237,6 +258,8 @@ def run(base_url,browser_executable=None,output=None):
         results.append('Audit A/B filtering, row details, 12-rule support table and complete A/B/C downloads')
         page.goto(base_url+'#materials/compare',wait_until='networkidle')
         expect(page.locator('.compare-columns .compare-column')).to_have_count(2)
+        expect(page.locator('.compare-column').nth(0).locator('.runtime-note')).not_to_contain_text('현행 MASLD 명칭과 달리')
+        expect(page.locator('.compare-column').nth(1).locator('.runtime-note')).to_contain_text('현행 MASLD 명칭과 달리')
         page.get_by_role('button',name='PTCL 질환군 / PTCL-NOS',exact=True).click()
         expect(page.locator('.compare-columns')).to_contain_text('MONDO:0004964')
         expect(page.locator('.compare-note')).to_contain_text('검토 후보')
@@ -279,7 +302,7 @@ def run(base_url,browser_executable=None,output=None):
         results.append('Mobile runtime input, result interaction and no page overflow')
         assert not errors,errors
         browser.close()
-    return {'passed':len(results),'checks':results,'page_errors':errors}
+    return {'passed':len(results),'checks':results,'page_errors':errors,'console_errors':list(dict.fromkeys(console_errors))}
 
 
 if __name__=='__main__':

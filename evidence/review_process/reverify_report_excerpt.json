@@ -1,0 +1,139 @@
+{
+  "source_file": "Claude_Reverify_Roadmap_for_Codex.md",
+  "source_sha256": "c9fcb85557403055996c8709a5ff0cde59e6bdf44485cdc5e83c4edeaaa6e3b6",
+  "scope": "Selected review tables and section headings; not a conversation transcript.",
+  "excerpts": [
+    {
+      "line": 15,
+      "text": "| 항목 | 결과 | 방법 |"
+    },
+    {
+      "line": 16,
+      "text": "|---|---|---|"
+    },
+    {
+      "line": 17,
+      "text": "| 패키지 = 로컬 저장소 = 배포 | 일치 | `diff -rq`, 배포 파일 SHA-256 대조(analyzer.mjs, rule-audit.mjs, catalog.json, rule-support.json, rule-audit.json) |"
+    },
+    {
+      "line": 18,
+      "text": "| Python 검사 | 25개 통과 | `python3 -m unittest discover -s tests` |"
+    },
+    {
+      "line": 19,
+      "text": "| 반례 8개 (A1, A1b, A2, B1, B2, B3, C1, D1) | 배포 사이트 결과가 runtime_after.json과 일치 | Chrome에서 배포된 `/analyzer.mjs`와 `/data/catalog.json`로 직접 실행 |"
+    },
+    {
+      "line": 20,
+      "text": "| 별칭 조회 | 419/419 PASS | rule_audit.json |"
+    },
+    {
+      "line": 21,
+      "text": "| A/B 분류 | A 290/4/4/2, B 7/285/6/2. 각 행 사유가 실행 결과와 맞음 | rule_audit.json의 MATCH가 아닌 행 전수 확인 |"
+    },
+    {
+      "line": 22,
+      "text": "| A1 페이지 | 사례마다 근거 기록이 연결돼 있음. 독립·전문가 검증이라고 쓰지 않음. 개인 경로·이메일 없음 | 페이지 본문, dist 전체 grep |"
+    },
+    {
+      "line": 23,
+      "text": "| W3 페이지 | 4개 쌍 표시, 원문→후보 방향 표기 | NAFLD/MASLD 화면 확인 |"
+    },
+    {
+      "line": 30,
+      "text": "## 3. P1 — 수식어 차단 목록이 개발 자료에 맞춰져 있음 (우선순위 높음)"
+    },
+    {
+      "line": 35,
+      "text": "| 대상 | 원문 | 결과 | 문제 |"
+    },
+    {
+      "line": 36,
+      "text": "|---|---|---|---|"
+    },
+    {
+      "line": 37,
+      "text": "| Asthma | Patients with severe asthma. | HOLD_TARGET_NOT_IN_TEXT | 중증도는 G05의 추가 조건이다 |"
+    },
+    {
+      "line": 38,
+      "text": "| Glioblastoma | Recurrent glioblastoma after prior therapy. | HOLD_TARGET_NOT_IN_TEXT. 속성 2개의 소유자가 UNKNOWN | relapsed는 통과하는데 recurrent는 막혀 일관되지 않다 |"
+    },
+    {
+      "line": 39,
+      "text": "| K006 Type 1 DM | Adults with autoimmune type 1 diabetes requiring insulin. | HOLD_TARGET_NOT_IN_TEXT (A·B 모두 REVIEW_REQUIRED) | 제1형 당뇨는 정의상 자가면역이다 |"
+    },
+    {
+      "line": 44,
+      "text": "| 대상 | 원문 | 연결된 개념 | 문제 |"
+    },
+    {
+      "line": 45,
+      "text": "|---|---|---|---|"
+    },
+    {
+      "line": 46,
+      "text": "| Multiple myeloma | smoldering multiple myeloma | plasma cell myeloma | smoldering은 별도 전구 단계다 (SCLC 반례와 같은 종류) |"
+    },
+    {
+      "line": 47,
+      "text": "| Tuberculosis | latent tuberculosis infection | tuberculosis | 잠복 감염은 활동성 결핵이 아니다 |"
+    },
+    {
+      "line": 48,
+      "text": "| Hypertension | portal hypertension | Hypertension (전신 동맥) | 다른 질환이다 |"
+    },
+    {
+      "line": 49,
+      "text": "| Hypertension | secondary hypertension | Hypertension | 하위 범위 미검토 |"
+    },
+    {
+      "line": 50,
+      "text": "| Gout | pseudo-gout | gout | 하이픈 앞부분이 단어 경계로 처리돼 다른 질환(CPPD)에 연결된다 |"
+    },
+    {
+      "line": 64,
+      "text": "## 4. P2 — \"표지 없음\"이 \"긍정\"으로 표시됨 (우선순위 높음)"
+    },
+    {
+      "line": 68,
+      "text": "| 대상 | 원문 | 대상 원문 주장 |"
+    },
+    {
+      "line": 69,
+      "text": "|---|---|---|"
+    },
+    {
+      "line": 70,
+      "text": "| Psoriasis | Patients who do not have psoriasis. | AFFIRMED |"
+    },
+    {
+      "line": 71,
+      "text": "| Psoriasis | Patients must not have active psoriasis. | AFFIRMED |"
+    },
+    {
+      "line": 72,
+      "text": "| Heart failure | Heart failure was excluded. | AFFIRMED |"
+    },
+    {
+      "line": 73,
+      "text": "| Hypertension | Patients without diabetes or hypertension. | AFFIRMED |"
+    },
+    {
+      "line": 74,
+      "text": "| (Migraine 대상) psoriasis 언급 | No migraine or psoriasis. | OR 구조는 RESOLVED로 잡지만 psoriasis는 AFFIRMED |"
+    },
+    {
+      "line": 75,
+      "text": "| Colon cancer | Family history of colon cancer. | AFFIRMED (문서에는 가족력 미지원이라고 적었지만 출력에 표시가 없음) |"
+    },
+    {
+      "line": 76,
+      "text": "| Psoriasis | Exclusion criteria: psoriasis. | AFFIRMED |"
+    },
+    {
+      "line": 95,
+      "text": "## 5. 낮은 우선순위"
+    }
+  ]
+}

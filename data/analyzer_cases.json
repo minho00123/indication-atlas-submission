@@ -1,6 +1,6 @@
 {
   "purpose": "Author-constructed functional and counterexample checks for a bounded rule prototype; not independent clinical accuracy evaluation.",
-  "version": "prototype-2",
+  "version": "prototype-3",
   "clinical_expert_approvals": 0,
   "cases": [
     {
@@ -350,7 +350,7 @@
           "MONDO:0005233"
         ],
         "assertions": [
-          "AFFIRMED"
+          "NO_CUE_DETECTED"
         ]
       }
     },
@@ -428,7 +428,7 @@
         "mention_texts": [
           "non small cell lung cancer"
         ],
-        "target_evidence_status": "AFFIRMED"
+        "target_evidence_status": "NO_CUE_DETECTED"
       }
     },
     {
@@ -649,7 +649,7 @@
           "NCIT:C3001"
         ],
         "owner_concept": "NCIT:C3001",
-        "scope_assertion": "AFFIRMED"
+        "scope_assertion": "NO_CUE_DETECTED"
       }
     },
     {
@@ -669,9 +669,404 @@
       "keyword": "Melanoma",
       "text": "non melanoma is mentioned.",
       "expected": {
-        "decision": "HOLD_TARGET_NOT_IN_TEXT",
+        "decision": "HOLD_MODIFIED_MENTION",
         "concept_keys": [],
         "blocked_mention": true
+      }
+    },
+    {
+      "id": "reverify-P1-severe",
+      "keyword": "Asthma",
+      "text": "Patients with severe asthma.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0004979"
+        ],
+        "target_evidence_status": "NO_CUE_DETECTED",
+        "attributes": [
+          "severity:severe"
+        ],
+        "ownership_status": "SINGLE_CONCEPT_IN_CLAUSE"
+      }
+    },
+    {
+      "id": "reverify-P1-recurrent",
+      "keyword": "Glioblastoma",
+      "text": "Recurrent glioblastoma after prior therapy.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0018177"
+        ],
+        "target_evidence_status": "NO_CUE_DETECTED",
+        "attributes": [
+          "disease_status:recurrent",
+          "treatment_history:prior_therapy"
+        ],
+        "ownership_status": "SINGLE_CONCEPT_IN_CLAUSE"
+      }
+    },
+    {
+      "id": "reverify-P1-autoimmune",
+      "keyword": "Type 1 diabetes mellitus",
+      "text": "Adults with autoimmune type 1 diabetes requiring insulin.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005147"
+        ],
+        "target_evidence_status": "NO_CUE_DETECTED",
+        "attributes": [
+          "etiology:autoimmune",
+          "treatment_requirement:insulin_required"
+        ],
+        "ownership_status": "SINGLE_CONCEPT_IN_CLAUSE"
+      }
+    },
+    {
+      "id": "reverify-P1-smoldering",
+      "keyword": "Multiple myeloma",
+      "text": "Patients with smoldering multiple myeloma.",
+      "expected": {
+        "decision": "HOLD_MODIFIED_MENTION",
+        "concept_keys": [],
+        "blocked_mention": true,
+        "target_evidence_status": "UNRESOLVED"
+      }
+    },
+    {
+      "id": "reverify-P1-latent",
+      "keyword": "Tuberculosis",
+      "text": "Patients with latent tuberculosis infection.",
+      "expected": {
+        "decision": "HOLD_MODIFIED_MENTION",
+        "concept_keys": [],
+        "blocked_mention": true,
+        "target_evidence_status": "UNRESOLVED"
+      }
+    },
+    {
+      "id": "reverify-P1-portal",
+      "keyword": "Hypertension",
+      "text": "Patients with portal hypertension.",
+      "expected": {
+        "decision": "HOLD_MODIFIED_MENTION",
+        "concept_keys": [],
+        "blocked_mention": true,
+        "target_evidence_status": "UNRESOLVED"
+      }
+    },
+    {
+      "id": "reverify-P1-secondary",
+      "keyword": "Hypertension",
+      "text": "Patients with secondary hypertension.",
+      "expected": {
+        "decision": "HOLD_MODIFIED_MENTION",
+        "concept_keys": [],
+        "blocked_mention": true,
+        "target_evidence_status": "UNRESOLVED"
+      }
+    },
+    {
+      "id": "reverify-P1-pseudo",
+      "keyword": "Gout",
+      "text": "Patients with pseudo-gout.",
+      "expected": {
+        "decision": "HOLD_MODIFIED_MENTION",
+        "concept_keys": [],
+        "blocked_mention": true,
+        "target_evidence_status": "UNRESOLVED"
+      }
+    },
+    {
+      "id": "reverify-P2-not-have",
+      "keyword": "Psoriasis",
+      "text": "Patients who do not have psoriasis.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005083"
+        ],
+        "target_evidence_status": "NEGATED"
+      }
+    },
+    {
+      "id": "reverify-P2-must-not",
+      "keyword": "Psoriasis",
+      "text": "Patients must not have active psoriasis.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005083"
+        ],
+        "target_evidence_status": "NEGATED"
+      }
+    },
+    {
+      "id": "reverify-P2-excluded",
+      "keyword": "Heart failure",
+      "text": "Heart failure was excluded.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005252"
+        ],
+        "target_evidence_status": "NEGATED"
+      }
+    },
+    {
+      "id": "reverify-P2-without-or",
+      "keyword": "Hypertension",
+      "text": "Patients without diabetes or hypertension.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005044"
+        ],
+        "target_evidence_status": "UNKNOWN"
+      }
+    },
+    {
+      "id": "reverify-P2-no-or",
+      "keyword": "Migraine",
+      "text": "No migraine or psoriasis.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005277"
+        ],
+        "target_evidence_status": "NEGATED",
+        "all_assertions": "NEGATED"
+      }
+    },
+    {
+      "id": "reverify-P2-family",
+      "keyword": "Colon cancer",
+      "text": "Family history of colon cancer.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0021063"
+        ],
+        "target_evidence_status": "UNKNOWN",
+        "unsupported": "EXPERIENCER_FAMILY_HISTORY"
+      }
+    },
+    {
+      "id": "reverify-P2-section",
+      "keyword": "Psoriasis",
+      "text": "Exclusion criteria: psoriasis.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005083"
+        ],
+        "target_evidence_status": "UNKNOWN",
+        "unsupported": "SECTION_CONTEXT"
+      }
+    },
+    {
+      "id": "reverify-P2-history",
+      "keyword": "Psoriasis",
+      "text": "History of psoriasis.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005083"
+        ],
+        "target_evidence_status": "UNKNOWN",
+        "unsupported": "HISTORICAL"
+      }
+    },
+    {
+      "id": "reverify-maintain-metastatic",
+      "keyword": "Castration-resistant prostate cancer",
+      "text": "Metastatic castration-resistant prostate cancer.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0850353"
+        ]
+      }
+    },
+    {
+      "id": "reverify-maintain-uveal",
+      "keyword": "Uveal melanoma",
+      "text": "Uveal melanoma is mentioned.",
+      "expected": {
+        "decision": "UNREGISTERED",
+        "concept_keys": []
+      }
+    },
+    {
+      "id": "reverify-maintain-ventilator",
+      "keyword": "Ventilator-associated pneumonia",
+      "text": "Ventilator-associated pneumonia is mentioned.",
+      "expected": {
+        "decision": "UNREGISTERED",
+        "concept_keys": []
+      }
+    },
+    {
+      "id": "reverify-maintain-ckd",
+      "keyword": "CKD",
+      "text": "Chronic kidney disease (CKD) for at least 3 months.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005300"
+        ]
+      }
+    },
+    {
+      "id": "reverify-maintain-not-exclusion",
+      "keyword": "Obesity",
+      "text": "Obesity is not an exclusion criterion.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0011122"
+        ],
+        "target_evidence_status": "UNSUPPORTED_REQUIREMENT"
+      }
+    },
+    {
+      "id": "unseen-prefix-default-review",
+      "keyword": "Asthma",
+      "text": "Patients with enigmatic asthma.",
+      "expected": {
+        "decision": "HOLD_MODIFIED_MENTION",
+        "concept_keys": [],
+        "blocked_mention": true
+      }
+    },
+    {
+      "id": "unknown-before-known-modifier",
+      "keyword": "Asthma",
+      "text": "Patients with enigmatic severe asthma.",
+      "expected": {
+        "decision": "HOLD_MODIFIED_MENTION",
+        "concept_keys": [],
+        "blocked_mention": true
+      }
+    },
+    {
+      "id": "unsupported-hyphen-prefix",
+      "keyword": "Gout",
+      "text": "Patients with pre-gout.",
+      "expected": {
+        "decision": "HOLD_MODIFIED_MENTION",
+        "concept_keys": [],
+        "blocked_mention": true
+      }
+    },
+    {
+      "id": "modifier-uveal-base-not-approved",
+      "keyword": "Melanoma",
+      "text": "Uveal melanoma is mentioned.",
+      "expected": {
+        "decision": "HOLD_MODIFIED_MENTION",
+        "concept_keys": [],
+        "blocked_mention": true
+      }
+    },
+    {
+      "id": "modifier-ventilator-base-not-approved",
+      "keyword": "Pneumonia",
+      "text": "Ventilator-associated pneumonia is mentioned.",
+      "expected": {
+        "decision": "HOLD_MODIFIED_MENTION",
+        "concept_keys": [],
+        "blocked_mention": true
+      }
+    },
+    {
+      "id": "known-long-alias-wins",
+      "keyword": "Severe eosinophilic asthma",
+      "text": "Severe eosinophilic asthma is mentioned.",
+      "expected": {
+        "decision": "LOCAL_LINKED",
+        "concept_keys": [
+          "LOCAL:K247"
+        ],
+        "name_components": [
+          "severity:severe"
+        ]
+      }
+    },
+    {
+      "id": "negative-and-adjacent",
+      "keyword": "Psoriasis",
+      "text": "No migraine and psoriasis.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005083"
+        ],
+        "all_assertions": "NEGATED",
+        "target_evidence_status": "NEGATED"
+      }
+    },
+    {
+      "id": "negative-comma-adjacent",
+      "keyword": "Psoriasis",
+      "text": "No migraine, psoriasis.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005083"
+        ],
+        "all_assertions": "NEGATED",
+        "target_evidence_status": "NEGATED"
+      }
+    },
+    {
+      "id": "negative-free-of",
+      "keyword": "Psoriasis",
+      "text": "Patients free of psoriasis.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005083"
+        ],
+        "target_evidence_status": "NEGATED"
+      }
+    },
+    {
+      "id": "negative-absence-of",
+      "keyword": "Psoriasis",
+      "text": "Absence of psoriasis is reported.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005083"
+        ],
+        "target_evidence_status": "NEGATED"
+      }
+    },
+    {
+      "id": "negation-not-past-adversative",
+      "keyword": "eczema",
+      "text": "No psoriasis but eczema is mentioned.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "NCIT:C3001"
+        ],
+        "target_evidence_status": "NO_CUE_DETECTED"
+      }
+    },
+    {
+      "id": "no-cue-not-positive",
+      "keyword": "Psoriasis",
+      "text": "Psoriasis is mentioned.",
+      "expected": {
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005083"
+        ],
+        "target_evidence_status": "NO_CUE_DETECTED"
       }
     }
   ]

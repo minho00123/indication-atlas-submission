@@ -1,0 +1,1796 @@
+{
+  "engine_version": "prototype-2",
+  "commit": "7652043",
+  "purpose": "Reverification development counterexamples before prototype-3 changes, including maintenance inputs.",
+  "cases": [
+    {
+      "id": "P1-severe",
+      "input": {
+        "keyword": "Asthma",
+        "text": "Patients with severe asthma."
+      },
+      "result": {
+        "engine_version": "prototype-2",
+        "normalization_status": "REVIEW_REQUIRED",
+        "target_evidence_status": "UNRESOLVED",
+        "eligibility_status": "NOT_EVALUATED",
+        "unsupported_patterns": [],
+        "input": {
+          "keyword": "Asthma",
+          "text": "Patients with severe asthma."
+        },
+        "offset_encoding": "UTF-16 code units",
+        "decision": "HOLD_TARGET_NOT_IN_TEXT",
+        "concept_keys": [],
+        "concepts": [],
+        "keyword_candidates": [
+          {
+            "concept_key": "MONDO:0004979",
+            "preferred_name": "asthma",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K246"
+            ]
+          }
+        ],
+        "mentions": [
+          {
+            "text": "asthma",
+            "start": 21,
+            "end": 27,
+            "candidate_keys": [
+              "MONDO:0004979"
+            ],
+            "concept_key": null,
+            "status": "UNSUPPORTED_MODIFIER",
+            "basis": "REVIEWED_ALIAS",
+            "assertion": "AFFIRMED",
+            "concept": null
+          }
+        ],
+        "abbreviation_definitions": [],
+        "logical_relations": [],
+        "attributes": [],
+        "name_components": [],
+        "reasons": [
+          {
+            "rule": "G04",
+            "code": "REVIEWED_ALIAS",
+            "message": "기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다."
+          },
+          {
+            "rule": "G01",
+            "code": "HOLD_TARGET_NOT_IN_TEXT",
+            "message": "원문에서 대상 개념을 확인하지 못했습니다. 사전 후보와 원문의 뒷받침을 구별해 검토 대상으로 남깁니다."
+          }
+        ],
+        "warnings": [
+          "해소하지 못한 문서 내 표현이 있습니다. 다른 개념의 언급만으로 약어를 추측하지 않습니다."
+        ],
+        "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
+      }
+    },
+    {
+      "id": "P1-recurrent",
+      "input": {
+        "keyword": "Glioblastoma",
+        "text": "Recurrent glioblastoma after prior therapy."
+      },
+      "result": {
+        "engine_version": "prototype-2",
+        "normalization_status": "REVIEW_REQUIRED",
+        "target_evidence_status": "UNRESOLVED",
+        "eligibility_status": "NOT_EVALUATED",
+        "unsupported_patterns": [],
+        "input": {
+          "keyword": "Glioblastoma",
+          "text": "Recurrent glioblastoma after prior therapy."
+        },
+        "offset_encoding": "UTF-16 code units",
+        "decision": "HOLD_TARGET_NOT_IN_TEXT",
+        "concept_keys": [],
+        "concepts": [],
+        "keyword_candidates": [
+          {
+            "concept_key": "MONDO:0018177",
+            "preferred_name": "glioblastoma",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K154"
+            ]
+          }
+        ],
+        "mentions": [
+          {
+            "text": "glioblastoma",
+            "start": 10,
+            "end": 22,
+            "candidate_keys": [
+              "MONDO:0018177"
+            ],
+            "concept_key": null,
+            "status": "UNSUPPORTED_MODIFIER",
+            "basis": "REVIEWED_ALIAS",
+            "assertion": "AFFIRMED",
+            "concept": null
+          }
+        ],
+        "abbreviation_definitions": [],
+        "logical_relations": [],
+        "attributes": [
+          {
+            "type": "treatment_history",
+            "value": "prior_therapy",
+            "text": "after prior therapy",
+            "start": 23,
+            "end": 42,
+            "role": "CONTEXT_ATTRIBUTE",
+            "assertion": "AFFIRMED",
+            "owner_start": null,
+            "ownership": {
+              "status": "UNKNOWN",
+              "mention_start": null,
+              "concept_key": null
+            },
+            "scope": {
+              "clause_start": 0,
+              "clause_end": 42,
+              "mention_assertion": "UNKNOWN",
+              "kind": "UNASSIGNED"
+            }
+          },
+          {
+            "type": "disease_status",
+            "value": "recurrent",
+            "text": "Recurrent",
+            "start": 0,
+            "end": 9,
+            "role": "CONTEXT_ATTRIBUTE",
+            "assertion": "AFFIRMED",
+            "owner_start": null,
+            "ownership": {
+              "status": "UNKNOWN",
+              "mention_start": null,
+              "concept_key": null
+            },
+            "scope": {
+              "clause_start": 0,
+              "clause_end": 42,
+              "mention_assertion": "UNKNOWN",
+              "kind": "UNASSIGNED"
+            }
+          }
+        ],
+        "name_components": [],
+        "reasons": [
+          {
+            "rule": "G04",
+            "code": "REVIEWED_ALIAS",
+            "message": "기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다."
+          },
+          {
+            "rule": "G01",
+            "code": "HOLD_TARGET_NOT_IN_TEXT",
+            "message": "원문에서 대상 개념을 확인하지 못했습니다. 사전 후보와 원문의 뒷받침을 구별해 검토 대상으로 남깁니다."
+          },
+          {
+            "rule": "G05",
+            "code": "CONTEXT_PRESERVED",
+            "message": "새 원문에서 지원하는 추가 조건 구간을 찾아 개념과 별도 필드로 보존했습니다."
+          }
+        ],
+        "warnings": [
+          "해소하지 못한 문서 내 표현이 있습니다. 다른 개념의 언급만으로 약어를 추측하지 않습니다."
+        ],
+        "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
+      }
+    },
+    {
+      "id": "P1-autoimmune",
+      "input": {
+        "keyword": "Type 1 diabetes mellitus",
+        "text": "Adults with autoimmune type 1 diabetes requiring insulin."
+      },
+      "result": {
+        "engine_version": "prototype-2",
+        "normalization_status": "REVIEW_REQUIRED",
+        "target_evidence_status": "NOT_FOUND",
+        "eligibility_status": "NOT_EVALUATED",
+        "unsupported_patterns": [],
+        "input": {
+          "keyword": "Type 1 diabetes mellitus",
+          "text": "Adults with autoimmune type 1 diabetes requiring insulin."
+        },
+        "offset_encoding": "UTF-16 code units",
+        "decision": "HOLD_TARGET_NOT_IN_TEXT",
+        "concept_keys": [],
+        "concepts": [],
+        "keyword_candidates": [
+          {
+            "concept_key": "MONDO:0005147",
+            "preferred_name": "type 1 diabetes mellitus",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K006",
+              "K180"
+            ]
+          }
+        ],
+        "mentions": [],
+        "abbreviation_definitions": [],
+        "logical_relations": [],
+        "attributes": [],
+        "name_components": [],
+        "reasons": [
+          {
+            "rule": "G04",
+            "code": "REVIEWED_ALIAS",
+            "message": "기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다."
+          },
+          {
+            "rule": "G01",
+            "code": "HOLD_TARGET_NOT_IN_TEXT",
+            "message": "원문에서 대상 개념을 확인하지 못했습니다. 사전 후보와 원문의 뒷받침을 구별해 검토 대상으로 남깁니다."
+          }
+        ],
+        "warnings": [
+          "현재 사전에서 인식한 원문 내 표현이 없습니다. 전체 문장의 의미를 이해했다고 해석하지 않습니다."
+        ],
+        "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
+      }
+    },
+    {
+      "id": "P1-smoldering",
+      "input": {
+        "keyword": "Multiple myeloma",
+        "text": "Patients with smoldering multiple myeloma."
+      },
+      "result": {
+        "engine_version": "prototype-2",
+        "normalization_status": "LINKED",
+        "target_evidence_status": "AFFIRMED",
+        "eligibility_status": "NOT_EVALUATED",
+        "unsupported_patterns": [],
+        "input": {
+          "keyword": "Multiple myeloma",
+          "text": "Patients with smoldering multiple myeloma."
+        },
+        "offset_encoding": "UTF-16 code units",
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0009693"
+        ],
+        "concepts": [
+          {
+            "concept_key": "MONDO:0009693",
+            "preferred_name": "plasma cell myeloma",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K166"
+            ]
+          }
+        ],
+        "keyword_candidates": [
+          {
+            "concept_key": "MONDO:0009693",
+            "preferred_name": "plasma cell myeloma",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K166"
+            ]
+          }
+        ],
+        "mentions": [
+          {
+            "text": "multiple myeloma",
+            "start": 25,
+            "end": 41,
+            "candidate_keys": [
+              "MONDO:0009693"
+            ],
+            "concept_key": "MONDO:0009693",
+            "status": "RESOLVED",
+            "basis": "REVIEWED_ALIAS",
+            "assertion": "AFFIRMED",
+            "concept": {
+              "concept_key": "MONDO:0009693",
+              "preferred_name": "plasma cell myeloma",
+              "entity_type": "DISEASE_OR_CONDITION",
+              "source_ids": [
+                "K166"
+              ]
+            }
+          }
+        ],
+        "abbreviation_definitions": [],
+        "logical_relations": [],
+        "attributes": [],
+        "name_components": [],
+        "reasons": [
+          {
+            "rule": "G04",
+            "code": "REVIEWED_ALIAS",
+            "message": "기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다."
+          }
+        ],
+        "warnings": [],
+        "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
+      }
+    },
+    {
+      "id": "P1-latent",
+      "input": {
+        "keyword": "Tuberculosis",
+        "text": "Patients with latent tuberculosis infection."
+      },
+      "result": {
+        "engine_version": "prototype-2",
+        "normalization_status": "LINKED",
+        "target_evidence_status": "AFFIRMED",
+        "eligibility_status": "NOT_EVALUATED",
+        "unsupported_patterns": [],
+        "input": {
+          "keyword": "Tuberculosis",
+          "text": "Patients with latent tuberculosis infection."
+        },
+        "offset_encoding": "UTF-16 code units",
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0018076"
+        ],
+        "concepts": [
+          {
+            "concept_key": "MONDO:0018076",
+            "preferred_name": "tuberculosis",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K261"
+            ]
+          }
+        ],
+        "keyword_candidates": [
+          {
+            "concept_key": "MONDO:0018076",
+            "preferred_name": "tuberculosis",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K261"
+            ]
+          }
+        ],
+        "mentions": [
+          {
+            "text": "tuberculosis",
+            "start": 21,
+            "end": 33,
+            "candidate_keys": [
+              "MONDO:0018076"
+            ],
+            "concept_key": "MONDO:0018076",
+            "status": "RESOLVED",
+            "basis": "REVIEWED_ALIAS",
+            "assertion": "AFFIRMED",
+            "concept": {
+              "concept_key": "MONDO:0018076",
+              "preferred_name": "tuberculosis",
+              "entity_type": "DISEASE_OR_CONDITION",
+              "source_ids": [
+                "K261"
+              ]
+            }
+          }
+        ],
+        "abbreviation_definitions": [],
+        "logical_relations": [],
+        "attributes": [],
+        "name_components": [],
+        "reasons": [
+          {
+            "rule": "G04",
+            "code": "REVIEWED_ALIAS",
+            "message": "기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다."
+          }
+        ],
+        "warnings": [],
+        "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
+      }
+    },
+    {
+      "id": "P1-portal",
+      "input": {
+        "keyword": "Hypertension",
+        "text": "Patients with portal hypertension."
+      },
+      "result": {
+        "engine_version": "prototype-2",
+        "normalization_status": "LINKED",
+        "target_evidence_status": "AFFIRMED",
+        "eligibility_status": "NOT_EVALUATED",
+        "unsupported_patterns": [],
+        "input": {
+          "keyword": "Hypertension",
+          "text": "Patients with portal hypertension."
+        },
+        "offset_encoding": "UTF-16 code units",
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005044"
+        ],
+        "concepts": [
+          {
+            "concept_key": "MONDO:0005044",
+            "preferred_name": "Hypertension",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K224"
+            ]
+          }
+        ],
+        "keyword_candidates": [
+          {
+            "concept_key": "MONDO:0005044",
+            "preferred_name": "Hypertension",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K224"
+            ]
+          }
+        ],
+        "mentions": [
+          {
+            "text": "hypertension",
+            "start": 21,
+            "end": 33,
+            "candidate_keys": [
+              "MONDO:0005044"
+            ],
+            "concept_key": "MONDO:0005044",
+            "status": "RESOLVED",
+            "basis": "REVIEWED_ALIAS",
+            "assertion": "AFFIRMED",
+            "concept": {
+              "concept_key": "MONDO:0005044",
+              "preferred_name": "Hypertension",
+              "entity_type": "DISEASE_OR_CONDITION",
+              "source_ids": [
+                "K224"
+              ]
+            }
+          }
+        ],
+        "abbreviation_definitions": [],
+        "logical_relations": [],
+        "attributes": [],
+        "name_components": [],
+        "reasons": [
+          {
+            "rule": "G04",
+            "code": "REVIEWED_ALIAS",
+            "message": "기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다."
+          }
+        ],
+        "warnings": [],
+        "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
+      }
+    },
+    {
+      "id": "P1-secondary",
+      "input": {
+        "keyword": "Hypertension",
+        "text": "Patients with secondary hypertension."
+      },
+      "result": {
+        "engine_version": "prototype-2",
+        "normalization_status": "LINKED",
+        "target_evidence_status": "AFFIRMED",
+        "eligibility_status": "NOT_EVALUATED",
+        "unsupported_patterns": [],
+        "input": {
+          "keyword": "Hypertension",
+          "text": "Patients with secondary hypertension."
+        },
+        "offset_encoding": "UTF-16 code units",
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005044"
+        ],
+        "concepts": [
+          {
+            "concept_key": "MONDO:0005044",
+            "preferred_name": "Hypertension",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K224"
+            ]
+          }
+        ],
+        "keyword_candidates": [
+          {
+            "concept_key": "MONDO:0005044",
+            "preferred_name": "Hypertension",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K224"
+            ]
+          }
+        ],
+        "mentions": [
+          {
+            "text": "hypertension",
+            "start": 24,
+            "end": 36,
+            "candidate_keys": [
+              "MONDO:0005044"
+            ],
+            "concept_key": "MONDO:0005044",
+            "status": "RESOLVED",
+            "basis": "REVIEWED_ALIAS",
+            "assertion": "AFFIRMED",
+            "concept": {
+              "concept_key": "MONDO:0005044",
+              "preferred_name": "Hypertension",
+              "entity_type": "DISEASE_OR_CONDITION",
+              "source_ids": [
+                "K224"
+              ]
+            }
+          }
+        ],
+        "abbreviation_definitions": [],
+        "logical_relations": [],
+        "attributes": [],
+        "name_components": [],
+        "reasons": [
+          {
+            "rule": "G04",
+            "code": "REVIEWED_ALIAS",
+            "message": "기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다."
+          }
+        ],
+        "warnings": [],
+        "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
+      }
+    },
+    {
+      "id": "P1-pseudo",
+      "input": {
+        "keyword": "Gout",
+        "text": "Patients with pseudo-gout."
+      },
+      "result": {
+        "engine_version": "prototype-2",
+        "normalization_status": "LINKED",
+        "target_evidence_status": "AFFIRMED",
+        "eligibility_status": "NOT_EVALUATED",
+        "unsupported_patterns": [],
+        "input": {
+          "keyword": "Gout",
+          "text": "Patients with pseudo-gout."
+        },
+        "offset_encoding": "UTF-16 code units",
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005393"
+        ],
+        "concepts": [
+          {
+            "concept_key": "MONDO:0005393",
+            "preferred_name": "gout",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K069"
+            ]
+          }
+        ],
+        "keyword_candidates": [
+          {
+            "concept_key": "MONDO:0005393",
+            "preferred_name": "gout",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K069"
+            ]
+          }
+        ],
+        "mentions": [
+          {
+            "text": "gout",
+            "start": 21,
+            "end": 25,
+            "candidate_keys": [
+              "MONDO:0005393"
+            ],
+            "concept_key": "MONDO:0005393",
+            "status": "RESOLVED",
+            "basis": "REVIEWED_ALIAS",
+            "assertion": "AFFIRMED",
+            "concept": {
+              "concept_key": "MONDO:0005393",
+              "preferred_name": "gout",
+              "entity_type": "DISEASE_OR_CONDITION",
+              "source_ids": [
+                "K069"
+              ]
+            }
+          }
+        ],
+        "abbreviation_definitions": [],
+        "logical_relations": [],
+        "attributes": [],
+        "name_components": [],
+        "reasons": [
+          {
+            "rule": "G04",
+            "code": "REVIEWED_ALIAS",
+            "message": "기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다."
+          }
+        ],
+        "warnings": [],
+        "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
+      }
+    },
+    {
+      "id": "P2-not-have",
+      "input": {
+        "keyword": "Psoriasis",
+        "text": "Patients who do not have psoriasis."
+      },
+      "result": {
+        "engine_version": "prototype-2",
+        "normalization_status": "LINKED",
+        "target_evidence_status": "AFFIRMED",
+        "eligibility_status": "NOT_EVALUATED",
+        "unsupported_patterns": [],
+        "input": {
+          "keyword": "Psoriasis",
+          "text": "Patients who do not have psoriasis."
+        },
+        "offset_encoding": "UTF-16 code units",
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005083"
+        ],
+        "concepts": [
+          {
+            "concept_key": "MONDO:0005083",
+            "preferred_name": "psoriasis",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K033"
+            ]
+          }
+        ],
+        "keyword_candidates": [
+          {
+            "concept_key": "MONDO:0005083",
+            "preferred_name": "psoriasis",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K033"
+            ]
+          }
+        ],
+        "mentions": [
+          {
+            "text": "psoriasis",
+            "start": 25,
+            "end": 34,
+            "candidate_keys": [
+              "MONDO:0005083"
+            ],
+            "concept_key": "MONDO:0005083",
+            "status": "RESOLVED",
+            "basis": "REVIEWED_ALIAS",
+            "assertion": "AFFIRMED",
+            "concept": {
+              "concept_key": "MONDO:0005083",
+              "preferred_name": "psoriasis",
+              "entity_type": "DISEASE_OR_CONDITION",
+              "source_ids": [
+                "K033"
+              ]
+            }
+          }
+        ],
+        "abbreviation_definitions": [],
+        "logical_relations": [],
+        "attributes": [],
+        "name_components": [],
+        "reasons": [
+          {
+            "rule": "G04",
+            "code": "REVIEWED_ALIAS",
+            "message": "기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다."
+          }
+        ],
+        "warnings": [],
+        "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
+      }
+    },
+    {
+      "id": "P2-must-not",
+      "input": {
+        "keyword": "Psoriasis",
+        "text": "Patients must not have active psoriasis."
+      },
+      "result": {
+        "engine_version": "prototype-2",
+        "normalization_status": "LINKED",
+        "target_evidence_status": "AFFIRMED",
+        "eligibility_status": "NOT_EVALUATED",
+        "unsupported_patterns": [],
+        "input": {
+          "keyword": "Psoriasis",
+          "text": "Patients must not have active psoriasis."
+        },
+        "offset_encoding": "UTF-16 code units",
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005083"
+        ],
+        "concepts": [
+          {
+            "concept_key": "MONDO:0005083",
+            "preferred_name": "psoriasis",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K033"
+            ]
+          }
+        ],
+        "keyword_candidates": [
+          {
+            "concept_key": "MONDO:0005083",
+            "preferred_name": "psoriasis",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K033"
+            ]
+          }
+        ],
+        "mentions": [
+          {
+            "text": "psoriasis",
+            "start": 30,
+            "end": 39,
+            "candidate_keys": [
+              "MONDO:0005083"
+            ],
+            "concept_key": "MONDO:0005083",
+            "status": "RESOLVED",
+            "basis": "REVIEWED_ALIAS",
+            "assertion": "AFFIRMED",
+            "concept": {
+              "concept_key": "MONDO:0005083",
+              "preferred_name": "psoriasis",
+              "entity_type": "DISEASE_OR_CONDITION",
+              "source_ids": [
+                "K033"
+              ]
+            }
+          }
+        ],
+        "abbreviation_definitions": [],
+        "logical_relations": [],
+        "attributes": [],
+        "name_components": [],
+        "reasons": [
+          {
+            "rule": "G04",
+            "code": "REVIEWED_ALIAS",
+            "message": "기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다."
+          }
+        ],
+        "warnings": [],
+        "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
+      }
+    },
+    {
+      "id": "P2-excluded",
+      "input": {
+        "keyword": "Heart failure",
+        "text": "Heart failure was excluded."
+      },
+      "result": {
+        "engine_version": "prototype-2",
+        "normalization_status": "LINKED",
+        "target_evidence_status": "AFFIRMED",
+        "eligibility_status": "NOT_EVALUATED",
+        "unsupported_patterns": [],
+        "input": {
+          "keyword": "Heart failure",
+          "text": "Heart failure was excluded."
+        },
+        "offset_encoding": "UTF-16 code units",
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005252"
+        ],
+        "concepts": [
+          {
+            "concept_key": "MONDO:0005252",
+            "preferred_name": "heart failure",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K230"
+            ]
+          }
+        ],
+        "keyword_candidates": [
+          {
+            "concept_key": "MONDO:0005252",
+            "preferred_name": "heart failure",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K230"
+            ]
+          }
+        ],
+        "mentions": [
+          {
+            "text": "Heart failure",
+            "start": 0,
+            "end": 13,
+            "candidate_keys": [
+              "MONDO:0005252"
+            ],
+            "concept_key": "MONDO:0005252",
+            "status": "RESOLVED",
+            "basis": "REVIEWED_ALIAS",
+            "assertion": "AFFIRMED",
+            "concept": {
+              "concept_key": "MONDO:0005252",
+              "preferred_name": "heart failure",
+              "entity_type": "DISEASE_OR_CONDITION",
+              "source_ids": [
+                "K230"
+              ]
+            }
+          }
+        ],
+        "abbreviation_definitions": [],
+        "logical_relations": [],
+        "attributes": [],
+        "name_components": [],
+        "reasons": [
+          {
+            "rule": "G04",
+            "code": "REVIEWED_ALIAS",
+            "message": "기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다."
+          }
+        ],
+        "warnings": [],
+        "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
+      }
+    },
+    {
+      "id": "P2-without-or",
+      "input": {
+        "keyword": "Hypertension",
+        "text": "Patients without diabetes or hypertension."
+      },
+      "result": {
+        "engine_version": "prototype-2",
+        "normalization_status": "LINKED",
+        "target_evidence_status": "AFFIRMED",
+        "eligibility_status": "NOT_EVALUATED",
+        "unsupported_patterns": [],
+        "input": {
+          "keyword": "Hypertension",
+          "text": "Patients without diabetes or hypertension."
+        },
+        "offset_encoding": "UTF-16 code units",
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005044"
+        ],
+        "concepts": [
+          {
+            "concept_key": "MONDO:0005044",
+            "preferred_name": "Hypertension",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K224"
+            ]
+          }
+        ],
+        "keyword_candidates": [
+          {
+            "concept_key": "MONDO:0005044",
+            "preferred_name": "Hypertension",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K224"
+            ]
+          }
+        ],
+        "mentions": [
+          {
+            "text": "hypertension",
+            "start": 29,
+            "end": 41,
+            "candidate_keys": [
+              "MONDO:0005044"
+            ],
+            "concept_key": "MONDO:0005044",
+            "status": "RESOLVED",
+            "basis": "REVIEWED_ALIAS",
+            "assertion": "AFFIRMED",
+            "concept": {
+              "concept_key": "MONDO:0005044",
+              "preferred_name": "Hypertension",
+              "entity_type": "DISEASE_OR_CONDITION",
+              "source_ids": [
+                "K224"
+              ]
+            }
+          }
+        ],
+        "abbreviation_definitions": [],
+        "logical_relations": [],
+        "attributes": [],
+        "name_components": [],
+        "reasons": [
+          {
+            "rule": "G04",
+            "code": "REVIEWED_ALIAS",
+            "message": "기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다."
+          }
+        ],
+        "warnings": [],
+        "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
+      }
+    },
+    {
+      "id": "P2-no-or",
+      "input": {
+        "keyword": "Migraine",
+        "text": "No migraine or psoriasis."
+      },
+      "result": {
+        "engine_version": "prototype-2",
+        "normalization_status": "LINKED",
+        "target_evidence_status": "NEGATED",
+        "eligibility_status": "NOT_EVALUATED",
+        "unsupported_patterns": [],
+        "input": {
+          "keyword": "Migraine",
+          "text": "No migraine or psoriasis."
+        },
+        "offset_encoding": "UTF-16 code units",
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005277"
+        ],
+        "concepts": [
+          {
+            "concept_key": "MONDO:0005277",
+            "preferred_name": "migraine disorder",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K280"
+            ]
+          }
+        ],
+        "keyword_candidates": [
+          {
+            "concept_key": "MONDO:0005277",
+            "preferred_name": "migraine disorder",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K280"
+            ]
+          }
+        ],
+        "mentions": [
+          {
+            "text": "migraine",
+            "start": 3,
+            "end": 11,
+            "candidate_keys": [
+              "MONDO:0005277"
+            ],
+            "concept_key": "MONDO:0005277",
+            "status": "RESOLVED",
+            "basis": "REVIEWED_ALIAS",
+            "assertion": "NEGATED",
+            "concept": {
+              "concept_key": "MONDO:0005277",
+              "preferred_name": "migraine disorder",
+              "entity_type": "DISEASE_OR_CONDITION",
+              "source_ids": [
+                "K280"
+              ]
+            }
+          },
+          {
+            "text": "psoriasis",
+            "start": 15,
+            "end": 24,
+            "candidate_keys": [
+              "MONDO:0005083"
+            ],
+            "concept_key": "MONDO:0005083",
+            "status": "RESOLVED",
+            "basis": "REVIEWED_ALIAS",
+            "assertion": "AFFIRMED",
+            "concept": {
+              "concept_key": "MONDO:0005083",
+              "preferred_name": "psoriasis",
+              "entity_type": "DISEASE_OR_CONDITION",
+              "source_ids": [
+                "K033"
+              ]
+            }
+          }
+        ],
+        "abbreviation_definitions": [],
+        "logical_relations": [
+          {
+            "operator": "OR",
+            "operands": [
+              {
+                "text": "migraine",
+                "start": 3,
+                "end": 11,
+                "candidate_keys": [
+                  "MONDO:0005277"
+                ],
+                "concept_key": "MONDO:0005277",
+                "status": "RESOLVED"
+              },
+              {
+                "text": "psoriasis",
+                "start": 15,
+                "end": 24,
+                "candidate_keys": [
+                  "MONDO:0005083"
+                ],
+                "concept_key": "MONDO:0005083",
+                "status": "RESOLVED"
+              }
+            ],
+            "concept_keys": [
+              "MONDO:0005277",
+              "MONDO:0005083"
+            ],
+            "resolution": "RESOLVED"
+          }
+        ],
+        "attributes": [],
+        "name_components": [],
+        "reasons": [
+          {
+            "rule": "G04",
+            "code": "REVIEWED_ALIAS",
+            "message": "기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다."
+          }
+        ],
+        "warnings": [
+          "부정·추정 표지는 언급된 개념과 별도로 기록합니다. 해당 환자의 진단을 확정하지 않습니다."
+        ],
+        "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
+      }
+    },
+    {
+      "id": "P2-family",
+      "input": {
+        "keyword": "Colon cancer",
+        "text": "Family history of colon cancer."
+      },
+      "result": {
+        "engine_version": "prototype-2",
+        "normalization_status": "LINKED",
+        "target_evidence_status": "AFFIRMED",
+        "eligibility_status": "NOT_EVALUATED",
+        "unsupported_patterns": [],
+        "input": {
+          "keyword": "Colon cancer",
+          "text": "Family history of colon cancer."
+        },
+        "offset_encoding": "UTF-16 code units",
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0021063"
+        ],
+        "concepts": [
+          {
+            "concept_key": "MONDO:0021063",
+            "preferred_name": "malignant colon neoplasm",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K123"
+            ]
+          }
+        ],
+        "keyword_candidates": [
+          {
+            "concept_key": "MONDO:0021063",
+            "preferred_name": "malignant colon neoplasm",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K123"
+            ]
+          }
+        ],
+        "mentions": [
+          {
+            "text": "colon cancer",
+            "start": 18,
+            "end": 30,
+            "candidate_keys": [
+              "MONDO:0021063"
+            ],
+            "concept_key": "MONDO:0021063",
+            "status": "RESOLVED",
+            "basis": "REVIEWED_ALIAS",
+            "assertion": "AFFIRMED",
+            "concept": {
+              "concept_key": "MONDO:0021063",
+              "preferred_name": "malignant colon neoplasm",
+              "entity_type": "DISEASE_OR_CONDITION",
+              "source_ids": [
+                "K123"
+              ]
+            }
+          }
+        ],
+        "abbreviation_definitions": [],
+        "logical_relations": [],
+        "attributes": [],
+        "name_components": [],
+        "reasons": [
+          {
+            "rule": "G04",
+            "code": "REVIEWED_ALIAS",
+            "message": "기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다."
+          }
+        ],
+        "warnings": [],
+        "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
+      }
+    },
+    {
+      "id": "P2-section",
+      "input": {
+        "keyword": "Psoriasis",
+        "text": "Exclusion criteria: psoriasis."
+      },
+      "result": {
+        "engine_version": "prototype-2",
+        "normalization_status": "LINKED",
+        "target_evidence_status": "AFFIRMED",
+        "eligibility_status": "NOT_EVALUATED",
+        "unsupported_patterns": [],
+        "input": {
+          "keyword": "Psoriasis",
+          "text": "Exclusion criteria: psoriasis."
+        },
+        "offset_encoding": "UTF-16 code units",
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005083"
+        ],
+        "concepts": [
+          {
+            "concept_key": "MONDO:0005083",
+            "preferred_name": "psoriasis",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K033"
+            ]
+          }
+        ],
+        "keyword_candidates": [
+          {
+            "concept_key": "MONDO:0005083",
+            "preferred_name": "psoriasis",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K033"
+            ]
+          }
+        ],
+        "mentions": [
+          {
+            "text": "psoriasis",
+            "start": 20,
+            "end": 29,
+            "candidate_keys": [
+              "MONDO:0005083"
+            ],
+            "concept_key": "MONDO:0005083",
+            "status": "RESOLVED",
+            "basis": "REVIEWED_ALIAS",
+            "assertion": "AFFIRMED",
+            "concept": {
+              "concept_key": "MONDO:0005083",
+              "preferred_name": "psoriasis",
+              "entity_type": "DISEASE_OR_CONDITION",
+              "source_ids": [
+                "K033"
+              ]
+            }
+          }
+        ],
+        "abbreviation_definitions": [],
+        "logical_relations": [],
+        "attributes": [],
+        "name_components": [],
+        "reasons": [
+          {
+            "rule": "G04",
+            "code": "REVIEWED_ALIAS",
+            "message": "기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다."
+          }
+        ],
+        "warnings": [],
+        "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
+      }
+    },
+    {
+      "id": "P2-history",
+      "input": {
+        "keyword": "Psoriasis",
+        "text": "History of psoriasis."
+      },
+      "result": {
+        "engine_version": "prototype-2",
+        "normalization_status": "LINKED",
+        "target_evidence_status": "AFFIRMED",
+        "eligibility_status": "NOT_EVALUATED",
+        "unsupported_patterns": [],
+        "input": {
+          "keyword": "Psoriasis",
+          "text": "History of psoriasis."
+        },
+        "offset_encoding": "UTF-16 code units",
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005083"
+        ],
+        "concepts": [
+          {
+            "concept_key": "MONDO:0005083",
+            "preferred_name": "psoriasis",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K033"
+            ]
+          }
+        ],
+        "keyword_candidates": [
+          {
+            "concept_key": "MONDO:0005083",
+            "preferred_name": "psoriasis",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K033"
+            ]
+          }
+        ],
+        "mentions": [
+          {
+            "text": "psoriasis",
+            "start": 11,
+            "end": 20,
+            "candidate_keys": [
+              "MONDO:0005083"
+            ],
+            "concept_key": "MONDO:0005083",
+            "status": "RESOLVED",
+            "basis": "REVIEWED_ALIAS",
+            "assertion": "AFFIRMED",
+            "concept": {
+              "concept_key": "MONDO:0005083",
+              "preferred_name": "psoriasis",
+              "entity_type": "DISEASE_OR_CONDITION",
+              "source_ids": [
+                "K033"
+              ]
+            }
+          }
+        ],
+        "abbreviation_definitions": [],
+        "logical_relations": [],
+        "attributes": [],
+        "name_components": [],
+        "reasons": [
+          {
+            "rule": "G04",
+            "code": "REVIEWED_ALIAS",
+            "message": "기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다."
+          }
+        ],
+        "warnings": [],
+        "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
+      }
+    },
+    {
+      "id": "maintain-metastatic",
+      "input": {
+        "keyword": "Castration-resistant prostate cancer",
+        "text": "Metastatic castration-resistant prostate cancer."
+      },
+      "result": {
+        "engine_version": "prototype-2",
+        "normalization_status": "LINKED",
+        "target_evidence_status": "AFFIRMED",
+        "eligibility_status": "NOT_EVALUATED",
+        "unsupported_patterns": [],
+        "input": {
+          "keyword": "Castration-resistant prostate cancer",
+          "text": "Metastatic castration-resistant prostate cancer."
+        },
+        "offset_encoding": "UTF-16 code units",
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0850353"
+        ],
+        "concepts": [
+          {
+            "concept_key": "MONDO:0850353",
+            "preferred_name": "Castration-resistant prostate carcinoma",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K138"
+            ]
+          }
+        ],
+        "keyword_candidates": [
+          {
+            "concept_key": "MONDO:0850353",
+            "preferred_name": "Castration-resistant prostate carcinoma",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K138"
+            ]
+          }
+        ],
+        "mentions": [
+          {
+            "text": "castration-resistant prostate cancer",
+            "start": 11,
+            "end": 47,
+            "candidate_keys": [
+              "MONDO:0850353"
+            ],
+            "concept_key": "MONDO:0850353",
+            "status": "RESOLVED",
+            "basis": "REVIEWED_ALIAS",
+            "assertion": "AFFIRMED",
+            "concept": {
+              "concept_key": "MONDO:0850353",
+              "preferred_name": "Castration-resistant prostate carcinoma",
+              "entity_type": "DISEASE_OR_CONDITION",
+              "source_ids": [
+                "K138"
+              ]
+            }
+          }
+        ],
+        "abbreviation_definitions": [],
+        "logical_relations": [],
+        "attributes": [
+          {
+            "type": "disease_status",
+            "value": "metastatic",
+            "text": "Metastatic",
+            "start": 0,
+            "end": 10,
+            "role": "CONTEXT_ATTRIBUTE",
+            "assertion": "AFFIRMED",
+            "owner_start": null,
+            "ownership": {
+              "status": "SINGLE_CONCEPT_IN_CLAUSE",
+              "mention_start": 11,
+              "concept_key": "MONDO:0850353"
+            },
+            "scope": {
+              "clause_start": 0,
+              "clause_end": 47,
+              "mention_assertion": "AFFIRMED",
+              "kind": "MENTION_CONTEXT"
+            }
+          }
+        ],
+        "name_components": [
+          {
+            "type": "treatment_response",
+            "value": "castration-resistant",
+            "text": "castration-resistant",
+            "start": 11,
+            "end": 31,
+            "role": "NAME_COMPONENT",
+            "assertion": "AFFIRMED",
+            "owner_start": 11,
+            "ownership": {
+              "status": "NAME_SPAN",
+              "mention_start": 11,
+              "concept_key": "MONDO:0850353"
+            },
+            "scope": {
+              "clause_start": 0,
+              "clause_end": 47,
+              "mention_assertion": "AFFIRMED",
+              "kind": "MENTION_CONTEXT"
+            }
+          }
+        ],
+        "reasons": [
+          {
+            "rule": "G04",
+            "code": "REVIEWED_ALIAS",
+            "message": "기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다."
+          },
+          {
+            "rule": "G05",
+            "code": "CONTEXT_PRESERVED",
+            "message": "새 원문에서 지원하는 추가 조건 구간을 찾아 개념과 별도 필드로 보존했습니다."
+          }
+        ],
+        "warnings": [],
+        "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
+      }
+    },
+    {
+      "id": "maintain-uveal",
+      "input": {
+        "keyword": "Uveal melanoma",
+        "text": "Uveal melanoma is mentioned."
+      },
+      "result": {
+        "engine_version": "prototype-2",
+        "normalization_status": "UNREGISTERED",
+        "target_evidence_status": "NOT_FOUND",
+        "eligibility_status": "NOT_EVALUATED",
+        "unsupported_patterns": [],
+        "input": {
+          "keyword": "Uveal melanoma",
+          "text": "Uveal melanoma is mentioned."
+        },
+        "offset_encoding": "UTF-16 code units",
+        "decision": "UNREGISTERED",
+        "concept_keys": [],
+        "concepts": [],
+        "keyword_candidates": [],
+        "mentions": [
+          {
+            "text": "melanoma",
+            "start": 6,
+            "end": 14,
+            "candidate_keys": [
+              "MONDO:0005105"
+            ],
+            "concept_key": "MONDO:0005105",
+            "status": "RESOLVED",
+            "basis": "REVIEWED_ALIAS",
+            "assertion": "AFFIRMED",
+            "concept": {
+              "concept_key": "MONDO:0005105",
+              "preferred_name": "melanoma",
+              "entity_type": "DISEASE_OR_CONDITION",
+              "source_ids": [
+                "K146"
+              ]
+            }
+          }
+        ],
+        "abbreviation_definitions": [],
+        "logical_relations": [],
+        "attributes": [],
+        "name_components": [],
+        "reasons": [
+          {
+            "rule": "G04",
+            "code": "UNREGISTERED_TERM",
+            "message": "이름이나 문서 내 정의를 현재 사전의 개념으로 확인하지 못했습니다. 새로운 LOCAL 개념을 자동으로 만들지 않습니다."
+          }
+        ],
+        "warnings": [],
+        "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
+      }
+    },
+    {
+      "id": "maintain-ventilator",
+      "input": {
+        "keyword": "Ventilator-associated pneumonia",
+        "text": "Ventilator-associated pneumonia is mentioned."
+      },
+      "result": {
+        "engine_version": "prototype-2",
+        "normalization_status": "UNREGISTERED",
+        "target_evidence_status": "NOT_FOUND",
+        "eligibility_status": "NOT_EVALUATED",
+        "unsupported_patterns": [],
+        "input": {
+          "keyword": "Ventilator-associated pneumonia",
+          "text": "Ventilator-associated pneumonia is mentioned."
+        },
+        "offset_encoding": "UTF-16 code units",
+        "decision": "UNREGISTERED",
+        "concept_keys": [],
+        "concepts": [],
+        "keyword_candidates": [],
+        "mentions": [
+          {
+            "text": "pneumonia",
+            "start": 22,
+            "end": 31,
+            "candidate_keys": [
+              "MONDO:0005249"
+            ],
+            "concept_key": "MONDO:0005249",
+            "status": "RESOLVED",
+            "basis": "REVIEWED_ALIAS",
+            "assertion": "AFFIRMED",
+            "concept": {
+              "concept_key": "MONDO:0005249",
+              "preferred_name": "pneumonia",
+              "entity_type": "DISEASE_OR_CONDITION",
+              "source_ids": [
+                "K257"
+              ]
+            }
+          }
+        ],
+        "abbreviation_definitions": [],
+        "logical_relations": [],
+        "attributes": [],
+        "name_components": [],
+        "reasons": [
+          {
+            "rule": "G04",
+            "code": "UNREGISTERED_TERM",
+            "message": "이름이나 문서 내 정의를 현재 사전의 개념으로 확인하지 못했습니다. 새로운 LOCAL 개념을 자동으로 만들지 않습니다."
+          }
+        ],
+        "warnings": [],
+        "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
+      }
+    },
+    {
+      "id": "maintain-ckd",
+      "input": {
+        "keyword": "CKD",
+        "text": "Chronic kidney disease (CKD) for at least 3 months."
+      },
+      "result": {
+        "engine_version": "prototype-2",
+        "normalization_status": "LINKED",
+        "target_evidence_status": "AFFIRMED",
+        "eligibility_status": "NOT_EVALUATED",
+        "unsupported_patterns": [],
+        "input": {
+          "keyword": "CKD",
+          "text": "Chronic kidney disease (CKD) for at least 3 months."
+        },
+        "offset_encoding": "UTF-16 code units",
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0005300"
+        ],
+        "concepts": [
+          {
+            "concept_key": "MONDO:0005300",
+            "preferred_name": "Chronic kidney disease",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K017"
+            ]
+          }
+        ],
+        "keyword_candidates": [
+          {
+            "concept_key": "MONDO:0005300",
+            "preferred_name": "Chronic kidney disease",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K017"
+            ]
+          }
+        ],
+        "mentions": [
+          {
+            "text": "Chronic kidney disease",
+            "start": 0,
+            "end": 22,
+            "candidate_keys": [
+              "MONDO:0005300"
+            ],
+            "concept_key": "MONDO:0005300",
+            "status": "RESOLVED",
+            "basis": "REVIEWED_ALIAS",
+            "assertion": "AFFIRMED",
+            "concept": {
+              "concept_key": "MONDO:0005300",
+              "preferred_name": "Chronic kidney disease",
+              "entity_type": "DISEASE_OR_CONDITION",
+              "source_ids": [
+                "K017"
+              ]
+            }
+          },
+          {
+            "text": "CKD",
+            "start": 24,
+            "end": 27,
+            "candidate_keys": [
+              "MONDO:0005300"
+            ],
+            "concept_key": "MONDO:0005300",
+            "status": "RESOLVED",
+            "basis": "DOCUMENT_DEFINITION",
+            "assertion": "AFFIRMED",
+            "concept": {
+              "concept_key": "MONDO:0005300",
+              "preferred_name": "Chronic kidney disease",
+              "entity_type": "DISEASE_OR_CONDITION",
+              "source_ids": [
+                "K017"
+              ]
+            }
+          }
+        ],
+        "abbreviation_definitions": [
+          {
+            "short_form": "CKD",
+            "long_form": "Chronic kidney disease",
+            "long_start": 0,
+            "long_end": 22,
+            "short_start": 24,
+            "short_end": 27,
+            "candidate_keys": [
+              "MONDO:0005300"
+            ],
+            "status": "RESOLVED"
+          }
+        ],
+        "logical_relations": [],
+        "attributes": [
+          {
+            "type": "duration",
+            "value": "at least 3 months",
+            "text": "at least 3 months",
+            "start": 33,
+            "end": 50,
+            "role": "CONTEXT_ATTRIBUTE",
+            "assertion": "AFFIRMED",
+            "owner_start": null,
+            "ownership": {
+              "status": "SINGLE_CONCEPT_IN_CLAUSE",
+              "mention_start": 24,
+              "concept_key": "MONDO:0005300"
+            },
+            "scope": {
+              "clause_start": 0,
+              "clause_end": 50,
+              "mention_assertion": "AFFIRMED",
+              "kind": "MENTION_CONTEXT"
+            },
+            "quantity": {
+              "amount": 3,
+              "unit": "month",
+              "comparator": "GTE"
+            }
+          }
+        ],
+        "name_components": [
+          {
+            "type": "chronicity",
+            "value": "chronic",
+            "text": "Chronic",
+            "start": 0,
+            "end": 7,
+            "role": "NAME_COMPONENT",
+            "assertion": "AFFIRMED",
+            "owner_start": 0,
+            "ownership": {
+              "status": "NAME_SPAN",
+              "mention_start": 0,
+              "concept_key": "MONDO:0005300"
+            },
+            "scope": {
+              "clause_start": 0,
+              "clause_end": 50,
+              "mention_assertion": "AFFIRMED",
+              "kind": "MENTION_CONTEXT"
+            }
+          }
+        ],
+        "reasons": [
+          {
+            "rule": "G02",
+            "code": "DOCUMENT_DEFINITION",
+            "message": "원문에 있는 긴 이름–약어 정의를 등록된 개념과 대조했습니다. 이 연결은 현재 문서에만 적용합니다."
+          },
+          {
+            "rule": "G05",
+            "code": "CONTEXT_PRESERVED",
+            "message": "새 원문에서 지원하는 추가 조건 구간을 찾아 개념과 별도 필드로 보존했습니다."
+          }
+        ],
+        "warnings": [],
+        "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
+      }
+    },
+    {
+      "id": "maintain-not-exclusion",
+      "input": {
+        "keyword": "Obesity",
+        "text": "Obesity is not an exclusion criterion."
+      },
+      "result": {
+        "engine_version": "prototype-2",
+        "normalization_status": "LINKED",
+        "target_evidence_status": "AFFIRMED",
+        "eligibility_status": "NOT_EVALUATED",
+        "unsupported_patterns": [],
+        "input": {
+          "keyword": "Obesity",
+          "text": "Obesity is not an exclusion criterion."
+        },
+        "offset_encoding": "UTF-16 code units",
+        "decision": "LINKED",
+        "concept_keys": [
+          "MONDO:0011122"
+        ],
+        "concepts": [
+          {
+            "concept_key": "MONDO:0011122",
+            "preferred_name": "obesity disorder",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K187"
+            ]
+          }
+        ],
+        "keyword_candidates": [
+          {
+            "concept_key": "MONDO:0011122",
+            "preferred_name": "obesity disorder",
+            "entity_type": "DISEASE_OR_CONDITION",
+            "source_ids": [
+              "K187"
+            ]
+          }
+        ],
+        "mentions": [
+          {
+            "text": "Obesity",
+            "start": 0,
+            "end": 7,
+            "candidate_keys": [
+              "MONDO:0011122"
+            ],
+            "concept_key": "MONDO:0011122",
+            "status": "RESOLVED",
+            "basis": "REVIEWED_ALIAS",
+            "assertion": "AFFIRMED",
+            "concept": {
+              "concept_key": "MONDO:0011122",
+              "preferred_name": "obesity disorder",
+              "entity_type": "DISEASE_OR_CONDITION",
+              "source_ids": [
+                "K187"
+              ]
+            }
+          }
+        ],
+        "abbreviation_definitions": [],
+        "logical_relations": [],
+        "attributes": [],
+        "name_components": [],
+        "reasons": [
+          {
+            "rule": "G04",
+            "code": "REVIEWED_ALIAS",
+            "message": "기존 사전에서 검토한 이름·별칭과 정확하게 일치합니다."
+          }
+        ],
+        "warnings": [],
+        "scope": "Existing reviewed concepts and explicit document definitions; bounded rules, not general biomedical reasoning or clinical validation."
+      }
+    }
+  ]
+}

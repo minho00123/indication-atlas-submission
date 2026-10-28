@@ -34,11 +34,12 @@ def verify():
         for rule in summary['rules']:
             subset=[c for c in checks if c['rule']==rule['rule']]
             if rule['applications']!=len(subset) or rule['statuses']!=dict(Counter(c['status'] for c in subset)) or rule['rows']!=sum(any(c['rule']==rule['rule'] for c in r[mode]['checks']) for r in audit['rows']):raise ValueError('Rule aggregate differs')
-    after=json.loads((ROOT/'evidence/review_process/runtime_after.json').read_text())
-    if after['engine_version']!=audit['engine_version']:raise ValueError('Reviewed input engine differs')
-    for name,digest in after['dependencies'].items():
-        if name not in DEPENDENCIES|{'app/analyzer-checks.mjs','data/analyzer_cases.json','evidence/review_process/runtime_before.json'}:raise ValueError('Unexpected runtime-review dependency')
-        if hashlib.sha256((ROOT/name).read_bytes()).hexdigest()!=digest:raise ValueError('Stale reviewed input result: '+name)
+    for filename in ['runtime_after.json','reverify_after.json']:
+        after=json.loads((ROOT/'evidence/review_process'/filename).read_text())
+        if after['engine_version']!=audit['engine_version']:raise ValueError('Reviewed input engine differs')
+        for name,digest in after['dependencies'].items():
+            if name not in DEPENDENCIES|{'app/analyzer-checks.mjs','data/analyzer_cases.json','evidence/review_process/runtime_before.json','evidence/review_process/reverify_before.json'}:raise ValueError('Unexpected runtime-review dependency')
+            if hashlib.sha256((ROOT/name).read_bytes()).hexdigest()!=digest:raise ValueError('Stale reviewed input result: '+name)
     review_manifest=json.loads((ROOT/'evidence/review_process/manifest.json').read_text())
     for name,digest in review_manifest['files'].items():
         if Path(name).name!=name:raise ValueError('Unsafe review evidence path')

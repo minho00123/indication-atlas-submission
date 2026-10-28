@@ -74,3 +74,10 @@ GitHub에 push하면 Netlify가 정적 파일을 다시 빌드하도록 연결�
 | tests/ | 원문·검색·그룹·근거와 빌드 검증 |
 
 웹의 CSV·JSON·ZIP은 같은 판정 스냅샷에서 생성합니다. ZIP에는 실행에 필요한 코드와 자료가 포함되고 Git 이력·가상환경·생성된 dist는 포함하지 않습니다.
+
+
+## Netlify가 주입하는 협업 도구
+
+Netlify가 배포 HTML에 툴바를 주입하면 소스의 HTML 해시와 응답 해시가 다를 수 있습니다. JS·JSON·제출 ZIP의 동일성과 앱 동작 검사는 따로 확인합니다. 협업 도구를 사용하지 않는 프로젝트에서 Drawer를 끄는 공식 경로는 Project configuration → Developer settings → Continuous deployment → Collaboration tools → Configure입니다. [Netlify 공식 안내](https://docs.netlify.com/deploy/review-deploys/netlify-drawer-for-feedback/troubleshoot-the-netlify-drawer/)
+
+이 항목은 호스팅 계정 설정이며 소스 수정만으로 껐다고 표시하지 않습니다. 실제 주입 여부와 콘솔 메시지는 배포 후 별도로 기록합니다.

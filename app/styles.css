@@ -423,3 +423,5 @@ summary>.badge { flex-shrink:0; }
 .compare-column blockquote small { display:block; margin-top:8px; color:var(--muted); }
 .compare-column code { overflow-wrap:anywhere; }
 @media(max-width:760px) { .compare-columns { grid-template-columns:1fr; } .compare-column { padding:17px; } }
+.runtime-source .mention-no_cue_detected { background:#e5edf4; }
+.runtime-source .mention-unknown { background:#f7ebcb; }
