@@ -101,13 +101,13 @@ function dictionaryPage() {
     <div class="stats" aria-label="딕셔너리 요약">
       ${[['제공된 입력',m.records,'건','#records','전체 입력 보기'],['개념 그룹',m.concepts,'개','#dictionary?view=concepts','개념 목록 보기'],['별칭 연결',m.aliases,'건','#aliases','별칭 목록 보기'],['문맥·입력 보류',m.holds,'건','#records?decision=HOLD','보류된 입력 보기']].map(([label,n,u,href,action])=>`<a class="stat" href="${href}"${href.includes('view=concepts')?' data-concept-list':''} aria-label="${label} ${n}${u} · ${action}"><span class="stat-label">${label}</span><span class="stat-value">${n}<small>${u}</small></span><span class="stat-action">${action} <span aria-hidden="true">↗</span></span></a>`).join('')}
     </div>
-    <div class="runtime-entry"><div><strong>새 원문에 규칙을 직접 적용해 보세요.</strong><span>문서 내 약어 정의와 일부 추가 조건을 계산하는 시제품입니다.</span></div><a href="#analyze">새 문장 분석 열기 ↗</a></div><p class="home-evidence-links"><a href="#materials/audit">규칙 실행·300건 대조 리포트 ↗</a><a href="#materials/review">AI 교차 검토로 찾고 고친 문제 보기 ↗</a></p>
+    <div class="runtime-entry"><div><strong>새 원문에 규칙을 직접 적용해 보세요.</strong><span>문서 내 약어 정의와 일부 추가 조건을 계산하는 시제품입니다.</span></div><a href="#analyze">새 문장 분석 열기 ↗</a></div><p class="home-evidence-links"><a href="#materials/audit">검증 리포트·300건 대조 ↗</a></p>
     <section id="concept-explorer" aria-labelledby="search-heading"><div class="section-heading"><div><h2 id="search-heading" tabindex="-1">딕셔너리 탐색</h2><p>등록된 표현과 연결된 개념을 찾아보세요.</p></div><a href="#records">전체 원본 보기 ↗</a></div>
     <label class="search-box">${icon}<input id="dictionary-search" type="search" autocomplete="off" aria-label="질환명·약어·원본 번호 검색" placeholder="질환명, 약어 또는 원본 번호를 입력하세요"><span class="search-key" aria-hidden="true">/</span></label>
     <div class="examples"><span>예시 검색</span>${['CD','AML','T2DM','PASC','NAFLD'].map(q=>`<button class="example-chip" data-query="${q}">${q}</button>`).join('')}<span>· ${m.unique_alias_spellings}개 검색 문자열</span></div>
     <div class="explorer"><div id="results" class="panel result-panel"></div><div id="dictionary-detail" class="panel detail"></div></div></section>
     <section class="featured-section"><div class="section-heading"><div><h2>대표 판단 사례</h2><p>다의 약어·범위 차이·추가 조건·명칭 변경·입력 충돌의 판단을 확인하세요.</p></div><a href="#cases">모든 사례 ↗</a></div><div class="featured-grid">${featureCards(['cd','eczema','nsclc','masld','conflict'].map(id=>data.stories.find(s=>s.id===id)))}</div></section>
-    <a class="boundary-card" href="#materials/boundaries"><div><p class="eyebrow">판정 근거에서 후속 검증까지</p><h2>분류 기준과 적용 한계</h2><p>후보를 채택하거나 보류한 이유, 원천 용어체계에서 재검토가 필요한 관계, 추가 검증이 필요한 지점을 정리했습니다.</p></div><span>자세히 보기 ↗</span></a>
+    <a class="boundary-card" href="#materials/methodology?section=counterexamples"><div><p class="eyebrow">판정 근거에서 후속 검증까지</p><h2>분류 기준과 적용 한계</h2><p>후보를 채택하거나 보류한 이유, 원천 용어체계에서 재검토가 필요한 관계, 추가 검증이 필요한 지점을 정리했습니다.</p></div><span>자세히 보기 ↗</span></a>
   </div>`;
   const input=$('#dictionary-search'); input.value=route.params.get('q') ?? '';
   selectedKey=route.params.get('concept'); searchPage=0;
@@ -282,9 +282,17 @@ function casesPage() {
   }).join('')}<div class="detail-section"><h3>반례·적용 조건</h3><p>${esc(story.exception)}</p><a href="#materials/guidelines">판단 가이드라인에서 원칙 확인 ↗</a></div></article></div></div>`;
 }
 
-const materials={guidelines:['판단 가이드라인','guidelines'],research:['유사 서비스 조사','research'],methodology:['구축 방법·검증·한계','methodology'],analyzer:['문장 분석 시제품','analyzer'],boundaries:['반례·후속 연구','boundaries'],compare:['개념 비교',null],audit:['규칙 실행 리포트',null],'audit-method':['대조 설계·실행','audit-method'],review:['AI 교차 검토','review'],downloads:['실행·다운로드','run']};
+const materials={guidelines:['판단 가이드라인','guidelines'],research:['유사 서비스 조사','research'],methodology:['구축 방법·한계','methodology'],audit:['검증 리포트',null],downloads:['실행·다운로드','run']};
+const materialAliases={compare:['guidelines','compare'],boundaries:['methodology','counterexamples'],analyzer:['methodology',''],'audit-method':['audit','method'],review:['methodology','']};
+function focusMaterialsSection(root,section) {
+  const ids={compare:'concept-comparison',counterexamples:'method-counterexamples',future:'method-future',method:'audit-method-section'};
+  const target=root.querySelector('#'+(ids[section]??'not-a-section'));
+  if(target)requestAnimationFrame(()=>{if(target.isConnected){target.focus({preventScroll:true});target.scrollIntoView({block:'start',behavior:'instant'});}});
+}
 async function materialsPage() {
-  const tab=materials[route.sub]?route.sub:'guidelines';
+  const alias=materialAliases[route.sub];
+  if(alias){history.replaceState(null,'',pathFor('materials/'+alias[0],alias[1]?{section:alias[1]}:{}));route=readRoute();}
+  const tab=materials[route.sub]?route.sub:'guidelines',section=route.params.get('section');
   $('#main-content').innerHTML=`<div class="container">${heading('방법과 제출 자료','구축 방법부터, 실행까지','판단 규칙과 조사 자료를 읽고, 데이터와 실행 코드를 내려받을 수 있습니다.')}<nav class="materials-tabs" aria-label="구축·제출 자료">${Object.entries(materials).map(([key,[label]])=>`<a class="${tab===key?'active':''}" href="#materials/${key}">${label}</a>`).join('')}</nav>
     ${tab==='downloads'?`<div class="download-grid">${[
       ['CSV · 300개 원본','전체 판단표','원문·선택한 개념·판단 이유·출처를 담은 표','judgments.csv'],
@@ -293,13 +301,19 @@ async function materialsPage() {
       ['JSON · 데이터','판정 데이터 JSON','원문 조건·이름 구성 요소·후보 정의와 범위 관계','records.json']
     ].map(([type,title,text,file])=>`<a class="download-card" href="./downloads/${file}" download><small>${type} ↓</small><h3>${title}</h3><p>${text}</p></a>`).join('')}</div>`:''}
     <article id="document-content" class="panel document markdown" data-document="${tab}"><p class="loading-state">문서를 불러오고 있습니다.</p></article></div>`;
-  if(tab==='compare'){mountCompare($('#document-content'),data);return;}
-  if(tab==='audit'){mountAudit($('#document-content'));return;}
+  if(tab==='audit'){const node=$('#document-content');await mountAudit(node);if(node.isConnected)focusMaterialsSection(node,section);return;}
   try {
     const key=materials[tab][1];
     if(!docCache.has(key))docCache.set(key,fetch(`./content/${key}.html`).then(r=>{if(!r.ok)throw Error('document');return r.text();}));
     const html=await docCache.get(key), node=$('#document-content');
-    if(node?.dataset.document===tab)node.innerHTML=html;
+    if(node?.dataset.document===tab) {
+      node.innerHTML=html;
+      if(tab==='guidelines') {
+        node.insertAdjacentHTML('beforeend','<section id="concept-comparison" tabindex="-1" class="embedded-comparison"></section>');
+        mountCompare(node.querySelector('#concept-comparison'),data);
+      }
+      focusMaterialsSection(node,section);
+    }
   } catch {
     const node=$('#document-content');
     if(node?.dataset.document===tab)node.innerHTML='<p>문서를 불러오지 못했습니다. 새로고침하거나 실행 패키지 안의 docs 폴더를 확인해 주세요.</p>';

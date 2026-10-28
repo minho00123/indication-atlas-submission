@@ -425,3 +425,13 @@ summary>.badge { flex-shrink:0; }
 @media(max-width:760px) { .compare-columns { grid-template-columns:1fr; } .compare-column { padding:17px; } }
 .runtime-source .mention-no_cue_detected { background:#e5edf4; }
 .runtime-source .mention-unknown { background:#f7ebcb; }
+/* Five submission tabs with embedded comparison and audit methods. */
+.embedded-comparison,.audit-method { margin-top:36px; padding-top:20px; border-top:1px solid var(--line); }
+#concept-comparison,#method-counterexamples,#method-future,#audit-method-section { scroll-margin-top:110px; outline:none; }
+.compare-column>h3 { font-size:18px; margin:8px 0 15px; }
+.compare-column>h4 { font-size:14px; margin:25px 0 10px; }
+@media(max-width:760px) {
+ .materials-tabs { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px; }
+ .materials-tabs a { font-size:11px; padding:8px 2px; text-align:center; white-space:nowrap; }
+ #concept-comparison,#method-counterexamples,#method-future,#audit-method-section { scroll-margin-top:135px; }
+}

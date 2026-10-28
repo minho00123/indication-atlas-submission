@@ -17,7 +17,7 @@ AI를 초안 작성·공식 자료 대조·반례 탐색·구현에 사용했습
 | Codex 일관성 검토 | K004 판단 이유의 원문에 없는 인슐린 조건 설명 | [K004 검토 행](./evidence/review_process/k004_consistency_excerpt.json), [현재 K004](#records?record=K004) | 설명을 수정했습니다. 실제 환자 속성에는 원래도 인슐린 조건을 생성하지 않았음을 구별했습니다. |
 | Codex → Claude 분석 제안 | 68건을 임상 오류로 단정, 531을 문서 수로 표기, 42개 항목을 42개 시험으로 표기 | [제안 정정 기록](./evidence/review_process/proposal_corrections_excerpt.json), [보조 분석 근거](./evidence/boundary_checks/manifest.json) | 수정했습니다. 교차참조 불일치, 100개 문서의 중복 제거 단위, 40개 시험의 42개 비교 항목으로 구별했습니다. 현재 사전의 성능으로 사용하지 않습니다. |
 | Claude → Codex 분석기 | SCLC 부분 구간 오연결, 원문 근거 미확인, 부정·조건 범위, 관계 사유, OR 의존 | [수정 전 반례 8개 실행](./evidence/review_process/runtime_before.json), [수정 후 같은 8개 입력](./evidence/review_process/runtime_after.json), [현재 실행 검사](#analyze) | 반례를 재현한 뒤 부분 표기 보호·원문 주장·조건 범위·미검토 관계·논리 구조의 처리를 보강했습니다. 새 검사도 개발 검사이며 독립 평가가 아닙니다. |
-| Codex → Claude 제안 | 부정 접두·절 전체의 부정 복사, 300행 재조회 해석 | [제안 발췌와 원본 해시](./evidence/review_process/proposal_corrections_excerpt.json), [대조 설계](#materials/audit-method) | 일괄 전파를 채택하지 않았습니다. 개념 식별·문장 주장·요건 필수성을 구별하고, PROVIDED_INPUT이 있는 297행과 전체 300행을 구별했습니다. |
+| Codex → Claude 제안 | 부정 접두·절 전체의 부정 복사, 300행 재조회 해석 | [제안 발췌와 원본 해시](./evidence/review_process/proposal_corrections_excerpt.json), [대조 설계](#materials/audit?section=method) | 일괄 전파를 채택하지 않았습니다. 개념 식별·문장 주장·요건 필수성을 구별하고, PROVIDED_INPUT이 있는 297행과 전체 300행을 구별했습니다. |
 | Codex 대조 실행 중 발견 | 한 의미의 별칭을 제거한 뒤 CD가 반대 의미로 연결되는 위험 | [수정 전 출처 제거 반례](./evidence/review_process/ablation_discovery.json), [현재 B 대조](#materials/audit) | CD·AML의 문서 정의 요구 안전 규칙을 추가했습니다. B에도 남는 전역 정책이며 행 출처 제거를 독립 평가로 포장하지 않습니다. |
 
 ## 재확인 후 보강

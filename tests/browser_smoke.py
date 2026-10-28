@@ -114,7 +114,8 @@ def run(base_url,browser_executable=None,output=None):
         expect(card).to_contain_text('분류 기준과 적용 한계')
         assert not re.search(r'\d',card.inner_text())
         card.click()
-        expect(page.locator('#document-content>h1')).to_have_text('분류 기준과 적용 한계')
+        expect(page.locator('#method-counterexamples')).to_be_focused()
+        expect(page.locator('#document-content>h2')).to_have_count(7)
         expect(page.locator('.external-supplement')).to_have_count(2)
         for supplement in page.locator('.external-supplement').all():
             assert not supplement.evaluate('(el)=>el.open')
@@ -142,12 +143,12 @@ def run(base_url,browser_executable=None,output=None):
         results.append('All ten structured cases and linked original candidate definition')
         page.goto(base_url+'#materials/methodology',wait_until='networkidle')
         expect(page.locator('#document-content>h2')).to_have_count(7)
-        expect(page.locator('.legacy-experiment')).not_to_have_attribute('open','')
-        expect(page.locator('.legacy-experiment')).to_contain_text('94.4%')
+        expect(page.locator('.legacy-experiment:not(.external-supplement)')).not_to_have_attribute('open','')
+        expect(page.locator('.legacy-experiment:not(.external-supplement)')).to_contain_text('94.4%')
         main_text=page.locator('#document-content').evaluate('(el)=>{const copy=el.cloneNode(true);copy.querySelector(".legacy-experiment").remove();return copy.textContent}')
         assert '94%' not in main_text and '94.4%' not in main_text
-        page.locator('.legacy-experiment>summary').click()
-        expect(page.locator('.legacy-content')).to_be_visible()
+        page.locator('.legacy-experiment:not(.external-supplement)>summary').click()
+        expect(page.locator('.legacy-experiment:not(.external-supplement) .legacy-content')).to_be_visible()
         results.append('Seven-stage method and clearly separated historical experiment')
         page.goto(base_url+'#materials/downloads',wait_until='networkidle')
         expect(page.locator('#document-content')).to_contain_text('Netlify')
@@ -267,16 +268,29 @@ def run(base_url,browser_executable=None,output=None):
         expect(page.locator('.compare-columns')).to_contain_text('NCIT:C35065')
         expect(page.locator('.compare-note')).to_contain_text('같은 개념')
         results.append('Optional comparison distinguishes concept groups, narrower candidates and same-concept names')
-        page.goto(base_url+'#materials/review',wait_until='networkidle')
-        expect(page.locator('#document-content')).to_contain_text('블라인드 독립 검토나 임상 전문가 검증이 아닙니다')
+        expect(page.locator('.materials-tabs a')).to_have_count(5)
+        assert page.locator('.materials-tabs a').all_text_contents()==['판단 가이드라인','유사 서비스 조사','구축 방법·한계','검증 리포트','실행·다운로드']
+        for legacy,canonical in [('compare','guidelines?section=compare'),('boundaries','methodology?section=counterexamples'),('analyzer','methodology'),('audit-method','audit?section=method'),('review','methodology')]:
+            page.goto(base_url+'#materials/'+legacy,wait_until='networkidle')
+            expect(page).to_have_url(re.compile(re.escape('#materials/'+canonical)+'$'))
+            if legacy=='compare':expect(page.locator('#concept-comparison')).to_be_focused()
+            if legacy=='audit-method':expect(page.locator('#audit-method-section')).to_be_focused()
+            expect(page.locator('a[href="#materials/review"]')).to_have_count(0)
+        assert page.request.get(base_url+'content/review.html').status==404
         evidence=page.request.get(base_url+'evidence/review_process/manifest.json')
         assert evidence.ok and len(evidence.json()['files'])>=5
-        expect(page.locator('#document-content')).not_to_contain_text('/Users/')
-        results.append('AI cross-review page with linked evidence and no private paths')
+        results.append('Five material tabs, legacy canonical redirects, retired review page removed and execution evidence preserved')
         page.set_viewport_size({'width':390,'height':844})
         for route in ['#dictionary','#records','#cases','#cases/cd','#materials/guidelines','#materials/research','#materials/methodology','#materials/downloads','#materials/boundaries','#aliases','#analyze','#materials/analyzer','#materials/audit','#materials/review','#materials/audit-method','#materials/compare']:
             page.goto(base_url+route,wait_until='networkidle')
             assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth'),route
+        for width in [320,390]:
+            page.set_viewport_size({'width':width,'height':844})
+            page.goto(base_url+'#materials/guidelines',wait_until='networkidle')
+            geometry=page.locator('.materials-tabs a').evaluate_all('(els)=>els.map(e=>({top:Math.round(e.getBoundingClientRect().top),overflow:e.scrollWidth>e.clientWidth}))')
+            assert len({g['top'] for g in geometry})<=2,(width,geometry)
+            assert not any(g['overflow'] for g in geometry),(width,geometry)
+        page.set_viewport_size({'width':390,'height':844})
         for case in ['cd','eczema','nsclc','masld','conflict','or','her2','gca','sense','long-covid']:
             page.goto(base_url+'#cases/'+case,wait_until='networkidle')
             assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth'),case

@@ -10,6 +10,10 @@
 6. [새 문장 분석](#analyze)에서 CD의 문서 정의를 바꿔 실제 연결·보류 결과를 확인하고, 개발·반례 검사를 실행합니다.
 7. 실행·다운로드에서 필요한 파일을 내려받습니다.
 
+## 제출 자료 메뉴
+
+판단 가이드라인(개념 비교 포함) → 유사 서비스 조사 → 구축 방법·한계(7단계·반례·후속 연구) → 검증 리포트(대조 방법 포함) → 실행·다운로드 순서입니다. 새 문장 분석은 딕셔너리 화면의 진입점에서 엽니다.
+
 ## 로컬 실행
 
 Python 3.9 이상을 사용합니다. 추가 패키지 설치나 API 키가 필요 없습니다. 저장소 최상위 폴더에서 실행합니다.
@@ -40,9 +44,9 @@ python3 -m unittest discover -s tests -p 'test_*.py'
 node --test tests/test_*.mjs
 ```
 
-검사 사례와 통과 수는 독립 임상 정확도를 뜻하지 않습니다. [실행 원리·지원 범위·한계](#materials/analyzer)를 함께 확인해 주세요.
+검사 사례와 통과 수는 독립 임상 정확도를 뜻하지 않습니다. [실행 원리·지원 범위·한계](#materials/methodology)를 함께 확인해 주세요.
 
-[규칙 실행 리포트](#materials/audit)에서 A/B/C 전체 결과를 내려받을 수 있습니다. [대조 설계·재실행](#materials/audit-method)과 [AI 교차 검토](#materials/review)를 함께 제공합니다.
+[검증 리포트](#materials/audit)에서 A/B/C 전체 결과를 내려받을 수 있습니다. [대조 방법·재실행](#materials/audit?section=method)을 함께 제공합니다.
 
 ```bash
 node tools/run_rule_audit.mjs --check

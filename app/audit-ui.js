@@ -6,8 +6,8 @@ const perPage=20;
 export async function mountAudit(root) {
   root.innerHTML='<p class="loading-state">전체 대조 결과를 불러오고 있습니다.</p>';
   try {
-    cached??=Promise.all(['./downloads/rule-audit.json','./data/rule-support.json'].map(async url=>{const r=await fetch(url);if(!r.ok)throw Error('자료를 불러오지 못했습니다.');return r.json();}));
-    const [audit,support]=await cached;if(!root.isConnected)return;
+    cached??=Promise.all([...['./downloads/rule-audit.json','./data/rule-support.json'].map(async url=>{const r=await fetch(url);if(!r.ok)throw Error('자료를 불러오지 못했습니다.');return r.json();}),fetch('./content/audit-method.html').then(r=>{if(!r.ok)throw Error('대조 방법 자료');return r.text();})]);
+    const [audit,support,method]=await cached;if(!root.isConnected)return;
     root.innerHTML=`<div class="audit-heading"><p class="eyebrow">전체 입력의 실행·의존성 대조</p><h1>규칙 적용과 남은 검토</h1><p>기존 판정과 실행 결과의 차이를 모두 공개합니다. 300행은 사전과 정책을 만들 때 사용한 개발 자료이며 독립 정확도 평가가 아닙니다.</p></div>
     <div class="audit-lookup"><strong>별칭 조회 무결성: ${audit.lookup.statuses.PASS??0} / ${audit.lookup.total}개 연결 보존</strong><p>등록한 term→concept 연결의 색인 검사입니다. 원문 해석 성능과 구별합니다.</p></div>
     <div class="audit-downloads"><a href="./downloads/rule-audit.json" download>전체 A/B/C JSON ↓</a><a href="./downloads/rule-audit-A.json" download>A 실행 대조 ↓</a><a href="./downloads/rule-audit-B.json" download>B 출처 제거 대조 ↓</a><a href="./downloads/rule-audit-C.json" download>C 규칙·조건 감사 ↓</a><a href="./downloads/rule-audit-lookup.json" download>별칭 조회 검사 ↓</a></div>
@@ -15,7 +15,7 @@ export async function mountAudit(root) {
     <div class="audit-filters"><label>입력·행 번호 검색 <input id="audit-search" type="search" placeholder="CD, K007 등"></label><button id="audit-reset">전체 행 보기</button><span id="audit-row-count" aria-live="polite"></span></div>
     <div class="table-wrap"><table class="audit-table"><thead><tr><th>입력</th><th>기존 판정</th><th>실행 결과</th><th>대조·상세</th></tr></thead><tbody id="audit-rows"></tbody></table></div><div class="audit-pagination"><button id="audit-prev">이전</button><span id="audit-page"></span><button id="audit-next">다음</button></div>
     <h2>C · 규칙별 적용·조건 감사</h2><p>현재 선택한 A/B 실행의 규칙 검사를 집계합니다. 한 행에 여러 검사가 적용되며, 적용 횟수의 합은 300행과 다릅니다. 통과는 명시한 보존 조건의 일관성을 뜻하며 임상 정답을 뜻하지 않습니다.</p><div class="table-wrap"><table><thead><tr><th>규칙</th><th>적용 행 / 300</th><th>검사 횟수</th><th>검사 상태별 횟수</th></tr></thead><tbody id="audit-rules"></tbody></table></div>
-    <h2>G01–G12 실행 지원표</h2><p>실제 계산, 검토 지식 재사용, 사람 판단, 파일 검사를 구별합니다.</p><div class="table-wrap"><table class="support-table"><thead><tr><th>규칙·처리 방식</th><th>현재 구현</th><th>지원 한계</th></tr></thead><tbody>${support.rules.map(r=>`<tr><td><strong>${esc(r.rule)} · ${esc(r.title)}</strong><br>${esc(r.mode)}</td><td>${esc(r.implemented)}</td><td>${esc(r.limits)}</td></tr>`).join('')}</tbody></table></div><p><a href="#materials/audit-method">대조 설계·실행 방법·해석 한계 ↗</a></p>`;
+    <h2>G01–G12 실행 지원표</h2><p>실제 계산, 검토 지식 재사용, 사람 판단, 파일 검사를 구별합니다.</p><div class="table-wrap"><table class="support-table"><thead><tr><th>규칙·처리 방식</th><th>현재 구현</th><th>지원 한계</th></tr></thead><tbody>${support.rules.map(r=>`<tr><td><strong>${esc(r.rule)} · ${esc(r.title)}</strong><br>${esc(r.mode)}</td><td>${esc(r.implemented)}</td><td>${esc(r.limits)}</td></tr>`).join('')}</tbody></table></div><section id="audit-method-section" tabindex="-1" class="audit-method">${method}</section>`;
     const $=s=>root.querySelector(s);
     function render() {
       const mode=state.mode,summary=audit.summary[mode];

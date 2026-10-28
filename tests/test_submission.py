@@ -112,8 +112,17 @@ class SubmissionBuild(unittest.TestCase):
         self.assertNotIn('<script>',output)
         self.assertNotIn('href="javascript:',output)
         self.assertIn('&lt;strong&gt;code&lt;/strong&gt;',output)
-        for name in ('guidelines','research','methodology','analyzer','boundaries','run','audit-method','review'):
+        for name in ('guidelines','research','methodology','run','audit-method'):
             self.assertTrue((ROOT/'dist/content'/f'{name}.html').is_file())
+
+    def test_retired_pages_are_removed_and_review_execution_evidence_remains(self):
+        for name in ['review','analyzer','boundaries']:
+            (ROOT/'dist/content'/f'{name}.html').write_text('obsolete page')
+        build()
+        for name in ['review','analyzer','boundaries']:
+            self.assertFalse((ROOT/'dist/content'/f'{name}.html').exists())
+        for name in ['runtime_before.json','runtime_after.json','reverify_before.json','reverify_after.json','ablation_discovery.json']:
+            self.assertEqual((ROOT/'dist/evidence/review_process'/name).read_bytes(),(ROOT/'evidence/review_process'/name).read_bytes())
 
     def test_runtime_module_and_development_inputs_are_published_in_source_package(self):
         cases=load('analyzer_cases.json')

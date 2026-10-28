@@ -13,11 +13,11 @@
 ## 바로 확인하기
 
 - **딕셔너리:** CD·AML의 다의 후보, T2DM 동의어, PASC, NAFLD/MASLD 관련 결과.
-- **[규칙 실행 리포트](https://indication-atlas.netlify.app/#materials/audit):** 전체 사전 A·행 출처 제거 B·규칙/조건 감사 C의 전체 결과와 미지원 이유. 개발 자료의 일관성·의존성 검사입니다.
+- **[검증 리포트](https://indication-atlas.netlify.app/#materials/audit):** 전체 사전 A·행 출처 제거 B·규칙/조건 감사 C의 전체 결과와 미지원 이유. 개발 자료의 일관성·의존성 검사입니다.
 - **원본 300건:** 전체 판정표와 원문·이유·출처.
 - **[새 문장 분석](https://indication-atlas.netlify.app/#analyze):** 입력한 문서 정의로 CD·AML 등을 연결하거나 보류하고, 일부 추가 조건을 원문 구간으로 추출하는 시제품.
 - **판단 사례:** 범위 차이·문맥·OR 조건·입력 충돌을 설명하는 대표 사례.
-- **구축·제출 자료:** 가이드라인, 서비스 비교, 방법·검증·한계, 실행·다운로드.
+- **구축·제출 자료:** 판단 가이드라인(개념 비교 포함), 유사 서비스 조사, 구축 방법·한계, 검증 리포트(대조 방법 포함), 실행·다운로드.
 
 현재 데이터는 300행, 287개 개념 그룹, 419개 별칭 연결(고유 문자열 404개), 보류 2행입니다. 질환군·소견·상태도 포함합니다. 연구 판정 스냅샷이며 전문가 승인 또는 독립 정확도 평가를 의미하지 않습니다.
 
@@ -40,7 +40,7 @@ python3 -m unittest discover -s tests -p 'test_*.py'
 
 선택적인 분석 모듈 개발 검사는 Node.js 22에서 `node --test tests/test_*.mjs`로 실행합니다. 같은 검사를 웹의 새 문장 분석 화면에서도 실행할 수 있습니다. 작성자 구성 사례에 대한 기능 검사이며 독립 임상 정확도가 아닙니다. 자세한 지원 범위는 [분석 시제품 문서](docs/ANALYZER.md)에 기록했습니다.
 
-새 규칙 대조를 재현하려면 Node.js 22에서 `node tools/run_rule_audit.mjs --check`를 실행합니다. Python 빌드는 저장된 대조의 입력 해시·집계를 검증하며 새 의학 판정을 생성하지 않습니다. [대조 설계](docs/RULE_AUDIT.md)와 [AI 교차 검토 기록](docs/AI_REVIEW.md)을 제공합니다.
+새 규칙 대조를 재현하려면 Node.js 22에서 `node tools/run_rule_audit.mjs --check`를 실행합니다. Python 빌드는 저장된 대조의 입력 해시·집계를 검증하며 새 의학 판정을 생성하지 않습니다. [대조 설계](docs/RULE_AUDIT.md)를 제공합니다.
 
 ## Netlify 연동
 
@@ -57,7 +57,7 @@ python3 -m unittest discover -s tests -p 'test_*.py'
 | app/ | HTML·CSS·JavaScript 화면 |
 | data/ | 원본 XLSX, 고정 판정·사전·출처, 초기 실험 입력·예측 |
 | evidence/ | 공식 API 응답 676개와 MONDO 사용 항목·웹 발췌 |
-| docs/ | [가이드라인](docs/GUIDELINES.md), [서비스 조사](docs/SERVICE_RESEARCH.md), [방법·한계](docs/METHODOLOGY.md), [실행법](docs/RUN.md) |
+| docs/ | [가이드라인](docs/GUIDELINES.md), [서비스 조사](docs/SERVICE_RESEARCH.md), [구축 방법·한계](docs/METHODOLOGY.md), [실행법](docs/RUN.md) |
 | tools/ · tests/ | 독립 실행·검증 코드 |
 
 ## 데이터와 출처
@@ -66,6 +66,6 @@ python3 -m unittest discover -s tests -p 'test_*.py'
 
 MONDO v2026-10-06 사용 항목을 발췌했으며 전체 온톨로지를 포함하지 않습니다. [MONDO 공식 릴리스](https://github.com/monarch-initiative/mondo/releases/tag/v2026-10-06), [MONDO 귀속·이용 안내](https://mondo.monarchinitiative.org/pages/download/). NCIt는 NCI EVS, MeSH는 NLM, HPO는 Jackson Laboratory의 공식 응답을 보존했습니다. 자료별 URL·시각·원본 해시는 `evidence/api-manifest.json`과 `data/sources.json`에서 추적합니다.
 
-대표 10개 사례의 비교 축·후보별 관계·최종 처리와 원문 근거를 구조화했습니다. [분류 기준과 적용 한계](docs/BOUNDARIES.md)에는 현재 검토 기록과 후속 연구를, [외부 기준선](docs/EXTERNAL_BASELINES.md)·[임상시험 탐색](docs/EXTERNAL_TRIALS.md)에는 과거 보조 분석과 한계를 구별했습니다. 보조 분석은 현재 사전의 성능 평가가 아닙니다.
+대표 10개 사례의 비교 축·후보별 관계·최종 처리와 원문 근거를 구조화했습니다. [구축 방법·한계](docs/METHODOLOGY.md)에는 현재 검토 기록과 후속 연구를, [외부 기준선](docs/EXTERNAL_BASELINES.md)·[임상시험 탐색](docs/EXTERNAL_TRIALS.md)에는 과거 보조 분석과 한계를 구별했습니다. 보조 분석은 현재 사전의 성능 평가가 아닙니다.
 
 AI를 후보 탐색·초안·구현·교차 검토에 사용했고 원문과 공식 자료로 대조했습니다. 초기 실험의 재채점 자료와 한계는 [구 정책 실험 기록](docs/LEGACY_EXPERIMENT.md)에 별도로 보존했습니다. 이 수치는 현재 사전의 정확도가 아닙니다.

@@ -14,7 +14,7 @@ from verify_rule_audit import verify as verify_rule_audit
 
 DIST = ROOT / 'dist'
 DOCS = {'guidelines':'GUIDELINES.md','research':'SERVICE_RESEARCH.md',
-        'methodology':'METHODOLOGY.md','analyzer':'ANALYZER.md','boundaries':'BOUNDARIES.md','run':'RUN.md','audit-method':'RULE_AUDIT.md','review':'AI_REVIEW.md'}
+        'methodology':'METHODOLOGY.md','run':'RUN.md','audit-method':'RULE_AUDIT.md'}
 
 
 def dump(path, value):
@@ -36,7 +36,7 @@ def source_files():
             if path.is_file() and '__pycache__' not in path.parts and path.suffix!='.pyc':
                 if path.is_symlink():raise ValueError('Source package cannot contain symlinks')
                 names.append(path)
-    names.extend(ROOT/name for name in ('README.md','netlify.toml','.gitignore','.gitattributes'))
+    names.extend(ROOT/name for name in ('README.md','START_HERE.md','netlify.toml','.gitignore','.gitattributes'))
     return sorted(names)
 
 
@@ -48,6 +48,8 @@ def build():
     for name in DOCS.values():
         if not (ROOT/'docs'/name).is_file():raise ValueError('Missing submission document: '+name)
     for folder in ('data/records','content','downloads'):(DIST/folder).mkdir(parents=True,exist_ok=True)
+    # Remove pages retired by menu consolidation, including stale local build output.
+    for name in ('review','analyzer','boundaries'):(DIST/'content'/f'{name}.html').unlink(missing_ok=True)
     for path in (ROOT/'app').iterdir():
         if path.is_file():shutil.copyfile(path,DIST/path.name)
     stats=summary(records,core,manifest)
@@ -69,9 +71,13 @@ def build():
     for key, filename in DOCS.items():
         content=render((ROOT/'docs'/filename).read_text(encoding='utf8'))
         if key=='methodology':
+            content=content.replace('<h2>6.', '<h2 id="method-counterexamples" tabindex="-1">6.').replace('<h2>7.', '<h2 id="method-future" tabindex="-1">7.')
             supplement=render((ROOT/'docs/LEGACY_EXPERIMENT.md').read_text(encoding='utf8'))
             content+='<details class="legacy-experiment"><summary>초기 탐색 실험(구 정책 기준)</summary><div class="legacy-content">'+supplement+'</div></details>'
-        if key=='boundaries':
+        if key=='audit-method':
+            import re
+            content=re.sub(r'<h([1-5])>(.*?)</h\1>',lambda m:f'<h{int(m[1])+1}>'+('대조 방법' if m[1]=='1' else m[2])+f'</h{int(m[1])+1}>',content)
+        if key=='methodology':
             for filename,title in [('EXTERNAL_BASELINES.md','보조 자료 1 · 외부 코퍼스 문자열 매칭 기준선(과거 탐색)'),('EXTERNAL_TRIALS.md','보조 자료 2 · 실제 임상시험 문구 비교(잠정 라벨)')]:
                 supplement=render((ROOT/'docs'/filename).read_text(encoding='utf8'))
                 content+='<details class="legacy-experiment external-supplement"><summary>'+title+'</summary><div class="legacy-content">'+supplement+'</div></details>'
