@@ -519,7 +519,6 @@ try {
   data=await response.json();
   conceptByKey=new Map(data.concepts.map(c=>[c.concept_key,c]));
   recordById=new Map(data.records.map(r=>[r.source_id,r]));
-  $('#data-version').textContent=`자료 기준 ${data.metadata.as_of} · v${data.metadata.dataset_version}`;
   render();
   if(route.page==='dictionary' && route.params.get('view')==='concepts') {
     $('#search-heading').focus({preventScroll:true});$('#concept-explorer').scrollIntoView({block:'start',behavior:'instant'});

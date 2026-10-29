@@ -218,8 +218,11 @@ tbody tr { background:white; }
 .loading-state { padding:90px 24px; text-align:center; color:var(--muted); font-size:14px; }
 .loading-dot { display:inline-block; width:9px; height:9px; border-radius:50%; background:var(--accent); margin-right:8px; animation:pulse 1s infinite alternate; }
 .site-footer { margin-top:48px; border-top:1px solid var(--line); background:var(--surface); color:var(--muted); font-size:13px; }
-.footer-inner { max-width:1296px; margin:0 auto; padding:20px 32px 24px; display:flex; flex-wrap:wrap; align-items:center; gap:6px 18px; }
-.footer-repo { margin-left:auto; }
+.footer-inner { max-width:1296px; margin:0 auto; padding:16px 32px 18px; display:flex; flex-wrap:wrap; align-items:center; gap:6px 18px; }
+.footer-icons { margin-left:auto; display:flex; gap:8px; }
+.icon-link { display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border:1px solid var(--line); border-radius:50%; color:var(--muted); transition:color .15s, border-color .15s, background .15s; }
+.icon-link:hover { color:var(--accent); border-color:#76cffe; background:var(--tint); }
+.icon-link svg { width:18px; height:18px; }
 .footer-brand { font-size:15px; color:var(--ink); font-weight:700; }
 .site-footer a { color:var(--muted); }
 .toast { display:none; position:fixed; bottom:24px; left:50%; transform:translateX(-50%); background:var(--ink); color:white; border-radius:9px; padding:10px 18px; font-size:12px; z-index:60; box-shadow:0 10px 30px #0002; }
@@ -252,7 +255,7 @@ tbody tr { background:white; }
   .case-story { padding:20px 17px; } .case-story h2 { font-size:23px; }
   .document { padding:23px 18px; } .markdown { font-size:14px; } .markdown h1 { font-size:23px; }
   .materials-tabs { gap:6px; } .materials-tabs a { font-size:12px; padding:7px 10px; }
-  .download-grid { grid-template-columns:1fr; } .footer-inner { padding:18px 20px 22px; } .footer-repo { margin-left:0; overflow-wrap:anywhere; }
+  .download-grid { grid-template-columns:1fr; } .footer-inner { padding:18px 20px 22px; }
 }
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } * { animation:none!important; transition:none!important; } }
 

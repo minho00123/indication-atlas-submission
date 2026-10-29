@@ -17,7 +17,7 @@ def run(base_url,browser_executable=None,output=None):
         page.goto(base_url,wait_until='networkidle')
         # Entry: the overview explains the result before the search tool.
         expect(page.locator('#hero-title')).to_have_text('질환 동의어 사전')
-        expect(page.locator('.footer-repo')).to_have_attribute('href','https://github.com/minho00123/indication-atlas-submission')
+        expect(page.get_by_role('link',name='GitHub 저장소 (새 창)')).to_have_attribute('href','https://github.com/minho00123/indication-atlas-submission')
         expect(page.locator('.main-nav a[data-nav="overview"]')).to_have_attribute('aria-current','page')
         results.append('Desktop entry and snapshot counts')
         assert page.locator('.stats .stat-value').evaluate_all('(els)=>els.map(e=>e.textContent.replace(/[^0-9]/g,""))')==['300','287','419','2']
