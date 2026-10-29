@@ -38,7 +38,7 @@ python3 -m unittest discover -s tests -p 'test_*.py'
 
 `serve.py`는 빌드한 뒤 로컬 서버를 시작합니다. 결과는 `dist/`이며 Git에는 생성 파일 대신 소스와 기준 데이터를 올립니다. 네트워크·계정·모델 API 없이 빌드할 수 있습니다.
 
-선택적인 분석 모듈 개발 검사는 Node.js 22에서 `node --test tests/test_*.mjs`로 실행합니다. 같은 검사를 웹의 직접 입력해 보기 화면에서도 실행할 수 있습니다. 작성자 구성 사례에 대한 기능 검사이며 독립 임상 정확도가 아닙니다. 자세한 지원 범위는 [분석 시제품 문서](docs/ANALYZER.md)에 기록했습니다.
+선택적인 분석 모듈 개발 검사는 Node.js 22에서 `node --test tests/test_*.mjs`로 실행합니다. 개발·반례 입력 103건은 자동 테스트와 브라우저 검사에서 확인하며, 웹에는 검사 실행 버튼을 두지 않았습니다. 작성자 구성 사례에 대한 기능 검사이며 독립 임상 정확도가 아닙니다. 자세한 지원 범위는 [분석 시제품 문서](docs/ANALYZER.md)에 기록했습니다.
 
 새 규칙 대조를 재현하려면 Node.js 22에서 `node tools/run_rule_audit.mjs --check`를 실행합니다. Python 빌드는 저장된 대조의 입력 해시·집계를 검증하며 새 의학 판정을 생성하지 않습니다. [대조 설계](docs/RULE_AUDIT.md)를 제공합니다.
 

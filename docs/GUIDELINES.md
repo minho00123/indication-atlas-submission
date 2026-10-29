@@ -129,7 +129,7 @@ K201은 NCIt의 주 정의와 NICHD 대체 정의의 범위가 다름을 함께 
 
 ## 데이터 필드 대응
 
-본문의 용어는 아래 파일의 필드에 해당합니다. `records.json`·`judgments.csv`는 분류 결과 화면에서, `data/dictionary.json`은 전체 ZIP에서 받을 수 있습니다.
+본문의 용어는 아래 파일의 필드에 해당합니다. `records.json`·`judgments.csv`는 [파일과 실행 방법](#materials/downloads)에서, `data/dictionary.json`은 전체 ZIP에서 받을 수 있습니다.
 
 | 본문 용어 | 데이터 필드 | 확인할 파일 |
 |---|---|---|
