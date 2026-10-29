@@ -1,0 +1,1513 @@
+[
+ {
+  "item": "V01",
+  "interpretation_ko": "ICU 입원 환자가 처한 생명을 위협하는 중증 질병 상태(critical illness) 자체. 연구 참여자는 그 환자의 보호자임",
+  "entity_type": "other",
+  "research_decision": "ROUTE_ENTITY",
+  "selected_id": "MeSH:D016638",
+  "selected_label": "Critical Illness",
+  "candidate_relations": [
+   {
+    "id": "MeSH:D016638",
+    "relation": "EXACT"
+   },
+   {
+    "id": "NCIT:C191601",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "NCIT:C122793",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "MONDO:0001957",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "MONDO:0043783",
+    "relation": "DIFFERENT_ENTITY"
+   }
+  ],
+  "patient_conditions": [
+   "참여자는 ICU 환자의 주 보호자(환자 본인 아님)",
+   "환자 ICU 재원 10일 초과",
+   "18세 이상"
+  ],
+  "rule_ids": [
+   "G07",
+   "G04",
+   "G05"
+  ],
+  "rationale_ko": "MeSH Critical Illness는 '사망이 가능하거나 임박한 질병 또는 상태'로 특정 질환이 아닌 중증도 상태이므로 질환으로 연결하지 않고 별도 개체로 보존합니다. 기본 후보(중환자 다발신경병증·근병증 등)는 중환자에게 생기는 특정 합병증이라 다른 개체입니다.",
+  "guideline_gap": {
+   "flag": true,
+   "note": "조건명이 참여자(보호자)가 아니라 그 가족 환자의 상태를 가리킨다. 지침은 조건명-참여 집단 불일치(대리 집단)를 다루는 규칙이 없다. 또한 '중증 상태'가 G07의 상태·사건 어느 유형인지 정해져 있지 않다."
+  },
+  "confidence": "medium",
+  "queries_made": [
+   "MeSH: Critical Illness",
+   "MONDO: critical illness",
+   "NCIt(match): Critical Illness"
+  ]
+ },
+ {
+  "item": "V02",
+  "interpretation_ko": "외상후 스트레스 증상. 포함 기준상 대상자는 DSM-5 PTSD 진단을 받은 퇴역군인",
+  "entity_type": "finding_or_symptom",
+  "research_decision": "ROUTE_ENTITY",
+  "selected_id": null,
+  "selected_label": null,
+  "candidate_relations": [
+   {
+    "id": "MONDO:0005146",
+    "relation": "RELATED"
+   },
+   {
+    "id": "NCIT:C3389",
+    "relation": "RELATED"
+   },
+   {
+    "id": "MeSH:D013313",
+    "relation": "RELATED"
+   },
+   {
+    "id": "NCIT:C147587",
+    "relation": "DIFFERENT_ENTITY"
+   }
+  ],
+  "patient_conditions": [
+   "DSM-5 PTSD 진단(CAPS-5 확인)",
+   "18–65세",
+   "현역 또는 퇴역 군인(Stream 1)",
+   "정신과 약물 4주 이상 안정"
+  ],
+  "rule_ids": [
+   "G07",
+   "G03",
+   "G05"
+  ],
+  "rationale_ko": "조건명은 질환(PTSD)이 아니라 증상(symptom)이므로 증상 개체로 보존하고 PTSD 질환 코드로 바꾸지 않습니다. PTSD 진단은 포함 기준의 환자 조건으로 따로 남기며, 조회한 PTSD 질환 개념들은 RELATED입니다. 증상 수준의 외부 개념은 확인하지 못했습니다.",
+  "guideline_gap": {
+   "flag": true,
+   "note": "조건명(증상)과 포함 기준(질환 진단)의 개체 수준이 다를 때 증상으로 남길지, 문맥의 질환으로 올릴지 정한 규칙이 없다. 충돌(HOLD_SOURCE_CONFLICT)로 보기에는 서로 모순되지 않는다."
+  },
+  "confidence": "medium",
+  "queries_made": [
+   "MeSH: Stress Disorders, Post-Traumatic",
+   "MeSH: Stress Disorders, Traumatic",
+   "NCIt(match): Posttraumatic Stress Disorder",
+   "NCIt(match): Post-Traumatic Stress Disorder",
+   "NCIt(match): Post-Traumatic Stress Symptom",
+   "NCIt(contains): Posttraumatic Stress",
+   "MONDO: posttraumatic stress disorder",
+   "MONDO: post-traumatic stress disorder"
+  ]
+ },
+ {
+  "item": "V03",
+  "interpretation_ko": "부부 갈등(결혼 위기)이라는 심리사회적 상황. 대상자는 주요우울장애 환자",
+  "entity_type": "other",
+  "research_decision": "ROUTE_ENTITY",
+  "selected_id": "MeSH:M0505985",
+  "selected_label": "Marital Conflict (MeSH Family Conflict 디스크립터 내 개념)",
+  "candidate_relations": [
+   {
+    "id": "MeSH:M0505985",
+    "relation": "EXACT"
+   },
+   {
+    "id": "MeSH:D054541",
+    "relation": "NARROWER"
+   },
+   {
+    "id": "NCIT:C100287",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "NCIT:C125082",
+    "relation": "DIFFERENT_ENTITY"
+   }
+  ],
+  "patient_conditions": [
+   "DSM-5-TR 주요우울장애(MINI 확인)",
+   "BDI-II ≥20",
+   "DAS ≤97(결혼 위기의 조작적 정의)",
+   "20–60세",
+   "단일 항우울제 2주 이상 복용"
+  ],
+  "rule_ids": [
+   "G07",
+   "G04",
+   "G05"
+  ],
+  "rationale_ko": "부부 갈등은 질환이 아닌 사회적 상황이므로 별도 개체로 보존합니다. MeSH에서 Marital Conflict는 Family Conflict 디스크립터 안의 독립 Concept(M0505985)이므로 그 Concept에 연결하고, 디스크립터 전체(가족 갈등)는 원문보다 넓습니다. 우울증은 환자 조건이며 조건명 개념에 섞지 않습니다.",
+  "guideline_gap": {
+   "flag": true,
+   "note": "G07은 증상·생리 상태·생애 단계·사건만 예시하며 심리사회적 상황(관계 갈등)의 개체 유형이 없다."
+  },
+  "confidence": "medium",
+  "queries_made": [
+   "MeSH: Marital",
+   "MeSH: Family Conflict",
+   "MeSH 상세: D054541 concepts"
+  ]
+ },
+ {
+  "item": "V04",
+  "interpretation_ko": "천식(질환). 단, 참여자는 천식 환자가 아니라 흡입기 처방 사례를 푸는 NHS 의료진",
+  "entity_type": "disease",
+  "research_decision": "PROVISIONAL_MAP",
+  "selected_id": "MONDO:0004979",
+  "selected_label": "asthma",
+  "candidate_relations": [
+   {
+    "id": "MONDO:0004979",
+    "relation": "EXACT"
+   },
+   {
+    "id": "NCIT:C28397",
+    "relation": "EXACT"
+   },
+   {
+    "id": "MONDO:0011805",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "NCIT:C122370",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "NCIT:C29635",
+    "relation": "DIFFERENT_ENTITY"
+   }
+  ],
+  "patient_conditions": [
+   "참여자는 NHS 의료진(HCP)",
+   "천식은 임상 사례 시나리오의 주제"
+  ],
+  "rule_ids": [
+   "G03",
+   "G04",
+   "G09"
+  ],
+  "rationale_ko": "조건명 Asthma의 의미는 분명하고 MONDO asthma 정의와 범위가 같습니다. 유전 감수성 후보와 설문·제제 개념은 다른 개체입니다. 참여자가 환자가 아니라는 점은 개념이 아니라 문맥 조건으로 남깁니다.",
+  "guideline_gap": {
+   "flag": true,
+   "note": "조건명이 환자 적응증이 아니라 연구 주제(처방 행태)일 때의 처리 규칙이 없다. 개념 판정은 가능하지만 적응증 사전에 넣을지 여부는 기준 밖이다."
+  },
+  "confidence": "medium",
+  "queries_made": []
+ },
+ {
+  "item": "V05",
+  "interpretation_ko": "각차단(bundle-branch block)이라는 심장 전도 장애. 연구 대상은 서맥으로 영구 박동기 적응이 있는 좌각 영역 조율(LBBAP) 예정 환자",
+  "entity_type": "disease",
+  "research_decision": "PROVISIONAL_MAP",
+  "selected_id": "MeSH:D002037",
+  "selected_label": "Bundle-Branch Block",
+  "candidate_relations": [
+   {
+    "id": "MeSH:D002037",
+    "relation": "EXACT"
+   },
+   {
+    "id": "NCIT:C84603",
+    "relation": "RELATED"
+   },
+   {
+    "id": "NCIT:C62269",
+    "relation": "BROADER"
+   },
+   {
+    "id": "MONDO:0007241",
+    "relation": "BROADER"
+   },
+   {
+    "id": "MONDO:0015263",
+    "relation": "DIFFERENT_ENTITY"
+   }
+  ],
+  "patient_conditions": [
+   "서맥성 부정맥으로 영구 심박동기 적응",
+   "예상 심실 조율 부담 ≥40%",
+   "LBBAP 시술 예정",
+   "19세 이상"
+  ],
+  "rule_ids": [
+   "G03",
+   "G04",
+   "G07"
+  ],
+  "rationale_ko": "MeSH Bundle-Branch Block은 히스속 분지 중 하나에서 전도가 차단되는 심장 차단으로 좌·우각 차단과 섬유속 차단을 포함해 원문과 범위가 같습니다. NCIt 후보는 'ECG 소견' 개체라 RELATED, 좌각·우각 한정 후보는 원문이 더 넓습니다(BROADER). 문맥은 각차단 환자가 아니라 좌각 영역 조율 시술이며, 이를 각차단 진단으로 해석하지 않습니다.",
+  "guideline_gap": {
+   "flag": true,
+   "note": "포함 기준에 각차단이 요구되지 않고 시술 표적 부위(좌각 영역) 때문에 붙은 조건명으로 보인다. 조건명과 문맥이 모순은 아니지만 일치하지도 않는 경우의 처리 규칙이 없다."
+  },
+  "confidence": "medium",
+  "queries_made": [
+   "MeSH: Bundle-Branch Block",
+   "MeSH 상세: D002037 scope note",
+   "MONDO: bundle branch block",
+   "NCIt(match): Bundle Branch Block"
+  ]
+ },
+ {
+  "item": "V06",
+  "interpretation_ko": "기관삽관이 어려운 기도(difficult airway) 상황. 실제로는 정상 수술 환자에게 경추 고정을 걸어 만든 모의 어려운 기도",
+  "entity_type": "finding_or_symptom",
+  "research_decision": "ROUTE_ENTITY",
+  "selected_id": null,
+  "selected_label": null,
+  "candidate_relations": [
+   {
+    "id": "MeSH:D058109",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "MeSH:D007442",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "MONDO:0018597",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "NCIT:C112538",
+    "relation": "DIFFERENT_ENTITY"
+   }
+  ],
+  "patient_conditions": [
+   "ASA 1–3",
+   "18세 초과",
+   "복강경 수술 예정",
+   "경추 고정 상태에서 삽관(제목)"
+  ],
+  "rule_ids": [
+   "G07",
+   "G10"
+  ],
+  "rationale_ko": "어려운 기도는 질환이 아니라 마취·기도 관리에서의 임상 소견/상황이므로 별도 개체로 보존합니다. MONDO·NCIt·MeSH 조회에서 같은 범위의 개념을 찾지 못했고, Airway Management·Intubation은 시술이라 다른 개체입니다.",
+  "guideline_gap": {
+   "flag": true,
+   "note": "모의(유발된) 상태가 조건명일 때의 규칙이 없고, 외부 개념이 없는 비질환 개체를 ROUTE_ENTITY와 LOCAL_CONCEPT 중 어디로 둘지 정해져 있지 않다."
+  },
+  "confidence": "low",
+  "queries_made": [
+   "NCIt(match): Difficult Airway",
+   "NCIt(contains): Difficult Airway",
+   "NCIt(contains): Difficult Intubation",
+   "MeSH: Airway Management",
+   "MeSH: Intubation",
+   "MeSH: Difficult Airway",
+   "MONDO: difficult airway"
+  ]
+ },
+ {
+  "item": "V07",
+  "interpretation_ko": "자폐 청소년의 임상적으로 유의한 불안(증상 수준, 불안장애 진단 아님)",
+  "entity_type": "finding_or_symptom",
+  "research_decision": "ROUTE_ENTITY",
+  "selected_id": "NCIT:C26696",
+  "selected_label": "Anxiety",
+  "candidate_relations": [
+   {
+    "id": "NCIT:C26696",
+    "relation": "EXACT"
+   },
+   {
+    "id": "MeSH:D001007",
+    "relation": "EXACT"
+   },
+   {
+    "id": "MONDO:0011918",
+    "relation": "UNKNOWN"
+   },
+   {
+    "id": "MONDO:0005618",
+    "relation": "BROADER"
+   },
+   {
+    "id": "NCIT:C2878",
+    "relation": "BROADER"
+   },
+   {
+    "id": "MONDO:0001942",
+    "relation": "BROADER"
+   },
+   {
+    "id": "NCIT:C121276",
+    "relation": "DIFFERENT_ENTITY"
+   }
+  ],
+  "patient_conditions": [
+   "12–17세",
+   "ASD 진단(DSM-5)",
+   "IQ ≥50",
+   "PARS 5문항 점수 ≥10",
+   "약물 30일 이상 안정"
+  ],
+  "rule_ids": [
+   "G07",
+   "G03",
+   "G04",
+   "G05"
+  ],
+  "rationale_ko": "포함 기준은 불안장애 진단이 아니라 PARS 점수로 정한 임상적 불안이므로 증상 개념 NCIt Anxiety에 연결하고 불안장애로 좁히지 않습니다(불안장애 후보는 원문이 더 넓음). MONDO anxiety는 정의가 없어 UNKNOWN입니다. ASD는 배경 질환으로 환자 조건에 남깁니다.",
+  "guideline_gap": {
+   "flag": true,
+   "note": "300건에서 증상이 K021 thirst는 ROUTE_ENTITY, K211 urinary incontinence는 PROVISIONAL_MAP으로 갈려, 외부 코드가 있는 증상의 처리 상태 기준이 불명확하다."
+  },
+  "confidence": "medium",
+  "queries_made": [
+   "MeSH: Anxiety",
+   "MONDO: anxiety"
+  ]
+ },
+ {
+  "item": "V08",
+  "interpretation_ko": "폐경(생애 단계). 포함 기준은 폐경 주변기도 포함",
+  "entity_type": "physiological_state",
+  "research_decision": "ROUTE_ENTITY",
+  "selected_id": "NCIT:C3231",
+  "selected_label": "Menopause",
+  "candidate_relations": [
+   {
+    "id": "NCIT:C3231",
+    "relation": "EXACT"
+   },
+   {
+    "id": "MeSH:D008593",
+    "relation": "EXACT"
+   },
+   {
+    "id": "MONDO:0001119",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "NCIT:C80099",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "NCIT:C106541",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "NCIT:C94256",
+    "relation": "BROADER"
+   }
+  ],
+  "patient_conditions": [
+   "여성 40–60세",
+   "폐경 주변기 또는 폐경 경험 중"
+  ],
+  "rule_ids": [
+   "G07",
+   "G05"
+  ],
+  "rationale_ko": "K020과 같이 폐경은 질환이 아닌 생애 단계로 별도 처리하고 NCIt Menopause에 연결합니다. 조기 폐경·수술 폐경은 범위가 다르거나 좁으며, 폐경 주변기 포함은 환자 조건으로 남깁니다.",
+  "guideline_gap": {
+   "flag": false,
+   "note": ""
+  },
+  "confidence": "high",
+  "queries_made": [
+   "MeSH: Menopause"
+  ]
+ },
+ {
+  "item": "V09",
+  "interpretation_ko": "임상 교육(호흡치료 학생 대상 AI 가상환자 시뮬레이션 교육)이라는 교육 활동",
+  "entity_type": "procedure_or_intervention",
+  "research_decision": "ROUTE_ENTITY",
+  "selected_id": null,
+  "selected_label": null,
+  "candidate_relations": [
+   {
+    "id": "NCIT:C215657",
+    "relation": "RELATED"
+   },
+   {
+    "id": "NCIT:C188454",
+    "relation": "RELATED"
+   },
+   {
+    "id": "MONDO:0007029",
+    "relation": "DIFFERENT_ENTITY"
+   }
+  ],
+  "patient_conditions": [
+   "호흡치료학과 학생",
+   "특정 교과목 수강생(2026-09-10~10-10)"
+  ],
+  "rule_ids": [
+   "G07"
+  ],
+  "rationale_ko": "질환·증상·상태가 아닌 교육 활동이므로 질환으로 연결하지 않습니다. NCIt Clinical Education Study는 연구 유형 개념이라 RELATED이며, MONDO 후보는 무관합니다.",
+  "guideline_gap": {
+   "flag": true,
+   "note": "교육·훈련 같은 비임상 개체는 지침의 개체 유형(질환·소견·증상·상태·사건)에 없다. 가장 가까운 ROUTE_ENTITY를 골랐지만 '적응증 아님(out of scope)' 상태가 필요하다."
+  },
+  "confidence": "low",
+  "queries_made": []
+ },
+ {
+  "item": "V10",
+  "interpretation_ko": "심박변이도(HRV)라는 생리 측정 지표. 대상은 고지대 거주 건강인",
+  "entity_type": "measurement",
+  "research_decision": "ROUTE_ENTITY",
+  "selected_id": null,
+  "selected_label": null,
+  "candidate_relations": [
+   {
+    "id": "NCIT:C228339",
+    "relation": "RELATED"
+   },
+   {
+    "id": "MeSH:D006339",
+    "relation": "NARROWER"
+   },
+   {
+    "id": "NCIT:C92790",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "MONDO:0013960",
+    "relation": "DIFFERENT_ENTITY"
+   }
+  ],
+  "patient_conditions": [
+   "18–80세 건강인",
+   "2600 m 초과 고지대 영구 거주",
+   "2850 m↔해수면 하강·재상승"
+  ],
+  "rule_ids": [
+   "G07"
+  ],
+  "rationale_ko": "HRV는 질환이 아닌 생리 지표이므로 별도 개체로 둡니다. NCIt 후보는 HRV '평가(측정 행위)'라 RELATED, MeSH Heart Rate는 상위 생리 개념이라 원문이 더 좁고, 태아 HRV는 다른 개체입니다. 같은 범위의 지표 개념은 확인하지 못했습니다.",
+  "guideline_gap": {
+   "flag": true,
+   "note": "측정 지표 자체가 조건명인 경우의 개체 유형·처리 상태가 지침에 없다."
+  },
+  "confidence": "medium",
+  "queries_made": [
+   "NCIt(match): Heart Rate Variability",
+   "MeSH: Heart Rate"
+  ]
+ },
+ {
+  "item": "V11",
+  "interpretation_ko": "수면의 질이 나쁨(불량한 수면의 질)이라는 증상/소견",
+  "entity_type": "finding_or_symptom",
+  "research_decision": "ROUTE_ENTITY",
+  "selected_id": null,
+  "selected_label": null,
+  "candidate_relations": [
+   {
+    "id": "MeSH:D000089943",
+    "relation": "NARROWER"
+   },
+   {
+    "id": "NCIT:C103849",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "NCIT:C121705",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "NCIT:C114172",
+    "relation": "DIFFERENT_ENTITY"
+   }
+  ],
+  "patient_conditions": [],
+  "rule_ids": [
+   "G07",
+   "G03"
+  ],
+  "rationale_ko": "수면 장애 진단이 아닌 수면의 질 저하라는 증상 수준 개체로 보존합니다. MeSH Sleep Quality는 방향이 없는 수면 만족도 개념이라 'Poor'를 가진 원문이 더 좁고, PSQI 등은 평가 도구입니다. 포함 기준 발췌가 비어 있어 문맥으로 범위를 더 좁히지 않습니다.",
+  "guideline_gap": {
+   "flag": true,
+   "note": "방향(poor)이 붙은 소견에 대해 중립 속성 개념만 있을 때 수식어를 환자 조건으로 뺄지 이름 구성 요소로 둘지 지침이 정하지 않는다. 포함 기준 문맥도 비어 있음."
+  },
+  "confidence": "medium",
+  "queries_made": [
+   "MeSH: Sleep Quality",
+   "NCIt(match): Poor Sleep Quality",
+   "MONDO: poor sleep quality",
+   "MeSH 상세: D000089943 scope note"
+  ]
+ },
+ {
+  "item": "V12",
+  "interpretation_ko": "생체시계(일주기 시계)라는 생리 체계",
+  "entity_type": "physiological_state",
+  "research_decision": "ROUTE_ENTITY",
+  "selected_id": "MeSH:D057906",
+  "selected_label": "Circadian Clocks",
+  "candidate_relations": [
+   {
+    "id": "MeSH:D057906",
+    "relation": "EXACT"
+   },
+   {
+    "id": "MONDO:0024377",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "NCIT:C119689",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "NCIT:C116706",
+    "relation": "DIFFERENT_ENTITY"
+   }
+  ],
+  "patient_conditions": [],
+  "rule_ids": [
+   "G07"
+  ],
+  "rationale_ko": "Circadian Clocks는 질환이 아닌 생리 체계로 MeSH 같은 이름 디스크립터(동의어 Circadian Timing System)에 연결하고 별도 개체로 둡니다. 지연 수면위상 장애·CLOCK 유전자·단백 후보는 다른 개체입니다. 포함 기준 문맥은 비어 있습니다.",
+  "guideline_gap": {
+   "flag": true,
+   "note": "생리 '체계·과정'은 G07의 생리 상태와 성격이 달라 개체 유형 분류가 애매하다."
+  },
+  "confidence": "medium",
+  "queries_made": [
+   "MeSH: Circadian Clocks"
+  ]
+ },
+ {
+  "item": "V13",
+  "interpretation_ko": "안드로겐 차단 요법(ADT)이라는 치료. 대상은 건강 남성 또는 ADT 예정인 비전이 전립선암 환자",
+  "entity_type": "procedure_or_intervention",
+  "research_decision": "ROUTE_ENTITY",
+  "selected_id": "NCIT:C15481",
+  "selected_label": "Antiandrogen Therapy",
+  "candidate_relations": [
+   {
+    "id": "NCIT:C15481",
+    "relation": "EXACT"
+   },
+   {
+    "id": "NCIT:C15676",
+    "relation": "RELATED"
+   },
+   {
+    "id": "NCIT:C15445",
+    "relation": "NARROWER"
+   },
+   {
+    "id": "NCIT:C15482",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "NCIT:C192257",
+    "relation": "DIFFERENT_ENTITY"
+   }
+  ],
+  "patient_conditions": [
+   "40세 이상",
+   "건강군 또는 최근 진단된 비전이 전립선암(ADT 예정)",
+   "전립선암군 Gleason ≤7",
+   "GnRH 작용제·AR 억제제 투여 가능"
+  ],
+  "rule_ids": [
+   "G07",
+   "G04",
+   "G05"
+  ],
+  "rationale_ko": "NCIt Antiandrogen Therapy는 ADT·Androgen Deprivation Therapy를 동의어로 가지며 남성호르몬 혈중 농도를 낮추는 치료로 정의되어 범위가 같습니다. 치료는 질환이 아니므로 별도 개체로 두고, 전립선암은 문맥의 환자 조건으로만 남깁니다(원인 질환으로 바꾸지 않음). Androgen Therapy는 반대 방향 치료라 다른 개체입니다.",
+  "guideline_gap": {
+   "flag": true,
+   "note": "치료·시술이 조건명인 경우의 개체 유형이 G07에 없다."
+  },
+  "confidence": "medium",
+  "queries_made": [
+   "NCIt(contains): Androgen Deprivation",
+   "NCIt 상세: C15481 synonyms",
+   "MeSH: Androgen Antagonists",
+   "MeSH: Androgen Deprivation"
+  ]
+ },
+ {
+  "item": "V14",
+  "interpretation_ko": "치아 법랑질 형성 중 광화 저하로 생기는 법랑질 질적 결함(저광화)",
+  "entity_type": "disease",
+  "research_decision": "PROVISIONAL_MAP",
+  "selected_id": "MeSH:D000094603",
+  "selected_label": "Dental Enamel Hypomineralization",
+  "candidate_relations": [
+   {
+    "id": "MeSH:D000094603",
+    "relation": "EXACT"
+   },
+   {
+    "id": "NCIT:C163726",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "NCIT:C192635",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "MONDO:0017904",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "NCIT:C32505",
+    "relation": "DIFFERENT_ENTITY"
+   }
+  ],
+  "patient_conditions": [
+   "5–10세 아동",
+   "유치 제2대구치 저광화(HSPM) 1개 이상, 수복 필요",
+   "맹출 후 법랑질 붕괴 또는 2면 이상 우식(ICDAS 5·6)"
+  ],
+  "rule_ids": [
+   "G03",
+   "G04",
+   "G05"
+  ],
+  "rationale_ko": "MeSH Dental Enamel Hypomineralization은 발달 중 법랑질 광화 저하로 인한 질적 결함으로 정의되고 Enamel Hypomineralization을 용어로 가져 범위가 같습니다. NCIt Decreased Enamel은 양적 결손(저형성 쪽)이라 다른 개체이며, 유치 제2대구치 한정은 환자 조건으로 남깁니다.",
+  "guideline_gap": {
+   "flag": false,
+   "note": ""
+  },
+  "confidence": "high",
+  "queries_made": [
+   "MeSH: Enamel Hypomineralization",
+   "MeSH 상세: D000094603 terms/scope note",
+   "MONDO: enamel hypomineralization",
+   "MONDO: molar incisor hypomineralization"
+  ]
+ },
+ {
+  "item": "V15",
+  "interpretation_ko": "'Otonomic'은 원문 그대로 보존하되 제목(미주신경 자극)으로 보아 자율신경 기능(autonomic function)을 가리키는 생리 기능",
+  "entity_type": "physiological_state",
+  "research_decision": "ROUTE_ENTITY",
+  "selected_id": null,
+  "selected_label": null,
+  "candidate_relations": [
+   {
+    "id": "NCIT:C12673",
+    "relation": "RELATED"
+   },
+   {
+    "id": "MeSH:D001341",
+    "relation": "RELATED"
+   },
+   {
+    "id": "MeSH:D001342",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "NCIT:C100053",
+    "relation": "DIFFERENT_ENTITY"
+   }
+  ],
+  "patient_conditions": [
+   "허혈성 또는 출혈성 뇌졸중",
+   "진단 후 6개월 이상",
+   "뇌졸중 단회",
+   "의사소통 장애 없음"
+  ],
+  "rule_ids": [
+   "G01",
+   "G07"
+  ],
+  "rationale_ko": "오기(Otonomic)는 수정하지 않고 보존하며 문맥상 자율신경 기능으로 잠정 해석합니다. 기능 자체는 질환이 아니므로 별도 개체로 두고, 자율신경계(해부 구조)는 RELATED, 자율신경계 질환은 원문에 없는 이상을 추가하므로 다른 개체입니다. 같은 범위의 '자율신경 기능' 개념은 확인하지 못했습니다.",
+  "guideline_gap": {
+   "flag": true,
+   "note": "오탈자 조건명을 문맥으로 해석하는 규칙(G02는 약어만 다룸)과 생리 '기능'의 개체 유형이 지침에 없다."
+  },
+  "confidence": "low",
+  "queries_made": [
+   "MeSH: Autonomic Nervous System",
+   "NCIt(contains): Autonomic Function"
+  ]
+ },
+ {
+  "item": "V16",
+  "interpretation_ko": "심장 이식이라는 수술. 대상은 이식 평가가 필요한 진행성 심부전·구조적 심장질환 성인",
+  "entity_type": "procedure_or_intervention",
+  "research_decision": "ROUTE_ENTITY",
+  "selected_id": "NCIT:C15246",
+  "selected_label": "Heart Transplantation",
+  "candidate_relations": [
+   {
+    "id": "NCIT:C15246",
+    "relation": "EXACT"
+   },
+   {
+    "id": "MeSH:D016027",
+    "relation": "EXACT"
+   },
+   {
+    "id": "NCIT:C15247",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "NCIT:C26992",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "MONDO:0004496",
+    "relation": "DIFFERENT_ENTITY"
+   }
+  ],
+  "patient_conditions": [
+   "18세 이상",
+   "진행성 심부전 또는 후천성·구조적 심장질환으로 이식 평가 트리거 충족",
+   "TORCH 네트워크 내 식별"
+  ],
+  "rule_ids": [
+   "G07",
+   "G05"
+  ],
+  "rationale_ko": "Heart Transplantation은 NCIt 정의상 수술 시술로 범위가 같지만 질환이 아니므로 별도 개체로 둡니다. 이식 후 합병증·심폐 동시 이식은 다른 개체이고, MONDO 후보(심근염 등)는 시술과 무관합니다. 진행성 심부전은 환자 조건으로만 남깁니다.",
+  "guideline_gap": {
+   "flag": true,
+   "note": "시술이 조건명인 경우의 개체 유형이 지침에 없다."
+  },
+  "confidence": "medium",
+  "queries_made": [
+   "MeSH: Heart Transplantation"
+  ]
+ },
+ {
+  "item": "V17",
+  "interpretation_ko": "고름성(화농성) 중이염 일반. 문맥은 '안전형' 만성 화농성 중이염과 큰 고막 천공",
+  "entity_type": "disease",
+  "research_decision": "PROVISIONAL_MAP",
+  "selected_id": "MONDO:0005975",
+  "selected_label": "suppurative otitis media",
+  "candidate_relations": [
+   {
+    "id": "MONDO:0005975",
+    "relation": "EXACT"
+   },
+   {
+    "id": "MONDO:0001920",
+    "relation": "BROADER"
+   },
+   {
+    "id": "NCIT:C128386",
+    "relation": "BROADER"
+   },
+   {
+    "id": "MONDO:0001964",
+    "relation": "BROADER"
+   },
+   {
+    "id": "MONDO:0001031",
+    "relation": "BROADER"
+   },
+   {
+    "id": "MONDO:0001212",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "NCIT:C84354",
+    "relation": "RELATED"
+   }
+  ],
+  "patient_conditions": [
+   "안전형 만성 화농성 중이염(CSOM)",
+   "큰 또는 아전 고막 천공",
+   "1차 또는 재고막성형술 예정",
+   "18세 이상"
+  ],
+  "rule_ids": [
+   "G03",
+   "G05"
+  ],
+  "rationale_ko": "조건명은 급·만성 구분 없는 화농성 중이염이며 MONDO suppurative otitis media 정의(고름 분비를 동반한 중이 염증)와 범위가 같습니다. 포함 기준의 만성·안전형·천공은 개념을 좁히지 않고 환자 조건으로 보존하며, 만성·급성 후보는 원문이 더 넓습니다(BROADER).",
+  "guideline_gap": {
+   "flag": false,
+   "note": ""
+  },
+  "confidence": "high",
+  "queries_made": []
+ },
+ {
+  "item": "V18",
+  "interpretation_ko": "초음파 검사(영상 기법). 대상은 뇌졸중 후 편마비 환자",
+  "entity_type": "procedure_or_intervention",
+  "research_decision": "ROUTE_ENTITY",
+  "selected_id": "MeSH:D014463",
+  "selected_label": "Ultrasonography",
+  "candidate_relations": [
+   {
+    "id": "MeSH:D014463",
+    "relation": "EXACT"
+   },
+   {
+    "id": "NCIT:C17230",
+    "relation": "EXACT"
+   },
+   {
+    "id": "NCIT:C122930",
+    "relation": "BROADER"
+   },
+   {
+    "id": "NCIT:C191543",
+    "relation": "BROADER"
+   },
+   {
+    "id": "MONDO:0008175",
+    "relation": "DIFFERENT_ENTITY"
+   }
+  ],
+  "patient_conditions": [
+   "임상·영상으로 확인된 편마비",
+   "뇌졸중 후 1개월 이상(아급성–만성)",
+   "FAS ≥2",
+   "MMSE ≥24",
+   "18세 이상"
+  ],
+  "rule_ids": [
+   "G07",
+   "G05"
+  ],
+  "rationale_ko": "초음파 검사는 질환이 아닌 진단·측정 기법이므로 별도 개체로 두고 같은 범위의 MeSH Ultrasonography에 연결합니다. 경두개 도플러 등 특정 초음파는 원문이 더 넓고, MONDO 후보는 무관합니다. 편마비는 환자 조건으로 남깁니다.",
+  "guideline_gap": {
+   "flag": true,
+   "note": "검사 기법이 조건명인 경우의 개체 유형이 지침에 없다."
+  },
+  "confidence": "medium",
+  "queries_made": [
+   "MeSH: Ultrasonography"
+  ]
+ },
+ {
+  "item": "V19",
+  "interpretation_ko": "관류 지수(perfusion index)라는 말초 관류 측정 지표. 대상은 경막외 무통분만 산모",
+  "entity_type": "measurement",
+  "research_decision": "ROUTE_ENTITY",
+  "selected_id": "MeSH:D000081282",
+  "selected_label": "Perfusion Index",
+  "candidate_relations": [
+   {
+    "id": "MeSH:D000081282",
+    "relation": "EXACT"
+   },
+   {
+    "id": "NCIT:C101388",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "NCIT:C100957",
+    "relation": "DIFFERENT_ENTITY"
+   }
+  ],
+  "patient_conditions": [
+   "자연 질식분만 중 경막외(또는 척추-경막외 병용) 진통"
+  ],
+  "rule_ids": [
+   "G07"
+  ],
+  "rationale_ko": "MeSH Perfusion Index는 박동성 혈류 대 비박동성 혈류의 비율로 정의된 측정 지표로 원문과 범위가 같으나 질환이 아니므로 별도 개체로 둡니다. NCIt의 Pulsatility Index 등은 다른 지표입니다. 분만·경막외 진통은 질환이 아닌 환자 조건으로 남깁니다.",
+  "guideline_gap": {
+   "flag": true,
+   "note": "측정 지표가 조건명인 경우의 개체 유형이 지침에 없다."
+  },
+  "confidence": "medium",
+  "queries_made": [
+   "MeSH: Perfusion Index",
+   "MeSH 상세: D000081282 scope note",
+   "NCIt(contains): Perfusion Index"
+  ]
+ },
+ {
+  "item": "V20",
+  "interpretation_ko": "뇌졸중(허혈성·출혈성 포함) 질환",
+  "entity_type": "disease",
+  "research_decision": "PROVISIONAL_MAP",
+  "selected_id": "MONDO:0005098",
+  "selected_label": "stroke disorder",
+  "candidate_relations": [
+   {
+    "id": "MONDO:0005098",
+    "relation": "EXACT"
+   },
+   {
+    "id": "NCIT:C3390",
+    "relation": "EXACT"
+   },
+   {
+    "id": "MONDO:1060198",
+    "relation": "BROADER"
+   },
+   {
+    "id": "MONDO:1060199",
+    "relation": "BROADER"
+   },
+   {
+    "id": "MONDO:0018585",
+    "relation": "BROADER"
+   },
+   {
+    "id": "MONDO:0011729",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "NCIT:C157994",
+    "relation": "DIFFERENT_ENTITY"
+   }
+  ],
+  "patient_conditions": [
+   "첫 발생 또는 재발 뇌졸중(CT/MRI 확인)",
+   "아급성 또는 만성기, 의학적으로 안정",
+   "18세 이상",
+   "Nijmegen 점수로 과호흡 증후군군(≥23)/대조군 구분"
+  ],
+  "rule_ids": [
+   "G03",
+   "G05"
+  ],
+  "rationale_ko": "조건명과 문맥 모두 허혈성·출혈성을 포함한 뇌졸중이며 MONDO stroke disorder 정의와 범위가 같습니다. 허혈성·출혈성·소아 후보는 원문이 더 넓고, 재발·시기·과호흡 조건은 환자 조건으로 보존합니다.",
+  "guideline_gap": {
+   "flag": false,
+   "note": ""
+  },
+  "confidence": "high",
+  "queries_made": []
+ },
+ {
+  "item": "V21",
+  "interpretation_ko": "'과체중 또는 비만'을 슬래시로 묶은 결합 표현. 실제 연구는 건강인·신장애 환자 대상 단회 투여 약동학 연구",
+  "entity_type": "disease",
+  "research_decision": "SPLIT_EXPRESSION",
+  "selected_id": null,
+  "selected_label": null,
+  "candidate_relations": [
+   {
+    "id": "NCIT:C94250",
+    "relation": "COMPONENT"
+   },
+   {
+    "id": "MONDO:0011122",
+    "relation": "COMPONENT"
+   },
+   {
+    "id": "NCIT:C3283",
+    "relation": "COMPONENT"
+   },
+   {
+    "id": "NCIT:C120377",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "NCIT:C120381",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "MONDO:0010496",
+    "relation": "DIFFERENT_ENTITY"
+   }
+  ],
+  "patient_conditions": [
+   "18–65세",
+   "BMI 19–40 kg/m²",
+   "건강인 또는 만성(>3개월)·안정 신장애",
+   "eGFR 프로토콜 기준"
+  ],
+  "rule_ids": [
+   "G06",
+   "G05",
+   "G03"
+  ],
+  "rationale_ko": "Overweight/Obesity는 둘 중 하나에 해당하는 결합 표현으로 보고 과체중(NCIt Overweight, BMI 25–29.9)과 비만(MONDO obesity disorder)을 구성 개념으로만 참조합니다. 소아 과체중·중심성 비만 등은 범위가 다릅니다. BMI 19–40과 신장애 문맥은 환자 조건으로 남깁니다.",
+  "guideline_gap": {
+   "flag": true,
+   "note": "BMI 19부터 허용하고 연구 대상이 신장애·건강인이라 조건명이 참여 집단이 아니라 약물의 목표 적응증을 가리키는 것으로 보인다. 조건명-문맥 불일치를 HOLD_SOURCE_CONFLICT로 볼 기준(K024는 서로 다른 질환명 충돌)이 이런 경우를 다루지 않는다."
+  },
+  "confidence": "medium",
+  "queries_made": [
+   "MONDO: obesity",
+   "MONDO: obesity disorder",
+   "MONDO: overweight",
+   "MeSH: Obesity",
+   "MeSH: Overweight",
+   "NCIt(match): Obesity",
+   "NCIt(match): Overweight"
+  ]
+ },
+ {
+  "item": "V22",
+  "interpretation_ko": "근시(굴절 이상). 대상은 다초점 토릭 렌즈를 쓰는 40세 이상 노안 착용자",
+  "entity_type": "disease",
+  "research_decision": "PROVISIONAL_MAP",
+  "selected_id": "MONDO:0001384",
+  "selected_label": "myopia",
+  "candidate_relations": [
+   {
+    "id": "MONDO:0001384",
+    "relation": "EXACT"
+   },
+   {
+    "id": "NCIT:C102533",
+    "relation": "EXACT"
+   },
+   {
+    "id": "NCIT:C157149",
+    "relation": "BROADER"
+   },
+   {
+    "id": "MONDO:0012154",
+    "relation": "BROADER"
+   },
+   {
+    "id": "MONDO:0009082",
+    "relation": "DIFFERENT_ENTITY"
+   }
+  ],
+  "patient_conditions": [
+   "40세 이상",
+   "각막면 구면 굴절 plano~-6.00D",
+   "근용 가입도 +0.75D 이상(노안)",
+   "연구 렌즈 도수 범위 내"
+  ],
+  "rule_ids": [
+   "G03",
+   "G05"
+  ],
+  "rationale_ko": "Myopia는 MONDO 정의(먼 곳이 잘 보이지 않는 상태)와 범위가 같습니다. 병적 근시·유전형 근시는 원문이 더 넓습니다. 굴절값과 노안 가입도는 환자 조건으로 남기며, plano(정시)도 허용되는 점은 개념 판정에 반영하지 않습니다.",
+  "guideline_gap": {
+   "flag": true,
+   "note": "포함 기준이 근시가 아닌 사람(plano)도 허용하고 실제로는 노안 렌즈 연구여서 조건명과 집단이 부분적으로만 일치한다. 이런 부분 불일치의 처리 규칙이 없다."
+  },
+  "confidence": "medium",
+  "queries_made": []
+ },
+ {
+  "item": "V23",
+  "interpretation_ko": "요관 스텐트 제거 시술 중의 불안(시술 관련 불안 증상)",
+  "entity_type": "finding_or_symptom",
+  "research_decision": "ROUTE_ENTITY",
+  "selected_id": "NCIT:C26696",
+  "selected_label": "Anxiety",
+  "candidate_relations": [
+   {
+    "id": "NCIT:C26696",
+    "relation": "EXACT"
+   },
+   {
+    "id": "MeSH:D001007",
+    "relation": "EXACT"
+   },
+   {
+    "id": "MONDO:0011918",
+    "relation": "UNKNOWN"
+   },
+   {
+    "id": "MONDO:0005618",
+    "relation": "BROADER"
+   },
+   {
+    "id": "NCIT:C2878",
+    "relation": "BROADER"
+   },
+   {
+    "id": "NCIT:C141607",
+    "relation": "DIFFERENT_ENTITY"
+   }
+  ],
+  "patient_conditions": [
+   "요관·신장 결석 수술 후 Double J 스텐트 보유",
+   "스텐트 제거 시술 중(제목)",
+   "18세 이상"
+  ],
+  "rule_ids": [
+   "G07",
+   "G03",
+   "G05"
+  ],
+  "rationale_ko": "시술 중 불안은 진단된 불안장애가 아니라 증상이므로 V07과 같은 증상 개념 NCIt Anxiety에 연결하고 별도 개체로 둡니다. 불안장애 후보는 원문이 더 넓고 MONDO anxiety는 정의가 없어 UNKNOWN입니다. 시술 상황은 환자 조건으로 남깁니다.",
+  "guideline_gap": {
+   "flag": true,
+   "note": "외부 코드가 있는 증상의 처리 상태(K021 ROUTE_ENTITY vs K211 PROVISIONAL_MAP) 기준이 불명확하다."
+  },
+  "confidence": "medium",
+  "queries_made": [
+   "MeSH: Anxiety",
+   "MONDO: anxiety"
+  ]
+ },
+ {
+  "item": "V24",
+  "interpretation_ko": "뎅기열(뎅기 바이러스 감염 질환). 연구는 가구 단위 매개 모기 방제(예방)",
+  "entity_type": "disease",
+  "research_decision": "PROVISIONAL_MAP",
+  "selected_id": "MONDO:0005502",
+  "selected_label": "dengue disease",
+  "candidate_relations": [
+   {
+    "id": "MONDO:0005502",
+    "relation": "EXACT"
+   },
+   {
+    "id": "NCIT:C34528",
+    "relation": "EXACT"
+   },
+   {
+    "id": "MONDO:0005358",
+    "relation": "BROADER"
+   },
+   {
+    "id": "MONDO:0000248",
+    "relation": "BROADER"
+   },
+   {
+    "id": "MONDO:0800426",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "NCIT:C112036",
+    "relation": "DIFFERENT_ENTITY"
+   }
+  ],
+  "patient_conditions": [
+   "참여 단위는 가구(곤충학 조사 동의)",
+   "연구 기간 중 이주 없는 영구 거주자",
+   "질환 예방(매개체 방제) 목적"
+  ],
+  "rule_ids": [
+   "G03",
+   "G04",
+   "G05"
+  ],
+  "rationale_ko": "Dengue는 MONDO dengue disease 정의(뎅기 바이러스에 의한 아르보바이러스 질환)와 범위가 같습니다. 뎅기 출혈열·쇼크 증후군은 원문이 더 넓고, 감수성·바이러스 개념은 다른 개체입니다. 예방·가구 단위라는 점은 환자 조건으로 남깁니다.",
+  "guideline_gap": {
+   "flag": false,
+   "note": ""
+  },
+  "confidence": "high",
+  "queries_made": [
+   "MONDO: Dengue",
+   "NCIt(match): Dengue"
+  ]
+ },
+ {
+  "item": "V25",
+  "interpretation_ko": "사지 허혈 일반. 문맥은 보존적으로 치료하는 만성 사지위협 허혈(CLTI) 환자",
+  "entity_type": "disease",
+  "research_decision": "PROVISIONAL_MAP",
+  "selected_id": "MONDO:0000491",
+  "selected_label": "limb ischemia",
+  "candidate_relations": [
+   {
+    "id": "MONDO:0000491",
+    "relation": "EXACT"
+   },
+   {
+    "id": "MONDO:0041114",
+    "relation": "RELATED"
+   },
+   {
+    "id": "NCIT:C102675",
+    "relation": "DIFFERENT_ENTITY"
+   }
+  ],
+  "patient_conditions": [
+   "만성 사지위협 허혈(CLTI), 보존적 치료",
+   "ABPI <0.6",
+   "파행 거리 <100 m",
+   "제2형 당뇨(HbA1c >8)",
+   "고콜레스테롤혈증",
+   "ASA ≥3",
+   "40–70세"
+  ],
+  "rule_ids": [
+   "G03",
+   "G05"
+  ],
+  "rationale_ko": "조건명 Limb Ischemia는 MONDO limb ischemia(사지에 생기는 허혈)와 범위가 같습니다. 문맥의 CLTI는 개념을 좁히지 않고 환자 조건으로 보존합니다. peripheral ischemia는 말초 동맥 협착·폐쇄라는 원인을 정의에 넣어 동일 범위로 단정하지 않고 RELATED로 둡니다.",
+  "guideline_gap": {
+   "flag": false,
+   "note": ""
+  },
+  "confidence": "medium",
+  "queries_made": [
+   "NCIt(match): Limb Ischemia",
+   "MONDO: chronic limb-threatening ischemia",
+   "MONDO: critical limb ischemia"
+  ]
+ },
+ {
+  "item": "V26",
+  "interpretation_ko": "6–59개월 소아의 설사(지속 7–13일, 'prolonged')",
+  "entity_type": "disease",
+  "research_decision": "PROVISIONAL_MAP",
+  "selected_id": "MONDO:0001673",
+  "selected_label": "diarrheal disease",
+  "candidate_relations": [
+   {
+    "id": "MONDO:0001673",
+    "relation": "EXACT"
+   },
+   {
+    "id": "NCIT:C2987",
+    "relation": "EXACT"
+   },
+   {
+    "id": "MeSH:D003967",
+    "relation": "EXACT"
+   },
+   {
+    "id": "MONDO:0044751",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "MONDO:0000257",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "MONDO:0043555",
+    "relation": "RELATED"
+   },
+   {
+    "id": "NCIT:C104300",
+    "relation": "DIFFERENT_ENTITY"
+   }
+  ],
+  "patient_conditions": [
+   "prolonged(설사 지속 7–13일)",
+   "6개월 초과~59개월",
+   "경구 섭취 가능",
+   "중증 급성 영양실조 아님"
+  ],
+  "rule_ids": [
+   "G05",
+   "G03"
+  ],
+  "rationale_ko": "판정 지침 4번에 따라 'Prolonged'를 기간 조건으로 분리해 환자 조건에 두고, 기본 개념은 MONDO diarrheal disease에 연결합니다. 만성(chronic)·급성 설사 개념은 7–13일 기간과 맞지 않아 다른 개체이며, 영아 설사는 연령 범위가 달라(24개월까지) RELATED입니다. 'prolonged diarrhea' 자체의 외부 개념은 찾지 못했습니다.",
+  "guideline_gap": {
+   "flag": true,
+   "note": "BRIEF 4번은 Prolonged를 환자 조건으로 분리하라고 하지만, G03·G05와 K101(Chronic constipation→LOCAL)·K102(Chronic diarrhea의 Chronic을 이름 구성 요소로 유지)는 기간 수식어를 개념 범위로 유지한다. 이 기준을 따르면 'prolonged diarrhea(7–13일)'는 LOCAL_CONCEPT가 된다. 두 기준이 충돌한다."
+  },
+  "confidence": "low",
+  "queries_made": [
+   "MONDO: diarrhea",
+   "MONDO: diarrheal disease",
+   "MONDO: prolonged diarrhea",
+   "MONDO: persistent diarrhea",
+   "MeSH: Diarrhea",
+   "MeSH: Prolonged Diarrhea",
+   "NCIt(match): Diarrhea",
+   "NCIt(match): Persistent Diarrhea",
+   "NCIt(contains): Prolonged Diarrhea"
+  ]
+ },
+ {
+  "item": "V27",
+  "interpretation_ko": "대장암(CRC). 'Metastatic'은 환자 조건이며 문맥은 절제 불가능한 대장암 간전이",
+  "entity_type": "disease",
+  "research_decision": "PROVISIONAL_MAP",
+  "selected_id": "MONDO:0005575",
+  "selected_label": "colorectal cancer",
+  "candidate_relations": [
+   {
+    "id": "MONDO:0005575",
+    "relation": "EXACT"
+   },
+   {
+    "id": "NCIT:C156096",
+    "relation": "BROADER"
+   },
+   {
+    "id": "NCIT:C153224",
+    "relation": "BROADER"
+   },
+   {
+    "id": "NCIT:C120083",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "NCIT:C103063",
+    "relation": "DIFFERENT_ENTITY"
+   }
+  ],
+  "patient_conditions": [
+   "metastatic",
+   "간전이(동시성 또는 이시성), 국소 치료로 완치적 절제·소작 불가",
+   "항암 2차 이내에서 6개월 이상 안정",
+   "복막 전이 없음",
+   "ECOG 0–1",
+   "18–65세"
+  ],
+  "rule_ids": [
+   "G05",
+   "G03",
+   "G02"
+  ],
+  "rationale_ko": "K010처럼 기본 개념은 대장암이고 Metastatic은 환자 조건으로 보존합니다. NCIt Metastatic Colorectal Carcinoma는 carcinoma로 좁히고 전이를 개념에 포함하므로 원문 cancer보다 좁아(원문 BROADER) 선택하지 않습니다. (CRC) 약어는 괄호 안 긴 이름과 일치합니다.",
+  "guideline_gap": {
+   "flag": false,
+   "note": ""
+  },
+  "confidence": "high",
+  "queries_made": [
+   "MONDO: colorectal cancer metastatic",
+   "NCIt(match): Metastatic Colorectal Carcinoma"
+  ]
+ },
+ {
+  "item": "V28",
+  "interpretation_ko": "이식 장기 기능 지연(DGF). 문맥은 사망 공여자 신장 이식 후 DGF",
+  "entity_type": "disease",
+  "research_decision": "PROVISIONAL_MAP",
+  "selected_id": "MeSH:D051799",
+  "selected_label": "Delayed Graft Function",
+  "candidate_relations": [
+   {
+    "id": "MeSH:D051799",
+    "relation": "EXACT"
+   },
+   {
+    "id": "NCIT:C114853",
+    "relation": "BROADER"
+   },
+   {
+    "id": "MONDO:0700221",
+    "relation": "NARROWER"
+   },
+   {
+    "id": "NCIT:C135514",
+    "relation": "DIFFERENT_ENTITY"
+   }
+  ],
+  "patient_conditions": [
+   "성인",
+   "최근 2년 내 사망 공여자 신장 이식",
+   "신장 이식 후 DGF 경험"
+  ],
+  "rule_ids": [
+   "G03",
+   "G08",
+   "G05"
+  ],
+  "rationale_ko": "MeSH Delayed Graft Function은 이식 직후 장기 기능부전 일반(주로 신장)으로 장기 미지정 원문과 범위가 같습니다. NCIt 정의는 '신장 이식 1주 내 투석 필요'라는 신장 한정 진단 기준이므로 원문이 더 넓고, 그 기준을 환자 규칙으로 복사하지 않습니다. 신장 이식은 환자 조건으로 남깁니다.",
+  "guideline_gap": {
+   "flag": false,
+   "note": ""
+  },
+  "confidence": "medium",
+  "queries_made": [
+   "MeSH: Delayed Graft Function",
+   "MeSH 상세: D051799 scope note",
+   "MONDO: delayed graft function"
+  ]
+ },
+ {
+  "item": "V29",
+  "interpretation_ko": "방광암(BC). 문맥은 근치적 방광절제 예정인 방광 종양 의심 또는 확진 환자",
+  "entity_type": "disease",
+  "research_decision": "PROVISIONAL_MAP",
+  "selected_id": "MONDO:0001187",
+  "selected_label": "urinary bladder cancer",
+  "candidate_relations": [
+   {
+    "id": "MONDO:0001187",
+    "relation": "EXACT"
+   },
+   {
+    "id": "NCIT:C9334",
+    "relation": "EXACT"
+   },
+   {
+    "id": "MONDO:0004986",
+    "relation": "BROADER"
+   },
+   {
+    "id": "NCIT:C4912",
+    "relation": "BROADER"
+   },
+   {
+    "id": "MONDO:0004200",
+    "relation": "BROADER"
+   },
+   {
+    "id": "MONDO:0022578",
+    "relation": "BROADER"
+   },
+   {
+    "id": "NCIT:C129791",
+    "relation": "DIFFERENT_ENTITY"
+   }
+  ],
+  "patient_conditions": [
+   "방광 종양 의심 또는 확진",
+   "근치적 방광절제술 예정"
+  ],
+  "rule_ids": [
+   "G03",
+   "G02",
+   "G05"
+  ],
+  "rationale_ko": "일반 cancer를 carcinoma로 좁히지 않는 G03에 따라 방광의 원발·전이 악성 신생물로 정의된 MONDO urinary bladder cancer를 선택합니다. 방광 암종·표재성·소아 후보는 원문이 더 넓습니다. (BC) 약어는 괄호 앞 긴 이름으로 확정되며, '의심'은 환자 조건으로 남깁니다.",
+  "guideline_gap": {
+   "flag": false,
+   "note": ""
+  },
+  "confidence": "high",
+  "queries_made": []
+ },
+ {
+  "item": "V30",
+  "interpretation_ko": "자궁내막암. 문맥은 진행성 고형암 바스켓 1상 시험의 대상 암종 중 하나",
+  "entity_type": "disease",
+  "research_decision": "PROVISIONAL_MAP",
+  "selected_id": "MONDO:0011962",
+  "selected_label": "endometrial cancer",
+  "candidate_relations": [
+   {
+    "id": "MONDO:0011962",
+    "relation": "EXACT"
+   },
+   {
+    "id": "NCIT:C27815",
+    "relation": "EXACT"
+   },
+   {
+    "id": "MONDO:0002447",
+    "relation": "BROADER"
+   },
+   {
+    "id": "NCIT:C7558",
+    "relation": "BROADER"
+   },
+   {
+    "id": "MONDO:0003812",
+    "relation": "DIFFERENT_ENTITY"
+   },
+   {
+    "id": "MONDO:0006003",
+    "relation": "NARROWER"
+   },
+   {
+    "id": "NCIT:C157835",
+    "relation": "DIFFERENT_ENTITY"
+   }
+  ],
+  "patient_conditions": [
+   "절제 불가능한 국소 진행성 또는 전이성",
+   "진행 중이거나 최소 표준치료 실패·불내약·부적격·거부",
+   "RECIST 1.1 측정 가능 병변",
+   "ECOG 0–1",
+   "18세 이상"
+  ],
+  "rule_ids": [
+   "G03",
+   "G05"
+  ],
+  "rationale_ko": "MONDO endometrial cancer는 자궁내막의 원발·전이 악성 신생물로 원문과 범위가 같습니다. 자궁내막 암종 후보는 상피 기원으로 좁혀 원문이 더 넓고(G03), 난소 자궁내막양 종양은 다른 개체입니다. 진행·전이·치료 실패 조건은 환자 조건으로 보존합니다.",
+  "guideline_gap": {
+   "flag": false,
+   "note": ""
+  },
+  "confidence": "high",
+  "queries_made": []
+ }
+]

@@ -1,0 +1,3481 @@
+[
+ {
+  "item": "V01",
+  "nct": "NCT07812376",
+  "title": "Effectiveness of Stress Management Training in Reducing Caregiver Burden and Perceived Stress in ICU Families",
+  "condition": "Critical Illness",
+  "inclusion_excerpt": "Inclusion Criteria: * Aged 18 years or older. * Identified as the primary caregiver or main family companion of a patient admitted to the ICU. * The patient has had an ICU stay of more than 10 consecutive days. * Able to communicate verbally and complete the study questionnaires. * Have access to a smartphone, tablet, computer, or other digital device with internet access to participate in the training sessions. * Willing and able to provide written informed consent to participate in the study",
+  "candidate_query": "Critical Illness",
+  "mondo_candidates": [
+   {
+    "id": "MONDO:0001957",
+    "label": "critical illness polyneuropathy",
+    "definition": "",
+    "synonyms": []
+   },
+   {
+    "id": "MONDO:0043783",
+    "label": "sclerema neonatorum",
+    "definition": "A diffuse hardening of skin and subcutaneous adipose tissue, associated with minimal inflammation without fat necrosis, that typically affects critically ill preterm neonates during the first week of life.",
+    "synonyms": [
+     "sclerema neonatorum"
+    ]
+   }
+  ],
+  "ncit_candidates": [
+   {
+    "id": "NCIT:C122793",
+    "label": "Critical Illness Myopathy",
+    "definition": "Acute muscle weakness and paralysis that develops in critically ill patients who have been treated with multiple drugs during their intensive care unit stay. It is associated with delayed weaning from mechanical ventilation and prolonged rehabilitation.",
+    "synonyms": [
+     "Critical Illness Myopathy",
+     "Critical illness myopathy"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C191600",
+    "label": "Critical Illness Polyneuromyopathy",
+    "definition": "Polyneuropathy and myopathy arising in intensive care unit patients.",
+    "synonyms": [
+     "Critical Illness Polyneuromyopathy",
+     "Critical illness polyneuropathy/myopathy"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C191601",
+    "label": "Critical Illness Polyneuropathy",
+    "definition": "Polyneuropathy arising in intensive care unit patients.  It is a common complication of severe sepsis and is thought to represent a neurologic manifestation of systemic inflammatory response syndrome (SIRS).",
+    "synonyms": [
+     "Critical Illness Polyneuropathy",
+     "Critical illness polyneuropathy"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C100955",
+    "label": "CGI - Severity of Illness",
+    "definition": "Clinical Global Impression (CGI) Considering your total clinical experience with this particular population, how mentally ill is the patient at this time?",
+    "synonyms": [
+     "CGI - Severity of Illness"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C102468",
+    "label": "Illness at Time of Vaccination",
+    "definition": "Illnesses that exist and/or were observed in a patient at the time the patient received vaccination.",
+    "synonyms": [
+     "Illness at Time of Vaccination",
+     "Illness at time of vaccination"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C102864",
+    "label": "Significant Intercurrent Illness",
+    "definition": "Any disease or disorder of relevance that occurs before, during or after another illness.",
+    "synonyms": [
+     "Significant Intercurrent Illness"
+    ],
+    "active": true
+   }
+  ]
+ },
+ {
+  "item": "V02",
+  "nct": "NCT07840417",
+  "title": "Deep Brain Reorienting for Posttraumatic Stress Disorder",
+  "condition": "Posttraumatic Stress Symptom",
+  "inclusion_excerpt": "Stream 1: Military Veterans receiving the DBR Intervention: Inclusion Criteria * 18 to 65 years old * Current or former military member / Veteran (for Stream 1 only) * DSM-5 PTSD diagnosis determined via the CAPS-5 * If on psychiatric medications: stable ≥ 4 weeks * Fluent in English * Ability to provide informed consent and participate in therapy sessions * Able to benefit from short-term therapy, as determined by study assessment",
+  "candidate_query": "Posttraumatic Stress Symptom",
+  "mondo_candidates": [],
+  "ncit_candidates": [
+   {
+    "id": "NCIT:C147587",
+    "label": "Trauma Symptom Checklist for Children Questionnaire",
+    "definition": "A standardized 54-item self-report questionnaire developed by Briere et al. in 1996, that utilizes a four-point Likert rating scale to evaluate severity of posttraumatic stress and related symptoms in children ages 10-17 years who have experienced traumatic events.",
+    "synonyms": [
+     "TSCC",
+     "TSCC01",
+     "Trauma Symptom Checklist for Children Questionnaire"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C147588",
+    "label": "Trauma Symptom Checklist for Young Children Questionnaire",
+    "definition": "A standardized 90-item caretaker-report questionnaire developed by Briere et al. in 1999, that utilizes a four-point Likert rating scale to evaluate severity of posttraumatic stress and related symptoms in children ages 3-12 years who have experienced traumatic events.",
+    "synonyms": [
+     "TSCYC",
+     "TSCYC1",
+     "Trauma Symptom Checklist for Young Children Questionnaire"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C217594",
+    "label": "Urinary Distress Inventory Stress Symptoms Subscale Score",
+    "definition": "The transformed score from the stress symptoms subscale questions from the Urinary Distress Inventory-Long Form questionnaire.",
+    "synonyms": [
+     "Urinary Distress Inventory Stress Symptoms Subscale Score"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C100000",
+    "label": "Percutaneous Coronary Intervention for ST Elevation Myocardial Infarction-Stable-Over 12 Hours From Symptom Onset",
+    "definition": "A percutaneous coronary intervention is necessary for a myocardial infarction that presents with ST segment elevation and the subject does not have recurrent or persistent symptoms, symptoms of heart failure or ventricular arrhythmia. The presentation is past twelve hours since onset of symptoms. (ACC)",
+    "synonyms": [
+     "PERCUTANEOUS CORONARY INTERVENTION (PCI) FOR ST ELEVATION MYOCARDIAL INFARCTION (STEMI) (STABLE, >12 HRS FROM SYMPTOM ONSET)",
+     "Percutaneous Coronary Intervention for ST Elevation Myocardial Infarction-Stable-Over 12 Hours From Symptom Onset"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C100002",
+    "label": "Percutaneous Coronary Intervention for ST Elevation Myocardial Infarction-Unstable-Over 12 Hours From Symptom Onset",
+    "definition": "A percutaneous coronary intervention is necessary for a myocardial infarction that presents with ST segment elevation and the subject has recurrent or persistent symptoms, symptoms of heart failure or ventricular arrhythmia. The presentation is past twelve hours since onset of symptoms. (ACC)",
+    "synonyms": [
+     "PERCUTANEOUS CORONARY INTERVENTION (PCI) FOR ST ELEVATION MYOCARDIAL INFARCTION (STEMI) (UNSTABLE, >12 HRS FROM SYMPTOM ONSET)",
+     "Percutaneous Coronary Intervention for ST Elevation Myocardial Infarction-Unstable-Over 12 Hours From Symptom Onset"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C100024",
+    "label": "Typical Coronary Artery Disease Symptom",
+    "definition": "Deep, poorly localized chest or arm discomfort that is reproducibly associated with physical exertion or emotional stress and is relieved promptly (i.e., in less than 5 minutes) with rest and/or the use of sublingual nitroglycerin. Some patients may have no chest discomfort but present solely with jaw, neck, ear, arm, shoulder, back, or epigastric discomfort or with unexplained dyspnea without discomfort. If these symptoms have a clear relationship to exertion or stress or are relieved promptly with nitrates, they should be considered equivalent to angina. J Am Coll Cardiol, 2007; 50:1-157, do",
+    "synonyms": [
+     "TYPICAL CORONARY ARTERY DISEASE SYMPTOMS",
+     "Typical Coronary Artery Disease Symptom"
+    ],
+    "active": true
+   }
+  ]
+ },
+ {
+  "item": "V03",
+  "nct": "NCT07808021",
+  "title": "Comparative Effects of Acceptance and Commitment Therapy, Cognitive Behavioral Therapy, and Treatment-as-Usual on Depression Among People With Marital Crisis",
+  "condition": "Marital Conflict",
+  "inclusion_excerpt": "Inclusion Criteria: 1. Meets DSM-5-TR diagnostic criteria for major depressive disorder, confirmed by the Mini International Neuropsychiatric Interview (MINI) structured clinical interview (American Psychiatric Association, 2022). 2. Beck Depression Inventory-II (BDI-II) total score of 20 or above, indicating moderate to severe depressive symptoms (Beck et al., 1996). 3. Dyadic Adjustment Scale (DAS) total score of 97 or below, operationally defining marital crisis (Spanier, 1976). 4. Age between 20 and 60 years. 5. Currently taking a single antidepressant medication for a minimum of two weeks. Rather than being required to remain on an unchanged dose, participants agree to have their antidepressant regimen managed by their treating psychiatrist according to clinical need for the duration of the study; any change in medication or dose is documented and included as a time-varying covariate in the analysis.",
+  "candidate_query": "Marital Conflict",
+  "mondo_candidates": [],
+  "ncit_candidates": [
+   {
+    "id": "NCIT:C100287",
+    "label": "BPI - Marital Status",
+    "definition": "Brief Pain Inventory (BPI) Marital status.",
+    "synonyms": [
+     "BPI - Marital Status",
+     "BPI1-Marital Status",
+     "BPI101"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C125082",
+    "label": "Decisional Conflict Scale",
+    "definition": "A questionnaire that measures health-care consumers' uncertainty in making a health-related decisions, the modifiable factors contributing to the uncertainty, and health-care consumers' perceived effective decision making.",
+    "synonyms": [
+     "DCS",
+     "Decisional Conflict Scale"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C125564",
+    "label": "Conflicting Expert Opinions About a Medical Test or Treatment Would Lower My Trust in the Experts Question",
+    "definition": "A question about an individual's agreement that expert opinions about a medical test or treatment would lower their trust in the experts.",
+    "synonyms": [
+     "Conflicting Expert Opinions About a Medical Test or Treatment Would Lower My Trust in the Experts",
+     "Conflicting Expert Opinions About a Medical Test or Treatment Would Lower My Trust in the Experts Question",
+     "Conflicting expert opinions about a medical test or treatment would lower my trust in the experts"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C125565",
+    "label": "Would Not Have Confidence in a Medical Test or Treatment if Experts Had Conflicting Opinions Question",
+    "definition": "A question about an individual's agreement that they would not have confidence in a medical test or treatment if experts had conflicting opinions about it.",
+    "synonyms": [
+     "I would not have confidence in a medical test or treatment if experts had conflicting opinions about it",
+     "Would Not Have Confidence in a Medical Test or Treatment if Experts Had Conflicting Opinions",
+     "Would Not Have Confidence in a Medical Test or Treatment if Experts Had Conflicting Opinions Question"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C125566",
+    "label": "Conflicting Expert Opinions About a Medical Test or Treatment Would Make Me Upset Question",
+    "definition": "A question about an individual's agreement that conflicting expert opinions about a medical test or treatment would make them upset.",
+    "synonyms": [
+     "Conflicting Expert Opinions About a Medical Test or Treatment Would Make Me Upset",
+     "Conflicting Expert Opinions About a Medical Test or Treatment Would Make Me Upset Question",
+     "Conflicting expert opinions about a medical test or treatment would make me upset"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C125567",
+    "label": "Not Afraid of Trying a Medical Test or Treatment Even If Experts Had Conflicting Opinions Question",
+    "definition": "A question about an individual's agreement that they would not be afraid of trying a medical test or treatment even if experts had conflicting opinions about it.",
+    "synonyms": [
+     "I would not be afraid of trying a medical test or treatment even if experts had conflicting opinions about it",
+     "Not Afraid of Trying a Medical Test or Treatment Even If Experts Had Conflicting Opinions",
+     "Not Afraid of Trying a Medical Test or Treatment Even If Experts Had Conflicting Opinions Question"
+    ],
+    "active": true
+   }
+  ]
+ },
+ {
+  "item": "V04",
+  "nct": "NCT07825441",
+  "title": "RandomisED Control Trial to Understand Whether Prescribing Choice for inhalErs is Influenced by Knowledge of the CARBON Footprint (REDUCE Carbon)",
+  "condition": "Asthma",
+  "inclusion_excerpt": "Inclusion Criteria: * Aged ≥18 years * Working as an HCP within the NHS in a primary or secondary care setting * Able to provide written e-consent * Able to understand and complete the clinical case scenarios",
+  "candidate_query": "Asthma",
+  "mondo_candidates": [
+   {
+    "id": "MONDO:0004979",
+    "label": "asthma",
+    "definition": "A bronchial disease that is characterized by chronic inflammation and narrowing of the airways, which is caused by a combination of environmental and genetic factors resulting in recurring periods of wheezing (a whistling sound while breathing), chest tightness, shortness of breath, mucus production and coughing. The symptoms appear due to a variety of triggers such as allergens, irritants, respiratory infections, weather changes, exercise, stress, reflux disease, medications, foods and emotional anxiety.",
+    "synonyms": [
+     "chronic obstructive asthma with acute exacerbation",
+     "chronic obstructive asthma with status asthmaticus",
+     "chronic obstructive asthma",
+     "exercise induced asthma",
+     "exercise-induced asthma"
+    ]
+   },
+   {
+    "id": "MONDO:0011805",
+    "label": "asthma-related traits, susceptibility to, 1",
+    "definition": "Any inherited susceptibility to asthma in which the cause of the disease is a mutation in the PTGDR gene.",
+    "synonyms": [
+     "asthma, susceptibility to, 1",
+     "asthma-related traits, susceptibility to, type 1",
+     "PTGDR inherited susceptibility to asthma",
+     "asthma-related traits, susceptibility to, 1",
+     "inherited susceptibility to asthma caused by mutation in PTGDR"
+    ]
+   },
+   {
+    "id": "MONDO:0012607",
+    "label": "asthma-related traits, susceptibility to, 5",
+    "definition": "Any inherited susceptibility to asthma in which the cause of the disease is a mutation in the IRAK3 gene.",
+    "synonyms": [
+     "asthma susceptibility 5",
+     "asthma-related traits, susceptibility to, type 5",
+     "IRAK3 inherited susceptibility to asthma",
+     "asthma-related traits, susceptibility to, 5",
+     "inherited susceptibility to asthma caused by mutation in IRAK3"
+    ]
+   },
+   {
+    "id": "MONDO:0012771",
+    "label": "asthma-related traits, susceptibility to, 7",
+    "definition": "Any inherited susceptibility to asthma in which the cause of the disease is a mutation in the CHI3L1 gene.",
+    "synonyms": [
+     "asthma-related traits, susceptibility to, type 7",
+     "CHI3L1 inherited susceptibility to asthma",
+     "asthma-related traits, susceptibility to, 7",
+     "inherited susceptibility to asthma caused by mutation in CHI3L1"
+    ]
+   },
+   {
+    "id": "MONDO:0012067",
+    "label": "asthma-related traits, susceptibility to, 2",
+    "definition": "",
+    "synonyms": [
+     "asthma, susceptibility to, 2",
+     "asthma-related traits, susceptibility to, type 2",
+     "asthma-related traits, susceptibility to, 2"
+    ]
+   },
+   {
+    "id": "MONDO:0012379",
+    "label": "asthma-related traits, susceptibility to, 3",
+    "definition": "",
+    "synonyms": [
+     "asthma-related traits, susceptibility to, type 3",
+     "asthma-related traits, susceptibility to, 3"
+    ]
+   },
+   {
+    "id": "MONDO:0012577",
+    "label": "asthma-related traits, susceptibility to, 4",
+    "definition": "",
+    "synonyms": [
+     "asthma-related traits, susceptibility to, type 4",
+     "asthma-related traits, susceptibility to, 4"
+    ]
+   }
+  ],
+  "ncit_candidates": [
+   {
+    "id": "NCIT:C28397",
+    "label": "Asthma",
+    "definition": "A chronic respiratory disease manifested as difficulty breathing due to the narrowing of bronchial passageways.",
+    "synonyms": [
+     "Asthma",
+     "asthma"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C212543",
+    "label": "Asthma Service Type",
+    "definition": "The service type that is associated with the Health Level 7 Fast Healthcare Interoperability Resources Asthma code.",
+    "synonyms": [
+     "Asthma",
+     "Asthma Service Type"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C91488",
+    "label": "Asthma Pathway",
+    "definition": "Inhaled allergens encounter antigen presenting cells (APC) that line the airway. Upon recognition of the antigen and activation by APC, naive T cells differentiate into Th2 cells, a process that is promoted by interleukin 4 (IL-4). Activated Th2 cells stimulate B cells to produce IgE antibodies in response to IL-4 and IL-13. IgE binds the high affinity IgE receptor at the surface of mast cells, the proliferation and differentiation of which is promoted by IL-9.The crosslinking of mast-cell-bound IgE by allergens leads to the release of biologically active mediators (histamine, leukotrienes) by",
+    "synonyms": [
+     "Asthma",
+     "Asthma Pathway"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C122370",
+    "label": "Asthma Control Questionnaire",
+    "definition": "A standardized rating scale developed by Juniper et al in 1999, which is used to assess both the adequacy of and change in asthma control. This questionnaire contains 7 items using a 7-point scale.",
+    "synonyms": [
+     "ACQ",
+     "ACQ01",
+     "Asthma Control Questionnaire"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C122372",
+    "label": "Asthma Quality of Life Questionnaire",
+    "definition": "A standardized rating scale developed by Juniper et al in 1992, which is used to measure the physical and emotional impacts on quality of life in patients with asthma. This questionnaire contains 32 items using a 7-point scale, and the items are grouped into four domains: activity limitations, symptoms, emotional function, and exposure to environmental stimuli.",
+    "synonyms": [
+     "AQLQ",
+     "AQLQ01",
+     "Asthma Quality of Life Questionnaire"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C123658",
+    "label": "Asthma Control Test Questionnaire",
+    "definition": "A standardized rating scale developed by Nathan et al in 2004, which is used to identify patients with poorly controlled asthma. This questionnaire contains 5 items.",
+    "synonyms": [
+     "ACT",
+     "ACT01",
+     "Asthma Control Test Questionnaire"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C163811",
+    "label": "Asthma Daytime Symptom Diary V1.0 Questionnaire",
+    "definition": "A six-item self-administered questionnaire, developed by Gater et al. in 2016, that utilizes a ten-point rating scale to assess a patient's experience with core asthma symptoms during the preceding day, including difficulty breathing, wheezing, shortness of breath, chest tightness, chest pain, and cough.",
+    "synonyms": [
+     "ADSD V1.0",
+     "ADSD Version 1.0",
+     "ADSD01",
+     "Asthma Daytime Symptom Diary V1.0 Questionnaire"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C29635",
+    "label": "Asthma Preparation",
+    "definition": "Containing natural or synthetic agents, Asthma Preparations relieve asthma (a recurrent airway obstruction) in various ways by reducing bronchial spasm, dyspnea, allergic reaction, local inflammation, and pain. Anti-asthmatic agents can be mainly bronchodilators (beta-adrenoreceptor agonists, xanthines, muscarinic-receptor antagonists) and anti-inflammatory agents (glucocorticoids, cromolyn). Other agents, such as anti-histamines and antibiotics, may be used in asthma preparations. (NCI04)",
+    "synonyms": [
+     "Asthma Preparation"
+    ],
+    "active": true
+   }
+  ]
+ },
+ {
+  "item": "V05",
+  "nct": "NCT07804394",
+  "title": "Procedural Endpoint in Left Bundle Branch Area Pacing: Conduction System Capture Versus LV Septal Capture",
+  "condition": "Bundle-Branch Block",
+  "inclusion_excerpt": "Inclusion Criteria 1. Patients with a guideline-based indication for permanent pacemaker implantation for bradyarrhythmia and an expected ventricular pacing burden (VP) of 40% or more. 2. Patients in whom a left bundle branch area pacing (LBBAP) procedure is planned in accordance with the above indication. 3. Age 19 years or older. 4. Provision of written informed consent to participate in the study.",
+  "candidate_query": "Bundle-Branch Block",
+  "mondo_candidates": [
+   {
+    "id": "MONDO:0007241",
+    "label": "bundle branch block, familial isolated complete right",
+    "definition": "",
+    "synonyms": [
+     "bundle branch block, familial isolated complete right"
+    ]
+   },
+   {
+    "id": "MONDO:0015263",
+    "label": "Brugada syndrome",
+    "definition": "A genetically heterogeneous condition characterized by complete or incomplete right bundle branch block accompanied by ST elevation in leads V1-V3. There is a high incidence of ventricular arrhythmia that may result in sudden death.",
+    "synonyms": [
+     "idiopathic ventricular fibrillation, Brugada type",
+     "Brugada syndrome",
+     "Brugada type idiopathic ventricular fibrillation",
+     "right bundle branch block, ST segment elevation, and sudden death syndrome",
+     "sudden unexplained nocturnal death syndrome"
+    ]
+   },
+   {
+    "id": "MONDO:0007112",
+    "label": "interventricular septum aneurysm",
+    "definition": "Interventricular septum aneurysm is a rare, non-syndromic, congenital heart malformation characterized by the presence of a congenital aneurysm of the membranous portion of the interventricular septum. Patients may be asymptomatic or may present with ventricular or supraventricular tachycardia, fatigue, exertional dyspnea, palpitations, and cardiac murmur. Ventricular septal defects and conduction defects, such as first-degree atrio-ventricular block or incomplete right bundle branch block, may also be also associated.",
+    "synonyms": []
+   },
+   {
+    "id": "MONDO:0007173",
+    "label": "atrial septal defect 7",
+    "definition": "Atrial septal defect (ASD) with atrioventricular conduction defects is an extremely rare genetic congenital heart disease characterized by the presence of ASD, mostly of the ostium secundum type, associated with conduction anomalies like atrioventricular block, atrial fibrillation or right bundle branch block.",
+    "synonyms": [
+     "atrial heart septal defect type 7",
+     "ASD with or without atrioventricular conduction defects",
+     "NKX2-5 atrial heart septal defect",
+     "atrial heart septal defect caused by mutation in NKX2-5",
+     "atrial septal defect-atrioventricular conduction defects syndrome"
+    ]
+   },
+   {
+    "id": "MONDO:0007702",
+    "label": "heart-hand syndrome type 3",
+    "definition": "Heart-hand syndrome type 3 is a very rare heart-hand syndrome, described in three members of a Spanish family to date, which is characterized by a cardiac conduction defect (sick sinus, bundle-branch block) and brachydactyly, resembling brachydactyly type C of the hands, affecting principally the middle phalanges in conjunction with an extra ossicle on the proximal phalanx of both index fingers. Feet abnormalities are more subtle.",
+    "synonyms": [
+     "Cardiomelic syndrome type 3",
+     "atriodigital dysplasia type 3",
+     "heart-hand syndrome, Spanish type",
+     "heart-limb syndrome type 3"
+    ]
+   },
+   {
+    "id": "MONDO:0016342",
+    "label": "familial isolated arrhythmogenic right ventricular dysplasia",
+    "definition": "Familial isolated arrhythmogenic right ventricular dysplasia (ARVC) is the familial autosomal dominant form of ARVC, a heart muscle disease characterized by life-threatening ventricular arrhythmias with left bundle branch block configuration that may manifest with palpitations, ventricular tachycardia, syncope and sudden fatal attacks, and that is due to dystrophy and fibro-fatty replacement of the right ventricular myocardium that may lead to right ventricular aneurysms.",
+    "synonyms": [
+     "familial isolated ARVC",
+     "familial isolated ARVD",
+     "familial isolated arrhythmogenic right ventricular cardiomyopathy",
+     "familial isolated arrhythmogenic ventricular cardiomyopathy",
+     "familial isolated arrhythmogenic ventricular dysplasia",
+     "familial isolated arrhythmogenic right ventricular dysplasia"
+    ]
+   },
+   {
+    "id": "MONDO:0859200",
+    "label": "cerebellar ataxia, brain abnormalities, and cardiac conduction defects",
+    "definition": "A neurodevelopmental disorder caused by a variation in the EXOSC5 gene, characterized by cerebellar ataxia, neurodevelopmental delay, poor motor development and growth, mild to severe intellectual disability and infantile-onset hypotonia. Many patients have cardiac conduction and rhythm anomalies (including bundle branch block, bradycardia, sinus node dysfunction, intraventricular conduction delay, atrioventricular block, and ventricular tachycardia) in childhood or adolescence. Some patients have thrombotic microangiopathy. Additional clinical features may includevariable ocular anomalies and",
+    "synonyms": [
+     "EXOSC5-related neurodevelopmental disorder with or without thrombotic microangiopathy",
+     "neurodevelopmental delay-hypotonia-cerebellar ataxia-cardiac conduction defects syndrome"
+    ]
+   },
+   {
+    "id": "MONDO:0019490",
+    "label": "progressive familial heart block",
+    "definition": "A hereditary cardiac conduction disorder that may progress to complete atrioventricular (AV) block. The disease is either asymptomatic or manifests as dyspnea, dizziness, syncope, abdominal pain, heart failure or sudden death.",
+    "synonyms": [
+     "familial Lenègre disease",
+     "familial Lev-Lenègre disease",
+     "familial progressive heart block"
+    ]
+   }
+  ],
+  "ncit_candidates": [
+   {
+    "id": "NCIT:C84603",
+    "label": "Bundle Branch Block by ECG Finding",
+    "definition": "An electrocardiographic finding of a prolongation of the QRS complex. It is caused by damage to one of the bundle branches, resulting in impaired transmission of cardiac electrical impulses.",
+    "synonyms": [
+     "Bundle Branch Block",
+     "Bundle Branch Block by ECG Finding",
+     "Bundle Branch Block by EKG Finding"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C87036",
+    "label": "Left Bundle Branch Block Artifact",
+    "definition": "An imaging artifact resulting from a patient left bundle branch block.",
+    "synonyms": [
+     "Left Bundle Branch Block",
+     "Left Bundle Branch Block Artifact"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C71049",
+    "label": "Incomplete Bundle Branch Block by ECG Finding",
+    "definition": "An electrocardiographic finding of partially blocked cardiac electrical impulse conduction along the fibers of one or both bundle branches.",
+    "synonyms": [
+     "Incomplete Bundle Branch Block",
+     "Incomplete Bundle Branch Block by ECG Finding",
+     "Incomplete Bundle Branch Block by EKG Finding"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C62269",
+    "label": "Left Bundle Branch Block by ECG Finding",
+    "definition": "An electrocardiographic finding of a wide QRS complex with evidence of delayed conduction to the left ventricle, manifested as a widened initial portion of the QRS complex in leads V5, V6, I and aVL and with QRS duration greater than or equal to 120 ms. (CDISC)",
+    "synonyms": [
+     "Complete LBBB",
+     "LBBB",
+     "LEFT BUNDLE BRANCH BLOCK",
+     "Left Bundle Branch Block",
+     "Left Bundle Branch Block by ECG Finding",
+     "Left Bundle Branch Block by EKG Finding"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C62270",
+    "label": "Right Bundle Branch Block by ECG Finding",
+    "definition": "An electrocardiographic finding of a wide QRS complex with evidence of delayed conduction to the right ventricle, manifested by a widened initial portion of the QRS in V1 and V2, a widened S wave in V5, V6, I and aVL, and with QRS duration greater than or equal to 120 ms.  An RsR' complex is typically present in leads V1 and V2. (CDISC)",
+    "synonyms": [
+     "Complete RBBB",
+     "RBBB",
+     "RIGHT BUNDLE BRANCH BLOCK",
+     "Right Bundle Branch Block",
+     "Right Bundle Branch Block by ECG Finding",
+     "Right Bundle Branch Block by EKG Finding"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C71063",
+    "label": "Idiopathic Right Bundle Branch Block by ECG Finding",
+    "definition": "An electrocardiographic finding of blocked cardiac electrical impulse conduction along the fibers of the right bundle branch that cannot be attributed to any cause.",
+    "synonyms": [
+     "Idiopathic Right Bundle Branch Block",
+     "Idiopathic Right Bundle Branch Block by ECG Finding",
+     "Idiopathic Right Bundle Branch Block by EKG Finding"
+    ],
+    "active": true
+   }
+  ]
+ },
+ {
+  "item": "V06",
+  "nct": "NCT07802522",
+  "title": "Hyperangulated Video Laryngoscopes Used for Intubation With Simultaneous Cervical Spine Immobilization",
+  "condition": "Difficult Airway",
+  "inclusion_excerpt": "Inclusion Criteria: * ASA status 1-3 * aged over 18 years old * male and female * laparoscopic surgery",
+  "candidate_query": "Difficult Airway",
+  "mondo_candidates": [
+   {
+    "id": "MONDO:0018597",
+    "label": "plastic bronchitis",
+    "definition": "A lymphatic flow disorder that causes severe respiratory issues. In children with plastic bronchitis, lymph fluid builds in the airways and forms rubbery or caulk-like plugs (known as casts). These casts block the airways, making it difficult to breathe.",
+    "synonyms": [
+     "croupous bronchitis",
+     "fibrinous bronchitis",
+     "pseudo-membranous bronchitis"
+    ]
+   },
+   {
+    "id": "MONDO:0100053",
+    "label": "anaphylaxis",
+    "definition": "An acute hypersensitivity reaction that occurs from exposure to an allergen. It results from the release of histamine and histamine-like substances from mast cells, and can present with breathing difficulty due to narrowed airways, dizziness and hypotension, skin rash, weak pulse, nausea and vomiting.",
+    "synonyms": [
+     "anaphylactic shock",
+     "systemic anaphylaxis"
+    ]
+   },
+   {
+    "id": "MONDO:0007590",
+    "label": "hemifacial hypertrophy",
+    "definition": "Hemifacial hyperplasia is a rare morphological anomaly of the maxillofacial region characterized by unilateral overgrowth of all facial structures (bone, soft tissues, teeth), called true hemifacial hypertrophy, or overgrowth of one or more but not all facial structures, called partial hemifacial hypertrophy. It may be isolated or related to some syndromes (e.g. Beckwith-Wiedemann, Proteus, Klippel-Trenaunay-Weber, McCune-Albright syndrome, Neurofibromatosis type 1). It may be associated with airway obstruction, sensorineural hearing loss or swallowing difficulties.",
+    "synonyms": [
+     "hemifacial hypertrophy"
+    ]
+   },
+   {
+    "id": "MONDO:0015386",
+    "label": "epignathus",
+    "definition": "Epignathus is a very rare and life threatening intraoral teratoma, usually arising from the maxilla, mandible, palate or base of skull and invading the cranium, nasopharynx or oral cavity. Epignathus is more commonly seen in females, and presents with various manifestations (depending on the tumor size) including obstructive polyhydramnios in the prenatal period and dyspnea, cyanosis, cough, difficulty in sucking and swallowing, and rarely vomiting (due to swallowing difficulties) postnatally. When large, they can lead to airway obstruction, asphyxia and death in the neonatal period.",
+    "synonyms": [
+     "Epignathus",
+     "epignathus (disease)",
+     "oropharyngeal teratoma"
+    ]
+   },
+   {
+    "id": "MONDO:0023597",
+    "label": "laryngeal papillomatosis",
+    "definition": "Editor note: compare with MONDO:0000935",
+    "synonyms": [
+     "laryngeal papillomatosis"
+    ]
+   },
+   {
+    "id": "MONDO:0015396",
+    "label": "congenital laryngeal cyst",
+    "definition": "Congenital laryngeal cyst is a rare larynx anomaly characterized by a cyst involving the larynx or supraglottis locations, such as the epiglottis and vallecula. Timing and severity of presentation depend on the size of the cyst and its proximity to the glottis and range from severe prenatal airway obstruction leading to polyhydramnios and pulmonary hypoplasia to postnatal inspiratory stridor associated with muffled cry, hoarseness and cyanotic episodes, and to feeding difficulties and failure to thrive. It can be associated with laryngomalacia.",
+    "synonyms": []
+   },
+   {
+    "id": "MONDO:0035151",
+    "label": "17q24.2 microdeletion syndrome",
+    "definition": "A rare, genetic, multiple congenital anomalies/dysmorphic features-intellectual disability syndrome characterized by developmental and speech delay, intellectual disability, feeding difficulties, failure to thrive, growth retardation, and associated malformations such as abnormality of fingers and toes (i.e. clinodactyly of the 5th finger, 2-3 toe syndactyly), microcephaly, heart defects, and upper airways anomalies. Observed facial dysmorphism includes hypertelorism, small, narrow or downslanting palpebral fissures, ptosis, epicanthus, ear malformations, broad nasal bridge, bulbous/prominent ",
+    "synonyms": [
+     "Del(17)(q24)"
+    ]
+   }
+  ],
+  "ncit_candidates": [
+   {
+    "id": "NCIT:C112538",
+    "label": "AQ20 - Difficulty Getting Around the House Because of Chest Trouble",
+    "definition": "Airway Questionnaire 20 (AQ20) Are there times when you have difficulty getting around the house because of your chest trouble?",
+    "synonyms": [
+     "AQ01-Difficulty Getting Around the House",
+     "AQ0110",
+     "AQ20 - Difficulty Getting Around the House Because of Chest Trouble"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C100277",
+    "label": "CDISC ADAS-Cog - Word Difficulty in Spontaneous Speech",
+    "definition": "Alzheimer's Disease Assessment Scale-Cognitive CDISC Version (ADAS-Cog CDISC Version) Difficulty finding the desired word in spontaneous speech.",
+    "synonyms": [
+     "ADCDIF",
+     "CDISC ADAS-Cog - Word Difficulty in Spontaneous Speech",
+     "Word Finding Difficulty in Spont Speech"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C100697",
+    "label": "NPI - Argumentative and Difficult to Get Along With",
+    "definition": "Neuropsychiatric Inventory (NPI) Is the patient argumentative and difficult to get along with?",
+    "synonyms": [
+     "NPI - Argumentative and Difficult to Get Along With",
+     "NPI1-Argumentative",
+     "NPI1I06"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C100707",
+    "label": "NPI - Difficulty Sleeping",
+    "definition": "Neuropsychiatric Inventory (NPI) Does the patient have difficulty sleeping (do not count as present if the patient simply gets up once or twice per night to go the bathroom and falls back asleep immediately)? Is he/she up at night? Does he/she wander at night, get dressed, or disturb your sleep?",
+    "synonyms": [
+     "NPI - Difficulty Sleeping",
+     "NPI1-Difficulty Sleeping",
+     "NPI1K"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C100708",
+    "label": "NPI - Difficulty Falling Asleep",
+    "definition": "Neuropsychiatric Inventory (NPI) Does the patient have difficulty falling asleep?",
+    "synonyms": [
+     "NPI - Difficulty Falling Asleep",
+     "NPI1-Difficulty Falling Asleep",
+     "NPI1K01"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C100727",
+    "label": "PDQUALIF - Swallowing Difficulty",
+    "definition": "Parkinson's Disease Quality of Life Scale (PDQUALIF) When eating or drinking fluids, I have difficulty swallowing.",
+    "synonyms": [
+     "PDQUALIF - Swallowing Difficulty"
+    ],
+    "active": true
+   }
+  ]
+ },
+ {
+  "item": "V07",
+  "nct": "NCT07812233",
+  "title": "Heart Rate Variability Biofeedback for Anxiety in Autistic Youth",
+  "condition": "Anxiety",
+  "inclusion_excerpt": "Inclusion Criteria: 1. Age 12-17 years at the time of enrollment. 2. ASD diagnosis from a qualified health professional based on medical records and confirmed based on Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition (DSM 5) criteria by the study clinician. 3. IQ ≥50 based on the Kaufman Brief Intelligence Test (KBIT-2). 4. Clinically significant anxiety, based on the Pediatric Anxiety Rating Scale (PARS) 5-item score of ≥10. 5. Stable medications for ≥30 days. 6. English speaking. 7. Willing to wear the Lief Smart Patch for 8 weeks. 8. English speaking guardian who is willing and able to complete caregiver assessments.",
+  "candidate_query": "Anxiety",
+  "mondo_candidates": [
+   {
+    "id": "MONDO:0011918",
+    "label": "anxiety",
+    "definition": "",
+    "synonyms": [
+     "anxiety-related personality traits",
+     "anxiety"
+    ]
+   },
+   {
+    "id": "MONDO:0005618",
+    "label": "anxiety disorder",
+    "definition": "A category of psychiatric disorders which are characterized by anxious feelings or fear often accompanied by physical symptoms associated with anxiety.",
+    "synonyms": [
+     "anxiety disorder"
+    ]
+   },
+   {
+    "id": "MONDO:0041086",
+    "label": "mixed anxiety and depressive disorder",
+    "definition": "",
+    "synonyms": [
+     "mixed anxiety and depressive disorder"
+    ]
+   },
+   {
+    "id": "MONDO:0001098",
+    "label": "separation anxiety disorder",
+    "definition": "An anxiety disorder characterized by recurrent excessive distress due to fear of separation from the home or from major attachment figures; the distress is developmentally inappropriate and causes impairment in social, academic, or other areas of functioning.",
+    "synonyms": []
+   },
+   {
+    "id": "MONDO:0001942",
+    "label": "generalized anxiety disorder",
+    "definition": "An anxiety disorder characterized by excessive and difficult-to-control worry about a number of life situations. The worry is accompanied by restlessness, fatigue, inability to concentrate, irritability, muscle tension, and/or sleep disturbance and lasts for at least 6 months.",
+    "synonyms": [
+     "GAD"
+    ]
+   },
+   {
+    "id": "MONDO:0001247",
+    "label": "social phobia",
+    "definition": "An anxiety disorder characterized by an intense, irrational fear of one or more social or performance situations in which the individual believes that he or she will be scrutinized by others. Exposure to social situations immediately provokes an anxiety response. In adults, the social phobia is recognized as excessive or unreasonable.",
+    "synonyms": [
+     "social anxiety disorder"
+    ]
+   },
+   {
+    "id": "MONDO:0003709",
+    "label": "agoraphobia",
+    "definition": "An anxiety disorder characterized by an intense, irrational fear of venturing out into open places or situations in which help (or escape) might not be available should excessive anxiety or panic symptoms develop.",
+    "synonyms": [
+     "fear of open spaces (finding)"
+    ]
+   }
+  ],
+  "ncit_candidates": [
+   {
+    "id": "NCIT:C26696",
+    "label": "Anxiety",
+    "definition": "Apprehension of danger and dread accompanied by restlessness, tension, tachycardia, and dyspnea unattached to a clearly identifiable stimulus.",
+    "synonyms": [
+     "Anxiety",
+     "anxiety"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C121276",
+    "label": "Anxiety Scale",
+    "definition": "A rating scale included in the Behavior Assessment System for Children that measures the tendency of the subject to be nervous, fearful, or worried about real or imagined problems.",
+    "synonyms": [
+     "Anxiety",
+     "Anxiety Scale"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C141607",
+    "label": "Anxiety Visual Analogue Scale",
+    "definition": "An anxiety scale from 0 to 10 on which the patient marks the current level of anxiety experienced.",
+    "synonyms": [
+     "Anxiety",
+     "Anxiety Visual Analogue Scale",
+     "Visual Analogue Anxiety Scale"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C146778",
+    "label": "Anxiety, CTCAE",
+    "definition": "A disorder characterized by apprehension of danger and dread accompanied by restlessness, tension, tachycardia, and dyspnea unattached to a clearly identifiable stimulus.",
+    "synonyms": [
+     "Anxiety",
+     "Anxiety, CTCAE",
+     "Anxiety, CTCAE 5.0"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C212537",
+    "label": "Anxiety Service Type",
+    "definition": "The service type that is associated with the Health Level 7 Fast Healthcare Interoperability Resources Anxiety code.",
+    "synonyms": [
+     "Anxiety",
+     "Anxiety Service Type"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C120243",
+    "label": "Anxiety or Depression Today Question",
+    "definition": "A question about an individual's current anxiety or depression.",
+    "synonyms": [
+     "Anxiety or Depression Today",
+     "Anxiety or Depression Today Question",
+     "Feeling worried, sad or unhappy"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C141608",
+    "label": "Anxiety Score 0",
+    "definition": "A subjective score of 0 on an anxiety scale that ranges from 0: No Anxiety to 10: Worst Possible Anxiety.",
+    "synonyms": [
+     "Anxiety Score 0"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C2878",
+    "label": "Anxiety Disorder",
+    "definition": "A category of psychiatric disorders which are characterized by anxious feelings or fear often accompanied by physical symptoms associated with anxiety.",
+    "synonyms": [
+     "Anxiety",
+     "Anxiety Disorder"
+    ],
+    "active": true
+   }
+  ]
+ },
+ {
+  "item": "V08",
+  "nct": "NCT07814300",
+  "title": "DBPCT Effects of Omega-3 FA on Memory and Cognition in Peri- and Menopausal Women",
+  "condition": "Menopause",
+  "inclusion_excerpt": "Inclusion Criteria: * Be female and aged between 40-60 years * Be experiencing perimenopause or menopause * Access to reliable internet connection and a device to complete online questionnaires and cognitive assessments * Be prepared to take a daily omega-3 supplement or placebo for 12 weeks * Be prepared to complete pre- and post- intervention testing and questionnaires * Speak English fluently to confirm they can complete cognitive tests to the best of their ability",
+  "candidate_query": "Menopause",
+  "mondo_candidates": [
+   {
+    "id": "MONDO:0017379",
+    "label": "polyneuropathy-intellectual disability-acromicria-premature menopause syndrome",
+    "definition": "Editor note: awaiting HPO",
+    "synonyms": [
+     "Lundberg syndrome"
+    ]
+   },
+   {
+    "id": "MONDO:0001119",
+    "label": "premature menopause",
+    "definition": "Cessation of menstruation before the age of 40. Symptoms include hot flashes, night sweats, mood swings, and decreased sex drive.",
+    "synonyms": [
+     "early menopause",
+     "POF",
+     "premature menopause",
+     "premature ovarian failure"
+    ]
+   },
+   {
+    "id": "MONDO:0008159",
+    "label": "postmenopausal osteoporosis",
+    "definition": "Metabolic disorder associated with fractures of the femoral neck, vertebrae, and distal forearm. It occurs commonly in women within 15-20 years after menopause, and is caused by factors associated with menopause including estrogen deficiency.",
+    "synonyms": []
+   },
+   {
+    "id": "MONDO:0001410",
+    "label": "postmenopausal atrophic vaginitis",
+    "definition": "Inflammation of the vagina due to thinning of the vaginal wall and decreased lubrication associated with reduced estrogen levels at menopause.",
+    "synonyms": [
+     "atrophic vaginitis",
+     "senile vaginitis"
+    ]
+   },
+   {
+    "id": "MONDO:0002207",
+    "label": "vulval Paget disease",
+    "definition": "An uncommon intraepithelial malignant neoplasm of eccrine or apocrine origin, arising from the vulva. It usually affects post-menopausal women. In approximately 10-20% of the cases there is an associated anorectal, or urothelial carcinoma or a skin appendage adenocarcinoma identified. It presents as a red, eczematous lesion. Microscopically, it is characterized by the presence of the typical Paget cells which are large, round cells with abundant cytoplasm and prominent nuclei.",
+    "synonyms": [
+     "Paget disease of the vulva",
+     "Paget's disease of the vulva",
+     "Paget's disease of vulva",
+     "mammalian vulva Paget disease",
+     "vulva Paget's disease",
+     "vulval Paget's disease"
+    ]
+   },
+   {
+    "id": "MONDO:0004160",
+    "label": "female stress incontinence",
+    "definition": "The involuntary loss of urine in females secondary to insufficient strength of the pelvic floor muscles; this can result from physical changes following pregnancy and childbirth, or as a response to a decrease in estrogen during menopause.",
+    "synonyms": []
+   },
+   {
+    "id": "MONDO:0004961",
+    "label": "stage I endometrioid carcinoma",
+    "definition": "Reason of obsoletion: out of scope - MONDO:excludeHistoricalDisease. Term to consider: -",
+    "synonyms": []
+   }
+  ],
+  "ncit_candidates": [
+   {
+    "id": "NCIT:C3231",
+    "label": "Menopause",
+    "definition": "The permanent cessation of menses, usually defined by 6 to 12 months of amenorrhea in a woman over 45 years of age.",
+    "synonyms": [
+     "Menopausal",
+     "Menopause",
+     "menopause"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C106541",
+    "label": "Menopause Status",
+    "definition": "An indicator as to whether the female subject is in menopause.",
+    "synonyms": [
+     "MENOSTAT",
+     "Menopausal Status",
+     "Menopause Status",
+     "menopause status",
+     "menopause_status"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C159772",
+    "label": "Menopause Status not Evaluated",
+    "definition": "The menopause status has not been evaluated.",
+    "synonyms": [
+     "Menopause Status not Evaluated",
+     "Not Evaluated: Not provided or available"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C206485",
+    "label": "Menopause-specific Quality of Life Questionnaire",
+    "definition": "A tool to assess health-related quality of life in the immediate post-menopausal period. It consists of a total of 29 items in a Likert-scale format. Each item assesses the impact of one of four domains of menopausal symptoms: vasomotor, psychosocial, physical, and sexual.",
+    "synonyms": [
+     "MENQOL",
+     "Menopause-specific Quality of Life (MENQOL) Questionnaire",
+     "Menopause-specific Quality of Life Questionnaire"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C106497",
+    "label": "Age at Menopause",
+    "definition": "The age at which permanent cessation of menses occurs.",
+    "synonyms": [
+     "Age at Menopause",
+     "MENOAGE",
+     "Menopause Age"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C80099",
+    "label": "Premature Menopause",
+    "definition": "Cessation of menstruation before the age of 40. Symptoms include hot flashes, night sweats, mood swings, and decreased sex drive.",
+    "synonyms": [
+     "POF",
+     "Premature Menopause",
+     "Premature Ovarian Failure",
+     "Premature menopause",
+     "early menopause",
+     "premature menopause"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C94256",
+    "label": "Surgical Menopause",
+    "definition": "Menopause that is induced by the surgical removal of the ovaries.",
+    "synonyms": [
+     "Surgical Menopause",
+     "surgical menopause"
+    ],
+    "active": true
+   }
+  ]
+ },
+ {
+  "item": "V09",
+  "nct": "NCT07805499",
+  "title": "AI-Powered Virtual Human Simulation in Students",
+  "condition": "Clinical Education",
+  "inclusion_excerpt": "Inclusion Criteria: * Respiratory therapy students participating in the pre-clinical training course, \"Clinical Application of Critical Care Respiratory Therapy,\" at Fu Jen Catholic University Hospital between September 10 and October 10, 2026 * Able to communicate verbally in Mandarin and complete study-related questionnaires and interviews * Considered suitable by the course instructor to participate in the AI-based virtual human simulation training * Willing to participate",
+  "candidate_query": "Clinical Education",
+  "mondo_candidates": [
+   {
+    "id": "MONDO:0007029",
+    "label": "branchio-oto-renal syndrome",
+    "definition": "(From orphanet): Branchiootorenal (BOR) syndrome is characterized by branchial arch anomalies (branchial clefts, fistulae, cysts), hearing impairment (malformations of the auricle with pre-auricular pits, conductive or sensorineural hearing impairment), and renal malformations (urinary tree malformation, renal hypoplasia or agenesis, renal dysplasia, renal cysts). Prevalence is 1/40,000. Renal involvement can lead to chronic renal insufficiency. The expression of the disease varies widely from one family to another and among individuals of the same family. Some families do not present with ren",
+    "synonyms": [
+     "Branchio-Oto-renal syndrome",
+     "Melnick-Fraser syndrome",
+     "branchio-oto-renal syndrome",
+     "branchiootorenal syndrome"
+    ]
+   }
+  ],
+  "ncit_candidates": [
+   {
+    "id": "NCIT:C215657",
+    "label": "Clinical Education Study",
+    "definition": "A study that assesses the effectiveness of health information on reducing ill health and enhancing good health by influencing beliefs, attitudes, and behavior of individuals and communities.",
+    "synonyms": [
+     "Clinical Education",
+     "Clinical Education Study"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C20086",
+    "label": "Cancer Clinical Trials Education Program",
+    "definition": "The Cancer Clinical Trials Education Program provides training to nurses and social workers to educate patients and their families about clinical trials. (Bypass Budget 2002)",
+    "synonyms": [
+     "Cancer Clinical Trials Education Program"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C188454",
+    "label": "Education Training Study",
+    "definition": "A study designed to investigate the best way to train educators.",
+    "synonyms": [
+     "Education Training Clinical Study",
+     "Education Training Study"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C115487",
+    "label": "Clinical Trial Principal Investigator Curriculum Vitae Documentation",
+    "definition": "Documentation detailing the education, qualification and work experience of the principal investigator involved in the conduct of the clinical trial.",
+    "synonyms": [
+     "Clinical Trial Principal Investigator Curriculum Vitae Documentation",
+     "Investigator CVs",
+     "PI CV",
+     "Principal Investigator CV",
+     "Principal Investigator Curriculum Vitae"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C115488",
+    "label": "Clinical Trial Sub-Investigator Curriculum Vitae Documentation",
+    "definition": "Documentation detailing the education, qualification and work experience of the sub-investigator(s) involved in the conduct of the clinical trial.",
+    "synonyms": [
+     "Clinical Trial Sub-Investigator Curriculum Vitae Documentation",
+     "Sub-I CV",
+     "Sub-Investigator Curriculum Vitae"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C115489",
+    "label": "Clinical Trial Team Member Curriculum Vitae",
+    "definition": "Records detailing the education and work experience of a specific team member, sponsor and or other individual participating in a clinical trial.",
+    "synonyms": [
+     "Clinical Trial Team Member Curriculum Vitae",
+     "Trial Team CV",
+     "Trial Team Curriculum Vitae",
+     "Trial Team Member CV",
+     "Trial Tm CV"
+    ],
+    "active": true
+   }
+  ]
+ },
+ {
+  "item": "V10",
+  "nct": "NCT07801846",
+  "title": "Assessment of Heart Rate Variability HRV During Descent DE From 2850m to Sea Level and During Re-ascent A From Sea Level to 2850m in Healthy Individuals H",
+  "condition": "Heart Rate Variability (HRV)",
+  "inclusion_excerpt": "Inclusion Criteria: * Adults aged 18-80 years and of all genders * Permanent residence \\> 2600 m * healthy: no self perceived cardiopulmonary disease limiting daily activities * written informed consent to participate in the study.",
+  "candidate_query": "Heart Rate Variability",
+  "mondo_candidates": [
+   {
+    "id": "MONDO:0013960",
+    "label": "sinoatrial node dysfunction and deafness",
+    "definition": "Sinoatrial node dysfunction and deafness is a rare genetic disease characterized by congenital severe to profound deafness with no evidence of vestibular dysfunction, associated with sinoatrial node dysfunction with pronounced bradycardia and increased variability of heart rate at rest and episodic syncopes that may be triggered by enhanced physical activity and stress.",
+    "synonyms": [
+     "sinoatrial node dysfunction and deafness"
+    ]
+   },
+   {
+    "id": "MONDO:0011076",
+    "label": "myofibrillar myopathy 1",
+    "definition": "A rare genetic skeletal muscle disease characterized by abnormal chimeric aggregates of desmin and other cytoskeletal proteins and granulofilamentous material at the ultrastructural level in muscle biopsies and variable clinical/ myopathological features, age of disease onset and rate of disease progression. Patients present with bilateral skeletal muscle weakness that starts in distal leg muscles and spreads proximally, sometimes involving trunk, neck flexors and facial muscles and often cardiomyopathy manifested by conduction blocks, arrhythmias, chronic heart failure, and sometimes tachyarr",
+    "synonyms": [
+     "myofibrillar myopathy (disease) caused by mutation in DES",
+     "myofibrillar myopathy type 1",
+     "myopathy, myofibrillar, type 1",
+     "DES autosomal recessive limb-girdle muscular dystrophy",
+     "DES myofibrillar myopathy (disease)",
+     "autosomal recessive limb-girdle muscular dystrophy caused by mutation in DES"
+    ]
+   }
+  ],
+  "ncit_candidates": [
+   {
+    "id": "NCIT:C228339",
+    "label": "Heart Rate Variability Assessment",
+    "definition": "The determination of the fluctuation in the time intervals between adjacent heartbeats.",
+    "synonyms": [
+     "HRVA",
+     "Heart Rate Variability",
+     "Heart Rate Variability Assessment"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C199682",
+    "label": "Heart Rate Variability, Standard Deviation NN Interval Measurement",
+    "definition": "A measurement of the fluctuation in the time intervals between adjacent heartbeats, based on the standard deviation of the NN interval.",
+    "synonyms": [
+     "HRVSDNN",
+     "Heart Rate Variability, SDNN",
+     "Heart Rate Variability, Standard Deviation NN Interval",
+     "Heart Rate Variability, Standard Deviation NN Interval Measurement"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C199998",
+    "label": "Heart Rate Variability, Average Standard Deviation NN Interval Measurement",
+    "definition": "A measurement of the fluctuation in the time intervals between adjacent heartbeats, based on the average standard deviation of the means of consecutive 5 minute NN intervals over a period of time.",
+    "synonyms": [
+     "HRVSDANN",
+     "Heart Rate Variability, Average Standard Deviation NN Interval",
+     "Heart Rate Variability, Average Standard Deviation NN Interval Measurement",
+     "Heart Rate Variability, SDANN"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C92790",
+    "label": "Fetal Heart Rate Variability",
+    "definition": "Fluctuations in the baseline fetal heart rate, determined in a 10 minute window while excluding accelerations and decelerations. They are irregular in amplitude and frequency and are visually quantitated as the amplitude of the peak to trough in beats per minute. Sinusoidal patterns are also excluded.",
+    "synonyms": [
+     "Beat to Beat Variability",
+     "Fetal Heart Rate Variability"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C111756",
+    "label": "Absent Fetal Heart Rate Variability",
+    "definition": "A baseline fetal heart rate with an undetectable amplitude range.",
+    "synonyms": [
+     "Absent Baseline Variability",
+     "Absent FHR Variability",
+     "Absent Fetal Heart Rate Variability"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C111765",
+    "label": "Marked Baseline Fetal Heart Rate Variability",
+    "definition": "A baseline fetal heart rate with an amplitude range that is greater than 25 beats per minute.",
+    "synonyms": [
+     "Exaggerated Baseline Variability",
+     "Hypervariability",
+     "Marked Baseline Fetal Heart Rate Variability",
+     "Marked Baseline Variability"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C111767",
+    "label": "Minimal Baseline Fetal Heart Rate Variability",
+    "definition": "A baseline fetal heart rate with a detectable amplitude range that is greater than undetectable but less than or equal to five beats per minute.",
+    "synonyms": [
+     "Minimal Baseline Fetal Heart Rate Variability",
+     "Minimal Baseline Variability"
+    ],
+    "active": true
+   }
+  ]
+ },
+ {
+  "item": "V11",
+  "nct": "NCT07848594",
+  "title": "The Impact of Overnight Active Temperature Regulation on the Gut Microbiome, Inflammation, and Circadian Rhythm.",
+  "condition": "Poor Sleep Quality",
+  "inclusion_excerpt": "Eligibility is determined in three parts: * Inclusion criteria. All must be met. *",
+  "candidate_query": "Poor Sleep Quality",
+  "mondo_candidates": [],
+  "ncit_candidates": [
+   {
+    "id": "NCIT:C103849",
+    "label": "Pittsburgh Sleep Quality Index",
+    "definition": "A self-rated questionnaire which assesses sleep quality and disturbances over a one month time interval.",
+    "synonyms": [
+     "PSQI",
+     "PSQI1",
+     "Pittsburgh Sleep Quality Index",
+     "Pittsburgh Sleep Quality Index (PSQI) SF-10"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C114172",
+    "label": "Poor Quality ECG",
+    "definition": "An electrocardiographic recording that does not show proper quality for reasons that are not otherwise described. (CDISC)",
+    "synonyms": [
+     "POOR QUALITY ECG",
+     "Poor Quality ECG"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C114180",
+    "label": "ECG Evaluation Not Performed Due to Poor Quality of Printed ECG",
+    "definition": "A printed electrocardiographic recording with poor printout quality (e.g. a faded paper ECG tracing or ECG with inconsistent printing speed) such that measurements and/or interpretation cannot be performed. (CDISC)",
+    "synonyms": [
+     "ECG EVALUATION NOT PERFORMED DUE TO POOR QUALITY OF PRINTED ECG",
+     "ECG Evaluation Not Performed Due to Poor Quality of Printed ECG"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C121596",
+    "label": "Overall Sleep Quality Rating Question",
+    "definition": "A question about how an individual would rate their overall sleep quality.",
+    "synonyms": [
+     "How would you rate your sleep quality overall",
+     "Overall Sleep Quality",
+     "Overall Sleep Quality Rating",
+     "Overall Sleep Quality Rating Question"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C121705",
+    "label": "Sleep Quality Question",
+    "definition": "A question about an individual's sleep quality.",
+    "synonyms": [
+     "Insomnia",
+     "Insomnia Distress",
+     "My sleep quality was",
+     "Sleep Quality",
+     "Sleep Quality Question"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C141899",
+    "label": "DRRI-2 - C: Food Was of Very Poor Quality",
+    "definition": "Deployment Risk and Resilience Inventory-2 (DRRI-2) During deployment: the food I had to eat was of very poor quality (for example, bad or old MREs).",
+    "synonyms": [
+     "DRRI-2 - C: Food Was of Very Poor Quality",
+     "DRRI1-C: Food Was of Very Poor Quality",
+     "DRRI1C03"
+    ],
+    "active": true
+   }
+  ]
+ },
+ {
+  "item": "V12",
+  "nct": "NCT07848594",
+  "title": "The Impact of Overnight Active Temperature Regulation on the Gut Microbiome, Inflammation, and Circadian Rhythm.",
+  "condition": "Circadian Clocks",
+  "inclusion_excerpt": "Eligibility is determined in three parts: * Inclusion criteria. All must be met. *",
+  "candidate_query": "Circadian Clocks",
+  "mondo_candidates": [
+   {
+    "id": "MONDO:0024377",
+    "label": "circadian rhythm sleep disorder, delayed sleep phase type",
+    "definition": "A circadian sleep disorder in which the individual's internal body clock is delayed with respect to the external day/night cycle.",
+    "synonyms": [
+     "sleep wake schedule disorder, delayed phase type",
+     "DSPS",
+     "delayed sleep phase syndrome"
+    ]
+   }
+  ],
+  "ncit_candidates": [
+   {
+    "id": "NCIT:C116706",
+    "label": "Circadian Clock Protein PASD1",
+    "definition": "Circadian clock protein PASD1 (773 aa, ~87 kDa) is encoded by the human PASD1 gene. This protein may be involved in the regulation of transcription.",
+    "synonyms": [
+     "CT63",
+     "Cancer/Testis Antigen 63",
+     "Circadian Clock Protein PASD1",
+     "OX-TES-1",
+     "PAS Domain-Containing Protein 1",
+     "PASD1"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C113084",
+    "label": "Clockwise",
+    "definition": "Circular movement in the direction of the rotation of the hands of a clock.",
+    "synonyms": [
+     "Clockwise"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C119689",
+    "label": "CLOCK Gene",
+    "definition": "This gene plays a role in the expression of genes involved in circadian rhythm.",
+    "synonyms": [
+     "CLOCK",
+     "CLOCK Gene",
+     "Clock Circadian Regulator Gene"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C119690",
+    "label": "CLOCK wt Allele",
+    "definition": "Human CLOCK wild-type allele is located in the vicinity of 4q12 and is approximately 119 kb in length. This allele, which encodes circadian locomoter output cycles protein kaput, is involved in the regulation of circadian rhythms, histone acetylation and gene transcription.",
+    "synonyms": [
+     "BHLHE8",
+     "CLOCK wt Allele",
+     "Circadian Locomoter Output Cycles Kaput Gene",
+     "Clock (Mouse) Homolog Gene",
+     "Clock Circadian Regulator wt Allele",
+     "Clock Homolog (Mouse) Gene"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C119691",
+    "label": "Circadian Locomoter Output Cycles Protein Kaput",
+    "definition": "Circadian locomoter output cycles protein kaput (846 aa, ~95 kDa) is encoded by the human CLOCK gene. This protein plays a role in the modulation of histone acetylation that regulates both gene expression and circadian rhythms.",
+    "synonyms": [
+     "CLOCK",
+     "Circadian Locomoter Output Cycles Kaput Protein",
+     "Circadian Locomoter Output Cycles Protein Kaput",
+     "Class E Basic Helix-Loop-Helix Protein 8",
+     "Clock Homolog",
+     "EC 2.3.1.48"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C155848",
+    "label": "Circadian Biometric Recorder",
+    "definition": "A proprietary device that uses a thermal differential detection system to detect and record abnormal circadian cellular temperature changes, including those associated with breast cancer tumor infusion.",
+    "synonyms": [
+     "CBR System",
+     "Circadian Biometric Recorder",
+     "Cyrcadia Health Circadian Biometric Recorder"
+    ],
+    "active": true
+   }
+  ]
+ },
+ {
+  "item": "V13",
+  "nct": "NCT07848828",
+  "title": "Autonomic and Renal Contributions to Hypertension With ADT",
+  "condition": "Androgen Deprivation Therapy",
+  "inclusion_excerpt": "Inclusion Criteria: * age 40+ years; * resting blood pressure \\<140/90 mmHg; * fasted blood glucose \\<126 mg/dL; * testosterone ≥400 ng/dL; * sedentary to recreationally active; * nonsmokers; * healthy as determined by medical history, physical exam, blood and urine chemistries and resting and exercise ECG during a physician supervised graded exercise treadmill test OR recent diagnosis of non-metastatic prostate cancer with plans to undergo androgen deprivation therapy; * PSA \\<4.00 ng/dL if in the non-cancer group; * Gleason Score ≤7 if in the prostate cancer group; * no use of medications that might influence cardiovascular function (e.g., antihypertensives, lipid-lowering medications); * willing and able to be on GnRHagonist and AR inhibitor; * not taking antioxidant vitamins, corticosteroids, or anti-inflammatory medications, or willing to stop use for four weeks prior to the start of the study; * not using exogenous sex hormones for at least one year",
+  "candidate_query": "Androgen Deprivation Therapy",
+  "mondo_candidates": [],
+  "ncit_candidates": [
+   {
+    "id": "NCIT:C15481",
+    "label": "Antiandrogen Therapy",
+    "definition": "A therapeutic regimen that utilizes pharmaceuticals to reduce serum levels of male sex hormones.",
+    "synonyms": [
+     "ADT",
+     "Androgen Deprivation Therapy",
+     "Androgen Deprivation Therapy (ADT)",
+     "Anti-androgen Therapy",
+     "Anti-androgen Treatment",
+     "Antiandrogen Therapy"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C192257",
+    "label": "Age at Report of Androgen Deprivation Therapy",
+    "definition": "The age of an individual when the androgen deprivation therapy was initiated.",
+    "synonyms": [
+     "Age At Record of Androgen Deprivation Therapy",
+     "Age at Report of Androgen Deprivation Therapy"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C192396",
+    "label": "Date of Report of Androgen Deprivation Therapy",
+    "definition": "The date on which the androgen deprivation therapy was initiated.",
+    "synonyms": [
+     "Date Of Record of Androgen Deprivation Therapy",
+     "Date of Report of Androgen Deprivation Therapy"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C15445",
+    "label": "Hormone Therapy",
+    "definition": "Various treatment modalities that produce the desired therapeutic effect by means of change of hormone/hormones level.",
+    "synonyms": [
+     "Chemotherapy-Hormones/Steroids",
+     "Endocrine Therapy",
+     "Hormonal",
+     "Hormonal Therapy",
+     "Hormonal Treatment",
+     "Hormonal therapy"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C15482",
+    "label": "Androgen Therapy",
+    "definition": "Administration of male hormones to produce a clinical effect.",
+    "synonyms": [
+     "Androgen Therapy"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C15504",
+    "label": "Prior Androgen Therapy",
+    "definition": "Having received prior androgen therapy.",
+    "synonyms": [
+     "Prior Androgen Therapy"
+    ],
+    "active": true
+   }
+  ]
+ },
+ {
+  "item": "V14",
+  "nct": "NCT07814716",
+  "title": "Clinical Performance of Orthodontic Bands in the Restorative Treatment of Hypomineralised Primary Second Molars",
+  "condition": "Enamel Hypomineralization",
+  "inclusion_excerpt": "Inclusion Criteria: * Children aged 5-10 years. * Presence of at least one second primary molar affected by hypomineralised second primary molars requiring restorative treatment. * Hypomineralisation associated with post-eruptive enamel breakdown involving more than one tooth surface or a cavitated carious lesion involving more than one surface and classified as code 5 or 6 according to the International Caries Detection and Assessment System.",
+  "candidate_query": "Enamel Hypomineralization",
+  "mondo_candidates": [
+   {
+    "id": "MONDO:0017904",
+    "label": "steroid dehydrogenase deficiency-dental anomalies syndrome",
+    "definition": "Steroid dehydrogenase deficiency-dental anomalies syndrome is an autosomal recessive liver disease which was associated with numerical dental aberrations in a consanguineous Arabi Saudi family. This association suggests that the same gene is involved in both defects. General hypomineralisation and enamel hypoplasia found in this family is thought to be secondary to malabsorption due to liver disease.",
+    "synonyms": [
+     "Lyngstadaas syndrome"
+    ]
+   }
+  ],
+  "ncit_candidates": [
+   {
+    "id": "NCIT:C163726",
+    "label": "Decreased Enamel",
+    "definition": "Decrease in the amount of enamel.",
+    "synonyms": [
+     "Decreased Enamel",
+     "ENAMEL, DECREASED"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C192635",
+    "label": "Hypotonia, Ataxia, Developmental Delay, and Tooth Enamel Defect Syndrome",
+    "definition": "An autosomal dominant condition caused by mutations(s) in the CTBP1 gene, encoding C-terminal-binding protein 1. It is characterized by hypotonia, ataxia, developmental delay, and tooth enamel defects.",
+    "synonyms": [
+     "HADDTS",
+     "Hypotonia, Ataxia, Developmental Delay, and Tooth Enamel Defect Syndrome"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C202796",
+    "label": "Nail Polish and Enamel Cosmetic Product",
+    "definition": "Nail polish and enamels designed to be used on the nails.",
+    "synonyms": [
+     "Nail Polish and Enamel Cosmetic Product",
+     "Nail polishes and enamels [Manicuring preparations]"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C202797",
+    "label": "Nail Polish and Enamel Remover Cosmetic Product",
+    "definition": "A cosmetic product intended to be used to remove nail polish and enamels.",
+    "synonyms": [
+     "Nail Polish and Enamel Remover Cosmetic Product",
+     "Nail polish and enamel removers [Manicuring preparations]"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C219919",
+    "label": "Enamel Pearls",
+    "definition": "Concretions of enamel that form on the root of a tooth.",
+    "synonyms": [
+     "Enamel Pearls",
+     "Enamel pearls"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C32505",
+    "label": "Enamel",
+    "definition": "A hard, thin, translucent layer of calcified substance that envelops and protects the dentin of the crown of the tooth. It is the hardest substance in the body and is almost entirely composed of calcium salts.",
+    "synonyms": [
+     "Enamel"
+    ],
+    "active": true
+   }
+  ]
+ },
+ {
+  "item": "V15",
+  "nct": "NCT07822854",
+  "title": "Vagal Stimulation in Individuals With Stroke",
+  "condition": "Otonomic Function",
+  "inclusion_excerpt": "Inclusion Criteria: * Having experienced an ischemic or hemorrhagic stroke * Diagnosed with stroke at least six months prior * No history of multiple stroke episodes * No communication impairments * Ability to read and write",
+  "candidate_query": "Otonomic Function",
+  "mondo_candidates": [],
+  "ncit_candidates": [
+   {
+    "id": "NCIT:C100053",
+    "label": "Sinus Node Functional Assessment",
+    "definition": "Description of electrical activity and conduction involving the sinoatrial node. (ACC)",
+    "synonyms": [
+     "Sinus Node Functional Assessment"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C100106",
+    "label": "ADAS-Cog CDISC Version Functional Test Question",
+    "definition": "A question associated with the ADAS-Cog CDISC version functional test.",
+    "synonyms": [
+     "ADAS-Cog CDISC Version Functional Test Question"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C100118",
+    "label": "MMSE Functional Test Question",
+    "definition": "A question associated with the MMSE functional test.",
+    "synonyms": [
+     "MMSE Functional Test Question"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C100131",
+    "label": "CDISC Functional Test ADAS-Cog CDISC Version Test Name Terminology",
+    "definition": "Test names of functional test questions associated with the CDISC version of the alzheimer's disease assessment scale-cognitive (ADAS-Cog) for the Clinical Data Interchange Standards Consortium (CDISC) Standard Data Tabulation Model (SDTM).",
+    "synonyms": [
+     "ADCTN",
+     "Alzheimer's Disease Assessment Scale - Cognitive CDISC Version Functional Test Test Name",
+     "CDISC Functional Test ADAS-Cog CDISC Version Test Name Terminology",
+     "QS-ADAS-Cog CDISC Version TEST"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C100132",
+    "label": "CDISC Functional Test ADAS-Cog CDISC Version Test Code Terminology",
+    "definition": "Test codes of functional test questions associated with the CDISC version of the alzheimer's disease assessment scale-cognitive (ADAS-Cog) for the Clinical Data Interchange Standards Consortium (CDISC) Standard Data Tabulation Model (SDTM).",
+    "synonyms": [
+     "ADCTC",
+     "Alzheimer's Disease Assessment Scale - Cognitive CDISC Version Functional Test Test Code",
+     "CDISC Functional Test ADAS-Cog CDISC Version Test Code Terminology",
+     "QS-ADAS-Cog CDISC Version TESTCD"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C100141",
+    "label": "CDISC Functional Test MMSE Test Name Terminology",
+    "definition": "Test names of functional test questions associated with the mini-mental state examination (MMSE) for the Clinical Data Interchange Standards Consortium (CDISC) Standard Data Tabulation Model (SDTM).",
+    "synonyms": [
+     "CDISC Functional Test MMSE Test Name Terminology",
+     "MMS1TN",
+     "Mini-Mental State Examination Functional Test Test Name",
+     "QS-MMSE TEST"
+    ],
+    "active": true
+   }
+  ]
+ },
+ {
+  "item": "V16",
+  "nct": "NCT07836803",
+  "title": "TORCH-LATAM-002: Regional Pathway for Adult Heart Transplant Evaluation and Candidacy",
+  "condition": "Heart Transplantation",
+  "inclusion_excerpt": "Inclusion Criteria: * Age 18 years or older. * Advanced heart failure or acquired or structural heart disease meeting a protocol-defined trigger for specialized heart transplant evaluation. * Identification within an activated TORCH network cluster with an operational route to at least one authorized transplant center. * Ability to complete the protocol-defined follow-up directly or through an authorized network pathway. * Provision of informed consent according to applicable requirements.",
+  "candidate_query": "Heart Transplantation",
+  "mondo_candidates": [
+   {
+    "id": "MONDO:0004496",
+    "label": "myocarditis",
+    "definition": "Myocarditis is a condition that is characterized by inflammation of the heart muscle (myocardium). Some affected people have no noticeable symptoms of the condition. When present, signs and symptoms may include chest pain, abnormal heartbeat, shortness of breath, fatigue, signs of infection (i.e. fever, headache, sore throat, diarrhea), and leg swelling. Myocarditis can be caused by a variety of factors including infections (viral, bacterial, parasitic, and fungal), allergic reactions to certain medications, and exposure to certain chemicals. It can also be associated with other inflammatory c",
+    "synonyms": [
+     "inflammation of myocardium",
+     "myocardial inflammation (finding)",
+     "myocardium inflammation"
+    ]
+   },
+   {
+    "id": "MONDO:0023232",
+    "label": "giant cell myocarditis",
+    "definition": "Giant cell myocarditis cases can be idiopathic or occur in various conditions, such as infection (tuberculosis, syphilis, pneumocystis jirovecii parvovirus, coxsackie), inflammation, drug sensitivity, hypersensitivity and vasculitis. At least one group of the condition is considered as an autoimmune disease in 19% of patients in some registries that co-manifest with other autoimmune diseases such as inflammatory bowel disease, cryofibrinogenemia, optic neuritis, Hashimoto thyroiditis, rheumatoid arthritis, Takayasu arteritis, temporal arteritis, myasthenia gravis (MG), alopecia totalis, vitili",
+    "synonyms": [
+     "giant cell myocarditis"
+    ]
+   },
+   {
+    "id": "MONDO:0030300",
+    "label": "cardiomyopathy, dilated, 2D",
+    "definition": "A dilated cardiomyopathy that is characterized by neonatal onset of severe cardiomyopathy, with rapid progression to cardiac decompensation and death unless the patient undergoes heart transplantation and that has material basis in homozygous or compound heterozygous mutation in the RPL3L gene on chromosome 16p13.",
+    "synonyms": [
+     "CMD2D",
+     "cardiomyopathy, dilated, 2D"
+    ]
+   },
+   {
+    "id": "MONDO:0017217",
+    "label": "visceral calciphylaxis",
+    "definition": "Visceral calciphylaxis is a rare, life-threatening, non-inflammatory vasculopathy disorder characterized by diffuse precipitation of calcium in viscera (mainly in the heart or lungs, but also in the stomach or kidneys) leading to fibrosis and thrombosis, which eventually cause necrotic ulcerations of the tissue. Patients may present with dyspnea, cough and respiratory failure or acute heart block and subsequent sudden cardiac death, depending on the affected organ. The disease mainly affects patients on dialysis or patients having undergone renal transplantation.",
+    "synonyms": []
+   },
+   {
+    "id": "MONDO:0010198",
+    "label": "Wernicke-Korsakoff syndrome",
+    "definition": "Editor note: todo check",
+    "synonyms": [
+     "Wernicke-Korsakoff syndrome"
+    ]
+   },
+   {
+    "id": "MONDO:0019730",
+    "label": "light chain deposition disease",
+    "definition": "Light chain deposition disease (LCDD) is a rare condition characterized by the deposition of specific proteins (monoclonal light chains) in the kidneys and other organs. Light chains are used to make antibodies that the body needs to fight infection. People with LCDD make too many light chains, which get deposited in many body tissues. While LCDD can occur in any organ, the kidneys are always involved. Signs and symptoms of LCDD may include protein in the urine ; decreased kidney function; and/or nephrotic syndrome. Rarely, a person with LCDD may have symptoms from cardiac (heart) or liver inv",
+    "synonyms": [
+     "Bence Jones myeloma",
+     "LCDD",
+     "Light chain disease",
+     "Light chain gammopathy"
+    ]
+   },
+   {
+    "id": "MONDO:0018634",
+    "label": "hereditary amyloidosis",
+    "definition": "Hereditary amyloidosis refers to a group of inherited conditions that make up one of the subtypes of amyloidosis. Hereditary amyloidosisis characterized by the deposit of an abnormal protein called amyloid in multiple organs of the body where it should not be, which causes disruption of organ tissue structure and function. In hereditary amyloidosis, amyloid deposits most often occur in tissues of the heart, kidneys, and nervous system. While symptoms of hereditary amyloidosis may appear in childhood, most individuals do not experience symptoms until adulthood. There are many types of hereditar",
+    "synonyms": [
+     "amyloidosis, Familial",
+     "hereditary amyloidosis (disease)"
+    ]
+   },
+   {
+    "id": "MONDO:0004694",
+    "label": "hepatopulmonary syndrome",
+    "definition": "Hepatopulmonary syndrome (HPS) is a lung disease characterized by widening of arteries and veins (dilatation) in the lungs in people who have chronic liver disease. Because of the dilated vases, the workload of the heart increases and the blood pumped to the body does not have enough oxygen, leading to a decreased level of oxygen in the blood (hypoxemia). The normal diameter of the lung vessels ranges between 8 and 15 μm whereas when in HPS rises to between 15 and 500 μm. While many people with HPS don't have any obvious problems, the main reported symptom is shortness of breath (dyspnea) that",
+    "synonyms": []
+   }
+  ],
+  "ncit_candidates": [
+   {
+    "id": "NCIT:C15246",
+    "label": "Heart Transplantation",
+    "definition": "A surgical procedure in which a damaged heart is removed and replaced by another heart from a suitable donor.",
+    "synonyms": [
+     "CARDIAC TRANSPLANT",
+     "Cardiac Transplantation",
+     "Heart Grafting",
+     "Heart Transplant",
+     "Heart Transplantation"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C15247",
+    "label": "Heart and Lung Transplantation",
+    "definition": "The surgical transfer of a heart and one or both lungs from one individual to another.",
+    "synonyms": [
+     "Heart Lung Grafting",
+     "Heart Lung Transplantation",
+     "Heart and Lung Transplantation",
+     "Heart-Lung Grafting",
+     "Heart-Lung Transplantation"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C26992",
+    "label": "Transplanted Heart Complication",
+    "definition": "A disease or disorder that is associated with a transplanted heart.",
+    "synonyms": [
+     "Complication of Transplanted Heart",
+     "Transplanted Heart Complication"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C205142",
+    "label": "Advanced Heart Failure and Transplant Internist",
+    "definition": "An internist that has additional training/certification in advanced heart failure and transplant cardiology.",
+    "synonyms": [
+     "Advanced Heart Failure and Transplant Internist"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C205141",
+    "label": "Advanced Heart Failure and Transplant Cardiology Internist",
+    "definition": "An internist that has additional training/certification in advanced heart failure and transplant cardiology.",
+    "synonyms": [
+     "Advanced Heart Failure and Transplant Cardiology Internist"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C171223",
+    "label": "Transplanted Organ or Tissue Status Other than Kidney, Heart, Lung, Heart and Lungs, Liver, Skin, Bone, or Corneal Transplant",
+    "definition": "The condition of a transplanted organ or tissue other than a kidney, heart, lung, heart and lungs, liver, skin, bone, or corneal transplant.",
+    "synonyms": [
+     "Transplanted Organ or Tissue Status Other than Kidney, Heart, Lung, Heart and Lungs, Liver, Skin, Bone, or Corneal Transplant"
+    ],
+    "active": true
+   }
+  ]
+ },
+ {
+  "item": "V17",
+  "nct": "NCT07834892",
+  "title": "Does Adding a Fascial Layer to the Cartilage in Tympanoplasty for Large Tympanic Membrane Perforation Affect the Overall Results?",
+  "condition": "Suppurative Otitis Media",
+  "inclusion_excerpt": "Inclusion Criteria: * Age 18 years and older * Presence of a large or subtotal tympanic membrane perforation * Safe chronic suppurative otitis media (CSOM) * Undergoing primary or revision tympanoplasty",
+  "candidate_query": "Suppurative Otitis Media",
+  "mondo_candidates": [
+   {
+    "id": "MONDO:0005975",
+    "label": "suppurative otitis media",
+    "definition": "Inflammation of the middle ear with purulent discharge.",
+    "synonyms": []
+   },
+   {
+    "id": "MONDO:0001920",
+    "label": "chronic purulent otitis media",
+    "definition": "Otitis media that persists for at least six weeks, and that is associated with otorrhea through a perforated tympanic membrane.",
+    "synonyms": [
+     "CSOM",
+     "chronic suppurative otitis Media",
+     "chronic suppurative otitis media",
+     "suppurative otitis media, chronic"
+    ]
+   },
+   {
+    "id": "MONDO:0001031",
+    "label": "purulent acute otitis media",
+    "definition": "Acute form of suppurative otitis media.",
+    "synonyms": [
+     "acute suppurative otitis media",
+     "suppurative otitis media, acute"
+    ]
+   },
+   {
+    "id": "MONDO:0021206",
+    "label": "chronic non-suppurative otitis media",
+    "definition": "Chronic form of non-suppurative otitis media.",
+    "synonyms": [
+     "non-suppurative otitis media, chronic"
+    ]
+   },
+   {
+    "id": "MONDO:0001964",
+    "label": "chronic tubotympanic suppurative otitis media",
+    "definition": "A suppurative otitis media which is an inflammatory disease of the middle ear cleft characterized by the presence of a persisting perforation within the pars tensa of the tympanic membrane, intermittent profuse muco-purulent otorrhea and gradually progressive conductive hearing loss of more than 12 weeks duration. It is caused by episodes of upper respiratory infections.",
+    "synonyms": []
+   },
+   {
+    "id": "MONDO:0001212",
+    "label": "non-suppurative otitis media",
+    "definition": "A otitis media which involves transudation of fluid in the middle ear without pus formation.",
+    "synonyms": [
+     "nonsuppurative otitis media"
+    ]
+   },
+   {
+    "id": "MONDO:0002738",
+    "label": "acute transudative otitis media",
+    "definition": "Acute form of non-suppurative otitis media.",
+    "synonyms": [
+     "acute nonsuppurative otitis media",
+     "non-suppurative otitis media, acute"
+    ]
+   },
+   {
+    "id": "MONDO:0001921",
+    "label": "chronic atticoantral disease",
+    "definition": "A chronic purulent otitis media which involves perforation in the attic region (pars flaccida of the tympanic membrane) or at the posterosuperior margin, with in-growth of squamous epithelium into the middle ear. This is caused as a result of poor ventilation of the middle ear and episodes of infection.",
+    "synonyms": [
+     "chronic atticoantral suppurative otitis media"
+    ]
+   }
+  ],
+  "ncit_candidates": [
+   {
+    "id": "NCIT:C128386",
+    "label": "Chronic Suppurative Otitis Media",
+    "definition": "Otitis media that persists for at least six weeks, and that is associated with otorrhea through a perforated tympanic membrane.",
+    "synonyms": [
+     "CSOM",
+     "Chronic Suppurative Otitis Media"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C84354",
+    "label": "Infectious Otitis Media",
+    "definition": "Inflammation of the anatomical structures of the middle ear secondary to an infectious process. Bacterial etiology is most common, but both viral and fungal pathogens are also possible. Symptoms include erythema and edema of the tympanic membrane, pain, and possibly fever. In severe infections, inflammation and edema of the structures of the middle ear can lead to perforation of the tympanic membrane secondary to the buildup of pressure in the narrow space.",
+    "synonyms": [
+     "AOM",
+     "AOM - Acute otitis media",
+     "Acute Otitis Media",
+     "Infectious Otitis Media",
+     "Middle Ear Infection",
+     "Otitis media"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C143720",
+    "label": "Otitis Media, CTCAE",
+    "definition": "A disorder characterized by an infectious process involving the middle ear.",
+    "synonyms": [
+     "Otitis Media",
+     "Otitis Media, CTCAE",
+     "Otitis media"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C144881",
+    "label": "Grade 2 Otitis Media, CTCAE",
+    "definition": "Localized; oral intervention indicated (e.g., antibiotic, antifungal, or antiviral)",
+    "synonyms": [
+     "Grade 2 Otitis Media, CTCAE",
+     "Grade 2 Otitis media"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C145502",
+    "label": "Grade 3 Otitis Media, CTCAE",
+    "definition": "IV antibiotic, antifungal, or antiviral intervention indicated; invasive intervention indicated",
+    "synonyms": [
+     "Grade 3 Otitis Media, CTCAE",
+     "Grade 3 Otitis media"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C146021",
+    "label": "Grade 4 Otitis Media, CTCAE",
+    "definition": "Life-threatening consequences; urgent intervention indicated",
+    "synonyms": [
+     "Grade 4 Otitis Media, CTCAE",
+     "Grade 4 Otitis media"
+    ],
+    "active": true
+   }
+  ]
+ },
+ {
+  "item": "V18",
+  "nct": "NCT07812428",
+  "title": "Relationship Between Gastrocnemius and Soleus Muscle Thickness Assessed by Ultrasound and Balance and Fear of Falling in Hemiplegic Patients",
+  "condition": "Ultrasonography",
+  "inclusion_excerpt": "Inclusion Criteria: Individuals diagnosed with hemiplegia confirmed by clinical and imaging methods Patients in the subacute-chronic phase, at least 1 month post-stroke Adults aged 18 years and older Individuals able to stand and/or walk a few steps (at least FAS ≥ 2) Individuals scoring 24 or higher on the Mini-Mental State Examination Individuals who agree to participate in the study",
+  "candidate_query": "Ultrasonography",
+  "mondo_candidates": [
+   {
+    "id": "MONDO:0008175",
+    "label": "pacman dysplasia",
+    "definition": "Pacman dysplasia is characterized by epiphyseal stippling and osteoclastic overactivity. It has been described in less than 10 patients but may be underdiagnosed. It is characterized radiographically by severe stippling of the lower spine and long bones, and periosteal cloaking. Patients also have short metacarpals. The syndrome may be inherited as an autosomal recessive trait. This disorder should be included in the differential diagnosis of mucolipidosis type II. In order to make a definitive diagnosis, lysosomal storage should be investigated by electron microscopy, or enzyme assays should ",
+    "synonyms": [
+     "epiphyseal stippling syndrome-osteoclastic hyperplasia syndrome",
+     "pacman dysplasia"
+    ]
+   },
+   {
+    "id": "MONDO:0011007",
+    "label": "diaphragmatic defect-limb deficiency-skull defect syndrome",
+    "definition": "This syndrome is characterized by the association of classical diaphragmatic hernia (Bochdalek type) with severe lung hypoplasia, and variable associated malformations. It has been reported only once in four successive fetuses (two females and two males) born to a nonconsanguineous couple. The spectrum of malformations is wide and includes, besides diaphragmatic hernia and hypoplastic lungs (present in the four fetuses), omphalocele (one case), severe limb hypoplasia (two cases), syndactyly of the toes (two cases), extra spleen (one case), and an ossification defect of the skull (one case). In",
+    "synonyms": [
+     "froster-Huch syndrome"
+    ]
+   }
+  ],
+  "ncit_candidates": [
+   {
+    "id": "NCIT:C17230",
+    "label": "Ultrasound Imaging",
+    "definition": "The use of high-frequency sound waves to generate images of the body.",
+    "synonyms": [
+     "2-Dimensional Grayscale Ultrasound Imaging",
+     "2-Dimensional Ultrasound Imaging",
+     "2D-US",
+     "ULTRASOUND",
+     "US",
+     "Ultrasonography"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C122930",
+    "label": "Transcranial Doppler Ultrasonography",
+    "definition": "A diagnostic technique that uses pulsed Doppler ultrasound to measure the velocity of blood flow through the major blood vessels of the brain.",
+    "synonyms": [
+     "Non-imaging TCD",
+     "TCD",
+     "Transcranial Doppler",
+     "Transcranial Doppler (TCD) Ultrasonography",
+     "Transcranial Doppler Sonography",
+     "Transcranial Doppler Ultrasonography"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C122931",
+    "label": "Imaging Transcranial Doppler Ultrasonography",
+    "definition": "A diagnostic technique that uses pulsed Doppler ultrasound to both identify blood vessels in the brain and measure the velocity of blood flow through those vessels. It allows a more accurate estimation of stroke risk because it allows outlining of parenchymal structures and visualization of the examined vessels.",
+    "synonyms": [
+     "Imaging TCD",
+     "Imaging Transcranial Doppler (iTCD) Ultrasonography",
+     "Imaging Transcranial Doppler Sonography",
+     "Imaging Transcranial Doppler Ultrasonography",
+     "TCDI",
+     "iTCD"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C143148",
+    "label": "Transrectal Ultrasonography Guided Biopsy",
+    "definition": "A procedure that uses transrectal ultrasound to image the prostate and guide the placement of a biopsy needles to obtain a tissue sample.",
+    "synonyms": [
+     "TRUS Biopsy",
+     "TRUS-Guided Biopsy",
+     "Transrectal Ultrasonography Guided Biopsy"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C191543",
+    "label": "Lower Extremity Doppler Ultrasonography",
+    "definition": "Ultrasound examination of the blood flow through the vasculature of the lower extremities.",
+    "synonyms": [
+     "Doppler Ultrasound of Leg",
+     "Lower Extremity Doppler Ultrasonography",
+     "Lower extremity ultrasound"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C198675",
+    "label": "B-Scan Ocular Ultrasonography",
+    "definition": "A method of using ultrasound for obtaining images of the posterior segment of the eye.",
+    "synonyms": [
+     "B-Scan Ocular USG",
+     "B-Scan Ocular Ultrasonography",
+     "B-Scan Ocular Ultrasound",
+     "B-Scan Ultrasonography",
+     "Bright Scan Ocular Ultrasonography"
+    ],
+    "active": true
+   }
+  ]
+ },
+ {
+  "item": "V19",
+  "nct": "NCT07831967",
+  "title": "Perfusion Index Variability During Epidural Labor Analgesia",
+  "condition": "Perfusion Index",
+  "inclusion_excerpt": "Inclusion Criteria: 1. Use of epidural analgesia (epidural block, or combined spinal-epidural block) during spontaneous vaginal delivery. 2. Signed informed consent to participate in the study.",
+  "candidate_query": "Perfusion Index",
+  "mondo_candidates": [],
+  "ncit_candidates": [
+   {
+    "id": "NCIT:C100957",
+    "label": "CGI - Efficacy Index",
+    "definition": "Clinical Global Impression (CGI) Rate this item on the basis of drug effect only. Select the terms which best describe the degrees of therapeutic effect and side effects and record the number in the box where the two items intersect.",
+    "synonyms": [
+     "CGI - Efficacy Index"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C101138",
+    "label": "Computed Tomography Dose Index Volume",
+    "definition": "The International Electrotechnical Commission preferred expression of radiation dose in computed tomography (CT) dosimetry. It is calculated by averaging the radiation dose delivered over x,y and z directions and expressed in the SI unit of Gray (Gy).",
+    "synonyms": [
+     "COMPUTED_VOLUME",
+     "CTDIvol",
+     "Computed Tomography Dose Index Volume",
+     "ctdiVol"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C101388",
+    "label": "Pulsatility Index",
+    "definition": "A diagnostic indicator of vascular resistance that is calculated by dividing the difference between the peak systolic and minimum diastolic blood velocities by the mean velocity.",
+    "synonyms": [
+     "PI",
+     "Pulsatility Index"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C102360",
+    "label": "Amount Recovered from T1 to T2 Normalized by Body Mass Index",
+    "definition": "The cumulative amount recovered from the specimen type specified in PPSPEC over the interval from T1 to T2 divided by body mass index.",
+    "synonyms": [
+     "Amount Recovered from T1 to T2 Normalized by Body Mass Index",
+     "Amt Rec from T1 to T2 Norm by BMI",
+     "RCAMINTB"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C102364",
+    "label": "Amount Recovered Over Dosing Interval Normalized by Body Mass Index",
+    "definition": "The cumulative amount recovered from the specimen type specified in PPSPEC between doses (TAU) divided by body mass index.",
+    "synonyms": [
+     "Amount Recovered Over Dosing Interval Normalized by Body Mass Index",
+     "Amt Rec Over Dosing Interval Norm by BMI",
+     "RCAMTAUB"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C102367",
+    "label": "Concentration Divided by Body Mass Index",
+    "definition": "The concentration divided by body mass index.",
+    "synonyms": [
+     "CONCB",
+     "Conc by BMI",
+     "Concentration Divided by Body Mass Index"
+    ],
+    "active": true
+   }
+  ]
+ },
+ {
+  "item": "V20",
+  "nct": "NCT07840703",
+  "title": "Symptomatic Hyperventilation in Individuals Living With Stroke",
+  "condition": "Stroke",
+  "inclusion_excerpt": "Inclusion Criteria: * Individuals who will be diagnosed with a confirmed first-ever or recurrent stroke (ischaemic or haemorrhagic) verified by neuroimaging (CT or MRI). * Individuals who will be in the chronic or subacute post-stroke period (medically stable following stroke onset). * Individuals aged 18 years and older. * Individuals who will be classified into either the hyperventilation syndrome group based on a Nijmegen Questionnaire score of ≥23 or the control group based on a score of \\<23. * Individuals who will be able to comprehend instructions and cooperate adequately with pulmonary function tests, respiratory muscle testing, and physical performance assessments. * Individuals who will provide written informed consent to participate in the study.",
+  "candidate_query": "Stroke",
+  "mondo_candidates": [
+   {
+    "id": "MONDO:0010789",
+    "label": "MELAS syndrome",
+    "definition": "MELAS (Mitochondrial myopathy, encephalopathy, lactic acidosis, and stroke) syndrome is a rare progressive multisystemic disorder characterized by encephalomyopathy, lactic acidosis, and stroke-like episodes. Other features include endocrinopathy, heart disease, diabetes, hearing loss, and neurological and psychiatric manifestations.",
+    "synonyms": [
+     "MELAS syndrome",
+     "mitochondrial encephalomyopathy, lactic acidosis and stroke",
+     "mitochondrial encephalomyopathy, lactic acidosis and stroke-like episodes",
+     "mitochondrial myopathy, encephalopathy, lactic acidosis and stroke-like episodes",
+     "mitochondrial myopathy, encephalopathy, lactic acidosis, and stroke-like episodes"
+    ]
+   },
+   {
+    "id": "MONDO:0005098",
+    "label": "stroke disorder",
+    "definition": "Stroke includes two main types, hemorrhagic and ischemic. Both types of stroke can cause acute seizures at the time of the acute event, as well as epilepsy as a long-term complication. In the elderly, cerebrovascular disease and stroke are the most common cause of acute seizures and epilepsy. (https://www.epilepsydiagnosis.org/etiology/stroke-overview.html, https://orcid.org/0000-0001-5208-3432)",
+    "synonyms": [
+     "CVA, cerebrovascular accident",
+     "cerebrovascular accident, (CVA)",
+     "syndrome, stroke",
+     "undetermined stroke",
+     "CVA",
+     "cerebrovascular accident"
+    ]
+   },
+   {
+    "id": "MONDO:0017804",
+    "label": "autosomal recessive leukoencephalopathy-ischemic stroke-retinitis pigmentosa syndrome",
+    "definition": "Autosomal recessive leukoencephalopathy-ischemic stroke-retinitis pigmentosa syndrome is a rare neurologic disease characterized by global developmental delay, intellectual disability, multiple ischemic lesions in brain MRI, behavioral abnormalities, dystonia, choreic movements and pyramidal syndrome, facial dysmorphism (hypertelorism, arched palate, macroglossia), retinitis pigmentosa, scoliosis, seizures.",
+    "synonyms": []
+   },
+   {
+    "id": "MONDO:0011729",
+    "label": "stroke, susceptibility to, 1",
+    "definition": "",
+    "synonyms": [
+     "stroke, susceptibility to, type 1",
+     "stroke, susceptibility to, 1"
+    ]
+   },
+   {
+    "id": "MONDO:0018585",
+    "label": "pediatric arterial ischemic stroke",
+    "definition": "A rare ischemic disease characterized by focal cerebral ischemia and infarction due to blockage of a brain artery with subsequent impairment of blood supply and oxygenation of brain tissue.",
+    "synonyms": [
+     "childhood AIS",
+     "childhood arterial ischaemic stroke",
+     "childhood arterial ischemic stroke",
+     "paediatric AIS",
+     "pediatric AIS"
+    ]
+   },
+   {
+    "id": "MONDO:1060199",
+    "label": "hemorrhagic stroke",
+    "definition": "A stroke disorder caused by bleeding into the brain parenchyma or surrounding spaces. Hemorrhagic stroke includes intracerebral hemorrhage (bleeding within the brain tissue) and subarachnoid hemorrhage (bleeding in the space between the brain and the surrounding membrane).",
+    "synonyms": [
+     "haemorrhagic stroke"
+    ]
+   },
+   {
+    "id": "MONDO:1060198",
+    "label": "ischemic stroke",
+    "definition": "A stroke disorder caused by obstruction of blood flow to the brain, due to thrombotic (local blood clot formation) or embolic (due to a blood clot or other material traveling from another site) event.",
+    "synonyms": [
+     "ischaemic stroke"
+    ]
+   }
+  ],
+  "ncit_candidates": [
+   {
+    "id": "NCIT:C3390",
+    "label": "Stroke",
+    "definition": "A sudden loss of neurological function secondary to hemorrhage or ischemia in the brain parenchyma due to a vascular event.",
+    "synonyms": [
+     "CVA",
+     "Cerebral Infarction",
+     "Cerebrovascular Accident",
+     "Stroke",
+     "Stroke Syndrome",
+     "Stroke not otherwise specified"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C143862",
+    "label": "Stroke, CTCAE",
+    "definition": "A disorder characterized by an interruption of blood supply to parts of the brain resulting in neurological damage.",
+    "synonyms": [
+     "Stroke",
+     "Stroke, CTCAE"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C168208",
+    "label": "Family History of Stroke",
+    "definition": "A history of a first-degree relative that has had a stroke.",
+    "synonyms": [
+     "Family History of Stroke",
+     "Stroke"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C212790",
+    "label": "Stroke Service Type",
+    "definition": "The service type that is associated with the Health Level 7 Fast Healthcare Interoperability Resources Stroke code.",
+    "synonyms": [
+     "Stroke",
+     "Stroke Service Type"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C119579",
+    "label": "Stroke Type",
+    "definition": "A classification or description of a stroke.",
+    "synonyms": [
+     "STROKTYP",
+     "Stroke Type"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C157994",
+    "label": "Stroke Rehabilitation",
+    "definition": "Treatment programs that use strategies to maintain function, participation and quality of life for individuals who have had a stroke.",
+    "synonyms": [
+     "Stroke Rehabilitation"
+    ],
+    "active": true
+   }
+  ]
+ },
+ {
+  "item": "V21",
+  "nct": "NCT07807059",
+  "title": "A Single-Dose Pharmacokinetic Study of HRS-4729 Injection in Healthy Participants and Patients With Renal Impairment",
+  "condition": "Overweight/Obesity",
+  "inclusion_excerpt": "Inclusion Criteria: 1. Provide written informed consent prior to any study-related procedures, and have a full understanding of the study content, procedures, and potential adverse events. 2. Be aged 18 to 65 years (inclusive), of either sex. 3. Have a body mass index (BMI) between 19 and 40 kg/m² (inclusive). 4. Glomerular filtration rate (absolute eGFR) must meet the relevant requirements and criteria specified in the protocol. 5. Have stable renal function. 6. Women of childbearing potential must have been using reliable contraception and have a negative serum pregnancy test at baseline, and must be willing to use highly effective contraceptive measures from the time of signing informed consent until 2 months after the last dose of study drug. Male Participants must be willing not to plan to father a child during the trial and until 2 months after the last dose, and voluntarily take effective contraceptive measures, or have undergone surgical sterilization. 7. Healthy participants: demographic means at screening must match those of the renal impairment groups as follows: Body weight matched within ±10 kg of the group mean; Age matched within ±10 years of the group mean; Sex ratio matched within ±1 subject. 8.For participants in the renal impairment groups: Participants must have a diagnosis of chronic (\\>3 months) and stable (no acute deterioration of renal function within 1 month prior to screening) renal impairment.",
+  "candidate_query": "Overweight/Obesity",
+  "mondo_candidates": [
+   {
+    "id": "MONDO:0010496",
+    "label": "X-linked intellectual disability-short stature-overweight syndrome",
+    "definition": "X-linked intellectual disability-short stature-overweight syndrome is a multiple congenital anomalies syndrome characterized by borderline to severe intellectual disability, speech delay, short stature, elevated body mass index, a pattern of truncal obesity (reported in older males), and variable neurologic features (e.g. hypotonia, tremors, gait disturbances, behavioral problems, and seizure disorders). Less common manifestations include microcephaly, microorchidism and/or microphallus. Dysmorphic features have been reported in some patients but no consistent pattern has been noted.",
+    "synonyms": [
+     "intellectual developmental disorder, X-linked 12, X-linked recessive",
+     "intellectual disability, X-linked type 12",
+     "mental retardation, X-linked type 12"
+    ]
+   }
+  ],
+  "ncit_candidates": [
+   {
+    "id": "NCIT:C120377",
+    "label": "Childhood Overweight",
+    "definition": "A condition in which a child's body mass index (BMI) falls at or above the 85th percentile, but below the 95th percentile based on the normative values for the age and sex of the reference population.",
+    "synonyms": [
+     "Childhood Overweight"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C120378",
+    "label": "Iatrogenic Obesity",
+    "definition": "Obesity resulting from medical treatment or intervention.",
+    "synonyms": [
+     "Iatrogenic Obesity"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C120379",
+    "label": "Polygenic Obesity",
+    "definition": "Obesity associated with variations in multiple genes.",
+    "synonyms": [
+     "Polygenic Obesity"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C120380",
+    "label": "Exogenous Obesity",
+    "definition": "Obesity caused by caloric intake greater than caloric expenditures.",
+    "synonyms": [
+     "Common Obesity",
+     "Exogenous Obesity",
+     "Simple Obesity"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C120381",
+    "label": "Central Obesity",
+    "definition": "Obesity in which excess fat is accumulated primarily in the area of the abdomen.",
+    "synonyms": [
+     "Central Adiposity",
+     "Central Obesity",
+     "Truncal Obesity"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C120382",
+    "label": "Monogenic Obesity",
+    "definition": "Obesity associated with an identifiable mutation in a single gene.",
+    "synonyms": [
+     "Monogenic Obesity"
+    ],
+    "active": true
+   }
+  ]
+ },
+ {
+  "item": "V22",
+  "nct": "NCT07829419",
+  "title": "Evaluation of Two Monthly Silicone Hydrogel Multifocal Toric in Soft Contact Lens Wearers",
+  "condition": "Myopia",
+  "inclusion_excerpt": "Inclusion Criteria: A person is eligible for inclusion in the study if they are: 1. Participants at least 40 years of age. 2. Participants requiring lens powers within the range available for the study lenses. 3. Participants with a spherical refractive error at the corneal plane of plano to -6.00. 4. Participants with a minimum reading add of +0.75DS (based on their spectacle refraction at screening). At least 12 participants will be enrolled per add group: low (+0.75 to +1.25D), medium (+1.50 to +1.75D), and high (+2.00 to +2.50). 5. Participants with refractive astigmatism at the corneal plane of 0.75 to 2.00DC. 6. Best spectacle corrected visual acuity greater than or equal to 20/25 (less than or equal to LogMAR 0.1). 7. Habitually using soft contact lenses (multifocal soft contact lenses, sphere or toric lenses for monovision, or sphere or toric lenses for distance vision correction and spectacles for near vision correction) and have worn lenses at least 3 days a week for at least the past six months. 8. Anticipating being able to wear contact lenses for at least 8 hours a day, 5 days a week. 9. Willing and able to follow instructions and maintain the appointment schedule.",
+  "candidate_query": "Myopia",
+  "mondo_candidates": [
+   {
+    "id": "MONDO:0001384",
+    "label": "myopia",
+    "definition": "The condition in which the individual does not see far distances clearly.",
+    "synonyms": [
+     "myopia (disease)",
+     "myopia",
+     "near-sightedness"
+    ]
+   },
+   {
+    "id": "MONDO:0009082",
+    "label": "high myopia-sensorineural deafness syndrome",
+    "definition": "High myopia-sensorineural deafness syndrome is a rare genetic disease characterized by high myopia, typically ranging from -6.0 to -11.0 diopters, and moderate to profound, bilateral, progressive sensorineural hearing loss with prelingual-onset. Affected individuals do not present other systemic, ocular or connective tissue manifestations.",
+    "synonyms": [
+     "high myopia-sensorineural deafness syndrome"
+    ]
+   },
+   {
+    "id": "MONDO:0012154",
+    "label": "myopia 6",
+    "definition": "Any myopia in which the cause of the disease is a mutation in the SCO2 gene.",
+    "synonyms": [
+     "myopia (disease) caused by mutation in SCO2",
+     "myopia type 6",
+     "SCO2 myopia (disease)",
+     "myopia 6"
+    ]
+   },
+   {
+    "id": "MONDO:0008268",
+    "label": "polydactyly-myopia syndrome",
+    "definition": "Polydactyly-myopia syndrome is an exceedingly rare autosomal dominant developmental anomaly reported in 1986 in nine individuals among four generations of the same family. The syndrome is characterized clinically by four-limb postaxial polydactyly and progressive myopia. There have been no further descriptions in the literature since 1986.",
+    "synonyms": [
+     "Czeizel-Brooser syndrome",
+     "polydactyly-myopia syndrome"
+    ]
+   },
+   {
+    "id": "MONDO:0014982",
+    "label": "myopia 25, autosomal dominant",
+    "definition": "Any myopia (disease) in which the cause of the disease is a mutation in the P4HA2 gene.",
+    "synonyms": [
+     "myopia (disease) caused by mutation in P4HA2",
+     "myopia 25, autosomal dominant; MYP25",
+     "MYP25",
+     "P4HA2 myopia (disease)",
+     "myopia 25, autosomal dominant"
+    ]
+   },
+   {
+    "id": "MONDO:0013604",
+    "label": "myopia 21, autosomal dominant",
+    "definition": "Any myopia (disease) in which the cause of the disease is a mutation in the ZNF644 gene.",
+    "synonyms": [
+     "myopia (disease) caused by mutation in ZNF644",
+     "ZNF644 myopia (disease)",
+     "myopia 21, autosomal dominant"
+    ]
+   },
+   {
+    "id": "MONDO:0007202",
+    "label": "blepharoptosis-myopia-ectopia lentis syndrome",
+    "definition": "This syndrome is characterized by bilateral congenital blepharoptosis, ectopia lentis and high myopia.",
+    "synonyms": [
+     "blepharoptosis myopia ectopia lentis",
+     "dominantly inherited blepharoptosis, high myopia, and ectopia lentis"
+    ]
+   },
+   {
+    "id": "MONDO:0018601",
+    "label": "autosomal dominant myopia-midfacial retrusion-sensorineural hearing loss-rhizomelic dysplasia syndrome",
+    "definition": "",
+    "synonyms": []
+   }
+  ],
+  "ncit_candidates": [
+   {
+    "id": "NCIT:C102533",
+    "label": "Myopia",
+    "definition": "The condition in which the individual does not see far distances clearly.",
+    "synonyms": [
+     "Myopia",
+     "Myopic",
+     "Nearsighted",
+     "Nearsightedness"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C157149",
+    "label": "Pathological Myopia",
+    "definition": "A sub-type of myopia characterized by high myopia with any posterior myopia-specific pathology resulting from axial elongation.",
+    "synonyms": [
+     "Pathological Myopia"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C125594",
+    "label": "Kniest Dysplasia",
+    "definition": "A rare, autosomal dominant inherited bone growth disorder caused by mutations in the COL2A1gene. It is characterized by short stature (dwarfism) and other skeletal abnormalities, round, flat face with bulging and wide-set eyes, myopia and retinal detachment that can lead to blindness.",
+    "synonyms": [
+     "Kniest Dysplasia"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C128115",
+    "label": "Marshall Syndrome",
+    "definition": "An autosomal dominant condition caused by mutation(s) in the COL11A1 gene, encoding collagen alpha-1(XI) chain. The syndrome may be characterized by facial dysmorphism, cataracts, myopia, hearing loss, and short stature. Mutation(s) in the COL11A1 gene are causative in Stickler syndrome, but the phenotype of Marshall syndrome is more mild.",
+    "synonyms": [
+     "Marshall Syndrome"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C178175",
+    "label": "SLITRK6 wt Allele",
+    "definition": "Human SLITRK6 wild-type allele is located 13q31.1 and is approximately 14 kb in length. This allele, which encodes SLIT and NTRK-like protein 6, is involved in hearing and vision. Nonsense mutations in the gene are associated with autosomal recessive deafness and myopia.",
+    "synonyms": [
+     "DFNMYP",
+     "FLJ22774",
+     "SLIT and NTRK Like Family Member 6 wt Allele",
+     "SLIT and NTRK-Like Family, Member 6 Gene",
+     "SLIT- and NTRK-Like Family, Member 6 Gene",
+     "SLITRK6 wt Allele"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C201594",
+    "label": "Knobloch Syndrome 1",
+    "definition": "An autosomal recessive condition caused by mutation(s) in the COL18A1 gene, encoding collagen alpha-1(XVIII) chain. It is characterized by eye abnormalities, including high myopia and vitreoretinal degeneration.",
+    "synonyms": [
+     "KNO1",
+     "Knobloch Syndrome 1"
+    ],
+    "active": true
+   }
+  ]
+ },
+ {
+  "item": "V23",
+  "nct": "NCT07805018",
+  "title": "EFFECT OF VIRTUAL REALITY GLASSES ON ANXIETY AND PAIN DURING DOUBLE J STENT REMOVAL",
+  "condition": "Anxiety",
+  "inclusion_excerpt": "Inclusion Criteria: * Patients aged 18 years or older who have undergone ureter or kidney stone surgery and have a double j stent * Willingness and ability to participate voluntarily in the study and provide informed consent",
+  "candidate_query": "Anxiety",
+  "mondo_candidates": [
+   {
+    "id": "MONDO:0011918",
+    "label": "anxiety",
+    "definition": "",
+    "synonyms": [
+     "anxiety-related personality traits",
+     "anxiety"
+    ]
+   },
+   {
+    "id": "MONDO:0005618",
+    "label": "anxiety disorder",
+    "definition": "A category of psychiatric disorders which are characterized by anxious feelings or fear often accompanied by physical symptoms associated with anxiety.",
+    "synonyms": [
+     "anxiety disorder"
+    ]
+   },
+   {
+    "id": "MONDO:0041086",
+    "label": "mixed anxiety and depressive disorder",
+    "definition": "",
+    "synonyms": [
+     "mixed anxiety and depressive disorder"
+    ]
+   },
+   {
+    "id": "MONDO:0001098",
+    "label": "separation anxiety disorder",
+    "definition": "An anxiety disorder characterized by recurrent excessive distress due to fear of separation from the home or from major attachment figures; the distress is developmentally inappropriate and causes impairment in social, academic, or other areas of functioning.",
+    "synonyms": []
+   },
+   {
+    "id": "MONDO:0001942",
+    "label": "generalized anxiety disorder",
+    "definition": "An anxiety disorder characterized by excessive and difficult-to-control worry about a number of life situations. The worry is accompanied by restlessness, fatigue, inability to concentrate, irritability, muscle tension, and/or sleep disturbance and lasts for at least 6 months.",
+    "synonyms": [
+     "GAD"
+    ]
+   },
+   {
+    "id": "MONDO:0001247",
+    "label": "social phobia",
+    "definition": "An anxiety disorder characterized by an intense, irrational fear of one or more social or performance situations in which the individual believes that he or she will be scrutinized by others. Exposure to social situations immediately provokes an anxiety response. In adults, the social phobia is recognized as excessive or unreasonable.",
+    "synonyms": [
+     "social anxiety disorder"
+    ]
+   },
+   {
+    "id": "MONDO:0003709",
+    "label": "agoraphobia",
+    "definition": "An anxiety disorder characterized by an intense, irrational fear of venturing out into open places or situations in which help (or escape) might not be available should excessive anxiety or panic symptoms develop.",
+    "synonyms": [
+     "fear of open spaces (finding)"
+    ]
+   }
+  ],
+  "ncit_candidates": [
+   {
+    "id": "NCIT:C26696",
+    "label": "Anxiety",
+    "definition": "Apprehension of danger and dread accompanied by restlessness, tension, tachycardia, and dyspnea unattached to a clearly identifiable stimulus.",
+    "synonyms": [
+     "Anxiety",
+     "anxiety"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C121276",
+    "label": "Anxiety Scale",
+    "definition": "A rating scale included in the Behavior Assessment System for Children that measures the tendency of the subject to be nervous, fearful, or worried about real or imagined problems.",
+    "synonyms": [
+     "Anxiety",
+     "Anxiety Scale"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C141607",
+    "label": "Anxiety Visual Analogue Scale",
+    "definition": "An anxiety scale from 0 to 10 on which the patient marks the current level of anxiety experienced.",
+    "synonyms": [
+     "Anxiety",
+     "Anxiety Visual Analogue Scale",
+     "Visual Analogue Anxiety Scale"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C146778",
+    "label": "Anxiety, CTCAE",
+    "definition": "A disorder characterized by apprehension of danger and dread accompanied by restlessness, tension, tachycardia, and dyspnea unattached to a clearly identifiable stimulus.",
+    "synonyms": [
+     "Anxiety",
+     "Anxiety, CTCAE",
+     "Anxiety, CTCAE 5.0"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C212537",
+    "label": "Anxiety Service Type",
+    "definition": "The service type that is associated with the Health Level 7 Fast Healthcare Interoperability Resources Anxiety code.",
+    "synonyms": [
+     "Anxiety",
+     "Anxiety Service Type"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C120243",
+    "label": "Anxiety or Depression Today Question",
+    "definition": "A question about an individual's current anxiety or depression.",
+    "synonyms": [
+     "Anxiety or Depression Today",
+     "Anxiety or Depression Today Question",
+     "Feeling worried, sad or unhappy"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C141608",
+    "label": "Anxiety Score 0",
+    "definition": "A subjective score of 0 on an anxiety scale that ranges from 0: No Anxiety to 10: Worst Possible Anxiety.",
+    "synonyms": [
+     "Anxiety Score 0"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C2878",
+    "label": "Anxiety Disorder",
+    "definition": "A category of psychiatric disorders which are characterized by anxious feelings or fear often accompanied by physical symptoms associated with anxiety.",
+    "synonyms": [
+     "Anxiety",
+     "Anxiety Disorder"
+    ],
+    "active": true
+   }
+  ]
+ },
+ {
+  "item": "V24",
+  "nct": "NCT07838701",
+  "title": "Efficacy and Safety of Indoor Residual Spray for Dengue Vector Control",
+  "condition": "Dengue",
+  "inclusion_excerpt": "Inclusion Criteria: * Households consenting to participate and allow entomological inspections. * Permanent residents with no history of shifting during the study period.",
+  "candidate_query": "Dengue",
+  "mondo_candidates": [
+   {
+    "id": "MONDO:0005502",
+    "label": "dengue disease",
+    "definition": "Dengue fever (DF), caused by dengue virus, is an arboviral disease characterized by an initial non-specific febrile illness that can sometimes progress to more severe forms manifesting capillary leakage and hemorrhage (dengue hemorrhagic fever, or DHF) and shock (dengue shock syndrome, or DSS).",
+    "synonyms": [
+     "Dengue virus disease or disorder",
+     "Dengue virus infectious disease",
+     "DF",
+     "Dengue fever",
+     "Dengue virus caused disease or disorder",
+     "Dengue virus infection"
+    ]
+   },
+   {
+    "id": "MONDO:0000248",
+    "label": "dengue shock syndrome",
+    "definition": "A dengue disease that involves the most severe form of dengue fever, has material basis in Dengue virus [NCBITaxon:12637] with four serotypes (Dengue virus 1, 2, 3 and 4), which are transmitted by Aedes mosquito bite. The infection has symptom easy bruising, has symptom blood spots, has symptom bleeding gums, and has symptom nosebleeds. It is accompanied by circulatory collapse, involves hypotension, narrow pulse pressure (less than or equal to 20mm Hg), or frank shock. The shock occurs after two to six days of symptoms, followed by collapse, weak pulse, and blueness around the mouth.",
+    "synonyms": []
+   },
+   {
+    "id": "MONDO:0013713",
+    "label": "dengue virus, susceptibility to",
+    "definition": "",
+    "synonyms": [
+     "dengue virus, susceptibility to"
+    ]
+   },
+   {
+    "id": "MONDO:0005358",
+    "label": "Dengue hemorrhagic fever",
+    "definition": "A serious condition caused by Dengue virus infection. Patients present with an acute febrile illness followed by restlessness, irritability, and bleeding. It may lead to hemorrhagic shock and death.",
+    "synonyms": []
+   },
+   {
+    "id": "MONDO:0000259",
+    "label": "asymptomatic dengue",
+    "definition": "",
+    "synonyms": []
+   },
+   {
+    "id": "MONDO:0800426",
+    "label": "dengue fever, susceptibility to",
+    "definition": "",
+    "synonyms": []
+   },
+   {
+    "id": "MONDO:0800427",
+    "label": "dengue hemorrhagic fever, susceptibility to",
+    "definition": "",
+    "synonyms": []
+   },
+   {
+    "id": "MONDO:0800428",
+    "label": "dengue shock syndrome, susceptibility to",
+    "definition": "",
+    "synonyms": []
+   }
+  ],
+  "ncit_candidates": [
+   {
+    "id": "NCIT:C34528",
+    "label": "Dengue Fever",
+    "definition": "An acute infection caused by Dengue virus. Signs and symptoms include sudden onset of fever, headache, rash, arthralgia, and myalgia. It is transmitted through mosquitoes.",
+    "synonyms": [
+     "Break Bone Fever",
+     "Dengue",
+     "Dengue Fever"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C112036",
+    "label": "Dengue Virus",
+    "definition": "A species of enveloped and spherical viruses with a capsid with T=3 icosahedral symmetry in the Flaviviridae family and Flavivirus genus. The genome is composed of non-segmented, single-stranded, positive-sense RNA. Dengue viruses are found in non-human primates and humans and cause dengue fever in humans. Dengue viruses are transmitted mainly via the bite of infected mosquitoes of the genus Aedes.",
+    "synonyms": [
+     "DENGUE VIRUS",
+     "Dengue Virus"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C112266",
+    "label": "Dengue Virus 1",
+    "definition": "The serotype labeled 1 of the viral species Dengue virus, which is a single-stranded, positive-sense RNA virus of the Flaviviridae family and Flavivirus genus, and causes dengue fever.",
+    "synonyms": [
+     "DEN-1",
+     "DENGUE VIRUS 1",
+     "DENV-1",
+     "Dengue Virus 1",
+     "Dengue Virus Type 1"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C112267",
+    "label": "Dengue Virus 2",
+    "definition": "The serotype labeled 2 of the viral species Dengue virus, which is a single-stranded, positive-sense RNA virus of the Flaviviridae family and Flavivirus genus, and causes dengue fever.",
+    "synonyms": [
+     "DEN-2",
+     "DENGUE VIRUS 2",
+     "DENV-2",
+     "Dengue Virus 2",
+     "Dengue Virus Type 2"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C112268",
+    "label": "Dengue Virus 3",
+    "definition": "The serotype labeled 3 of the viral species Dengue virus, which is a single-stranded, positive-sense RNA virus of the Flaviviridae family and Flavivirus genus, and causes dengue fever.",
+    "synonyms": [
+     "DEN-3",
+     "DENGUE VIRUS 3",
+     "DENV-3",
+     "Dengue Virus 3",
+     "Dengue Virus Type 3"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C112269",
+    "label": "Dengue Virus 4",
+    "definition": "The serotype labeled 4 of the viral species Dengue virus, which is a single-stranded, positive-sense RNA virus of the Flaviviridae family and Flavivirus genus, and causes dengue fever.",
+    "synonyms": [
+     "DEN-4",
+     "DENGUE VIRUS 4",
+     "DENV-4",
+     "Dengue Virus 4",
+     "Dengue Virus Type 4"
+    ],
+    "active": true
+   }
+  ]
+ },
+ {
+  "item": "V25",
+  "nct": "NCT07832578",
+  "title": "Comparison of Aspirin Alone Versus Low-Dose Rivaroxaban Plus Aspirin in Chronic Limb-Threatening Ischemia",
+  "condition": "Limb Ischemia",
+  "inclusion_excerpt": "Inclusion Criteria: * All patients of CLTI managed conservatively * ASA score of 3 or more * Age 40-70 yrs * Diagnosed case of Diabetes mellitus type 2 (HbA1c \\>8) * Blood Pressue ( \\>130/90 , \\<180/100 ) * Hypercholestrolemia (Total cholesterol ≥200 mg/dL ) * ABPI \\< 0.6 * Claudication distance \\< 100 meters * Provided written informed consent (for prospective or interventional studies)",
+  "candidate_query": "Limb Ischemia",
+  "mondo_candidates": [
+   {
+    "id": "MONDO:0000491",
+    "label": "limb ischemia",
+    "definition": "A ischemia that involves the limb.",
+    "synonyms": [
+     "ischaemic disease of limb",
+     "ischemic disease of limb",
+     "limb ischaemic disease",
+     "limb ischemia",
+     "limb ischemic disease"
+    ]
+   },
+   {
+    "id": "MONDO:0041114",
+    "label": "peripheral ischemia",
+    "definition": "Deficient blood distribution to the limbs caused by narrowing or obstruction of the lumen of the peripheral arteries.",
+    "synonyms": [
+     "peripheral ischemia"
+    ]
+   }
+  ],
+  "ncit_candidates": [
+   {
+    "id": "NCIT:C102675",
+    "label": "Myocardial Ischemia by ECG Finding",
+    "definition": "An electrocardiographic finding of ST and T wave changes consistent with impaired myocardial perfusion.",
+    "synonyms": [
+     "Myocardial Ischemia by ECG Finding",
+     "Myocardial Ischemia by EKG Finding"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C111062",
+    "label": "Have Trouble Feeling Sensations in Limbs Question",
+    "definition": "A question about whether an individual has or had trouble feeling sensations in their arms, hands, or legs.",
+    "synonyms": [
+     "Have Trouble Feeling Sensations in Limbs",
+     "Have Trouble Feeling Sensations in Limbs Question",
+     "I have trouble feeling sensations in my arms, hands or legs"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C111063",
+    "label": "Have Weakness in Limbs Question",
+    "definition": "A question about whether an individual has or had weakness in their arms or legs.",
+    "synonyms": [
+     "Did you feel weak in your arms and legs",
+     "Feel Weak in Arms and Legs",
+     "Have Weakness in Limbs",
+     "Have Weakness in Limbs Question",
+     "I have weakness in my arms or legs"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C112865",
+    "label": "Transient Myocardial Ischemia of Newborn",
+    "definition": "A condition characterized by a temporary imbalance between the oxygen supply and demand of the heart muscle in the newborn.",
+    "synonyms": [
+     "Transient Myocardial Ischemia of Newborn"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C114150",
+    "label": "Interchanged Limb Electrodes by ECG Finding",
+    "definition": "An electrocardiographic recording in which two or more of the limb electrodes are switched resulting in improper representation of the affected leads. (CDISC)",
+    "synonyms": [
+     "Interchanged Limb Electrodes by ECG Finding",
+     "LIMB ELECTRODES INTERCHANGED",
+     "Limb Lead Reversal"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C114151",
+    "label": "Disconnected Limb Electrodes by ECG Finding",
+    "definition": "An electrocardiographic recording in which one or more of the limb electrodes are disconnected resulting in missing waveforms (often flat lines) of the respective leads. (CDISC)",
+    "synonyms": [
+     "Disconnected Limb Electrodes by ECG Finding",
+     "LIMB ELECTRODE(S) DISCONNECTED"
+    ],
+    "active": true
+   }
+  ]
+ },
+ {
+  "item": "V26",
+  "nct": "NCT07848789",
+  "title": "Green Banana Added Diet on Prolong Diarrhea in 6-59 Months Old Children (GB in ProD)",
+  "condition": "Prolonged Diarrhea",
+  "inclusion_excerpt": "Inclusion Criteria: * Age: \\> 6 to 59 months * Sex: Either * Duration of diarrhea: 7 to 13 days * Children able to take oral feeds at the time of randomization * Non-Severe Acute Malnutrition (SAM). * Not participating in another clinical study, the preceding 4 weeks * Parent willing to participate to the present study and providing informed written consent",
+  "candidate_query": "Prolonged Diarrhea",
+  "mondo_candidates": [
+   {
+    "id": "MONDO:0016312",
+    "label": "5-fluorouracil poisoning",
+    "definition": "5-fluorouracil (5-FU) poisoning is a rare intoxication caused by the prolonged, low-dose administration of 5-FU, which is the mainstay of both adjuvant and advanced-disease chemotherapy regimens in colon cancer. 5-FU poisoning is characterized by gastrointestinal (nausea, emesis, diarrhea, anorexia, stomatitis) and hematologic (myelosuppression) toxicities as well as mucositis, alopecia and, occasionally, palmar-plantar dysesthesia (more commonly known as hand-foot syndrome). Women have been reported to experience more 5-FU-related toxicity than men.",
+    "synonyms": [
+     "5-fluorouracil intoxication"
+    ]
+   }
+  ],
+  "ncit_candidates": [
+   {
+    "id": "NCIT:C102450",
+    "label": "Resulted in Prolongation of Hospitalization",
+    "definition": "An indication or description that an extended period of hospitalization is necessary.",
+    "synonyms": [
+     "Resulted in Prolongation of Hospitalization",
+     "Resulted in prolongation of hospitalization"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C103726",
+    "label": "PHQ-15 - Constipation, Loose Bowels, or Diarrhea",
+    "definition": "Patient Health Questionnaire - 15 (PHQ-15) Constipation, loose bowels, or diarrhea.",
+    "synonyms": [
+     "PHQ-15 - Constipation, Loose Bowels, or Diarrhea",
+     "PHQ02-Constipation/Loose Bowels/Diarrhea",
+     "PHQ0212"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C103824",
+    "label": "Oxycodone Hydrochloride/Naloxone Hydrochloride Prolonged-release Tablet",
+    "definition": "A prolonged-release tablet formulation composed of the hydrochloride salt form of the opioid receptor agonist oxycodone and the hydrochloride salt form of the opioid receptor antagonist naloxone which may produce analgesia while relieving opioid-mediated gastrointestinal (GI) side effects. Upon oral administration, oxycodone binds to opioid receptors, thereby mimicking the effects of endogenous opiates to provide analgesia. As naloxone is very poorly absorbed, this agent binds locally to opiate receptors in the GI tract, thereby preventing oxycodone from binding to these receptors. This reliev",
+    "synonyms": [
+     "Oxycodone Hydrochloride/Naloxone Hydrochloride Prolonged-release Tablet",
+     "Targin",
+     "Targinact"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C104300",
+    "label": "Have Diarrhea Question",
+    "definition": "A question about whether an individual has or had diarrhea.",
+    "synonyms": [
+     "Diarrhea",
+     "Have Diarrhea",
+     "Have Diarrhea Question",
+     "Have you had diarrhea",
+     "I have diarrhea"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C107098",
+    "label": "QTcB Prolongation",
+    "definition": "An electrocardiographic finding in which the QT interval corrected for heart rate using Bazett's formula is prolonged. Thresholds for different age, sex, and patient populations exist.",
+    "synonyms": [
+     "PROLONGED QTcB",
+     "QTCB PROLONGATION",
+     "QTcB Prolongation"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C107099",
+    "label": "QTcF Prolongation",
+    "definition": "An electrocardiographic finding in which the QT interval corrected for heart rate using Fridericia's formula is prolonged. Thresholds for different age, sex, and patient populations exist.",
+    "synonyms": [
+     "PROLONGED QTcF",
+     "Prolonged QTcF",
+     "QTCF PROLONGATION",
+     "QTcF Prolongation"
+    ],
+    "active": true
+   }
+  ]
+ },
+ {
+  "item": "V27",
+  "nct": "NCT07811453",
+  "title": "Liver Transplantation for Non-Resectable Colorectal Liver Metastases Without Local Treatment Options",
+  "condition": "Metastatic Colorectal Cancer (CRC)",
+  "inclusion_excerpt": "Inclusion Criteria: * Age 18 to 65 years at enrolment * ECOG performance status 0 or 1 * Written informed consent before any study-related procedure * Colorectal liver metastases stable for at least 6 months under active chemotherapy of no more than 2 lines * Colorectal liver metastases not amenable to curative local treatment by resection or ablation because of insufficient liver capacity or future liver remnant, as judged by the local interdisciplinary tumour board * For metachronous colorectal liver metastases: a colorectal primary resected in the past with T4a or lower and local R0 status * For synchronous colorectal liver metastases: a potentially curatively resectable primary * No evidence of peritoneal disease, as documented by a surgical report within the preceding 36 months * Suitability for liver transplantation according to local centre criteria * Participants of childbearing potential: negative highly sensitive pregnancy test before inclusion, and use of a contraceptive method with a failure rate below 1%, or confirmed post-menopausal status",
+  "candidate_query": "Metastatic Colorectal Cancer",
+  "mondo_candidates": [
+   {
+    "id": "MONDO:0005575",
+    "label": "colorectal cancer",
+    "definition": "Editor note: some sources make distinct classes for colorectal vs large intestine. We follow NCIT and make these equivalent",
+    "synonyms": [
+     "cancer of large bowel",
+     "cancer of large intestine",
+     "cancer of the large bowel",
+     "colon cancer, advanced, somatic",
+     "colon cancer, somatic",
+     "colorectal cancer with chromosomal instability, somatic"
+    ]
+   }
+  ],
+  "ncit_candidates": [
+   {
+    "id": "NCIT:C153224",
+    "label": "Colorectal Carcinoma Metastatic in the Lung",
+    "definition": "A carcinoma that originates from the colon or rectum and has spread to the lung.",
+    "synonyms": [
+     "Colorectal Carcinoma Metastatic in the Lung",
+     "Metastatic Colorectal Cancer in the Lung"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C103063",
+    "label": "NCI CTEP SDC Colorectal Cancer Sub-Category Terminology",
+    "definition": "Colorectal Cancer is an NCI Cancer Therapeutic Evaluation Program (CTEP) Simplified Disease Classification (SDC) category used to organize cancer-related disease coding that harmonizes with and supports reporting based on the global standard Medical Dictionary for Drug Regulatory Reporting (MedDRA) terminology.",
+    "synonyms": [
+     "Colorectal Cancer",
+     "NCI CTEP SDC Colorectal Cancer Sub-Category Terminology",
+     "NCI CTEP Simple Disease Classification Colorectal Cancer Sub-Category Terminology"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C104988",
+    "label": "Palliative Radiation Therapy for Metastatic Cancer",
+    "definition": "Radiation therapy given as palliative treatment to a patient with metastatic cancer.",
+    "synonyms": [
+     "Palliative Radiation Therapy for Metastatic Cancer"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C111991",
+    "label": "Autologous GM-CSF-secreting Lethally Irradiated Colorectal Cancer Cell Vaccine",
+    "definition": "A lethally irradiated, autologous colorectal cancer vaccine consisting of patient-specific colorectal cancer cells genetically modified to secrete the cytokine granulocyte-macrophage colony stimulating factor (GM-CSF), with potential immunostimulating and antineoplastic activities. Upon vaccination, the autologous GM-CSF-secreting lethally irradiated colorectal cancer cell vaccine releases GM-CSF. In turn, GM-CSF may increase the body's immune response against tumor cells by promoting the maturation and activation of dendritic cells (DCs), and enhancing tumor-specific antigen presentation to b",
+    "synonyms": [
+     "Autologous GM-CSF-secreting Lethally Irradiated Colorectal Cancer Cell Vaccine",
+     "GVAX Colorectal Cancer Vaccine"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C120083",
+    "label": "Hereditary Nonpolyposis Colorectal Cancer Syndrome",
+    "definition": "An inherited syndrome characterized by the development of several cancers, particularly colon and rectal cancers.  It includes Lynch syndrome which is associated with germline mutations in DNA mismatch-repair genes and familial colorectal cancer type X which is characterized by the absence of germline mutations in DNA mismatch-repair genes.",
+    "synonyms": [
+     "Familial Nonpolyposis Colorectal Cancer Syndrome",
+     "HNPCC",
+     "Hereditary Non-polyposis Colon Cancer",
+     "Hereditary Nonpolyposis Colorectal Cancer",
+     "Hereditary Nonpolyposis Colorectal Cancer (HNPCC)",
+     "Hereditary Nonpolyposis Colorectal Cancer Syndrome"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C120084",
+    "label": "Hereditary Colorectal Cancer Type X",
+    "definition": "Hereditary nonpolyposis colorectal cancer syndrome characterized by the absence of germline mutations in DNA mismatch-repair genes.",
+    "synonyms": [
+     "FCCTX",
+     "Familial Colorectal Cancer Type X",
+     "Hereditary Colorectal Cancer Type X"
+    ],
+    "active": true
+   }
+  ]
+ },
+ {
+  "item": "V28",
+  "nct": "NCT07825688",
+  "title": "TxAccess and Dd-cfDNA for Improved Care of Patients With Delayed Graft Function",
+  "condition": "Delayed Graft Function",
+  "inclusion_excerpt": "Study Population: Patients Inclusion criteria: Adult patients who experienced delayed graft function after a deceased donor kidney transplant in the last 2 calendar years",
+  "candidate_query": "Delayed Graft Function",
+  "mondo_candidates": [
+   {
+    "id": "MONDO:0700221",
+    "label": "disease related to solid organ transplantation",
+    "definition": "This disease can be related to complications of solid organ transplantation include delayed graft function, rejection, and ischemia/reperfusion injury.",
+    "synonyms": []
+   }
+  ],
+  "ncit_candidates": [
+   {
+    "id": "NCIT:C114853",
+    "label": "Delayed Graft Function",
+    "definition": "The need for dialysis within a week of kidney transplant.",
+    "synonyms": [
+     "DGF",
+     "Delayed Graft Function"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C135514",
+    "label": "Delayed Graft Function Diagnostic Criteria Name",
+    "definition": "The name of a standard criterion from which a judgment concerning an occurrence of a delayed graft function (DGF) can be established.",
+    "synonyms": [
+     "DGFCRIT",
+     "Delayed Graft Function Diagnostic Criteria",
+     "Delayed Graft Function Diagnostic Criteria Name",
+     "Delayed Graft Function Dx Criteria"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C100016",
+    "label": "Subject Delay in Providing Consent",
+    "definition": "The subject has not provided consent in a timely manner for the procedure to take place. (ACC)",
+    "synonyms": [
+     "Patient Delay in Providing Consent",
+     "SUBJECT DELAY IN PROVIDING CONSENT",
+     "Subject Delay in Providing Consent"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C100053",
+    "label": "Sinus Node Functional Assessment",
+    "definition": "Description of electrical activity and conduction involving the sinoatrial node. (ACC)",
+    "synonyms": [
+     "Sinus Node Functional Assessment"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C100064",
+    "label": "Coronary Artery Graft",
+    "definition": "A vessel segment attached to a coronary artery to facilitate myocardial perfusion. (ACC)",
+    "synonyms": [
+     "Coronary Artery Graft"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C100106",
+    "label": "ADAS-Cog CDISC Version Functional Test Question",
+    "definition": "A question associated with the ADAS-Cog CDISC version functional test.",
+    "synonyms": [
+     "ADAS-Cog CDISC Version Functional Test Question"
+    ],
+    "active": true
+   }
+  ]
+ },
+ {
+  "item": "V29",
+  "nct": "NCT07848854",
+  "title": "Trop2-Targeted NIR-II Fluorescent Probe for Identifying Bladder Cancer in Ex Vivo Bladder Samples",
+  "condition": "Bladder Cancer (BC)",
+  "inclusion_excerpt": "Inclusion Criteria: 1. Suspected or confirmed bladder tumor patients who are scheduled to undergo radical cystectomy. 2. Able to provide written informed consent and comply with study protocol.",
+  "candidate_query": "Bladder Cancer",
+  "mondo_candidates": [
+   {
+    "id": "MONDO:0004986",
+    "label": "urinary bladder carcinoma",
+    "definition": "A carcinoma that arises from epithelial cells of the urinary bladder",
+    "synonyms": [
+     "carcinoma bladder",
+     "bladder carcinoma",
+     "carcinoma of bladder",
+     "carcinoma of the bladder",
+     "carcinoma of the urinary bladder",
+     "carcinoma of urinary bladder"
+    ]
+   },
+   {
+    "id": "MONDO:0004182",
+    "label": "stage IVb bladder cancer",
+    "definition": "Editor note: consider obsoleting or moving to stage",
+    "synonyms": [
+     "Jewett-Marshall stage D2 bladder cancer",
+     "Jewett-Marshall stage D2 urinary bladder cancer",
+     "Jewett-Marshall stage D2 urinary bladder carcinoma",
+     "stage IVB bladder cancer",
+     "stage IVB urinary bladder cancer",
+     "stage IVB urinary bladder carcinoma"
+    ]
+   },
+   {
+    "id": "MONDO:0001187",
+    "label": "urinary bladder cancer",
+    "definition": "A primary or metastatic malignant neoplasm involving the bladder.",
+    "synonyms": [
+     "bladder cancer, somatic",
+     "cancer of urinary bladder",
+     "malignant bladder neoplasm",
+     "malignant bladder tumor",
+     "malignant bladder tumour",
+     "malignant neoplasm of bladder"
+    ]
+   },
+   {
+    "id": "MONDO:0022578",
+    "label": "childhood bladder carcinoma",
+    "definition": "A rare carcinoma of the bladder that occurs during childhood.",
+    "synonyms": [
+     "childhood bladder cancer",
+     "childhood bladder carcinoma"
+    ]
+   },
+   {
+    "id": "MONDO:0001380",
+    "label": "bladder dome cancer",
+    "definition": "Cancer of the upper, convex surface of the bladder.",
+    "synonyms": [
+     "cancer of fundus of urinary bladder",
+     "fundus of urinary bladder cancer",
+     "malignant fundus of urinary bladder neoplasm",
+     "malignant neoplasm of dome of urinary bladder",
+     "malignant neoplasm of fundus of urinary bladder",
+     "malignant tumour of vault of bladder"
+    ]
+   },
+   {
+    "id": "MONDO:0003715",
+    "label": "bladder urachal carcinoma",
+    "definition": "Urachal cancer is a type of bladder cancer, making up less than 1% of all bladder cancers. The urachus is a structure normally only present during development in the womb that connects the bellybutton and the bladder. This connection normally disappears before birth, but in some people remains. Urachalcancers are usually diagnosed in adults in their 50's and 60's and may develop at the dome or anterior wall of the bladder, along the midline of the body (including the belly button), and between the pubis symphasis and the bladder.Most urachal cancersare adenocarcinomas (cancers that develop fro",
+    "synonyms": [
+     "bladder urachal cancer",
+     "bladder urachal carcinoma",
+     "urachal carcinoma"
+    ]
+   },
+   {
+    "id": "MONDO:0004200",
+    "label": "superficial urinary bladder carcinoma",
+    "definition": "A term used by urologists to describe an infiltrating carcinoma of the bladder that has not invaded into the muscularis propria of the bladder wall regardless of histologic type or grade.",
+    "synonyms": [
+     "superficial bladder cancer",
+     "superficial bladder carcinoma",
+     "superficial urinary bladder cancer",
+     "superficial urinary bladder carcinoma"
+    ]
+   },
+   {
+    "id": "MONDO:0004114",
+    "label": "urinary bladder small cell neuroendocrine carcinoma",
+    "definition": "A highly aggressive carcinoma, histologically resembling small cell lung carcinoma. In most cases it is associated with carcinoma in situ.",
+    "synonyms": [
+     "SCCB",
+     "bladder small cell neuroendocrine cancer",
+     "bladder small cell neuroendocrine carcinoma",
+     "poorly differentiated neuroendocrine carcinoma of the bladder",
+     "small cell bladder cancer",
+     "small cell bladder carcinoma"
+    ]
+   }
+  ],
+  "ncit_candidates": [
+   {
+    "id": "NCIT:C118816",
+    "label": "Childhood Bladder Carcinoma",
+    "definition": "A rare carcinoma of the bladder that occurs during childhood.",
+    "synonyms": [
+     "Bladder Cancer",
+     "Childhood Bladder Carcinoma"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C4912",
+    "label": "Bladder Carcinoma",
+    "definition": "A carcinoma arising from the bladder epithelium.  Approximately 90% of the bladder carcinomas are transitional cell carcinomas.  The remainder are squamous cell carcinomas, adenocarcinomas and small cell neuroendocrine carcinomas.",
+    "synonyms": [
+     "Bladder Cancer",
+     "Bladder Carcinoma",
+     "Bladder cancer",
+     "Carcinoma of Bladder",
+     "Carcinoma of Urinary Bladder",
+     "Carcinoma of the Bladder"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C91458",
+    "label": "Bladder Cancer Pathway",
+    "definition": "Bladder cancers arise and progress along two distinctive pathways. The first of these is often preceded by simple and papillary hyperplasia and exhibits a tumour morphology that is low-grade, superficial and papillary. Papillary carcinoma has a tendency to recur locally, but rarely invades and metastasizes. These tumors frequently show a constitutive activation of the receptor tyrosine kinase-Ras pathway, exhibiting activating mutations in the HRAS and fibroblast growth factor receptor 3 (FGFR3) genes. The second tumour pathway is characterized by high-grade muscle-invasive tumours, which eith",
+    "synonyms": [
+     "Bladder Cancer Pathway",
+     "Bladder cancer"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C9334",
+    "label": "Malignant Bladder Neoplasm",
+    "definition": "A primary or metastatic malignant neoplasm involving the bladder.",
+    "synonyms": [
+     "Bladder Cancer",
+     "Cancer of Bladder",
+     "Cancer of the Bladder",
+     "Malignant Bladder Neoplasm",
+     "Malignant Bladder Tumor",
+     "Malignant Neoplasm of Bladder"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C129791",
+    "label": "Bladder Cancer Muscle-Invasive 30 Questionnaire",
+    "definition": "A questionnaire developed by the European Organisation for Research and Treatment of Cancer (EORTC) consisting of 30 questions designed to assess quality of life in patients with muscle-invasive bladder cancer (BLM).",
+    "synonyms": [
+     "BLM30",
+     "Bladder Cancer Muscle-Invasive 30 Questionnaire",
+     "EORTC QLQ-BLM30",
+     "QLQ-BLM30",
+     "Quality of Life Questionnaire-Bladder Cancer Muscle Invasive 30"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C140380",
+    "label": "Bladder Cancer TNM Finding v8",
+    "definition": "A finding about one or more characteristics of bladder cancer, following the rules of the TNM AJCC v8 classification system. This classification system applies to carcinomas arising in the bladder. The typical carcinoma of the bladder is urothelial carcinoma. These carcinomas may include other histologic elements, including adenocarcinoma, squamous cell carcinoma, and small cell neuroendocrine carcinoma, but should be classified as urothelial unless the cancer is composed entirely of the alternative histology. All histologic cell types that are derived primarily from the urinary bladder epithe",
+    "synonyms": [
+     "Bladder Cancer TNM Finding v8",
+     "Bladder Carcinoma TNM Finding v8",
+     "Tumor Stage (Pathologic)"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C140381",
+    "label": "Bladder Cancer Clinical TNM Finding v8",
+    "definition": "A clinical finding about one or more characteristics of bladder cancer, following the rules of the TNM AJCC v8 classification system.",
+    "synonyms": [
+     "Bladder Cancer Clinical TNM Finding v8",
+     "Bladder Carcinoma Clinical TNM Finding v8"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C140382",
+    "label": "Bladder Cancer Clinical Distant Metastasis TNM Finding v8",
+    "definition": "A clinical finding about one or more characteristics of bladder cancer, following the rules of the TNM AJCC v8 classification system as they pertain to distant metastases.",
+    "synonyms": [
+     "Bladder Cancer Clinical Distant Metastasis TNM Finding v8",
+     "Bladder Carcinoma Clinical Distant Metastasis TNM Finding v8",
+     "Clinical Distant Metastasis Status (cM)"
+    ],
+    "active": true
+   }
+  ]
+ },
+ {
+  "item": "V30",
+  "nct": "NCT07814248",
+  "title": "A Phase 1, First-in-Human (FIH), Open-Label, Dose-Escalation and Dose Expansion Study of the Peptide Drug Conjugate (PDC), TS-104, as a Monotherapy in Subjects With Select Advanced Solid Tumors",
+  "condition": "Endometrial Cancer",
+  "inclusion_excerpt": "Inclusion Criteria: * Males \\& females ≥18 years of age at the time of consent * Willingness to provide written informed consent, according to local guidelines. * Subjects who have histologically or cytologically documented, unresectable locally advanced, or metastatic solid malignancy that is progressing or has failed the minimum therapies listed below or who are intolerant of, ineligible for, or refuse standard of care (SOC) therapy according to local guidelines: 1. Non-small cell lung cancer (NSCLC) 2. Head and neck squamous cell carcinoma (HNSCC) 3. Esophageal cancer 4. Endometrial cancer 5. Ovarian cancer 6. Gastric cancer * Subjects must have measurable disease based on Response Evaluation Criteria in Solid Tumors (RECIST) version 1.1 * All subjects must have tumor tissue available for retrospective analysis * Eastern Cooperative Oncology Group (ECOG) performance status 0 or 1 * Adequate organ function as defined by the following criteria: 1. AST and ALT ≤2.5×ULN or ≤5×ULN for subjects with liver metastases 2. Total serum bilirubin ≤1.5×ULN except in the presence of Gilbert's Syndrome where direct bilirubin should be ≤ULN 3. ANC ≥1.5×109/L 4. Platelets ≥100×109/L without transfusion support within 14 days prior to study treatment 5. Hemoglobin ≥9.0 g/dL without transfusion support within 14 days prior to study treatment 6. Calculated creatinine clearance ≥60 mL/min by Cockcroft-Gault formula or Chronic Kidney Disease Epidemiology Collaboration (CKD-EPI) 7. Coagulation t",
+  "candidate_query": "Endometrial Cancer",
+  "mondo_candidates": [
+   {
+    "id": "MONDO:0011962",
+    "label": "endometrial cancer",
+    "definition": "Primary or metastatic malignant neoplasm involving the endometrium (mucous membrane that lines the endometrial cavity).",
+    "synonyms": [
+     "endometrial cancer, familial, autosomal dominant, somatic mutation",
+     "endometrial cancer, susceptibility to, autosomal dominant, somatic mutation",
+     "endometrial carcinoma, somatic",
+     "cancer of endometrium",
+     "endometrial cancer",
+     "endometrium cancer"
+    ]
+   },
+   {
+    "id": "MONDO:0006335",
+    "label": "ovarian endometrioid adenocarcinoma",
+    "definition": "An endometrioid adenocarcinoma arising from the ovary. It comprises 10% to 25% of all primary ovarian carcinomas. Grossly, endometrioid carcinoma may present as a cystic or solid mass. Microscopically, the tumor greatly resembles the appearance of the ordinary type of endometrial adenocarcinoma. As a group, endometrioid carcinoma has a prognosis twice as good as that of serous or mucinous carcinoma.",
+    "synonyms": [
+     "endometrioid adenocarcinoma of ovary",
+     "endometrioid adenocarcinoma of the ovary",
+     "endometrioid cancer of ovary",
+     "endometrioid cancer of the ovary",
+     "endometrioid carcinoma of ovary",
+     "endometrioid carcinoma of the ovary"
+    ]
+   },
+   {
+    "id": "MONDO:0003812",
+    "label": "ovarian endometrial cancer",
+    "definition": "A benign, borderline, or malignant epithelial tumor of the ovary characterized by the presence of glands and/or cysts lined by neoplastic cells that resemble endometrial cells.",
+    "synonyms": [
+     "endometrioid tumor of ovary",
+     "endometrioid tumour of ovary",
+     "malignant ovarian endometrioid tumor",
+     "malignant ovarian endometrioid tumour",
+     "ovary endometrioid tumor",
+     "ovary endometrioid tumour"
+    ]
+   },
+   {
+    "id": "MONDO:0003556",
+    "label": "endometrial adenosquamous carcinoma",
+    "definition": "A rare endometrial carcinoma characterized by the presence of both malignant glandular and malignant squamous cellular components.",
+    "synonyms": [
+     "endometrial adenosquamous carcinoma",
+     "endometrium adenosquamous carcinoma"
+    ]
+   },
+   {
+    "id": "MONDO:0002447",
+    "label": "endometrial carcinoma",
+    "definition": "A malignant tumor arising from the epithelium that lines the cavity of the uterine body. The vast majority of endometrial carcinomas are adenocarcinomas; squamous cell and adenosquamous carcinomas represent a minority of the cases. Endometrioid adenocarcinoma is the most frequently seen variant of endometrial adenocarcinoma. Uterine bleeding is an initial clinical sign. The prognosis depends on the stage of the tumor, the depth of myometrial wall invasion, and the degree of differentiation.",
+    "synonyms": [
+     "carcinoma of endometrium",
+     "carcinoma of the endometrium",
+     "carcinoma, endometrial, malignant",
+     "endometrial carcinoma (disease)",
+     "endometrial carcinoma",
+     "endometrium carcinoma"
+    ]
+   },
+   {
+    "id": "MONDO:0006003",
+    "label": "uterine corpus cancer",
+    "definition": "Editor note: NCIT has terms for both UC malignant neoplasm (NCIT:C3556) and cancer.",
+    "synonyms": [
+     "uterine (including endometrial) cancer",
+     "body of uterus cancer",
+     "cancer of body of uterus",
+     "cancer of the corpus uteri",
+     "corpus uteri cancer",
+     "malignant body of uterus neoplasm"
+    ]
+   },
+   {
+    "id": "MONDO:0004961",
+    "label": "stage I endometrioid carcinoma",
+    "definition": "Reason of obsoletion: out of scope - MONDO:excludeHistoricalDisease. Term to consider: -",
+    "synonyms": []
+   },
+   {
+    "id": "MONDO:0005835",
+    "label": "Lynch syndrome",
+    "definition": "The term \"Lynch syndrome\" is often used to refer to “hereditary non-polyposis colorectal cancer\" (HNPCC). Following the representation in NCIT and Orphanet, HNPCC and \"Lynch syndrome\" are kept as 2 separate entities in Mondo. Please see also MONDO:0018630-“hereditary non-polyposis colorectal cancer\". This term, 'Lynch syndrome' (MONDO:0005835), refers to the “classical Lynch syndrome”, which is caused by a variation in one of the mismatch repair genes MSH2, MLH1, MSH6, PMS2.",
+    "synonyms": [
+     "Hereditary colorectal endometrial cancer syndrome",
+     "Hereditary non-polyposis colon cancer (hMSH2, hMLH1, hPMS1, hPMS2)",
+     "Hereditary nonpolyposis colon cancer (hMSH2, hMLH1, hPMS1, hPMS2)",
+     "Lynch syndrome",
+     "familial non-polyposis colon cancer (hMSH2, hMLH1, hPMS1, hPMS2)",
+     "hereditary defective mismatch repair syndrome"
+    ]
+   }
+  ],
+  "ncit_candidates": [
+   {
+    "id": "NCIT:C27815",
+    "label": "Malignant Endometrial Neoplasm",
+    "definition": "Primary or metastatic malignant neoplasm involving the endometrium (mucous membrane that lines the endometrial cavity).",
+    "synonyms": [
+     "Endometrial Cancer",
+     "Malignant Endometrial Neoplasm",
+     "Malignant neoplasm of endometrium"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C7558",
+    "label": "Endometrial Carcinoma",
+    "definition": "A malignant tumor arising from the epithelium that lines the cavity of the uterine body.  The vast majority of endometrial carcinomas are adenocarcinomas; squamous cell and adenosquamous carcinomas represent a minority of the cases.  Endometrioid adenocarcinoma is the most frequently seen variant of endometrial adenocarcinoma.  Uterine bleeding is an initial clinical sign.  The prognosis depends on the stage of the tumor, the depth of myometrial wall invasion, and the degree of differentiation.",
+    "synonyms": [
+     "CARCINOMA, ENDOMETRIAL, MALIGNANT",
+     "Carcinoma of Endometrium",
+     "Carcinoma of the Endometrium",
+     "Endometrial Cancer",
+     "Endometrial Carcinoma",
+     "Endometrial cancer"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C91528",
+    "label": "Endometrial Cancer Pathway",
+    "definition": "Two types of endometrial carcinoma are distinguished with respect to biology and clinical course.",
+    "synonyms": [
+     "Endometrial Cancer Pathway",
+     "Endometrial cancer"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C157835",
+    "label": "Endometrial Cancer Surgery",
+    "definition": "A surgical procedure to remove or destroy cancer in the endometrium.",
+    "synonyms": [
+     "Endometrial Cancer Surgery",
+     "Surgery for Endometrial Cancer"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C206217",
+    "label": "Endometrial Cancer by FIGO Stage 2023",
+    "definition": "A term that refers to the staging of endometrial carcinoma according to the International Federation of Gynecology and Obstetrics (FIGO) staging, 2023.",
+    "synonyms": [
+     "Endometrial Cancer by FIGO Stage 2023",
+     "Endometrial Carcinoma by FIGO Stage 2023"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C206218",
+    "label": "Endometrial Cancer with Molecular Classification by FIGO Stage 2023",
+    "definition": "A term that refers to the staging of early endometrial carcinoma with molecular findings (Stages I and II after surgical staging) according to the International Federation of Gynecology and Obstetrics (FIGO) staging, 2023.",
+    "synonyms": [
+     "Endometrial Cancer with Molecular Classification by FIGO Stage 2023",
+     "Endometrial Carcinoma with Molecular Classification by FIGO Stage 2023"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C15671",
+    "label": "Screening for Endometrial Cancer",
+    "definition": "Checking an individual for the presence or absence of endometrial cancer.",
+    "synonyms": [
+     "Screening for Endometrial Cancer",
+     "early detection of endometrial cancer",
+     "endometrial cancer early detection",
+     "endometrial cancer screening"
+    ],
+    "active": true
+   },
+   {
+    "id": "NCIT:C15674",
+    "label": "Prevention of Endometrial Cancer",
+    "definition": "Any method of preventing endometrial cancer including limit of exposure to carcinogens and infectious agents, diet, education, or lifestyle.",
+    "synonyms": [
+     "Endometrial Cancer Prevention",
+     "Prevention of Endometrial Cancer"
+    ],
+    "active": true
+   }
+  ]
+ }
+]

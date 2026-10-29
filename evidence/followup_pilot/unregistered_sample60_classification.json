@@ -1,0 +1,87 @@
+{
+ "note": "Single-annotator classification by Claude (not independent, not expert-reviewed). Sample: 60 unique UNREGISTERED condition names, random.Random(7). mondo_exact = OLS4 exact label/synonym search hit.",
+ "counts": {
+  "disease_or_condition": 31,
+  "procedure_or_intervention": 10,
+  "population": 2,
+  "other": 17
+ },
+ "classification": {
+  "disease_or_condition": [
+   "Bradycardia",
+   "Intracerebral Hemorrhage",
+   "Psychosis",
+   "Diabetes Mellitus, Type 2",
+   "Metabolic Acidosis",
+   "Ankle Sprain",
+   "Chronic Stroke Patient",
+   "Locally Advanced Cervical Cancer",
+   "Autonomic Dysfunction",
+   "Bipolar Disorder (BD)",
+   "Atrophic Acne Scars",
+   "Cardiovascular Autonomic Dysfunction",
+   "Semi-flexible Hammertoe",
+   "ASCVD",
+   "Pulmonary Nodules",
+   "Low Apgar Score",
+   "Diastasis Recti Abdominis",
+   "Ankle Injuries and Disorders",
+   "Postpartum Depression (PPD)",
+   "Chemotherapy-Induced Thrombocytopenia",
+   "Chronic Low Back Pain (cLBP)",
+   "Problem Drinking",
+   "Breast Neoplasms",
+   "Psychological Distress",
+   "Sickle Cell Disease (SCD)",
+   "Cyberchondria",
+   "Isolated Gastrocnemius Tightness",
+   "Post-traumatic Olfactory Dysfunction",
+   "ASD2(Secundum Atrial Septal Defect)",
+   "Premature Rupture of Membranes (PROM)",
+   "Depression / Major Depressive Disorder"
+  ],
+  "procedure_or_intervention": [
+   "Spinal Surgery",
+   "Ankle Rehabilitation",
+   "Amputation of Lower Limb Below Knee",
+   "Postoperative Analgesia",
+   "Digestive System Surgical Procedures",
+   "Serum Specimen Collection",
+   "Prolonged Mechanical Ventilation",
+   "Median Sternotomy",
+   "Cardiac Pacing",
+   "Transurethral Resection of the Prostate (TURP)"
+  ],
+  "population": [
+   "Mechanically Ventilated Children Admitted to the Pediatric Intensive Care Unit",
+   "Preterm Neonates"
+  ],
+  "other": [
+   "Heart Conduction System",
+   "Placebo - Control",
+   "Artificial",
+   "Pandemic",
+   "Mitochondrial Function, Bioenergetics",
+   "Educational Problems",
+   "Blood Pressure Control",
+   "Artificial Intelligence (AI)",
+   "General Anesthesia-Induced Altered Consciousness",
+   "Population",
+   "Health Behavior",
+   "Predictive Value of Tests",
+   "Tennis Motor Skill Learning",
+   "Cough Suppression",
+   "Breast - Female",
+   "Artificial Intelligence in Education",
+   "Role of Vagal Stimulation in Oxytocin Release"
+  ]
+ },
+ "mondo_exact_hits": [
+  "Bradycardia",
+  "Intracerebral Hemorrhage",
+  "Psychosis",
+  "Diabetes Mellitus, Type 2",
+  "Metabolic Acidosis",
+  "Ankle Sprain"
+ ]
+}

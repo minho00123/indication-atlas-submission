@@ -1,0 +1,276 @@
+[
+ {
+  "item": "V01",
+  "nct": "NCT07812376",
+  "title": "Effectiveness of Stress Management Training in Reducing Caregiver Burden and Perceived Stress in ICU Families",
+  "condition": "Critical Illness",
+  "inclusion_excerpt": "Inclusion Criteria: * Aged 18 years or older. * Identified as the primary caregiver or main family companion of a patient admitted to the ICU. * The patient has had an ICU stay of more than 10 consecutive days. * Able to communicate verbally and complete the study questionnaires. * Have access to a smartphone, tablet, computer, or other digital device with internet access to participate in the training sessions. * Willing and able to provide written informed consent to participate in the study",
+  "engine_decision": "UNREGISTERED",
+  "engine_concepts": []
+ },
+ {
+  "item": "V02",
+  "nct": "NCT07840417",
+  "title": "Deep Brain Reorienting for Posttraumatic Stress Disorder",
+  "condition": "Posttraumatic Stress Symptom",
+  "inclusion_excerpt": "Stream 1: Military Veterans receiving the DBR Intervention: Inclusion Criteria * 18 to 65 years old * Current or former military member / Veteran (for Stream 1 only) * DSM-5 PTSD diagnosis determined via the CAPS-5 * If on psychiatric medications: stable ≥ 4 weeks * Fluent in English * Ability to provide informed consent and participate in therapy sessions * Able to benefit from short-term therapy, as determined by study assessment",
+  "engine_decision": "UNREGISTERED",
+  "engine_concepts": []
+ },
+ {
+  "item": "V03",
+  "nct": "NCT07808021",
+  "title": "Comparative Effects of Acceptance and Commitment Therapy, Cognitive Behavioral Therapy, and Treatment-as-Usual on Depression Among People With Marital Crisis",
+  "condition": "Marital Conflict",
+  "inclusion_excerpt": "Inclusion Criteria: 1. Meets DSM-5-TR diagnostic criteria for major depressive disorder, confirmed by the Mini International Neuropsychiatric Interview (MINI) structured clinical interview (American Psychiatric Association, 2022). 2. Beck Depression Inventory-II (BDI-II) total score of 20 or above, indicating moderate to severe depressive symptoms (Beck et al., 1996). 3. Dyadic Adjustment Scale (DAS) total score of 97 or below, operationally defining marital crisis (Spanier, 1976). 4. Age between 20 and 60 years. 5. Currently taking a single antidepressant medication for a minimum of two weeks. Rather than being required to remain on an unchanged dose, participants agree to have their antidepressant regimen managed by their treating psychiatrist according to clinical need for the duration of the study; any change in medication or dose is documented and included as a time-varying covariate in the analysis.",
+  "engine_decision": "UNREGISTERED",
+  "engine_concepts": []
+ },
+ {
+  "item": "V04",
+  "nct": "NCT07825441",
+  "title": "RandomisED Control Trial to Understand Whether Prescribing Choice for inhalErs is Influenced by Knowledge of the CARBON Footprint (REDUCE Carbon)",
+  "condition": "Asthma",
+  "inclusion_excerpt": "Inclusion Criteria: * Aged ≥18 years * Working as an HCP within the NHS in a primary or secondary care setting * Able to provide written e-consent * Able to understand and complete the clinical case scenarios",
+  "engine_decision": "HOLD_TARGET_NOT_IN_TEXT",
+  "engine_concepts": []
+ },
+ {
+  "item": "V05",
+  "nct": "NCT07804394",
+  "title": "Procedural Endpoint in Left Bundle Branch Area Pacing: Conduction System Capture Versus LV Septal Capture",
+  "condition": "Bundle-Branch Block",
+  "inclusion_excerpt": "Inclusion Criteria 1. Patients with a guideline-based indication for permanent pacemaker implantation for bradyarrhythmia and an expected ventricular pacing burden (VP) of 40% or more. 2. Patients in whom a left bundle branch area pacing (LBBAP) procedure is planned in accordance with the above indication. 3. Age 19 years or older. 4. Provision of written informed consent to participate in the study.",
+  "engine_decision": "UNREGISTERED",
+  "engine_concepts": []
+ },
+ {
+  "item": "V06",
+  "nct": "NCT07802522",
+  "title": "Hyperangulated Video Laryngoscopes Used for Intubation With Simultaneous Cervical Spine Immobilization",
+  "condition": "Difficult Airway",
+  "inclusion_excerpt": "Inclusion Criteria: * ASA status 1-3 * aged over 18 years old * male and female * laparoscopic surgery",
+  "engine_decision": "UNREGISTERED",
+  "engine_concepts": []
+ },
+ {
+  "item": "V07",
+  "nct": "NCT07812233",
+  "title": "Heart Rate Variability Biofeedback for Anxiety in Autistic Youth",
+  "condition": "Anxiety",
+  "inclusion_excerpt": "Inclusion Criteria: 1. Age 12-17 years at the time of enrollment. 2. ASD diagnosis from a qualified health professional based on medical records and confirmed based on Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition (DSM 5) criteria by the study clinician. 3. IQ ≥50 based on the Kaufman Brief Intelligence Test (KBIT-2). 4. Clinically significant anxiety, based on the Pediatric Anxiety Rating Scale (PARS) 5-item score of ≥10. 5. Stable medications for ≥30 days. 6. English speaking. 7. Willing to wear the Lief Smart Patch for 8 weeks. 8. English speaking guardian who is willing and able to complete caregiver assessments.",
+  "engine_decision": "UNREGISTERED",
+  "engine_concepts": []
+ },
+ {
+  "item": "V08",
+  "nct": "NCT07814300",
+  "title": "DBPCT Effects of Omega-3 FA on Memory and Cognition in Peri- and Menopausal Women",
+  "condition": "Menopause",
+  "inclusion_excerpt": "Inclusion Criteria: * Be female and aged between 40-60 years * Be experiencing perimenopause or menopause * Access to reliable internet connection and a device to complete online questionnaires and cognitive assessments * Be prepared to take a daily omega-3 supplement or placebo for 12 weeks * Be prepared to complete pre- and post- intervention testing and questionnaires * Speak English fluently to confirm they can complete cognitive tests to the best of their ability",
+  "engine_decision": "ROUTE_ENTITY",
+  "engine_concepts": [
+   "NCIT:C3231"
+  ]
+ },
+ {
+  "item": "V09",
+  "nct": "NCT07805499",
+  "title": "AI-Powered Virtual Human Simulation in Students",
+  "condition": "Clinical Education",
+  "inclusion_excerpt": "Inclusion Criteria: * Respiratory therapy students participating in the pre-clinical training course, \"Clinical Application of Critical Care Respiratory Therapy,\" at Fu Jen Catholic University Hospital between September 10 and October 10, 2026 * Able to communicate verbally in Mandarin and complete study-related questionnaires and interviews * Considered suitable by the course instructor to participate in the AI-based virtual human simulation training * Willing to participate",
+  "engine_decision": "UNREGISTERED",
+  "engine_concepts": []
+ },
+ {
+  "item": "V10",
+  "nct": "NCT07801846",
+  "title": "Assessment of Heart Rate Variability HRV During Descent DE From 2850m to Sea Level and During Re-ascent A From Sea Level to 2850m in Healthy Individuals H",
+  "condition": "Heart Rate Variability (HRV)",
+  "inclusion_excerpt": "Inclusion Criteria: * Adults aged 18-80 years and of all genders * Permanent residence \\> 2600 m * healthy: no self perceived cardiopulmonary disease limiting daily activities * written informed consent to participate in the study.",
+  "engine_decision": "UNREGISTERED",
+  "engine_concepts": []
+ },
+ {
+  "item": "V11",
+  "nct": "NCT07848594",
+  "title": "The Impact of Overnight Active Temperature Regulation on the Gut Microbiome, Inflammation, and Circadian Rhythm.",
+  "condition": "Poor Sleep Quality",
+  "inclusion_excerpt": "Eligibility is determined in three parts: * Inclusion criteria. All must be met. *",
+  "engine_decision": "UNREGISTERED",
+  "engine_concepts": []
+ },
+ {
+  "item": "V12",
+  "nct": "NCT07848594",
+  "title": "The Impact of Overnight Active Temperature Regulation on the Gut Microbiome, Inflammation, and Circadian Rhythm.",
+  "condition": "Circadian Clocks",
+  "inclusion_excerpt": "Eligibility is determined in three parts: * Inclusion criteria. All must be met. *",
+  "engine_decision": "UNREGISTERED",
+  "engine_concepts": []
+ },
+ {
+  "item": "V13",
+  "nct": "NCT07848828",
+  "title": "Autonomic and Renal Contributions to Hypertension With ADT",
+  "condition": "Androgen Deprivation Therapy",
+  "inclusion_excerpt": "Inclusion Criteria: * age 40+ years; * resting blood pressure \\<140/90 mmHg; * fasted blood glucose \\<126 mg/dL; * testosterone ≥400 ng/dL; * sedentary to recreationally active; * nonsmokers; * healthy as determined by medical history, physical exam, blood and urine chemistries and resting and exercise ECG during a physician supervised graded exercise treadmill test OR recent diagnosis of non-metastatic prostate cancer with plans to undergo androgen deprivation therapy; * PSA \\<4.00 ng/dL if in the non-cancer group; * Gleason Score ≤7 if in the prostate cancer group; * no use of medications that might influence cardiovascular function (e.g., antihypertensives, lipid-lowering medications); * willing and able to be on GnRHagonist and AR inhibitor; * not taking antioxidant vitamins, corticosteroids, or anti-inflammatory medications, or willing to stop use for four weeks prior to the start of the study; * not using exogenous sex hormones for at least one year",
+  "engine_decision": "UNREGISTERED",
+  "engine_concepts": []
+ },
+ {
+  "item": "V14",
+  "nct": "NCT07814716",
+  "title": "Clinical Performance of Orthodontic Bands in the Restorative Treatment of Hypomineralised Primary Second Molars",
+  "condition": "Enamel Hypomineralization",
+  "inclusion_excerpt": "Inclusion Criteria: * Children aged 5-10 years. * Presence of at least one second primary molar affected by hypomineralised second primary molars requiring restorative treatment. * Hypomineralisation associated with post-eruptive enamel breakdown involving more than one tooth surface or a cavitated carious lesion involving more than one surface and classified as code 5 or 6 according to the International Caries Detection and Assessment System.",
+  "engine_decision": "UNREGISTERED",
+  "engine_concepts": []
+ },
+ {
+  "item": "V15",
+  "nct": "NCT07822854",
+  "title": "Vagal Stimulation in Individuals With Stroke",
+  "condition": "Otonomic Function",
+  "inclusion_excerpt": "Inclusion Criteria: * Having experienced an ischemic or hemorrhagic stroke * Diagnosed with stroke at least six months prior * No history of multiple stroke episodes * No communication impairments * Ability to read and write",
+  "engine_decision": "UNREGISTERED",
+  "engine_concepts": []
+ },
+ {
+  "item": "V16",
+  "nct": "NCT07836803",
+  "title": "TORCH-LATAM-002: Regional Pathway for Adult Heart Transplant Evaluation and Candidacy",
+  "condition": "Heart Transplantation",
+  "inclusion_excerpt": "Inclusion Criteria: * Age 18 years or older. * Advanced heart failure or acquired or structural heart disease meeting a protocol-defined trigger for specialized heart transplant evaluation. * Identification within an activated TORCH network cluster with an operational route to at least one authorized transplant center. * Ability to complete the protocol-defined follow-up directly or through an authorized network pathway. * Provision of informed consent according to applicable requirements.",
+  "engine_decision": "UNREGISTERED",
+  "engine_concepts": []
+ },
+ {
+  "item": "V17",
+  "nct": "NCT07834892",
+  "title": "Does Adding a Fascial Layer to the Cartilage in Tympanoplasty for Large Tympanic Membrane Perforation Affect the Overall Results?",
+  "condition": "Suppurative Otitis Media",
+  "inclusion_excerpt": "Inclusion Criteria: * Age 18 years and older * Presence of a large or subtotal tympanic membrane perforation * Safe chronic suppurative otitis media (CSOM) * Undergoing primary or revision tympanoplasty",
+  "engine_decision": "UNREGISTERED",
+  "engine_concepts": []
+ },
+ {
+  "item": "V18",
+  "nct": "NCT07812428",
+  "title": "Relationship Between Gastrocnemius and Soleus Muscle Thickness Assessed by Ultrasound and Balance and Fear of Falling in Hemiplegic Patients",
+  "condition": "Ultrasonography",
+  "inclusion_excerpt": "Inclusion Criteria: Individuals diagnosed with hemiplegia confirmed by clinical and imaging methods Patients in the subacute-chronic phase, at least 1 month post-stroke Adults aged 18 years and older Individuals able to stand and/or walk a few steps (at least FAS ≥ 2) Individuals scoring 24 or higher on the Mini-Mental State Examination Individuals who agree to participate in the study",
+  "engine_decision": "UNREGISTERED",
+  "engine_concepts": []
+ },
+ {
+  "item": "V19",
+  "nct": "NCT07831967",
+  "title": "Perfusion Index Variability During Epidural Labor Analgesia",
+  "condition": "Perfusion Index",
+  "inclusion_excerpt": "Inclusion Criteria: 1. Use of epidural analgesia (epidural block, or combined spinal-epidural block) during spontaneous vaginal delivery. 2. Signed informed consent to participate in the study.",
+  "engine_decision": "UNREGISTERED",
+  "engine_concepts": []
+ },
+ {
+  "item": "V20",
+  "nct": "NCT07840703",
+  "title": "Symptomatic Hyperventilation in Individuals Living With Stroke",
+  "condition": "Stroke",
+  "inclusion_excerpt": "Inclusion Criteria: * Individuals who will be diagnosed with a confirmed first-ever or recurrent stroke (ischaemic or haemorrhagic) verified by neuroimaging (CT or MRI). * Individuals who will be in the chronic or subacute post-stroke period (medically stable following stroke onset). * Individuals aged 18 years and older. * Individuals who will be classified into either the hyperventilation syndrome group based on a Nijmegen Questionnaire score of ≥23 or the control group based on a score of \\<23. * Individuals who will be able to comprehend instructions and cooperate adequately with pulmonary function tests, respiratory muscle testing, and physical performance assessments. * Individuals who will provide written informed consent to participate in the study.",
+  "engine_decision": "UNREGISTERED",
+  "engine_concepts": []
+ },
+ {
+  "item": "V21",
+  "nct": "NCT07807059",
+  "title": "A Single-Dose Pharmacokinetic Study of HRS-4729 Injection in Healthy Participants and Patients With Renal Impairment",
+  "condition": "Overweight/Obesity",
+  "inclusion_excerpt": "Inclusion Criteria: 1. Provide written informed consent prior to any study-related procedures, and have a full understanding of the study content, procedures, and potential adverse events. 2. Be aged 18 to 65 years (inclusive), of either sex. 3. Have a body mass index (BMI) between 19 and 40 kg/m² (inclusive). 4. Glomerular filtration rate (absolute eGFR) must meet the relevant requirements and criteria specified in the protocol. 5. Have stable renal function. 6. Women of childbearing potential must have been using reliable contraception and have a negative serum pregnancy test at baseline, and must be willing to use highly effective contraceptive measures from the time of signing informed consent until 2 months after the last dose of study drug. Male Participants must be willing not to plan to father a child during the trial and until 2 months after the last dose, and voluntarily take effective contraceptive measures, or have undergone surgical sterilization. 7. Healthy participants: demographic means at screening must match those of the renal impairment groups as follows: Body weight matched within ±10 kg of the group mean; Age matched within ±10 years of the group mean; Sex ratio matched within ±1 subject. 8.For participants in the renal impairment groups: Participants must have a diagnosis of chronic (\\>3 months) and stable (no acute deterioration of renal function within 1 month prior to screening) renal impairment.",
+  "engine_decision": "UNREGISTERED",
+  "engine_concepts": []
+ },
+ {
+  "item": "V22",
+  "nct": "NCT07829419",
+  "title": "Evaluation of Two Monthly Silicone Hydrogel Multifocal Toric in Soft Contact Lens Wearers",
+  "condition": "Myopia",
+  "inclusion_excerpt": "Inclusion Criteria: A person is eligible for inclusion in the study if they are: 1. Participants at least 40 years of age. 2. Participants requiring lens powers within the range available for the study lenses. 3. Participants with a spherical refractive error at the corneal plane of plano to -6.00. 4. Participants with a minimum reading add of +0.75DS (based on their spectacle refraction at screening). At least 12 participants will be enrolled per add group: low (+0.75 to +1.25D), medium (+1.50 to +1.75D), and high (+2.00 to +2.50). 5. Participants with refractive astigmatism at the corneal plane of 0.75 to 2.00DC. 6. Best spectacle corrected visual acuity greater than or equal to 20/25 (less than or equal to LogMAR 0.1). 7. Habitually using soft contact lenses (multifocal soft contact lenses, sphere or toric lenses for monovision, or sphere or toric lenses for distance vision correction and spectacles for near vision correction) and have worn lenses at least 3 days a week for at least the past six months. 8. Anticipating being able to wear contact lenses for at least 8 hours a day, 5 days a week. 9. Willing and able to follow instructions and maintain the appointment schedule.",
+  "engine_decision": "UNREGISTERED",
+  "engine_concepts": []
+ },
+ {
+  "item": "V23",
+  "nct": "NCT07805018",
+  "title": "EFFECT OF VIRTUAL REALITY GLASSES ON ANXIETY AND PAIN DURING DOUBLE J STENT REMOVAL",
+  "condition": "Anxiety",
+  "inclusion_excerpt": "Inclusion Criteria: * Patients aged 18 years or older who have undergone ureter or kidney stone surgery and have a double j stent * Willingness and ability to participate voluntarily in the study and provide informed consent",
+  "engine_decision": "UNREGISTERED",
+  "engine_concepts": []
+ },
+ {
+  "item": "V24",
+  "nct": "NCT07838701",
+  "title": "Efficacy and Safety of Indoor Residual Spray for Dengue Vector Control",
+  "condition": "Dengue",
+  "inclusion_excerpt": "Inclusion Criteria: * Households consenting to participate and allow entomological inspections. * Permanent residents with no history of shifting during the study period.",
+  "engine_decision": "UNREGISTERED",
+  "engine_concepts": []
+ },
+ {
+  "item": "V25",
+  "nct": "NCT07832578",
+  "title": "Comparison of Aspirin Alone Versus Low-Dose Rivaroxaban Plus Aspirin in Chronic Limb-Threatening Ischemia",
+  "condition": "Limb Ischemia",
+  "inclusion_excerpt": "Inclusion Criteria: * All patients of CLTI managed conservatively * ASA score of 3 or more * Age 40-70 yrs * Diagnosed case of Diabetes mellitus type 2 (HbA1c \\>8) * Blood Pressue ( \\>130/90 , \\<180/100 ) * Hypercholestrolemia (Total cholesterol ≥200 mg/dL ) * ABPI \\< 0.6 * Claudication distance \\< 100 meters * Provided written informed consent (for prospective or interventional studies)",
+  "engine_decision": "UNREGISTERED",
+  "engine_concepts": []
+ },
+ {
+  "item": "V26",
+  "nct": "NCT07848789",
+  "title": "Green Banana Added Diet on Prolong Diarrhea in 6-59 Months Old Children (GB in ProD)",
+  "condition": "Prolonged Diarrhea",
+  "inclusion_excerpt": "Inclusion Criteria: * Age: \\> 6 to 59 months * Sex: Either * Duration of diarrhea: 7 to 13 days * Children able to take oral feeds at the time of randomization * Non-Severe Acute Malnutrition (SAM). * Not participating in another clinical study, the preceding 4 weeks * Parent willing to participate to the present study and providing informed written consent",
+  "engine_decision": "UNREGISTERED",
+  "engine_concepts": []
+ },
+ {
+  "item": "V27",
+  "nct": "NCT07811453",
+  "title": "Liver Transplantation for Non-Resectable Colorectal Liver Metastases Without Local Treatment Options",
+  "condition": "Metastatic Colorectal Cancer (CRC)",
+  "inclusion_excerpt": "Inclusion Criteria: * Age 18 to 65 years at enrolment * ECOG performance status 0 or 1 * Written informed consent before any study-related procedure * Colorectal liver metastases stable for at least 6 months under active chemotherapy of no more than 2 lines * Colorectal liver metastases not amenable to curative local treatment by resection or ablation because of insufficient liver capacity or future liver remnant, as judged by the local interdisciplinary tumour board * For metachronous colorectal liver metastases: a colorectal primary resected in the past with T4a or lower and local R0 status * For synchronous colorectal liver metastases: a potentially curatively resectable primary * No evidence of peritoneal disease, as documented by a surgical report within the preceding 36 months * Suitability for liver transplantation according to local centre criteria * Participants of childbearing potential: negative highly sensitive pregnancy test before inclusion, and use of a contraceptive method with a failure rate below 1%, or confirmed post-menopausal status",
+  "engine_decision": "UNREGISTERED",
+  "engine_concepts": []
+ },
+ {
+  "item": "V28",
+  "nct": "NCT07825688",
+  "title": "TxAccess and Dd-cfDNA for Improved Care of Patients With Delayed Graft Function",
+  "condition": "Delayed Graft Function",
+  "inclusion_excerpt": "Study Population: Patients Inclusion criteria: Adult patients who experienced delayed graft function after a deceased donor kidney transplant in the last 2 calendar years",
+  "engine_decision": "UNREGISTERED",
+  "engine_concepts": []
+ },
+ {
+  "item": "V29",
+  "nct": "NCT07848854",
+  "title": "Trop2-Targeted NIR-II Fluorescent Probe for Identifying Bladder Cancer in Ex Vivo Bladder Samples",
+  "condition": "Bladder Cancer (BC)",
+  "inclusion_excerpt": "Inclusion Criteria: 1. Suspected or confirmed bladder tumor patients who are scheduled to undergo radical cystectomy. 2. Able to provide written informed consent and comply with study protocol.",
+  "engine_decision": "UNREGISTERED",
+  "engine_concepts": []
+ },
+ {
+  "item": "V30",
+  "nct": "NCT07814248",
+  "title": "A Phase 1, First-in-Human (FIH), Open-Label, Dose-Escalation and Dose Expansion Study of the Peptide Drug Conjugate (PDC), TS-104, as a Monotherapy in Subjects With Select Advanced Solid Tumors",
+  "condition": "Endometrial Cancer",
+  "inclusion_excerpt": "Inclusion Criteria: * Males \\& females ≥18 years of age at the time of consent * Willingness to provide written informed consent, according to local guidelines. * Subjects who have histologically or cytologically documented, unresectable locally advanced, or metastatic solid malignancy that is progressing or has failed the minimum therapies listed below or who are intolerant of, ineligible for, or refuse standard of care (SOC) therapy according to local guidelines: 1. Non-small cell lung cancer (NSCLC) 2. Head and neck squamous cell carcinoma (HNSCC) 3. Esophageal cancer 4. Endometrial cancer 5. Ovarian cancer 6. Gastric cancer * Subjects must have measurable disease based on Response Evaluation Criteria in Solid Tumors (RECIST) version 1.1 * All subjects must have tumor tissue available for retrospective analysis * Eastern Cooperative Oncology Group (ECOG) performance status 0 or 1 * Adequate organ function as defined by the following criteria: 1. AST and ALT ≤2.5×ULN or ≤5×ULN for subjects with liver metastases 2. Total serum bilirubin ≤1.5×ULN except in the presence of Gilbert's Syndrome where direct bilirubin should be ≤ULN 3. ANC ≥1.5×109/L 4. Platelets ≥100×109/L without transfusion support within 14 days prior to study treatment 5. Hemoglobin ≥9.0 g/dL without transfusion support within 14 days prior to study treatment 6. Calculated creatinine clearance ≥60 mL/min by Cockcroft-Gault formula or Chronic Kidney Disease Epidemiology Collaboration (CKD-EPI) 7. Coagulation t",
+  "engine_decision": "LINKED",
+  "engine_concepts": [
+   "MONDO:0011962"
+  ]
+ }
+]

@@ -1,0 +1,20 @@
+{
+ "engine": "app/analyzer.mjs prototype-4 (unchanged)",
+ "rows": 932,
+ "studies": 400,
+ "unique_condition_names": 830,
+ "decisions": {
+  "UNREGISTERED": 846,
+  "LINKED": 36,
+  "HOLD_TARGET_NOT_IN_TEXT": 28,
+  "HOLD_RELATION_UNREVIEWED": 12,
+  "HOLD_MODIFIED_MENTION": 5,
+  "HOLD_SCOPE_REVIEW": 2,
+  "LOCAL_LINKED": 1,
+  "ROUTE_ENTITY": 1,
+  "HOLD_EXPRESSION_UNRESOLVED": 1
+ },
+ "linked_incl_local_route": 38,
+ "held": 48,
+ "unregistered": 846
+}

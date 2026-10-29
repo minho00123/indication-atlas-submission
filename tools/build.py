@@ -86,6 +86,7 @@ def build():
     shutil.copytree(ROOT/'evidence/review_process',DIST/'evidence/review_process',dirs_exist_ok=True)
     shutil.copytree(ROOT/'evidence/boundary_checks',DIST/'evidence/boundary_checks',dirs_exist_ok=True,ignore=shutil.ignore_patterns('__pycache__','*.pyc'))
     shutil.copytree(ROOT/'evidence/service_research',DIST/'evidence/service_research',dirs_exist_ok=True)
+    shutil.copytree(ROOT/'evidence/followup_pilot',DIST/'evidence/followup_pilot',dirs_exist_ok=True)
     fields=['source_id','keyword','raw_context','input_normalized_condition','standard_name','concept_key','entity_type',
             'research_decision','selected_standard_id','rationale_ko','context_required','evidence_refs',
             'clinical_attributes','concept_name_components','scope_assumptions','definition_warnings']

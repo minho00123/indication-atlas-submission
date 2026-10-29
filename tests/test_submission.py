@@ -128,7 +128,7 @@ class SubmissionBuild(unittest.TestCase):
         cases=load('analyzer_cases.json')
         self.assertEqual(json.loads((ROOT/'dist/data/analyzer-cases.json').read_text()),cases)
         with zipfile.ZipFile(ROOT/'dist/downloads/indication-atlas-submission.zip') as archive:
-            for name in ('app/analyzer.mjs','app/analyzer-checks.mjs','app/analyzer-ui.js','data/analyzer_cases.json','tests/test_analyzer.mjs'):
+            for name in ('app/analyzer.mjs','app/analyzer-checks.mjs','data/analyzer_cases.json','tests/test_analyzer.mjs'):
                 self.assertEqual(archive.read('indication-atlas-submission/'+name),(ROOT/name).read_bytes())
 
     def test_supplements_are_published_and_packaged_without_full_corpus(self):

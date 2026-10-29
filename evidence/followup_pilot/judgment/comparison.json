@@ -1,0 +1,361 @@
+{
+ "annotators": "Two Claude subagents, blind to each other and to engine output; same brief and candidate pack",
+ "items": 30,
+ "decision_agreement": 0.967,
+ "decision_kappa": 0.94,
+ "entity_type_agreement": 0.933,
+ "entity_type_kappa": 0.91,
+ "both_provisional_map": 12,
+ "both_map_same_concept": 12,
+ "overlap_with_300_dictionary": {
+  "V04": {
+   "dictionary": [
+    "MONDO:0004979"
+   ],
+   "A": "MONDO:0004979",
+   "B": "MONDO:0004979"
+  },
+  "V08": {
+   "dictionary": [
+    "NCIT:C3231"
+   ],
+   "A": "NCIT:C3231",
+   "B": "NCIT:C3231"
+  },
+  "V29": {
+   "dictionary": [
+    "MONDO:0001187"
+   ],
+   "A": "MONDO:0001187",
+   "B": "MONDO:0001187"
+  },
+  "V30": {
+   "dictionary": [
+    "MONDO:0011962"
+   ],
+   "A": "MONDO:0011962",
+   "B": "MONDO:0011962"
+  }
+ },
+ "guideline_gap_flags": {
+  "A": 20,
+  "B": 17
+ },
+ "decision_counts": {
+  "A": {
+   "ROUTE_ENTITY": 16,
+   "PROVISIONAL_MAP": 13,
+   "SPLIT_EXPRESSION": 1
+  },
+  "B": {
+   "ROUTE_ENTITY": 16,
+   "PROVISIONAL_MAP": 12,
+   "HOLD_SOURCE_CONFLICT": 1,
+   "SPLIT_EXPRESSION": 1
+  }
+ },
+ "ids_cited_verified": "169/169 resolved via OLS4 (MONDO, HP), NCI EVS (NCIt), NLM MeSH RDF on 2026-10-29",
+ "known_brief_error": "BRIEF step 4 told annotators to move modifiers such as Prolonged into patient_conditions; GUIDELINES G03/G05 and K101/K102 keep duration modifiers in the concept name. Affects V26.",
+ "rows": [
+  {
+   "item": "V01",
+   "condition": "Critical Illness",
+   "A_decision": "ROUTE_ENTITY",
+   "A_id": "MeSH:D016638",
+   "B_decision": "ROUTE_ENTITY",
+   "B_id": "MeSH:D016638",
+   "decision_match": "=",
+   "id_match": "same"
+  },
+  {
+   "item": "V02",
+   "condition": "Posttraumatic Stress Symptom",
+   "A_decision": "ROUTE_ENTITY",
+   "A_id": null,
+   "B_decision": "ROUTE_ENTITY",
+   "B_id": "HP:0033676",
+   "decision_match": "=",
+   "id_match": "diff"
+  },
+  {
+   "item": "V03",
+   "condition": "Marital Conflict",
+   "A_decision": "ROUTE_ENTITY",
+   "A_id": "MeSH:M0505985",
+   "B_decision": "ROUTE_ENTITY",
+   "B_id": null,
+   "decision_match": "=",
+   "id_match": "diff"
+  },
+  {
+   "item": "V04",
+   "condition": "Asthma",
+   "A_decision": "PROVISIONAL_MAP",
+   "A_id": "MONDO:0004979",
+   "B_decision": "PROVISIONAL_MAP",
+   "B_id": "MONDO:0004979",
+   "decision_match": "=",
+   "id_match": "same"
+  },
+  {
+   "item": "V05",
+   "condition": "Bundle-Branch Block",
+   "A_decision": "PROVISIONAL_MAP",
+   "A_id": "MeSH:D002037",
+   "B_decision": "HOLD_SOURCE_CONFLICT",
+   "B_id": null,
+   "decision_match": "X",
+   "id_match": "diff"
+  },
+  {
+   "item": "V06",
+   "condition": "Difficult Airway",
+   "A_decision": "ROUTE_ENTITY",
+   "A_id": null,
+   "B_decision": "ROUTE_ENTITY",
+   "B_id": null,
+   "decision_match": "=",
+   "id_match": "same"
+  },
+  {
+   "item": "V07",
+   "condition": "Anxiety",
+   "A_decision": "ROUTE_ENTITY",
+   "A_id": "NCIT:C26696",
+   "B_decision": "ROUTE_ENTITY",
+   "B_id": "NCIT:C26696",
+   "decision_match": "=",
+   "id_match": "same"
+  },
+  {
+   "item": "V08",
+   "condition": "Menopause",
+   "A_decision": "ROUTE_ENTITY",
+   "A_id": "NCIT:C3231",
+   "B_decision": "ROUTE_ENTITY",
+   "B_id": "NCIT:C3231",
+   "decision_match": "=",
+   "id_match": "same"
+  },
+  {
+   "item": "V09",
+   "condition": "Clinical Education",
+   "A_decision": "ROUTE_ENTITY",
+   "A_id": null,
+   "B_decision": "ROUTE_ENTITY",
+   "B_id": null,
+   "decision_match": "=",
+   "id_match": "same"
+  },
+  {
+   "item": "V10",
+   "condition": "Heart Rate Variability (HRV)",
+   "A_decision": "ROUTE_ENTITY",
+   "A_id": null,
+   "B_decision": "ROUTE_ENTITY",
+   "B_id": null,
+   "decision_match": "=",
+   "id_match": "same"
+  },
+  {
+   "item": "V11",
+   "condition": "Poor Sleep Quality",
+   "A_decision": "ROUTE_ENTITY",
+   "A_id": null,
+   "B_decision": "ROUTE_ENTITY",
+   "B_id": "HP:4000064",
+   "decision_match": "=",
+   "id_match": "diff"
+  },
+  {
+   "item": "V12",
+   "condition": "Circadian Clocks",
+   "A_decision": "ROUTE_ENTITY",
+   "A_id": "MeSH:D057906",
+   "B_decision": "ROUTE_ENTITY",
+   "B_id": "MeSH:D057906",
+   "decision_match": "=",
+   "id_match": "same"
+  },
+  {
+   "item": "V13",
+   "condition": "Androgen Deprivation Therapy",
+   "A_decision": "ROUTE_ENTITY",
+   "A_id": "NCIT:C15481",
+   "B_decision": "ROUTE_ENTITY",
+   "B_id": null,
+   "decision_match": "=",
+   "id_match": "diff"
+  },
+  {
+   "item": "V14",
+   "condition": "Enamel Hypomineralization",
+   "A_decision": "PROVISIONAL_MAP",
+   "A_id": "MeSH:D000094603",
+   "B_decision": "PROVISIONAL_MAP",
+   "B_id": "MeSH:D000094603",
+   "decision_match": "=",
+   "id_match": "same"
+  },
+  {
+   "item": "V15",
+   "condition": "Otonomic Function",
+   "A_decision": "ROUTE_ENTITY",
+   "A_id": null,
+   "B_decision": "ROUTE_ENTITY",
+   "B_id": null,
+   "decision_match": "=",
+   "id_match": "same"
+  },
+  {
+   "item": "V16",
+   "condition": "Heart Transplantation",
+   "A_decision": "ROUTE_ENTITY",
+   "A_id": "NCIT:C15246",
+   "B_decision": "ROUTE_ENTITY",
+   "B_id": "NCIT:C15246",
+   "decision_match": "=",
+   "id_match": "same"
+  },
+  {
+   "item": "V17",
+   "condition": "Suppurative Otitis Media",
+   "A_decision": "PROVISIONAL_MAP",
+   "A_id": "MONDO:0005975",
+   "B_decision": "PROVISIONAL_MAP",
+   "B_id": "MONDO:0005975",
+   "decision_match": "=",
+   "id_match": "same"
+  },
+  {
+   "item": "V18",
+   "condition": "Ultrasonography",
+   "A_decision": "ROUTE_ENTITY",
+   "A_id": "MeSH:D014463",
+   "B_decision": "ROUTE_ENTITY",
+   "B_id": "MeSH:D014463",
+   "decision_match": "=",
+   "id_match": "same"
+  },
+  {
+   "item": "V19",
+   "condition": "Perfusion Index",
+   "A_decision": "ROUTE_ENTITY",
+   "A_id": "MeSH:D000081282",
+   "B_decision": "ROUTE_ENTITY",
+   "B_id": null,
+   "decision_match": "=",
+   "id_match": "diff"
+  },
+  {
+   "item": "V20",
+   "condition": "Stroke",
+   "A_decision": "PROVISIONAL_MAP",
+   "A_id": "MONDO:0005098",
+   "B_decision": "PROVISIONAL_MAP",
+   "B_id": "MONDO:0005098",
+   "decision_match": "=",
+   "id_match": "same"
+  },
+  {
+   "item": "V21",
+   "condition": "Overweight/Obesity",
+   "A_decision": "SPLIT_EXPRESSION",
+   "A_id": null,
+   "B_decision": "SPLIT_EXPRESSION",
+   "B_id": null,
+   "decision_match": "=",
+   "id_match": "same"
+  },
+  {
+   "item": "V22",
+   "condition": "Myopia",
+   "A_decision": "PROVISIONAL_MAP",
+   "A_id": "MONDO:0001384",
+   "B_decision": "PROVISIONAL_MAP",
+   "B_id": "MONDO:0001384",
+   "decision_match": "=",
+   "id_match": "same"
+  },
+  {
+   "item": "V23",
+   "condition": "Anxiety",
+   "A_decision": "ROUTE_ENTITY",
+   "A_id": "NCIT:C26696",
+   "B_decision": "ROUTE_ENTITY",
+   "B_id": "NCIT:C26696",
+   "decision_match": "=",
+   "id_match": "same"
+  },
+  {
+   "item": "V24",
+   "condition": "Dengue",
+   "A_decision": "PROVISIONAL_MAP",
+   "A_id": "MONDO:0005502",
+   "B_decision": "PROVISIONAL_MAP",
+   "B_id": "MONDO:0005502",
+   "decision_match": "=",
+   "id_match": "same"
+  },
+  {
+   "item": "V25",
+   "condition": "Limb Ischemia",
+   "A_decision": "PROVISIONAL_MAP",
+   "A_id": "MONDO:0000491",
+   "B_decision": "PROVISIONAL_MAP",
+   "B_id": "MONDO:0000491",
+   "decision_match": "=",
+   "id_match": "same"
+  },
+  {
+   "item": "V26",
+   "condition": "Prolonged Diarrhea",
+   "A_decision": "PROVISIONAL_MAP",
+   "A_id": "MONDO:0001673",
+   "B_decision": "PROVISIONAL_MAP",
+   "B_id": "MONDO:0001673",
+   "decision_match": "=",
+   "id_match": "same"
+  },
+  {
+   "item": "V27",
+   "condition": "Metastatic Colorectal Cancer (CRC)",
+   "A_decision": "PROVISIONAL_MAP",
+   "A_id": "MONDO:0005575",
+   "B_decision": "PROVISIONAL_MAP",
+   "B_id": "MONDO:0005575",
+   "decision_match": "=",
+   "id_match": "same"
+  },
+  {
+   "item": "V28",
+   "condition": "Delayed Graft Function",
+   "A_decision": "PROVISIONAL_MAP",
+   "A_id": "MeSH:D051799",
+   "B_decision": "PROVISIONAL_MAP",
+   "B_id": "MeSH:D051799",
+   "decision_match": "=",
+   "id_match": "same"
+  },
+  {
+   "item": "V29",
+   "condition": "Bladder Cancer (BC)",
+   "A_decision": "PROVISIONAL_MAP",
+   "A_id": "MONDO:0001187",
+   "B_decision": "PROVISIONAL_MAP",
+   "B_id": "MONDO:0001187",
+   "decision_match": "=",
+   "id_match": "same"
+  },
+  {
+   "item": "V30",
+   "condition": "Endometrial Cancer",
+   "A_decision": "PROVISIONAL_MAP",
+   "A_id": "MONDO:0011962",
+   "B_decision": "PROVISIONAL_MAP",
+   "B_id": "MONDO:0011962",
+   "decision_match": "=",
+   "id_match": "same"
+  }
+ ]
+}

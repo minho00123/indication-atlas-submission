@@ -1,0 +1,276 @@
+[
+[
+"Heart Conduction System",
+[]
+],
+[
+"Chronic Stroke Patient",
+[]
+],
+[
+"Locally Advanced Cervical Cancer",
+[]
+],
+[
+"Spinal Surgery",
+[]
+],
+[
+"Ankle Rehabilitation",
+[]
+],
+[
+"Autonomic Dysfunction",
+[]
+],
+[
+"Placebo - Control",
+[]
+],
+[
+"Bradycardia",
+[
+[
+"HP:0001662",
+"Bradycardia"
+]
+]
+],
+[
+"Intracerebral Hemorrhage",
+[
+[
+"MONDO:0013792",
+"intracerebral hemorrhage"
+]
+]
+],
+[
+"Psychosis",
+[
+[
+"MONDO:0005485",
+"psychotic disorder"
+]
+]
+],
+[
+"Artificial",
+[]
+],
+[
+"Pandemic",
+[]
+],
+[
+"Diabetes Mellitus, Type 2",
+[
+[
+"MONDO:0005148",
+"type 2 diabetes mellitus"
+]
+]
+],
+[
+"Amputation of Lower Limb Below Knee",
+[]
+],
+[
+"Bipolar Disorder (BD)",
+[]
+],
+[
+"Mitochondrial Function, Bioenergetics",
+[]
+],
+[
+"Mechanically Ventilated Children Admitted to the Pediatric Intensive Care Unit",
+[]
+],
+[
+"Atrophic Acne Scars",
+[]
+],
+[
+"Educational Problems",
+[]
+],
+[
+"Blood Pressure Control",
+[]
+],
+[
+"Postoperative Analgesia",
+[]
+],
+[
+"Metabolic Acidosis",
+[
+[
+"MONDO:0000440",
+"metabolic acidosis"
+],
+[
+"HP:0001942",
+"Metabolic acidosis"
+]
+]
+],
+[
+"Artificial Intelligence (AI)",
+[]
+],
+[
+"Preterm Neonates",
+[]
+],
+[
+"Cardiovascular Autonomic Dysfunction",
+[]
+],
+[
+"Digestive System Surgical Procedures",
+[]
+],
+[
+"Serum Specimen Collection",
+[]
+],
+[
+"Semi-flexible Hammertoe",
+[]
+],
+[
+"ASCVD",
+[]
+],
+[
+"Prolonged Mechanical Ventilation",
+[]
+],
+[
+"Pulmonary Nodules",
+[]
+],
+[
+"Low Apgar Score",
+[]
+],
+[
+"Ankle Sprain",
+[
+[
+"MONDO:0043895",
+"ankle injury"
+]
+]
+],
+[
+"Diastasis Recti Abdominis",
+[]
+],
+[
+"Ankle Injuries and Disorders",
+[]
+],
+[
+"Postpartum Depression (PPD)",
+[]
+],
+[
+"Chemotherapy-Induced Thrombocytopenia",
+[]
+],
+[
+"General Anesthesia-Induced Altered Consciousness",
+[]
+],
+[
+"Median Sternotomy",
+[]
+],
+[
+"Chronic Low Back Pain (cLBP)",
+[]
+],
+[
+"Population",
+[]
+],
+[
+"Cardiac Pacing",
+[]
+],
+[
+"Problem Drinking",
+[]
+],
+[
+"Health Behavior",
+[]
+],
+[
+"Predictive Value of Tests",
+[]
+],
+[
+"Tennis Motor Skill Learning",
+[]
+],
+[
+"Cough Suppression",
+[]
+],
+[
+"Breast Neoplasms",
+[]
+],
+[
+"Psychological Distress",
+[]
+],
+[
+"Sickle Cell Disease (SCD)",
+[]
+],
+[
+"Cyberchondria",
+[]
+],
+[
+"Isolated Gastrocnemius Tightness",
+[]
+],
+[
+"Breast - Female",
+[]
+],
+[
+"Post-traumatic Olfactory Dysfunction",
+[]
+],
+[
+"Transurethral Resection of the Prostate (TURP)",
+[]
+],
+[
+"ASD2(Secundum Atrial Septal Defect)",
+[]
+],
+[
+"Premature Rupture of Membranes (PROM)",
+[]
+],
+[
+"Artificial Intelligence in Education",
+[]
+],
+[
+"Role of Vagal Stimulation in Oxytocin Release",
+[]
+],
+[
+"Depression / Major Depressive Disorder",
+[]
+]
+]

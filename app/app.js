@@ -1,7 +1,6 @@
 import {normalize, searchCatalog, filterRecords} from './search.js';
 import {mountCompare} from './compare-ui.js';
 import {mountAudit} from './audit-ui.js';
-import {mountAnalyzer} from './analyzer-ui.js';
 
 const $ = (s, root=document) => root.querySelector(s);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -106,7 +105,7 @@ const overviewLinks=[
   ['#records','분류 결과','제공 키워드 300건의 항목별 처리와 판단 이유'],
   ['#materials/research','유사 서비스 조사','상용 서비스 3종과 공개 플랫폼·용어 조회 도구 비교'],
   ['#materials/methodology','구축 보고서','문제 정의부터 반례·후속 연구까지 7단계'],
-  ['#analyze','직접 입력해 보기','새 키워드와 문맥을 같은 규칙으로 분석']];
+  ['#materials/audit','검증과 한계','현재 사전으로 다시 실행한 결과와 남은 한계']];
 
 // Entry page for reviewers: what was built and how it was judged, before the search tool.
 function overviewPage() {
@@ -131,7 +130,6 @@ function dictionaryPage() {
     ${heading('등록된 표현과 개념','동의어 사전','검토 후 등록한 이름·별칭으로 개념을 찾고, 항목별 판단 근거를 확인할 수 있습니다.')}
     <section id="concept-explorer" aria-labelledby="search-heading"><div class="search-heading-row"><h2 id="search-heading" tabindex="-1">등록된 표현 검색</h2>${exampleChips()}</div>
     <div class="search-toolbar"><label class="search-box">${icon}<input id="dictionary-search" type="search" autocomplete="off" aria-label="질환명·약어·항목 번호 검색" placeholder="질환명, 약어 또는 항목 번호 검색"><span class="search-key" aria-hidden="true">/</span></label></div>
-    <p class="direct-input-note">다른 키워드·문맥의 처리도 확인할 수 있습니다. <a href="#analyze">직접 입력해 보기 ↗</a></p>
     <div class="explorer"><div id="results" class="panel result-panel"></div><div id="dictionary-detail" class="panel detail"></div></div></section>
   </div>`;
   const input=$('#dictionary-search'); input.value=route.params.get('q') ?? '';
@@ -447,17 +445,18 @@ function render() {
     if(comparison)params.section='compare';
     history.replaceState(null,'',pathFor(comparison?'cases/examples':'cases',params));route=readRoute();
   }
+  // The direct-input page was retired; its findings live in the follow-up research section.
+  if(route.page==='analyze'){history.replaceState(null,'',pathFor('materials/methodology',{section:'future'}));route=readRoute();}
   document.querySelectorAll('[data-nav]').forEach(a=>{
-    const active=a.dataset.nav===(['aliases','analyze'].includes(route.page)?'dictionary':route.page);a.classList.toggle('active',active);
+    const active=a.dataset.nav===(route.page==='aliases'?'dictionary':route.page);a.classList.toggle('active',active);
     if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');
   });
-  const titles={overview:'개요',dictionary:'동의어 사전',aliases:'별칭 연결',analyze:'직접 입력해 보기',records:'분류 결과',cases:'판단 기준',materials:'구축 보고서'};
+  const titles={overview:'개요',dictionary:'동의어 사전',aliases:'별칭 연결',records:'분류 결과',cases:'판단 기준',materials:'구축 보고서'};
   document.title=`${titles[route.page] ?? '개요'} | Indication Atlas`;
   if(route.page==='records')recordsPage();
   else if(route.page==='aliases')aliasesPage();
   else if(route.page==='cases')casesPage();
   else if(route.page==='materials')materialsPage();
-  else if(route.page==='analyze')mountAnalyzer($('#main-content'),data);
   else if(route.page==='dictionary')dictionaryPage();
   else overviewPage();
   if(route.params.get('name'))requestAnimationFrame(()=>{const target=document.getElementById('item-evidence');if(target){target.scrollIntoView({block:'start'});target.focus({preventScroll:true});}});

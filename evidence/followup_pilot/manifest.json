@@ -1,0 +1,27 @@
+{
+ "created": "2026-10-29",
+ "note": "Pilot on real ClinicalTrials.gov condition names; not an accuracy evaluation.",
+ "files": {
+  "README.md": "c55b50ee3ea1eebefecd80802152115dd0250f4f9d60fdfe6e38cfd2dc93f868",
+  "engine_run_932.json": "50d9559ad9c84b3a83c8061293b98c5b18e00e2e7d34cad7bc42b3cd591304d3",
+  "engine_run_summary.json": "4d5e82c79e1b09f3cac8f7fb14a3414b9bd8764a1a5288b90c84ed4d316d4560",
+  "judgment/BRIEF.md": "66f58b40152c4374a448c076e2c865607cd12121996ca6e55e9225321a547ef3",
+  "judgment/annotator_A.json": "c0dd228ae7a9cd0aa4fa54931e321527d08823e8b6188e2e14aa69161fc226a8",
+  "judgment/annotator_B.json": "43c39e2ef7722a725f9854fda33cbe3910386e68ad30d1f9d1cfefd676fad320",
+  "judgment/comparison.json": "1babf026b8f22fcfc62e9e0b24fd3ebbe2fe65b3c5d8f8c37bab2795e4c56f23",
+  "judgment/items.json": "2e007e2beff33a8b949faf779859e290b553f5bd2161517f402ba63e6a995690",
+  "judgment/pack.json": "6e88d0789cf3871b87520d94122902e7df449df7b3b2c938b66d8f270df4ec58",
+  "population_nct_ids.json": "2ab2b5d41b1b81039f49f26929f622858f31843fe333e8a960986ffac4ed4e89",
+  "sample_400_studies.json": "56232082ff9bafd7161d8f909c1937be9241d83ad897b9953936385e2ba36748",
+  "scripts/cands.py": "8963ed93d0cf4769ea723d9e49044c1739ccbfd10bc8a2ce483ebcdcb8430abb",
+  "scripts/compare.py": "f944e469cbbb37df44b42909168d0b6100aeac892ed0212c86e0edd8d1b98c60",
+  "scripts/dictmap.mjs": "28555ec0f254c65e1099c23bd4f2b40b79fff5a0ee578f59a97f2fc0c92801e7",
+  "scripts/fetch.py": "7853a8bba378634fc24b1f1a2b2f1400e1f784867e4dc52618aa9fc2c1bee0ce",
+  "scripts/ols.py": "55de5bd5530688596b0ffb25131d0095a1e98f526365df6e4fd790768ff25ca0",
+  "scripts/run.mjs": "41861a6bf775eb5cb6958eeb25d2df7302b883f0627f2b29d659e6388605bd3b",
+  "scripts/run2.mjs": "240833af73514c8ca9c32f730afd461d6478535b1c467b9a8ad18d2f510389ae",
+  "scripts/sample.py": "b1fb8e55b351fbf1988653dac5328c542696b8deaeadd0ef349c9e8bbeaf1776",
+  "unregistered_sample60_classification.json": "24fa31d029ce7f020c340ec582d69520cc8f78f289626f051514e4e15dca721f",
+  "unregistered_sample60_mondo_exact.json": "c0c9fa790fba027ddfc1aebc3e5681867c432a4f46c562f5ea7d6c9e34d3d60a"
+ }
+}

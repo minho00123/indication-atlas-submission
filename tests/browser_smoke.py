@@ -28,7 +28,7 @@ def run(base_url,browser_executable=None,output=None):
         # Summary line: input rows and concept groups are different units, and the excluded rows are named.
         expect(page.locator('.home-summary')).to_contain_text('297건은 287개 개념 그룹')
         expect(page.locator('.home-summary')).to_contain_text('보류 2건·OR 표현 1건 제외')
-        assert [a.get_attribute('href') for a in page.locator('.overview-card').all()]==['#cases','#cases/examples','#records','#materials/research','#materials/methodology','#analyze']
+        assert [a.get_attribute('href') for a in page.locator('.overview-card').all()]==['#cases','#cases/examples','#records','#materials/research','#materials/methodology','#materials/audit']
         page.locator('#overview-search').fill('NSCLC')
         page.get_by_role('button',name='사전에서 찾기').click()
         expect(page.locator('#dictionary-search')).to_have_value('NSCLC')
@@ -43,7 +43,7 @@ def run(base_url,browser_executable=None,output=None):
         expect(page.locator('.catalog-scope p')).to_be_visible()
         expect(page.locator('.catalog-scope p')).to_contain_text('질환군·소견·상태')
         page.locator('.catalog-scope summary').click()
-        expect(page.locator('.direct-input-note').get_by_role('link',name='직접 입력해 보기 ↗')).to_have_attribute('href','#analyze')
+        expect(page.get_by_role('link',name='직접 입력해 보기 ↗')).to_have_count(0)  # the direct-input page was retired
         expect(page.locator('#dictionary-detail .search-guide')).to_contain_text('동의어 병합 아님')
         expect(page.locator('#dictionary-detail .flow')).to_have_count(0)
         page.goto(base_url,wait_until='networkidle')
@@ -264,52 +264,13 @@ def run(base_url,browser_executable=None,output=None):
         }''')
         assert not normalization_errors,normalization_errors
         results.append('Browser normalization equals all reviewed alias keys')
-        page.goto(base_url+'#dictionary',wait_until='networkidle')
-        page.get_by_role('link',name='직접 입력해 보기 ↗',exact=True).click()
-        expect(page.get_by_role('tab',name='한 건 확인',exact=True)).to_have_attribute('aria-selected','true')
-        expect(page.locator('#intake-single')).to_be_visible()
-        expect(page.locator('#intake-batch')).to_be_hidden()
-        expect(page.locator('#analyzer-decision')).to_have_text('약어 의미 보류')
-        expect(page.locator('.runtime-analysis-detail')).not_to_have_attribute('open','')
-        page.get_by_role('button',name='크론병을 뜻하는 CD',exact=True).click()
-        expect(page.locator('.runtime-concepts')).to_contain_text('MONDO:0005011')
-        page.get_by_role('button',name='셀리악병을 뜻하는 CD',exact=True).click()
-        expect(page.locator('.runtime-concepts')).to_contain_text('MONDO:0005130')
-        page.locator('#analyzer-text').fill('Patients with CD and gluten-triggered enteropathy.')
-        page.get_by_role('button',name='사전과 비교하기').click()
-        expect(page.locator('#analyzer-decision')).to_have_text('약어 의미 보류')
-        page.locator('#analyzer-keyword').fill('T2D')
-        page.locator('#analyzer-text').fill('A new paragraph: Type 2 diabetes (T2D) is mentioned for 12 months.')
-        page.get_by_role('button',name='사전과 비교하기').click()
-        expect(page.locator('.runtime-concepts')).to_contain_text('MONDO:0005148')
-        with page.expect_download() as download:
-            page.get_by_role('button',name='결과 JSON 내려받기 ↓').click()
-        with tempfile.TemporaryDirectory() as tmp:
-            dest=Path(tmp)/'analysis.json';download.value.save_as(dest);report=json.loads(dest.read_text())
-            assert report['input']['keyword']=='T2D'
-            assert report['attributes'][0]['quantity']['amount']==12
-            for span in report['mentions']+report['attributes']:
-                assert report['input']['text'][span['start']:span['end']]==span['text']
-        page.locator('#analyzer-text').fill('Patients with T2D.')
-        page.get_by_role('button',name='사전과 비교하기').click()
-        expect(page.locator('#analyzer-decision')).to_have_text('미등록 표현 · 검토 필요')
-        results.append('Editable runtime inputs, CD meaning changes, no definition leakage and analysis JSON download')
-        page.get_by_role('button',name='재발·치료 조건',exact=True).click()
-        expect(page.locator('.runtime-conditions section').nth(0)).to_contain_text('acute')
-        expect(page.locator('.runtime-conditions section').nth(1)).to_contain_text('relapsed')
-        expect(page.locator('.runtime-conditions section').nth(1)).to_contain_text('prior_therapy')
-        page.get_by_role('button',name='입력과 문장의 차이',exact=True).click()
-        expect(page.locator('#analyzer-decision')).to_have_text('개념 차이 · 관계 미검토')
-        page.get_by_role('button',name='부정 표현',exact=True).click()
-        expect(page.locator('.runtime-concepts')).to_contain_text('MONDO:0005233')
-        page.locator('.runtime-analysis-detail>summary').click()
-        expect(page.locator('.runtime-mentions')).to_contain_text('부정 표현 있음')
-        page.locator('#analyzer-text').fill('<img src=x onerror="window.__injected=true"> No NSCLC is reported.')
-        page.get_by_role('button',name='사전과 비교하기').click()
-        assert page.evaluate('window.__injected') is None
-        expect(page.locator('.runtime-source img')).to_have_count(0)
-        # The author-written development cases run here and in Node; they are no longer a button on the page.
-        expect(page.get_by_role('button',name='검사 실행',exact=True)).to_have_count(0)
+        # The retired direct-input route now opens the follow-up research section that records the real-data pilot.
+        page.goto(base_url+'#analyze',wait_until='networkidle')
+        expect(page).to_have_url(re.compile(re.escape('#materials/methodology?section=future')+'$'))
+        expect(page.locator('#method-future')).to_be_focused()
+        expect(page.locator('#document-content')).to_contain_text('실제 임상시험 조건명 예비 시험')
+        assert page.request.get(base_url+'evidence/followup_pilot/manifest.json').ok
+        # The analysis engine stays for the 300-row rerun; its author-written cases still run in the browser.
         dev=page.evaluate('''async()=>{
           const {createAnalyzer}=await import('./analyzer.mjs');const {checkAnalyzerCase}=await import('./analyzer-checks.mjs');
           const a=createAnalyzer(await(await fetch('./data/catalog.json')).json());
@@ -323,130 +284,7 @@ def run(base_url,browser_executable=None,output=None):
           return [{keyword:'',text:'NSCLC'},{keyword:'NSCLC',text:'x'.repeat(10001)}].every(input=>{try{a.analyze(input);return false;}catch{return true;}});
         }''')
         assert size_checks
-        results.append('Runtime conditions/name components, conflicts, negation, escaped input and all development cases executed')
-        page.locator('#analyzer-keyword').fill('Asthma')
-        page.locator('#analyzer-text').fill('Patients with severe asthma.')
-        page.get_by_role('button',name='사전과 비교하기').click()
-        expect(page.locator('#analyzer-decision')).to_have_text('기존 개념에 연결')
-        expect(page.locator('.runtime-conditions')).to_contain_text('severe')
-        expect(page.locator('.runtime-axes')).to_contain_text('부정·추정 표현을 찾지 못함')
-        page.locator('#analyzer-text').fill('Patients with enigmatic asthma.')
-        page.get_by_role('button',name='사전과 비교하기').click()
-        expect(page.locator('#analyzer-decision')).to_have_text('수식된 이름 · 범위 검토 필요')
-        expect(page.locator('.runtime-reasons')).to_contain_text('이름 구간은 원문에 있으나')
-        page.locator('#analyzer-keyword').fill('Psoriasis')
-        page.locator('#analyzer-text').fill('Patients who do not have psoriasis.')
-        page.get_by_role('button',name='사전과 비교하기').click()
-        expect(page.locator('.runtime-axes')).to_contain_text('부정 표현 있음')
-        page.locator('#analyzer-keyword').fill('Colon cancer')
-        page.locator('#analyzer-text').fill('Family history of colon cancer.')
-        page.get_by_role('button',name='사전과 비교하기').click()
-        expect(page.locator('.runtime-axes')).to_contain_text('언급 방식 미상')
-        expect(page.locator('#analyzer-result')).to_contain_text('가족력: 환자 본인의 질환 상태로 해석하지 않습니다')
-        results.append('Reverification: default modifier review, reviewed context conditions, honest no-cue label and unsupported family history')
-        for label,decision in [('새 약어 HS','기존 개념에 연결'),('사전에 없는 질환 Fabry disease','미등록 표현'),('긴 이름도 없는 약어 PNH','문서 정의 검토 필요')]:
-            page.get_by_role('button',name=label,exact=True).click()
-            expect(page.locator('#analyzer-decision')).to_contain_text(decision)
-        page.get_by_role('button',name='사전에 없는 질환 Fabry disease',exact=True).click()
-        expect(page.locator('#analyzer-result')).to_contain_text('자체 관리 개념(LOCAL)')
-        page.locator('.next-steps a.rule-link',has_text='G10').click()
-        expect(page.locator('#document-content h2',has_text='G10 —')).to_be_in_viewport()
-        page.go_back()
-        expect(page.locator('#analyzer-decision')).to_contain_text('미등록 표현')
-        external=[]
-        page.on('request',lambda r:external.append(r.url) if not r.url.startswith(base_url.rstrip('/')) and not r.url.startswith(('data:','blob:')) else None)
-        page.get_by_role('tab',name='여러 건 확인',exact=True).click()
-        expect(page.locator('#intake-single')).to_be_hidden()
-        expect(page.locator('#intake-batch')).to_be_visible()
-        page.get_by_role('button',name='예시 넣기').click()
-        page.get_by_role('button',name='여러 건 확인하기').click()
-        rows=page.locator('.batch-table tbody tr')
-        expect(rows).to_have_count(8)
-        expect(rows.nth(0)).to_contain_text('기존 개념에 연결 · 원문 없음')
-        expect(rows.nth(1)).to_contain_text('약어 의미 보류')
-        expect(rows.nth(2)).to_contain_text('기존 개념에 연결')
-        expect(rows.nth(4)).to_contain_text('수식된 이름')
-        expect(rows.nth(5)).to_contain_text('언급 방식: 부정 표현 있음')
-        expect(rows.nth(6)).to_contain_text('미등록 표현')
-        expect(rows.nth(7)).to_contain_text('입력 오류')
-        expect(page.locator('.batch-summary')).to_contain_text('8줄 처리')
-        widths=page.locator('.batch-table thead th').evaluate_all('(els)=>els.map(e=>Math.round(e.getBoundingClientRect().width))')
-        rows.nth(6).locator('summary').click()
-        assert page.locator('.batch-table thead th').evaluate_all('(els)=>els.map(e=>Math.round(e.getBoundingClientRect().width))')==widths  # opening next steps keeps columns
-        links=rows.nth(6).locator('a[target="_blank"]')
-        expect(links).to_have_count(3)
-        for i in range(3):
-            href=links.nth(i).get_attribute('href');assert 'Fabry%20disease' in href and 'Adults' not in href
-            assert links.nth(i).get_attribute('rel')=='noopener noreferrer'
-        expect(page.locator('#batch-result .snapshot-note')).to_contain_text('prototype-4')
-        with page.expect_download() as download:
-            page.get_by_role('button',name='여러 줄 결과 CSV ↓').click()
-        with tempfile.TemporaryDirectory() as tmp:
-            dest=Path(tmp)/'batch.csv';download.value.save_as(dest);csv_text=dest.read_bytes().decode('utf-8-sig')
-            assert csv_text.startswith('line,keyword,has_text,status') and csv_text.count('\r\n')==9
-        with page.expect_download() as download:
-            page.get_by_role('button',name='여러 줄 결과 JSON ↓').click()
-        with tempfile.TemporaryDirectory() as tmp:
-            dest=Path(tmp)/'batch.json';download.value.save_as(dest);batch=json.loads(dest.read_text())
-            assert len(batch['rows'])==8 and batch['snapshot']['engine_sha256'] and batch['format']=='batch-1'
-        assert not external,external
-        results.append('Multi-line intake: per-row results, next steps, unverified search links, snapshot, CSV/JSON and no automatic external requests')
-        saved=json.loads((Path(__file__).parent/'fixtures/candidates/Fabry_disease.json').read_text())
-        replies={r['url']:r for r in [*[v for v in saved['responses'].values() if isinstance(v,dict) and 'url' in v],*saved['responses']['mondo_terms'].values(),*saved['responses'].get('ncit_terms',{}).values(),*saved['responses']['mesh_details'].values()]}
-        sent=[];outage={'on':True}
-        def reply(route):
-            sent.append(route.request.url);r=replies.get(route.request.url)
-            if outage['on'] or (outage.get('info') and re.search(r'/ontologies/(mondo|ncit)$',route.request.url)):route.fulfill(status=503,content_type='application/json',headers={'Access-Control-Allow-Origin':'*'},body='{}');return
-            route.fulfill(status=200 if r and r['ok'] else 404,content_type='application/json',headers={'Access-Control-Allow-Origin':'*'},body=json.dumps(r['data'] if r and r['ok'] else {}))
-        page.route('https://www.ebi.ac.uk/**',reply);page.route('https://id.nlm.nih.gov/**',reply)
-        page.get_by_role('button',name='미등록 1줄 모두 MONDO·NCIt·MeSH 후보 비교').click()
-        cell=page.locator('.batch-table tbody tr').nth(6).locator('[data-candidate-cell]')
-        expect(cell).to_contain_text('조회 실패 · 다시 조회 필요')
-        failed_requests=len(sent);outage['on']=False
-        cell.get_by_role('button',name='다시 조회').click()
-        expect(cell).to_contain_text('이름·교차참조 연결 확인 · 범위 미검토')
-        assert len(sent)>failed_requests
-        console_errors[:]=[e for e in console_errors if 'status of 503' not in e]  # the simulated outage above
-        expect(cell).to_contain_text('MONDO:0010526 · NCIT:C84701 · MESH:D000795')
-        expect(page.locator('.batch-table tbody tr').nth(0).locator('[data-candidate-cell]')).to_have_text('—')
-        with page.expect_download() as download:
-            page.get_by_role('button',name='여러 줄 결과 CSV ↓').click()
-        with tempfile.TemporaryDirectory() as tmp:
-            dest=Path(tmp)/'batch2.csv';download.value.save_as(dest);assert 'CROSS_SOURCE_AGREEMENT' in dest.read_bytes().decode('utf-8-sig')
-        with page.expect_download() as download:
-            page.get_by_role('button',name='여러 줄 결과 JSON ↓').click()
-        with tempfile.TemporaryDirectory() as tmp:
-            dest=Path(tmp)/'batch2.json';download.value.save_as(dest);row=json.loads(dest.read_text())['rows'][6]
-            assert row['candidate_comparison']['code']=='CROSS_SOURCE_AGREEMENT' and row['candidate_record']['term']=='Fabry disease'
-        cell.get_by_role('button',name='근거 자세히 ↑').click()
-        expect(page.get_by_role('tab',name='한 건 확인',exact=True)).to_have_attribute('aria-selected','true')
-        expect(page.locator('#intake-single')).to_be_visible()
-        expect(page.locator('#analyzer-keyword')).to_have_value('Fabry disease')
-        expect(page.locator('#analyzer-result .compare-heading')).to_contain_text('이름·교차참조 연결 확인')
-        expect(page.locator('#analyzer-result .compare-proposal')).to_contain_text('MONDO:0010526')
-        expect(page.locator('#analyzer-result .compare-proposal')).to_contain_text('사전에 반영하지 않았습니다')
-        expect(page.locator('#analyzer-result .candidate-item.agreed')).to_have_count(3)
-        assert sent and all('Adults' not in url for url in sent)
-        with page.expect_download() as download:
-            page.get_by_role('button',name='이 비교의 기록 JSON 내려받기 ↓').click()
-        with tempfile.TemporaryDirectory() as tmp:
-            dest=Path(tmp)/'cmp.json';download.value.save_as(dest);cmp=json.loads(dest.read_text())
-            assert cmp['comparison']['code']=='CROSS_SOURCE_AGREEMENT' and cmp['record']['term']==cmp['comparison']['term']=='Fabry disease'
-        outage['info']=True
-        page.reload(wait_until='networkidle')  # fresh session: no cached version lookups
-        page.locator('#analyzer-keyword').fill('Fabry disease');page.locator('#analyzer-text').fill('Adults with Fabry disease.')
-        page.get_by_role('button',name='사전과 비교하기').click()
-        page.get_by_role('button',name='MONDO·NCIt·MeSH에서 후보 비교하기').click()
-        expect(page.locator('#analyzer-result .runtime-note').filter(has_text='출처 버전을 확인하지 못했습니다')).to_be_visible()
-        before=len(sent);outage['info']=False
-        page.locator('#analyzer-result [data-compare-output]').get_by_role('button',name='다시 조회').click()
-        expect(page.locator('#analyzer-result .compare-columns')).to_contain_text('버전 2026-10-06')
-        assert len(sent)>before
-        console_errors[:]=[e for e in console_errors if 'status of 503' not in e]
-        page.unroute('https://www.ebi.ac.uk/**');page.unroute('https://id.nlm.nih.gov/**')
-        results.append('On-demand MONDO/NCIt/MeSH comparison: outage shown and retried, target-only requests, exact-match link, not registered, paired record downloads')
-
-        if output:page.screenshot(path=str(output/'analyzer.png'),full_page=True)
+        results.append('Retired direct-input route redirects to follow-up research; engine development cases still pass')
         page.goto(base_url+'#materials/audit',wait_until='networkidle')
         expect(page.get_by_role('heading',name='무엇을 확인했고, 무엇이 남았나',exact=True)).to_be_visible()
         expect(page.locator('.audit-summary')).to_contain_text('임상 전문가 승인은 0건')
@@ -544,11 +382,6 @@ def run(base_url,browser_executable=None,output=None):
         expect(page.locator('#dictionary-detail')).not_to_contain_text('K260')
         if output:page.screenshot(path=str(output/'mobile.png'),full_page=True)
         results.append('390px mobile routes, no page overflow and result return')
-        page.goto(base_url+'#analyze',wait_until='networkidle')
-        page.get_by_role('button',name='크론병을 뜻하는 CD',exact=True).click()
-        expect(page.locator('.runtime-concepts')).to_contain_text('MONDO:0005011')
-        assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth')
-        results.append('Mobile runtime input, result interaction and no page overflow')
         assert not errors,errors
         browser.close()
     return {'passed':len(results),'checks':results,'page_errors':errors,'console_errors':list(dict.fromkeys(console_errors))}

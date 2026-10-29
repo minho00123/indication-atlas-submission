@@ -48,7 +48,7 @@ Open Targets의 변경 사항은 [26.06 발표](https://blog.opentargets.org/ope
 |---|---|---|
 | NCI EVS Explore | NCIt의 코드·선호명·출처별 정의·동의어·계층을 구분해 표시 | K211의 요실금 임상 소견과 설문·평가 항목을 구별하고, K134의 폐기 코드를 대표로 고르지 않았습니다. |
 | NLM MeSH Browser | Descriptor 안에 여러 Concept이 있고, 각 Concept에 Term이 속하는 구조 | 같은 Descriptor의 검색어라는 이유만으로 동의어로 묶지 않았습니다. K052의 용어 소속과 K070의 정의 범위를 따로 확인했습니다. |
-| EBI OLS | 여러 용어체계의 이름·동의어·정의·ID를 검색 | 직접 입력 화면에서 미등록 표현의 MONDO·NCIt 후보를 조회합니다. MeSH는 NLM API에서 조회하며, 결과를 자동으로 사전에 등록하지 않습니다. |
+| EBI OLS | 여러 용어체계의 이름·동의어·정의·ID를 검색 | 실제 임상시험 조건명 예비 시험에서 MONDO 후보를 조회했습니다. 조회 결과를 자동으로 사전에 등록하지 않습니다. |
 
 NCIt의 관리 항목은 [EVS Explore 도움말](https://evsexplore.semantics.cancer.gov/evsexplore/overview), 사례 값은 [NCI 공식 API](https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/search?term=urinary%20incontinence&type=match&include=summary&pageSize=50) 응답을 참고했습니다. MeSH 구조는 [NLM 설명](https://www.nlm.nih.gov/mesh/concept_structure.html), 실제 소속은 [Lichen Sclerosus 레코드](https://meshb.nlm.nih.gov/record/ui?ui=D018459)와 공식 RDF/API로 확인했습니다. OLS의 검색 방식은 [공식 도움말](https://www.ebi.ac.uk/ols4/ols3help)을 참고했습니다. 검색 옵션의 `exact`와 임상 범위 관계의 EXACT는 구별합니다.
 

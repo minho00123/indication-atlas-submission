@@ -21,7 +21,7 @@
 
 [판단 기준](https://indication-atlas.netlify.app/#cases)에서 G01–G12를, [사례별 검토](https://indication-atlas.netlify.app/#cases/examples)에서 실제 판단과 개념 비교를 제공합니다.
 
-[직접 입력해 보기](https://indication-atlas.netlify.app/#analyze)는 개요의 안내나 사전 검색창 아래 링크로 엽니다. ‘한 건 확인’과 ‘여러 건 확인’에서 입력할 수 있습니다. 등록된 표현·명시적 약어 정의·일부 조건 패턴을 처리하고, 미등록 표현은 외부 후보와 비교할 수 있습니다. 환자의 진단·적격성은 판정하지 않습니다.
+300건 밖의 실제 임상시험 조건명으로 해 본 예비 시험은 [구축 과정의 후속 연구](https://indication-atlas.netlify.app/#materials/methodology?section=future)에 정리했습니다.
 
 ## 실행
 
