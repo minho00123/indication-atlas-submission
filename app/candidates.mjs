@@ -115,7 +115,7 @@ export function compareCandidates(record) {
     const t=termOf(r.mondo_terms?.[d.obo_id]);
     return {id:d.obo_id,label:d.label,level:olsLevel(q,d),obsolete:!!(t?.is_obsolete ?? d.is_obsolete),definition:(t?.description ?? d.description ?? [])[0] ?? '',
       xrefs:t?Object.fromEntries(xrefRelations(t)):null,xrefs_loaded:!!t};
-  })).filter(c=>!c.obsolete).slice(0,6);
+  })).filter(c=>!c.obsolete);
   const ncitDetail=Object.fromEntries(Object.entries(r.ncit_terms ?? {}).map(([id,v])=>[id,termOf(v)]).filter(([,t])=>t));
   const seenN=new Set(),searched=[...olsDocs(r.ncit_exact,'NCIT:'),...olsDocs(r.ncit_fuzzy,'NCIT:')].filter(d=>!seenN.has(d.obo_id) && seenN.add(d.obo_id))
     .map(d=>({id:d.obo_id,label:d.label,level:olsLevel(q,d),obsolete:!!d.is_obsolete,definition:(d.description ?? [])[0] ?? '',semantic_type:ncitDetail[d.obo_id]?.annotation?.Semantic_Type ?? null}));
@@ -124,7 +124,8 @@ export function compareCandidates(record) {
     const doc={label:t.label,exact_synonyms:by('hasExactSynonym'),related_synonyms:by('hasRelatedSynonym'),narrow_synonyms:by('hasNarrowSynonym'),broad_synonyms:by('hasBroadSynonym')};
     return {id,label:t.label ?? id,level:olsLevel(q,doc),obsolete:!!t.is_obsolete,definition:(t.description ?? [])[0] ?? '',via_xref:true,semantic_type:t.annotation?.Semantic_Type ?? null};
   });
-  const ncit=rank([...searched,...viaXref]).filter(c=>!c.obsolete).slice(0,6);
+  // Judge on every retrieved candidate; only the screen limits how many are shown.
+  const ncit=rank([...searched,...viaXref]).filter(c=>!c.obsolete);
   const mesh=rank(Object.entries(r.mesh_details ?? {}).filter(([,v])=>v.ok).map(([id,v])=>{
     const terms=v.data.terms ?? [],preferred=terms.find(t=>t.preferred)?.label ?? id;
     const level=meshForms(preferred).includes(q)?'LABEL':terms.some(t=>meshForms(t.label).includes(q))?'ENTRY_TERM':'PARTIAL';
@@ -140,8 +141,10 @@ export function compareCandidates(record) {
     const agreed=exact.filter(c=>rel[c.id]==='EXACT_MATCH'),linked=exact.filter(c=>rel[c.id] && rel[c.id]!=='EXACT_MATCH');
     cross[name]=agreed.map(c=>c.id);links[name]=linked.map(c=>`${c.id} ${rel[c.id]}`);
     const targets=Object.keys(rel).filter(id=>id.startsWith(prefix)),missing=targets.some(id=>!pool.some(c=>c.id===id));
+    const unread=record.truncated?.[name==='ncit'?'ncit_terms':'mesh_details'] ?? 0;
     if(agreed.length){reasons.push(`${label}: 이름 일치 후보 ${cross[name].join(', ')}를 MONDO가 exact match로 연결합니다.`);if(exact.length>agreed.length)flags.push('ALTERNATIVE_EXACT_CANDIDATES');return 'AGREE';}
     if(linked.length){reasons.push(`${label}: 이름 일치 후보가 MONDO에서 exact가 아닌 관계로 연결됩니다(${links[name].join(', ')}).`);return 'LINK';}
+    if(unread){reasons.push(`${label}: 조회한 기록에서는 exact 연결을 찾지 못했고, 조회 상한으로 ${unread}개를 읽지 않아 연결 여부를 판단하지 않았습니다.`);return 'UNKNOWN';}
     if(sourceStatus!=='OK' && (missing || !exact.length)){reasons.push(`${label}: 조회가 끝나지 않아 연결 여부를 판단하지 않았습니다.`);return 'UNKNOWN';}
     if(exact.length){reasons.push(`${label}: 이름 일치 후보(${exact.map(c=>c.id).join(', ')})가 MONDO 교차참조에 없습니다.`);return 'CONFLICT';}
     const target=pool.find(c=>targets.includes(c.id));
@@ -173,7 +176,10 @@ export function compareCandidates(record) {
   const proposal=['CROSS_SOURCE_AGREEMENT','PARTIAL_AGREEMENT','MONDO_ONLY'].includes(code)?{concept_key:best.id,preferred_name:best.label,
     records:[best.id,...cross.ncit,...cross.mesh],name_relation:'이름 일치 · 범위 미검토',review_status:'REVIEW_PENDING'}:null;
   const version=k=>r[k]?.ok?r[k].data.config?.version ?? null:null;
-  return {format:COMPARE_VERSION,name_policy:NAME_POLICY,term:record.term,retrieved_at:record.retrieved_at,code,complete:!failures.length && !truncated.length,
+  // Version lookups are metadata: they do not change the link result but are shown and retried.
+  const metadata_failures=[['MONDO','mondo_info'],['NCIt','ncit_info']].filter(([,k])=>r[k] && !r[k].ok).map(([source,k])=>({source,step:'버전 조회',error:r[k].error}));
+  if(metadata_failures.length)flags.push('VERSION_UNAVAILABLE');
+  return {format:COMPARE_VERSION,name_policy:NAME_POLICY,term:record.term,retrieved_at:record.retrieved_at,code,complete:!failures.length && !truncated.length,metadata_complete:!metadata_failures.length,metadata_failures,
     reasons,flags:unique(flags),failures,proposal,cross_reference:cross,non_exact_links:links,
     sources:{mondo:{status:st.mondo,version:version('mondo_info'),candidates:mondo},ncit:{status:st.ncit,version:version('ncit_info'),candidates:ncit},mesh:{status:st.mesh,version:null,candidates:mesh}},
     limits:['이름·교차참조 연결은 같은 임상 범위의 충분조건이 아닙니다. 정의 범위(G03)는 사람이 비교합니다.','MONDO는 NCIt·MeSH 지식을 재사용하므로 세 기록의 연결은 독립된 세 검증이 아닙니다.','MeSH는 Descriptor 수준의 입력어로 대조했으며 Concept 범위와 Scope Note는 비교하지 않았습니다.','제안은 사전에 반영되지 않습니다. 승인·변경 기록·회귀 검사를 거쳐 새 사전 버전으로 반영합니다.','외부 서비스의 현재 버전은 이 사전의 고정 스냅샷과 다를 수 있습니다.']};

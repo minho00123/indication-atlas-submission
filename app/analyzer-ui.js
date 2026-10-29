@@ -74,16 +74,16 @@ const verdicts={CROSS_SOURCE_AGREEMENT:['이름·교차참조 연결 확인 · �
   NO_CANDIDATE:['세 출처 검색 결과에 이름 일치 후보 없음','amber'],LOOKUP_INCOMPLETE:['조회 미완료 · 다시 조회 필요','amber'],SOURCE_ERROR:['조회 실패 · 다시 조회 필요','amber']};
 const levels={LABEL:'대표 이름 일치',EXACT_SYNONYM:'정확 동의어 일치',RELATED_SYNONYM:'관련 동의어',NARROW_SYNONYM:'좁은 동의어',BROAD_SYNONYM:'넓은 동의어',ENTRY_TERM:'Descriptor 입력어 일치 · Concept 범위 미검토',PARTIAL:'검색 결과 · 이름 불일치'};
 const relations={EXACT_MATCH:'MONDO exact match',CLOSE_MATCH:'MONDO close match',BROAD_MATCH:'MONDO broad match',NARROW_MATCH:'MONDO narrow match',RELATED_MATCH:'MONDO related match',XREF_UNQUALIFIED:'MONDO xref · 관계 미표기'};
-const flagLabels={ALTERNATIVE_EXACT_CANDIDATES:'같은 이름의 다른 후보가 있습니다.',ENTITY_TYPE_UNCHECKED:'NCIt 이름 일치 후보 일부는 개체 유형(질환·평가 항목·pathway 등)을 확인하지 않았습니다.',MESH_DESCRIPTOR_ENTRY_TERM:'MeSH는 Descriptor의 입력어로 일치했습니다. Concept 소속은 확인하지 않았습니다.'};
+const flagLabels={ALTERNATIVE_EXACT_CANDIDATES:'같은 이름의 다른 후보가 있습니다.',ENTITY_TYPE_UNCHECKED:'NCIt 이름 일치 후보 일부는 개체 유형(질환·평가 항목·pathway 등)을 확인하지 않았습니다.',MESH_DESCRIPTOR_ENTRY_TERM:'MeSH는 Descriptor의 입력어로 일치했습니다. Concept 소속은 확인하지 않았습니다.',VERSION_UNAVAILABLE:'출처 버전을 확인하지 못했습니다. 연결 결과와 별개이며 다시 조회할 수 있습니다.'};
 const officialPage=id=>id.startsWith('MONDO:')?`https://www.ebi.ac.uk/ols4/ontologies/mondo/classes?obo_id=${encodeURIComponent(id)}`:
   id.startsWith('NCIT:')?`https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/${encodeURIComponent(id.slice(5))}`:`https://meshb.nlm.nih.gov/record/ui?ui=${encodeURIComponent(id.slice(5))}`;
 const statusText={OK:'',PARTIAL:'일부 조회 실패',ERROR:'조회 실패'};
 function compareHTML(c,{retry=''}={}) {
   const [label,tone]=verdicts[c.code] ?? [c.code,'amber'],linked=new Set(c.proposal?.records ?? []);
   const bestXrefs=c.sources.mondo.candidates.find(x=>x.id===c.proposal?.concept_key)?.xrefs ?? c.sources.mondo.candidates.find(x=>x.xrefs)?.xrefs ?? {};
-  const column=(name,s)=>`<section><h4>${name}<small>${s.status!=='OK'?esc(statusText[s.status]):''}${s.version?` 버전 ${esc(s.version)}`:s.status==='OK'?' 현재 서비스':''}</small></h4>${s.candidates.length?s.candidates.slice(0,4).map(x=>`<div class="candidate-item${linked.has(x.id)?' agreed':''}"><a href="${esc(officialPage(x.id))}" target="_blank" rel="noopener noreferrer"><code>${esc(x.id)}</code> ↗</a><strong>${esc(x.label)}</strong><span class="badge ${['LABEL','EXACT_SYNONYM','ENTRY_TERM'].includes(x.level)?'gray':'amber'}">${esc(levels[x.level] ?? x.level)}</span>${bestXrefs[x.id]?`<span class="badge ${bestXrefs[x.id]==='EXACT_MATCH'?'':'amber'}">${esc(relations[bestXrefs[x.id]])}</span>`:''}${x.semantic_type?`<small>유형: ${esc(x.semantic_type.join(', '))}</small>`:''}${x.definition?`<p>${esc(x.definition.length>220?x.definition.slice(0,220)+'…':x.definition)}</p>`:''}${x.entry_terms?.length?`<p><small>입력어: ${esc(x.entry_terms.join(' · '))}</small></p>`:''}</div>`).join(''):`<p class="source-note">${s.status==='OK'?'이름 일치 후보 없음':'확인하지 못함'}</p>`}</section>`;
+  const column=(name,s)=>`<section><h4>${name}<small>${s.status!=='OK'?esc(statusText[s.status]):''}${s.version?` 버전 ${esc(s.version)}`:s.status==='OK'?' 현재 서비스':''}</small></h4>${s.candidates.length?[...s.candidates].sort((a,b)=>(linked.has(b.id)||!!bestXrefs[b.id])-(linked.has(a.id)||!!bestXrefs[a.id])).slice(0,4).map(x=>`<div class="candidate-item${linked.has(x.id)?' agreed':''}"><a href="${esc(officialPage(x.id))}" target="_blank" rel="noopener noreferrer"><code>${esc(x.id)}</code> ↗</a><strong>${esc(x.label)}</strong><span class="badge ${['LABEL','EXACT_SYNONYM','ENTRY_TERM'].includes(x.level)?'gray':'amber'}">${esc(levels[x.level] ?? x.level)}</span>${bestXrefs[x.id]?`<span class="badge ${bestXrefs[x.id]==='EXACT_MATCH'?'':'amber'}">${esc(relations[bestXrefs[x.id]])}</span>`:''}${x.semantic_type?`<small>유형: ${esc(x.semantic_type.join(', '))}</small>`:''}${x.definition?`<p>${esc(x.definition.length>220?x.definition.slice(0,220)+'…':x.definition)}</p>`:''}${x.entry_terms?.length?`<p><small>입력어: ${esc(x.entry_terms.join(' · '))}</small></p>`:''}</div>`).join(''):`<p class="source-note">${s.status==='OK'?'이름 일치 후보 없음':'확인하지 못함'}</p>`}${s.candidates.length>4?`<p class="source-note">외 ${s.candidates.length-4}개 후보는 비교 기록 JSON에 있습니다. 판정에는 모두 사용했습니다.</p>`:''}</section>`;
   return `<div class="compare-heading"><h3>공식 용어체계 연결 기록 찾기</h3><span class="badge ${tone}">${esc(label)}</span></div>
-    ${!c.complete?`<p class="runtime-note">일부 조회가 끝나지 않았습니다. 확보한 후보만 표시하며 완결된 결과로 보지 않습니다. ${retry}</p>`:''}
+    ${!c.complete?`<p class="runtime-note">일부 조회가 끝나지 않았습니다. 확보한 후보만 표시하며 완결된 결과로 보지 않습니다. ${retry}</p>`:!c.metadata_complete?`<p class="runtime-note">출처 버전을 확인하지 못했습니다(${esc(c.metadata_failures.map(f=>f.source+' '+f.error).join(', '))}). 연결 결과는 그대로이며 버전은 다시 조회할 수 있습니다. ${retry}</p>`:''}
     <ol class="compare-reasons">${c.reasons.map(x=>`<li>${esc(x)}</li>`).join('')}</ol>
     ${c.flags.length?`<ul class="compare-flags">${c.flags.map(f=>`<li>${esc(flagLabels[f] ?? f)}</li>`).join('')}</ul>`:''}
     ${c.proposal?`<div class="compare-proposal"><b>검토할 외부 기록 · 연결 여부 미승인</b><span>${esc(c.proposal.preferred_name)} <code>${esc(c.proposal.concept_key)}</code></span><small>${esc(c.proposal.records.join(' · '))} · ${esc(c.proposal.name_relation)} · 사전에 반영하지 않았습니다.</small></div>`:''}
@@ -103,7 +103,7 @@ function candidateCell(row,i) {
   if(row.candidate_pending)return '<small>조회 중…</small>';
   if(!row.candidate_pair)return `${row.candidate_error?`<small>오류: ${esc(row.candidate_error)}</small><br>`:''}<button class="subtle-button" type="button" data-row-compare="${i}" data-force>${row.candidate_error?'다시 조회':'후보 비교'}</button>`;
   const c=row.candidate_pair.comparison,[label,tone]=verdicts[c.code] ?? [c.code,'amber'];
-  return `<span class="badge ${tone}">${esc(label)}</span>${c.proposal?`<br><small>검토할 기록: ${esc(c.proposal.records.join(' · '))}</small>`:''}<br><button class="subtle-button" type="button" data-batch-compare="${i}">근거 자세히 ↑</button>${!c.complete?` <button class="subtle-button" type="button" data-row-compare="${i}" data-force>다시 조회</button>`:''}`;
+  return `<span class="badge ${tone}">${esc(label)}</span>${c.proposal?`<br><small>검토할 기록: ${esc(c.proposal.records.join(' · '))}</small>`:''}<br><button class="subtle-button" type="button" data-batch-compare="${i}">근거 자세히 ↑</button>${!c.complete || !c.metadata_complete?` <button class="subtle-button" type="button" data-row-compare="${i}" data-force>다시 조회</button>`:''}`;
 }
 function batchHTML(rows,meta) {
   const analyzed=rows.filter(r=>r.status==='ANALYZED'),linked=analyzed.filter(r=>!needsReview(r)).length,review=analyzed.length-linked;
@@ -182,7 +182,7 @@ export function mountAnalyzer(root,catalog) {
     if(!force && inflight.has(term))return inflight.get(term);
     const p=fetchCandidates(term,{fetchImpl:limitedFetch,infoCache}).then(record=>{
       const pair={record,comparison:compareCandidates(record)};
-      if(pair.comparison.complete)completeCache.set(term,pair);else completeCache.delete(term);
+      if(pair.comparison.complete && pair.comparison.metadata_complete)completeCache.set(term,pair);else completeCache.delete(term);
       return pair;
     }).finally(()=>{if(inflight.get(term)===p)inflight.delete(term);});
     inflight.set(term,p);return p;

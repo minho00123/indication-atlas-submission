@@ -133,3 +133,36 @@ test('records cut by lookup limits are reported as incomplete',()=>{
   const c=compareCandidates(rec);
   assert.equal(c.complete,false);assert.ok(c.reasons.some(r=>r.includes('mesh_details 2개')));
 });
+
+const boundaries=Object.fromEntries(JSON.parse(readFileSync(new URL('./fixtures/candidates/review_boundaries.json',import.meta.url),'utf8')).cases.map(c=>[c.id,c.record]));
+
+test('a linked target beyond the display limit still decides the result',()=>{
+  const c=compareCandidates(boundaries['R2-linked-target-removed-by-candidate-slice']);
+  assert.ok(c.cross_reference.ncit.includes('NCIT:C84701'));
+  assert.notEqual(c.code,'SOURCE_DISAGREEMENT');
+  assert.ok(c.flags.includes('ALTERNATIVE_EXACT_CANDIDATES'));
+  const shuffled=clone(boundaries['R2-linked-target-removed-by-candidate-slice']);
+  shuffled.responses.ncit_exact.data.response.docs.reverse();
+  assert.equal(compareCandidates(shuffled).code,c.code);
+});
+
+test('records left unread by a lookup limit keep that source unknown',()=>{
+  const c=compareCandidates(boundaries['R3-detail-limit-read-as-no-name-match']);
+  assert.equal(c.code,'LOOKUP_INCOMPLETE');assert.equal(c.complete,false);
+  assert.ok(c.cross_reference.ncit.length,'confirmed NCIt link is kept');
+  assert.ok(c.reasons.some(r=>r.startsWith('MeSH') && r.includes('읽지 않아')));
+  assert.ok(!c.reasons.some(r=>r.startsWith('MeSH') && r.includes('이름이 달라')));
+});
+
+test('version lookup failures are shown separately and never complete metadata',()=>{
+  const c=compareCandidates(boundaries['R1-version-failure-omitted']);
+  assert.equal(c.code,'CROSS_SOURCE_AGREEMENT');assert.equal(c.complete,true);
+  assert.equal(c.metadata_complete,false);assert.ok(c.flags.includes('VERSION_UNAVAILABLE'));
+  assert.deepEqual(c.metadata_failures.map(f=>f.source),['MONDO','NCIt']);
+  assert.equal(compareCandidates(fixture('Fabry_disease')).metadata_complete,true);
+});
+
+test('earlier review boundaries stay fixed',()=>{
+  assert.equal(compareCandidates(boundaries['F4-mesh-search-failure-with-xref-details']).complete,false);
+  assert.equal(compareCandidates(boundaries['N1-negative-sign']).proposal,null);
+});

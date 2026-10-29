@@ -275,7 +275,7 @@ def run(base_url,browser_executable=None,output=None):
         sent=[];outage={'on':True}
         def reply(route):
             sent.append(route.request.url);r=replies.get(route.request.url)
-            if outage['on']:route.fulfill(status=503,content_type='application/json',headers={'Access-Control-Allow-Origin':'*'},body='{}');return
+            if outage['on'] or (outage.get('info') and re.search(r'/ontologies/(mondo|ncit)$',route.request.url)):route.fulfill(status=503,content_type='application/json',headers={'Access-Control-Allow-Origin':'*'},body='{}');return
             route.fulfill(status=200 if r and r['ok'] else 404,content_type='application/json',headers={'Access-Control-Allow-Origin':'*'},body=json.dumps(r['data'] if r and r['ok'] else {}))
         page.route('https://www.ebi.ac.uk/**',reply);page.route('https://id.nlm.nih.gov/**',reply)
         page.get_by_role('button',name='미등록 1줄 모두 MONDO·NCIt·MeSH 후보 비교').click()
@@ -309,6 +309,17 @@ def run(base_url,browser_executable=None,output=None):
         with tempfile.TemporaryDirectory() as tmp:
             dest=Path(tmp)/'cmp.json';download.value.save_as(dest);cmp=json.loads(dest.read_text())
             assert cmp['comparison']['code']=='CROSS_SOURCE_AGREEMENT' and cmp['record']['term']==cmp['comparison']['term']=='Fabry disease'
+        outage['info']=True
+        page.reload(wait_until='networkidle')  # fresh session: no cached version lookups
+        page.locator('#analyzer-keyword').fill('Fabry disease');page.locator('#analyzer-text').fill('Adults with Fabry disease.')
+        page.get_by_role('button',name='이 원문 분석하기').click()
+        page.get_by_role('button',name='MONDO·NCIt·MeSH에서 후보 비교하기').click()
+        expect(page.locator('#analyzer-result .runtime-note').filter(has_text='출처 버전을 확인하지 못했습니다')).to_be_visible()
+        before=len(sent);outage['info']=False
+        page.locator('#analyzer-result [data-compare-output]').get_by_role('button',name='다시 조회').click()
+        expect(page.locator('#analyzer-result .compare-columns')).to_contain_text('버전 2026-10-06')
+        assert len(sent)>before
+        console_errors[:]=[e for e in console_errors if 'status of 503' not in e]
         page.unroute('https://www.ebi.ac.uk/**');page.unroute('https://id.nlm.nih.gov/**')
         results.append('On-demand MONDO/NCIt/MeSH comparison: outage shown and retried, target-only requests, exact-match link, not registered, paired record downloads')
 
