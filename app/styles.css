@@ -923,3 +923,15 @@ summary>.badge { flex-shrink:0; }
   .analyzer-page .runtime-conditions { grid-template-columns:1fr; }
   .analyzer-page .runtime-reasons li { overflow-wrap:anywhere; }
 }
+
+/* Batch results: one card per line on narrow screens so status and concept stay visible without sideways scrolling. */
+@media (max-width:760px) {
+  .batch-panel .table-wrap { overflow:visible; border:0; background:none; }
+  .batch-table, .batch-table tbody, .batch-table tr, .batch-table td { display:block; width:100%; min-width:0; }
+  .batch-table colgroup, .batch-table thead { display:none; }
+  .batch-table tr { margin-bottom:10px; padding:12px 14px; border:1px solid var(--line); border-radius:8px; background:var(--surface); }
+  .batch-table td { position:relative; padding:6px 0 6px 100px; border:0; }
+  .batch-table td::before { content:attr(data-label); position:absolute; left:0; top:8px; width:92px; font-size:11px; font-weight:600; color:var(--muted); }
+  .batch-table td[data-empty] { display:none; }
+  .batch-table details summary { padding:6px 10px; }
+}

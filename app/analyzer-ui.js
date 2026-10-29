@@ -15,7 +15,7 @@ const samples=[
   {label:'문맥이 부족한 CD',keyword:'CD',text:'Patients with CD.'},
   {label:'크론병을 뜻하는 CD',keyword:'CD',text:'Crohn disease (CD) is the target. Patients with CD are included.'},
   {label:'셀리악병을 뜻하는 CD',keyword:'CD',text:'Celiac disease (CD) is the target. Patients with CD are included.'},
-  {label:'새 약어 T2D',keyword:'T2D',text:'Type 2 diabetes (T2D) is mentioned.'},
+  {label:'사전에 없는 약어 T2D',keyword:'T2D',text:'Type 2 diabetes (T2D) is mentioned.'},
   {label:'재발·치료 조건',keyword:'Acute myeloid leukemia',text:'Relapsed acute myeloid leukemia after prior therapy.'},
   {label:'입력과 문장의 차이',keyword:'eczema',text:'Adults with plaque psoriasis.'},
   {label:'MDS OR AML',keyword:'MDS/AML',text:'Patients with MDS or AML; either diagnosis is eligible.'},
@@ -102,7 +102,7 @@ function compareHTML(c,{retry=''}={}) {
 const statusLabel=row=>{
   if(row.status==='INPUT_ERROR')return ['입력 오류','amber'];
   const r=row.result;
-  if(['LINKED','LOCAL_LINKED','ROUTE_ENTITY'].includes(r.decision) && r.target_evidence_status==='NO_TEXT')return ['기존 사전의 이름 연결 · 원문 없음','gray'];
+  if(['LINKED','LOCAL_LINKED','ROUTE_ENTITY'].includes(r.decision) && r.target_evidence_status==='NO_TEXT')return [`${labels[r.decision]} · 원문 없음`,'gray'];
   return [labels[r.decision] ?? r.decision,needsReview(row)?'amber':''];
 };
 function candidateCell(row,i) {
@@ -115,15 +115,15 @@ function candidateCell(row,i) {
 function batchHTML(rows,meta) {
   const analyzed=rows.filter(r=>r.status==='ANALYZED'),linked=analyzed.filter(r=>!needsReview(r)).length,review=analyzed.length-linked;
   const errors=rows.length-analyzed.length,noText=analyzed.filter(r=>!r.has_text).length,unregistered=analyzed.filter(r=>r.result.decision==='UNREGISTERED').length;
-  return `<p class="batch-summary"><strong>${rows.length}줄 처리</strong> · 기존 지식으로 연결 ${linked} · 검토 필요 ${review} · 입력 오류 ${errors}<br><small>원문 없음 ${noText}줄은 별도 축입니다(위 합계와 겹칩니다). 원문 없이 이름만 조회한 행은 원문 문맥·환자 조건을 확인하지 않았습니다.</small></p>
-    ${unregistered?`<div class="batch-compare-all"><button class="runtime-submit" type="button" data-compare-all>미등록 ${unregistered}줄 모두 MONDO·NCIt·MeSH 후보 비교</button><small>누르면 미등록 줄의 대상 표현만 EBI OLS·NLM MeSH 공개 API로 보내고, 규칙 비교 결과를 아래 "공식 용어체계 후보" 칸에 채웁니다. 사전에는 반영하지 않습니다.</small></div>`:''}
+  return `<p class="batch-summary"><strong>${rows.length}줄 처리</strong> · 기존 사전으로 연결 ${linked} · 검토 필요 ${review} · 입력 오류 ${errors}${noText?`<br><small>이 중 ${noText}줄은 문장 없이 이름만 확인했습니다. 문장의 문맥과 환자 조건은 확인하지 않았습니다.</small>`:''}</p>
+    ${unregistered?`<div class="batch-compare-all"><button class="runtime-submit" type="button" data-compare-all>미등록 ${unregistered}줄 모두 MONDO·NCIt·MeSH 후보 비교</button><small>미등록 줄의 이름만 외부 용어 API로 보냅니다. 결과는 표의 "공식 용어체계 후보" 칸에 표시하며 사전에는 반영하지 않습니다.</small></div>`:''}
     <div class="table-wrap"><table class="batch-table"><colgroup><col class="c-line"><col class="c-term"><col class="c-text"><col class="c-status"><col class="c-concept"><col class="c-candidate"><col class="c-steps"></colgroup><thead><tr><th>줄</th><th>대상 표현</th><th>원문</th><th>처리 결과</th><th>연결 개념</th><th>공식 용어체계 후보</th><th>다음 단계</th></tr></thead><tbody>${rows.map(row=>{
       const [label,tone]=statusLabel(row),r=row.result,steps=nextSteps(r);
-      return `<tr><td>${row.line}</td><td><strong>${esc(row.keyword) || '—'}</strong></td><td>${row.has_text?`<small>${esc(row.text.length>90?row.text.slice(0,90)+'…':row.text)}</small>`:'<small>없음 · 이름만 조회</small>'}</td>
-        <td><span class="badge ${tone}">${esc(label)}</span>${r && row.has_text?`<br><small class="batch-evidence">언급 방식: ${esc(evidenceLabels[r.target_evidence_status] ?? r.target_evidence_status)}</small>`:''}${!r?`<br><small>${esc(row.error)}</small>`:''}</td>
-        <td>${r && r.concepts.length?r.concepts.map(conceptLink).join('<br>'):'<small>단일 개념 없음</small>'}</td>
-        <td data-candidate-cell="${rows.indexOf(row)}">${candidateCell(row,rows.indexOf(row))}</td>
-        <td>${steps.length?`<details><summary>${steps.length}개 확인 항목</summary><ol>${steps.map(s=>`<li><b>${esc(s.rule)}</b> ${esc(s.text)}</li>`).join('')}</ol>${r.decision==='UNREGISTERED' || r.decision.startsWith('HOLD')?`<p><small>외부 후보 찾기 · 미검증</small><br>${searchLinks(row.keyword).map(l=>`<a href="${esc(l.url)}" target="_blank" rel="noopener noreferrer">${esc(l.name)} ↗</a>`).join('<br>')}</p>`:''}</details>`:'<small>—</small>'}</td></tr>`;}).join('')}</tbody></table></div>
+      return `<tr><td data-label="줄">${row.line}</td><td data-label="대상 표현"><strong>${esc(row.keyword) || '—'}</strong></td><td data-label="원문">${row.has_text?`<small>${esc(row.text.length>90?row.text.slice(0,90)+'…':row.text)}</small>`:'<small>없음 · 이름만 조회</small>'}</td>
+        <td data-label="처리 결과"><span class="badge ${tone}">${esc(label)}</span>${r && row.has_text?`<br><small class="batch-evidence">언급 방식: ${esc(evidenceLabels[r.target_evidence_status] ?? r.target_evidence_status)}</small>`:''}${!r?`<br><small>${esc(row.error)}</small>`:''}</td>
+        <td data-label="연결 개념">${r && r.concepts.length?r.concepts.map(conceptLink).join('<br>'):'<small>단일 개념 없음</small>'}</td>
+        <td data-label="공식 용어체계 후보" data-candidate-cell="${rows.indexOf(row)}"${r && r.decision==='UNREGISTERED'?'':' data-empty'}>${candidateCell(row,rows.indexOf(row))}</td>
+        <td data-label="다음 단계"${steps.length?'':' data-empty'}>${steps.length?`<details><summary>${steps.length}개 확인 항목</summary><ol>${steps.map(s=>`<li><b>${esc(s.rule)}</b> ${esc(s.text)}</li>`).join('')}</ol>${r.decision==='UNREGISTERED' || r.decision.startsWith('HOLD')?`<p><small>외부 후보 찾기 · 미검증</small><br>${searchLinks(row.keyword).map(l=>`<a href="${esc(l.url)}" target="_blank" rel="noopener noreferrer">${esc(l.name)} ↗</a>`).join('<br>')}</p>`:''}</details>`:'<small>—</small>'}</td></tr>`;}).join('')}</tbody></table></div>
     ${snapshotHTML(meta)}`;
 }
 const download=(name,body,type)=>{

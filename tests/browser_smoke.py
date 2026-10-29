@@ -353,7 +353,7 @@ def run(base_url,browser_executable=None,output=None):
         page.get_by_role('button',name='여러 건 확인하기').click()
         rows=page.locator('.batch-table tbody tr')
         expect(rows).to_have_count(8)
-        expect(rows.nth(0)).to_contain_text('기존 사전의 이름 연결 · 원문 없음')
+        expect(rows.nth(0)).to_contain_text('기존 개념에 연결 · 원문 없음')
         expect(rows.nth(1)).to_contain_text('약어 의미 보류')
         expect(rows.nth(2)).to_contain_text('기존 개념에 연결')
         expect(rows.nth(4)).to_contain_text('수식된 이름')
