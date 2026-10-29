@@ -68,21 +68,28 @@ function reportHTML(r) {
 }
 
 const evidenceLabels={...assertions,NO_TEXT:'원문 없음 · 사전 조회',NOT_FOUND:'대상 근거 미확인',UNRESOLVED:'대상 의미 미해소',MIXED:'서로 다른 표지 혼재'};
-const verdicts={CROSS_SOURCE_AGREEMENT:['세 출처 교차 일치 · 같은 개념 후보',''],PARTIAL_AGREEMENT:['일부 출처 교차 일치 · 같은 개념 후보',''],MONDO_ONLY:['MONDO만 일치 · 다른 출처 확인 필요','amber'],
-  SOURCE_DISAGREEMENT:['출처 간 불일치 · 사람 검토','amber'],MULTIPLE_CANDIDATES:['후보 여러 개 · 사람 검토','amber'],SCOPE_REVIEW:['관련 동의어로만 일치 · 범위 검토','amber'],
-  ABBREVIATION_NEEDS_DEFINITION:['약어 · 문서 정의 필요','amber'],NO_MONDO_MATCH:['MONDO 대응 없음 · 사람 검토','amber'],NO_CANDIDATE:['후보 없음','amber'],SOURCE_ERROR:['조회 실패','amber']};
-const levels={LABEL:'대표 이름 일치',EXACT_SYNONYM:'정확 동의어 일치',RELATED_SYNONYM:'관련 동의어',NARROW_SYNONYM:'좁은 동의어',BROAD_SYNONYM:'넓은 동의어',ENTRY_TERM:'MeSH 입력어 일치',PARTIAL:'검색 결과 · 이름 불일치'};
+const verdicts={CROSS_SOURCE_AGREEMENT:['이름·교차참조 연결 확인 · 범위 미검토','gray'],PARTIAL_AGREEMENT:['일부 이름·교차참조 연결 · 범위 미검토','gray'],MONDO_ONLY:['MONDO 이름만 일치 · 다른 출처 연결 미확인','amber'],
+  NON_EXACT_LINK:['교차참조가 exact 관계 아님 · 관계 검토','amber'],SOURCE_DISAGREEMENT:['이름 일치 후보와 교차참조의 차이 · 관계 검토','amber'],MULTIPLE_CANDIDATES:['MONDO 이름 일치 후보 여러 개 · 사람 검토','amber'],
+  SCOPE_REVIEW:['관련 동의어로만 일치 · 범위 검토','amber'],ABBREVIATION_NEEDS_DEFINITION:['약어 형태 · 문서 정의 필요','amber'],NO_MONDO_MATCH:['이번 검색에서 MONDO 일치 후보 미확인','amber'],
+  NO_CANDIDATE:['세 출처 검색 결과에 이름 일치 후보 없음','amber'],LOOKUP_INCOMPLETE:['조회 미완료 · 다시 조회 필요','amber'],SOURCE_ERROR:['조회 실패 · 다시 조회 필요','amber']};
+const levels={LABEL:'대표 이름 일치',EXACT_SYNONYM:'정확 동의어 일치',RELATED_SYNONYM:'관련 동의어',NARROW_SYNONYM:'좁은 동의어',BROAD_SYNONYM:'넓은 동의어',ENTRY_TERM:'Descriptor 입력어 일치 · Concept 범위 미검토',PARTIAL:'검색 결과 · 이름 불일치'};
+const relations={EXACT_MATCH:'MONDO exact match',CLOSE_MATCH:'MONDO close match',BROAD_MATCH:'MONDO broad match',NARROW_MATCH:'MONDO narrow match',RELATED_MATCH:'MONDO related match',XREF_UNQUALIFIED:'MONDO xref · 관계 미표기'};
+const flagLabels={ALTERNATIVE_EXACT_CANDIDATES:'같은 이름의 다른 후보가 있습니다.',ENTITY_TYPE_UNCHECKED:'NCIt 이름 일치 후보 일부는 개체 유형(질환·평가 항목·pathway 등)을 확인하지 않았습니다.',MESH_DESCRIPTOR_ENTRY_TERM:'MeSH는 Descriptor의 입력어로 일치했습니다. Concept 소속은 확인하지 않았습니다.'};
 const officialPage=id=>id.startsWith('MONDO:')?`https://www.ebi.ac.uk/ols4/ontologies/mondo/classes?obo_id=${encodeURIComponent(id)}`:
   id.startsWith('NCIT:')?`https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/${encodeURIComponent(id.slice(5))}`:`https://meshb.nlm.nih.gov/record/ui?ui=${encodeURIComponent(id.slice(5))}`;
-function compareHTML(c) {
-  const [label,tone]=verdicts[c.code] ?? [c.code,'amber'],agreed=new Set([...(c.proposal?.candidates ?? [])]);
-  const column=(name,s)=>`<section><h4>${name}<small>${s.status==='ERROR'?'조회 실패':s.version?`버전 ${esc(s.version)}`:'현재 서비스'}</small></h4>${s.candidates.length?s.candidates.slice(0,4).map(x=>`<div class="candidate-item${agreed.has(x.id)?' agreed':''}"><a href="${esc(officialPage(x.id))}" target="_blank" rel="noopener noreferrer"><code>${esc(x.id)}</code> ↗</a><strong>${esc(x.label)}</strong><span class="badge ${['LABEL','EXACT_SYNONYM','ENTRY_TERM'].includes(x.level)?'gray':'amber'}">${esc(levels[x.level] ?? x.level)}</span>${agreed.has(x.id)?'<span class="badge">교차참조 일치</span>':''}${x.via_xref && !agreed.has(x.id)?'<span class="badge amber">MONDO 교차참조 대상 · 이름 불일치</span>':''}${x.definition?`<p>${esc(x.definition.length>220?x.definition.slice(0,220)+'…':x.definition)}</p>`:''}${x.entry_terms?.length?`<p><small>입력어: ${esc(x.entry_terms.join(' · '))}</small></p>`:''}</div>`).join(''):'<p class="source-note">후보 없음</p>'}</section>`;
-  return `<div class="compare-heading"><h3>공식 용어체계 후보 비교</h3><span class="badge ${tone}">${esc(label)}</span></div>
+const statusText={OK:'',PARTIAL:'일부 조회 실패',ERROR:'조회 실패'};
+function compareHTML(c,{retry=''}={}) {
+  const [label,tone]=verdicts[c.code] ?? [c.code,'amber'],linked=new Set(c.proposal?.records ?? []);
+  const bestXrefs=c.sources.mondo.candidates.find(x=>x.id===c.proposal?.concept_key)?.xrefs ?? c.sources.mondo.candidates.find(x=>x.xrefs)?.xrefs ?? {};
+  const column=(name,s)=>`<section><h4>${name}<small>${s.status!=='OK'?esc(statusText[s.status]):''}${s.version?` 버전 ${esc(s.version)}`:s.status==='OK'?' 현재 서비스':''}</small></h4>${s.candidates.length?s.candidates.slice(0,4).map(x=>`<div class="candidate-item${linked.has(x.id)?' agreed':''}"><a href="${esc(officialPage(x.id))}" target="_blank" rel="noopener noreferrer"><code>${esc(x.id)}</code> ↗</a><strong>${esc(x.label)}</strong><span class="badge ${['LABEL','EXACT_SYNONYM','ENTRY_TERM'].includes(x.level)?'gray':'amber'}">${esc(levels[x.level] ?? x.level)}</span>${bestXrefs[x.id]?`<span class="badge ${bestXrefs[x.id]==='EXACT_MATCH'?'':'amber'}">${esc(relations[bestXrefs[x.id]])}</span>`:''}${x.semantic_type?`<small>유형: ${esc(x.semantic_type.join(', '))}</small>`:''}${x.definition?`<p>${esc(x.definition.length>220?x.definition.slice(0,220)+'…':x.definition)}</p>`:''}${x.entry_terms?.length?`<p><small>입력어: ${esc(x.entry_terms.join(' · '))}</small></p>`:''}</div>`).join(''):`<p class="source-note">${s.status==='OK'?'이름 일치 후보 없음':'확인하지 못함'}</p>`}</section>`;
+  return `<div class="compare-heading"><h3>공식 용어체계 연결 기록 찾기</h3><span class="badge ${tone}">${esc(label)}</span></div>
+    ${!c.complete?`<p class="runtime-note">일부 조회가 끝나지 않았습니다. 확보한 후보만 표시하며 완결된 결과로 보지 않습니다. ${retry}</p>`:''}
     <ol class="compare-reasons">${c.reasons.map(x=>`<li>${esc(x)}</li>`).join('')}</ol>
-    ${c.proposal?`<div class="compare-proposal"><b>제안 · 검토 대기</b><span>${esc(c.proposal.preferred_name)} <code>${esc(c.proposal.concept_key)}</code></span><small>함께 연결할 후보: ${esc(c.proposal.candidates.join(' · '))} · ${esc(c.proposal.name_relation)} · 사전에 반영하지 않았습니다.</small></div>`:''}
+    ${c.flags.length?`<ul class="compare-flags">${c.flags.map(f=>`<li>${esc(flagLabels[f] ?? f)}</li>`).join('')}</ul>`:''}
+    ${c.proposal?`<div class="compare-proposal"><b>검토할 외부 기록 · 연결 여부 미승인</b><span>${esc(c.proposal.preferred_name)} <code>${esc(c.proposal.concept_key)}</code></span><small>${esc(c.proposal.records.join(' · '))} · ${esc(c.proposal.name_relation)} · 사전에 반영하지 않았습니다.</small></div>`:''}
     <div class="compare-columns">${column('MONDO',c.sources.mondo)}${column('NCIt',c.sources.ncit)}${column('MeSH',c.sources.mesh)}</div>
     <ul class="compare-limits">${c.limits.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>
-    <p class="snapshot-note">조회 ${esc(c.retrieved_at)} · 비교 규칙 ${esc(c.format)} · 같은 응답이면 같은 제안을 냅니다. <button class="subtle-button" type="button" data-compare-download>비교 기록 JSON 내려받기 ↓</button></p>`;
+    <p class="snapshot-note">조회 ${esc(c.retrieved_at)} · 비교 규칙 ${esc(c.format)} · 같은 응답 기록이면 같은 비교 결과를 냅니다. 외부 서비스의 응답은 시간에 따라 바뀔 수 있습니다. <button class="subtle-button" type="button" data-compare-download>이 비교의 기록 JSON 내려받기 ↓</button></p>`;
 }
 
 const statusLabel=row=>{
@@ -93,10 +100,10 @@ const statusLabel=row=>{
 };
 function candidateCell(row,i) {
   if(!row.result || row.result.decision!=='UNREGISTERED')return '<small>—</small>';
-  if(row.candidate_error)return `<small>조회 실패: ${esc(row.candidate_error)}</small><br><button class="subtle-button" type="button" data-row-compare="${i}">다시 비교</button>`;
-  if(!row.candidate)return `<button class="subtle-button" type="button" data-row-compare="${i}">후보 비교</button>`;
-  const c=row.candidate,[label,tone]=verdicts[c.code] ?? [c.code,'amber'];
-  return `<span class="badge ${tone}">${esc(label)}</span>${c.proposal?`<br><small>제안: ${esc(c.proposal.candidates.join(' · '))}</small>`:''}<br><button class="subtle-button" type="button" data-batch-compare="${i}">근거 자세히 ↑</button>`;
+  if(row.candidate_pending)return '<small>조회 중…</small>';
+  if(!row.candidate_pair)return `${row.candidate_error?`<small>오류: ${esc(row.candidate_error)}</small><br>`:''}<button class="subtle-button" type="button" data-row-compare="${i}" data-force>${row.candidate_error?'다시 조회':'후보 비교'}</button>`;
+  const c=row.candidate_pair.comparison,[label,tone]=verdicts[c.code] ?? [c.code,'amber'];
+  return `<span class="badge ${tone}">${esc(label)}</span>${c.proposal?`<br><small>검토할 기록: ${esc(c.proposal.records.join(' · '))}</small>`:''}<br><button class="subtle-button" type="button" data-batch-compare="${i}">근거 자세히 ↑</button>${!c.complete?` <button class="subtle-button" type="button" data-row-compare="${i}" data-force>다시 조회</button>`:''}`;
 }
 function batchHTML(rows,meta) {
   const analyzed=rows.filter(r=>r.status==='ANALYZED'),linked=analyzed.filter(r=>!needsReview(r)).length,review=analyzed.length-linked;
@@ -137,6 +144,7 @@ export function mountAnalyzer(root,catalog) {
     const error=root.querySelector('#analyzer-error');error.textContent='';
     try {
       current=analyzer.analyze({keyword:keyword.value,text:text.value});current.snapshot_meta={dataset_version:catalog.metadata.dataset_version,snapshot:catalog.metadata.snapshot};remembered={keyword:keyword.value,text:text.value,report:current};
+      viewToken++;viewPair=null;
       root.querySelector('#analyzer-result').innerHTML=reportHTML(current);
     } catch(e) { error.textContent=e.message; }
   }
@@ -160,50 +168,67 @@ export function mountAnalyzer(root,catalog) {
     } catch(e) { if(root.isConnected)root.querySelector('#analyzer-check-results').textContent=e.message; }
     finally { button.disabled=false; }
   });
-  const compareCache=new Map();let lastCompare=null;
-  async function compareInto(term,target,button) {
-    button.disabled=true;target.innerHTML='<p class="source-note">MONDO·NCIt·MeSH에서 후보를 조회하고 있습니다…</p>';
+  // Every displayed comparison keeps its own {record, comparison} pair; downloads use that pair.
+  // Only complete records are reused; in-flight lookups for the same term are shared.
+  const completeCache=new Map(),inflight=new Map(),infoCache=new Map();let viewPair=null,viewToken=0;
+  let active=0;const queue=[];
+  // At most six HTTP requests in flight across all lookups.
+  const limitedFetch=(url,init)=>new Promise((resolve,reject)=>{
+    const start=()=>{active++;fetch(url,init).then(resolve,reject).finally(()=>{active--;queue.shift()?.();});};
+    active<6?start():queue.push(start);
+  });
+  function lookup(term,force=false) {
+    if(!force && completeCache.has(term))return Promise.resolve(completeCache.get(term));
+    if(!force && inflight.has(term))return inflight.get(term);
+    const p=fetchCandidates(term,{fetchImpl:limitedFetch,infoCache}).then(record=>{
+      const pair={record,comparison:compareCandidates(record)};
+      if(pair.comparison.complete)completeCache.set(term,pair);else completeCache.delete(term);
+      return pair;
+    }).finally(()=>{if(inflight.get(term)===p)inflight.delete(term);});
+    inflight.set(term,p);return p;
+  }
+  const showPair=(pair,target)=>{viewPair=pair;target.innerHTML=compareHTML(pair.comparison,{retry:`<button class="subtle-button" type="button" data-compare-term="${esc(pair.record.term)}" data-force>다시 조회</button>`});};
+  async function compareInto(term,target,button,force=false) {
+    const token=++viewToken;viewPair=null;button.disabled=true;
+    target.innerHTML='<p class="source-note">MONDO·NCIt·MeSH에서 후보를 조회하고 있습니다…</p>';
     try {
-      if(!compareCache.has(term))compareCache.set(term,await fetchCandidates(term));
-      const record=compareCache.get(term),comparison=compareCandidates(record);
-      lastCompare={record,comparison};
-      if(target.isConnected)target.innerHTML=compareHTML(comparison);
-    } catch(e) { if(target.isConnected)target.textContent='후보 비교 중 오류가 발생했습니다: '+e.message; }
-    finally { button.disabled=false; }
+      const pair=await lookup(term,force);
+      if(token===viewToken && target.isConnected)showPair(pair,target);
+    } catch(e) { if(token===viewToken && target.isConnected)target.textContent='후보 비교 중 오류가 발생했습니다: '+e.message; }
+    finally { if(button.isConnected)button.disabled=false; }
   }
   root.addEventListener('click',event=>{
     const compare=event.target.closest('[data-compare-term]');
-    if(compare){compareInto(compare.dataset.compareTerm,root.querySelector('#analyzer-result [data-compare-output]'),compare);return;}
-    if(event.target.closest('[data-compare-download]') && lastCompare){download('indication-candidates.json',JSON.stringify(lastCompare,null,2)+'\n','application/json;charset=utf-8');return;}
+    if(compare){compareInto(compare.dataset.compareTerm,root.querySelector('#analyzer-result [data-compare-output]'),compare,compare.hasAttribute('data-force'));return;}
+    if(event.target.closest('[data-compare-download]') && viewPair){download('indication-candidates.json',JSON.stringify(viewPair,null,2)+'\n','application/json;charset=utf-8');return;}
     const rowCompare=event.target.closest('[data-row-compare]');
-    if(rowCompare && batchRows){compareRow(Number(rowCompare.dataset.rowCompare));return;}
+    if(rowCompare && batchRows){compareRow(Number(rowCompare.dataset.rowCompare),rowCompare.hasAttribute('data-force'));return;}
     if(event.target.closest('[data-compare-all]') && batchRows){compareAll(event.target.closest('[data-compare-all]'));return;}
     const fromBatch=event.target.closest('[data-batch-compare]');
     if(fromBatch && batchRows) {
       const row=batchRows[Number(fromBatch.dataset.batchCompare)];
       keyword.value=row.keyword;text.value=row.text;run();
+      const output=root.querySelector('#analyzer-result [data-compare-output]');
+      if(output && row.candidate_pair)showPair(row.candidate_pair,output);
       root.querySelector('#analyzer-result').scrollIntoView({block:'start'});
-      root.querySelector('#analyzer-result [data-compare-term]')?.click();
     }
   });
-  async function compareRow(i) {
-    const row=batchRows[i],cell=()=>root.querySelector(`[data-candidate-cell="${i}"]`),owner=batchRows;
-    if(!row?.result || row.result.decision!=='UNREGISTERED')return;
-    if(cell())cell().innerHTML='<small>조회 중…</small>';
-    try {
-      const term=row.keyword;
-      if(!compareCache.has(term))compareCache.set(term,await fetchCandidates(term));
-      row.candidate=compareCandidates(compareCache.get(term));delete row.candidate_error;
-    } catch(e) { row.candidate_error=e.message; }
-    if(owner===batchRows && cell())cell().innerHTML=candidateCell(row,i);
+  async function compareRow(i,force=false) {
+    const owner=batchRows,row=owner?.[i],cell=()=>owner===batchRows?root.querySelector(`[data-candidate-cell="${i}"]`):null;
+    if(!row?.result || row.result.decision!=='UNREGISTERED' || row.candidate_pending)return;
+    row.candidate_pending=true;if(cell())cell().innerHTML=candidateCell(row,i);
+    try { row.candidate_pair=await lookup(row.keyword,force); }
+    catch(e) { row.candidate_pair=null;row.candidate_error=e.message; }
+    finally { row.candidate_pending=false; }
+    if(cell())cell().innerHTML=candidateCell(row,i);
   }
   async function compareAll(button) {
     button.disabled=true;const owner=batchRows;
-    const pending=batchRows.map((r,i)=>i).filter(i=>batchRows[i].result?.decision==='UNREGISTERED' && !batchRows[i].candidate);
-    // Three lookups at a time keeps the public APIs' load modest.
+    const pending=owner.map((r,i)=>i).filter(i=>owner[i].result?.decision==='UNREGISTERED' && !owner[i].candidate_pair);
+    // Three terms at a time; the shared limiter also caps HTTP requests at six.
     const worker=async()=>{while(pending.length && owner===batchRows)await compareRow(pending.shift());};
     await Promise.all([worker(),worker(),worker()]);
-    if(button.isConnected){button.disabled=false;button.textContent='후보 비교 완료 · 다시 비교하려면 여러 줄을 다시 분석하세요';button.disabled=true;}
+    if(button.isConnected)button.textContent='후보 비교 완료 · 미완료 줄은 칸의 "다시 조회"를 누르세요';
   }
   const meta={format:BATCH_FORMAT,engine_version:catalog.metadata.snapshot?.engine_version,dataset_version:catalog.metadata.dataset_version,snapshot:catalog.metadata.snapshot,limits:BATCH_LIMITS};
   let batchRows=null;
@@ -219,6 +244,6 @@ export function mountAnalyzer(root,catalog) {
     } catch(e) { batchRows=null;error.textContent=e.message;root.querySelector('#batch-result').innerHTML='';root.querySelector('#batch-csv').disabled=root.querySelector('#batch-json').disabled=true; }
   });
   root.querySelector('#batch-csv').addEventListener('click',()=>{if(batchRows)download('indication-batch.csv','\ufeff'+batchCSV(batchRows,meta),'text/csv;charset=utf-8');});
-  root.querySelector('#batch-json').addEventListener('click',()=>{if(batchRows)download('indication-batch.json',JSON.stringify({...meta,rows:batchRows.map(r=>({...r,next_steps:nextSteps(r.result),candidate_record:r.candidate?compareCache.get(r.keyword) ?? null:null}))},null,2)+'\n','application/json;charset=utf-8');});
+  root.querySelector('#batch-json').addEventListener('click',()=>{if(batchRows)download('indication-batch.json',JSON.stringify({...meta,rows:batchRows.map(({candidate_pair,candidate_pending,...r})=>({...r,next_steps:nextSteps(r.result),candidate_comparison:candidate_pair?.comparison ?? null,candidate_record:candidate_pair?.record ?? null}))},null,2)+'\n','application/json;charset=utf-8');});
   if(current)root.querySelector('#analyzer-result').innerHTML=reportHTML(current);else run();
 }
