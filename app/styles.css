@@ -446,3 +446,30 @@ summary>.badge { flex-shrink:0; }
 .doc-summary ul { margin:0; padding-left:20px; }
 .doc-summary li { margin:5px 0; color:var(--ink); }
 @media (max-width:760px) { .key-points { grid-template-columns:1fr; } }
+.next-steps { margin:16px 0; padding:14px 16px; border:1px solid #ecdcb9; background:#fffaf0; border-radius:10px; }
+.next-steps h3 { margin:0 0 6px; font-size:14px; }
+.next-steps ol { margin:0; padding-left:20px; font-size:12px; }
+.next-steps li { margin:5px 0; }
+.next-steps-links { display:flex; flex-wrap:wrap; gap:6px 14px; align-items:center; margin:12px 0 0; font-size:12px; }
+.next-steps-links strong { flex-basis:100%; font-size:12px; }
+.snapshot-note { margin:16px 0 8px; color:var(--muted); font-size:11px; line-height:1.7; }
+.batch-panel { margin:25px 0 0; padding:23px; }
+.batch-intro { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:24px; margin-bottom:16px; }
+.batch-intro h2 { font-size:18px; margin:0 0 6px; }
+.batch-intro p { font-size:12px; color:var(--muted); margin:0; }
+.intake-flow { list-style:none; margin:0; padding:0; display:grid; gap:8px; font-size:12px; color:var(--muted); }
+.intake-flow li { padding:9px 12px; background:var(--bg); border-radius:8px; }
+.intake-flow b { display:block; color:var(--ink); font-size:12px; }
+.batch-panel label { display:block; font-size:12px; font-weight:650; margin-bottom:6px; }
+.batch-panel textarea { width:100%; border:1px solid var(--line); border-radius:9px; padding:11px 12px; font:13px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace; resize:vertical; }
+.batch-actions { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:10px 0; }
+.batch-actions .subtle-button { padding:8px 12px; font-size:12px; }
+.batch-actions .subtle-button:disabled { opacity:.45; }
+#batch-error { color:#a4462a; font-size:12px; margin:4px 0; }
+.batch-summary { font-size:13px; margin:12px 0; }
+.batch-summary small { color:var(--muted); }
+.batch-table { min-width:860px; font-size:12px; }
+.batch-table td { vertical-align:top; }
+.batch-table details ol { padding-left:18px; margin:6px 0; }
+@media (max-width:760px) { .batch-intro { grid-template-columns:1fr; } .batch-panel { padding:18px; } }
+.batch-evidence { color:var(--ink); font-weight:600; }

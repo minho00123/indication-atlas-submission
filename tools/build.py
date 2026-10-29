@@ -2,6 +2,7 @@
 import csv
 import hashlib
 import json
+import re
 from pathlib import Path
 import shutil
 import zipfile
@@ -58,7 +59,12 @@ def build():
     known={r['source_id'] for r in records}
     for story in stories:
         if not set(story['source_ids']).issubset(known):raise ValueError('Case references missing row')
-    dump(DIST/'data/catalog.json',dict(metadata=stats,**core,records=brief,sources=sources,stories=stories,comparisons=load('comparisons.json')))
+    # Identifies the exact rule engine and knowledge snapshot behind every runtime result.
+    sha=lambda path:hashlib.sha256((ROOT/path).read_bytes()).hexdigest()
+    engine_version=re.search(r"ENGINE_VERSION = '([^']+)'",(ROOT/'app/analyzer.mjs').read_text(encoding='utf8'))[1]
+    snapshot=dict(engine_version=engine_version,engine_sha256=sha('app/analyzer.mjs'),dictionary_sha256=sha('data/dictionary.json'),
+        records_sha256=sha('data/records.json'),comparisons_sha256=sha('data/comparisons.json'))
+    dump(DIST/'data/catalog.json',dict(metadata=dict(stats,snapshot=snapshot),**core,records=brief,sources=sources,stories=stories,comparisons=load('comparisons.json')))
     for row in records:dump(DIST/'data/records'/f"{row['source_id']}.json",row)
     dump(DIST/'data/analyzer-cases.json',load('analyzer_cases.json'))
     dump(DIST/'data/rule-support.json',load('rule_support.json'))
@@ -75,7 +81,6 @@ def build():
             supplement=render((ROOT/'docs/LEGACY_EXPERIMENT.md').read_text(encoding='utf8'))
             content+='<details class="legacy-experiment"><summary>초기 탐색 실험(구 정책 기준)</summary><div class="legacy-content">'+supplement+'</div></details>'
         if key=='audit-method':
-            import re
             content=re.sub(r'<h([1-5])>(.*?)</h\1>',lambda m:f'<h{int(m[1])+1}>'+('대조 방법' if m[1]=='1' else m[2])+f'</h{int(m[1])+1}>',content)
         if key=='methodology':
             for filename,title in [('EXTERNAL_BASELINES.md','보조 자료 1 · 외부 코퍼스 문자열 매칭 기준선(과거 탐색)'),('EXTERNAL_TRIALS.md','보조 자료 2 · 실제 임상시험 문구 비교(잠정 라벨)')]:

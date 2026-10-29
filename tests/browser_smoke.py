@@ -237,6 +237,39 @@ def run(base_url,browser_executable=None,output=None):
         expect(page.locator('.runtime-axes')).to_contain_text('원문 주장 범위 미상')
         expect(page.locator('#analyzer-result')).to_contain_text('가족력: 환자 본인의 질환 상태로 해석하지 않습니다')
         results.append('Reverification: default modifier review, reviewed context conditions, honest no-cue label and unsupported family history')
+        external=[]
+        page.on('request',lambda r:external.append(r.url) if not r.url.startswith(base_url.rstrip('/')) and not r.url.startswith(('data:','blob:')) else None)
+        page.get_by_role('button',name='예시 넣기').click()
+        page.get_by_role('button',name='여러 줄 분석하기').click()
+        rows=page.locator('.batch-table tbody tr')
+        expect(rows).to_have_count(8)
+        expect(rows.nth(0)).to_contain_text('기존 사전의 이름 연결 · 원문 없음')
+        expect(rows.nth(1)).to_contain_text('약어 의미 보류')
+        expect(rows.nth(2)).to_contain_text('기존 개념에 연결')
+        expect(rows.nth(4)).to_contain_text('수식된 이름')
+        expect(rows.nth(5)).to_contain_text('원문 주장: 직접 부정 표지')
+        expect(rows.nth(6)).to_contain_text('미등록 표현')
+        expect(rows.nth(7)).to_contain_text('입력 오류')
+        expect(page.locator('.batch-summary')).to_contain_text('8줄 처리')
+        rows.nth(6).locator('summary').click()
+        links=rows.nth(6).locator('a[target="_blank"]')
+        expect(links).to_have_count(3)
+        for i in range(3):
+            href=links.nth(i).get_attribute('href');assert 'Fabry%20disease' in href and 'Adults' not in href
+            assert links.nth(i).get_attribute('rel')=='noopener noreferrer'
+        expect(page.locator('#batch-result .snapshot-note')).to_contain_text('prototype-4')
+        with page.expect_download() as download:
+            page.get_by_role('button',name='여러 줄 결과 CSV ↓').click()
+        with tempfile.TemporaryDirectory() as tmp:
+            dest=Path(tmp)/'batch.csv';download.value.save_as(dest);csv_text=dest.read_bytes().decode('utf-8-sig')
+            assert csv_text.startswith('line,keyword,has_text,status') and csv_text.count('\r\n')==9
+        with page.expect_download() as download:
+            page.get_by_role('button',name='여러 줄 결과 JSON ↓').click()
+        with tempfile.TemporaryDirectory() as tmp:
+            dest=Path(tmp)/'batch.json';download.value.save_as(dest);batch=json.loads(dest.read_text())
+            assert len(batch['rows'])==8 and batch['snapshot']['engine_sha256'] and batch['format']=='batch-1'
+        assert not external,external
+        results.append('Multi-line intake: per-row results, next steps, unverified search links, snapshot, CSV/JSON and no automatic external requests')
 
         if output:page.screenshot(path=str(output/'analyzer.png'),full_page=True)
         page.goto(base_url+'#materials/audit',wait_until='networkidle')
