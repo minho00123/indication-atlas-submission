@@ -717,3 +717,10 @@ summary>.badge { flex-shrink:0; }
 .audit-checks th:nth-child(1) { width:30%; } .audit-checks th:nth-child(2) { width:16%; }
 .audit-checks td { vertical-align:top; overflow-wrap:anywhere; }
 @media (max-width:760px) { .audit-detail { grid-template-columns:1fr; gap:12px; padding:12px; } }
+.audit-summary { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:6px 0 20px; }
+.audit-summary section { padding:14px 18px; border:1px solid #d1efff; border-radius:12px; background:var(--tint); }
+.audit-summary section:last-child { background:#fffaf0; border-color:#f0dfb8; }
+.audit-summary h2 { font-size:15px; margin:0 0 6px; }
+.audit-summary ul { margin:0; padding-left:18px; font-size:13px; line-height:1.75; }
+@media (max-width:760px) { .audit-summary { grid-template-columns:1fr; } }
+.audit-summary h2 { border:0; padding-top:0; }

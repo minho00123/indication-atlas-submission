@@ -1,0 +1,17 @@
+{
+  "checked_on": "2026-10-29",
+  "capture_method": "EXCERPT_TRANSCRIBED_FROM_OFFICIAL_PAGE_TEXT_VERIFIED_WITH_WEB_TOOL",
+  "snapshot_type": "VERIFIED_EXCERPT_NOT_ARCHIVED_FULL_PAGE",
+  "excerpts": [
+    {
+      "url": "https://blog.opentargets.org/open-targets-platform-26-06-has-been-released/",
+      "supports": "Release 26.06 replaced EFO disease identifiers with Mondo identifiers.",
+      "verified_excerpt": "[EFO 3.88.0] contains a mass replacement of EFO disease terms with Mondo terms."
+    },
+    {
+      "url": "https://blog.opentargets.org/open-targets-platform-26-09-has-been-released/",
+      "supports": "Release 26.09 added a cross-ontology de-duplication step for disease terms.",
+      "verified_excerpt": "We have added a cross-ontology de-duplication step to our pipeline that merges disease terms from different ontologies."
+    }
+  ]
+}

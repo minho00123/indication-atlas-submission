@@ -176,18 +176,16 @@ def run(base_url,browser_executable=None,output=None):
         expect(page.locator('#document-content .doc-summary')).to_contain_text('후속 연구')
         expect(page.locator('#method-counterexamples')).to_be_focused()
         expect(page.locator('#document-content>h2')).to_have_count(7)
-        expect(page.locator('.external-supplement')).to_have_count(2)
-        for supplement in page.locator('.external-supplement').all():
-            assert not supplement.evaluate('(el)=>el.open')
-        page.locator('.external-supplement>summary').nth(0).click()
-        expect(page.locator('.external-supplement').nth(0)).to_contain_text('280/348')
-        expect(page.locator('.external-supplement').nth(0)).to_contain_text('미채점')
-        page.locator('.external-supplement>summary').nth(1).click()
-        expect(page.locator('.external-supplement').nth(1)).to_contain_text('40개 임상시험')
-        expect(page.locator('.external-supplement').nth(1)).to_contain_text('단일 AI')
+        # External explorations are summarized in one section; details stay in docs and evidence files.
+        expect(page.locator('.external-supplement')).to_have_count(0)
+        expect(page.locator('#document-content')).to_contain_text('외부 자료로 살펴본 경계')
+        expect(page.locator('#document-content')).to_contain_text('약어의 여러 뜻(21건)')
+        expect(page.locator('#document-content a[href$="EXTERNAL_BASELINES.md"]')).to_have_count(1)
+        excerpt=page.request.get(base_url+'evidence/service_research/opentargets_release_excerpts.json')
+        assert excerpt.ok and len(excerpt.json()['excerpts'])==2
         response=page.request.get(base_url+'evidence/boundary_checks/manifest.json')
         assert response.ok and response.json()['clinical_trials']['unique_trials']==40
-        results.append('Compact key points, labeled English example, folded evidence, seven-stage report and separate exploratory appendices')
+        results.append('Seven-stage report, external explorations summarized with linked details and published excerpts')
         for case in ['cd','eczema','nsclc','masld','conflict','or','her2','gca','sense','long-covid']:
             page.goto(base_url+'#cases/'+case,wait_until='networkidle')
             expect(page.locator('.comparison-table')).to_be_visible()
@@ -383,7 +381,8 @@ def run(base_url,browser_executable=None,output=None):
 
         if output:page.screenshot(path=str(output/'analyzer.png'),full_page=True)
         page.goto(base_url+'#materials/audit',wait_until='networkidle')
-        expect(page.get_by_role('heading',name='규칙 적용과 남은 검토',exact=True)).to_be_visible()
+        expect(page.get_by_role('heading',name='무엇을 확인했고, 무엇이 남았나',exact=True)).to_be_visible()
+        expect(page.locator('.audit-summary')).to_contain_text('임상 전문가 승인은 0건')
         expect(page.locator('#audit-row-count')).to_have_text('300 / 300행')
         expect(page.locator('#audit-rows tr')).to_have_count(20)
         page.locator('[data-audit-mode="B"]').click()

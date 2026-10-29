@@ -1,15 +1,18 @@
 # 실행과 제출 자료
 
+- 웹: https://indication-atlas.netlify.app/
+- 저장소: https://github.com/minho00123/indication-atlas-submission
+
 !> **웹에서 확인:** 사전 검색, 키워드별 분류 결과, 판단 기준과 직접 입력해 보기 기능을 사용할 수 있습니다.
 !> **로컬 실행:** Python 3.9 이상에서 `python3 tools/serve.py`를 실행하고 http://127.0.0.1:8787 을 엽니다. 추가 패키지나 API 키는 필요 없습니다.
 !> **제공 파일:** 판단표 CSV, 별칭 CSV, 판정 JSON, 검증 결과와 실행 코드 ZIP을 내려받을 수 있습니다.
 
 ## 웹에서 확인하는 순서
 
-1. **동의어 사전:** 대표 예시를 살펴보거나 CD·T2DM·PASC·NAFLD를 검색합니다. 숫자 요약을 누르면 개념·별칭·보류 목록으로 이동합니다.
+1. **동의어 사전:** 첫 화면의 분류 결과 예시(나눈 사례: CD / 묶은 사례: NSCLC)를 보거나 CD·NSCLC·eczema·NAFLD를 검색합니다. 개념의 연결된 이름을 누르면 그 이름이 들어온 항목의 근거로 이동합니다. 숫자 요약을 누르면 키워드·개념·별칭·보류 목록으로 이동합니다.
 2. **분류 결과:** 300개 키워드를 검색하고 처리 상태로 거릅니다. 항목을 선택하면 제공 문맥과 판단 이유, 후보 정의와 출처가 나옵니다.
 3. **판단 기준:** 공통 규칙 G01–G12를 읽고 사례별 검토에서 약어·범위·추가 조건·보류 사례를 비교합니다.
-4. **직접 입력해 보기:** 등록된 표현 검색 옆 버튼으로 엽니다. 키워드와 문맥을 입력하거나 여러 줄을 한 번에 처리할 수 있습니다. 미등록 표현은 MONDO·NCIt·MeSH 후보와 비교하고, 각 결과를 CSV·JSON으로 내려받을 수 있습니다.
+4. **직접 입력해 보기:** 검색창 아래 링크로 엽니다. 키워드와 문맥을 입력하거나 여러 줄을 한 번에 처리할 수 있습니다. 미등록 표현은 MONDO·NCIt·MeSH 후보와 비교하고, 각 결과를 CSV·JSON으로 내려받을 수 있습니다.
 5. **구축 보고서:** 구축 과정의 7단계, 유사 서비스 조사, 검증과 한계, 파일과 실행 방법을 확인합니다.
 
 ## 메뉴와 자료 위치
@@ -40,7 +43,7 @@ python3 -m unittest discover -s tests -p 'test_*.py'
 
 ## 분석 모듈 검사
 
-웹의 [직접 입력해 보기](#analyze)은 외부 모델 없이 브라우저에서 실행합니다. 미등록 표현의 "MONDO·NCIt·MeSH에서 후보 비교하기"를 누를 때만 대상 표현을 EBI OLS와 NLM MeSH 공개 API로 보내며, 원문은 보내지 않습니다. 새 문서의 명시적 정의와 일부 조건 구간을 처리하며 기존 300행을 수정하지 않습니다. 같은 작성자 구성 검사는 Node.js 22 환경에서 실행할 수도 있습니다. Node는 선택 검사에만 필요합니다.
+웹의 [직접 입력해 보기](#analyze)는 외부 모델 없이 브라우저에서 실행합니다. 미등록 표현의 "MONDO·NCIt·MeSH에서 후보 비교하기"를 누를 때만 대상 표현을 EBI OLS와 NLM MeSH 공개 API로 보내며, 원문은 보내지 않습니다. 새 문서의 명시적 정의와 일부 조건 구간을 처리하며 기존 300행을 수정하지 않습니다. 같은 작성자 구성 검사는 Node.js 22 이상에서 실행할 수도 있습니다. Node는 선택 검사에만 필요합니다.
 
 ```bash
 node --test tests/test_*.mjs
@@ -48,25 +51,16 @@ node --test tests/test_*.mjs
 
 검사 사례와 통과 수는 독립 임상 정확도를 뜻하지 않습니다. [실행 원리·지원 범위·한계](#materials/methodology)를 함께 확인해 주세요.
 
-[검증 리포트](#materials/audit)에서 A/B/C 전체 결과를 내려받을 수 있습니다. [대조 방법·재실행](#materials/audit?section=method)을 함께 제공합니다.
+[검증과 한계](#materials/audit)에서 A/B/C 전체 결과를 내려받을 수 있습니다. [대조 방법·재실행](#materials/audit?section=method)을 함께 제공합니다.
 
 ```bash
 node tools/run_rule_audit.mjs --check
 python3 tools/verify_rule_audit.py
 ```
 
-## GitHub와 Netlify
+## 배포
 
-이 폴더를 GitHub 저장소에 올리고 Netlify의 기존 프로젝트에서 저장소를 연결하거나 새 프로젝트로 가져옵니다. 아래 설정은 `netlify.toml`에도 기록되어 있습니다.
-
-| 항목 | 값 |
-|---|---|
-| Base directory | 비워 둠: 저장소 루트 |
-| Build command | python3 tools/build.py |
-| Publish directory | dist |
-| Production branch | main |
-
-GitHub에 push하면 Netlify가 정적 파일을 다시 빌드하도록 연결할 수 있습니다. 실제 배포 URL은 연결 후 Netlify가 제공하는 주소를 사용합니다. [Netlify 공식 Git 배포 안내](https://docs.netlify.com/deploy/create-deploys/)
+GitHub 저장소의 main 브랜치에 push하면 Netlify가 `python3 tools/build.py`로 빌드하고 `dist`를 배포합니다. 설정은 `netlify.toml`에 있습니다.
 
 ## 파일 안내
 
@@ -80,10 +74,3 @@ GitHub에 push하면 Netlify가 정적 파일을 다시 빌드하도록 연결�
 | tests/ | 원문·검색·그룹·근거와 빌드 검증 |
 
 웹의 CSV·JSON·ZIP은 같은 판정 스냅샷에서 생성합니다. ZIP에는 실행에 필요한 코드와 자료가 포함되고 Git 이력·가상환경·생성된 dist는 포함하지 않습니다.
-
-
-## Netlify가 주입하는 협업 도구
-
-Netlify가 배포 HTML에 툴바를 주입하면 소스의 HTML 해시와 응답 해시가 다를 수 있습니다. JS·JSON·제출 ZIP의 동일성과 앱 동작 검사는 따로 확인합니다. 협업 도구를 사용하지 않는 프로젝트에서 Drawer를 끄는 공식 경로는 Project configuration → Developer settings → Continuous deployment → Collaboration tools → Configure입니다. [Netlify 공식 안내](https://docs.netlify.com/deploy/review-deploys/netlify-drawer-for-feedback/troubleshoot-the-netlify-drawer/)
-
-이 항목은 호스팅 계정 설정이며 소스 수정만으로 껐다고 표시하지 않습니다. 실제 주입 여부와 콘솔 메시지는 배포 후 별도로 기록합니다.

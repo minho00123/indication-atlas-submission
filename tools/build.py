@@ -82,13 +82,10 @@ def build():
             content+='<details class="legacy-experiment"><summary>초기 탐색 실험(구 정책 기준)</summary><div class="legacy-content">'+supplement+'</div></details>'
         if key=='audit-method':
             content=re.sub(r'<h([1-5])>(.*?)</h\1>',lambda m:f'<h{int(m[1])+1}>'+('대조 방법' if m[1]=='1' else m[2])+f'</h{int(m[1])+1}>',content)
-        if key=='methodology':
-            for filename,title in [('EXTERNAL_BASELINES.md','보조 자료 1 · 외부 코퍼스 문자열 매칭 기준선(과거 탐색)'),('EXTERNAL_TRIALS.md','보조 자료 2 · 실제 임상시험 문구 비교(잠정 라벨)')]:
-                supplement=render((ROOT/'docs'/filename).read_text(encoding='utf8'))
-                content+='<details class="legacy-experiment external-supplement"><summary>'+title+'</summary><div class="legacy-content">'+supplement+'</div></details>'
         (DIST/'content'/f'{key}.html').write_text(content,encoding='utf8')
     shutil.copytree(ROOT/'evidence/review_process',DIST/'evidence/review_process',dirs_exist_ok=True)
     shutil.copytree(ROOT/'evidence/boundary_checks',DIST/'evidence/boundary_checks',dirs_exist_ok=True,ignore=shutil.ignore_patterns('__pycache__','*.pyc'))
+    shutil.copytree(ROOT/'evidence/service_research',DIST/'evidence/service_research',dirs_exist_ok=True)
     fields=['source_id','keyword','raw_context','input_normalized_condition','standard_name','concept_key','entity_type',
             'research_decision','selected_standard_id','rationale_ko','context_required','evidence_refs',
             'clinical_attributes','concept_name_components','scope_assumptions','definition_warnings']

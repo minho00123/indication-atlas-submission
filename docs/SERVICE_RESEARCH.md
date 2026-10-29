@@ -8,14 +8,14 @@
 
 ## 비교 결과
 
-| 서비스 | 질환·동의어 관리 | 확인 방식 | 장점 | 이번 과제에서의 한계·주의 | 채택한 설계 |
-|---|---|---|---|---|---|
-| Open Targets Platform | 질환·표현형을 연구용 개체로 통합. 26.06에서 EFO 질환 ID 다수를 MONDO로 바꾸고, 26.09에서는 온톨로지 간 중복 개념을 통합하는 단계를 추가 | 질환/표현형 프로필을 통해 설명·외부 참조·연관 근거를 연결. ID 검색도 지원 | 질환명 표준화가 표적·약물·임상 근거 연결까지 이어지는 실제 사용 목적이 분명함 | 개체 범위에 표현형·측정 등이 포함됨. ID 교체·중복 통합은 버전 의존적이며 모든 표현을 단어 목록 하나로 다룰 수 없음 | 개념 키, 출처별 매핑, 개체 유형, 버전과 변경 이력을 분리 |
-| NCI EVS Explore / NCIt | 선호명·동의어·약어·정의·외부 출처 및 용어 유형을 관리 | 공식 도움말은 Concept Details에서 코드·선호명, 정의의 출처와 귀속, Synonyms & Abbreviations 및 계층을 구분해 제공한다고 설명 | 같은 이름의 출처와 의미를 검토하기 좋고 암의 조직형·분자형에 유용 | 같은 검색에 질환·소견·설문·평가 항목·동물 종양·폐기 코드가 함께 나올 수 있음. 정의 간 차이도 비교해야 함 | 이름 외에 정의·semantic type·활성 상태를 확인. K211의 요실금 설문, K134의 폐기 코드는 기본 개념으로 선택하지 않음 |
-| NLM MeSH Browser | Descriptor → Concept → Term 구조. 같은 Concept 안의 용어가 동의어 단위이며 하나의 Descriptor에 범위가 다른 Concept들이 들어갈 수 있음 | 실제 D018459 레코드에서 범위 설명, Entry Terms, Concept UI와 그 안의 용어를 확인 가능 | 검색어와 개념 소속을 구조적으로 추적 가능 | 같은 Descriptor 또는 검색용 Entry Term이라는 사실은 엄밀한 임상 범위 동등성의 충분조건이 아님 | Descriptor ID와 Concept ID를 함께 보존. K052는 같은 Concept 소속으로 보강하고 K070은 정의의 증상성 차이를 따로 판정 |
-| NCBI MedGen | 여러 원천의 용어를 CUI 중심의 개념으로 모으고 선호명·정의·유형·외부 식별자 등을 통합 | 이름·동의어·semantic type·외부 ID·정의와 추가 설명·표현형·계층 등을 구별해 표시 | 원천 간 연결과 정의 출처를 한 개념에서 살피기 편함 | MONDO·MeSH·NCIt·HPO 등의 원천을 재사용하므로 독립된 추가 표로 세면 안 됨. 화면과 XML의 표시 ID 범위도 다름 | 출처 계보를 유지하고 다수결로 판정하지 않음. 질환과 임상 소견을 구별하고 정의 출처를 함께 제공 |
+| 서비스 | 질환·동의어를 관리하고 보여주는 방식 | 장점과 주의할 점 | 이번 과제에 반영한 선택 |
+|---|---|---|---|
+| Open Targets Platform | 질환·표현형을 연구용 개체로 통합하고, 프로필에서 설명·외부 참조·연관 근거를 연결합니다. 26.06에서 EFO 질환 용어를 MONDO로 대량 교체했고, 26.09에서 온톨로지 간 중복 질환 용어를 병합하는 단계를 추가했습니다. | 질환명 표준화가 표적·약물·임상 근거 연결로 이어집니다. 다만 표현형·측정도 함께 다루고, ID 교체·병합이 릴리스에 따라 달라집니다. | 개념 키·출처별 매핑·개체 유형·버전을 분리해 기록했습니다. |
+| NCI EVS Explore / NCIt | Concept Details에서 코드·선호명, 정의의 출처, 동의어·약어, 계층을 구분해 보여줍니다. | 같은 이름의 출처와 의미를 검토하기 좋고 암의 조직형·분자형에 유용합니다. 같은 검색에 질환·소견·설문·평가 항목·동물 종양·폐기 코드가 함께 나올 수 있습니다. | 이름 외에 정의·semantic type·활성 상태를 확인했습니다. K211의 요실금 설문, K134의 폐기 코드는 기본 개념으로 고르지 않았습니다. |
+| NLM MeSH Browser | Descriptor → Concept → Term 구조입니다. 같은 Concept의 용어가 동의어 단위이고, 한 Descriptor에 범위가 다른 Concept이 함께 들어갈 수 있습니다. | 검색어와 개념 소속을 구조적으로 추적할 수 있습니다. 같은 Descriptor나 검색용 Entry Term이라는 사실만으로 임상 범위가 같다고 볼 수는 없습니다. | Descriptor ID와 Concept ID를 함께 보존했습니다. K052는 같은 Concept 소속을 근거로 보강하고, K070은 정의의 증상성 차이를 따로 판정했습니다. |
+| NCBI MedGen | 여러 원천의 용어를 CUI 중심 개념으로 모으고 이름·semantic type·외부 ID·정의를 구분해 보여줍니다. | 원천 간 연결과 정의 출처를 한곳에서 살피기 편합니다. MONDO·MeSH·NCIt·HPO를 재사용하므로 독립된 추가 근거로 세면 안 되고, 화면과 XML의 표시 ID 범위도 다릅니다. | 출처 계보를 유지하고 다수결로 판정하지 않았습니다. 질환과 임상 소견을 구별하고 정의 출처를 함께 보여줍니다. |
 
-Open Targets의 ID·중복 통합 변화는 각각 [26.06 공식 발표](https://blog.opentargets.org/open-targets-platform-26-06-has-been-released/)와 [26.09 공식 발표](https://blog.opentargets.org/open-targets-platform-26-09-has-been-released/)에서 확인했습니다. 일반 [질환/표현형 문서](https://platform-docs.opentargets.org/disease-or-phenotype.md)의 EFO 설명만 읽으면 이 버전 변화를 놓칠 수 있어 릴리스 문서를 함께 대조했습니다.
+Open Targets의 ID·중복 통합 변화는 각각 [26.06 공식 발표](https://blog.opentargets.org/open-targets-platform-26-06-has-been-released/)와 [26.09 공식 발표](https://blog.opentargets.org/open-targets-platform-26-09-has-been-released/)에서 확인했고, 인용 문장은 [Open Targets 발표 발췌](../evidence/service_research/opentargets_release_excerpts.json)에 보존했습니다. 일반 [질환/표현형 문서](https://platform-docs.opentargets.org/disease-or-phenotype.md)의 EFO 설명만 읽으면 이 버전 변화를 놓칠 수 있어 릴리스 문서를 함께 대조했습니다.
 
 NCIt 화면 구성과 관리 항목은 [EVS Explore 공식 도움말](https://evsexplore.semantics.cancer.gov/evsexplore/overview), 과제 사례의 값은 보존한 [NCI 공식 API 조회](https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/search?term=urinary%20incontinence&type=match&include=summary&pageSize=50)를 근거로 삼았습니다. 최신 SPA 화면의 모든 조작을 브라우저에서 재현했다고 주장하지는 않습니다.
 
@@ -42,4 +42,4 @@ Cortellis는 [공식 개발자 포털](https://developer.clarivate.com/)에서 �
 
 ## 보조 참고
 
-[EMBL-EBI OLS 공식 도움말](https://www.ebi.ac.uk/ols4/ols3help)은 여러 온톨로지의 라벨·동의어·설명·식별자를 검색하는 방식을 제공합니다. 검색의 `exact` 옵션과 임상 개념의 EXACT 매핑은 다른 의미입니다. OLS는 후보 탐색에 유용한 참고 서비스로 보되, 이번 구축에서 실제 사용하지 않은 API 응답을 사용 근거처럼 기록하지 않았습니다.
+[EMBL-EBI OLS 공식 도움말](https://www.ebi.ac.uk/ols4/ols3help)은 여러 온톨로지의 라벨·동의어·설명·식별자를 검색하는 방식을 제공합니다. 검색의 `exact` 옵션과 임상 개념의 EXACT 매핑은 다른 의미입니다. 300건의 고정 판정에는 OLS 응답을 쓰지 않았습니다. "직접 입력해 보기"의 후보 비교는 미등록 표현에 대해 OLS(MONDO·NCIt)와 NLM MeSH를 사용자가 버튼을 누를 때 조회하며, 그 결과를 사전에 자동 반영하지 않습니다.
