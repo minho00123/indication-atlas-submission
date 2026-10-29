@@ -121,6 +121,9 @@ class SubmissionBuild(unittest.TestCase):
         build()
         for name in ['review','analyzer','boundaries']:
             self.assertFalse((ROOT/'dist/content'/f'{name}.html').exists())
+        (ROOT/'dist/analyzer-ui.js').write_text('retired module')
+        build()
+        self.assertFalse((ROOT/'dist/analyzer-ui.js').exists())
         for name in ['runtime_before.json','runtime_after.json','reverify_before.json','reverify_after.json','ablation_discovery.json']:
             self.assertEqual((ROOT/'dist/evidence/review_process'/name).read_bytes(),(ROOT/'evidence/review_process'/name).read_bytes())
 

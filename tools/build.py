@@ -51,6 +51,10 @@ def build():
     for folder in ('data/records','content','downloads'):(DIST/folder).mkdir(parents=True,exist_ok=True)
     # Remove pages retired by menu consolidation, including stale local build output.
     for name in ('review','analyzer','boundaries'):(DIST/'content'/f'{name}.html').unlink(missing_ok=True)
+    # Drop top-level app files that no longer exist in app/ (a cached dist would otherwise keep serving them).
+    app_names={p.name for p in (ROOT/'app').iterdir() if p.is_file()}
+    for path in DIST.iterdir():
+        if path.is_file() and path.suffix in ('.js','.mjs','.css','.html') and path.name not in app_names:path.unlink()
     for path in (ROOT/'app').iterdir():
         if path.is_file():shutil.copyfile(path,DIST/path.name)
     stats=summary(records,core,manifest)
