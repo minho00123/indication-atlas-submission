@@ -104,7 +104,7 @@ const overviewLinks=[
   ['#cases/examples','판단 사례','묶은 사례·나눈 사례·보류 사례 10개와 비교 기록'],
   ['#records','분류 결과','제공 키워드 300건의 항목별 처리와 판단 이유'],
   ['#materials/research','유사 서비스 조사','상용 서비스 3종과 공개 플랫폼·용어 조회 도구 비교'],
-  ['#materials/methodology','구축 보고서','문제 정의부터 반례·후속 연구까지 7단계'],
+  ['#materials/methodology','구축 과정','문제 정의부터 반례·후속 연구까지 7단계'],
   ['#materials/audit','검증과 한계','현재 사전으로 다시 실행한 결과와 남은 한계']];
 
 // Entry page for reviewers: what was built and how it was judged, before the search tool.
@@ -114,7 +114,7 @@ function overviewPage() {
     <section class="overview-hero" aria-labelledby="hero-title"><div class="overview-intro">
       <p class="eyebrow">질환 키워드 ${m.records}건 · 동의어 사전 구축</p>
       <h1 id="hero-title">질환 동의어 사전</h1>
-      <p class="home-summary">제공 키워드 ${m.records}건을 문맥과 공식 용어 정의로 검토해, 같은 개념은 묶고 다른 뜻은 나누고 근거가 부족하면 보류했습니다. 단일 개념에 연결한 ${data.records.filter(r=>r.concept_key).length}건은 ${m.concepts}개 개념 그룹입니다(보류 ${m.holds}건·OR 표현 ${data.records.filter(r=>r.research_decision==='SPLIT_EXPRESSION').length}건 제외).</p>
+      <p class="home-summary">제공 키워드 ${m.records}건을 문맥과 공식 용어 정의로 검토해, 같은 개념은 묶고 다른 뜻은 나누고 근거가 부족하면 보류했습니다. 보류 ${m.holds}건·OR 표현 ${data.records.filter(r=>r.research_decision==='SPLIT_EXPRESSION').length}건을 뺀 ${data.records.filter(r=>r.concept_key).length}건을 ${m.concepts}개 개념 그룹으로 묶었습니다.</p>
       <form class="overview-search" role="search" aria-label="사전 검색"><label class="search-box">${icon}<input id="overview-search" type="search" autocomplete="off" aria-label="질환명·약어·항목 번호로 사전 검색" placeholder="질환명·약어·항목 번호"></label><button type="submit" class="primary-button">사전에서 찾기</button></form>
       ${exampleChips()}</div>
       ${statsHTML(m)}</section>

@@ -26,8 +26,8 @@ def run(base_url,browser_executable=None,output=None):
         expect(page.locator('.featured-section')).to_have_count(0)
         assert page.locator('.example-chip').all_text_contents()==['CD','NSCLC','eczema','NAFLD']
         # Summary line: input rows and concept groups are different units, and the excluded rows are named.
-        expect(page.locator('.home-summary')).to_contain_text('297건은 287개 개념 그룹')
-        expect(page.locator('.home-summary')).to_contain_text('보류 2건·OR 표현 1건 제외')
+        expect(page.locator('.home-summary')).to_contain_text('297건을 287개 개념 그룹으로 묶었습니다')
+        expect(page.locator('.home-summary')).to_contain_text('보류 2건·OR 표현 1건을 뺀')
         assert [a.get_attribute('href') for a in page.locator('.overview-card').all()]==['#cases','#cases/examples','#records','#materials/research','#materials/methodology','#materials/audit']
         page.locator('#overview-search').fill('NSCLC')
         page.get_by_role('button',name='사전에서 찾기').click()

@@ -3,9 +3,9 @@
 - 웹: https://indication-atlas.netlify.app/
 - 저장소: https://github.com/minho00123/indication-atlas-submission
 
-!> **웹에서 확인:** 사전 검색, 키워드별 분류 결과, 판단 기준과 구축 보고서를 볼 수 있습니다.
-!> **로컬 실행:** Python 3.9 이상에서 `python3 tools/serve.py`를 실행하고 http://127.0.0.1:8787 을 엽니다. 추가 패키지나 API 키는 필요 없습니다.
-!> **제공 파일:** 판단표 CSV, 별칭 CSV, 판정 JSON, 검증 결과와 실행 코드 ZIP을 내려받을 수 있습니다.
+> - **웹에서 확인:** 사전 검색, 키워드별 분류 결과, 판단 기준과 구축 보고서를 볼 수 있습니다.
+> - **로컬 실행:** Python 3.9 이상에서 `python3 tools/serve.py`를 실행하고 http://127.0.0.1:8787 을 엽니다. 추가 패키지나 API 키는 필요 없습니다.
+> - **제공 파일:** 판단표 CSV, 별칭 CSV, 판정 JSON, 검증 결과와 실행 코드 ZIP을 내려받을 수 있습니다.
 
 ## 웹에서 확인하는 순서
 
@@ -41,7 +41,7 @@ python3 -m unittest discover -s tests -p 'test_*.py'
 
 정적 결과는 `dist/`에 생성됩니다. 파일을 더블클릭하는 대신 로컬 웹 서버 또는 배포 URL로 엽니다. 빌드는 고정한 판정을 검증·출력하며 새 의학 판정을 생성하지 않습니다. score_legacy.py는 구 정책 실험의 저장된 예측을 재채점하며 현재 사전의 정확도를 평가하지 않습니다.
 
-## 분석 모듈 검사
+## 분석 엔진 검사
 
 분석 엔진(`app/analyzer.mjs`)은 300건을 현재 사전으로 다시 실행하는 검사에 사용합니다. 작성자가 구성한 개발·반례 입력 103건(`data/analyzer_cases.json`)으로 규칙이 의도대로 작동하는지 아래 자동 테스트에서 확인합니다. 통과 수는 정확도가 아닙니다. Node는 선택 검사에만 필요합니다.
 
@@ -49,9 +49,9 @@ python3 -m unittest discover -s tests -p 'test_*.py'
 node --test tests/test_*.mjs
 ```
 
-실행 원리·지원 범위·한계는 ZIP의 `docs/ANALYZER.md`에 정리했습니다.
+실행 원리·지원 범위·한계는 [분석 엔진 문서](https://github.com/minho00123/indication-atlas-submission/blob/main/docs/ANALYZER.md)에 정리했습니다.
 
-[검증과 한계](#materials/audit)에서 다시 실행한 결과와 판단 규칙 검사, 상세 자료를 내려받을 수 있습니다. [검증 방법·재실행](#materials/audit?section=method)을 함께 제공합니다.
+[검증과 한계](#materials/audit)에서 다시 실행한 결과와 판단 규칙 검사, 상세 자료를 내려받을 수 있습니다. [검증 방법과 재실행](#materials/audit?section=method)도 같은 화면에 있습니다.
 
 ```bash
 node tools/run_rule_audit.mjs --check
@@ -69,7 +69,7 @@ GitHub 저장소의 main 브랜치에 push하면 Netlify가 `python3 tools/build
 | app/ | 화면·스타일·브라우저 검색 코드 |
 | data/ | 300행 판정, 개념·별칭·비교 사례·근거 목록·원본 XLSX |
 | evidence/ | 공식 응답·MONDO 발췌·웹 인용 기록 |
-| docs/ | 가이드라인·유사 서비스 조사·구축 방법·실행 설명 |
+| docs/ | 가이드라인·유사 서비스 조사·구축 과정·AI 교차 검토 기록·실행 설명 |
 | tools/ | 데이터 검증과 정적 빌드·로컬 실행 |
 | tests/ | 원문·검색·그룹·근거와 빌드 검증 |
 

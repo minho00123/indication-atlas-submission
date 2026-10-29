@@ -1,17 +1,19 @@
 # 판정 지침 — 실제 임상시험 조건명 30건
 
+> 실행 당시 판정자에게 준 지침입니다. 제출용으로 로컬 절대 경로를 저장소 기준 경로나 일반 표현으로 바꿨고, 판정 지시 문구는 그대로 두었습니다. 4단계의 수식어 지시는 G03·G05와 다른 오류입니다(README의 한계 참고).
+
 목적: 300건 구축에 쓴 판단 기준(G01–G12)을 처음 보는 실제 데이터에 적용했을 때 판정이 일관되게 나오는지 시험합니다. 당신은 두 명의 독립 판정자 중 한 명입니다. 정답을 맞히는 시험이 아니라, 기준을 충실히 적용하는 것이 목표입니다.
 
 ## 반드시 읽을 것
-1. 판단 기준: /Users/mino/Documents/indication-atlas-submission/docs/GUIDELINES.md (전체)
-2. 300건의 판정 예시: /Users/mino/Documents/indication-atlas-submission/data/records.json
+1. 판단 기준: docs/GUIDELINES.md (전체)
+2. 300건의 판정 예시: data/records.json
    - 참고할 항목 예: K007·K008·K009(CD 문맥), K010·K131(NSCLC와 조건 분리), K014(HER2 → LOCAL), K022(별도 개체), K116·K117(NAFLD/MASLD), K024(입력 충돌), K018(OR 표현)
    - 필드: research_decision, selected_standard_id, reviewed_candidates[].relation, rule_ids, rationale_ko
-3. 판정 대상과 기본 후보: /private/tmp/claude-501/-Users-mino-Documents/f36b4291-b0fc-4d9e-aa2a-a0c100892fb9/scratchpad/val/judge/pack.json
+3. 판정 대상과 기본 후보: evidence/followup_pilot/judgment/pack.json
    - 항목마다 condition(ClinicalTrials.gov 조건명), title, inclusion_excerpt(포함 기준 앞부분), MONDO·NCIt 기본 후보와 정의가 있습니다.
 
 ## 읽거나 열면 안 되는 것
-- val/work/ 폴더 전체, val/judge/ 안의 다른 판정자 결과 파일. 자동 엔진 결과나 다른 판정을 보면 독립성이 깨집니다.
+- 자동 엔진 결과가 있는 작업 폴더 전체, 같은 폴더 안의 다른 판정자 결과 파일. 자동 엔진 결과나 다른 판정을 보면 독립성이 깨집니다.
 - 저장소 파일을 수정하지 마세요. 읽기만 합니다.
 
 ## 추가 후보 조회

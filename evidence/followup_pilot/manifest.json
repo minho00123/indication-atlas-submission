@@ -2,10 +2,10 @@
  "created": "2026-10-29",
  "note": "Pilot on real ClinicalTrials.gov condition names; not an accuracy evaluation.",
  "files": {
-  "README.md": "92cde44da6d1ec3a097a3229fcfe3d6db4dfca1cd09e093c1e4a0b646c0f5c47",
+  "README.md": "90900865bfbb05a8d78fbe253446af1696e03040f9dbace8efb542361bdb6ce1",
   "engine_run_932.json": "50d9559ad9c84b3a83c8061293b98c5b18e00e2e7d34cad7bc42b3cd591304d3",
   "engine_run_summary.json": "4d5e82c79e1b09f3cac8f7fb14a3414b9bd8764a1a5288b90c84ed4d316d4560",
-  "judgment/BRIEF.md": "66f58b40152c4374a448c076e2c865607cd12121996ca6e55e9225321a547ef3",
+  "judgment/BRIEF.md": "66e250beae624d3a1b2ed019f991b5c7d0e6309a650e27e7a30b282b4b7d979d",
   "judgment/annotator_A.json": "c0dd228ae7a9cd0aa4fa54931e321527d08823e8b6188e2e14aa69161fc226a8",
   "judgment/annotator_B.json": "43c39e2ef7722a725f9854fda33cbe3910386e68ad30d1f9d1cfefd676fad320",
   "judgment/comparison.json": "1babf026b8f22fcfc62e9e0b24fd3ebbe2fe65b3c5d8f8c37bab2795e4c56f23",

@@ -82,7 +82,8 @@ def build():
         content=render((ROOT/'docs'/filename).read_text(encoding='utf8'))
         if key=='methodology':
             content=content.replace('<h2>6.', '<h2 id="method-counterexamples" tabindex="-1">6.').replace('<h2>7.', '<h2 id="method-future" tabindex="-1">7.')
-            supplement=render((ROOT/'docs/LEGACY_EXPERIMENT.md').read_text(encoding='utf8'))
+            # The <details> summary already carries the title, so drop the document's own h1.
+            supplement=re.sub(r'^<h1>.*?</h1>','',render((ROOT/'docs/LEGACY_EXPERIMENT.md').read_text(encoding='utf8')),count=1)
             content+='<details class="legacy-experiment"><summary>초기 탐색 실험(구 정책 기준)</summary><div class="legacy-content">'+supplement+'</div></details>'
         if key=='audit-method':
             content=re.sub(r'<h([1-5])>(.*?)</h\1>',lambda m:f'<h{int(m[1])+1}>'+('검증 방법과 재실행' if m[1]=='1' else m[2])+f'</h{int(m[1])+1}>',content)

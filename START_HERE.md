@@ -2,7 +2,7 @@
 
 웹: https://indication-atlas.netlify.app/
 
-제공된 300행의 원문·개념 연결·동의어와 판단 근거를 확인할 수 있습니다. 개념 그룹 287개, 출처별 별칭 연결 419건, 판단 보류 2건을 보존합니다. 연구 판정이며 독립 임상 정확도 평가나 전문가 승인을 뜻하지 않습니다.
+제공된 300행의 원문·개념 연결·동의어와 판단 근거를 확인할 수 있습니다. 개념 그룹 287개, 출처별 별칭 연결 419건, 판단 보류 2건을 확인할 수 있습니다. 연구용 판정이며 독립 임상 정확도 평가나 전문가 승인을 거치지 않았습니다.
 
 ## 확인 순서
 
@@ -15,7 +15,7 @@
 | 구역 | 포함한 내용 |
 |---|---|
 | [구축 과정](https://indication-atlas.netlify.app/#materials/methodology) | 문제 정의부터 반례·후속 연구까지 이어지는 7단계 |
-| [서비스 조사](https://indication-atlas.netlify.app/#materials/research) | 공식 공개 자료에서 확인한 관리·검색 방식과 이 사전의 방향 |
+| [유사 서비스 조사](https://indication-atlas.netlify.app/#materials/research) | 상용 서비스의 장점·한계와 이 사전의 방향 |
 | [검증과 한계](https://indication-atlas.netlify.app/#materials/audit) | 현재 사전으로 다시 실행한 결과, 판단 규칙 검사와 상세 자료 |
 | [파일과 실행 방법](https://indication-atlas.netlify.app/#materials/downloads) | 실행법·CSV·JSON·전체 코드와 자료 ZIP |
 
