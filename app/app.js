@@ -60,7 +60,7 @@ function sourceLabel(source) {
   if(url.includes('heart.org'))return 'American Heart Association';
   if(url.includes('cortellis'))return 'Cortellis 공개 문서';
   if(url.includes('elsevier'))return 'Embase 공개 도움말';
-  try { return new URL(url).hostname.replace(/^www\./,''); } catch { return source?.label ?? '원문별 판단 근거'; }
+  try { return new URL(url).hostname.replace(/^www\./,''); } catch { return source?.label ?? '제공 항목별 분류 근거'; }
 }
 function sourcesHTML(refs) {
   const seen=new Set();
@@ -221,11 +221,11 @@ function detailHTML(concept,row,fromSearch=false) {
   const related=concept?.related_concepts ?? [];
   return `${fromSearch?'<button class="back-link" data-results-back>← 검색 결과 목록</button>':''}
     <div class="badge-row">${decisionBadge(row)}${badge(entityLabels[row.entity_type] ?? row.entity_type,'gray')}</div>
-    <div class="detail-title"><h2>${esc(concept?.preferred_name || row.keyword)}</h2><button class="subtle-button" data-copy-link aria-label="현재 판단 주소 복사">링크 ↗</button></div>
+    <div class="detail-title"><h2>${esc(concept?.preferred_name || row.keyword)}</h2></div>
     <div class="detail-code" id="code-${row.source_id}">${esc(row.selected_standard_id ?? (row.concept_key?'자체 관리 개념 (LOCAL)':'단일 개념으로 연결하지 않은 입력'))}</div>
     ${row.research_decision==='LOCAL_CONCEPT'?'<p class="detail-subtitle">제공 문맥의 의미를 자체 개념으로 관리합니다. 같은 범위의 외부 표준 연결은 추가 검토가 필요합니다.</p>':''}
-    <div class="detail-section"><p class="label">원문별 판단 <span class="small-count">${ids.length}</span></p>
-    ${ids.length>1?`<div class="row-tabs" aria-label="연결된 원문 선택">${ids.map(id=>`<button class="${id===row.source_id?'active':''}" data-select-record="${id}" data-owner-concept="${esc(concept.concept_key)}" aria-pressed="${id===row.source_id}">${id} · ${esc(recordById.get(id).keyword)}</button>`).join('')}</div>`:''}
+    <div class="detail-section"><p class="label">제공 항목별 분류 근거 <span class="small-count">${ids.length}</span></p>
+    ${ids.length>1?`<div class="row-tabs" aria-label="같은 개념에 연결한 제공 항목 선택">${ids.map(id=>`<button class="${id===row.source_id?'active':''}" data-select-record="${id}" data-owner-concept="${esc(concept.concept_key)}" aria-pressed="${id===row.source_id}">${id} · ${esc(recordById.get(id).keyword)}</button>`).join('')}</div>`:''}
     <div class="label">${esc(row.source_id)} · ${esc(row.keyword)}</div><blockquote class="source-quote">${esc(row.raw_context)}</blockquote>
     ${row.context_quality==='TEMPLATE_NO_ADDITIONAL_DETAILS'?'<p class="source-note">질환명 외의 추가 아형·진단 정보가 없는 문맥입니다.</p>':''}
     <p class="label label-spaced">판단 이유</p><p class="rationale rationale-strong">${esc(row.rationale_ko)}</p>
@@ -402,7 +402,6 @@ document.addEventListener('click', async event=>{
   if(d.aliasPage) { aliasPage+=Number(d.aliasPage);updateAliases();return; }
   if('recordsBack' in d) { const p=currentParams();delete p.record;delete p.concept;delete p.candidate;navigate('records',p);return; }
   if('resultsBack' in d) { selectedKey=null; const q=$('#dictionary-search').value; history.replaceState(null,'',pathFor('dictionary',{q}));route=readRoute();updateSearch({autoSelect:false});$('#results').scrollIntoView({block:'start'});return; }
-  if('copyLink' in d) { try { await navigator.clipboard.writeText(location.href);toast('현재 판단의 주소를 복사했습니다.'); } catch { toast('주소창의 링크를 복사해 주세요.'); } return; }
   if(d.retryCandidate)loadCandidates(d.retryCandidate);
 });
 document.addEventListener('click',event=>{
