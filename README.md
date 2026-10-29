@@ -17,7 +17,7 @@
 - **분류 결과:** 전체 판정표와 원문·이유·출처.
 - **[직접 입력해 보기](https://indication-atlas.netlify.app/#analyze):** 입력한 문서 정의로 CD·AML 등을 연결하거나 보류하고, 일부 추가 조건을 원문 구간으로 추출하는 시제품.
 - **판단 기준:** 공통 규칙 G01–G12와 범위 차이·문맥·OR 조건·입력 충돌의 적용 사례.
-- **구축 보고서:** 구축 과정, 서비스 조사, 검증과 한계, 파일과 실행 방법. 판단 가이드라인과 사례별 개념 비교는 판단 기준에서 제공합니다.
+- **구축 보고서:** 구축 과정, 유사 서비스 조사, 검증과 한계, 파일과 실행 방법. 판단 가이드라인과 사례별 개념 비교는 판단 기준에서 제공합니다.
 
 현재 데이터는 300행, 287개 개념 그룹, 419개 별칭 연결(고유 문자열 404개), 보류 2행입니다. 질환군·소견·상태도 포함합니다. 연구 판정 스냅샷이며 전문가 승인 또는 독립 정확도 평가를 의미하지 않습니다.
 
@@ -57,7 +57,7 @@ python3 -m unittest discover -s tests -p 'test_*.py'
 | app/ | HTML·CSS·JavaScript 화면 |
 | data/ | 원본 XLSX, 고정 판정·사전·출처, 초기 실험 입력·예측 |
 | evidence/ | 공식 API 응답 676개와 MONDO 사용 항목·웹 발췌 |
-| docs/ | [가이드라인](docs/GUIDELINES.md), [서비스 조사](docs/SERVICE_RESEARCH.md), [구축 방법·한계](docs/METHODOLOGY.md), [실행법](docs/RUN.md) |
+| docs/ | [가이드라인](docs/GUIDELINES.md), [유사 서비스 조사](docs/SERVICE_RESEARCH.md), [구축 방법·한계](docs/METHODOLOGY.md), [실행법](docs/RUN.md) |
 | tools/ · tests/ | 독립 실행·검증 코드 |
 
 ## 데이터와 출처

@@ -233,9 +233,9 @@ function detailHTML(concept,row,fromSearch=false) {
     ${(row.scope_assumptions ?? []).map(scope=>`<div class="info-note"><strong>기본 의미와 적용 조건</strong>${esc(scopeLabels[scope.sense] ?? scope.override_if)}</div>`).join('')}
     ${(row.definition_warnings ?? []).map(w=>`<div class="warning-note"><strong>출처 정의·범위 확인</strong>${esc(w.rationale_ko)}</div>`).join('')}
     ${row.expression?`<div class="info-note"><strong>${esc(row.expression.operator)} 조건으로 보존</strong>전체 표현을 한 질환의 동의어로 등록하지 않습니다.<div>${row.expression.operands.map(id=>`<a href="${esc(pathFor('dictionary',{concept:id}))}">${esc(conceptByKey.get(id)?.preferred_name ?? id)} ↗</a>`).join(' <span aria-hidden="true"> · </span> ')}</div></div>`:''}
+    <div class="detail-section"><h3>비교한 후보와 범위 관계</h3><p class="source-note">관계 방향: 원문 → 후보. 대표로 고른 후보와 범위 관계는 따로 표시합니다. 대표가 아닌 후보도 같은 범위의 근거일 수 있습니다. 항목을 펼치면 출처별 정의를 볼 수 있습니다.</p><div id="candidates-${row.source_id}"><p class="source-note">후보 정의를 불러오고 있습니다.</p></div></div>
     ${uniqueAliases.length?`<div class="detail-section"><p class="label">연결된 이름 <span class="small-count">${uniqueAliases.length}</span></p><div class="alias-list">${uniqueAliases.map(a=>`<span class="alias" title="${esc(kindLabels[a.kind] ?? a.kind)}${a.context_required?' · 문맥 확인 필요':''}">${esc(a.term)}${a.context_required?' · 문맥':''}</span>`).join('')}</div></div>`:''}
     ${related.length?`<div class="info-note"><strong>관련 개념 · 같은 뜻으로 병합하지 않음</strong>${related.map(link=>`<a href="${esc(pathFor('dictionary',{concept:link.concept_key}))}">${esc(conceptByKey.get(link.concept_key)?.preferred_name ?? link.concept_key)} ↗</a><br>${esc(link.rationale_ko)}`).join('<br>')}</div>`:''}
-    <div class="detail-section"><h3>검토한 후보와 범위 관계</h3><p class="source-note">관계 방향: 원문 → 후보. 코드의 존재와 의미 범위의 일치는 구별합니다.</p><div id="candidates-${row.source_id}"><p class="source-note">후보 정의를 불러오고 있습니다.</p></div></div>
     <div class="detail-section"><p class="label">판단에 참고한 출처</p><div class="source-link-list">${sourcesHTML(row.evidence_refs) || '<span class="source-note">제공 원문과 판단 가이드라인을 기준으로 기록했습니다.</span>'}</div><p class="source-note">${esc((row.rule_ids ?? []).join(' · '))} · <a href="#cases">판단 기준 ↗</a></p></div></div>`;
 }
 
@@ -247,7 +247,7 @@ async function loadCandidates(id) {
     const items=row.reviewed_candidates ?? [];
     const selected=items.find(c=>c.candidate_key===row.selected_standard_id), code=document.getElementById('code-'+id);
     if(selected && code && safeURL(selected.source_url))code.innerHTML=`<a href="${esc(safeURL(selected.source_url))}" target="_blank" rel="noopener noreferrer">${esc(row.selected_standard_id)} ↗</a>`;
-    target.innerHTML=items.map(c=>`<details data-candidate-key="${esc(c.candidate_key)}"><summary>${badge(relations[c.relation] ?? c.relation,c.relation==='UNKNOWN'?'amber':c.relation==='EXACT'?'':'gray')}<span class="candidate-heading"><span>${esc(c.label)}</span><span class="candidate-origin">${badge(c.system || c.candidate_key.split(':')[0],'gray')}<span>${esc(c.candidate_key)}</span></span></span></summary><div class="candidate-body"><div class="candidate-meta">${esc(c.candidate_key)}${c.candidate_key===row.selected_standard_id?' · 선택한 대표 ID':''} · ${esc(c.version.startsWith('LIVE_')?'조회 시점 스냅샷':c.version)}${c.active===false?' · 비활성':''}</div>${c.definitions.map(d=>`<p class="candidate-definition"><b>${esc(d.source)}</b>${esc(d.text || '정의가 제공되지 않았습니다.')}</p>`).join('')}<a class="source-link" href="${esc(safeURL(c.source_url))}" target="_blank" rel="noopener noreferrer">공식 출처 확인 ↗</a></div></details>`).join('') || '<p class="source-note">범위 관계를 확정해 기록한 외부 후보가 없습니다. 위 판단 이유와 출처를 확인해 주세요.</p>';
+    target.innerHTML=items.map(c=>`<details data-candidate-key="${esc(c.candidate_key)}"><summary>${badge(relations[c.relation] ?? c.relation,c.relation==='UNKNOWN'?'amber':c.relation==='EXACT'?'':'gray')}${c.candidate_key===row.selected_standard_id?badge('대표 ID','blue'):''}<span class="candidate-heading"><span>${esc(c.label)}</span><span class="candidate-origin">${badge(c.system || c.candidate_key.split(':')[0],'gray')}<span>${esc(c.candidate_key)}</span></span></span></summary><div class="candidate-body"><div class="candidate-meta">${esc(c.candidate_key)}${c.candidate_key===row.selected_standard_id?' · 선택한 대표 ID':''} · ${esc(c.version.startsWith('LIVE_')?'조회 시점 스냅샷':c.version)}${c.active===false?' · 비활성':''}</div>${c.definitions.map(d=>`<p class="candidate-definition"><b>${esc(d.source)}</b>${esc(d.text || '정의가 제공되지 않았습니다.')}</p>`).join('')}<a class="source-link" href="${esc(safeURL(c.source_url))}" target="_blank" rel="noopener noreferrer">공식 출처 확인 ↗</a></div></details>`).join('') || '<p class="source-note">범위 관계를 확정해 기록한 외부 후보가 없습니다. 위 판단 이유와 출처를 확인해 주세요.</p>';
     const requested=route.params.get('candidate');
     if(route.page==='records' && route.params.get('record')===id && requested) {
       const detail=[...target.querySelectorAll('details')].find(node=>node.dataset.candidateKey===requested);
@@ -343,7 +343,7 @@ function casesPage() {
   }).join('')}<div class="detail-section"><h3>반례·적용 조건</h3><p>${esc(story.exception)}</p><a href="#cases">공통 판단 기준 보기 ↗</a></div></article></div></div>`;
 }
 
-const materials={methodology:['구축 과정','methodology'],research:['서비스 조사','research'],audit:['검증과 한계',null],downloads:['파일과 실행 방법','run']};
+const materials={methodology:['구축 과정','methodology'],research:['유사 서비스 조사','research'],audit:['검증과 한계',null],downloads:['파일과 실행 방법','run']};
 const materialAliases={boundaries:['methodology','counterexamples'],analyzer:['methodology',''],'audit-method':['audit','method'],review:['methodology','']};
 function focusMaterialsSection(root,section) {
   const ids={compare:'concept-comparison',counterexamples:'method-counterexamples',future:'method-future',method:'audit-method-section'};
@@ -354,7 +354,7 @@ async function materialsPage() {
   const alias=materialAliases[route.sub];
   if(alias){history.replaceState(null,'',pathFor('materials/'+alias[0],alias[1]?{section:alias[1]}:{}));route=readRoute();}
   const tab=materials[route.sub]?route.sub:'methodology',section=route.params.get('section');
-  $('#main-content').innerHTML=`<div class="container">${heading('조사·설계·검증 기록','구축 보고서','구축 과정과 서비스 조사, 검증 결과, 실행 파일을 제공합니다.')}<nav class="materials-tabs" aria-label="구축 보고서 구역">${Object.entries(materials).map(([key,[label]])=>`<a class="${tab===key?'active':''}" href="#materials/${key}">${label}</a>`).join('')}</nav>
+  $('#main-content').innerHTML=`<div class="container">${heading('조사·설계·검증 기록','구축 보고서','구축 과정, 유사 서비스 조사, 검증과 한계, 실행 방법과 파일을 제공합니다.')}<nav class="materials-tabs" aria-label="구축 보고서 구역">${Object.entries(materials).map(([key,[label]])=>`<a class="${tab===key?'active':''}" href="#materials/${key}">${label}</a>`).join('')}</nav>
     ${tab==='downloads'?`<div class="download-grid">${[
       ['CSV · 300개 제공 항목','전체 판단표','원문·선택한 개념·판단 이유·출처를 담은 표','judgments.csv'],
       ['CSV · 별칭 연결','동의어 목록','검토한 이름·별칭과 연결된 개념','aliases.csv'],

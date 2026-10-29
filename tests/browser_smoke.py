@@ -119,6 +119,12 @@ def run(base_url,browser_executable=None,output=None):
         summaries=page.locator('#candidates-K001 summary').all_text_contents()
         assert any('NCIt' in text and 'C3001' in text for text in summaries),summaries
         assert any('MeSH' in text for text in summaries),summaries
+        # Representative choice is marked separately from scope; a non-representative EXACT stays "같은 개념".
+        assert sum('대표 ID' in text for text in summaries)==1,summaries
+        assert any('MeSH' in text and '같은 개념' in text and '대표 ID' not in text for text in summaries),summaries
+        reason_y=page.locator('#dictionary-detail .rationale-strong').bounding_box()['y']
+        assert reason_y<page.locator('#candidates-K001').bounding_box()['y']<page.locator('#dictionary-detail .alias-list').bounding_box()['y']
+        expect(page.locator('.header-download')).to_contain_text('실행 방법·자료')
         results.append('Candidate provenance visible before expanding definitions')
         page.locator('#dictionary-search').fill('NAFLD')
         expect(page.locator('#results')).to_contain_text('관련 결과 · 동의어 병합 아님')
@@ -402,7 +408,7 @@ def run(base_url,browser_executable=None,output=None):
         assert page.locator('.criteria-tabs a').all_text_contents()==['공통 기준','사례별 검토']
         page.goto(base_url+'#materials',wait_until='networkidle')
         expect(page.locator('.materials-tabs a')).to_have_count(4)
-        assert page.locator('.materials-tabs a').all_text_contents()==['구축 과정','서비스 조사','검증과 한계','파일과 실행 방법']
+        assert page.locator('.materials-tabs a').all_text_contents()==['구축 과정','유사 서비스 조사','검증과 한계','파일과 실행 방법']
         for legacy,canonical in [('guidelines','cases'),('compare','cases/examples?section=compare'),('boundaries','materials/methodology?section=counterexamples'),('analyzer','materials/methodology'),('audit-method','materials/audit?section=method'),('review','materials/methodology')]:
             page.goto(base_url+'#materials/'+legacy,wait_until='networkidle')
             expect(page).to_have_url(re.compile(re.escape('#'+canonical)+'$'))
