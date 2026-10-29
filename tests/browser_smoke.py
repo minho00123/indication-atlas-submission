@@ -271,13 +271,22 @@ def run(base_url,browser_executable=None,output=None):
         assert not external,external
         results.append('Multi-line intake: per-row results, next steps, unverified search links, snapshot, CSV/JSON and no automatic external requests')
         saved=json.loads((Path(__file__).parent/'fixtures/candidates/Fabry_disease.json').read_text())
-        replies={r['url']:r for r in [*[v for v in saved['responses'].values() if isinstance(v,dict) and 'url' in v],*saved['responses']['mondo_terms'].values(),*saved['responses']['mesh_details'].values()]}
+        replies={r['url']:r for r in [*[v for v in saved['responses'].values() if isinstance(v,dict) and 'url' in v],*saved['responses']['mondo_terms'].values(),*saved['responses'].get('ncit_terms',{}).values(),*saved['responses']['mesh_details'].values()]}
         sent=[]
         def reply(route):
             sent.append(route.request.url);r=replies.get(route.request.url)
             route.fulfill(status=200 if r and r['ok'] else 404,content_type='application/json',headers={'Access-Control-Allow-Origin':'*'},body=json.dumps(r['data'] if r and r['ok'] else {}))
         page.route('https://www.ebi.ac.uk/**',reply);page.route('https://id.nlm.nih.gov/**',reply)
-        page.locator('.batch-table tbody tr').nth(6).get_by_role('button',name='이 줄 후보 비교 ↓').click()
+        page.get_by_role('button',name='미등록 1줄 모두 MONDO·NCIt·MeSH 후보 비교').click()
+        cell=page.locator('.batch-table tbody tr').nth(6).locator('[data-candidate-cell]')
+        expect(cell).to_contain_text('세 출처 교차 일치')
+        expect(cell).to_contain_text('MONDO:0010526 · NCIT:C84701 · MESH:D000795')
+        expect(page.locator('.batch-table tbody tr').nth(0).locator('[data-candidate-cell]')).to_have_text('—')
+        with page.expect_download() as download:
+            page.get_by_role('button',name='여러 줄 결과 CSV ↓').click()
+        with tempfile.TemporaryDirectory() as tmp:
+            dest=Path(tmp)/'batch2.csv';download.value.save_as(dest);assert 'CROSS_SOURCE_AGREEMENT' in dest.read_bytes().decode('utf-8-sig')
+        cell.get_by_role('button',name='근거 자세히 ↑').click()
         expect(page.locator('#analyzer-keyword')).to_have_value('Fabry disease')
         expect(page.locator('#analyzer-result .compare-heading')).to_contain_text('세 출처 교차 일치')
         expect(page.locator('#analyzer-result .compare-proposal')).to_contain_text('MONDO:0010526')

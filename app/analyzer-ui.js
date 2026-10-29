@@ -76,7 +76,7 @@ const officialPage=id=>id.startsWith('MONDO:')?`https://www.ebi.ac.uk/ols4/ontol
   id.startsWith('NCIT:')?`https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/${encodeURIComponent(id.slice(5))}`:`https://meshb.nlm.nih.gov/record/ui?ui=${encodeURIComponent(id.slice(5))}`;
 function compareHTML(c) {
   const [label,tone]=verdicts[c.code] ?? [c.code,'amber'],agreed=new Set([...(c.proposal?.candidates ?? [])]);
-  const column=(name,s)=>`<section><h4>${name}<small>${s.status==='ERROR'?'조회 실패':s.version?`버전 ${esc(s.version)}`:'현재 서비스'}</small></h4>${s.candidates.length?s.candidates.slice(0,4).map(x=>`<div class="candidate-item${agreed.has(x.id)?' agreed':''}"><a href="${esc(officialPage(x.id))}" target="_blank" rel="noopener noreferrer"><code>${esc(x.id)}</code> ↗</a><strong>${esc(x.label)}</strong><span class="badge ${['LABEL','EXACT_SYNONYM','ENTRY_TERM'].includes(x.level)?'gray':'amber'}">${esc(levels[x.level] ?? x.level)}</span>${agreed.has(x.id)?'<span class="badge">교차참조 일치</span>':''}${x.definition?`<p>${esc(x.definition.length>220?x.definition.slice(0,220)+'…':x.definition)}</p>`:''}${x.entry_terms?.length?`<p><small>입력어: ${esc(x.entry_terms.join(' · '))}</small></p>`:''}</div>`).join(''):'<p class="source-note">후보 없음</p>'}</section>`;
+  const column=(name,s)=>`<section><h4>${name}<small>${s.status==='ERROR'?'조회 실패':s.version?`버전 ${esc(s.version)}`:'현재 서비스'}</small></h4>${s.candidates.length?s.candidates.slice(0,4).map(x=>`<div class="candidate-item${agreed.has(x.id)?' agreed':''}"><a href="${esc(officialPage(x.id))}" target="_blank" rel="noopener noreferrer"><code>${esc(x.id)}</code> ↗</a><strong>${esc(x.label)}</strong><span class="badge ${['LABEL','EXACT_SYNONYM','ENTRY_TERM'].includes(x.level)?'gray':'amber'}">${esc(levels[x.level] ?? x.level)}</span>${agreed.has(x.id)?'<span class="badge">교차참조 일치</span>':''}${x.via_xref && !agreed.has(x.id)?'<span class="badge amber">MONDO 교차참조 대상 · 이름 불일치</span>':''}${x.definition?`<p>${esc(x.definition.length>220?x.definition.slice(0,220)+'…':x.definition)}</p>`:''}${x.entry_terms?.length?`<p><small>입력어: ${esc(x.entry_terms.join(' · '))}</small></p>`:''}</div>`).join(''):'<p class="source-note">후보 없음</p>'}</section>`;
   return `<div class="compare-heading"><h3>공식 용어체계 후보 비교</h3><span class="badge ${tone}">${esc(label)}</span></div>
     <ol class="compare-reasons">${c.reasons.map(x=>`<li>${esc(x)}</li>`).join('')}</ol>
     ${c.proposal?`<div class="compare-proposal"><b>제안 · 검토 대기</b><span>${esc(c.proposal.preferred_name)} <code>${esc(c.proposal.concept_key)}</code></span><small>함께 연결할 후보: ${esc(c.proposal.candidates.join(' · '))} · ${esc(c.proposal.name_relation)} · 사전에 반영하지 않았습니다.</small></div>`:''}
@@ -91,16 +91,25 @@ const statusLabel=row=>{
   if(['LINKED','LOCAL_LINKED','ROUTE_ENTITY'].includes(r.decision) && r.target_evidence_status==='NO_TEXT')return ['기존 사전의 이름 연결 · 원문 없음','gray'];
   return [labels[r.decision] ?? r.decision,needsReview(row)?'amber':''];
 };
+function candidateCell(row,i) {
+  if(!row.result || row.result.decision!=='UNREGISTERED')return '<small>—</small>';
+  if(row.candidate_error)return `<small>조회 실패: ${esc(row.candidate_error)}</small><br><button class="subtle-button" type="button" data-row-compare="${i}">다시 비교</button>`;
+  if(!row.candidate)return `<button class="subtle-button" type="button" data-row-compare="${i}">후보 비교</button>`;
+  const c=row.candidate,[label,tone]=verdicts[c.code] ?? [c.code,'amber'];
+  return `<span class="badge ${tone}">${esc(label)}</span>${c.proposal?`<br><small>제안: ${esc(c.proposal.candidates.join(' · '))}</small>`:''}<br><button class="subtle-button" type="button" data-batch-compare="${i}">근거 자세히 ↑</button>`;
+}
 function batchHTML(rows,meta) {
   const analyzed=rows.filter(r=>r.status==='ANALYZED'),linked=analyzed.filter(r=>!needsReview(r)).length,review=analyzed.length-linked;
-  const errors=rows.length-analyzed.length,noText=analyzed.filter(r=>!r.has_text).length;
+  const errors=rows.length-analyzed.length,noText=analyzed.filter(r=>!r.has_text).length,unregistered=analyzed.filter(r=>r.result.decision==='UNREGISTERED').length;
   return `<p class="batch-summary"><strong>${rows.length}줄 처리</strong> · 기존 지식으로 연결 ${linked} · 검토 필요 ${review} · 입력 오류 ${errors}<br><small>원문 없음 ${noText}줄은 별도 축입니다(위 합계와 겹칩니다). 원문 없이 이름만 조회한 행은 원문 문맥·환자 조건을 확인하지 않았습니다.</small></p>
-    <div class="table-wrap"><table class="batch-table"><thead><tr><th>줄</th><th>대상 표현</th><th>원문</th><th>처리 결과</th><th>연결 개념</th><th>다음 단계</th></tr></thead><tbody>${rows.map(row=>{
+    ${unregistered?`<div class="batch-compare-all"><button class="runtime-submit" type="button" data-compare-all>미등록 ${unregistered}줄 모두 MONDO·NCIt·MeSH 후보 비교</button><small>누르면 미등록 줄의 대상 표현만 EBI OLS·NLM MeSH 공개 API로 보내고, 규칙 비교 결과를 아래 "공식 용어체계 후보" 칸에 채웁니다. 사전에는 반영하지 않습니다.</small></div>`:''}
+    <div class="table-wrap"><table class="batch-table"><thead><tr><th>줄</th><th>대상 표현</th><th>원문</th><th>처리 결과</th><th>연결 개념</th><th>공식 용어체계 후보</th><th>다음 단계</th></tr></thead><tbody>${rows.map(row=>{
       const [label,tone]=statusLabel(row),r=row.result,steps=nextSteps(r);
       return `<tr><td>${row.line}</td><td><strong>${esc(row.keyword) || '—'}</strong></td><td>${row.has_text?`<small>${esc(row.text.length>90?row.text.slice(0,90)+'…':row.text)}</small>`:'<small>없음 · 이름만 조회</small>'}</td>
         <td><span class="badge ${tone}">${esc(label)}</span>${r && row.has_text?`<br><small class="batch-evidence">원문 주장: ${esc(evidenceLabels[r.target_evidence_status] ?? r.target_evidence_status)}</small>`:''}${r?`<br><small>${esc(r.reasons.map(x=>x.code).join(' · '))}</small>`:`<br><small>${esc(row.error)}</small>`}</td>
         <td>${r && r.concepts.length?r.concepts.map(conceptLink).join('<br>'):'<small>단일 개념 없음</small>'}</td>
-        <td>${steps.length?`<details><summary>${steps.length}개 확인 항목</summary><ol>${steps.map(s=>`<li><b>${esc(s.rule)}</b> ${esc(s.text)}</li>`).join('')}</ol>${r.decision==='UNREGISTERED'?`<button class="subtle-button batch-compare" type="button" data-batch-compare="${rows.indexOf(row)}">이 줄 후보 비교 ↓</button>`:''}${r.decision==='UNREGISTERED' || r.decision.startsWith('HOLD')?`<p><small>외부 후보 찾기 · 미검증</small><br>${searchLinks(row.keyword).map(l=>`<a href="${esc(l.url)}" target="_blank" rel="noopener noreferrer">${esc(l.name)} ↗</a>`).join('<br>')}</p>`:''}</details>`:'<small>—</small>'}</td></tr>`;}).join('')}</tbody></table></div>
+        <td data-candidate-cell="${rows.indexOf(row)}">${candidateCell(row,rows.indexOf(row))}</td>
+        <td>${steps.length?`<details><summary>${steps.length}개 확인 항목</summary><ol>${steps.map(s=>`<li><b>${esc(s.rule)}</b> ${esc(s.text)}</li>`).join('')}</ol>${r.decision==='UNREGISTERED' || r.decision.startsWith('HOLD')?`<p><small>외부 후보 찾기 · 미검증</small><br>${searchLinks(row.keyword).map(l=>`<a href="${esc(l.url)}" target="_blank" rel="noopener noreferrer">${esc(l.name)} ↗</a>`).join('<br>')}</p>`:''}</details>`:'<small>—</small>'}</td></tr>`;}).join('')}</tbody></table></div>
     ${snapshotHTML(meta)}`;
 }
 const download=(name,body,type)=>{
@@ -117,7 +126,7 @@ export function mountAnalyzer(root,catalog) {
       <details class="runtime-method"><summary>판정 규칙과 지원 범위</summary><ol><li>등록된 이름·별칭을 단어 경계와 긴 표현 우선으로 찾습니다.</li><li>문서의 긴 이름(약어)을 기존 개념과 대조합니다. type 1/2 diabetes mellitus의 선언한 짧은 형태도 기존 이름에 근거해 처리합니다. 긴 이름을 확인하지 못하거나 정의가 충돌하면 보류합니다.</li><li>다의 약어를 다른 질환의 단순 동시 언급만으로 해소하지 않습니다.</li><li>등록된 범위 관계는 검토로 표시하며 미검토 관계나 원문 근거 부족을 입력 오류로 단정하지 않습니다.</li><li>전이·재발·불응·이전 치료, 중증도·질환 활성도·조절 상태·병기·진행 범위와 일부 기간·이름 구성 요소만 처리합니다. 개념을 바꿀 수 있는 미검토 수식어가 붙으면 보류합니다. OR 구조와 피연산자 해소 상태를 나누어 보존합니다.</li></ol><p>표현이 더 복잡하거나 증상만으로 의미를 추론해야 하는 경우는 지원하지 않습니다. 미등록 개념을 자동 생성하지 않습니다.</p><a href="#materials/methodology">구현·검사·한계 문서 ↗</a></details></section>
     <section id="analyzer-result" class="panel runtime-output" aria-label="새 원문 분석 결과" aria-live="polite"></section></div>
     <section class="panel batch-panel" aria-labelledby="batch-heading"><div class="batch-intro"><div><p class="eyebrow">새 데이터가 들어오면</p><h2 id="batch-heading">여러 줄 한 번에 처리</h2><p>한 줄에 <code>대상 표현</code> 또는 <code>대상 표현 | 원문</code>을 넣으세요. 각 줄은 독립 문서로, 위와 같은 규칙 엔진을 그대로 사용합니다. 등록된 지식으로 처리할 수 있는 줄은 연결하고, 나머지는 이유와 다음 확인 단계를 남깁니다. 최대 ${BATCH_LIMITS.rows}줄입니다.</p></div>
-      <ol class="intake-flow"><li><b>1 · 규칙으로 연결</b>검토한 이름·별칭·문서 내 약어 정의</li><li><b>2 · 검토 필요로 분류</b>다의·수식어·원문 근거 부족·미등록·미지원 문형</li><li><b>3 · 후보 비교 → 사람 승인 후 새 버전</b>미등록 표현은 "이 줄 후보 비교"로 MONDO·NCIt·MeSH 후보를 받아 이름 일치와 교차참조를 규칙으로 비교해 제안합니다. 정의 범위 판정과 사전 반영은 사람이 하며, 이 화면에서 자동 등록하지 않습니다.</li></ol></div>
+      <ol class="intake-flow"><li><b>1 · 규칙으로 연결</b>검토한 이름·별칭·문서 내 약어 정의</li><li><b>2 · 검토 필요로 분류</b>다의·수식어·원문 근거 부족·미등록·미지원 문형</li><li><b>3 · 후보 비교 → 사람 승인 후 새 버전</b>미등록 표현은 "후보 비교"로 MONDO·NCIt·MeSH 후보를 받아 이름 일치와 교차참조를 규칙으로 비교해 제안합니다. 정의 범위 판정과 사전 반영은 사람이 하며, 이 화면에서 자동 등록하지 않습니다.</li></ol></div>
       <label for="batch-input">입력 (줄마다 하나)</label><textarea id="batch-input" rows="9" spellcheck="false" placeholder="T2DM&#10;CD | Crohn disease (CD) is mentioned. Patients with CD."></textarea>
       <div class="batch-actions"><button id="run-batch" class="runtime-submit" type="button">여러 줄 분석하기</button><button id="batch-sample" class="subtle-button" type="button">예시 넣기</button><button id="batch-csv" class="subtle-button" type="button" disabled>여러 줄 결과 CSV ↓</button><button id="batch-json" class="subtle-button" type="button" disabled>여러 줄 결과 JSON ↓</button></div>
       <p id="batch-error" role="alert"></p><div id="batch-result" aria-live="polite"></div></section>
@@ -166,6 +175,9 @@ export function mountAnalyzer(root,catalog) {
     const compare=event.target.closest('[data-compare-term]');
     if(compare){compareInto(compare.dataset.compareTerm,root.querySelector('#analyzer-result [data-compare-output]'),compare);return;}
     if(event.target.closest('[data-compare-download]') && lastCompare){download('indication-candidates.json',JSON.stringify(lastCompare,null,2)+'\n','application/json;charset=utf-8');return;}
+    const rowCompare=event.target.closest('[data-row-compare]');
+    if(rowCompare && batchRows){compareRow(Number(rowCompare.dataset.rowCompare));return;}
+    if(event.target.closest('[data-compare-all]') && batchRows){compareAll(event.target.closest('[data-compare-all]'));return;}
     const fromBatch=event.target.closest('[data-batch-compare]');
     if(fromBatch && batchRows) {
       const row=batchRows[Number(fromBatch.dataset.batchCompare)];
@@ -174,6 +186,25 @@ export function mountAnalyzer(root,catalog) {
       root.querySelector('#analyzer-result [data-compare-term]')?.click();
     }
   });
+  async function compareRow(i) {
+    const row=batchRows[i],cell=()=>root.querySelector(`[data-candidate-cell="${i}"]`),owner=batchRows;
+    if(!row?.result || row.result.decision!=='UNREGISTERED')return;
+    if(cell())cell().innerHTML='<small>조회 중…</small>';
+    try {
+      const term=row.keyword;
+      if(!compareCache.has(term))compareCache.set(term,await fetchCandidates(term));
+      row.candidate=compareCandidates(compareCache.get(term));delete row.candidate_error;
+    } catch(e) { row.candidate_error=e.message; }
+    if(owner===batchRows && cell())cell().innerHTML=candidateCell(row,i);
+  }
+  async function compareAll(button) {
+    button.disabled=true;const owner=batchRows;
+    const pending=batchRows.map((r,i)=>i).filter(i=>batchRows[i].result?.decision==='UNREGISTERED' && !batchRows[i].candidate);
+    // Three lookups at a time keeps the public APIs' load modest.
+    const worker=async()=>{while(pending.length && owner===batchRows)await compareRow(pending.shift());};
+    await Promise.all([worker(),worker(),worker()]);
+    if(button.isConnected){button.disabled=false;button.textContent='후보 비교 완료 · 다시 비교하려면 여러 줄을 다시 분석하세요';button.disabled=true;}
+  }
   const meta={format:BATCH_FORMAT,engine_version:catalog.metadata.snapshot?.engine_version,dataset_version:catalog.metadata.dataset_version,snapshot:catalog.metadata.snapshot,limits:BATCH_LIMITS};
   let batchRows=null;
   const batchInput=root.querySelector('#batch-input');
@@ -188,6 +219,6 @@ export function mountAnalyzer(root,catalog) {
     } catch(e) { batchRows=null;error.textContent=e.message;root.querySelector('#batch-result').innerHTML='';root.querySelector('#batch-csv').disabled=root.querySelector('#batch-json').disabled=true; }
   });
   root.querySelector('#batch-csv').addEventListener('click',()=>{if(batchRows)download('indication-batch.csv','\ufeff'+batchCSV(batchRows,meta),'text/csv;charset=utf-8');});
-  root.querySelector('#batch-json').addEventListener('click',()=>{if(batchRows)download('indication-batch.json',JSON.stringify({...meta,rows:batchRows.map(r=>({...r,next_steps:nextSteps(r.result)}))},null,2)+'\n','application/json;charset=utf-8');});
+  root.querySelector('#batch-json').addEventListener('click',()=>{if(batchRows)download('indication-batch.json',JSON.stringify({...meta,rows:batchRows.map(r=>({...r,next_steps:nextSteps(r.result),candidate_record:r.candidate?compareCache.get(r.keyword) ?? null:null}))},null,2)+'\n','application/json;charset=utf-8');});
   if(current)root.querySelector('#analyzer-result').innerHTML=reportHTML(current);else run();
 }

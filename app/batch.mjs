@@ -72,8 +72,8 @@ const cell=value=>{
   return /[",\r\n]/u.test(s)?'"'+s.replaceAll('"','""')+'"':s;
 };
 export function batchCSV(rows,meta) {
-  const header=['line','keyword','has_text','status','decision','normalization_status','target_evidence_status','concept_keys','reason_codes','unsupported_patterns','engine_version','dataset_version'];
+  const header=['line','keyword','has_text','status','decision','normalization_status','target_evidence_status','concept_keys','reason_codes','unsupported_patterns','candidate_comparison','candidate_proposal','engine_version','dataset_version'];
   const lines=rows.map(r=>[r.line,r.keyword,r.has_text,r.status,r.result?.decision ?? '',r.result?.normalization_status ?? '',r.result?.target_evidence_status ?? '',
-    (r.result?.concept_keys ?? []).join(' '),(r.result?.reasons ?? []).map(x=>x.code).join(' '),(r.result?.unsupported_patterns ?? []).join(' '),meta.engine_version,meta.dataset_version].map(cell).join(','));
+    (r.result?.concept_keys ?? []).join(' '),(r.result?.reasons ?? []).map(x=>x.code).join(' '),(r.result?.unsupported_patterns ?? []).join(' '),r.candidate?.code ?? '',(r.candidate?.proposal?.candidates ?? []).join(' '),meta.engine_version,meta.dataset_version].map(cell).join(','));
   return [header.join(','),...lines].join('\r\n')+'\r\n';
 }

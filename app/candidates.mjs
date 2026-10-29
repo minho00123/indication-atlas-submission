@@ -16,6 +16,7 @@ export function lookupUrls(term) {
     mondo_info:`${OLS}/ontologies/mondo`,ncit_info:`${OLS}/ontologies/ncit`};
 }
 const termUrl=id=>`${OLS}/ontologies/mondo/terms?obo_id=${encodeURIComponent(id)}`;
+const ncitTermUrl=id=>`${OLS}/ontologies/ncit/terms?obo_id=${encodeURIComponent(id)}`;
 const meshDetailsUrl=id=>`${MESH}/details?descriptor=${encodeURIComponent(id)}&includes=terms`;
 
 async function getJSON(url,fetchImpl,timeout) {
@@ -44,6 +45,10 @@ export async function fetchCandidates(term,{fetchImpl=globalThis.fetch,timeout=1
   const mondoIds=[...own(responses.mondo_exact,'MONDO:'),...own(responses.mondo_fuzzy,'MONDO:')].slice(0,3).map(d=>d.obo_id);
   const terms=await Promise.all(mondoIds.map(id=>get(termUrl(id))));
   responses.mondo_terms=Object.fromEntries(mondoIds.map((id,i)=>[id,terms[i]]));
+  // NCIt targets named by MONDO cross-references are fetched even when the name search misses them.
+  const ncitIds=[...new Set(terms.filter(r=>r.ok).flatMap(r=>(r.data._embedded?.terms?.[0]?.obo_xref ?? []).filter(x=>x.database==='NCIT' && /^C\d+$/u.test(x.id)).map(x=>'NCIT:'+x.id)))].slice(0,3);
+  const ncitTerms=await Promise.all(ncitIds.map(id=>get(ncitTermUrl(id))));
+  responses.ncit_terms=Object.fromEntries(ncitIds.map((id,i)=>[id,ncitTerms[i]]));
   const meshIds=new Set();
   for(const r of [responses.mesh_exact,responses.mesh_contains])for(const d of (r?.ok?r.data:[]) ?? [])meshIds.add(String(d.resource).split('/').pop());
   for(const r of terms)if(r.ok)for(const x of r.data._embedded?.terms?.[0]?.obo_xref ?? [])if(x.database==='MESH' && /^D\d+$/u.test(x.id))meshIds.add(x.id);
@@ -78,7 +83,14 @@ export function compareCandidates(record) {
     const xrefs=(t?.obo_xref ?? []).map(x=>`${x.database}:${x.id}`).filter(x=>/^(NCIT|MESH):/u.test(x));
     return {id:d.obo_id,label:d.label,level:olsLevel(q,d),obsolete:!!(t?.is_obsolete ?? d.is_obsolete),definition:(t?.description ?? d.description ?? [])[0] ?? '',xrefs,xrefs_loaded:!!t};
   })).filter(c=>!c.obsolete).slice(0,6);
-  const ncit=rank(docs(['ncit_exact','ncit_fuzzy'],'NCIT:').map(d=>({id:d.obo_id,label:d.label,level:olsLevel(q,d),obsolete:!!d.is_obsolete,definition:(d.description ?? [])[0] ?? ''}))).filter(c=>!c.obsolete).slice(0,6);
+  const searched=docs(['ncit_exact','ncit_fuzzy'],'NCIT:').map(d=>({id:d.obo_id,label:d.label,level:olsLevel(q,d),obsolete:!!d.is_obsolete,definition:(d.description ?? [])[0] ?? ''}));
+  const viaXref=Object.entries(r.ncit_terms ?? {}).filter(([id,v])=>v.ok && !searched.some(c=>c.id===id)).map(([id,v])=>{
+    const t=v.data._embedded?.terms?.[0] ?? {},syn=t.obo_synonym ?? [];
+    const doc={label:t.label,exact_synonyms:syn.filter(s=>s.scope==='hasExactSynonym').map(s=>s.name),related_synonyms:syn.filter(s=>s.scope==='hasRelatedSynonym').map(s=>s.name),
+      narrow_synonyms:syn.filter(s=>s.scope==='hasNarrowSynonym').map(s=>s.name),broad_synonyms:syn.filter(s=>s.scope==='hasBroadSynonym').map(s=>s.name)};
+    return {id,label:t.label ?? id,level:olsLevel(q,doc),obsolete:!!t.is_obsolete,definition:(t.description ?? [])[0] ?? '',via_xref:true};
+  });
+  const ncit=rank([...searched,...viaXref]).filter(c=>!c.obsolete).slice(0,6);
   const mesh=rank(Object.entries(r.mesh_details ?? {}).filter(([,v])=>v.ok).map(([id,v])=>{
     const terms=v.data.terms ?? [],preferred=terms.find(t=>t.preferred)?.label ?? id;
     const level=meshForms(preferred).includes(q)?'LABEL':terms.some(t=>meshForms(t.label).includes(q))?'ENTRY_TERM':'PARTIAL';
@@ -96,7 +108,10 @@ export function compareCandidates(record) {
     reasons.push(`${best.id}: 입력이 MONDO ${best.level==='LABEL'?'대표 이름과':'정확 동의어와'} 일치합니다.`);
     if(cross.ncit.length)reasons.push(`MONDO 교차참조 ↔ NCIt 이름 일치 후보: ${cross.ncit.join(', ')} 일치.`);
     else if(ncitConflict)reasons.push(`NCIt 이름 일치 후보(${ncitExact.map(c=>c.id).join(', ')})가 MONDO 교차참조에 없습니다.`);
-    else reasons.push('NCIt에서 이름이 일치하는 후보를 찾지 못했습니다.');
+    else {
+      const target=ncit.find(c=>c.via_xref && xrefs.has(c.id));
+      reasons.push(target?`NCIt에서 이름이 일치하는 후보는 없지만, MONDO 교차참조가 ${target.id}(${target.label})를 가리킵니다. 이름이 달라 사람이 확인합니다.`:'NCIt에서 이름이 일치하는 후보를 찾지 못했습니다.');
+    }
     if(cross.mesh.length)reasons.push(`MONDO 교차참조 ↔ MeSH 이름 일치 후보: ${cross.mesh.join(', ')} 일치.`);
     else if(meshConflict)reasons.push(`MeSH 이름 일치 후보(${meshExact.map(c=>c.id).join(', ')})가 MONDO 교차참조에 없습니다.`);
     else reasons.push('MeSH에서 이름이 일치하는 후보를 찾지 못했습니다.');

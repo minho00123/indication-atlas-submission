@@ -492,3 +492,6 @@ summary>.badge { flex-shrink:0; }
 .compare-limits { font-size:11px; color:var(--muted); padding-left:18px; margin:8px 0; }
 .next-steps .compare-entry .runtime-submit { padding:8px 14px; }
 @media (max-width:760px) { .compare-columns { grid-template-columns:1fr; } }
+.batch-compare-all { display:flex; flex-wrap:wrap; align-items:center; gap:8px 14px; margin:6px 0 12px; }
+.batch-compare-all small { color:var(--muted); font-size:11px; flex:1 1 300px; }
+.batch-table td[data-candidate-cell] .badge { white-space:normal; }
