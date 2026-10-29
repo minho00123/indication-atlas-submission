@@ -694,3 +694,8 @@ summary>.badge { flex-shrink:0; }
 .badge-name { font-size:12px; color:var(--muted); margin-right:-2px; }
 .badge-name:not(:first-child) { margin-left:8px; }
 .featured-heading { font-weight:700; color:var(--ink); }
+.alias-button { cursor:pointer; font:inherit; }
+.alias-button:hover,.alias-button.active { border-color:#76cffe; background:var(--tint); color:var(--accent-dark); }
+.name-origin { margin:8px 0 12px; padding:10px 13px; border:1px solid #cfe9fb; border-radius:9px; background:#f5fbff; font-size:13px; }
+.name-origin p { margin:4px 0; }
+.name-origin .source-link-list { margin:4px 0; }

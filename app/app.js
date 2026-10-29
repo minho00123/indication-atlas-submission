@@ -60,7 +60,7 @@ function sourceLabel(source) {
   if(url.includes('heart.org'))return 'American Heart Association';
   if(url.includes('cortellis'))return 'Cortellis 공개 문서';
   if(url.includes('elsevier'))return 'Embase 공개 도움말';
-  try { return new URL(url).hostname.replace(/^www\./,''); } catch { return source?.label ?? '제공 항목별 분류 근거'; }
+  try { return new URL(url).hostname.replace(/^www\./,''); } catch { return source?.label ?? '출처'; }
 }
 function sourcesHTML(refs) {
   const seen=new Set();
@@ -213,6 +213,20 @@ function atomsHTML(atoms) {
   return [...groups.values()].map(a=>`<span class="atom" title="${esc(a.source_field)} [${a.start}:${a.end}]">${esc(a.source_span)}</span>`).join('');
 }
 
+// Where a linked name came from: provided keyword rows, or names recorded during review with their sources.
+function nameOriginHTML(concept,aliases) {
+  const name=route.params.get('name');if(!concept || !name)return '';
+  const entries=aliases.filter(a=>a.term===name);if(!entries.length)return '';
+  const provided=entries.filter(a=>a.kind==='PROVIDED_INPUT'),reviewed=entries.filter(a=>a.kind!=='PROVIDED_INPUT');
+  const ids=list=>[...new Set(list.map(a=>a.source_id))];
+  // One link per source label: the same MeSH record cited by several rows is one source here.
+  const labels=new Set(),refs=[...new Set(reviewed.flatMap(a=>a.evidence_refs ?? []))].filter(id=>{const l=sourceLabel(data.sources[id]);return !labels.has(l) && labels.add(l);});
+  return `<div class="name-origin"><strong>선택한 이름 “${esc(name)}”</strong>
+    ${provided.length?`<p>제공 키워드로 들어온 항목: ${ids(provided).map(id=>`<button class="text-button" data-select-record="${esc(id)}" data-owner-concept="${esc(concept.concept_key)}" data-keep-name>${esc(id)} · ${esc(recordById.get(id)?.keyword ?? '')}</button>`).join(' · ')}</p>`:''}
+    ${reviewed.length?`<p>${provided.length?'같은 이름을 ':'제공 키워드에는 없는 이름입니다. '}${esc([...new Set(reviewed.map(a=>kindLabels[a.kind] ?? a.kind))].join('·'))}으로 기록했습니다(${ids(reviewed).map(esc).join(', ')}).</p>${refs.length?`<div class="source-link-list">${sourcesHTML(refs)}</div>`:''}`:''}
+    <button class="text-button" data-clear-name>이름 선택 해제</button></div>`;
+}
+
 function detailHTML(concept,row,fromSearch=false) {
   const aliases=concept?data.aliases.filter(a=>a.concept_key===concept.concept_key):[];
   const uniqueAliases=[...new Map(aliases.map(a=>[a.term,a])).values()];
@@ -224,7 +238,7 @@ function detailHTML(concept,row,fromSearch=false) {
     <div class="detail-title"><h2>${esc(concept?.preferred_name || row.keyword)}</h2></div>
     <div class="detail-code" id="code-${row.source_id}">${esc(row.selected_standard_id ?? (row.concept_key?'자체 관리 개념 (LOCAL)':'단일 개념으로 연결하지 않은 입력'))}</div>
     ${row.research_decision==='LOCAL_CONCEPT'?'<p class="detail-subtitle">제공 문맥의 의미를 자체 개념으로 관리합니다. 같은 범위의 외부 표준 연결은 추가 검토가 필요합니다.</p>':''}
-    <div class="detail-section"><p class="label">제공 항목별 분류 근거 <span class="small-count">${ids.length}</span></p>
+    <div class="detail-section" id="item-evidence" tabindex="-1"><p class="label">제공 항목별 분류 근거 <span class="small-count">${ids.length}</span></p>${nameOriginHTML(concept,aliases)}
     ${ids.length>1?`<div class="row-tabs" aria-label="같은 개념에 연결한 제공 항목 선택">${ids.map(id=>`<button class="${id===row.source_id?'active':''}" data-select-record="${id}" data-owner-concept="${esc(concept.concept_key)}" aria-pressed="${id===row.source_id}">${id} · ${esc(recordById.get(id).keyword)}</button>`).join('')}</div>`:''}
     <div class="label">${esc(row.source_id)} · ${esc(row.keyword)}</div><blockquote class="source-quote">${esc(row.raw_context)}</blockquote>
     ${row.context_quality==='TEMPLATE_NO_ADDITIONAL_DETAILS'?'<p class="source-note">질환명 외의 추가 아형·진단 정보가 없는 문맥입니다.</p>':''}
@@ -234,7 +248,7 @@ function detailHTML(concept,row,fromSearch=false) {
     ${(row.definition_warnings ?? []).map(w=>`<div class="warning-note"><strong>출처 정의·범위 확인</strong>${esc(w.rationale_ko)}</div>`).join('')}
     ${row.expression?`<div class="info-note"><strong>${esc(row.expression.operator)} 조건으로 보존</strong>전체 표현을 한 질환의 동의어로 등록하지 않습니다.<div>${row.expression.operands.map(id=>`<a href="${esc(pathFor('dictionary',{concept:id}))}">${esc(conceptByKey.get(id)?.preferred_name ?? id)} ↗</a>`).join(' <span aria-hidden="true"> · </span> ')}</div></div>`:''}
     <div class="detail-section"><h3>비교한 후보와 범위 관계</h3><p class="source-note">관계 방향: 원문 → 후보. 대표로 고른 후보와 범위 관계는 따로 표시합니다. 대표가 아닌 후보도 같은 범위의 근거일 수 있습니다. 항목을 펼치면 출처별 정의를 볼 수 있습니다.</p><div id="candidates-${row.source_id}"><p class="source-note">후보 정의를 불러오고 있습니다.</p></div></div>
-    ${uniqueAliases.length?`<div class="detail-section"><p class="label">연결된 이름 <span class="small-count">${uniqueAliases.length}</span></p><div class="alias-list">${uniqueAliases.map(a=>`<span class="alias" title="${esc(kindLabels[a.kind] ?? a.kind)}${a.context_required?' · 문맥 확인 필요':''}">${esc(a.term)}${a.context_required?' · 문맥':''}</span>`).join('')}</div></div>`:''}
+    ${uniqueAliases.length?`<div class="detail-section"><p class="label">연결된 이름 <span class="small-count">${uniqueAliases.length}</span></p><div class="alias-list">${uniqueAliases.map(a=>`<button type="button" class="alias alias-button${route.params.get('name')===a.term?' active':''}" data-alias-name="${esc(a.term)}" data-owner-concept="${esc(concept.concept_key)}" aria-pressed="${route.params.get('name')===a.term}" title="이 이름이 연결된 근거 보기">${esc(a.term)}</button>`).join('')}</div><p class="source-note">이름을 누르면 그 이름이 들어온 제공 항목이나 기록한 출처를 위의 분류 근거에서 보여줍니다.</p></div>`:''}
     ${related.length?`<div class="info-note"><strong>관련 개념 · 같은 뜻으로 병합하지 않음</strong>${related.map(link=>`<a href="${esc(pathFor('dictionary',{concept:link.concept_key}))}">${esc(conceptByKey.get(link.concept_key)?.preferred_name ?? link.concept_key)} ↗</a><br>${esc(link.rationale_ko)}`).join('<br>')}</div>`:''}
     <div class="detail-section"><p class="label">판단에 참고한 출처</p><div class="source-link-list">${sourcesHTML(row.evidence_refs) || '<span class="source-note">제공 원문과 판단 가이드라인을 기준으로 기록했습니다.</span>'}</div><p class="source-note">${esc((row.rule_ids ?? []).join(' · '))} · <a href="#cases">판단 기준 ↗</a></p></div></div>`;
 }
@@ -386,6 +400,7 @@ function render() {
   else if(route.page==='materials')materialsPage();
   else if(route.page==='analyze')mountAnalyzer($('#main-content'),data);
   else dictionaryPage();
+  if(route.params.get('name'))requestAnimationFrame(()=>{const target=document.getElementById('item-evidence');if(target){target.scrollIntoView({block:'start'});target.focus({preventScroll:true});}});
 }
 
 document.addEventListener('click', async event=>{
@@ -396,7 +411,13 @@ document.addEventListener('click', async event=>{
   if(d.case) { navigate('cases/'+d.case); return; }
   if(d.concept) { navigate('dictionary',{q:$('#dictionary-search')?.value ?? '',concept:d.concept,...(d.record?{record:d.record}:{})}); return; }
   if(d.openRecord) { navigate('records',{...currentParams(),record:d.openRecord}); return; }
-  if(d.selectRecord) { navigate(route.page,{...currentParams(),concept:d.ownerConcept,record:d.selectRecord}); return; }
+  if(d.aliasName!=null) {
+    const entries=data.aliases.filter(a=>a.concept_key===d.ownerConcept && a.term===d.aliasName),provided=entries.find(a=>a.kind==='PROVIDED_INPUT');
+    const current=route.params.get('record');
+    navigate(route.page,{...currentParams(),concept:d.ownerConcept,record:provided?.source_id ?? current ?? entries[0]?.source_id,name:d.aliasName});return;
+  }
+  if('clearName' in d) { const p=currentParams();delete p.name;navigate(route.page,p);return; }
+  if(d.selectRecord) { const p={...currentParams(),concept:d.ownerConcept,record:d.selectRecord};if(!('keepName' in d))delete p.name;navigate(route.page,p); return; }
   if(d.searchPage) { if(route.params.size===0)selectedKey=null; searchPage+=Number(d.searchPage);updateSearch();return; }
   if(d.recordPage) { recordPage+=Number(d.recordPage);updateRecords();return; }
   if(d.aliasPage) { aliasPage+=Number(d.aliasPage);updateAliases();return; }

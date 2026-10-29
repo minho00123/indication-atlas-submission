@@ -127,6 +127,17 @@ def run(base_url,browser_executable=None,output=None):
         reason_y=page.locator('#dictionary-detail .rationale-strong').bounding_box()['y']
         assert reason_y<page.locator('#candidates-K001').bounding_box()['y']<page.locator('#dictionary-detail .alias-list').bounding_box()['y']
         expect(page.locator('.header-download')).to_contain_text('실행 방법·자료')
+        # Linked names open their evidence: a provided keyword selects its row; a reviewed name shows its sources.
+        page.goto(base_url+'#dictionary?concept=MONDO%3A0005148',wait_until='networkidle')
+        page.locator('.alias-button',has_text='T2DM').click()
+        expect(page).to_have_url(re.compile(r'record=K177.*name=T2DM'))
+        expect(page.locator('.name-origin')).to_contain_text('제공 키워드로 들어온 항목: K177')
+        expect(page.locator('.row-tabs button.active')).to_contain_text('K177')
+        page.locator('.alias-button',has_text='type 2 diabetes mellitus').first.click()
+        expect(page.locator('.name-origin')).to_contain_text('제공 키워드에는 없는 이름입니다')
+        expect(page.locator('.name-origin .source-link')).to_have_count(2)
+        page.locator('.row-tabs button',has_text='K004').click()
+        expect(page.locator('.name-origin')).to_have_count(0)
         results.append('Candidate provenance visible before expanding definitions')
         page.locator('#dictionary-search').fill('NAFLD')
         expect(page.locator('#results')).to_contain_text('관련 결과 · 동의어 병합 아님')
