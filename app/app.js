@@ -116,7 +116,7 @@ function overviewPage() {
       <p class="eyebrow">질환 키워드 ${m.records}건 · 동의어 사전 구축</p>
       <h1 id="hero-title">질환 동의어 사전</h1>
       <p class="home-summary">제공 키워드 ${m.records}건을 문맥과 공식 용어 정의로 검토해, 같은 개념은 묶고 다른 뜻은 나누고 근거가 부족하면 보류했습니다. 단일 개념에 연결한 ${data.records.filter(r=>r.concept_key).length}건은 ${m.concepts}개 개념 그룹입니다(보류 ${m.holds}건·OR 표현 ${data.records.filter(r=>r.research_decision==='SPLIT_EXPRESSION').length}건 제외).</p>
-      <form class="overview-search" role="search" aria-label="사전 검색"><label class="search-box">${icon}<input id="overview-search" type="search" autocomplete="off" aria-label="질환명·약어·항목 번호로 사전 검색" placeholder="질환명, 약어 또는 항목 번호 검색"></label><button type="submit" class="primary-button">사전에서 찾기</button></form>
+      <form class="overview-search" role="search" aria-label="사전 검색"><label class="search-box">${icon}<input id="overview-search" type="search" autocomplete="off" aria-label="질환명·약어·항목 번호로 사전 검색" placeholder="질환명·약어·항목 번호"></label><button type="submit" class="primary-button">사전에서 찾기</button></form>
       ${exampleChips()}</div>
       ${statsHTML(m)}</section>
     <section id="overview-featured" class="panel overview-featured" aria-label="대표 판단">${featuredHTML(featuredTab)}</section>

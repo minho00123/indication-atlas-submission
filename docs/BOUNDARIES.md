@@ -76,7 +76,7 @@ F1은 현재 보존한 조건 구간을 실제로 재사용·비교하는 방향
 
 ## 현재 실행 규칙의 경계와 대조
 
-직접 입력해 보기은 개념 식별, 원문의 언급 방식(부정·추정 등), 조건이 적용되는 질환과 원문 구간, 참여·치료 조건 충족 여부 미평가를 구별합니다. 반례를 재현해 non-small 변형, 원문 근거 미확인, 부정 문형, 관계 미검토, OR 구조를 보강했습니다. [검증과 한계](#materials/audit)에 미지원과 검토 필요를 포함한 300행 전체를 공개합니다. 다시 실행한 결과는 구축에 사용한 자료로 확인한 것이므로 독립 평가가 아닙니다.
+직접 입력해 보기는 개념 식별, 원문의 언급 방식(부정·추정 등), 조건이 적용되는 질환과 원문 구간, 참여·치료 조건 충족 여부 미평가를 구별합니다. 반례를 재현해 non-small 변형, 원문 근거 미확인, 부정 문형, 관계 미검토, OR 구조를 보강했습니다. [검증과 한계](#materials/audit)에 미지원과 검토 필요를 포함한 300행 전체를 공개합니다. 다시 실행한 결과는 구축에 사용한 자료로 확인한 것이므로 독립 평가가 아닙니다.
 
 ## 자료를 읽을 때의 구분
 
@@ -89,4 +89,4 @@ F1은 현재 보존한 조건 구간을 실제로 재사용·비교하는 방향
 python3 tools/verify_supplement.py
 ```
 
-[보조 자료의 출처·한계 안내](../evidence/boundary_checks/README.md)와 [파일 해시 목록](../evidence/boundary_checks/manifest.json)을 함께 제공합니다. 코드와 자료는 [전체 제출 ZIP](./downloads/indication-atlas-submission.zip)에도 포함돼 있습니다.
+[보조 자료의 출처·한계 안내](../evidence/boundary_checks/README.md)와 [파일 해시 목록](../evidence/boundary_checks/manifest.json)을 함께 제공합니다. 코드와 자료는 [전체 제출 ZIP](https://indication-atlas.netlify.app/downloads/indication-atlas-submission.zip)에도 포함돼 있습니다.

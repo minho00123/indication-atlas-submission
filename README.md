@@ -40,7 +40,7 @@ python3 -m unittest discover -s tests -p 'test_*.py'
 
 선택적인 분석 모듈 개발 검사는 Node.js 22에서 `node --test tests/test_*.mjs`로 실행합니다. 개발·반례 입력 103건은 자동 테스트와 브라우저 검사에서 확인하며, 웹에는 검사 실행 버튼을 두지 않았습니다. 작성자 구성 사례에 대한 기능 검사이며 독립 임상 정확도가 아닙니다. 자세한 지원 범위는 [분석 시제품 문서](docs/ANALYZER.md)에 기록했습니다.
 
-새 규칙 대조를 재현하려면 Node.js 22에서 `node tools/run_rule_audit.mjs --check`를 실행합니다. Python 빌드는 저장된 대조의 입력 해시·집계를 검증하며 새 의학 판정을 생성하지 않습니다. [대조 설계](docs/RULE_AUDIT.md)를 제공합니다.
+300건을 현재 사전으로 다시 실행한 결과를 재현하려면 Node.js 22에서 `node tools/run_rule_audit.mjs --check`를 실행합니다. Python 빌드는 저장된 결과의 입력 해시·집계를 검증하며 새 의학 판정을 생성하지 않습니다. 자세한 내용은 [검증 방법과 재현](docs/RULE_AUDIT.md)에 있습니다.
 
 ## Netlify 연동
 

@@ -1,5 +1,5 @@
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const categories={MATCH:'개념 연결 일치',MATCH_HOLD:'보류 행동 일치',MATCH_EXPRESSION:'논리식 일치',REVIEW_REQUIRED:'검토 필요',RULE_UNSUPPORTED:'규칙 미지원',UNREGISTERED:'사전에 미등록',DIFFERENT_RESULT:'다른 실행 결과'};
+const categories={MATCH:'개념 연결 일치',MATCH_HOLD:'보류 판단 일치',MATCH_EXPRESSION:'논리식 일치',REVIEW_REQUIRED:'검토 필요',RULE_UNSUPPORTED:'규칙 미지원',UNREGISTERED:'사전에 미등록',DIFFERENT_RESULT:'다른 실행 결과'};
 const statuses={PASS:'검사 일관',DIFFERENCE:'차이',UNSUPPORTED:'미지원',MANUAL_REVIEW_REQUIRED:'사람 검토',REVIEW_REQUIRED:'검토 필요'};
 const expectedLabels={PROVISIONAL_MAP:'개념 연결 · 잠정',LOCAL_CONCEPT:'자체 관리 개념',ROUTE_ENTITY:'별도 개체',SPLIT_EXPRESSION:'OR 조건',HOLD_AMBIGUOUS:'문맥 부족 · 보류',HOLD_SOURCE_CONFLICT:'입력 충돌 · 보류'};
 const runLabels={LINKED:'기존 개념에 연결',LOCAL_LINKED:'기존 자체 개념에 연결',ROUTE_ENTITY:'별도 개체로 연결',SPLIT_OR:'OR 조건 보존',HOLD_AMBIGUOUS:'약어 의미 보류',HOLD_DEFINITION:'문서 정의 검토 필요',HOLD_SOURCE_CONFLICT:'입력 충돌 · 보류',HOLD_RELATION_UNREVIEWED:'개념 차이 · 관계 미검토',HOLD_TARGET_NOT_IN_TEXT:'원문 근거 미확인',HOLD_MODIFIED_MENTION:'수식된 이름 · 범위 검토',HOLD_EXPRESSION_UNRESOLVED:'AND/OR 구성 개념 검토',HOLD_SCOPE_REVIEW:'범위 차이 · 검토',UNREGISTERED:'미등록 표현'};
