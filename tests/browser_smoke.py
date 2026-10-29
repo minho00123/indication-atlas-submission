@@ -26,7 +26,8 @@ def run(base_url,browser_executable=None,output=None):
         expect(page.locator('#dictionary-detail .alias-list').first).to_contain_text('T2DM')
         cards=page.locator('.featured-grid [data-case]')
         assert cards.evaluate_all('(els)=>els.map(e=>e.dataset.case)')==['cd','eczema','nsclc','masld','conflict']
-        assert [tag.split(' · ',1)[0] for tag in cards.locator('.feature-kicker').all_text_contents()]==['01','02','03','04','05']
+        # Topic grouping reorders cases, so card kickers show the topic without the stored number.
+        assert cards.locator('.feature-kicker').all_text_contents()==['같은 표현, 다른 의미','일반 범위와 아형','같은 개념, 다른 조건','명칭과 기준의 변화','입력 충돌과 보류']
         counts=page.locator('#results .result-meta').all_text_contents()
         assert all('제공 항목 2건' in text or '제공 항목 6건' in text for text in counts[:6])
         assert all('제공 항목 1건' in text for text in counts[6:])

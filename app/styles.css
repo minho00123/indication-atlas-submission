@@ -535,8 +535,10 @@ summary>.badge { flex-shrink:0; }
 .example-back { display:none; }
 .example-section h3 { font-size:14px; margin:0 0 9px; }
 .example-rationale { margin:0 0 5px; font-size:15px; line-height:1.8; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
-.example-more { font-size:13px; margin-top:10px; }
-.example-more>summary { color:var(--accent); cursor:pointer; padding:5px 0; }
+.example-more { font-size:13px; margin-top:10px; border:0; border-radius:0; }
+.example-more>summary { display:inline-flex; color:var(--accent-dark); cursor:pointer; padding:5px 0; font-size:13px; }
+.example-more>summary:after { content:"↓"; margin-left:4px; color:inherit; }
+.example-more[open]>summary:after { content:"↑"; }
 .example-more[open]>summary { margin-bottom:9px; }
 .example-records { display:flex; flex-direction:column; gap:7px; }
 .example-evidence { border-top:1px solid var(--line); padding-top:13px; margin-top:18px; }

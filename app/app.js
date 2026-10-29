@@ -69,8 +69,10 @@ function sourcesHTML(refs) {
 function heading(eyebrow,title,description) {
   return `<div class="page-heading"><p class="eyebrow">${esc(eyebrow)}</p><h1>${esc(title)}</h1><p>${esc(description)}</p></div>`;
 }
+// Story tags carry their original numbers; grouping by topic reorders them, so the screen omits them.
+const caseTag=tag=>String(tag ?? '').replace(/^\d+\s*·\s*/u,'');
 function featureCards(stories) {
-  return stories.map(s=>`<button class="feature-card" data-case="${esc(s.id)}"><span class="feature-kicker">${esc(s.tag)}</span><h3>${esc(storyTitles[s.id] ?? s.title)}</h3><p>${esc(s.teaser)}</p><span class="feature-link">판단 근거 보기 <span aria-hidden="true">↗</span></span></button>`).join('');
+  return stories.map(s=>`<button class="feature-card" data-case="${esc(s.id)}"><span class="feature-kicker">${esc(caseTag(s.tag))}</span><h3>${esc(storyTitles[s.id] ?? s.title)}</h3><p>${esc(s.teaser)}</p><span class="feature-link">판단 근거 보기 <span aria-hidden="true">↗</span></span></button>`).join('');
 }
 
 function recordProofLink(id,label=id,values={}) {
@@ -311,7 +313,7 @@ function casesPage() {
     <section class="section-space"><details><summary>${data.comparisons.length}쌍의 비교 기록</summary><div class="table-wrap"><table><thead><tr><th>비교한 항목</th><th>판단 이유</th></tr></thead><tbody>${data.comparisons.map(c=>`<tr><td><a href="${pathFor('records',{record:c.left_source_id})}">${esc(c.left_keyword)} · ${c.left_source_id}</a><br><a href="${pathFor('records',{record:c.right_source_id})}">${esc(c.right_keyword)} · ${c.right_source_id}</a></td><td>${esc(c.rationale_ko)}</td></tr>`).join('')}</tbody></table></div></details><p class="source-note">구축에 사용한 규칙의 일관성을 확인한 기록입니다. 독립 평가셋은 아닙니다.</p></section><section id="concept-comparison" tabindex="-1" class="panel document embedded-comparison"></section></div>`;
     mountCompare($('#concept-comparison'),data);focusMaterialsSection($('#main-content'),route.params.get('section'));return;
   }
-  $('#main-content').innerHTML=`<div class="container">${intro}${criteriaTabs('examples')}<a class="back-link" href="#cases/examples">← 사례 목록</a><div class="case-layout"><nav class="case-sidebar" aria-label="판단 사례 목록">${data.stories.map(s=>`<a class="${s.id===story.id?'active':''}" href="#cases/${s.id}">${esc(s.short_title)}</a>`).join('')}</nav><article class="panel case-story"><span class="feature-kicker">${esc(story.tag)}</span><h2>${esc(storyTitles[story.id] ?? story.title)}</h2><p>${esc(story.explanation)}</p><div class="info-note"><strong>판단 원칙</strong>${esc(story.principle)}</div>${structuredReviewHTML(story)}<h3 class="case-final-heading">최종 처리와 원문 근거</h3>${story.source_ids.map(id=>{
+  $('#main-content').innerHTML=`<div class="container">${intro}${criteriaTabs('examples')}<a class="back-link" href="#cases/examples">← 사례 목록</a><div class="case-layout"><nav class="case-sidebar" aria-label="판단 사례 목록">${data.stories.map(s=>`<a class="${s.id===story.id?'active':''}" href="#cases/${s.id}">${esc(s.short_title)}</a>`).join('')}</nav><article class="panel case-story"><span class="feature-kicker">${esc(caseTag(story.tag))}</span><h2>${esc(storyTitles[story.id] ?? story.title)}</h2><p>${esc(story.explanation)}</p><div class="info-note"><strong>판단 원칙</strong>${esc(story.principle)}</div>${structuredReviewHTML(story)}<h3 class="case-final-heading">최종 처리와 원문 근거</h3>${story.source_ids.map(id=>{
     const r=recordById.get(id);return `<section class="case-row"><div class="case-row-head">${badge(id,'gray')}<span>${esc(r.keyword)}</span>${decisionBadge(r)}</div><blockquote class="source-quote">${esc(r.raw_context)}</blockquote><p><b>선택:</b> ${esc(r.standard_name || '단일 개념 연결 보류')}</p><p>${esc(r.rationale_ko)}</p><a href="${pathFor('records',{record:id})}">후보 정의와 전체 출처 보기 ↗</a></section>`;
   }).join('')}<div class="detail-section"><h3>반례·적용 조건</h3><p>${esc(story.exception)}</p><a href="#cases">공통 판단 기준 보기 ↗</a></div></article></div></div>`;
 }
