@@ -15,10 +15,25 @@ def run(base_url,browser_executable=None,output=None):
         page=browser.new_page(viewport={'width':1440,'height':1050})
         errors=[];console_errors=[];page.on('pageerror',lambda e:errors.append(str(e)));page.on('console',lambda m:console_errors.append(m.text) if m.type=='error' else None)
         page.goto(base_url,wait_until='networkidle')
-        expect(page.get_by_role('heading',name='등록된 표현 검색')).to_be_visible()
-        results.append('Desktop entry and snapshot counts')
+        # Entry: the overview explains the result before the search tool.
         expect(page.locator('#hero-title')).to_have_text('질환 동의어 사전')
+        expect(page.locator('.main-nav a[data-nav="overview"]')).to_have_attribute('aria-current','page')
+        results.append('Desktop entry and snapshot counts')
         assert page.locator('.stats .stat-value').evaluate_all('(els)=>els.map(e=>e.textContent.replace(/[^0-9]/g,""))')==['300','287','419','2']
+        expect(page.locator('.key-point')).to_have_count(0)
+        expect(page.locator('.featured-section')).to_have_count(0)
+        assert page.locator('.example-chip').all_text_contents()==['CD','NSCLC','eczema','NAFLD']
+        # Summary line: input rows and concept groups are different units, and the excluded rows are named.
+        expect(page.locator('.home-summary')).to_contain_text('297건은 287개 개념 그룹')
+        expect(page.locator('.home-summary')).to_contain_text('보류 2건·OR 표현 1건 제외')
+        assert [a.get_attribute('href') for a in page.locator('.overview-card').all()]==['#cases','#cases/examples','#records','#materials/research','#materials/methodology','#analyze']
+        page.locator('#overview-search').fill('NSCLC')
+        page.get_by_role('button',name='사전에서 찾기').click()
+        expect(page.locator('#dictionary-search')).to_have_value('NSCLC')
+        expect(page.locator('#dictionary-detail')).to_contain_text('Non-small cell lung carcinoma')
+        # Dictionary: a search tool with a reading guide instead of the representative cases.
+        page.goto(base_url+'#dictionary',wait_until='networkidle')
+        expect(page.get_by_role('heading',name='등록된 표현 검색')).to_be_visible()
         assert page.locator('#dictionary-search').bounding_box()['y']+page.locator('#dictionary-search').bounding_box()['height']<1000
         expect(page.locator('.search-heading-row')).not_to_contain_text('질환군')
         expect(page.locator('.catalog-scope')).not_to_have_attribute('open','')
@@ -27,25 +42,21 @@ def run(base_url,browser_executable=None,output=None):
         expect(page.locator('.catalog-scope p')).to_contain_text('질환군·소견·상태')
         page.locator('.catalog-scope summary').click()
         expect(page.locator('.direct-input-note').get_by_role('link',name='직접 입력해 보기 ↗')).to_have_attribute('href','#analyze')
-        expect(page.locator('.key-point')).to_have_count(0)
-        expect(page.locator('.featured-section')).to_have_count(0)
-        assert page.locator('.example-chip').all_text_contents()==['CD','NSCLC','eczema','NAFLD']
-        # Summary line: input rows and concept groups are different units, and the excluded rows are named.
-        expect(page.locator('.home-summary')).to_contain_text('297건은 287개 개념 그룹')
-        expect(page.locator('.home-summary')).to_contain_text('보류 2건·OR 표현 1건 제외')
-        assert [a.get_attribute('href') for a in page.locator('.home-links a').all()]==['#cases','#materials/research','#materials/methodology']
+        expect(page.locator('#dictionary-detail .search-guide')).to_contain_text('동의어 병합 아님')
+        expect(page.locator('#dictionary-detail .flow')).to_have_count(0)
+        page.goto(base_url,wait_until='networkidle')
         # First screen: one spelling fans out by quoted context cue; the held row is labelled as an undecided meaning.
-        expect(page.locator('#dictionary-detail .featured-heading')).to_have_text('분류 결과 예시')
-        expect(page.locator('#dictionary-detail .flow-root')).to_contain_text('CD')
-        rows=page.locator('#dictionary-detail .split-flow .flow-row')
+        expect(page.locator('#overview-featured .featured-heading')).to_have_text('분류 결과 예시')
+        expect(page.locator('#overview-featured .flow-root')).to_contain_text('CD')
+        rows=page.locator('#overview-featured .split-flow .flow-row')
         expect(rows).to_have_count(3)
-        assert page.locator('#dictionary-detail .split-flow mark').all_text_contents()==['ileocolonic inflammation and fistula','gluten-triggered enteropathy','no other disease description']
-        for i,cue in enumerate(page.locator('#dictionary-detail .split-flow mark').all_text_contents()):
+        assert page.locator('#overview-featured .split-flow mark').all_text_contents()==['ileocolonic inflammation and fistula','gluten-triggered enteropathy','no other disease description']
+        for i,cue in enumerate(page.locator('#overview-featured .split-flow mark').all_text_contents()):
             assert cue in rows.nth(i).locator('blockquote').text_content()
         expect(rows.nth(2)).to_have_class(re.compile('held'))
         expect(rows.nth(2).locator('.flow-target')).to_contain_text('의미 미확정')
         expect(rows.nth(2).locator('.flow-target')).to_contain_text('문맥 부족')
-        expect(page.locator('#dictionary-detail')).not_to_contain_text('단일 개념 없음')
+        expect(page.locator('#overview-featured')).not_to_contain_text('단일 개념 없음')
         expect(rows.nth(0).locator('.flow-why p')).not_to_be_visible()
         rows.nth(0).locator('.flow-why summary').click()
         expect(rows.nth(0).locator('.flow-why p')).to_contain_text('회결장')
@@ -54,37 +65,39 @@ def run(base_url,browser_executable=None,output=None):
         expect(page.locator('#dictionary-detail h2')).to_have_text('Crohn disease')
         expect(page.locator('#dictionary-detail .rationale-strong')).to_contain_text('회결장')
         page.goto(base_url,wait_until='networkidle')
-        page.locator('#dictionary-detail .split-flow .flow-row.held .flow-target').click()
+        page.locator('#overview-featured .split-flow .flow-row.held .flow-target').click()
         expect(page.locator('.detail')).to_contain_text('K009')
         page.goto(base_url,wait_until='networkidle')  # fresh focus for the keyboard check below
         # Second tab: two names converge on one concept; K010's conditions stay on K010, K131 says unstated, not absent.
         page.get_by_role('tab',name='묶은 사례: NSCLC').click()
         expect(page.get_by_role('tab',name='묶은 사례: NSCLC')).to_have_attribute('aria-selected','true')
-        rows=page.locator('#dictionary-detail .merge-flow .flow-row')
+        rows=page.locator('#overview-featured .merge-flow .flow-row')
         expect(rows).to_have_count(2)
         expect(rows.nth(0)).to_contain_text('K010')
         expect(rows.nth(0).locator('.atom')).to_have_count(2)
         expect(rows.nth(1).locator('.atom')).to_have_count(0)
         expect(rows.nth(1)).to_contain_text('원문에 명시되지 않음')
-        target=page.locator('#dictionary-detail .merge-target')
+        target=page.locator('#overview-featured .merge-target')
         expect(target).to_contain_text('MONDO:0005233')
         expect(target).not_to_contain_text('Metastatic')
-        expect(page.locator('#dictionary-detail .featured-links a')).to_have_count(4)
+        expect(page.locator('#overview-featured .featured-links a')).to_have_count(4)
         page.get_by_role('tab',name='나눈 사례: CD').click()
-        expect(page.locator('#dictionary-detail .split-flow .flow-row')).to_have_count(3)
-        page.goto(base_url,wait_until='networkidle')
+        expect(page.locator('#overview-featured .split-flow .flow-row')).to_have_count(3)
+        page.goto(base_url+'#dictionary',wait_until='networkidle')
         counts=page.locator('#results .result-meta').all_text_contents()
         assert all('제공 항목 2건' in text or '제공 항목 6건' in text for text in counts[:6])
         assert all('제공 항목 1건' in text for text in counts[6:])
         results.append('Result headline, split/merge representative tabs, case links and all six multi-source groups first')
+        page.reload(wait_until='networkidle')  # a hash-only goto keeps focus; reload for the keyboard check
         page.keyboard.press('Tab')
         expect(page.locator('.skip-link')).to_be_focused()
         page.keyboard.press('Enter')
         expect(page.locator('#main-content')).to_be_focused()
         results.append('Keyboard skip navigation stays on the intended route')
+        page.get_by_role('link',name='개요',exact=True).click()
         page.locator('.stat[href="#records"]').click()
         expect(page.locator('#record-count')).to_have_text('300 / 300건')
-        page.get_by_role('link',name='동의어 사전',exact=True).click()
+        page.get_by_role('link',name='개요',exact=True).click()
         page.locator('.stat[href="#records?decision=HOLD"]').click()
         expect(page.locator('#record-count')).to_have_text('2 / 300건')
         expect(page.locator('#record-table tbody tr')).to_have_count(2)
@@ -92,12 +105,11 @@ def run(base_url,browser_executable=None,output=None):
         expect(page.locator('.detail')).to_contain_text('문맥 부족')
         page.get_by_role('button',name='← 분류 결과 목록').click()
         expect(page.locator('#record-count')).to_have_text('2 / 300건')
-        page.get_by_role('link',name='동의어 사전',exact=True).click()
+        page.get_by_role('link',name='개요',exact=True).click()
         page.locator('[data-concept-list]').click()
         expect(page.locator('#search-heading')).to_be_focused()
         assert 80 <= page.locator('#search-heading').bounding_box()['y'] <= 180
-        page.locator('[data-concept-list]').click()
-        expect(page.locator('#search-heading')).to_be_focused()
+        page.get_by_role('link',name='개요',exact=True).click()
         page.locator('.stat[href="#aliases"]').click()
         expect(page.locator('#alias-count')).to_have_text('419 / 419건')
         expect(page.locator('#alias-table tbody tr')).to_have_count(25)
@@ -198,7 +210,7 @@ def run(base_url,browser_executable=None,output=None):
         expect(page.locator('#document-content')).to_contain_text('G12')
         results.append('Case studies and rendered research/guidelines')
         page.goto(base_url,wait_until='networkidle')
-        expect(page.locator('#dictionary-detail .featured-heading')).to_have_text('분류 결과 예시')
+        expect(page.locator('#overview-featured .featured-heading')).to_have_text('분류 결과 예시')
         page.goto(base_url+'#materials/methodology?section=counterexamples',wait_until='networkidle')
         expect(page.locator('#document-content .doc-summary')).to_contain_text('후속 연구')
         expect(page.locator('#method-counterexamples')).to_be_focused()
@@ -250,7 +262,7 @@ def run(base_url,browser_executable=None,output=None):
         }''')
         assert not normalization_errors,normalization_errors
         results.append('Browser normalization equals all reviewed alias keys')
-        page.goto(base_url,wait_until='networkidle')
+        page.goto(base_url+'#dictionary',wait_until='networkidle')
         page.get_by_role('link',name='직접 입력해 보기 ↗',exact=True).click()
         expect(page.locator('#analyzer-decision')).to_have_text('약어 의미 보류')
         page.get_by_role('button',name='크론병으로 정의',exact=True).click()
@@ -469,9 +481,12 @@ def run(base_url,browser_executable=None,output=None):
         search_box=page.locator('#dictionary-search').bounding_box()
         assert search_box['y']+search_box['height']<844,search_box
         expect(page.locator('#results')).to_be_visible()
-        assert page.locator('.ambiguity-title').bounding_box()['y']<page.locator('#results').bounding_box()['y']  # mobile: CD case before the list
+        expect(page.locator('#dictionary-detail')).to_be_hidden()  # mobile: the reading guide yields to the list
+        page.goto(base_url,wait_until='networkidle')
+        search_box=page.locator('#overview-search').bounding_box()
+        assert search_box['y']+search_box['height']<844,search_box
         expect(page.locator('.flow-row').first).to_be_visible()
-        for route in ['#cases/examples','#dictionary','#records','#cases','#cases/cd','#materials/guidelines','#materials/research','#materials/methodology','#materials/downloads','#materials/boundaries','#aliases','#analyze','#materials/analyzer','#materials/audit','#materials/review','#materials/audit-method','#materials/compare']:
+        for route in ['#overview','#cases/examples','#dictionary','#records','#cases','#cases/cd','#materials/guidelines','#materials/research','#materials/methodology','#materials/downloads','#materials/boundaries','#aliases','#analyze','#materials/analyzer','#materials/audit','#materials/review','#materials/audit-method','#materials/compare']:
             page.goto(base_url+route,wait_until='networkidle')
             assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth'),route
         for width in [320,390]:
@@ -484,7 +499,7 @@ def run(base_url,browser_executable=None,output=None):
         for case in ['cd','eczema','nsclc','masld','conflict','or','her2','gca','sense','long-covid']:
             page.goto(base_url+'#cases/'+case,wait_until='networkidle')
             assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth'),case
-        page.goto(base_url+'#dictionary',wait_until='networkidle')
+        page.goto(base_url,wait_until='networkidle')
         page.locator('[data-concept-list]').click()
         expect(page.locator('#search-heading')).to_be_focused()
         assert 100 <= page.locator('#search-heading').bounding_box()['y'] <= 190

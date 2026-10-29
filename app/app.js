@@ -37,7 +37,7 @@ function pathFor(page, values={}) {
 function navigate(page, values={}) { location.hash=pathFor(page,values).slice(1); }
 function currentParams() { return Object.fromEntries(route.params.entries()); }
 function readRoute() {
-  const [path,query='']=(location.hash.slice(1)||'dictionary').split('?');
+  const [path,query='']=(location.hash.slice(1)||'overview').split('?');
   return {path, page:path.split('/')[0], sub:path.split('/')[1], params:new URLSearchParams(query)};
 }
 function toast(message) {
@@ -98,14 +98,38 @@ function structuredReviewHTML(story) {
     </section>`;
 }
 
-function dictionaryPage() {
+const statsHTML=m=>`<div class="stats" aria-label="사전 요약">${[['검토한 키워드',m.records,'건','#records','전체 분류 결과'],['개념 그룹',m.concepts,'개','#dictionary?view=concepts','개념 목록'],['별칭 연결',m.aliases,'건','#aliases','별칭 목록'],['판단 보류',m.holds,'건','#records?decision=HOLD','보류 사유 확인']].map(([label,n,u,href,action])=>`<a class="stat" href="${href}"${href.includes('view=concepts')?' data-concept-list':''} aria-label="${label} ${n}${u} · ${action}"><span class="stat-value">${n}<small>${u}</small></span><span class="stat-label">${label}</span></a>`).join('')}</div>`;
+const exampleChips=()=>`<div class="examples"><span>예시</span>${['CD','NSCLC','eczema','NAFLD'].map(q=>`<button class="example-chip" data-query="${q}">${q}</button>`).join('')}</div>`;
+const overviewLinks=[
+  ['#cases','판단 기준','같은 질환과 별도 질환을 가르는 공통 규칙 G01–G12'],
+  ['#cases/examples','판단 사례','묶은 사례·나눈 사례·보류 사례 10개와 비교 기록'],
+  ['#records','분류 결과','제공 키워드 300건의 항목별 처리와 판단 이유'],
+  ['#materials/research','유사 서비스 조사','공개 서비스 4종과 상용 서비스 2종의 동의어 관리 방식'],
+  ['#materials/methodology','구축 보고서','문제 정의부터 반례·후속 연구까지 7단계'],
+  ['#analyze','직접 입력해 보기','새 키워드와 문맥을 같은 규칙으로 분석']];
+
+// Entry page for reviewers: what was built and how it was judged, before the search tool.
+function overviewPage() {
   const m=data.metadata;
-  $('#main-content').innerHTML=`<div class="container home-page">
-    <section class="home-head" aria-labelledby="hero-title"><div class="home-title"><h1 id="hero-title">질환 동의어 사전</h1>
-    <p class="home-summary">제공 키워드 ${m.records}건을 문맥과 공식 용어 정의로 검토해, 같은 개념은 묶고 다른 뜻은 나누고 근거가 부족하면 보류했습니다. 단일 개념에 연결한 ${data.records.filter(r=>r.concept_key).length}건은 ${m.concepts}개 개념 그룹입니다(보류 ${m.holds}건·OR 표현 ${data.records.filter(r=>r.research_decision==='SPLIT_EXPRESSION').length}건 제외).</p>
-    <p class="home-links"><a href="#cases">판단 기준 ↗</a><a href="#materials/research">유사 서비스 조사 ↗</a><a href="#materials/methodology">구축 보고서 ↗</a></p></div>
-    <div class="stats" aria-label="사전 요약">${[['검토한 키워드',m.records,'건','#records','전체 분류 결과'],['개념 그룹',m.concepts,'개','#dictionary?view=concepts','개념 목록'],['별칭 연결',m.aliases,'건','#aliases','별칭 목록'],['판단 보류',m.holds,'건','#records?decision=HOLD','보류 사유 확인']].map(([label,n,u,href,action])=>`<a class="stat" href="${href}"${href.includes('view=concepts')?' data-concept-list':''} aria-label="${label} ${n}${u} · ${action}"><span class="stat-value">${n}<small>${u}</small></span><span class="stat-label">${label}</span></a>`).join('')}</div></section>
-    <section id="concept-explorer" aria-labelledby="search-heading"><div class="search-heading-row"><h2 id="search-heading" tabindex="-1">등록된 표현 검색</h2><div class="examples"><span>예시</span>${['CD','NSCLC','eczema','NAFLD'].map(q=>`<button class="example-chip" data-query="${q}">${q}</button>`).join('')}</div></div>
+  $('#main-content').innerHTML=`<div class="container home-page overview-page">
+    <section class="overview-hero" aria-labelledby="hero-title"><div class="overview-intro">
+      <p class="eyebrow">질환 키워드 ${m.records}건 · 동의어 사전 구축</p>
+      <h1 id="hero-title">질환 동의어 사전</h1>
+      <p class="home-summary">제공 키워드 ${m.records}건을 문맥과 공식 용어 정의로 검토해, 같은 개념은 묶고 다른 뜻은 나누고 근거가 부족하면 보류했습니다. 단일 개념에 연결한 ${data.records.filter(r=>r.concept_key).length}건은 ${m.concepts}개 개념 그룹입니다(보류 ${m.holds}건·OR 표현 ${data.records.filter(r=>r.research_decision==='SPLIT_EXPRESSION').length}건 제외).</p>
+      <form class="overview-search" role="search" aria-label="사전 검색"><label class="search-box">${icon}<input id="overview-search" type="search" autocomplete="off" aria-label="질환명·약어·항목 번호로 사전 검색" placeholder="질환명, 약어 또는 항목 번호 검색"></label><button type="submit" class="primary-button">사전에서 찾기</button></form>
+      ${exampleChips()}</div>
+      ${statsHTML(m)}</section>
+    <section id="overview-featured" class="panel overview-featured" aria-label="대표 판단">${featuredHTML(featuredTab)}</section>
+    <section class="overview-next" aria-labelledby="overview-next-title"><h2 id="overview-next-title">더 살펴보기</h2>
+      <div class="overview-grid">${overviewLinks.map(([href,title,text])=>`<a class="overview-card" href="${href}"><strong>${title} <span aria-hidden="true">↗</span></strong><span>${text}</span></a>`).join('')}</div></section>
+  </div>`;
+  $('.overview-search').addEventListener('submit',event=>{event.preventDefault();navigate('dictionary',{q:$('#overview-search').value.trim()});});
+}
+
+function dictionaryPage() {
+  $('#main-content').innerHTML=`<div class="container home-page dictionary-page">
+    ${heading('등록된 표현과 개념','동의어 사전','검토 후 등록한 이름·별칭으로 개념을 찾고, 항목별 판단 근거를 확인할 수 있습니다.')}
+    <section id="concept-explorer" aria-labelledby="search-heading"><div class="search-heading-row"><h2 id="search-heading" tabindex="-1">등록된 표현 검색</h2>${exampleChips()}</div>
     <div class="search-toolbar"><label class="search-box">${icon}<input id="dictionary-search" type="search" autocomplete="off" aria-label="질환명·약어·항목 번호 검색" placeholder="질환명, 약어 또는 항목 번호 검색"><span class="search-key" aria-hidden="true">/</span></label></div>
     <p class="direct-input-note">다른 키워드·문맥의 처리도 확인할 수 있습니다. <a href="#analyze">직접 입력해 보기 ↗</a></p>
     <div class="explorer"><div id="results" class="panel result-panel"></div><div id="dictionary-detail" class="panel detail"></div></div></section>
@@ -119,6 +143,12 @@ function dictionaryPage() {
   });
   updateSearch();
 }
+const searchGuideHTML=()=>`<div class="search-guide"><h2>검색 결과 읽는 법</h2><dl>
+  <div><dt>등록 이름·별칭 일치</dt><dd>검토 후 등록한 이름이나 별칭과 같은 표현입니다.</dd></div>
+  <div><dt>관련 결과 · 동의어 병합 아님</dt><dd>명칭 변경 등으로 함께 볼 개념입니다. 같은 개념으로 묶지 않았습니다.</dd></div>
+  <div><dt>부분 일치</dt><dd>입력한 글자가 이름 일부에 들어 있는 탐색 결과입니다.</dd></div>
+  <div><dt>같은 표기 · 다른 처리</dt><dd>CD처럼 문맥에 따라 다른 개념에 연결했거나 보류한 표기입니다.</dd></div></dl>
+  <p>개념 목록에서 항목을 고르면 판단 이유와 제공 문맥, 연결된 이름을 볼 수 있습니다. <a href="#overview">대표 판단 예시 보기 ↗</a></p></div>`;
 
 function resultButton(key, type, matches=[]) {
   const c=conceptByKey.get(key); if(!c)return '';
@@ -156,7 +186,7 @@ function updateSearch({autoSelect=true}={}) {
     ${[...result.holds,...result.expressions].map(r=>`<div class="hold-result">${decisionBadge(r)}<p>${esc(r.source_id)} · ${esc(r.keyword)}</p><button data-open-record="${r.source_id}">원문과 판단 이유 보기 ↗</button></div>`).join('')}
     <div class="pager"><button data-search-page="-1" ${searchPage===0?'disabled':''} aria-label="이전 개념 목록">← 이전</button><span>${searchPage+1} / ${pages}</span><button data-search-page="1" ${searchPage>=pages-1?'disabled':''} aria-label="다음 개념 목록">다음 →</button></div>`;
   const target=$('#dictionary-detail');
-  $('#concept-explorer .explorer').classList.toggle('featured',!selectedKey && !normalize(q));
+  $('#concept-explorer .explorer').classList.toggle('guide',!selectedKey && !normalize(q));
   if(selectedKey && conceptByKey.has(selectedKey)) {
     const c=conceptByKey.get(selectedKey);
     const requested=route.params.get('record');
@@ -164,7 +194,7 @@ function updateSearch({autoSelect=true}={}) {
     target.innerHTML=detailHTML(c,row,true);
     loadCandidates(row.source_id);
   } else if(!normalize(q)) {
-    target.innerHTML=featuredHTML(featuredTab);
+    target.innerHTML=searchGuideHTML();
   } else if(ambiguous) {
     target.innerHTML=ambiguityHTML(q.trim(),sameSpelling(q),false);
   } else {
@@ -172,11 +202,11 @@ function updateSearch({autoSelect=true}={}) {
   }
 }
 
-// First screen without a search: two representative judgments, one split and one merge.
+// Overview: two representative judgments, one split and one merge.
 function featuredHTML(tab) {
   const tabs=[['split','나눈 사례: CD'],['merge','묶은 사례: NSCLC']];
   const body=tab==='merge'?mergedHTML('MONDO:0005233'):splitFlowHTML('CD',data.records.filter(r=>normalize(r.keyword)==='cd'));
-  return `<div class="featured-head"><div><p class="featured-heading">분류 결과 예시</p><p class="featured-guide">검색하거나 개념 목록에서 항목을 선택하면 해당 항목의 분류 근거를 볼 수 있습니다.</p></div><div class="featured-tabs" role="tablist" aria-label="분류 결과 예시">${tabs.map(([key,label])=>`<button role="tab" aria-selected="${key===tab}" class="${key===tab?'active':''}" data-featured-tab="${key}">${label}</button>`).join('')}</div></div>
+  return `<div class="featured-head"><div><p class="featured-heading">분류 결과 예시</p><p class="featured-guide">제공 항목의 원문과 실제 처리 결과입니다. 결과를 누르면 상세 근거로 이동합니다.</p></div><div class="featured-tabs" role="tablist" aria-label="분류 결과 예시">${tabs.map(([key,label])=>`<button role="tab" aria-selected="${key===tab}" class="${key===tab?'active':''}" data-featured-tab="${key}">${label}</button>`).join('')}</div></div>
     <div role="tabpanel">${body}</div>
     <p class="example-other featured-links">다른 판단: <a href="#cases/eczema">범위 차이: 습진·아토피 ↗</a> · <a href="#cases/conflict">입력 충돌: K024 ↗</a> · <a href="#cases/long-covid">명칭·기간 기준: Long COVID·PASC ↗</a> · <a href="#cases/examples">전체 판단 사례 ↗</a></p>`;
 }
@@ -420,21 +450,22 @@ function render() {
     const active=a.dataset.nav===(['aliases','analyze'].includes(route.page)?'dictionary':route.page);a.classList.toggle('active',active);
     if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');
   });
-  const titles={dictionary:'동의어 사전',aliases:'별칭 연결',analyze:'직접 입력해 보기',records:'분류 결과',cases:'판단 기준',materials:'구축 보고서'};
-  document.title=`${titles[route.page] ?? '동의어 사전'} | Indication Atlas`;
+  const titles={overview:'개요',dictionary:'동의어 사전',aliases:'별칭 연결',analyze:'직접 입력해 보기',records:'분류 결과',cases:'판단 기준',materials:'구축 보고서'};
+  document.title=`${titles[route.page] ?? '개요'} | Indication Atlas`;
   if(route.page==='records')recordsPage();
   else if(route.page==='aliases')aliasesPage();
   else if(route.page==='cases')casesPage();
   else if(route.page==='materials')materialsPage();
   else if(route.page==='analyze')mountAnalyzer($('#main-content'),data);
-  else dictionaryPage();
+  else if(route.page==='dictionary')dictionaryPage();
+  else overviewPage();
   if(route.params.get('name'))requestAnimationFrame(()=>{const target=document.getElementById('item-evidence');if(target){target.scrollIntoView({block:'start'});target.focus({preventScroll:true});}});
 }
 
 document.addEventListener('click', async event=>{
   const button=event.target.closest('button'); if(!button)return;
   const d=button.dataset;
-  if(d.featuredTab) { featuredTab=d.featuredTab;updateSearch();document.querySelector(`[data-featured-tab="${featuredTab}"]`)?.focus();return; }
+  if(d.featuredTab) { featuredTab=d.featuredTab;$('#overview-featured').innerHTML=featuredHTML(featuredTab);document.querySelector(`[data-featured-tab="${featuredTab}"]`)?.focus();return; }
   if(d.query!=null) { navigate('dictionary',{q:d.query}); return; }
   if(d.case) { navigate('cases/'+d.case); return; }
   if(d.concept) { navigate('dictionary',{q:$('#dictionary-search')?.value ?? '',concept:d.concept,...(d.record?{record:d.record}:{})}); return; }
@@ -466,7 +497,7 @@ document.addEventListener('click',event=>{
 });
 document.addEventListener('keydown',event=>{
   if(event.key==='/' && !['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName)) {
-    const input=$('#dictionary-search') ?? $('#record-search') ?? $('#alias-search');
+    const input=$('#dictionary-search') ?? $('#overview-search') ?? $('#record-search') ?? $('#alias-search');
     if(input) { event.preventDefault();input.focus(); }
   }
 });
