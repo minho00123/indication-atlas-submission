@@ -98,7 +98,7 @@ You normalize disease/indication keywords extracted from clinical-trial eligibil
 
 ### 초기 AI 실험: 문맥 유무 비교
 
-구축 초기에 작업자가 만든 30문항으로 AI에 키워드만 줄 때와 원문 문맥을 함께 줄 때를 비교했습니다. 사후에 고른 약어 7건은 키워드만 준 조건에서 세 회차 모두 보류됐고, 문맥을 준 조건에서는 세 회차 모두 당시 허용 답과 일치했습니다. 4단계 가설과 같은 방향의 관찰이며 현재 사전의 정확도가 아닙니다. 조건·점수·한계는 이 페이지 맨 아래 '초기 탐색 실험(구 정책 기준)'에 있습니다(저장소에서는 [LEGACY_EXPERIMENT.md](LEGACY_EXPERIMENT.md)).
+구축 초기에 작업자가 만든 30문항으로 AI에 키워드만 줄 때와 원문 문맥을 함께 줄 때를 비교했습니다. 사후에 고른 약어 7건은 키워드만 준 조건에서 세 회차 모두 보류됐고, 문맥을 준 조건에서는 세 회차 모두 당시 허용 답과 일치했습니다. 4단계 가설과 같은 방향의 관찰이며 현재 사전의 정확도가 아닙니다. 조건·점수·한계는 이 페이지 맨 아래 '초기 탐색 실험(구 정책 기준)'에 있습니다(저장소에서는 [LEGACY_EXPERIMENT.md](https://github.com/minho00123/indication-atlas-submission/blob/main/docs/LEGACY_EXPERIMENT.md)).
 
 ### 근거 자료와 재현 범위
 
