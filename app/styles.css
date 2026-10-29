@@ -848,3 +848,11 @@ summary>.badge { flex-shrink:0; }
   .runtime-reasons li { flex-wrap:wrap; }
   .runtime-reasons .reason-code { margin-left:0; padding-left:0; white-space:normal; }
 }
+/* Batch table: fixed column widths so opening "다음 단계" never shifts the other columns. */
+.batch-table { table-layout:fixed; width:100%; min-width:980px; }
+.batch-table .c-line { width:44px; } .batch-table .c-term { width:12%; } .batch-table .c-text { width:17%; }
+.batch-table .c-status { width:17%; } .batch-table .c-concept { width:13%; } .batch-table .c-candidate { width:13%; } .batch-table .c-steps { width:auto; }
+.batch-table td { overflow-wrap:anywhere; }
+.batch-table details { margin-top:0; }
+.batch-table details summary { padding:8px 10px; }
+.batch-table details ol, .batch-table details p { margin:6px 10px 10px; }

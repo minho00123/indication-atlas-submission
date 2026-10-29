@@ -348,7 +348,9 @@ def run(base_url,browser_executable=None,output=None):
         expect(rows.nth(6)).to_contain_text('미등록 표현')
         expect(rows.nth(7)).to_contain_text('입력 오류')
         expect(page.locator('.batch-summary')).to_contain_text('8줄 처리')
+        widths=page.locator('.batch-table thead th').evaluate_all('(els)=>els.map(e=>Math.round(e.getBoundingClientRect().width))')
         rows.nth(6).locator('summary').click()
+        assert page.locator('.batch-table thead th').evaluate_all('(els)=>els.map(e=>Math.round(e.getBoundingClientRect().width))')==widths  # opening next steps keeps columns
         links=rows.nth(6).locator('a[target="_blank"]')
         expect(links).to_have_count(3)
         for i in range(3):
