@@ -2,7 +2,7 @@
  "created": "2026-10-29",
  "note": "Pilot on real ClinicalTrials.gov condition names; not an accuracy evaluation.",
  "files": {
-  "README.md": "c55b50ee3ea1eebefecd80802152115dd0250f4f9d60fdfe6e38cfd2dc93f868",
+  "README.md": "92cde44da6d1ec3a097a3229fcfe3d6db4dfca1cd09e093c1e4a0b646c0f5c47",
   "engine_run_932.json": "50d9559ad9c84b3a83c8061293b98c5b18e00e2e7d34cad7bc42b3cd591304d3",
   "engine_run_summary.json": "4d5e82c79e1b09f3cac8f7fb14a3414b9bd8764a1a5288b90c84ed4d316d4560",
   "judgment/BRIEF.md": "66f58b40152c4374a448c076e2c865607cd12121996ca6e55e9225321a547ef3",
@@ -22,6 +22,7 @@
   "scripts/run2.mjs": "240833af73514c8ca9c32f730afd461d6478535b1c467b9a8ad18d2f510389ae",
   "scripts/sample.py": "b1fb8e55b351fbf1988653dac5328c542696b8deaeadd0ef349c9e8bbeaf1776",
   "unregistered_sample60_classification.json": "24fa31d029ce7f020c340ec582d69520cc8f78f289626f051514e4e15dca721f",
-  "unregistered_sample60_mondo_exact.json": "c0c9fa790fba027ddfc1aebc3e5681867c432a4f46c562f5ea7d6c9e34d3d60a"
+  "unregistered_sample60_mondo_exact.json": "c0c9fa790fba027ddfc1aebc3e5681867c432a4f46c562f5ea7d6c9e34d3d60a",
+  "id_existence_check.json": "13cb1495f9a0bafcc71e51189441dca7d7a7d583d0ec5c468a372a1a49dc5fe1"
  }
 }

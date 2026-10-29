@@ -39,5 +39,3 @@ node --test tests/test_*.mjs
 node tools/run_rule_audit.mjs --check
 node tools/export_runtime_review.mjs --check
 ```
-
-이전 비교·반례·분석기 설명·대조 방법 주소는 합쳐진 페이지로 연결됩니다. 원문과 실행·근거 기록은 소스에 보존했습니다.
