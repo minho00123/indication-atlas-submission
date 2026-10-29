@@ -939,3 +939,13 @@ summary>.badge { flex-shrink:0; }
 
 .rule-link { text-decoration:none; }
 .rule-link:hover, .rule-link:focus-visible { background:var(--tint); color:var(--accent-dark); }
+.runtime-boundary .runtime-method>summary { padding:15px 20px; font-size:13px; font-weight:600; }
+.runtime-boundary .runtime-method>ol { margin:4px 20px 14px; padding-left:20px; line-height:1.75; }
+.runtime-boundary .runtime-method>p { margin:0 20px 12px; line-height:1.75; }
+.runtime-boundary .runtime-method>a { display:inline-block; margin:0 20px 18px; }
+@media (max-width:760px) {
+  .runtime-boundary .runtime-method>summary { padding:13px 16px; }
+  .runtime-boundary .runtime-method>ol { margin:4px 16px 12px; padding-left:20px; }
+  .runtime-boundary .runtime-method>p { margin:0 16px 10px; }
+  .runtime-boundary .runtime-method>a { margin:0 16px 16px; }
+}
