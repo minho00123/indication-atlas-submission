@@ -1,5 +1,6 @@
 import {createAnalyzer} from './analyzer.mjs';
 import {checkAnalyzerCase} from './analyzer-checks.mjs';
+import {fetchCandidates,compareCandidates} from './candidates.mjs';
 import {BATCH_FORMAT,BATCH_LIMITS,parseBatch,runBatch,nextSteps,searchLinks,needsReview,batchCSV} from './batch.mjs';
 
 const esc=value=>String(value ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -37,6 +38,7 @@ function nextStepsHTML(r) {
   const items=nextSteps(r);if(!items.length)return '';
   const links=searchLinks(r.input.keyword);
   return `<div class="next-steps"><h3>다음 확인 단계</h3><ol>${items.map(s=>`<li><span class="badge gray">${esc(s.rule)}</span> ${esc(s.text)}</li>`).join('')}</ol>
+    ${r.decision==='UNREGISTERED'?`<div class="compare-entry"><button class="runtime-submit" type="button" data-compare-term="${esc(r.input.keyword)}">MONDO·NCIt·MeSH에서 후보 비교하기</button><small>누르면 대상 표현만 EBI OLS(MONDO·NCIt)와 NLM MeSH 공개 API로 보내 후보를 받아옵니다. 원문은 보내지 않습니다.</small></div><div class="candidate-compare" data-compare-output aria-live="polite"></div>`:''}
     ${r.decision==='UNREGISTERED' || r.decision.startsWith('HOLD')?`<p class="next-steps-links"><strong>외부 사이트에서 후보 찾기 · 아직 검증하지 않았습니다.</strong>${links.map(l=>`<a href="${esc(l.url)}" target="_blank" rel="noopener noreferrer">${esc(l.name)} ↗</a>`).join('')}</p><p class="source-note">링크를 누르면 대상 표현만 해당 사이트로 전달됩니다. 이 앱은 외부 사이트를 자동 조회하지 않으며, 외부 사이트의 현재 버전은 이 사전의 고정 스냅샷과 다를 수 있습니다. 검색 결과는 공식 근거 검토와 변경 기록을 거쳐야 사전에 반영됩니다.</p>`:''}</div>`;
 }
 function snapshotHTML(meta) {
@@ -66,6 +68,23 @@ function reportHTML(r) {
 }
 
 const evidenceLabels={...assertions,NO_TEXT:'원문 없음 · 사전 조회',NOT_FOUND:'대상 근거 미확인',UNRESOLVED:'대상 의미 미해소',MIXED:'서로 다른 표지 혼재'};
+const verdicts={CROSS_SOURCE_AGREEMENT:['세 출처 교차 일치 · 같은 개념 후보',''],PARTIAL_AGREEMENT:['일부 출처 교차 일치 · 같은 개념 후보',''],MONDO_ONLY:['MONDO만 일치 · 다른 출처 확인 필요','amber'],
+  SOURCE_DISAGREEMENT:['출처 간 불일치 · 사람 검토','amber'],MULTIPLE_CANDIDATES:['후보 여러 개 · 사람 검토','amber'],SCOPE_REVIEW:['관련 동의어로만 일치 · 범위 검토','amber'],
+  ABBREVIATION_NEEDS_DEFINITION:['약어 · 문서 정의 필요','amber'],NO_MONDO_MATCH:['MONDO 대응 없음 · 사람 검토','amber'],NO_CANDIDATE:['후보 없음','amber'],SOURCE_ERROR:['조회 실패','amber']};
+const levels={LABEL:'대표 이름 일치',EXACT_SYNONYM:'정확 동의어 일치',RELATED_SYNONYM:'관련 동의어',NARROW_SYNONYM:'좁은 동의어',BROAD_SYNONYM:'넓은 동의어',ENTRY_TERM:'MeSH 입력어 일치',PARTIAL:'검색 결과 · 이름 불일치'};
+const officialPage=id=>id.startsWith('MONDO:')?`https://www.ebi.ac.uk/ols4/ontologies/mondo/classes?obo_id=${encodeURIComponent(id)}`:
+  id.startsWith('NCIT:')?`https://evsexplore.semantics.cancer.gov/evsexplore/concept/ncit/${encodeURIComponent(id.slice(5))}`:`https://meshb.nlm.nih.gov/record/ui?ui=${encodeURIComponent(id.slice(5))}`;
+function compareHTML(c) {
+  const [label,tone]=verdicts[c.code] ?? [c.code,'amber'],agreed=new Set([...(c.proposal?.candidates ?? [])]);
+  const column=(name,s)=>`<section><h4>${name}<small>${s.status==='ERROR'?'조회 실패':s.version?`버전 ${esc(s.version)}`:'현재 서비스'}</small></h4>${s.candidates.length?s.candidates.slice(0,4).map(x=>`<div class="candidate-item${agreed.has(x.id)?' agreed':''}"><a href="${esc(officialPage(x.id))}" target="_blank" rel="noopener noreferrer"><code>${esc(x.id)}</code> ↗</a><strong>${esc(x.label)}</strong><span class="badge ${['LABEL','EXACT_SYNONYM','ENTRY_TERM'].includes(x.level)?'gray':'amber'}">${esc(levels[x.level] ?? x.level)}</span>${agreed.has(x.id)?'<span class="badge">교차참조 일치</span>':''}${x.definition?`<p>${esc(x.definition.length>220?x.definition.slice(0,220)+'…':x.definition)}</p>`:''}${x.entry_terms?.length?`<p><small>입력어: ${esc(x.entry_terms.join(' · '))}</small></p>`:''}</div>`).join(''):'<p class="source-note">후보 없음</p>'}</section>`;
+  return `<div class="compare-heading"><h3>공식 용어체계 후보 비교</h3><span class="badge ${tone}">${esc(label)}</span></div>
+    <ol class="compare-reasons">${c.reasons.map(x=>`<li>${esc(x)}</li>`).join('')}</ol>
+    ${c.proposal?`<div class="compare-proposal"><b>제안 · 검토 대기</b><span>${esc(c.proposal.preferred_name)} <code>${esc(c.proposal.concept_key)}</code></span><small>함께 연결할 후보: ${esc(c.proposal.candidates.join(' · '))} · ${esc(c.proposal.name_relation)} · 사전에 반영하지 않았습니다.</small></div>`:''}
+    <div class="compare-columns">${column('MONDO',c.sources.mondo)}${column('NCIt',c.sources.ncit)}${column('MeSH',c.sources.mesh)}</div>
+    <ul class="compare-limits">${c.limits.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>
+    <p class="snapshot-note">조회 ${esc(c.retrieved_at)} · 비교 규칙 ${esc(c.format)} · 같은 응답이면 같은 제안을 냅니다. <button class="subtle-button" type="button" data-compare-download>비교 기록 JSON 내려받기 ↓</button></p>`;
+}
+
 const statusLabel=row=>{
   if(row.status==='INPUT_ERROR')return ['입력 오류','amber'];
   const r=row.result;
@@ -81,7 +100,7 @@ function batchHTML(rows,meta) {
       return `<tr><td>${row.line}</td><td><strong>${esc(row.keyword) || '—'}</strong></td><td>${row.has_text?`<small>${esc(row.text.length>90?row.text.slice(0,90)+'…':row.text)}</small>`:'<small>없음 · 이름만 조회</small>'}</td>
         <td><span class="badge ${tone}">${esc(label)}</span>${r && row.has_text?`<br><small class="batch-evidence">원문 주장: ${esc(evidenceLabels[r.target_evidence_status] ?? r.target_evidence_status)}</small>`:''}${r?`<br><small>${esc(r.reasons.map(x=>x.code).join(' · '))}</small>`:`<br><small>${esc(row.error)}</small>`}</td>
         <td>${r && r.concepts.length?r.concepts.map(conceptLink).join('<br>'):'<small>단일 개념 없음</small>'}</td>
-        <td>${steps.length?`<details><summary>${steps.length}개 확인 항목</summary><ol>${steps.map(s=>`<li><b>${esc(s.rule)}</b> ${esc(s.text)}</li>`).join('')}</ol>${r.decision==='UNREGISTERED' || r.decision.startsWith('HOLD')?`<p><small>외부 후보 찾기 · 미검증</small><br>${searchLinks(row.keyword).map(l=>`<a href="${esc(l.url)}" target="_blank" rel="noopener noreferrer">${esc(l.name)} ↗</a>`).join('<br>')}</p>`:''}</details>`:'<small>—</small>'}</td></tr>`;}).join('')}</tbody></table></div>
+        <td>${steps.length?`<details><summary>${steps.length}개 확인 항목</summary><ol>${steps.map(s=>`<li><b>${esc(s.rule)}</b> ${esc(s.text)}</li>`).join('')}</ol>${r.decision==='UNREGISTERED'?`<button class="subtle-button batch-compare" type="button" data-batch-compare="${rows.indexOf(row)}">이 줄 후보 비교 ↓</button>`:''}${r.decision==='UNREGISTERED' || r.decision.startsWith('HOLD')?`<p><small>외부 후보 찾기 · 미검증</small><br>${searchLinks(row.keyword).map(l=>`<a href="${esc(l.url)}" target="_blank" rel="noopener noreferrer">${esc(l.name)} ↗</a>`).join('<br>')}</p>`:''}</details>`:'<small>—</small>'}</td></tr>`;}).join('')}</tbody></table></div>
     ${snapshotHTML(meta)}`;
 }
 const download=(name,body,type)=>{
@@ -91,14 +110,14 @@ const download=(name,body,type)=>{
 
 export function mountAnalyzer(root,catalog) {
   const analyzer=createAnalyzer(catalog);let current=remembered.report;
-  root.innerHTML=`<div class="container"><div class="page-heading"><p class="eyebrow">새 입력에 적용하는 규칙 시제품</p><h1>새 문장 분석</h1><p>등록된 이름·별칭과 문서 내 약어 정의를 대조하고, 지원하는 조건 구간을 확인하세요. 입력 문장은 브라우저에서만 처리합니다.</p></div>
+  root.innerHTML=`<div class="container"><div class="page-heading"><p class="eyebrow">새 입력에 적용하는 규칙 시제품</p><h1>새 문장 분석</h1><p>등록된 이름·별칭과 문서 내 약어 정의를 대조하고, 지원하는 조건 구간을 확인하세요. 입력 문장은 브라우저에서 처리하며, 후보 비교를 누를 때만 대상 표현을 공개 용어 API로 보냅니다.</p></div>
     <div class="runtime-scope"><strong>현재 구현 범위</strong><span>기존 ${catalog.metadata.concepts}개 개념·검토한 별칭, 문서 내 긴 이름–약어 정의, 일부 조건 구간을 처리합니다. 개념 식별·원문 주장·조건 범위를 구별하며 환자의 진단·적격성은 평가하지 않습니다. 일반적인 의학적 의미 추론이나 독립 정확도 검증을 마친 분류기는 아닙니다.</span></div>
     <div class="runtime-examples" aria-label="분석 예제">${samples.map((s,i)=>`<button class="example-chip" data-runtime-example="${i}">${esc(s.label)}</button>`).join('')}</div>
     <div class="runtime-layout"><section class="panel runtime-input"><h2>새 입력</h2><form id="analyzer-form"><label for="analyzer-keyword">대상 표현</label><input id="analyzer-keyword" type="text" maxlength="200" required autocomplete="off"><label for="analyzer-text">원문 문장·문단</label><textarea id="analyzer-text" rows="8" maxlength="10000" spellcheck="false"></textarea><p class="source-note">원문은 선택 입력입니다. 뜻을 구별할 근거가 부족하면 보류합니다.</p><button class="runtime-submit" type="submit">이 원문 분석하기</button><p id="analyzer-error" role="alert"></p></form><button id="download-analysis" class="subtle-button">분석 JSON 내려받기 ↓</button>
       <details class="runtime-method"><summary>판정 규칙과 지원 범위</summary><ol><li>등록된 이름·별칭을 단어 경계와 긴 표현 우선으로 찾습니다.</li><li>문서의 긴 이름(약어)을 기존 개념과 대조합니다. type 1/2 diabetes mellitus의 선언한 짧은 형태도 기존 이름에 근거해 처리합니다. 긴 이름을 확인하지 못하거나 정의가 충돌하면 보류합니다.</li><li>다의 약어를 다른 질환의 단순 동시 언급만으로 해소하지 않습니다.</li><li>등록된 범위 관계는 검토로 표시하며 미검토 관계나 원문 근거 부족을 입력 오류로 단정하지 않습니다.</li><li>전이·재발·불응·이전 치료, 중증도·질환 활성도·조절 상태·병기·진행 범위와 일부 기간·이름 구성 요소만 처리합니다. 개념을 바꿀 수 있는 미검토 수식어가 붙으면 보류합니다. OR 구조와 피연산자 해소 상태를 나누어 보존합니다.</li></ol><p>표현이 더 복잡하거나 증상만으로 의미를 추론해야 하는 경우는 지원하지 않습니다. 미등록 개념을 자동 생성하지 않습니다.</p><a href="#materials/methodology">구현·검사·한계 문서 ↗</a></details></section>
     <section id="analyzer-result" class="panel runtime-output" aria-label="새 원문 분석 결과" aria-live="polite"></section></div>
     <section class="panel batch-panel" aria-labelledby="batch-heading"><div class="batch-intro"><div><p class="eyebrow">새 데이터가 들어오면</p><h2 id="batch-heading">여러 줄 한 번에 처리</h2><p>한 줄에 <code>대상 표현</code> 또는 <code>대상 표현 | 원문</code>을 넣으세요. 각 줄은 독립 문서로, 위와 같은 규칙 엔진을 그대로 사용합니다. 등록된 지식으로 처리할 수 있는 줄은 연결하고, 나머지는 이유와 다음 확인 단계를 남깁니다. 최대 ${BATCH_LIMITS.rows}줄입니다.</p></div>
-      <ol class="intake-flow"><li><b>1 · 규칙으로 연결</b>검토한 이름·별칭·문서 내 약어 정의</li><li><b>2 · 검토 필요로 분류</b>다의·수식어·원문 근거 부족·미등록·미지원 문형</li><li><b>3 · 사람 검토 후 새 버전</b>AI 또는 사람이 후보를 제안하고, 공식 근거와 가이드라인으로 판정해 변경 기록과 함께 사전에 반영합니다. 이 단계는 운영 설계이며 이 화면에서 자동 등록하지 않습니다.</li></ol></div>
+      <ol class="intake-flow"><li><b>1 · 규칙으로 연결</b>검토한 이름·별칭·문서 내 약어 정의</li><li><b>2 · 검토 필요로 분류</b>다의·수식어·원문 근거 부족·미등록·미지원 문형</li><li><b>3 · 후보 비교 → 사람 승인 후 새 버전</b>미등록 표현은 "이 줄 후보 비교"로 MONDO·NCIt·MeSH 후보를 받아 이름 일치와 교차참조를 규칙으로 비교해 제안합니다. 정의 범위 판정과 사전 반영은 사람이 하며, 이 화면에서 자동 등록하지 않습니다.</li></ol></div>
       <label for="batch-input">입력 (줄마다 하나)</label><textarea id="batch-input" rows="9" spellcheck="false" placeholder="T2DM&#10;CD | Crohn disease (CD) is mentioned. Patients with CD."></textarea>
       <div class="batch-actions"><button id="run-batch" class="runtime-submit" type="button">여러 줄 분석하기</button><button id="batch-sample" class="subtle-button" type="button">예시 넣기</button><button id="batch-csv" class="subtle-button" type="button" disabled>여러 줄 결과 CSV ↓</button><button id="batch-json" class="subtle-button" type="button" disabled>여러 줄 결과 JSON ↓</button></div>
       <p id="batch-error" role="alert"></p><div id="batch-result" aria-live="polite"></div></section>
@@ -131,6 +150,29 @@ export function mountAnalyzer(root,catalog) {
       root.querySelector('#analyzer-check-results').innerHTML=`<p class="runtime-check-count">개발·반례 검사 ${checks.length}건 중 ${passed}건 통과</p><p class="source-note">독립 정확도나 일반화 성능을 뜻하지 않습니다. 문서 정의·보류·정보 보존·원문 구간 등의 실행 결과입니다.</p><details><summary>항목별 기대 결과와 실제 판정</summary><div class="table-wrap"><table><thead><tr><th>검사</th><th>기대 판정</th><th>실제 판정</th><th>결과</th></tr></thead><tbody>${checks.map((c,i)=>`<tr><td>${esc(c.id)}</td><td>${esc(fixtures.cases[i].expected.decision)}</td><td>${esc(c.result.decision)}</td><td>${c.passed?'통과':esc(c.errors.join(' / '))}</td></tr>`).join('')}</tbody></table></div></details>`;
     } catch(e) { if(root.isConnected)root.querySelector('#analyzer-check-results').textContent=e.message; }
     finally { button.disabled=false; }
+  });
+  const compareCache=new Map();let lastCompare=null;
+  async function compareInto(term,target,button) {
+    button.disabled=true;target.innerHTML='<p class="source-note">MONDO·NCIt·MeSH에서 후보를 조회하고 있습니다…</p>';
+    try {
+      if(!compareCache.has(term))compareCache.set(term,await fetchCandidates(term));
+      const record=compareCache.get(term),comparison=compareCandidates(record);
+      lastCompare={record,comparison};
+      if(target.isConnected)target.innerHTML=compareHTML(comparison);
+    } catch(e) { if(target.isConnected)target.textContent='후보 비교 중 오류가 발생했습니다: '+e.message; }
+    finally { button.disabled=false; }
+  }
+  root.addEventListener('click',event=>{
+    const compare=event.target.closest('[data-compare-term]');
+    if(compare){compareInto(compare.dataset.compareTerm,root.querySelector('#analyzer-result [data-compare-output]'),compare);return;}
+    if(event.target.closest('[data-compare-download]') && lastCompare){download('indication-candidates.json',JSON.stringify(lastCompare,null,2)+'\n','application/json;charset=utf-8');return;}
+    const fromBatch=event.target.closest('[data-batch-compare]');
+    if(fromBatch && batchRows) {
+      const row=batchRows[Number(fromBatch.dataset.batchCompare)];
+      keyword.value=row.keyword;text.value=row.text;run();
+      root.querySelector('#analyzer-result').scrollIntoView({block:'start'});
+      root.querySelector('#analyzer-result [data-compare-term]')?.click();
+    }
   });
   const meta={format:BATCH_FORMAT,engine_version:catalog.metadata.snapshot?.engine_version,dataset_version:catalog.metadata.dataset_version,snapshot:catalog.metadata.snapshot,limits:BATCH_LIMITS};
   let batchRows=null;

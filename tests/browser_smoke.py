@@ -270,6 +270,27 @@ def run(base_url,browser_executable=None,output=None):
             assert len(batch['rows'])==8 and batch['snapshot']['engine_sha256'] and batch['format']=='batch-1'
         assert not external,external
         results.append('Multi-line intake: per-row results, next steps, unverified search links, snapshot, CSV/JSON and no automatic external requests')
+        saved=json.loads((Path(__file__).parent/'fixtures/candidates/Fabry_disease.json').read_text())
+        replies={r['url']:r for r in [*[v for v in saved['responses'].values() if isinstance(v,dict) and 'url' in v],*saved['responses']['mondo_terms'].values(),*saved['responses']['mesh_details'].values()]}
+        sent=[]
+        def reply(route):
+            sent.append(route.request.url);r=replies.get(route.request.url)
+            route.fulfill(status=200 if r and r['ok'] else 404,content_type='application/json',headers={'Access-Control-Allow-Origin':'*'},body=json.dumps(r['data'] if r and r['ok'] else {}))
+        page.route('https://www.ebi.ac.uk/**',reply);page.route('https://id.nlm.nih.gov/**',reply)
+        page.locator('.batch-table tbody tr').nth(6).get_by_role('button',name='이 줄 후보 비교 ↓').click()
+        expect(page.locator('#analyzer-keyword')).to_have_value('Fabry disease')
+        expect(page.locator('#analyzer-result .compare-heading')).to_contain_text('세 출처 교차 일치')
+        expect(page.locator('#analyzer-result .compare-proposal')).to_contain_text('MONDO:0010526')
+        expect(page.locator('#analyzer-result .compare-proposal')).to_contain_text('사전에 반영하지 않았습니다')
+        expect(page.locator('#analyzer-result .candidate-item.agreed')).to_have_count(3)
+        assert sent and all('Adults' not in url for url in sent)
+        with page.expect_download() as download:
+            page.get_by_role('button',name='비교 기록 JSON 내려받기 ↓').click()
+        with tempfile.TemporaryDirectory() as tmp:
+            dest=Path(tmp)/'cmp.json';download.value.save_as(dest);cmp=json.loads(dest.read_text())
+            assert cmp['comparison']['code']=='CROSS_SOURCE_AGREEMENT' and cmp['record']['responses']['mondo_exact']['ok']
+        page.unroute('https://www.ebi.ac.uk/**');page.unroute('https://id.nlm.nih.gov/**')
+        results.append('On-demand MONDO/NCIt/MeSH candidate comparison: target-only requests, cross-reference proposal, not registered, record download')
 
         if output:page.screenshot(path=str(output/'analyzer.png'),full_page=True)
         page.goto(base_url+'#materials/audit',wait_until='networkidle')

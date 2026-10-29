@@ -473,3 +473,22 @@ summary>.badge { flex-shrink:0; }
 .batch-table details ol { padding-left:18px; margin:6px 0; }
 @media (max-width:760px) { .batch-intro { grid-template-columns:1fr; } .batch-panel { padding:18px; } }
 .batch-evidence { color:var(--ink); font-weight:600; }
+.compare-entry { display:flex; flex-wrap:wrap; align-items:center; gap:8px 14px; margin:14px 0 4px; }
+.compare-entry small { color:var(--muted); font-size:11px; flex:1 1 260px; }
+.candidate-compare:empty { display:none; }
+.candidate-compare { margin-top:14px; padding:16px; background:var(--surface); border:1px solid var(--line); border-radius:10px; }
+.compare-heading { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px; }
+.compare-heading h3 { margin:0; font-size:15px; }
+.compare-reasons { font-size:12px; padding-left:20px; margin:10px 0; }
+.compare-proposal { display:flex; flex-direction:column; gap:3px; padding:11px 13px; margin:10px 0; background:var(--tint); border:1px solid #cfe6dd; border-radius:9px; font-size:13px; }
+.compare-proposal small { color:var(--muted); font-size:11px; }
+.compare-columns { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:12px 0; }
+.compare-columns h4 { display:flex; justify-content:space-between; gap:6px; margin:0 0 8px; font-size:13px; }
+.compare-columns h4 small { color:var(--muted); font-weight:500; font-size:11px; }
+.candidate-item { display:flex; flex-direction:column; align-items:flex-start; gap:4px; padding:9px 10px; margin-bottom:8px; border:1px solid var(--line); border-radius:8px; font-size:12px; }
+.candidate-item.agreed { border-color:#9fcbbb; background:#f5fbf8; }
+.candidate-item p { margin:2px 0 0; color:var(--muted); font-size:11px; line-height:1.6; }
+.candidate-item .badge { font-size:10px; }
+.compare-limits { font-size:11px; color:var(--muted); padding-left:18px; margin:8px 0; }
+.next-steps .compare-entry .runtime-submit { padding:8px 14px; }
+@media (max-width:760px) { .compare-columns { grid-template-columns:1fr; } }
