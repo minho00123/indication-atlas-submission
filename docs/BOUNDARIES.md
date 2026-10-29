@@ -54,7 +54,7 @@ MONDO:0004967  acute lymphoblastic leukemia
 | K238 Aortic stenosis | 공식 용례에 따른 판막성 대동맥 협착 | supravalvular·subvalvular 등 판막 위·아래 위치를 명시 |
 | K249 Emphysema | 공식 용례에 따른 폐기종 | subcutaneous 등 피하·비폐성 위치를 명시 |
 
-이 조건은 이미 scope_assumptions의 override_if에 기록돼 있습니다. [기본 의미 사례](#cases/sense)에서 원문과 후보를 확인할 수 있습니다. 반대 문맥은 기본 연결의 적용 범위 밖이며 재검토 대상입니다. 이번 보강에서 새 문장에 적용하는 자동 판정기나 추가 경계 실험을 실행한 것은 아닙니다.
+이 조건은 이미 scope_assumptions의 override_if에 기록돼 있습니다. [기본 의미 사례](#cases/sense)에서 원문과 후보를 확인할 수 있습니다. 반대 문맥은 기본 연결의 적용 범위 밖이며 재검토 대상입니다. 이 예외 조건은 검토 기준으로 기록한 것이며, 새로운 문장을 모두 자동 판별하는 기능은 아닙니다.
 
 ### 과거 실험 자료
 
