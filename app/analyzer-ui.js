@@ -9,6 +9,8 @@ const assertions={NO_CUE_DETECTED:'부정·추정 표현을 찾지 못함',UNKNO
 // Plain labels for match states; the raw code stays in the JSON download.
 const matchStates={RESOLVED:'개념 1개로 확인',AMBIGUOUS:'여러 개념 후보',UNREGISTERED:'사전에 없음',INVALID:'약어와 긴 이름이 맞지 않음',UNSUPPORTED_MODIFIER:'검토하지 않은 수식어',UNREVIEWED_PREFIX:'검토하지 않은 앞말',PARTIAL:'일부만 확인',UNRESOLVED:'확인하지 못함',HOLD_DEFINITION:'정의 확인 필요',HOLD_AMBIGUOUS:'여러 개념 후보'};
 const stateLabel=code=>matchStates[code] ?? code;
+// Plain wording for engine warnings; the engine text stays unchanged in the JSON download.
+const warningText={'부정·추정 표지는 언급된 개념과 별도로 기록합니다. 해당 환자의 진단을 확정하지 않습니다.':'부정·추정 표현은 언급된 개념과 따로 기록합니다. 해당 환자의 진단을 확정하지 않습니다.','다의·수식어·미등록 때문에 해소하지 못한 문서 내 표현이 있습니다. 다른 개념의 언급만으로 추측하지 않습니다.':'여러 뜻의 약어·수식어·미등록 때문에 개념을 정하지 못한 표현이 있습니다. 다른 개념의 언급만으로 추측하지 않습니다.'};
 const types={disease_status:'질환 상태',treatment_history:'이전 치료',chronicity:'급성·만성',biomarker:'바이오마커',duration:'기간 표현',severity:'중증도',treatment_response:'치료 반응',etiology:'원인 표현',treatment_requirement:'치료 필요 표현',disease_activity:'질환 활성도',control_status:'조절 상태',stage:'병기',extent:'진행 범위'};
 const samples=[
   {label:'정의 없는 CD',keyword:'CD',text:'Patients with CD.'},
@@ -59,7 +61,7 @@ function reportHTML(r) {
     ${!r.concepts.length && r.keyword_candidates.length?`<details><summary>사전 후보 · 원문 연결 확정 아님</summary>${r.keyword_candidates.map(conceptLink).join('<br>')}</details>`:''}
     ${nextStepsHTML(r)}
     <ol class="runtime-reasons">${r.reasons.map(item=>`<li><span class="badge gray">${esc(item.rule)}</span> ${esc(reasonText[item.code] ?? item.message)} <small class="reason-code">${esc(item.code)}</small></li>`).join('')}</ol>
-    ${r.warnings.map(message=>`<p class="runtime-note">${esc(message)}</p>`).join('')}
+    ${r.warnings.map(message=>`<p class="runtime-note">${esc(warningText[message] ?? message)}</p>`).join('')}
     ${r.unsupported_patterns.length?`<h3>해석을 지원하지 않는 문형</h3><ul>${r.unsupported_patterns.map(p=>`<li>${esc({EXPERIENCER_FAMILY_HISTORY:'가족력: 환자 본인의 질환 상태로 해석하지 않습니다.',HISTORICAL:'과거력: 현재 질환 상태로 해석하지 않습니다.',SECTION_CONTEXT:'선정·제외 기준 문맥: 참여 조건 충족 여부를 자동 해석하지 않습니다.',COORDINATED_NEGATION_UNRESOLVED:'여러 표현에 걸친 부정: 첫 표현을 확인하지 못해 부정 범위를 미상으로 둡니다.',REQUIREMENT_NECESSITY:'필수 조건 문장: 질환이 없다는 뜻과 구별하고, 조건 충족 여부는 판단하지 않습니다.',AND_ELIGIBILITY_INTERPRETATION:'AND로 연결된 참여 조건의 해석은 지원하지 않습니다.',COORDINATION_ELLIPSIS:'생략된 공통 질환명 복원은 미지원입니다.'}[p]??p)}</li>`).join('')}</ul>`:''}
     <h3>입력 원문과 인식한 구간</h3><p class="source-note">표시는 개념의 언급과 직접적인 부정·추정 표현을 구별합니다. 환자의 진단 여부를 확정하지 않습니다.</p>
     <blockquote class="runtime-source">${r.input.text?sourceHTML(r):'입력 원문이 없어 등록된 대상 표현만 대조했습니다.'}</blockquote>
@@ -133,7 +135,7 @@ export function mountAnalyzer(root,catalog) {
   const analyzer=createAnalyzer(catalog);let current=remembered.report;
   root.innerHTML=`<div class="container"><div class="page-heading"><p class="eyebrow">직접 입력과 후보 비교</p><h1>직접 입력해 보기</h1><p>기존 사전에서 찾고, 없는 표현은 MONDO·NCIt·MeSH 후보를 비교합니다. 문맥을 함께 넣으면 문서 내 약어 정의와 지원하는 추가 조건을 확인할 수 있습니다. 문장은 브라우저에서 처리하고, 후보 비교를 누를 때만 대상 표현을 공개 용어 API로 보냅니다.</p></div>
     <div class="runtime-scope"><strong>현재 구현 범위</strong><span>기존 ${catalog.metadata.concepts}개 개념·검토한 별칭, 문서 내 긴 이름–약어 정의, 일부 조건 구간을 처리합니다. 개념 식별, 원문의 언급 방식(부정·추정), 조건 범위를 구별하며 환자의 진단과 참여·치료 조건 충족 여부는 평가하지 않습니다. 일반적인 의학적 의미 추론이나 독립 정확도 검증을 마친 분류기는 아닙니다.</span></div>
-    <div class="runtime-examples" aria-label="분석 예제">${samples.map((s,i)=>`<button class="example-chip" data-runtime-example="${i}">${esc(s.label)}</button>`).join('')}</div>
+    <div class="runtime-examples" aria-label="분석 예제"><span>예시</span>${samples.map((s,i)=>`<button class="example-chip" data-runtime-example="${i}">${esc(s.label)}</button>`).join('')}</div>
     <div class="runtime-layout"><section class="panel runtime-input"><h2>새 입력</h2><form id="analyzer-form"><label for="analyzer-keyword">대상 표현</label><input id="analyzer-keyword" type="text" maxlength="200" required autocomplete="off"><label for="analyzer-text">원문 문장·문단</label><textarea id="analyzer-text" rows="8" maxlength="10000" spellcheck="false"></textarea><p class="source-note">원문은 선택 입력입니다. 뜻을 구별할 근거가 부족하면 보류합니다.</p><button class="runtime-submit" type="submit">이 원문 분석하기</button><p id="analyzer-error" role="alert"></p></form><button id="download-analysis" class="subtle-button">분석 JSON 내려받기 ↓</button>
       <details class="runtime-method"><summary>판정 규칙과 지원 범위</summary><ol><li>등록된 이름·별칭을 단어 경계와 긴 표현 우선으로 찾습니다.</li><li>문서의 긴 이름(약어)을 기존 개념과 대조합니다. type 1/2 diabetes mellitus의 선언한 짧은 형태도 기존 이름에 근거해 처리합니다. 긴 이름을 확인하지 못하거나 정의가 충돌하면 보류합니다.</li><li>여러 뜻을 가진 약어는 다른 질환이 함께 언급됐다는 이유만으로 뜻을 정하지 않습니다.</li><li>등록된 범위 관계는 검토로 표시하며 미검토 관계나 원문 근거 부족을 입력 오류로 단정하지 않습니다.</li><li>전이·재발·불응·이전 치료, 중증도·질환 활성도·조절 상태·병기·진행 범위와 일부 기간·이름 구성 요소만 처리합니다. 개념을 바꿀 수 있는 미검토 수식어가 붙으면 보류합니다. OR 구조와, OR로 연결된 각 표현이 어떤 개념인지 확인한 상태를 나누어 보존합니다.</li></ol><p>표현이 더 복잡하거나 증상만으로 의미를 추론해야 하는 경우는 지원하지 않습니다. 미등록 개념을 자동 생성하지 않습니다.</p><a href="#materials/methodology">구현·검사·한계 문서 ↗</a></details></section>
     <section id="analyzer-result" class="panel runtime-output" aria-label="새 원문 분석 결과" aria-live="polite"></section></div>

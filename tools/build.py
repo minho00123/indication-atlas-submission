@@ -81,7 +81,7 @@ def build():
             supplement=render((ROOT/'docs/LEGACY_EXPERIMENT.md').read_text(encoding='utf8'))
             content+='<details class="legacy-experiment"><summary>초기 탐색 실험(구 정책 기준)</summary><div class="legacy-content">'+supplement+'</div></details>'
         if key=='audit-method':
-            content=re.sub(r'<h([1-5])>(.*?)</h\1>',lambda m:f'<h{int(m[1])+1}>'+('대조 방법' if m[1]=='1' else m[2])+f'</h{int(m[1])+1}>',content)
+            content=re.sub(r'<h([1-5])>(.*?)</h\1>',lambda m:f'<h{int(m[1])+1}>'+('검증 방법과 재실행' if m[1]=='1' else m[2])+f'</h{int(m[1])+1}>',content)
         (DIST/'content'/f'{key}.html').write_text(content,encoding='utf8')
     shutil.copytree(ROOT/'evidence/review_process',DIST/'evidence/review_process',dirs_exist_ok=True)
     shutil.copytree(ROOT/'evidence/boundary_checks',DIST/'evidence/boundary_checks',dirs_exist_ok=True,ignore=shutil.ignore_patterns('__pycache__','*.pyc'))
