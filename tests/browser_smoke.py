@@ -30,28 +30,48 @@ def run(base_url,browser_executable=None,output=None):
         expect(page.locator('.key-point')).to_have_count(0)
         expect(page.locator('.featured-section')).to_have_count(0)
         assert page.locator('.example-chip').all_text_contents()==['CD','NSCLC','eczema','NAFLD']
-        # First screen: the CD case shows each context, the decision and its reason, with the held row.
+        # Summary line: input rows and concept groups are different units, and the excluded rows are named.
+        expect(page.locator('.home-summary')).to_contain_text('297건은 287개 개념 그룹')
+        expect(page.locator('.home-summary')).to_contain_text('보류 2건·OR 표현 1건 제외')
+        assert [a.get_attribute('href') for a in page.locator('.home-links a').all()]==['#cases','#materials/research','#materials/methodology']
+        # First screen: one spelling fans out by quoted context cue; the held row is labelled as an undecided meaning.
         expect(page.locator('#dictionary-detail .featured-heading')).to_have_text('분류 결과 예시')
-        expect(page.locator('#dictionary-detail .ambiguity-title')).to_contain_text('CD')
-        expect(page.locator('#dictionary-detail .ambiguity-row')).to_have_count(3)
-        expect(page.locator('#dictionary-detail .ambiguity-row.held')).to_contain_text('K009')
-        expect(page.locator('#dictionary-detail .ambiguity-row.held')).to_contain_text('문맥 부족')
-        assert page.locator('#dictionary-detail .ambiguity-row').nth(2).bounding_box()['y']+page.locator('#dictionary-detail .ambiguity-row').nth(2).bounding_box()['height']<1050
-        page.locator('#dictionary-detail .ambiguity-row').first.get_by_role('button',name='전체 근거 ↗').click()
+        expect(page.locator('#dictionary-detail .flow-root')).to_contain_text('CD')
+        rows=page.locator('#dictionary-detail .split-flow .flow-row')
+        expect(rows).to_have_count(3)
+        assert page.locator('#dictionary-detail .split-flow mark').all_text_contents()==['ileocolonic inflammation and fistula','gluten-triggered enteropathy','no other disease description']
+        for i,cue in enumerate(page.locator('#dictionary-detail .split-flow mark').all_text_contents()):
+            assert cue in rows.nth(i).locator('blockquote').text_content()
+        expect(rows.nth(2)).to_have_class(re.compile('held'))
+        expect(rows.nth(2).locator('.flow-target')).to_contain_text('의미 미확정')
+        expect(rows.nth(2).locator('.flow-target')).to_contain_text('문맥 부족')
+        expect(page.locator('#dictionary-detail')).not_to_contain_text('단일 개념 없음')
+        expect(rows.nth(0).locator('.flow-why p')).not_to_be_visible()
+        rows.nth(0).locator('.flow-why summary').click()
+        expect(rows.nth(0).locator('.flow-why p')).to_contain_text('회결장')
+        last=rows.nth(2).bounding_box(); assert last['y']+last['height']<1100,last
+        rows.nth(0).locator('.flow-target').click()
         expect(page.locator('#dictionary-detail h2')).to_have_text('Crohn disease')
         expect(page.locator('#dictionary-detail .rationale-strong')).to_contain_text('회결장')
+        page.goto(base_url,wait_until='networkidle')
+        page.locator('#dictionary-detail .split-flow .flow-row.held .flow-target').click()
+        expect(page.locator('.detail')).to_contain_text('K009')
         page.goto(base_url,wait_until='networkidle')  # fresh focus for the keyboard check below
-        # Second representative tab: two expressions merged into one concept, conditions kept per input.
+        # Second tab: two names converge on one concept; K010's conditions stay on K010, K131 says unstated, not absent.
         page.get_by_role('tab',name='묶은 사례: NSCLC').click()
         expect(page.get_by_role('tab',name='묶은 사례: NSCLC')).to_have_attribute('aria-selected','true')
-        expect(page.locator('#dictionary-detail .ambiguity-row')).to_have_count(2)
-        expect(page.locator('#dictionary-detail .ambiguity-row').nth(0)).to_contain_text('K010')
-        expect(page.locator('#dictionary-detail .ambiguity-row').nth(0)).to_contain_text('Metastatic')
-        expect(page.locator('#dictionary-detail .ambiguity-row').nth(1)).to_contain_text('원문에 명시되지 않음')
-        expect(page.locator('#dictionary-detail')).to_contain_text('MONDO:0005233')
+        rows=page.locator('#dictionary-detail .merge-flow .flow-row')
+        expect(rows).to_have_count(2)
+        expect(rows.nth(0)).to_contain_text('K010')
+        expect(rows.nth(0).locator('.atom')).to_have_count(2)
+        expect(rows.nth(1).locator('.atom')).to_have_count(0)
+        expect(rows.nth(1)).to_contain_text('원문에 명시되지 않음')
+        target=page.locator('#dictionary-detail .merge-target')
+        expect(target).to_contain_text('MONDO:0005233')
+        expect(target).not_to_contain_text('Metastatic')
         expect(page.locator('#dictionary-detail .featured-links a')).to_have_count(4)
         page.get_by_role('tab',name='나눈 사례: CD').click()
-        expect(page.locator('#dictionary-detail .ambiguity-row')).to_have_count(3)
+        expect(page.locator('#dictionary-detail .split-flow .flow-row')).to_have_count(3)
         page.goto(base_url,wait_until='networkidle')
         counts=page.locator('#results .result-meta').all_text_contents()
         assert all('제공 항목 2건' in text or '제공 항목 6건' in text for text in counts[:6])
@@ -450,6 +470,7 @@ def run(base_url,browser_executable=None,output=None):
         assert search_box['y']+search_box['height']<844,search_box
         expect(page.locator('#results')).to_be_visible()
         assert page.locator('.ambiguity-title').bounding_box()['y']<page.locator('#results').bounding_box()['y']  # mobile: CD case before the list
+        expect(page.locator('.flow-row').first).to_be_visible()
         for route in ['#cases/examples','#dictionary','#records','#cases','#cases/cd','#materials/guidelines','#materials/research','#materials/methodology','#materials/downloads','#materials/boundaries','#aliases','#analyze','#materials/analyzer','#materials/audit','#materials/review','#materials/audit-method','#materials/compare']:
             page.goto(base_url+route,wait_until='networkidle')
             assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth'),route

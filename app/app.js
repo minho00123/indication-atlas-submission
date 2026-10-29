@@ -101,7 +101,9 @@ function structuredReviewHTML(story) {
 function dictionaryPage() {
   const m=data.metadata;
   $('#main-content').innerHTML=`<div class="container home-page">
-    <section class="home-head" aria-labelledby="hero-title"><div class="home-title"><h1 id="hero-title">질환 동의어 사전</h1></div>
+    <section class="home-head" aria-labelledby="hero-title"><div class="home-title"><h1 id="hero-title">질환 동의어 사전</h1>
+    <p class="home-summary">제공 키워드 ${m.records}건을 문맥과 공식 용어 정의로 검토해, 같은 개념은 묶고 다른 뜻은 나누고 근거가 부족하면 보류했습니다. 단일 개념에 연결한 ${data.records.filter(r=>r.concept_key).length}건은 ${m.concepts}개 개념 그룹입니다(보류 ${m.holds}건·OR 표현 ${data.records.filter(r=>r.research_decision==='SPLIT_EXPRESSION').length}건 제외).</p>
+    <p class="home-links"><a href="#cases">판단 기준 ↗</a><a href="#materials/research">유사 서비스 조사 ↗</a><a href="#materials/methodology">구축 보고서 ↗</a></p></div>
     <div class="stats" aria-label="사전 요약">${[['검토한 키워드',m.records,'건','#records','전체 분류 결과'],['개념 그룹',m.concepts,'개','#dictionary?view=concepts','개념 목록'],['별칭 연결',m.aliases,'건','#aliases','별칭 목록'],['판단 보류',m.holds,'건','#records?decision=HOLD','보류 사유 확인']].map(([label,n,u,href,action])=>`<a class="stat" href="${href}"${href.includes('view=concepts')?' data-concept-list':''} aria-label="${label} ${n}${u} · ${action}"><span class="stat-value">${n}<small>${u}</small></span><span class="stat-label">${label}</span></a>`).join('')}</div></section>
     <section id="concept-explorer" aria-labelledby="search-heading"><div class="search-heading-row"><h2 id="search-heading" tabindex="-1">등록된 표현 검색</h2><div class="examples"><span>예시</span>${['CD','NSCLC','eczema','NAFLD'].map(q=>`<button class="example-chip" data-query="${q}">${q}</button>`).join('')}</div></div>
     <div class="search-toolbar"><label class="search-box">${icon}<input id="dictionary-search" type="search" autocomplete="off" aria-label="질환명·약어·항목 번호 검색" placeholder="질환명, 약어 또는 항목 번호 검색"><span class="search-key" aria-hidden="true">/</span></label></div>
@@ -173,22 +175,43 @@ function updateSearch({autoSelect=true}={}) {
 // First screen without a search: two representative judgments, one split and one merge.
 function featuredHTML(tab) {
   const tabs=[['split','나눈 사례: CD'],['merge','묶은 사례: NSCLC']];
-  const body=tab==='merge'?mergedHTML('MONDO:0005233'):ambiguityHTML('CD',data.records.filter(r=>normalize(r.keyword)==='cd'),true);
+  const body=tab==='merge'?mergedHTML('MONDO:0005233'):splitFlowHTML('CD',data.records.filter(r=>normalize(r.keyword)==='cd'));
   return `<div class="featured-head"><div><p class="featured-heading">분류 결과 예시</p><p class="featured-guide">검색하거나 개념 목록에서 항목을 선택하면 해당 항목의 분류 근거를 볼 수 있습니다.</p></div><div class="featured-tabs" role="tablist" aria-label="분류 결과 예시">${tabs.map(([key,label])=>`<button role="tab" aria-selected="${key===tab}" class="${key===tab?'active':''}" data-featured-tab="${key}">${label}</button>`).join('')}</div></div>
     <div role="tabpanel">${body}</div>
     <p class="example-other featured-links">다른 판단: <a href="#cases/eczema">범위 차이: 습진·아토피 ↗</a> · <a href="#cases/conflict">입력 충돌: K024 ↗</a> · <a href="#cases/long-covid">명칭·기간 기준: Long COVID·PASC ↗</a> · <a href="#cases/examples">전체 판단 사례 ↗</a></p>`;
 }
+// The phrase in each provided context that decided the CD reading; highlighted in place, never rewritten.
+const featuredCues={K007:'ileocolonic inflammation and fistula',K008:'gluten-triggered enteropathy',K009:'no other disease description'};
+function contextHTML(r) {
+  const cue=featuredCues[r.source_id],text=r.raw_context,at=cue?text.indexOf(cue):-1;
+  return at<0?esc(text):`${esc(text.slice(0,at))}<mark>${esc(cue)}</mark>${esc(text.slice(at+cue.length))}`;
+}
+const heldName=r=>r.research_decision==='HOLD_AMBIGUOUS'?'의미 미확정':'개념 선택 보류';
+const whyHTML=r=>`<details class="flow-why"><summary>판단 이유</summary><p>${esc(r.rationale_ko)}</p></details>`;
+function splitFlowHTML(term,rows) {
+  return `<h2 class="ambiguity-title">${esc(term)}: 같은 표기, 문맥에 따라 다른 처리</h2>
+    <p class="ambiguity-lead">${esc(term)}를 하나의 질환으로 고정하지 않았습니다. 항목마다 원문 단서로 뜻을 정했고, 단서가 없으면 보류했습니다.</p>
+    <div class="flow split-flow"><div class="flow-root"><span>같은 표기</span><strong>${esc(term)}</strong></div>
+    <ol class="flow-rows">${rows.map(r=>{
+      const c=r.concept_key?conceptByKey.get(r.concept_key):null;
+      const target=c?`data-concept="${esc(c.concept_key)}" data-record="${esc(r.source_id)}"`:`data-open-record="${esc(r.source_id)}"`;
+      return `<li class="flow-row${c?'':' held'}"><div class="flow-source"><span class="ambiguity-id">${esc(r.source_id)} · 제공 문맥</span><blockquote>${contextHTML(r)}</blockquote>${whyHTML(r)}</div>
+        <span class="flow-arrow" aria-hidden="true"></span>
+        <button class="flow-target" ${target}><strong>${c?esc(c.preferred_name):heldName(r)}</strong>${decisionBadge(r)}<span class="flow-go">${c?'전체 근거':'보류 사유'} ↗</span></button></li>`;
+    }).join('')}</ol></div>`;
+}
 function mergedHTML(key) {
   const c=conceptByKey.get(key),rows=c.source_ids.map(id=>recordById.get(id));
   return `<h2 class="ambiguity-title">NSCLC: 다른 표현을 같은 개념으로 묶은 근거</h2>
-    <p class="ambiguity-lead">서로 다른 표현을 같은 기본 개념(${esc(c.preferred_name)}, ${esc(key)})으로 연결했습니다. 추가 조건은 해당 입력에만 남기며, 같은 개념이라고 환자 조건까지 같다고 보지 않습니다.</p>
-    <ol class="ambiguity-rows">${rows.map(r=>{
+    <p class="ambiguity-lead">서로 다른 표현을 같은 기본 개념으로 연결했습니다. 추가 조건은 해당 항목에만 남기며, 같은 개념이라고 환자 조건까지 같다고 보지 않습니다.</p>
+    <div class="flow merge-flow"><ol class="flow-rows">${rows.map(r=>{
       const conditions=[...new Set((r.clinical_attributes ?? []).map(a=>a.source_span))];
-      return `<li class="ambiguity-row"><div class="ambiguity-source"><span class="ambiguity-id">${esc(r.source_id)} · 제공 키워드 “${esc(r.keyword)}”</span><blockquote>${esc(r.raw_context)}</blockquote></div>
-        <div class="ambiguity-result"><div class="ambiguity-outcome"><strong>${esc(c.preferred_name)}</strong>${decisionBadge(r)}</div>
-        <p class="merge-conditions">추가 조건: ${conditions.length?conditions.map(x=>`<span class="atom">${esc(x)}</span>`).join(' '):'원문에 명시되지 않음'}</p>
-        <p>${esc(r.rationale_ko)} <button class="text-button" data-concept="${esc(key)}" data-record="${esc(r.source_id)}">전체 근거 ↗</button></p></div></li>`;
-    }).join('')}</ol>`;
+      return `<li class="flow-row"><div class="flow-source"><span class="ambiguity-id">${esc(r.source_id)} · 제공 키워드 “${esc(r.keyword)}”</span><blockquote>${esc(r.raw_context)}</blockquote>
+        <p class="merge-conditions">추가 조건: ${conditions.length?conditions.map(x=>`<span class="atom">${esc(x)}</span>`).join(' '):'원문에 명시되지 않음'}</p>${whyHTML(r)}
+        <button class="text-button" data-concept="${esc(key)}" data-record="${esc(r.source_id)}">전체 근거 ↗</button></div></li>`;
+    }).join('')}</ol>
+    <span class="flow-arrow" aria-hidden="true"></span>
+    <button class="flow-target merge-target" data-concept="${esc(key)}"><span class="flow-kind">같은 기본 개념</span><strong>${esc(c.preferred_name)}</strong><span class="flow-code">${esc(key)}</span><span class="flow-go">개념 상세 ↗</span></button></div>`;
 }
 
 function ambiguityHTML(term,rows,featured) {
@@ -199,7 +222,7 @@ function ambiguityHTML(term,rows,featured) {
     <ol class="ambiguity-rows">${rows.map(r=>{
       const c=r.concept_key?conceptByKey.get(r.concept_key):null;
       return `<li class="ambiguity-row${c?'':' held'}"><div class="ambiguity-source"><span class="ambiguity-id">${esc(r.source_id)} · 제공 문맥</span><blockquote>${esc(r.raw_context)}</blockquote></div>
-        <div class="ambiguity-result"><div class="ambiguity-outcome"><strong>${c?esc(c.preferred_name):'단일 개념 없음'}</strong>${decisionBadge(r)}</div><p>${esc(r.rationale_ko)} ${c?`<button class="text-button" data-concept="${esc(c.concept_key)}" data-record="${esc(r.source_id)}">전체 근거 ↗</button>`:`<button class="text-button" data-open-record="${esc(r.source_id)}">보류 사유 ↗</button>`}</p></div></li>`;
+        <div class="ambiguity-result"><div class="ambiguity-outcome"><strong>${c?esc(c.preferred_name):heldName(r)}</strong>${decisionBadge(r)}</div><p>${esc(r.rationale_ko)} ${c?`<button class="text-button" data-concept="${esc(c.concept_key)}" data-record="${esc(r.source_id)}">전체 근거 ↗</button>`:`<button class="text-button" data-open-record="${esc(r.source_id)}">보류 사유 ↗</button>`}</p></div></li>`;
     }).join('')}</ol>
     ${featured?'':'<p class="example-other"><a href="#cases/cd">판단 기준: 약어의 여러 뜻 ↗</a></p>'}`;
 }
