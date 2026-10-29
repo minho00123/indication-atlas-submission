@@ -15,11 +15,21 @@ def run(base_url,browser_executable=None,output=None):
         page=browser.new_page(viewport={'width':1440,'height':1050})
         errors=[];console_errors=[];page.on('pageerror',lambda e:errors.append(str(e)));page.on('console',lambda m:console_errors.append(m.text) if m.type=='error' else None)
         page.goto(base_url,wait_until='networkidle')
-        expect(page.get_by_role('heading',name='사전 검색')).to_be_visible()
+        expect(page.get_by_role('heading',name='등록된 표현 검색')).to_be_visible()
         results.append('Desktop entry and snapshot counts')
         expect(page.locator('#hero-title')).to_have_text('질환 동의어 사전')
         assert page.locator('.stats .stat-value').evaluate_all('(els)=>els.map(e=>e.textContent.replace(/[^0-9]/g,""))')==['300','287','419','2']
         assert page.locator('#dictionary-search').bounding_box()['y']+page.locator('#dictionary-search').bounding_box()['height']<1000
+        expect(page.locator('.search-heading-row')).not_to_contain_text('질환군')
+        expect(page.locator('.catalog-scope')).not_to_have_attribute('open','')
+        page.locator('.catalog-scope summary').click()
+        expect(page.locator('.catalog-scope p')).to_be_visible()
+        expect(page.locator('.catalog-scope p')).to_contain_text('질환군·소견·상태')
+        page.locator('.catalog-scope summary').click()
+        expect(page.get_by_role('link',name='직접 입력해 보기',exact=True)).to_have_attribute('href','#analyze')
+        expect(page.locator('#new-input-description')).to_have_text('키워드와 문맥을 넣어 결과 확인')
+        expect(page.locator('.key-point').first).to_contain_text('공통 규칙')
+        expect(page.locator('.featured-section h2')).to_have_text('사례로 보는 분류 과정')
         # First screen: the CD case shows each context, the decision and its reason, with the held row.
         expect(page.locator('#dictionary-detail')).to_contain_text('대표 사례 표시 중')
         expect(page.locator('#dictionary-detail .ambiguity-title')).to_contain_text('CD')
@@ -192,7 +202,7 @@ def run(base_url,browser_executable=None,output=None):
         assert not normalization_errors,normalization_errors
         results.append('Browser normalization equals all reviewed alias keys')
         page.goto(base_url,wait_until='networkidle')
-        page.get_by_role('link',name='새 키워드 확인',exact=False).click()
+        page.get_by_role('link',name='직접 입력해 보기',exact=True).click()
         expect(page.locator('#analyzer-decision')).to_have_text('약어 의미 보류')
         page.get_by_role('button',name='크론병으로 정의',exact=True).click()
         expect(page.locator('.runtime-concepts')).to_contain_text('MONDO:0005011')

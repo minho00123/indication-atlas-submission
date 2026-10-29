@@ -20,7 +20,7 @@
 
 [판단 기준](https://indication-atlas.netlify.app/#cases)에서 G01–G12를, [사례별 검토](https://indication-atlas.netlify.app/#cases/examples)에서 실제 판단과 개념 비교를 제공합니다.
 
-[새 키워드 확인](https://indication-atlas.netlify.app/#analyze)은 사전 검색 옆 버튼으로 엽니다. 등록된 표현·명시적 약어 정의·일부 조건 패턴을 처리하고, 미등록 표현은 외부 후보와 비교할 수 있습니다. 환자의 진단·적격성은 판정하지 않습니다.
+[새 키워드 확인](https://indication-atlas.netlify.app/#analyze)은 홈의 ‘직접 입력해 보기’ 버튼으로 엽니다. 등록된 표현·명시적 약어 정의·일부 조건 패턴을 처리하고, 미등록 표현은 외부 후보와 비교할 수 있습니다. 환자의 진단·적격성은 판정하지 않습니다.
 
 ## 실행
 

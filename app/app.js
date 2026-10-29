@@ -104,14 +104,14 @@ function dictionaryPage() {
     <section class="home-head" aria-labelledby="hero-title"><div class="home-title"><h1 id="hero-title">질환 동의어 사전</h1><p>제공된 키워드와 문맥을 대조해 같은 개념을 묶었습니다.</p></div>
     <div class="stats" aria-label="사전 요약">${[['검토한 키워드',m.records,'건','#records','전체 분류 결과'],['개념 그룹',m.concepts,'개','#dictionary?view=concepts','개념 목록'],['별칭 연결',m.aliases,'건','#aliases','별칭 목록'],['판단 보류',m.holds,'건','#records?decision=HOLD','보류 사유 확인']].map(([label,n,u,href,action])=>`<a class="stat" href="${href}"${href.includes('view=concepts')?' data-concept-list':''} aria-label="${label} ${n}${u} · ${action}"><span class="stat-value">${n}<small>${u}</small></span><span class="stat-label">${label}</span></a>`).join('')}</div></section>
     <section class="key-points" aria-label="핵심 포인트">${[
-      ['판단 원칙','같은 개념·범위일 때만 묶음','#cases'],
+      ['공통 규칙','같은 뜻으로 묶는 기준 읽기','#cases'],
       ['이 사전의 방향','항목별 판단 이유와 출처','#materials/methodology'],
       ['반례와 수정','발견한 오류와 수정 내용','#materials/methodology?section=counterexamples']
     ].map(([label,title,href])=>`<a class="key-point" href="${href}"><span>${label}</span><strong>${title} <span aria-hidden="true">↗</span></strong></a>`).join('')}</section>
-    <section id="concept-explorer" aria-labelledby="search-heading"><div class="search-heading-row"><h2 id="search-heading" tabindex="-1">사전 검색</h2><div class="examples"><span>예시</span>${['CD','T2DM','eczema','NAFLD'].map(q=>`<button class="example-chip" data-query="${q}">${q}</button>`).join('')}<span class="scope-note">질환군·소견·상태도 포함합니다.</span></div></div>
-    <div class="search-toolbar"><label class="search-box">${icon}<input id="dictionary-search" type="search" autocomplete="off" aria-label="질환명·약어·항목 번호 검색" placeholder="질환명, 약어 또는 항목 번호 검색"><span class="search-key" aria-hidden="true">/</span></label><a class="new-keyword-link" href="#analyze">새 키워드 확인 <span aria-hidden="true">↗</span></a></div>
+    <section id="concept-explorer" aria-labelledby="search-heading"><div class="search-heading-row"><h2 id="search-heading" tabindex="-1">등록된 표현 검색</h2><div class="examples"><span>예시</span>${['CD','T2DM','eczema','NAFLD'].map(q=>`<button class="example-chip" data-query="${q}">${q}</button>`).join('')}</div></div>
+    <div class="search-toolbar"><label class="search-box">${icon}<input id="dictionary-search" type="search" autocomplete="off" aria-label="질환명·약어·항목 번호 검색" placeholder="질환명, 약어 또는 항목 번호 검색"><span class="search-key" aria-hidden="true">/</span></label><a class="new-keyword-link" href="#analyze" aria-label="직접 입력해 보기" aria-describedby="new-input-description"><span class="new-keyword-title">직접 입력해 보기 <span aria-hidden="true">↗</span></span><span class="new-keyword-description" id="new-input-description">키워드와 문맥을 넣어 결과 확인</span></a></div>
     <div class="explorer"><div id="results" class="panel result-panel"></div><div id="dictionary-detail" class="panel detail"></div></div></section>
-    <section class="featured-section"><div class="section-heading"><div><h2>사례별 판단 근거</h2><p>약어, 범위 차이, 추가 조건과 보류 사례를 확인할 수 있습니다.</p></div><a href="#cases/examples">전체 사례 ↗</a></div><div class="featured-grid">${featureCards(['cd','eczema','nsclc','masld','conflict'].map(id=>data.stories.find(s=>s.id===id)))}</div></section>
+    <section class="featured-section"><div class="section-heading"><div><h2>사례로 보는 분류 과정</h2><p>공통 규칙을 약어, 범위 차이, 추가 조건과 입력 충돌에 적용한 사례입니다.</p></div><a href="#cases/examples">전체 사례 ↗</a></div><div class="featured-grid">${featureCards(['cd','eczema','nsclc','masld','conflict'].map(id=>data.stories.find(s=>s.id===id)))}</div></section>
   </div>`;
   const input=$('#dictionary-search'); input.value=route.params.get('q') ?? '';
   selectedKey=route.params.get('concept'); searchPage=0;
@@ -153,6 +153,7 @@ function updateSearch({autoSelect=true}={}) {
   }).join('');
   $('#results').classList.toggle('has-selection',!!selectedKey);
   $('#results').innerHTML=`<div class="result-heading"><b>${normalize(q)?'검색 결과':'개념 둘러보기'}</b><span>${keys.length}개 개념</span></div>
+    ${!normalize(q)?'<details class="catalog-scope"><summary>개념 그룹 설명</summary><p>같은 뜻으로 판단한 표현을 하나의 그룹으로 묶었습니다. 질환뿐 아니라 질환군·소견·상태도 포함합니다.</p></details>':''}
     ${result.exactKeys.length>1?`<div class="hold-result"><b>문맥 확인이 필요합니다.</b><br>같은 표기가 ${result.exactKeys.length}개 개념에 연결됩니다.</div>`:''}
     ${items || (result.holds.length || result.expressions.length ? '<div class="empty-state">해당 항목은 단일 개념으로 연결하지 않았습니다.<br>아래에서 원문과 처리 이유를 확인하세요.</div>' : '<div class="empty-state">등록된 이름을 찾지 못했습니다.<br>긴 질환명이나 다른 표기로 검색해 보세요.</div>')}
     ${[...result.holds,...result.expressions].map(r=>`<div class="hold-result">${decisionBadge(r)}<p>${esc(r.source_id)} · ${esc(r.keyword)}</p><button data-open-record="${r.source_id}">원문과 판단 이유 보기 ↗</button></div>`).join('')}

@@ -526,7 +526,6 @@ summary>.badge { flex-shrink:0; }
 .new-keyword-link:hover { background:var(--tint); text-decoration:none; }
 .home-page .section-heading h2 { font-size:19px; }
 .home-page .examples { font-size:13px; gap:8px; margin-bottom:20px; }
-.scope-note { margin-left:auto; }
 .home-page .explorer { grid-template-columns:310px minmax(0,1fr); }
 .home-page .result-meta { font-size:12px; gap:7px; }
 .result-item.selected:before { background:var(--brand); }
@@ -587,7 +586,6 @@ summary>.badge { flex-shrink:0; }
   .search-toolbar { display:grid; grid-template-columns:1fr; gap:8px; }
   .new-keyword-link { min-height:42px; padding:6px 15px; font-size:14px; }
   .home-page .examples { gap:6px; font-size:12px; }
-  .scope-note { flex-basis:100%; margin:2px 0 0; }
   .home-page .explorer { grid-template-columns:1fr; }
   .home-page .result-meta { font-size:12px; }
   .detail-title h2 { font-size:22px; }
@@ -622,7 +620,6 @@ summary>.badge { flex-shrink:0; }
 .search-heading-row { display:flex; align-items:center; gap:16px; margin:0 0 8px; flex-wrap:wrap; }
 .search-heading-row h2 { font-size:15px; margin:0; }
 .search-heading-row .examples { margin:0; flex:1; }
-.search-heading-row .scope-note { margin-left:auto; }
 .home-page .explorer { margin-top:14px; }
 .home-page .result-item { padding:10px 16px; }
 .home-page .result-meta { margin-top:3px; }
@@ -648,7 +645,6 @@ summary>.badge { flex-shrink:0; }
   .home-page .stat-value { font-size:18px; }
   .home-page .stat-label { font-size:11px; }
   .home-page .key-point,.home-page .key-point:first-child { display:grid; grid-template-columns:95px minmax(0,1fr); padding:4px 0; }
-  .search-heading-row .scope-note { display:none; }
   .home-page .explorer.featured .detail { order:-1; }
   .ambiguity-row { grid-template-columns:1fr; gap:8px; }
   .ambiguity-title { font-size:19px; }
@@ -666,4 +662,18 @@ summary>.badge { flex-shrink:0; }
 .home-page .stat,.home-page .stat:first-child,.home-page .stat:nth-child(2),.home-page .stat:nth-child(3),.home-page .stat:last-child { border-radius:10px; border:1px solid var(--line); }
 @media (max-width:760px) {
   .home-page .key-point,.home-page .key-point:first-child { padding:4px 0; }
+}
+
+/* Explain the two entry points, and keep the scope note with the concept list. */
+.new-keyword-link { flex-direction:column; gap:0; padding:5px 16px; }
+.new-keyword-title { font-size:14px; line-height:1.5; }
+.new-keyword-description { font-size:12px; line-height:1.5; font-weight:400; color:var(--muted); }
+.catalog-scope { margin:0; padding:7px 16px; border:0; border-bottom:1px solid var(--line); border-radius:0; }
+.catalog-scope>summary { display:inline-flex; padding:3px 0; color:var(--accent); font-size:12px; }
+.catalog-scope>summary:after { content:"↓"; margin-left:5px; }
+.catalog-scope[open]>summary:after { content:"↑"; }
+.catalog-scope p { margin:5px 0 3px; font-size:13px; color:var(--muted); line-height:1.7; }
+@media(max-width:760px) {
+  .search-heading-row { display:block; }
+  .search-heading-row .examples { margin:7px 0 0; }
 }
