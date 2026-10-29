@@ -46,14 +46,16 @@ function snapshotHTML(meta) {
   return `<p class="snapshot-note">엔진 ${esc(s.engine_version)} · 사전 v${esc(meta.dataset_version)} · 엔진 SHA-256 <code>${esc((s.engine_sha256 ?? '').slice(0,12))}</code> · 사전 SHA-256 <code>${esc((s.dictionary_sha256 ?? '').slice(0,12))}</code><br>고정한 엔진·사전 스냅샷에서 같은 입력의 판정 필드를 재현합니다.</p>`;
 }
 
+// Screen wording for engine reasons that describe internal test conditions.
+const reasonText={DECLARED_AMBIGUITY_POLICY:'CD·AML은 여러 질환을 뜻할 수 있어 문서에 긴 이름(약어) 정의가 없으면 하나로 고르지 않습니다.'};
 function reportHTML(r) {
   const held=r.decision.startsWith('HOLD') || r.decision==='UNREGISTERED';
-  return `<div class="runtime-result-heading"><div><p class="eyebrow">입력한 원문에서 지금 계산한 결과</p><h2>시제품 판정</h2></div><span class="badge ${held?'amber':''}" id="analyzer-decision">${esc(labels[r.decision])}</span></div>
+  return `<div class="runtime-result-heading"><div><p class="eyebrow">입력한 원문에서 지금 계산한 결과</p><h2>분석 결과</h2></div><span class="badge ${held?'amber':''}" id="analyzer-decision">${esc(labels[r.decision])}</span></div>
     <div class="runtime-concepts">${r.concepts.length?r.concepts.map(c=>`<div>${conceptLink(c)}<code>${esc(c.concept_key)}</code></div>`).join(''):'<p>선택한 단일 개념이 없습니다. 아래 후보와 보류 이유를 확인해 주세요.</p>'}</div>
     <div class="runtime-axes" aria-label="분석 결과의 네 가지 축"><div><small>개념 연결</small><strong>${esc({LINKED:'등록 개념 연결',REVIEW_REQUIRED:'검토 필요',UNREGISTERED:'미등록 표현',EXPRESSION_RESOLVED:'논리식 개념 해소',EXPRESSION_UNRESOLVED:'논리식 해소 미완료'}[r.normalization_status])}</strong></div><div><small>대상에 대한 원문 주장</small><strong>${esc({...assertions,NO_TEXT:'원문 없음 · 사전 조회',NOT_FOUND:'대상 근거 미확인',UNRESOLVED:'대상 의미 미해소',MIXED:'서로 다른 표지 혼재'}[r.target_evidence_status])}</strong></div><div><small>조건의 소유·범위</small><strong>아래 원문 구간별 표시</strong></div><div><small>환자 적격성</small><strong>미평가</strong></div></div>
     ${!r.concepts.length && r.keyword_candidates.length?`<details><summary>사전 후보 · 원문 연결 확정 아님</summary>${r.keyword_candidates.map(conceptLink).join('<br>')}</details>`:''}
     ${nextStepsHTML(r)}
-    <ol class="runtime-reasons">${r.reasons.map(item=>`<li><span class="badge gray">${esc(item.rule)} · ${esc(item.code)}</span> ${esc(item.message)}</li>`).join('')}</ol>
+    <ol class="runtime-reasons">${r.reasons.map(item=>`<li><span class="badge gray">${esc(item.rule)}</span> ${esc(reasonText[item.code] ?? item.message)} <small class="reason-code">${esc(item.code)}</small></li>`).join('')}</ol>
     ${r.warnings.map(message=>`<p class="runtime-note">${esc(message)}</p>`).join('')}
     ${r.unsupported_patterns.length?`<h3>해석을 지원하지 않는 문형</h3><ul>${r.unsupported_patterns.map(p=>`<li>${esc({EXPERIENCER_FAMILY_HISTORY:'가족력: 환자 본인의 질환 상태로 해석하지 않습니다.',HISTORICAL:'과거력: 현재 질환 상태로 해석하지 않습니다.',SECTION_CONTEXT:'선정·제외 기준의 절 문맥: 적격성을 자동 해석하지 않습니다.',COORDINATED_NEGATION_UNRESOLVED:'등위 부정: 첫 피연산자를 확인하지 못해 범위를 미상으로 둡니다.',REQUIREMENT_NECESSITY:'요건 필수성: 질환 부재와 구별하고 적격성을 해석하지 않습니다.',AND_ELIGIBILITY_INTERPRETATION:'AND 적격성 해석은 미지원입니다.',COORDINATION_ELLIPSIS:'생략된 공통 질환명 복원은 미지원입니다.'}[p]??p)}</li>`).join('')}</ul>`:''}
     <h3>입력 원문과 인식한 구간</h3><p class="source-note">표시는 개념의 언급과 직접적인 부정·추정 표현을 구별합니다. 환자의 진단 여부를 확정하지 않습니다.</p>

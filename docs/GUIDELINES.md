@@ -90,7 +90,7 @@ PBC의 primary biliary cirrhosis/cholangitis, 2026년 PCOS/PMOS처럼 같은 임
 
 ## G09 — 코드·계층·개념 의미를 별도로 검증
 
-ACTIVE는 코드 상태 확인입니다. 계층·xref·공식 EXACT 문자열만으로 임상 의미를 승인하지 않습니다. K134의 폐기된 NCIt 코드는 선택하지 않습니다. CLL→ALL, acquired PV→familial polycythemia 등 기존 MONDO의 의심 계층은 자동 포함 검색에 쓰지 않습니다.
+ACTIVE는 코드 상태 확인입니다. 계층·xref·공식 EXACT 문자열만으로 임상 의미를 승인하지 않습니다. K134의 폐기된 NCIt 코드는 선택하지 않습니다. CLL→ALL([발췌 보존](../evidence/boundary_checks/mondo_hierarchy_excerpt.json)), acquired PV→familial polycythemia([K173](#records?record=K173) 판단 이유에 기록) 등 고정 MONDO의 의심 계층은 자동 포함 검색에 쓰지 않습니다.
 
 선택한 ID가 유용하더라도 그 출처의 모든 정의 문장·계층·별칭을 동시에 승인한 것은 아닙니다. 잘못된 후보·과거 정의·활성 상태를 결과에서 숨기지 않습니다. 명칭–정의–계층 충돌, 정의 버전 차이, 위험 인자의 필수 조건 오해는 definition_warnings에 구별해 기록합니다. 같은 concept_key의 입력은 동일한 entity_type을 가져야 하며 충돌하면 빌드를 중단합니다. 예를 들어 K010/K131의 NSCLC는 모두 DISEASE_GROUP입니다.
 
@@ -104,7 +104,7 @@ K201은 NCIt의 주 정의와 NICHD 대체 정의의 범위가 다름을 함께 
 
 매핑마다 출처 체계·ID·관계·버전·정의 위치·확인 시점·원본 응답 해시를 남깁니다. MeSH/HPO API가 릴리스 버전을 노출하지 않으면 확인하지 않은 버전을 추정하지 않습니다. MONDO·MedGen 등 원천을 통합하는 서비스를 독립 투표자로 세지 않습니다.
 
-선호명이나 코드를 바꿀 때 이전 판단 파일·SHA-256·전후 선택·이유를 보존합니다. 두 AI의 동의는 근거가 아니며 전문가 승인으로 표현하지 않습니다.
+선호명이나 코드를 바꿀 때는 이전 판단 파일·SHA-256·전후 선택·이유를 함께 보존합니다. 이번 제출본은 이런 변경 이력 없이 고정한 단일 판정 스냅샷입니다. 두 AI의 동의는 근거가 아니며 전문가 승인으로 표현하지 않습니다.
 
 ## G12 — 검토 완료·외부 정합성·정확도를 구별
 

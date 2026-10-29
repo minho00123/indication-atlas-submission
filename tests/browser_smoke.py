@@ -179,7 +179,7 @@ def run(base_url,browser_executable=None,output=None):
         # External explorations are summarized in one section; details stay in docs and evidence files.
         expect(page.locator('.external-supplement')).to_have_count(0)
         expect(page.locator('#document-content')).to_contain_text('외부 자료로 살펴본 경계')
-        expect(page.locator('#document-content')).to_contain_text('약어의 여러 뜻(21건)')
+        expect(page.locator('#document-content')).to_contain_text('독립 전문가 검증을 받지 않은 잠정 판단')
         expect(page.locator('#document-content a[href$="EXTERNAL_BASELINES.md"]')).to_have_count(1)
         excerpt=page.request.get(base_url+'evidence/service_research/opentargets_release_excerpts.json')
         assert excerpt.ok and len(excerpt.json()['excerpts'])==2
