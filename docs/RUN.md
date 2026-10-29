@@ -52,7 +52,7 @@ node --test tests/test_*.mjs
 
 검사 사례와 통과 수는 독립 임상 정확도를 뜻하지 않습니다. [실행 원리·지원 범위·한계](#materials/methodology)를 함께 확인해 주세요.
 
-[검증과 한계](#materials/audit)에서 A/B/C 전체 결과를 내려받을 수 있습니다. [대조 방법·재실행](#materials/audit?section=method)을 함께 제공합니다.
+[검증과 한계](#materials/audit)에서 다시 실행한 결과와 판단 규칙 검사, 상세 자료를 내려받을 수 있습니다. [검증 방법·재실행](#materials/audit?section=method)을 함께 제공합니다.
 
 ```bash
 node tools/run_rule_audit.mjs --check
