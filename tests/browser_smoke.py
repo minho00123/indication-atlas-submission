@@ -31,7 +31,7 @@ def run(base_url,browser_executable=None,output=None):
         expect(page.locator('.featured-section')).to_have_count(0)
         assert page.locator('.example-chip').all_text_contents()==['CD','NSCLC','eczema','NAFLD']
         # First screen: the CD case shows each context, the decision and its reason, with the held row.
-        expect(page.locator('#dictionary-detail')).to_contain_text('대표 사례 표시 중')
+        expect(page.locator('#dictionary-detail .featured-heading')).to_have_text('분류 결과 예시')
         expect(page.locator('#dictionary-detail .ambiguity-title')).to_contain_text('CD')
         expect(page.locator('#dictionary-detail .ambiguity-row')).to_have_count(3)
         expect(page.locator('#dictionary-detail .ambiguity-row.held')).to_contain_text('K009')
@@ -121,6 +121,8 @@ def run(base_url,browser_executable=None,output=None):
         assert any('MeSH' in text for text in summaries),summaries
         # Representative choice is marked separately from scope; a non-representative EXACT stays "같은 개념".
         assert sum('대표 ID' in text for text in summaries)==1,summaries
+        expect(page.locator('#dictionary-detail .badge-row').first).to_contain_text('처리 결과')
+        expect(page.locator('#dictionary-detail .badge-row').first).to_contain_text('개념 유형')
         assert any('MeSH' in text and '같은 개념' in text and '대표 ID' not in text for text in summaries),summaries
         reason_y=page.locator('#dictionary-detail .rationale-strong').bounding_box()['y']
         assert reason_y<page.locator('#candidates-K001').bounding_box()['y']<page.locator('#dictionary-detail .alias-list').bounding_box()['y']
@@ -158,7 +160,7 @@ def run(base_url,browser_executable=None,output=None):
         expect(page.locator('#document-content')).to_contain_text('G12')
         results.append('Case studies and rendered research/guidelines')
         page.goto(base_url,wait_until='networkidle')
-        expect(page.locator('#dictionary-detail')).to_contain_text('대표 사례 표시 중')
+        expect(page.locator('#dictionary-detail .featured-heading')).to_have_text('분류 결과 예시')
         page.goto(base_url+'#materials/methodology?section=counterexamples',wait_until='networkidle')
         expect(page.locator('#document-content .doc-summary')).to_contain_text('후속 연구')
         expect(page.locator('#method-counterexamples')).to_be_focused()

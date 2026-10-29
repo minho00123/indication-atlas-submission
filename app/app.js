@@ -174,7 +174,7 @@ function updateSearch({autoSelect=true}={}) {
 function featuredHTML(tab) {
   const tabs=[['split','나눈 사례: CD'],['merge','묶은 사례: NSCLC']];
   const body=tab==='merge'?mergedHTML('MONDO:0005233'):ambiguityHTML('CD',data.records.filter(r=>normalize(r.keyword)==='cd'),true);
-  return `<div class="featured-head"><div class="featured-tabs" role="tablist" aria-label="대표 사례">${tabs.map(([key,label])=>`<button role="tab" aria-selected="${key===tab}" class="${key===tab?'active':''}" data-featured-tab="${key}">${label}</button>`).join('')}</div>${badge('대표 사례 표시 중','gray')}</div>
+  return `<div class="featured-head"><div><h2 class="featured-heading">분류 결과 예시</h2><p class="featured-guide">검색하거나 개념 목록에서 항목을 선택하면 해당 항목의 분류 근거를 볼 수 있습니다.</p></div><div class="featured-tabs" role="tablist" aria-label="분류 결과 예시">${tabs.map(([key,label])=>`<button role="tab" aria-selected="${key===tab}" class="${key===tab?'active':''}" data-featured-tab="${key}">${label}</button>`).join('')}</div></div>
     <div role="tabpanel">${body}</div>
     <p class="example-other featured-links">다른 판단: <a href="#cases/eczema">범위 차이: 습진·아토피 ↗</a> · <a href="#cases/conflict">입력 충돌: K024 ↗</a> · <a href="#cases/long-covid">명칭·기간 기준: Long COVID·PASC ↗</a> · <a href="#cases/examples">전체 판단 사례 ↗</a></p>`;
 }
@@ -220,7 +220,7 @@ function detailHTML(concept,row,fromSearch=false) {
   const names=row.concept_name_components ?? [], attributes=row.clinical_attributes ?? [];
   const related=concept?.related_concepts ?? [];
   return `${fromSearch?'<button class="back-link" data-results-back>← 검색 결과 목록</button>':''}
-    <div class="badge-row">${decisionBadge(row)}${badge(entityLabels[row.entity_type] ?? row.entity_type,'gray')}</div>
+    <div class="badge-row"><span class="badge-name">처리 결과</span>${decisionBadge(row)}<span class="badge-name">개념 유형</span>${badge(entityLabels[row.entity_type] ?? row.entity_type,'gray')}</div>
     <div class="detail-title"><h2>${esc(concept?.preferred_name || row.keyword)}</h2></div>
     <div class="detail-code" id="code-${row.source_id}">${esc(row.selected_standard_id ?? (row.concept_key?'자체 관리 개념 (LOCAL)':'단일 개념으로 연결하지 않은 입력'))}</div>
     ${row.research_decision==='LOCAL_CONCEPT'?'<p class="detail-subtitle">제공 문맥의 의미를 자체 개념으로 관리합니다. 같은 범위의 외부 표준 연결은 추가 검토가 필요합니다.</p>':''}

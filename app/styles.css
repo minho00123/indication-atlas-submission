@@ -688,3 +688,8 @@ summary>.badge { flex-shrink:0; }
 .merge-conditions .atom { margin:0 2px; }
 .featured-head { display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:6px; }
 .featured-head .featured-tabs { margin:0; }
+.featured-head { align-items:flex-end; margin-bottom:8px; }
+.featured-heading { font-size:15px; margin:0; }
+.featured-guide { margin:2px 0 0; font-size:12px; color:var(--muted); }
+.badge-name { font-size:12px; color:var(--muted); margin-right:-2px; }
+.badge-name:not(:first-child) { margin-left:8px; }
