@@ -15,11 +15,14 @@ const samples=[
   {label:'문맥이 부족한 CD',keyword:'CD',text:'Patients with CD.'},
   {label:'크론병을 뜻하는 CD',keyword:'CD',text:'Crohn disease (CD) is the target. Patients with CD are included.'},
   {label:'셀리악병을 뜻하는 CD',keyword:'CD',text:'Celiac disease (CD) is the target. Patients with CD are included.'},
-  {label:'사전에 없는 약어 T2D',keyword:'T2D',text:'Type 2 diabetes (T2D) is mentioned.'},
   {label:'재발·치료 조건',keyword:'Acute myeloid leukemia',text:'Relapsed acute myeloid leukemia after prior therapy.'},
   {label:'입력과 문장의 차이',keyword:'eczema',text:'Adults with plaque psoriasis.'},
   {label:'MDS OR AML',keyword:'MDS/AML',text:'Patients with MDS or AML; either diagnosis is eligible.'},
-  {label:'부정 표현',keyword:'NSCLC',text:'No NSCLC is reported.'}
+  {label:'부정 표현',keyword:'NSCLC',text:'No NSCLC is reported.'},
+  {fresh:true,label:'새 약어 HS',keyword:'HS',text:'Patients with moderate to severe hidradenitis suppurativa (HS).'},
+  {fresh:true,label:'새 약어 T2D',keyword:'T2D',text:'Type 2 diabetes (T2D) is mentioned.'},
+  {fresh:true,label:'사전에 없는 질환 Fabry disease',keyword:'Fabry disease',text:'Adults with Fabry disease.'},
+  {fresh:true,label:'긴 이름도 없는 약어 PNH',keyword:'PNH',text:'Paroxysmal nocturnal hemoglobinuria (PNH) with hemolysis.'}
 ];
 let remembered={keyword:samples[0].keyword,text:samples[0].text,report:null};
 const conceptLink=c=>`<a class="source-link" href="#dictionary?concept=${encodeURIComponent(c.concept_key)}">${esc(c.preferred_name)} · 기존 사전 ↗</a>`;
@@ -136,7 +139,7 @@ export function mountAnalyzer(root,catalog) {
   root.innerHTML=`<div class="container analyzer-page"><div class="page-heading"><p class="eyebrow">기존 사전과 비교</p><h1>직접 입력해 보기</h1><p>이름이나 약어가 사전의 어떤 개념에 연결되는지 확인합니다. 등록되지 않은 표현은 외부 용어체계에서 후보를 찾아볼 수 있습니다.</p></div>
     <div class="intake-tabs" role="tablist" aria-label="입력 방식"><button id="intake-single-tab" role="tab" aria-selected="true" aria-controls="intake-single" data-intake-mode="single">한 건 확인</button><button id="intake-batch-tab" role="tab" aria-selected="false" aria-controls="intake-batch" tabindex="-1" data-intake-mode="batch">여러 건 확인</button></div>
     <section id="intake-single" role="tabpanel" aria-labelledby="intake-single-tab">
-    <div class="runtime-examples" aria-label="분석 예제"><span>예시로 시작하기</span>${samples.map((s,i)=>`<button class="example-chip" data-runtime-example="${i}">${esc(s.label)}</button>`).join('')}</div>
+    ${[[false,'300건에 있던 표현'],[true,'300건에 없는 새 입력']].map(([fresh,title])=>`<div class="runtime-examples" role="group" aria-label="예시: ${title}"><span>${title}</span>${samples.map((s,i)=>!!s.fresh===fresh?`<button class="example-chip" data-runtime-example="${i}">${esc(s.label)}</button>`:'').join('')}</div>`).join('')}
     <div class="runtime-layout"><section class="panel runtime-input"><h2>확인할 내용</h2><form id="analyzer-form"><label for="analyzer-keyword">이름 또는 약어 <span class="field-required">필수</span></label><input id="analyzer-keyword" type="text" maxlength="200" required autocomplete="off" placeholder="예: NSCLC, CD, Fabry disease"><label for="analyzer-text">이름이 쓰인 문장 <span class="field-optional">선택</span></label><textarea id="analyzer-text" rows="5" maxlength="10000" spellcheck="false" placeholder="예: Crohn disease (CD) is mentioned." aria-describedby="analyzer-context-help"></textarea><p id="analyzer-context-help" class="source-note">약어의 긴 이름이 함께 적힌 문장을 넣어보세요. 문맥이 부족하면 뜻을 정하지 않고 보류합니다.</p><button class="runtime-submit" type="submit">사전과 비교하기</button><p id="analyzer-error" role="alert"></p></form></section>
     <section class="panel runtime-output" aria-label="새 원문 분석 결과"><div id="analyzer-result" aria-live="polite"></div><div class="runtime-result-tools"><button id="download-analysis" class="subtle-button" type="button">결과 JSON 내려받기 ↓</button><span>입력·판단 근거·실행 정보를 포함합니다.</span></div></section></div></section>
     <section id="intake-batch" role="tabpanel" aria-labelledby="intake-batch-tab" hidden><section class="panel batch-panel" aria-labelledby="batch-heading"><div class="batch-intro"><div><h2 id="batch-heading">여러 이름을 한 번에 확인</h2><p>한 줄에 하나씩 입력하세요. 문장을 함께 넣을 때는 이름 뒤에 <code>|</code>를 붙입니다. 최대 ${BATCH_LIMITS.rows}줄까지 처리하며, 각 줄은 별도 문서로 확인합니다.</p></div></div>

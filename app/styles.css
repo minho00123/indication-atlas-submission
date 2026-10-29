@@ -861,7 +861,8 @@ summary>.badge { flex-shrink:0; }
 .intake-tabs [role="tab"] { position:relative; padding:11px 2px 13px; border:0; border-bottom:3px solid transparent; margin-bottom:-1px; background:transparent; color:var(--muted); font-size:15px; font-weight:600; }
 .intake-tabs [aria-selected="true"] { border-bottom-color:var(--accent); color:var(--accent-dark); }
 .analyzer-page .runtime-examples { margin:0 0 18px; gap:7px; }
-.analyzer-page .runtime-examples>span { margin-right:5px; color:var(--muted); }
+.analyzer-page .runtime-examples>span { width:140px; margin-right:5px; color:var(--muted); }
+.analyzer-page .runtime-examples+.runtime-examples { margin-top:-10px; }
 .analyzer-page .runtime-layout { grid-template-columns:minmax(300px,380px) minmax(0,1fr); gap:20px; }
 .analyzer-page .runtime-input,.analyzer-page .runtime-output { padding:24px; }
 .analyzer-page .runtime-input h2 { font-size:18px; margin:0 0 18px; }

@@ -344,6 +344,9 @@ def run(base_url,browser_executable=None,output=None):
         expect(page.locator('.runtime-axes')).to_contain_text('언급 방식 미상')
         expect(page.locator('#analyzer-result')).to_contain_text('가족력: 환자 본인의 질환 상태로 해석하지 않습니다')
         results.append('Reverification: default modifier review, reviewed context conditions, honest no-cue label and unsupported family history')
+        for label,decision in [('새 약어 HS','기존 개념에 연결'),('사전에 없는 질환 Fabry disease','미등록 표현'),('긴 이름도 없는 약어 PNH','문서 정의 검토 필요')]:
+            page.get_by_role('button',name=label,exact=True).click()
+            expect(page.locator('#analyzer-decision')).to_contain_text(decision)
         external=[]
         page.on('request',lambda r:external.append(r.url) if not r.url.startswith(base_url.rstrip('/')) and not r.url.startswith(('data:','blob:')) else None)
         page.get_by_role('tab',name='여러 건 확인',exact=True).click()
