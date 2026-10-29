@@ -20,10 +20,17 @@ def run(base_url,browser_executable=None,output=None):
         expect(page.locator('#hero-title')).to_have_text('질환 동의어 사전')
         assert page.locator('.stats .stat-value').evaluate_all('(els)=>els.map(e=>e.textContent.replace(/[^0-9]/g,""))')==['300','287','419','2']
         assert page.locator('#dictionary-search').bounding_box()['y']+page.locator('#dictionary-search').bounding_box()['height']<1000
-        expect(page.locator('#dictionary-detail')).to_contain_text('대표 예시 표시 중')
-        expect(page.locator('#dictionary-detail h2')).to_have_text('type 2 diabetes mellitus')
-        expect(page.locator('#dictionary-detail .example-evidence')).not_to_have_attribute('open','')
-        expect(page.locator('#dictionary-detail .alias-list').first).to_contain_text('T2DM')
+        # First screen: the CD case shows each context, the decision and its reason, with the held row.
+        expect(page.locator('#dictionary-detail')).to_contain_text('대표 사례 표시 중')
+        expect(page.locator('#dictionary-detail .ambiguity-title')).to_contain_text('CD')
+        expect(page.locator('#dictionary-detail .ambiguity-row')).to_have_count(3)
+        expect(page.locator('#dictionary-detail .ambiguity-row.held')).to_contain_text('K009')
+        expect(page.locator('#dictionary-detail .ambiguity-row.held')).to_contain_text('문맥 부족')
+        assert page.locator('#dictionary-detail .ambiguity-row').nth(2).bounding_box()['y']+page.locator('#dictionary-detail .ambiguity-row').nth(2).bounding_box()['height']<1050
+        page.locator('#dictionary-detail .ambiguity-row').first.get_by_role('button',name='전체 근거 ↗').click()
+        expect(page.locator('#dictionary-detail h2')).to_have_text('Crohn disease')
+        expect(page.locator('#dictionary-detail .rationale-strong')).to_contain_text('회결장')
+        page.goto(base_url,wait_until='networkidle')  # fresh focus for the keyboard check below
         cards=page.locator('.featured-grid [data-case]')
         assert cards.evaluate_all('(els)=>els.map(e=>e.dataset.case)')==['cd','eczema','nsclc','masld','conflict']
         # Topic grouping reorders cases, so card kickers show the topic without the stored number.
@@ -117,7 +124,7 @@ def run(base_url,browser_executable=None,output=None):
         results.append('Case studies and rendered research/guidelines')
         page.goto(base_url,wait_until='networkidle')
         expect(page.locator('.key-point')).to_have_count(3)
-        expect(page.locator('#dictionary-detail')).to_contain_text('대표 예시 표시 중')
+        expect(page.locator('#dictionary-detail')).to_contain_text('대표 사례 표시 중')
         card=page.locator('.key-point').nth(2)
         expect(card).to_contain_text('반례')
         card.click()
@@ -384,8 +391,8 @@ def run(base_url,browser_executable=None,output=None):
         page.goto(base_url+'#dictionary',wait_until='networkidle')
         search_box=page.locator('#dictionary-search').bounding_box()
         assert search_box['y']+search_box['height']<844,search_box
-        page.get_by_role('button',name='← 개념 목록',exact=True).click()
         expect(page.locator('#results')).to_be_visible()
+        assert page.locator('.ambiguity-title').bounding_box()['y']<page.locator('#results').bounding_box()['y']  # mobile: CD case before the list
         for route in ['#cases/examples','#dictionary','#records','#cases','#cases/cd','#materials/guidelines','#materials/research','#materials/methodology','#materials/downloads','#materials/boundaries','#aliases','#analyze','#materials/analyzer','#materials/audit','#materials/review','#materials/audit-method','#materials/compare']:
             page.goto(base_url+route,wait_until='networkidle')
             assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth'),route

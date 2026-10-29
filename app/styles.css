@@ -605,3 +605,65 @@ summary>.badge { flex-shrink:0; }
   .source-note,.label,.detail-code { font-size:12px; }
   .record-scroll-note { display:block; padding:0 16px; font-size:12px; color:var(--muted); }
 }
+
+/* Compact first screen: title and counts on one row, then key points, search and evidence. */
+.home-head { display:flex; justify-content:space-between; align-items:center; gap:24px; padding:22px 0 12px; }
+.home-title h1 { font-size:27px; margin:0 0 4px; letter-spacing:-.8px; }
+.home-title p { margin:0; color:var(--muted); font-size:14px; }
+.home-page .stats { display:flex; gap:6px; border:0; background:transparent; margin:0; flex-wrap:wrap; justify-content:flex-end; }
+.home-page .stat { display:flex; flex-direction:column; align-items:flex-start; gap:0; padding:7px 14px; border:1px solid var(--line); border-radius:10px; background:var(--surface); }
+.home-page .stat:hover { border-color:#76cffe; text-decoration:none; }
+.home-page .stat-value { font-size:21px; line-height:1.3; color:var(--accent-dark); }
+.home-page .stat-value small { font-size:11px; margin-left:3px; }
+.home-page .stat-label { font-size:12px; }
+.home-page .key-points { margin:0 0 12px; padding-bottom:2px; }
+.home-page .key-point { flex-direction:row; align-items:baseline; gap:8px; padding:6px 16px 8px; }
+.home-page .key-point strong { font-size:13px; }
+.search-heading-row { display:flex; align-items:center; gap:16px; margin:0 0 8px; flex-wrap:wrap; }
+.search-heading-row h2 { font-size:15px; margin:0; }
+.search-heading-row .examples { margin:0; flex:1; }
+.search-heading-row .scope-note { margin-left:auto; }
+.home-page .explorer { margin-top:14px; }
+.home-page .result-item { padding:10px 16px; }
+.home-page .result-meta { margin-top:3px; }
+/* Judgment first: the reason reads as the main text of a selected concept. */
+.rationale-strong { font-size:15px; line-height:1.85; color:var(--ink); padding:10px 0 10px 14px; border-left:3px solid var(--accent); background:linear-gradient(90deg,#f2faff,transparent 60%); }
+/* Same spelling, different decisions (CD and other ambiguous abbreviations). */
+.ambiguity-title { font-size:22px; margin:8px 0 6px; }
+.ambiguity-lead { margin:0 0 14px; color:var(--muted); font-size:14px; }
+.ambiguity-rows { list-style:none; margin:0; padding:0; display:grid; gap:10px; }
+.ambiguity-row { display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr); gap:16px; padding:13px 15px; border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:10px; background:var(--surface); }
+.ambiguity-row.held { border-left-color:#d79b2b; background:#fffaf0; }
+.ambiguity-id { display:block; font-size:12px; color:var(--muted); font-weight:650; margin-bottom:4px; }
+.ambiguity-source blockquote { margin:0; font-size:14px; line-height:1.6; color:var(--ink); }
+.ambiguity-outcome { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-bottom:5px; }
+.ambiguity-outcome strong { font-size:15px; }
+.ambiguity-result p { margin:0 0 6px; font-size:14px; line-height:1.7; color:#364152; }
+.ambiguity-result .text-button { font-size:13px; }
+@media (max-width:760px) {
+  .home-head { display:block; padding:16px 0 8px; }
+  .home-title h1 { font-size:24px; }
+  .home-page .stats { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:5px; margin-top:10px; }
+  .home-page .stat { padding:6px 8px; }
+  .home-page .stat-value { font-size:18px; }
+  .home-page .stat-label { font-size:11px; }
+  .home-page .key-point,.home-page .key-point:first-child { display:grid; grid-template-columns:95px minmax(0,1fr); padding:4px 0; }
+  .search-heading-row .scope-note { display:none; }
+  .home-page .explorer.featured .detail { order:-1; }
+  .ambiguity-row { grid-template-columns:1fr; gap:8px; }
+  .ambiguity-title { font-size:19px; }
+}
+.home-head { padding:18px 0 8px; }
+.home-page .key-points { margin-bottom:10px; }
+.home-page .key-point { padding:4px 16px 6px; }
+.ambiguity-title { margin:6px 0 4px; }
+.ambiguity-lead { margin-bottom:10px; }
+.ambiguity-rows { gap:8px; }
+.ambiguity-row { padding:10px 14px; }
+.ambiguity-result p { margin:0; }
+.ambiguity-result .text-button { white-space:nowrap; }
+.home-page .stat:after { display:none; }
+.home-page .stat,.home-page .stat:first-child,.home-page .stat:nth-child(2),.home-page .stat:nth-child(3),.home-page .stat:last-child { border-radius:10px; border:1px solid var(--line); }
+@media (max-width:760px) {
+  .home-page .key-point,.home-page .key-point:first-child { padding:4px 0; }
+}

@@ -100,40 +100,26 @@ function structuredReviewHTML(story) {
 function dictionaryPage() {
   const m=data.metadata;
   $('#main-content').innerHTML=`<div class="container home-page">
-    <section class="home-intro" aria-labelledby="hero-title"><div><h1 id="hero-title">질환 동의어 사전</h1><p>제공된 키워드와 문맥을 대조해 같은 개념을 묶었습니다.</p></div></section>
-    <div class="stats" aria-label="사전 요약">
-      ${[['검토한 키워드',m.records,'건','#records','전체 분류 결과'],['개념 그룹',m.concepts,'개','#dictionary?view=concepts','개념 목록'],['별칭 연결',m.aliases,'건','#aliases','별칭 목록'],['판단 보류',m.holds,'건','#records?decision=HOLD','보류 사유 확인']].map(([label,n,u,href,action])=>`<a class="stat" href="${href}"${href.includes('view=concepts')?' data-concept-list':''} aria-label="${label} ${n}${u} · ${action}"><span class="stat-label">${label}</span><span class="stat-value">${n}<small>${u}</small></span><span class="stat-action">${action} <span aria-hidden="true">↗</span></span></a>`).join('')}
-    </div>
+    <section class="home-head" aria-labelledby="hero-title"><div class="home-title"><h1 id="hero-title">질환 동의어 사전</h1><p>제공된 키워드와 문맥을 대조해 같은 개념을 묶었습니다.</p></div>
+    <div class="stats" aria-label="사전 요약">${[['검토한 키워드',m.records,'건','#records','전체 분류 결과'],['개념 그룹',m.concepts,'개','#dictionary?view=concepts','개념 목록'],['별칭 연결',m.aliases,'건','#aliases','별칭 목록'],['판단 보류',m.holds,'건','#records?decision=HOLD','보류 사유 확인']].map(([label,n,u,href,action])=>`<a class="stat" href="${href}"${href.includes('view=concepts')?' data-concept-list':''} aria-label="${label} ${n}${u} · ${action}"><span class="stat-value">${n}<small>${u}</small></span><span class="stat-label">${label}</span></a>`).join('')}</div></section>
     <section class="key-points" aria-label="핵심 포인트">${[
       ['판단 원칙','같은 개념·범위일 때만 묶음','#cases'],
       ['이 사전의 방향','항목별 판단 이유와 출처','#materials/methodology'],
       ['반례와 수정','발견한 오류와 수정 내용','#materials/methodology?section=counterexamples']
     ].map(([label,title,href])=>`<a class="key-point" href="${href}"><span>${label}</span><strong>${title} <span aria-hidden="true">↗</span></strong></a>`).join('')}</section>
-    <section id="concept-explorer" aria-labelledby="search-heading"><div class="section-heading"><h2 id="search-heading" tabindex="-1">사전 검색</h2><a href="#records">전체 분류 결과 ↗</a></div>
+    <section id="concept-explorer" aria-labelledby="search-heading"><div class="search-heading-row"><h2 id="search-heading" tabindex="-1">사전 검색</h2><div class="examples"><span>예시</span>${['CD','T2DM','eczema','NAFLD'].map(q=>`<button class="example-chip" data-query="${q}">${q}</button>`).join('')}<span class="scope-note">질환군·소견·상태도 포함합니다.</span></div></div>
     <div class="search-toolbar"><label class="search-box">${icon}<input id="dictionary-search" type="search" autocomplete="off" aria-label="질환명·약어·항목 번호 검색" placeholder="질환명, 약어 또는 항목 번호 검색"><span class="search-key" aria-hidden="true">/</span></label><a class="new-keyword-link" href="#analyze">새 키워드 확인 <span aria-hidden="true">↗</span></a></div>
-    <div class="examples"><span>예시</span>${['T2DM','CD','eczema','NAFLD'].map(q=>`<button class="example-chip" data-query="${q}">${q}</button>`).join('')}<span class="scope-note">질환군·소견·상태도 포함합니다.</span></div>
     <div class="explorer"><div id="results" class="panel result-panel"></div><div id="dictionary-detail" class="panel detail"></div></div></section>
     <section class="featured-section"><div class="section-heading"><div><h2>사례별 판단 근거</h2><p>약어, 범위 차이, 추가 조건과 보류 사례를 확인할 수 있습니다.</p></div><a href="#cases/examples">전체 사례 ↗</a></div><div class="featured-grid">${featureCards(['cd','eczema','nsclc','masld','conflict'].map(id=>data.stories.find(s=>s.id===id)))}</div></section>
   </div>`;
   const input=$('#dictionary-search'); input.value=route.params.get('q') ?? '';
-  selectedKey=route.params.get('concept') ?? (route.params.size===0?'MONDO:0005148':null); searchPage=0;
+  selectedKey=route.params.get('concept'); searchPage=0;
   input.addEventListener('input',()=>{
     selectedKey=null; searchPage=0;
     const params={q:input.value}; history.replaceState(null,'',pathFor('dictionary',params)); route=readRoute();
     updateSearch();
   });
   updateSearch();
-}
-
-function exampleHTML(concept,row) {
-  const allTerms=[...new Set(data.aliases.filter(a=>a.concept_key===concept.concept_key).map(a=>a.term))];
-  const terms=[...allTerms.filter(t=>t==='T2DM'),...allTerms.filter(t=>t!=='T2DM')];
-  return `<button class="back-link example-back" data-results-back>← 개념 목록</button><div class="badge-row">${badge('대표 예시 표시 중','gray')}${decisionBadge(row)}</div><div class="detail-title"><h2>${esc(concept.preferred_name)}</h2><a class="source-link" href="${esc(pathFor('records',{record:row.source_id}))}">전체 근거 ↗</a></div>
-    <p class="detail-code">${esc(concept.concept_key)}</p><div class="example-section"><h3>연결된 이름</h3><div class="alias-list">${terms.slice(0,3).map(t=>`<span class="alias">${esc(t)}</span>`).join('')}</div>${terms.length>3?`<details class="example-more"><summary>다른 이름 ${terms.length-3}개</summary><div class="alias-list">${terms.slice(3).map(t=>`<span class="alias">${esc(t)}</span>`).join('')}</div></details>`:''}</div>
-    <div class="example-section"><h3>묶은 이유</h3><p class="example-rationale">${esc(row.rationale_ko)}</p><a class="source-link" href="${esc(pathFor('records',{record:row.source_id}))}">판단 이유 전체 보기 ↗</a></div>
-    <div class="example-section"><h3>제공 문맥 · ${esc(row.source_id)}</h3><blockquote class="source-quote">${esc(row.raw_context)}</blockquote><details class="example-more"><summary>다른 제공 항목 ${concept.source_ids.length-1}건</summary><div class="example-records">${concept.source_ids.filter(id=>id!==row.source_id).map(id=>recordProofLink(id,id+' · '+recordById.get(id).keyword)).join('')}</div></details></div>
-    <details class="example-more example-evidence"><summary>검토한 후보와 공식 출처</summary><div id="candidates-${row.source_id}"><p class="source-note">후보 정의를 불러오고 있습니다.</p></div><div class="source-link-list">${sourcesHTML(row.evidence_refs)}</div><p class="source-note">적용 기준 ${esc(row.rule_ids.join(' · '))} · <a href="#cases">판단 기준 보기 ↗</a></p></details>
-    <p class="example-other">다른 예시: <button class="text-button" data-query="CD">CD의 두 뜻과 보류 사례 ↗</button></p>`;
 }
 
 function resultButton(key, type, matches=[]) {
@@ -159,7 +145,7 @@ function updateSearch({autoSelect=true}={}) {
     const type=!normalize(q)?'browse':result.exactKeys.includes(key)?'exact':relatedKeys.includes(key)?'related':'partial';
     const title={browse:'연결된 제공 항목이 많은 순서',exact:'등록 이름·별칭 일치',related:'관련 결과 · 동의어 병합 아님',partial:'부분 일치 · 탐색 결과'}[type];
     const group=previousGroup!==type?`<div class="result-group-label">${title}</div>`:''; previousGroup=type;
-    return group+resultButton(key,type,type==='exact'?result.exactAliases:data.aliases.filter(a=>a.concept_key===key && normalize(a.term).includes(normalize(q))));
+    return group+resultButton(key,type,type==='exact'?result.exactAliases:type==='browse'?[]:data.aliases.filter(a=>a.concept_key===key && normalize(a.term).includes(normalize(q))));
   }).join('');
   $('#results').classList.toggle('has-selection',!!selectedKey);
   $('#results').innerHTML=`<div class="result-heading"><b>${normalize(q)?'검색 결과':'개념 둘러보기'}</b><span>${keys.length}개 개념</span></div>
@@ -168,15 +154,35 @@ function updateSearch({autoSelect=true}={}) {
     ${[...result.holds,...result.expressions].map(r=>`<div class="hold-result">${decisionBadge(r)}<p>${esc(r.source_id)} · ${esc(r.keyword)}</p><button data-open-record="${r.source_id}">원문과 판단 이유 보기 ↗</button></div>`).join('')}
     <div class="pager"><button data-search-page="-1" ${searchPage===0?'disabled':''} aria-label="이전 개념 목록">← 이전</button><span>${searchPage+1} / ${pages}</span><button data-search-page="1" ${searchPage>=pages-1?'disabled':''} aria-label="다음 개념 목록">다음 →</button></div>`;
   const target=$('#dictionary-detail');
+  // Same spelling, several concepts or held rows: show every row's context and decision side by side.
+  const sameSpelling=term=>data.records.filter(r=>normalize(r.keyword)===normalize(term));
+  const ambiguous=normalize(q) && (result.exactKeys.length>1 || result.holds.some(r=>normalize(r.keyword)===normalize(q)));
+  $('#concept-explorer .explorer').classList.toggle('featured',!selectedKey && !normalize(q));
   if(selectedKey && conceptByKey.has(selectedKey)) {
     const c=conceptByKey.get(selectedKey);
     const requested=route.params.get('record');
     const row=recordById.get(c.source_ids.includes(requested)?requested:c.source_ids[0]);
-    target.innerHTML=route.params.size===0 && !normalize(q) && selectedKey==='MONDO:0005148'?exampleHTML(c,row):detailHTML(c,row,true);
+    target.innerHTML=detailHTML(c,row,true);
     loadCandidates(row.source_id);
+  } else if(!normalize(q)) {
+    target.innerHTML=ambiguityHTML('CD',sameSpelling('CD'),true);
+  } else if(ambiguous) {
+    target.innerHTML=ambiguityHTML(q.trim(),sameSpelling(q),false);
   } else {
-    target.innerHTML=`<div class="empty-state"><div class="empty-symbol" aria-hidden="true">${result.exactKeys.length>1?'↔':'⌕'}</div><h3>${result.exactKeys.length>1?`${esc(q)}는 하나의 질환으로 확정하지 않았습니다.`:'항목을 선택해 주세요'}</h3><p>${result.exactKeys.length>1?'목록에서 개념을 선택해 각 원문의 문맥과 판단 근거를 확인하세요.':'항목을 선택하면 연결된 이름, 제공 문맥과 분류 근거를 볼 수 있습니다.'}</p>${result.holds.length?`<p>${result.holds.map(r=>`${esc(r.source_id)}는 추가 문맥이 없어 보류했습니다.`).join('<br>')}</p>`:''}<a href="#cases/cd">CD 사례로 살펴보기 ↗</a></div>`;
+    target.innerHTML=`<div class="empty-state"><div class="empty-symbol" aria-hidden="true">⌕</div><h3>항목을 선택해 주세요</h3><p>항목을 선택하면 판단 이유, 제공 문맥과 연결된 이름을 볼 수 있습니다.</p>${result.holds.length?`<p>${result.holds.map(r=>`${esc(r.source_id)}는 추가 문맥이 없어 보류했습니다.`).join('<br>')}</p>`:''}</div>`;
   }
+}
+
+function ambiguityHTML(term,rows,featured) {
+  return `<div class="badge-row">${featured?badge('대표 사례 표시 중','gray'):''}${badge('같은 표기 · 다른 처리','amber')}</div>
+    <h2 class="ambiguity-title">${esc(term)}: 문맥에 따라 다른 처리</h2>
+    <p class="ambiguity-lead">이 표기는 하나의 질환으로 확정하지 않았습니다. 문맥이 뜻을 가리키는 항목만 연결했습니다.${rows.some(r=>!r.concept_key)?' 근거가 없는 항목은 보류했습니다.':''}</p>
+    <ol class="ambiguity-rows">${rows.map(r=>{
+      const c=r.concept_key?conceptByKey.get(r.concept_key):null;
+      return `<li class="ambiguity-row${c?'':' held'}"><div class="ambiguity-source"><span class="ambiguity-id">${esc(r.source_id)} · 제공 문맥</span><blockquote>${esc(r.raw_context)}</blockquote></div>
+        <div class="ambiguity-result"><div class="ambiguity-outcome"><strong>${c?esc(c.preferred_name):'단일 개념 없음'}</strong>${decisionBadge(r)}</div><p>${esc(r.rationale_ko)} ${c?`<button class="text-button" data-concept="${esc(c.concept_key)}" data-record="${esc(r.source_id)}">전체 근거 ↗</button>`:`<button class="text-button" data-open-record="${esc(r.source_id)}">보류 사유 ↗</button>`}</p></div></li>`;
+    }).join('')}</ol>
+    <p class="example-other"><a href="#cases/cd">판단 기준: 약어의 여러 뜻 ↗</a>${featured?' · 다른 예시: <button class="text-button" data-query="T2DM">T2DM 표기 변형 ↗</button>':''}</p>`;
 }
 
 function atomsHTML(atoms) {
@@ -199,17 +205,17 @@ function detailHTML(concept,row,fromSearch=false) {
     <div class="detail-title"><h2>${esc(concept?.preferred_name || row.keyword)}</h2><button class="subtle-button" data-copy-link aria-label="현재 판단 주소 복사">링크 ↗</button></div>
     <div class="detail-code" id="code-${row.source_id}">${esc(row.selected_standard_id ?? (row.concept_key?'자체 관리 개념 (LOCAL)':'단일 개념으로 연결하지 않은 입력'))}</div>
     ${row.research_decision==='LOCAL_CONCEPT'?'<p class="detail-subtitle">제공 문맥의 의미를 자체 개념으로 관리합니다. 같은 범위의 외부 표준 연결은 추가 검토가 필요합니다.</p>':''}
-    ${uniqueAliases.length?`<div class="detail-section"><p class="label">연결된 이름 <span class="small-count">${uniqueAliases.length}</span></p><div class="alias-list">${uniqueAliases.map(a=>`<span class="alias" title="${esc(kindLabels[a.kind] ?? a.kind)}${a.context_required?' · 문맥 확인 필요':''}">${esc(a.term)}${a.context_required?' · 문맥':''}</span>`).join('')}</div></div>`:''}
-    ${related.length?`<div class="info-note"><strong>관련 개념 · 같은 뜻으로 병합하지 않음</strong>${related.map(link=>`<a href="${esc(pathFor('dictionary',{concept:link.concept_key}))}">${esc(conceptByKey.get(link.concept_key)?.preferred_name ?? link.concept_key)} ↗</a><br>${esc(link.rationale_ko)}`).join('<br>')}</div>`:''}
     <div class="detail-section"><p class="label">원문별 판단 <span class="small-count">${ids.length}</span></p>
     ${ids.length>1?`<div class="row-tabs" aria-label="연결된 원문 선택">${ids.map(id=>`<button class="${id===row.source_id?'active':''}" data-select-record="${id}" data-owner-concept="${esc(concept.concept_key)}" aria-pressed="${id===row.source_id}">${id} · ${esc(recordById.get(id).keyword)}</button>`).join('')}</div>`:''}
     <div class="label">${esc(row.source_id)} · ${esc(row.keyword)}</div><blockquote class="source-quote">${esc(row.raw_context)}</blockquote>
     ${row.context_quality==='TEMPLATE_NO_ADDITIONAL_DETAILS'?'<p class="source-note">질환명 외의 추가 아형·진단 정보가 없는 문맥입니다.</p>':''}
-    <p class="label label-spaced">판단 이유</p><p class="rationale">${esc(row.rationale_ko)}</p>
+    <p class="label label-spaced">판단 이유</p><p class="rationale rationale-strong">${esc(row.rationale_ko)}</p>
     ${(attributes.length || names.length)?`<div class="observations"><div class="observation"><p>원문의 추가 조건</p>${atomsHTML(attributes) || '<p>별도 조건이 기록돼 있지 않습니다.</p>'}</div><div class="observation"><p>질환명 구성 요소</p>${atomsHTML(names) || '<p>분리해 기록한 구성 요소가 없습니다.</p>'}</div></div>`:''}
     ${(row.scope_assumptions ?? []).map(scope=>`<div class="info-note"><strong>기본 의미와 적용 조건</strong>${esc(scopeLabels[scope.sense] ?? scope.override_if)}</div>`).join('')}
     ${(row.definition_warnings ?? []).map(w=>`<div class="warning-note"><strong>출처 정의·범위 확인</strong>${esc(w.rationale_ko)}</div>`).join('')}
     ${row.expression?`<div class="info-note"><strong>${esc(row.expression.operator)} 조건으로 보존</strong>전체 표현을 한 질환의 동의어로 등록하지 않습니다.<div>${row.expression.operands.map(id=>`<a href="${esc(pathFor('dictionary',{concept:id}))}">${esc(conceptByKey.get(id)?.preferred_name ?? id)} ↗</a>`).join(' <span aria-hidden="true"> · </span> ')}</div></div>`:''}
+    ${uniqueAliases.length?`<div class="detail-section"><p class="label">연결된 이름 <span class="small-count">${uniqueAliases.length}</span></p><div class="alias-list">${uniqueAliases.map(a=>`<span class="alias" title="${esc(kindLabels[a.kind] ?? a.kind)}${a.context_required?' · 문맥 확인 필요':''}">${esc(a.term)}${a.context_required?' · 문맥':''}</span>`).join('')}</div></div>`:''}
+    ${related.length?`<div class="info-note"><strong>관련 개념 · 같은 뜻으로 병합하지 않음</strong>${related.map(link=>`<a href="${esc(pathFor('dictionary',{concept:link.concept_key}))}">${esc(conceptByKey.get(link.concept_key)?.preferred_name ?? link.concept_key)} ↗</a><br>${esc(link.rationale_ko)}`).join('<br>')}</div>`:''}
     <div class="detail-section"><h3>검토한 후보와 범위 관계</h3><p class="source-note">관계 방향: 원문 → 후보. 코드의 존재와 의미 범위의 일치는 구별합니다.</p><div id="candidates-${row.source_id}"><p class="source-note">후보 정의를 불러오고 있습니다.</p></div></div>
     <div class="detail-section"><p class="label">판단에 참고한 출처</p><div class="source-link-list">${sourcesHTML(row.evidence_refs) || '<span class="source-note">제공 원문과 판단 가이드라인을 기준으로 기록했습니다.</span>'}</div><p class="source-note">${esc((row.rule_ids ?? []).join(' · '))} · <a href="#cases">판단 기준 ↗</a></p></div></div>`;
 }
@@ -368,7 +374,7 @@ document.addEventListener('click', async event=>{
   const d=button.dataset;
   if(d.query!=null) { navigate('dictionary',{q:d.query}); return; }
   if(d.case) { navigate('cases/'+d.case); return; }
-  if(d.concept) { navigate('dictionary',{q:$('#dictionary-search')?.value ?? '',concept:d.concept}); return; }
+  if(d.concept) { navigate('dictionary',{q:$('#dictionary-search')?.value ?? '',concept:d.concept,...(d.record?{record:d.record}:{})}); return; }
   if(d.openRecord) { navigate('records',{...currentParams(),record:d.openRecord}); return; }
   if(d.selectRecord) { navigate(route.page,{...currentParams(),concept:d.ownerConcept,record:d.selectRecord}); return; }
   if(d.searchPage) { if(route.params.size===0)selectedKey=null; searchPage+=Number(d.searchPage);updateSearch();return; }
