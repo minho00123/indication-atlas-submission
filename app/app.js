@@ -174,7 +174,7 @@ function updateSearch({autoSelect=true}={}) {
 function featuredHTML(tab) {
   const tabs=[['split','나눈 사례: CD'],['merge','묶은 사례: NSCLC']];
   const body=tab==='merge'?mergedHTML('MONDO:0005233'):ambiguityHTML('CD',data.records.filter(r=>normalize(r.keyword)==='cd'),true);
-  return `<div class="featured-head"><div><h2 class="featured-heading">분류 결과 예시</h2><p class="featured-guide">검색하거나 개념 목록에서 항목을 선택하면 해당 항목의 분류 근거를 볼 수 있습니다.</p></div><div class="featured-tabs" role="tablist" aria-label="분류 결과 예시">${tabs.map(([key,label])=>`<button role="tab" aria-selected="${key===tab}" class="${key===tab?'active':''}" data-featured-tab="${key}">${label}</button>`).join('')}</div></div>
+  return `<div class="featured-head"><div><p class="featured-heading">분류 결과 예시</p><p class="featured-guide">검색하거나 개념 목록에서 항목을 선택하면 해당 항목의 분류 근거를 볼 수 있습니다.</p></div><div class="featured-tabs" role="tablist" aria-label="분류 결과 예시">${tabs.map(([key,label])=>`<button role="tab" aria-selected="${key===tab}" class="${key===tab?'active':''}" data-featured-tab="${key}">${label}</button>`).join('')}</div></div>
     <div role="tabpanel">${body}</div>
     <p class="example-other featured-links">다른 판단: <a href="#cases/eczema">범위 차이: 습진·아토피 ↗</a> · <a href="#cases/conflict">입력 충돌: K024 ↗</a> · <a href="#cases/long-covid">명칭·기간 기준: Long COVID·PASC ↗</a> · <a href="#cases/examples">전체 판단 사례 ↗</a></p>`;
 }

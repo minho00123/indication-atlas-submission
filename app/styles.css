@@ -693,3 +693,4 @@ summary>.badge { flex-shrink:0; }
 .featured-guide { margin:2px 0 0; font-size:12px; color:var(--muted); }
 .badge-name { font-size:12px; color:var(--muted); margin-right:-2px; }
 .badge-name:not(:first-child) { margin-left:8px; }
+.featured-heading { font-weight:700; color:var(--ink); }
