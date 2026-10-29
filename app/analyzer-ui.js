@@ -44,7 +44,7 @@ const batchSample=['T2DM','CD','CD | Crohn disease (CD) is mentioned. Patients w
 function nextStepsHTML(r) {
   const items=nextSteps(r);if(!items.length)return '';
   const links=searchLinks(r.input.keyword);
-  return `<div class="next-steps"><h3>다음에 확인할 내용</h3><ol>${items.map(s=>`<li><span class="badge gray">${esc(s.rule)}</span> ${esc(s.text)}</li>`).join('')}</ol>
+  return `<div class="next-steps"><h3>다음에 확인할 내용</h3><ol>${items.map(s=>`<li>${ruleBadge(s.rule)} ${esc(plainLocal(s.text))}</li>`).join('')}</ol>
     ${r.decision==='UNREGISTERED'?`<div class="compare-entry"><button class="runtime-submit" type="button" data-compare-term="${esc(r.input.keyword)}">MONDO·NCIt·MeSH에서 후보 비교하기</button><small>버튼을 누르면 이름만 외부 용어 API로 보냅니다. 입력한 문장은 보내지 않습니다.</small></div><div class="candidate-compare" data-compare-output aria-live="polite"></div>`:''}
     ${r.decision==='UNREGISTERED' || r.decision.startsWith('HOLD')?`<details class="external-search"><summary>외부 사이트에서 직접 찾아보기</summary><div><p class="next-steps-links">${links.map(l=>`<a href="${esc(l.url)}" target="_blank" rel="noopener noreferrer">${esc(l.name)} ↗</a>`).join('')}</p><p class="source-note">대상 이름만 해당 사이트로 전달합니다. 외부 검색 결과는 검토 전 후보이며, 현재 사전에 자동으로 추가되지 않습니다.</p></div></details>`:''}</div>`;
 }
@@ -54,12 +54,15 @@ function snapshotHTML(meta) {
 }
 
 // Screen wording for engine reasons that describe internal test conditions.
+// Link guideline codes to their section and spell out LOCAL in display text; JSON keeps the engine wording.
+const ruleBadge=rule=>/^G\d{2}$/.test(rule)?`<a class="badge gray rule-link" href="#cases?section=${rule}" title="판단 기준 ${rule} 보기">${rule}</a>`:`<span class="badge gray">${esc(rule)}</span>`;
+const plainLocal=text=>String(text).replace('새로운 LOCAL 개념','새 자체 관리 개념(LOCAL)').replace('정의한 LOCAL을','정의한 자체 관리 개념(LOCAL)을');
 const reasonText={DECLARED_AMBIGUITY_POLICY:'CD·AML은 여러 질환을 뜻할 수 있어 문서에 긴 이름(약어) 정의가 없으면 하나로 고르지 않습니다.'};
 function reportHTML(r) {
   const held=r.decision.startsWith('HOLD') || r.decision==='UNREGISTERED';
   return `<div class="runtime-result-heading"><div><p class="eyebrow">사전과 비교한 결과</p><h2>확인 결과</h2></div><span class="badge ${held?'amber':''}" id="analyzer-decision">${esc(labels[r.decision])}</span></div>
     <div class="runtime-concepts">${r.concepts.length?r.concepts.map(c=>`<div>${conceptLink(c)}<code>${esc(c.concept_key)}</code></div>`).join(''):'<p>하나의 개념으로 연결하지 않았습니다. 판단 이유와 다음 확인 단계를 살펴보세요.</p>'}</div>
-    <h3 class="runtime-section-title">판단 이유</h3><ol class="runtime-reasons">${r.reasons.map(item=>`<li><span class="badge gray">${esc(item.rule)}</span><span>${esc(reasonText[item.code] ?? item.message)}</span></li>`).join('')}</ol>
+    <h3 class="runtime-section-title">판단 이유</h3><ol class="runtime-reasons">${r.reasons.map(item=>`<li>${ruleBadge(item.rule)}<span>${esc(plainLocal(reasonText[item.code] ?? item.message))}</span></li>`).join('')}</ol>
     ${!r.concepts.length && r.keyword_candidates.length?`<details><summary>사전 후보 · 원문 연결 확정 아님</summary>${r.keyword_candidates.map(conceptLink).join('<br>')}</details>`:''}
     ${nextStepsHTML(r)}
     <h3 class="runtime-section-title">문장에서 찾은 표현</h3><p class="source-note">질환명과 직접적인 부정·추정 표현을 표시합니다.</p>
@@ -126,7 +129,7 @@ function batchHTML(rows,meta) {
         <td data-label="처리 결과"><span class="badge ${tone}">${esc(label)}</span>${r && row.has_text?`<br><small class="batch-evidence">언급 방식: ${esc(evidenceLabels[r.target_evidence_status] ?? r.target_evidence_status)}</small>`:''}${!r?`<br><small>${esc(row.error)}</small>`:''}</td>
         <td data-label="연결 개념">${r && r.concepts.length?r.concepts.map(conceptLink).join('<br>'):'<small>단일 개념 없음</small>'}</td>
         <td data-label="공식 용어체계 후보" data-candidate-cell="${rows.indexOf(row)}"${r && r.decision==='UNREGISTERED'?'':' data-empty'}>${candidateCell(row,rows.indexOf(row))}</td>
-        <td data-label="다음 단계"${steps.length?'':' data-empty'}>${steps.length?`<details><summary>${steps.length}개 확인 항목</summary><ol>${steps.map(s=>`<li><b>${esc(s.rule)}</b> ${esc(s.text)}</li>`).join('')}</ol>${r.decision==='UNREGISTERED' || r.decision.startsWith('HOLD')?`<p><small>외부 후보 찾기 · 미검증</small><br>${searchLinks(row.keyword).map(l=>`<a href="${esc(l.url)}" target="_blank" rel="noopener noreferrer">${esc(l.name)} ↗</a>`).join('<br>')}</p>`:''}</details>`:'<small>—</small>'}</td></tr>`;}).join('')}</tbody></table></div>
+        <td data-label="다음 단계"${steps.length?'':' data-empty'}>${steps.length?`<details><summary>${steps.length}개 확인 항목</summary><ol>${steps.map(s=>`<li>${ruleBadge(s.rule)} ${esc(plainLocal(s.text))}</li>`).join('')}</ol>${r.decision==='UNREGISTERED' || r.decision.startsWith('HOLD')?`<p><small>외부 후보 찾기 · 미검증</small><br>${searchLinks(row.keyword).map(l=>`<a href="${esc(l.url)}" target="_blank" rel="noopener noreferrer">${esc(l.name)} ↗</a>`).join('<br>')}</p>`:''}</details>`:'<small>—</small>'}</td></tr>`;}).join('')}</tbody></table></div>
     ${snapshotHTML(meta)}`;
 }
 const download=(name,body,type)=>{

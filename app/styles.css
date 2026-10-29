@@ -936,3 +936,6 @@ summary>.badge { flex-shrink:0; }
   .batch-table td[data-empty] { display:none; }
   .batch-table details summary { padding:6px 10px; }
 }
+
+.rule-link { text-decoration:none; }
+.rule-link:hover, .rule-link:focus-visible { background:var(--tint); color:var(--accent-dark); }

@@ -419,7 +419,8 @@ const materials={methodology:['구축 과정','methodology'],research:['유사 �
 const materialAliases={boundaries:['methodology','counterexamples'],analyzer:['methodology',''],'audit-method':['audit','method'],review:['methodology','']};
 function focusMaterialsSection(root,section) {
   const ids={compare:'concept-comparison',counterexamples:'method-counterexamples',future:'method-future',method:'audit-method-section'};
-  const target=root.querySelector('#'+(ids[section]??'not-a-section'));
+  const target=root.querySelector('#'+(ids[section]??'not-a-section')) ?? (/^G\d{2}$/.test(section ?? '')?[...root.querySelectorAll('h2')].find(h=>h.textContent.startsWith(section+' ')):null);
+  if(target && !target.hasAttribute('tabindex'))target.tabIndex=-1;
   if(target)requestAnimationFrame(()=>{if(target.isConnected){target.focus({preventScroll:true});target.scrollIntoView({block:'start',behavior:'instant'});}});
 }
 async function materialsPage() {

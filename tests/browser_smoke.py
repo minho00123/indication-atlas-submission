@@ -347,6 +347,12 @@ def run(base_url,browser_executable=None,output=None):
         for label,decision in [('새 약어 HS','기존 개념에 연결'),('사전에 없는 질환 Fabry disease','미등록 표현'),('긴 이름도 없는 약어 PNH','문서 정의 검토 필요')]:
             page.get_by_role('button',name=label,exact=True).click()
             expect(page.locator('#analyzer-decision')).to_contain_text(decision)
+        page.get_by_role('button',name='사전에 없는 질환 Fabry disease',exact=True).click()
+        expect(page.locator('#analyzer-result')).to_contain_text('자체 관리 개념(LOCAL)')
+        page.locator('.next-steps a.rule-link',has_text='G10').click()
+        expect(page.locator('#document-content h2',has_text='G10 —')).to_be_in_viewport()
+        page.go_back()
+        expect(page.locator('#analyzer-decision')).to_contain_text('미등록 표현')
         external=[]
         page.on('request',lambda r:external.append(r.url) if not r.url.startswith(base_url.rstrip('/')) and not r.url.startswith(('data:','blob:')) else None)
         page.get_by_role('tab',name='여러 건 확인',exact=True).click()
