@@ -12,12 +12,12 @@ const stateLabel=code=>matchStates[code] ?? code;
 const warningText={'부정·추정 표지는 언급된 개념과 별도로 기록합니다. 해당 환자의 진단을 확정하지 않습니다.':'부정·추정 표현은 언급된 개념과 따로 기록합니다. 해당 환자의 진단을 확정하지 않습니다.','다의·수식어·미등록 때문에 해소하지 못한 문서 내 표현이 있습니다. 다른 개념의 언급만으로 추측하지 않습니다.':'여러 뜻의 약어·수식어·미등록 때문에 개념을 정하지 못한 표현이 있습니다. 다른 개념의 언급만으로 추측하지 않습니다.'};
 const types={disease_status:'질환 상태',treatment_history:'이전 치료',chronicity:'급성·만성',biomarker:'바이오마커',duration:'기간 표현',severity:'중증도',treatment_response:'치료 반응',etiology:'원인 표현',treatment_requirement:'치료 필요 표현',disease_activity:'질환 활성도',control_status:'조절 상태',stage:'병기',extent:'진행 범위'};
 const samples=[
-  {label:'정의 없는 CD',keyword:'CD',text:'Patients with CD.'},
-  {label:'크론병으로 정의',keyword:'CD',text:'Crohn disease (CD) is the target. Patients with CD are included.'},
-  {label:'셀리악병으로 변경',keyword:'CD',text:'Celiac disease (CD) is the target. Patients with CD are included.'},
+  {label:'문맥이 부족한 CD',keyword:'CD',text:'Patients with CD.'},
+  {label:'크론병을 뜻하는 CD',keyword:'CD',text:'Crohn disease (CD) is the target. Patients with CD are included.'},
+  {label:'셀리악병을 뜻하는 CD',keyword:'CD',text:'Celiac disease (CD) is the target. Patients with CD are included.'},
   {label:'새 약어 T2D',keyword:'T2D',text:'Type 2 diabetes (T2D) is mentioned.'},
-  {label:'질환명과 재발·치료',keyword:'Acute myeloid leukemia',text:'Relapsed acute myeloid leukemia after prior therapy.'},
-  {label:'키워드·원문 충돌',keyword:'eczema',text:'Adults with plaque psoriasis.'},
+  {label:'재발·치료 조건',keyword:'Acute myeloid leukemia',text:'Relapsed acute myeloid leukemia after prior therapy.'},
+  {label:'입력과 문장의 차이',keyword:'eczema',text:'Adults with plaque psoriasis.'},
   {label:'MDS OR AML',keyword:'MDS/AML',text:'Patients with MDS or AML; either diagnosis is eligible.'},
   {label:'부정 표현',keyword:'NSCLC',text:'No NSCLC is reported.'}
 ];
@@ -41,9 +41,9 @@ const batchSample=['T2DM','CD','CD | Crohn disease (CD) is mentioned. Patients w
 function nextStepsHTML(r) {
   const items=nextSteps(r);if(!items.length)return '';
   const links=searchLinks(r.input.keyword);
-  return `<div class="next-steps"><h3>다음 확인 단계</h3><ol>${items.map(s=>`<li><span class="badge gray">${esc(s.rule)}</span> ${esc(s.text)}</li>`).join('')}</ol>
-    ${r.decision==='UNREGISTERED'?`<div class="compare-entry"><button class="runtime-submit" type="button" data-compare-term="${esc(r.input.keyword)}">MONDO·NCIt·MeSH에서 후보 비교하기</button><small>누르면 대상 표현만 EBI OLS(MONDO·NCIt)와 NLM MeSH 공개 API로 보내 후보를 받아옵니다. 원문은 보내지 않습니다.</small></div><div class="candidate-compare" data-compare-output aria-live="polite"></div>`:''}
-    ${r.decision==='UNREGISTERED' || r.decision.startsWith('HOLD')?`<p class="next-steps-links"><strong>외부 사이트에서 후보 찾기 · 아직 검증하지 않았습니다.</strong>${links.map(l=>`<a href="${esc(l.url)}" target="_blank" rel="noopener noreferrer">${esc(l.name)} ↗</a>`).join('')}</p><p class="source-note">링크를 누르면 대상 표현만 해당 사이트로 전달됩니다. 이 앱은 외부 사이트를 자동 조회하지 않으며, 외부 사이트의 현재 버전은 이 사전의 고정 스냅샷과 다를 수 있습니다. 검색 결과는 공식 근거 검토와 변경 기록을 거쳐야 사전에 반영됩니다.</p>`:''}</div>`;
+  return `<div class="next-steps"><h3>다음에 확인할 내용</h3><ol>${items.map(s=>`<li><span class="badge gray">${esc(s.rule)}</span> ${esc(s.text)}</li>`).join('')}</ol>
+    ${r.decision==='UNREGISTERED'?`<div class="compare-entry"><button class="runtime-submit" type="button" data-compare-term="${esc(r.input.keyword)}">MONDO·NCIt·MeSH에서 후보 비교하기</button><small>버튼을 누르면 이름만 외부 용어 API로 보냅니다. 입력한 문장은 보내지 않습니다.</small></div><div class="candidate-compare" data-compare-output aria-live="polite"></div>`:''}
+    ${r.decision==='UNREGISTERED' || r.decision.startsWith('HOLD')?`<details class="external-search"><summary>외부 사이트에서 직접 찾아보기</summary><div><p class="next-steps-links">${links.map(l=>`<a href="${esc(l.url)}" target="_blank" rel="noopener noreferrer">${esc(l.name)} ↗</a>`).join('')}</p><p class="source-note">대상 이름만 해당 사이트로 전달합니다. 외부 검색 결과는 검토 전 후보이며, 현재 사전에 자동으로 추가되지 않습니다.</p></div></details>`:''}</div>`;
 }
 function snapshotHTML(meta) {
   const s=meta.snapshot ?? {};
@@ -54,23 +54,24 @@ function snapshotHTML(meta) {
 const reasonText={DECLARED_AMBIGUITY_POLICY:'CD·AML은 여러 질환을 뜻할 수 있어 문서에 긴 이름(약어) 정의가 없으면 하나로 고르지 않습니다.'};
 function reportHTML(r) {
   const held=r.decision.startsWith('HOLD') || r.decision==='UNREGISTERED';
-  return `<div class="runtime-result-heading"><div><p class="eyebrow">입력한 원문에서 지금 계산한 결과</p><h2>분석 결과</h2></div><span class="badge ${held?'amber':''}" id="analyzer-decision">${esc(labels[r.decision])}</span></div>
-    <div class="runtime-concepts">${r.concepts.length?r.concepts.map(c=>`<div>${conceptLink(c)}<code>${esc(c.concept_key)}</code></div>`).join(''):'<p>선택한 단일 개념이 없습니다. 아래 후보와 보류 이유를 확인해 주세요.</p>'}</div>
-    <div class="runtime-axes" aria-label="분석 결과의 네 가지 축"><div><small>개념 연결</small><strong>${esc({LINKED:'등록 개념 연결',REVIEW_REQUIRED:'검토 필요',UNREGISTERED:'미등록 표현',EXPRESSION_RESOLVED:'AND/OR의 각 개념 확인',EXPRESSION_UNRESOLVED:'AND/OR 일부 개념 미확인'}[r.normalization_status])}</strong></div><div><small>원문에서 대상을 언급한 방식</small><strong>${esc({...assertions,NO_TEXT:'원문 없음 · 사전 조회',NOT_FOUND:'원문에서 대상 표현 미확인',UNRESOLVED:'대상 의미 미확정',MIXED:'부정·추정 표현 혼재'}[r.target_evidence_status])}</strong></div><div><small>조건이 적용되는 질환</small><strong>아래 원문 구간별 표시</strong></div><div><small>참여·치료 조건 충족 여부</small><strong>평가하지 않음</strong></div></div>
+  return `<div class="runtime-result-heading"><div><p class="eyebrow">사전과 비교한 결과</p><h2>확인 결과</h2></div><span class="badge ${held?'amber':''}" id="analyzer-decision">${esc(labels[r.decision])}</span></div>
+    <div class="runtime-concepts">${r.concepts.length?r.concepts.map(c=>`<div>${conceptLink(c)}<code>${esc(c.concept_key)}</code></div>`).join(''):'<p>하나의 개념으로 연결하지 않았습니다. 판단 이유와 다음 확인 단계를 살펴보세요.</p>'}</div>
+    <h3 class="runtime-section-title">판단 이유</h3><ol class="runtime-reasons">${r.reasons.map(item=>`<li><span class="badge gray">${esc(item.rule)}</span><span>${esc(reasonText[item.code] ?? item.message)}</span></li>`).join('')}</ol>
     ${!r.concepts.length && r.keyword_candidates.length?`<details><summary>사전 후보 · 원문 연결 확정 아님</summary>${r.keyword_candidates.map(conceptLink).join('<br>')}</details>`:''}
     ${nextStepsHTML(r)}
-    <ol class="runtime-reasons">${r.reasons.map(item=>`<li><span class="badge gray">${esc(item.rule)}</span> ${esc(reasonText[item.code] ?? item.message)} <small class="reason-code">${esc(item.code)}</small></li>`).join('')}</ol>
+    <h3 class="runtime-section-title">문장에서 찾은 표현</h3><p class="source-note">질환명과 직접적인 부정·추정 표현을 표시합니다.</p>
+    <blockquote class="runtime-source">${r.input.text?sourceHTML(r):'입력 원문이 없어 등록된 대상 표현만 대조했습니다.'}</blockquote>
+    <details class="runtime-analysis-detail"><summary>원문 구간과 추가 조건 자세히 보기</summary><div class="runtime-detail-content">
+    <div class="runtime-axes" aria-label="분석 결과의 네 가지 축"><div><small>개념 연결</small><strong>${esc({LINKED:'등록 개념 연결',REVIEW_REQUIRED:'검토 필요',UNREGISTERED:'미등록 표현',EXPRESSION_RESOLVED:'AND/OR의 각 개념 확인',EXPRESSION_UNRESOLVED:'AND/OR 일부 개념 미확인'}[r.normalization_status])}</strong></div><div><small>원문에서 대상을 언급한 방식</small><strong>${esc({...assertions,NO_TEXT:'원문 없음 · 사전 조회',NOT_FOUND:'원문에서 대상 표현 미확인',UNRESOLVED:'대상 의미 미확정',MIXED:'부정·추정 표현 혼재'}[r.target_evidence_status])}</strong></div><div><small>조건이 적용되는 질환</small><strong>아래 원문 구간별 표시</strong></div><div><small>참여·치료 조건 충족 여부</small><strong>평가하지 않음</strong></div></div>
     ${r.warnings.map(message=>`<p class="runtime-note">${esc(warningText[message] ?? message)}</p>`).join('')}
     ${r.unsupported_patterns.length?`<h3>해석을 지원하지 않는 문형</h3><ul>${r.unsupported_patterns.map(p=>`<li>${esc({EXPERIENCER_FAMILY_HISTORY:'가족력: 환자 본인의 질환 상태로 해석하지 않습니다.',HISTORICAL:'과거력: 현재 질환 상태로 해석하지 않습니다.',SECTION_CONTEXT:'선정·제외 기준 문맥: 참여 조건 충족 여부를 자동 해석하지 않습니다.',COORDINATED_NEGATION_UNRESOLVED:'여러 표현에 걸친 부정: 첫 표현을 확인하지 못해 부정 범위를 미상으로 둡니다.',REQUIREMENT_NECESSITY:'필수 조건 문장: 질환이 없다는 뜻과 구별하고, 조건 충족 여부는 판단하지 않습니다.',AND_ELIGIBILITY_INTERPRETATION:'AND로 연결된 참여 조건의 해석은 지원하지 않습니다.',COORDINATION_ELLIPSIS:'생략된 공통 질환명 복원은 미지원입니다.'}[p]??p)}</li>`).join('')}</ul>`:''}
-    <h3>입력 원문과 인식한 구간</h3><p class="source-note">표시는 개념의 언급과 직접적인 부정·추정 표현을 구별합니다. 환자의 진단 여부를 확정하지 않습니다.</p>
-    <blockquote class="runtime-source">${r.input.text?sourceHTML(r):'입력 원문이 없어 등록된 대상 표현만 대조했습니다.'}</blockquote>
     <div class="table-wrap"><table class="runtime-mentions"><thead><tr><th>원문 구간</th><th>개념·후보</th><th>연결 근거</th><th>언급 방식</th></tr></thead><tbody>${r.mentions.map(m=>`<tr><td><strong>${esc(m.text)}</strong><br><small>[${m.start}:${m.end}]</small></td><td>${m.concept?conceptLink(m.concept):m.candidate_keys.map(key=>`<code>${esc(key)}</code>`).join('<br>') || '확인할 수 없음'}</td><td>${m.basis==='DOCUMENT_DEFINITION'?'문서 내 약어 정의':m.basis==='REVIEWED_NAME_VARIANT'?'검토한 긴 이름의 형태 변형':'검토한 이름·별칭'}<br><small>${esc(stateLabel(m.status))}</small></td><td>${esc(assertions[m.assertion])}</td></tr>`).join('') || '<tr><td colspan="4">현재 사전 범위에서 인식한 원문 표현이 없습니다.</td></tr>'}</tbody></table></div>
     ${r.abbreviation_definitions.length?`<h3>문서에서 찾은 약어 정의</h3><div class="runtime-definitions">${r.abbreviation_definitions.map(d=>`<div><strong>${esc(d.short_form)} → ${esc(d.long_form)}</strong><small>${esc(stateLabel(d.status))} · 원문 [${d.long_start}:${d.long_end}] / [${d.short_start}:${d.short_end}]</small><p>${d.status==='RESOLVED'?'등록된 긴 이름에 연결했습니다. 이 문서 밖으로 새 별칭을 전파하지 않습니다.':'긴 이름을 확인하지 못했거나 정의가 충돌합니다. 한쪽으로 추측하지 않습니다.'}</p></div>`).join('')}</div>`:''}
     <h3>질환명 구성 요소와 원문별 추가 조건</h3><div class="runtime-conditions"><section><h4>질환명 구성 요소</h4>${attributesHTML(r.name_components) || '<p>지원하는 패턴에서 찾은 이름 구성 요소가 없습니다.</p>'}</section><section><h4>원문별 추가 조건 구간</h4>${attributesHTML(r.attributes) || '<p>지원하는 패턴에서 찾은 추가 조건이 없습니다. 해당 조건이 없다고 확정한 뜻은 아닙니다.</p>'}</section></div>
     <p class="source-note">추가 조건은 원문 구간으로 보존합니다. 문장 일부에서 질환이 하나만 확인되는 등 지원하는 경우에만, 추가 조건이 어느 질환에 해당하는지 연결합니다. 여러 질환이 나오거나 적용 대상이 불분명하면 판단하지 않습니다. 부정 문장에 나온 기간은 질환이 없었던 기간으로 구별합니다. 기존 300건의 조건을 새 원문에 복사하지 않습니다.</p>
     ${r.logical_relations.length?`<h3>명시된 논리 관계</h3><p>${r.logical_relations.map(l=>`${esc(l.operator)} · ${esc(stateLabel(l.resolution))}<br>${l.operands.map(o=>`${esc(o.text)} [${o.start}:${o.end}] → ${esc(o.concept_key ?? stateLabel(o.status))}`).join('<br>')}`).join('<br>')}</p>`:''}
-    ${snapshotHTML(r.snapshot_meta ?? {})}
-    <details class="runtime-json"><summary>분석 JSON과 원문 구간 확인</summary><pre>${esc(JSON.stringify(r,null,2))}</pre></details>`;
+    </div></details>
+    <details class="runtime-json"><summary>전체 결과와 실행 정보</summary>${snapshotHTML(r.snapshot_meta ?? {})}<details><summary>분석 JSON 확인</summary><pre>${esc(JSON.stringify(r,null,2))}</pre></details></details>`;
 }
 
 const evidenceLabels={...assertions,NO_TEXT:'원문 없음 · 사전 조회',NOT_FOUND:'원문에서 대상 표현 미확인',UNRESOLVED:'대상 의미 미확정',MIXED:'부정·추정 표현 혼재'};
@@ -119,7 +120,7 @@ function batchHTML(rows,meta) {
     <div class="table-wrap"><table class="batch-table"><colgroup><col class="c-line"><col class="c-term"><col class="c-text"><col class="c-status"><col class="c-concept"><col class="c-candidate"><col class="c-steps"></colgroup><thead><tr><th>줄</th><th>대상 표현</th><th>원문</th><th>처리 결과</th><th>연결 개념</th><th>공식 용어체계 후보</th><th>다음 단계</th></tr></thead><tbody>${rows.map(row=>{
       const [label,tone]=statusLabel(row),r=row.result,steps=nextSteps(r);
       return `<tr><td>${row.line}</td><td><strong>${esc(row.keyword) || '—'}</strong></td><td>${row.has_text?`<small>${esc(row.text.length>90?row.text.slice(0,90)+'…':row.text)}</small>`:'<small>없음 · 이름만 조회</small>'}</td>
-        <td><span class="badge ${tone}">${esc(label)}</span>${r && row.has_text?`<br><small class="batch-evidence">언급 방식: ${esc(evidenceLabels[r.target_evidence_status] ?? r.target_evidence_status)}</small>`:''}${r?`<br><small>${esc(r.reasons.map(x=>x.code).join(' · '))}</small>`:`<br><small>${esc(row.error)}</small>`}</td>
+        <td><span class="badge ${tone}">${esc(label)}</span>${r && row.has_text?`<br><small class="batch-evidence">언급 방식: ${esc(evidenceLabels[r.target_evidence_status] ?? r.target_evidence_status)}</small>`:''}${!r?`<br><small>${esc(row.error)}</small>`:''}</td>
         <td>${r && r.concepts.length?r.concepts.map(conceptLink).join('<br>'):'<small>단일 개념 없음</small>'}</td>
         <td data-candidate-cell="${rows.indexOf(row)}">${candidateCell(row,rows.indexOf(row))}</td>
         <td>${steps.length?`<details><summary>${steps.length}개 확인 항목</summary><ol>${steps.map(s=>`<li><b>${esc(s.rule)}</b> ${esc(s.text)}</li>`).join('')}</ol>${r.decision==='UNREGISTERED' || r.decision.startsWith('HOLD')?`<p><small>외부 후보 찾기 · 미검증</small><br>${searchLinks(row.keyword).map(l=>`<a href="${esc(l.url)}" target="_blank" rel="noopener noreferrer">${esc(l.name)} ↗</a>`).join('<br>')}</p>`:''}</details>`:'<small>—</small>'}</td></tr>`;}).join('')}</tbody></table></div>
@@ -132,18 +133,30 @@ const download=(name,body,type)=>{
 
 export function mountAnalyzer(root,catalog) {
   const analyzer=createAnalyzer(catalog);let current=remembered.report;
-  root.innerHTML=`<div class="container"><div class="page-heading"><p class="eyebrow">직접 입력과 후보 비교</p><h1>직접 입력해 보기</h1><p>기존 사전에서 찾고, 없는 표현은 MONDO·NCIt·MeSH 후보를 비교합니다. 문맥을 함께 넣으면 문서 내 약어 정의와 지원하는 추가 조건을 확인할 수 있습니다. 문장은 브라우저에서 처리하고, 후보 비교를 누를 때만 대상 표현을 공개 용어 API로 보냅니다.</p></div>
-    <div class="runtime-scope"><strong>현재 구현 범위</strong><span>기존 ${catalog.metadata.concepts}개 개념·검토한 별칭, 문서 내 긴 이름–약어 정의, 일부 조건 구간을 처리합니다. 개념 식별, 원문의 언급 방식(부정·추정), 조건 범위를 구별하며 환자의 진단과 참여·치료 조건 충족 여부는 평가하지 않습니다. 일반적인 의학적 의미 추론이나 독립 정확도 검증을 마친 분류기는 아닙니다.</span></div>
-    <div class="runtime-examples" aria-label="분석 예제"><span>예시</span>${samples.map((s,i)=>`<button class="example-chip" data-runtime-example="${i}">${esc(s.label)}</button>`).join('')}</div>
-    <div class="runtime-layout"><section class="panel runtime-input"><h2>새 입력</h2><form id="analyzer-form"><label for="analyzer-keyword">대상 표현</label><input id="analyzer-keyword" type="text" maxlength="200" required autocomplete="off"><label for="analyzer-text">원문 문장·문단</label><textarea id="analyzer-text" rows="8" maxlength="10000" spellcheck="false"></textarea><p class="source-note">원문은 선택 입력입니다. 뜻을 구별할 근거가 부족하면 보류합니다.</p><button class="runtime-submit" type="submit">이 원문 분석하기</button><p id="analyzer-error" role="alert"></p></form><button id="download-analysis" class="subtle-button">분석 JSON 내려받기 ↓</button>
-      <details class="runtime-method"><summary>판정 규칙과 지원 범위</summary><ol><li>등록된 이름·별칭을 단어 경계와 긴 표현 우선으로 찾습니다.</li><li>문서의 긴 이름(약어)을 기존 개념과 대조합니다. type 1/2 diabetes mellitus의 선언한 짧은 형태도 기존 이름에 근거해 처리합니다. 긴 이름을 확인하지 못하거나 정의가 충돌하면 보류합니다.</li><li>여러 뜻을 가진 약어는 다른 질환이 함께 언급됐다는 이유만으로 뜻을 정하지 않습니다.</li><li>등록된 범위 관계는 검토로 표시하며 미검토 관계나 원문 근거 부족을 입력 오류로 단정하지 않습니다.</li><li>전이·재발·불응·이전 치료, 중증도·질환 활성도·조절 상태·병기·진행 범위와 일부 기간·이름 구성 요소만 처리합니다. 개념을 바꿀 수 있는 미검토 수식어가 붙으면 보류합니다. OR 구조와, OR로 연결된 각 표현이 어떤 개념인지 확인한 상태를 나누어 보존합니다.</li></ol><p>표현이 더 복잡하거나 증상만으로 의미를 추론해야 하는 경우는 지원하지 않습니다. 미등록 개념을 자동 생성하지 않습니다.</p><a href="#materials/methodology">구현·검사·한계 문서 ↗</a></details></section>
-    <section id="analyzer-result" class="panel runtime-output" aria-label="새 원문 분석 결과" aria-live="polite"></section></div>
-    <section class="panel batch-panel" aria-labelledby="batch-heading"><div class="batch-intro"><div><p class="eyebrow">새 데이터가 들어오면</p><h2 id="batch-heading">여러 줄 한 번에 처리</h2><p>한 줄에 <code>대상 표현</code> 또는 <code>대상 표현 | 원문</code>을 넣으세요. 각 줄은 독립 문서로, 위와 같은 규칙 엔진을 그대로 사용합니다. 등록된 지식으로 처리할 수 있는 줄은 연결하고, 나머지는 이유와 다음 확인 단계를 남깁니다. 최대 ${BATCH_LIMITS.rows}줄입니다.</p></div>
-      <ol class="intake-flow"><li><b>1 · 규칙으로 연결</b>검토한 이름·별칭·문서 내 약어 정의</li><li><b>2 · 검토 필요로 분류</b>여러 뜻의 약어·수식어·원문 근거 부족·미등록·지원하지 않는 문형</li><li><b>3 · 후보 비교 → 사람 승인 후 새 버전</b>미등록 표현은 "후보 비교"로 MONDO·NCIt·MeSH 후보를 받아 이름 일치와 교차참조를 규칙으로 비교해 제안합니다. 정의 범위 판정과 사전 반영은 사람이 하며, 이 화면에서 자동 등록하지 않습니다.</li></ol></div>
-      <label for="batch-input">입력 (줄마다 하나)</label><textarea id="batch-input" rows="9" spellcheck="false" placeholder="T2DM&#10;CD | Crohn disease (CD) is mentioned. Patients with CD."></textarea>
-      <div class="batch-actions"><button id="run-batch" class="runtime-submit" type="button">여러 줄 분석하기</button><button id="batch-sample" class="subtle-button" type="button">예시 넣기</button><button id="batch-csv" class="subtle-button" type="button" disabled>여러 줄 결과 CSV ↓</button><button id="batch-json" class="subtle-button" type="button" disabled>여러 줄 결과 JSON ↓</button></div>
-      <p id="batch-error" role="alert"></p><div id="batch-result" aria-live="polite"></div></section>
+  root.innerHTML=`<div class="container analyzer-page"><div class="page-heading"><p class="eyebrow">기존 사전과 비교</p><h1>직접 입력해 보기</h1><p>이름이나 약어가 사전의 어떤 개념에 연결되는지 확인합니다. 등록되지 않은 표현은 외부 용어체계에서 후보를 찾아볼 수 있습니다.</p></div>
+    <div class="intake-tabs" role="tablist" aria-label="입력 방식"><button id="intake-single-tab" role="tab" aria-selected="true" aria-controls="intake-single" data-intake-mode="single">한 건 확인</button><button id="intake-batch-tab" role="tab" aria-selected="false" aria-controls="intake-batch" tabindex="-1" data-intake-mode="batch">여러 건 확인</button></div>
+    <section id="intake-single" role="tabpanel" aria-labelledby="intake-single-tab">
+    <div class="runtime-examples" aria-label="분석 예제"><span>예시로 시작하기</span>${samples.map((s,i)=>`<button class="example-chip" data-runtime-example="${i}">${esc(s.label)}</button>`).join('')}</div>
+    <div class="runtime-layout"><section class="panel runtime-input"><h2>확인할 내용</h2><form id="analyzer-form"><label for="analyzer-keyword">이름 또는 약어 <span class="field-required">필수</span></label><input id="analyzer-keyword" type="text" maxlength="200" required autocomplete="off" placeholder="예: NSCLC, CD, Fabry disease"><label for="analyzer-text">이름이 쓰인 문장 <span class="field-optional">선택</span></label><textarea id="analyzer-text" rows="5" maxlength="10000" spellcheck="false" placeholder="예: Crohn disease (CD) is mentioned." aria-describedby="analyzer-context-help"></textarea><p id="analyzer-context-help" class="source-note">약어의 긴 이름이 함께 적힌 문장을 넣어보세요. 문맥이 부족하면 뜻을 정하지 않고 보류합니다.</p><button class="runtime-submit" type="submit">사전과 비교하기</button><p id="analyzer-error" role="alert"></p></form></section>
+    <section class="panel runtime-output" aria-label="새 원문 분석 결과"><div id="analyzer-result" aria-live="polite"></div><div class="runtime-result-tools"><button id="download-analysis" class="subtle-button" type="button">결과 JSON 내려받기 ↓</button><span>입력·판단 근거·실행 정보를 포함합니다.</span></div></section></div></section>
+    <section id="intake-batch" role="tabpanel" aria-labelledby="intake-batch-tab" hidden><section class="panel batch-panel" aria-labelledby="batch-heading"><div class="batch-intro"><div><h2 id="batch-heading">여러 이름을 한 번에 확인</h2><p>한 줄에 하나씩 입력하세요. 문장을 함께 넣을 때는 이름 뒤에 <code>|</code>를 붙입니다. 최대 ${BATCH_LIMITS.rows}줄까지 처리하며, 각 줄은 별도 문서로 확인합니다.</p></div></div>
+      <label for="batch-input">이름 또는 약어 <span class="field-optional">줄마다 하나</span></label><textarea id="batch-input" rows="7" spellcheck="false" placeholder="T2DM&#10;CD | Crohn disease (CD) is mentioned. Patients with CD."></textarea>
+      <div class="batch-actions"><button id="run-batch" class="runtime-submit" type="button">여러 건 확인하기</button><button id="batch-sample" class="subtle-button" type="button">예시 넣기</button></div>
+      <p id="batch-error" role="alert"></p><div id="batch-result" aria-live="polite"></div><div class="batch-downloads"><button id="batch-csv" class="subtle-button" type="button" disabled>여러 줄 결과 CSV ↓</button><button id="batch-json" class="subtle-button" type="button" disabled>여러 줄 결과 JSON ↓</button></div></section></section>
+    <div class="runtime-boundary"><p>등록된 이름·약어 정의와 지원하는 조건 표현을 확인합니다. 환자의 진단과 참여·치료 조건 충족 여부는 판단하지 않습니다.</p><details class="runtime-method"><summary>처리 방식과 한계</summary><ol><li>등록된 이름·별칭을 단어 경계와 긴 표현 우선으로 찾습니다.</li><li>문서의 긴 이름(약어)을 기존 개념과 대조합니다. type 1/2 diabetes mellitus의 선언한 짧은 형태도 기존 이름에 근거해 처리합니다. 긴 이름을 확인하지 못하거나 정의가 충돌하면 보류합니다.</li><li>여러 뜻을 가진 약어는 다른 질환이 함께 언급됐다는 이유만으로 뜻을 정하지 않습니다.</li><li>등록된 범위 관계는 검토로 표시하며 미검토 관계나 원문 근거 부족을 입력 오류로 단정하지 않습니다.</li><li>전이·재발·불응·이전 치료, 중증도·질환 활성도·조절 상태·병기·진행 범위와 일부 기간·이름 구성 요소만 처리합니다. 개념을 바꿀 수 있는 미검토 수식어가 붙으면 보류합니다. OR 구조와, OR로 연결된 각 표현이 어떤 개념인지 확인한 상태를 나누어 보존합니다.</li></ol><p>표현이 더 복잡하거나 증상만으로 의미를 추론해야 하는 경우는 지원하지 않습니다. 미등록 개념을 자동 생성하지 않습니다.</p><a href="#materials/methodology">구현·검사·한계 문서 ↗</a></details></div>
 </div>`;
+  const modeButtons=[...root.querySelectorAll('[data-intake-mode]')];
+  function selectMode(mode,focus=false) {
+    modeButtons.forEach(button=>{const selected=button.dataset.intakeMode===mode;button.setAttribute('aria-selected',String(selected));button.tabIndex=selected?0:-1;if(selected && focus)button.focus();});
+    root.querySelector('#intake-single').hidden=mode!=='single';root.querySelector('#intake-batch').hidden=mode!=='batch';
+  }
+  modeButtons.forEach((button,i)=>{
+    button.addEventListener('click',()=>selectMode(button.dataset.intakeMode));
+    button.addEventListener('keydown',event=>{
+      const index=event.key==='Home'?0:event.key==='End'?modeButtons.length-1:event.key==='ArrowRight'?(i+1)%modeButtons.length:event.key==='ArrowLeft'?(i+modeButtons.length-1)%modeButtons.length:null;
+      if(index!==null){event.preventDefault();selectMode(modeButtons[index].dataset.intakeMode,true);}
+    });
+  });
   const keyword=root.querySelector('#analyzer-keyword'),text=root.querySelector('#analyzer-text');
   keyword.value=remembered.keyword;text.value=remembered.text;
   function run() {
@@ -203,7 +216,7 @@ export function mountAnalyzer(root,catalog) {
     const fromBatch=event.target.closest('[data-batch-compare]');
     if(fromBatch && batchRows) {
       const row=batchRows[Number(fromBatch.dataset.batchCompare)];
-      keyword.value=row.keyword;text.value=row.text;run();
+      selectMode('single');keyword.value=row.keyword;text.value=row.text;run();
       const output=root.querySelector('#analyzer-result [data-compare-output]');
       if(output && row.candidate_pair)showPair(row.candidate_pair,output);
       root.querySelector('#analyzer-result').scrollIntoView({block:'start'});
