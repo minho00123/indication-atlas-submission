@@ -65,7 +65,7 @@ do/does/did/must not have, free of, absence of, 직접적인 excluded 등의 표
 
 증상만으로 약어를 해소하는 일반 문맥 추론, 외부 질환 정의 수집·자동 비교, 전체 부정·가족력·과거력·시간 해석, 새 질환 승인과 환자 적격성 비교는 지원 범위 밖입니다. [G01–G12 지원표](#materials/audit)에서 계산과 검토 지식 재사용을 구별합니다.
 
-작성자 구성 개발·반례 입력은 `data/analyzer_cases.json`에 있습니다. 분석 화면에서 같은 모듈로 검사를 실행하거나 Node.js 22에서 실행할 수 있습니다.
+작성자 구성 개발·반례 입력은 `data/analyzer_cases.json`에 있습니다. 화면에는 두지 않고 Node.js 22 자동 테스트와 브라우저 검사에서 실행합니다.
 
 ```bash
 node --test tests/test_*.mjs

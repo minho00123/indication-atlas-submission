@@ -1,5 +1,4 @@
 import {createAnalyzer} from './analyzer.mjs';
-import {checkAnalyzerCase} from './analyzer-checks.mjs';
 import {fetchCandidates,compareCandidates} from './candidates.mjs';
 import {BATCH_FORMAT,BATCH_LIMITS,parseBatch,runBatch,nextSteps,searchLinks,needsReview,batchCSV} from './batch.mjs';
 
@@ -144,7 +143,7 @@ export function mountAnalyzer(root,catalog) {
       <label for="batch-input">입력 (줄마다 하나)</label><textarea id="batch-input" rows="9" spellcheck="false" placeholder="T2DM&#10;CD | Crohn disease (CD) is mentioned. Patients with CD."></textarea>
       <div class="batch-actions"><button id="run-batch" class="runtime-submit" type="button">여러 줄 분석하기</button><button id="batch-sample" class="subtle-button" type="button">예시 넣기</button><button id="batch-csv" class="subtle-button" type="button" disabled>여러 줄 결과 CSV ↓</button><button id="batch-json" class="subtle-button" type="button" disabled>여러 줄 결과 JSON ↓</button></div>
       <p id="batch-error" role="alert"></p><div id="batch-result" aria-live="polite"></div></section>
-    <section class="panel runtime-checks"><div><h2>개발·반례 검사</h2><p>작성자가 구성한 신규 입력에서 의도한 규칙이 작동하는지 실행합니다. 독립된 임상 정답셋의 정확도 평가는 아닙니다.</p></div><button id="run-analyzer-checks" class="runtime-submit">검사 실행</button><div id="analyzer-check-results" aria-live="polite"></div></section></div>`;
+</div>`;
   const keyword=root.querySelector('#analyzer-keyword'),text=root.querySelector('#analyzer-text');
   keyword.value=remembered.keyword;text.value=remembered.text;
   function run() {
@@ -164,16 +163,6 @@ export function mountAnalyzer(root,catalog) {
     if(!current)return;
     const url=URL.createObjectURL(new Blob([JSON.stringify(current,null,2)+'\n'],{type:'application/json;charset=utf-8'}));
     const a=document.createElement('a');a.href=url;a.download='indication-analysis.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
-  });
-  root.querySelector('#run-analyzer-checks').addEventListener('click',async event=>{
-    const button=event.currentTarget;button.disabled=true;
-    try {
-      const response=await fetch('./data/analyzer-cases.json');if(!response.ok)throw Error('검사 자료를 불러오지 못했습니다.');
-      const fixtures=await response.json(),checks=fixtures.cases.map(c=>checkAnalyzerCase(analyzer,c)),passed=checks.filter(c=>c.passed).length;
-      if(!root.isConnected)return;
-      root.querySelector('#analyzer-check-results').innerHTML=`<p class="runtime-check-count">개발·반례 검사 ${checks.length}건 중 ${passed}건 통과</p><p class="source-note">독립 정확도나 일반화 성능을 뜻하지 않습니다. 문서 정의·보류·정보 보존·원문 구간 등의 실행 결과입니다.</p><details><summary>항목별 기대 결과와 실제 판정</summary><div class="table-wrap"><table><thead><tr><th>검사</th><th>기대 판정</th><th>실제 판정</th><th>결과</th></tr></thead><tbody>${checks.map((c,i)=>`<tr><td>${esc(c.id)}</td><td>${esc(fixtures.cases[i].expected.decision)}</td><td>${esc(c.result.decision)}</td><td>${c.passed?'통과':esc(c.errors.join(' / '))}</td></tr>`).join('')}</tbody></table></div></details>`;
-    } catch(e) { if(root.isConnected)root.querySelector('#analyzer-check-results').textContent=e.message; }
-    finally { button.disabled=false; }
   });
   // Every displayed comparison keeps its own {record, comparison} pair; downloads use that pair.
   // Only complete records are reused; in-flight lookups for the same term are shared.

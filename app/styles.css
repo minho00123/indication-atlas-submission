@@ -366,11 +366,6 @@ summary>.badge { flex-shrink:0; }
 .runtime-attribute q { color:var(--muted); }
 .runtime-json { margin-top:23px; }
 .runtime-json pre { max-height:370px; overflow:auto; margin:0; padding:14px; font-size:12px; background:#f6f8fa; }
-.runtime-checks { margin:25px 0 45px; padding:23px; }
-.runtime-checks h2 { font-size:18px; }
-.runtime-checks p { font-size:12px; color:var(--muted); }
-.runtime-check-count { color:var(--ink)!important; font-weight:700; }
-.runtime-checks table { min-width:730px; }
 @media(max-width:1050px) { .runtime-layout { grid-template-columns:290px minmax(0,1fr); gap:16px; } .runtime-input,.runtime-output { padding:20px; } }
 @media(max-width:760px) {
  .runtime-entry { align-items:flex-start; padding:15px; flex-direction:column; gap:8px; }

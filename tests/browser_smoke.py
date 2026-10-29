@@ -303,10 +303,15 @@ def run(base_url,browser_executable=None,output=None):
         page.get_by_role('button',name='이 원문 분석하기').click()
         assert page.evaluate('window.__injected') is None
         expect(page.locator('.runtime-source img')).to_have_count(0)
-        page.get_by_role('button',name='검사 실행',exact=True).click()
-        fixtures=page.request.get(base_url+'data/analyzer-cases.json').json()
-        total=len(fixtures['cases'])
-        expect(page.locator('.runtime-check-count')).to_have_text(f'개발·반례 검사 {total}건 중 {total}건 통과')
+        # The author-written development cases run here and in Node; they are no longer a button on the page.
+        expect(page.get_by_role('button',name='검사 실행',exact=True)).to_have_count(0)
+        dev=page.evaluate('''async()=>{
+          const {createAnalyzer}=await import('./analyzer.mjs');const {checkAnalyzerCase}=await import('./analyzer-checks.mjs');
+          const a=createAnalyzer(await(await fetch('./data/catalog.json')).json());
+          const cases=(await(await fetch('./data/analyzer-cases.json')).json()).cases;
+          return {total:cases.length,passed:cases.map(c=>checkAnalyzerCase(a,c)).filter(c=>c.passed).length};
+        }''')
+        assert dev['total']>=100 and dev['passed']==dev['total'],dev
         size_checks=page.evaluate('''async()=>{
           const {createAnalyzer}=await import('./analyzer.mjs');
           const a=createAnalyzer(await(await fetch('./data/catalog.json')).json());
