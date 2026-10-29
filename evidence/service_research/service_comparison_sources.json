@@ -1,0 +1,86 @@
+{
+  "checked_on": "2026-10-29",
+  "scope": "Official public product documentation; no licensed product account, proprietary terminology dataset or cross-product performance experiment used.",
+  "interpretation": "Features reported by the vendor are documented capabilities, not independently measured accuracy.",
+  "commercial_services": 3,
+  "independent_vendors": 2,
+  "sources": [
+    {
+      "id": "SVC-SCIBITE-MANAGEMENT",
+      "service": "SciBite",
+      "url": "https://www.elsevier.com/products/scibite/ontology-management",
+      "locator": "Build, govern, and maintain; Key capabilities",
+      "verified_excerpt": "Auditable vocabularies, versioning, and provenance.",
+      "supports": [
+        "Terms, synonyms and relationships are managed with roles and permissions.",
+        "Review, approval, deprecation, versioning and change history are described."
+      ],
+      "capture_method": "OFFICIAL_PAGE_TEXT_OPENED_WITH_WEB_TOOL",
+      "verified_excerpt_sha256": "7c1bf30cb859bb21855302f9f448530daa441838f41b4f753b0923644de910ec"
+    },
+    {
+      "id": "SVC-SCIBITE-ENRICHMENT",
+      "service": "SciBite",
+      "url": "https://www.elsevier.com/products/scibite/data-enrichment",
+      "locator": "What SciBite semantic enrichment does",
+      "verified_excerpt": "disambiguates variants and synonyms",
+      "supports": [
+        "Scientific concept recognition, variant/synonym disambiguation and relationship linking are described."
+      ],
+      "capture_method": "OFFICIAL_PAGE_TEXT_OPENED_WITH_WEB_TOOL",
+      "verified_excerpt_sha256": "f274cc72bc6fdb9ca7730573d8ff8ae41afdee391d3ca024816a1bbd3d0ac25b"
+    },
+    {
+      "id": "SVC-CENTREE-DATASHEET",
+      "service": "SciBite CENtree",
+      "url": "https://scibite.com/wp-content/uploads/2024/01/Datasheet-SciBite-CENtree-3.0_20250312.pdf",
+      "locator": "Pages 1–2: overview and key features",
+      "verified_excerpt": "real-time contributions from multiple users",
+      "supports": [
+        "Product-specific terminology management, visualization and collaboration are described."
+      ],
+      "capture_method": "OFFICIAL_PDF_TEXT_OPENED_WITH_WEB_TOOL",
+      "verified_excerpt_sha256": "1e713ac494a62e29742387f5bd93472880db66be5761d58d05ef6adeb653deeb"
+    },
+    {
+      "id": "SVC-TERMITE-DATASHEET",
+      "service": "SciBite TERMite",
+      "url": "https://scibite.com/wp-content/uploads/2024/09/SciBite-Datasheet-TERMite.pdf",
+      "locator": "Page 1: Scan fast, tag right",
+      "verified_excerpt": "named entity recognition (NER) tool",
+      "supports": [
+        "The tool recognizes raw text using curated vocabularies based on public ontologies."
+      ],
+      "capture_method": "OFFICIAL_PDF_TEXT_OPENED_WITH_WEB_TOOL",
+      "verified_excerpt_sha256": "2c6f1fe46edf607204193e0663a94dd8c5d7633e6da1d259fc2b61dd07ce7bac"
+    },
+    {
+      "id": "SVC-CORTELLIS",
+      "service": "Cortellis Ontologies API",
+      "url": "https://cortellislabs.com/api/ontologies/",
+      "locator": "taxonomy functions; idMappings; NER",
+      "verified_excerpt": "returning the identifier and the position",
+      "supports": [
+        "Synonym lookup, hierarchy traversal, identifier mappings and entity-position output are described."
+      ],
+      "capture_method": "OFFICIAL_PAGE_SEARCH_INDEX_TEXT_AND_EXISTING_SAVED_EXCERPT",
+      "existing_evidence_file": "evidence/cortellis_ontologies_excerpt.json",
+      "verified_excerpt_sha256": "efad799356d548d38abd1ef431333812e3efe3f2ad0641a1ef338bc7426321d5",
+      "existing_evidence_sha256": "bbb77182a8413590bc632123d9c207edf5c4b5451ed6c618924954a1bae1cfa6"
+    },
+    {
+      "id": "SVC-EMBASE",
+      "service": "Embase / Emtree",
+      "url": "https://www.elsevier.support/embase/answer/how-do-i-search-in-embase",
+      "locator": "Quick Search; PICO default strategies and synonyms",
+      "verified_excerpt": "Add # synonyms",
+      "supports": [
+        "Preferred-term mapping, narrower-term explosion and user-selectable synonyms are described."
+      ],
+      "capture_method": "OFFICIAL_PAGE_TEXT_OPENED_WITH_WEB_TOOL",
+      "existing_evidence_file": "evidence/embase_emtree_excerpt.json",
+      "verified_excerpt_sha256": "e97a6b2b69f0fab8249979abcd59e4f4f577f80f876ee39d3886f692f46cdc6e",
+      "existing_evidence_sha256": "8a1522b8b2d465a9efd5126fa948dd15b9153d124950c5e31eb3b3cfe9db2ae0"
+    }
+  ]
+}
