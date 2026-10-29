@@ -10,7 +10,7 @@ const icon = '<svg class="search-icon" viewBox="0 0 24 24" fill="none" aria-hidd
 const entityLabels = {DISEASE_OR_CONDITION:'질환·조건',DISEASE_GROUP:'질환군',NEOPLASM_GROUP:'신생물군',CLINICAL_CONDITION:'임상 조건',CLINICAL_EVENT:'임상 사건',CLINICAL_FINDING:'임상 소견',CLINICAL_SYNDROME:'임상 증후군',LIFE_STAGE:'생애 단계',PHYSIOLOGICAL_STATE:'생리 상태',SYMPTOM:'증상'};
 const holdReasons = {HOLD_AMBIGUOUS:'구별할 문맥이 없어 보류했습니다.',HOLD_SOURCE_CONFLICT:'키워드와 문맥이 충돌해 보류했습니다.'};
 const decisionLabels = {PROVISIONAL_MAP:'개념 연결 · 잠정',LOCAL_CONCEPT:'자체 관리 개념',ROUTE_ENTITY:'별도 개체',SPLIT_EXPRESSION:'OR 조건',HOLD_AMBIGUOUS:'문맥 부족 · 보류',HOLD_SOURCE_CONFLICT:'입력 충돌 · 보류'};
-const relations = {EXACT:'같은 개념',BROADER:'원문이 더 넓음',NARROWER:'원문이 더 좁음',RELATED:'관련 개념',UNKNOWN:'동등성 미확정',DIFFERENT_ENTITY:'다른 개체',COMPONENT:'OR 구성 개념'};
+const relations = {EXACT:'같은 개념',BROADER:'원문이 더 넓음',NARROWER:'원문이 더 좁음',RELATED:'관련 개념',UNKNOWN:'동등성 미확정',DIFFERENT_ENTITY:'다른 의미·개체',COMPONENT:'OR 구성 개념'};
 const kindLabels = {PROVIDED_INPUT:'제공된 표현',REVIEWED_DISPLAY_NAME:'검토한 표시명',REVIEWED_EXACT_PREFERRED_LABEL:'검토한 공식 명칭',EXPLICIT_CITED_ALIAS:'근거로 추가한 별칭',EXPLICIT_REVIEWED_SOURCE_ALIAS:'근거로 추가한 별칭'};
 const scopeLabels = {
   ESOPHAGEAL_ACHALASIA:'식도 이완불능증의 의미를 적용합니다. 식도 외 다른 괄약근을 명시한 문맥에서는 재검토합니다.',
@@ -23,7 +23,7 @@ let data, conceptByKey, recordById, route, searchPage=0, recordPage=0, aliasPage
 const detailCache=new Map(), docCache=new Map();
 const pageSize=6, rowPageSize=25;
 const storyTitles={cd:'CD·AML: 문맥에 따라 달라지는 약어',eczema:'Eczema: 일반명과 아형의 범위',nsclc:'NSCLC: 같은 질환, 다른 추가 조건',masld:'NAFLD·MASLD: 명칭과 기준의 차이',conflict:'키워드와 문맥이 충돌한 입력',or:'MDS/AML: OR 조건을 유지한 표현',her2:'HER2 양성: 외부 정의와 자체 관리 개념',gca:'GCA·측두동맥염: 이름과 침범 범위',sense:'문맥이 적을 때의 기본 의미', 'long-covid':'Long COVID·PASC: 명칭과 기간 기준'};
-const caseGroups=[['약어의 여러 뜻',['cd']],['일반명과 범위',['eczema','gca','sense']],['질환명과 추가 조건',['nsclc']],['명칭과 기준의 변화',['masld','long-covid']],['표준 정의와 자체 관리 개념',['her2']],['입력 충돌과 복합 표현',['conflict','or']]];
+const caseGroups=[['묶은 사례',['gca','nsclc']],['나눈 사례',['cd','eczema']],['명칭·기준의 변화',['masld','long-covid']],['기본 의미 정책',['sense']],['자체 관리 개념',['her2']],['보류와 복합 표현',['conflict','or']]];
 
 function badge(text, tone='') { return `<span class="badge ${tone}">${esc(text)}</span>`; }
 function decisionBadge(r) {
@@ -72,8 +72,8 @@ function heading(eyebrow,title,description) {
 }
 // Story tags carry their original numbers; grouping by topic reorders them, so the screen omits them.
 const caseTag=tag=>String(tag ?? '').replace(/^\d+\s*·\s*/u,'');
-function featureCards(stories) {
-  return stories.map(s=>`<button class="feature-card" data-case="${esc(s.id)}"><span class="feature-kicker">${esc(caseTag(s.tag))}</span><h3>${esc(storyTitles[s.id] ?? s.title)}</h3><p>${esc(s.teaser)}</p><span class="feature-link">판단 근거 보기 <span aria-hidden="true">↗</span></span></button>`).join('');
+function featureCards(stories,kicker=true) {
+  return stories.map(s=>`<button class="feature-card" data-case="${esc(s.id)}">${kicker?`<span class="feature-kicker">${esc(caseTag(s.tag))}</span>`:''}<h3>${esc(storyTitles[s.id] ?? s.title)}</h3><p>${esc(s.teaser)}</p><span class="feature-link">판단 근거 보기 <span aria-hidden="true">↗</span></span></button>`).join('');
 }
 
 function recordProofLink(id,label=id,values={}) {
@@ -142,7 +142,7 @@ function updateSearch({autoSelect=true}={}) {
   let previousGroup='';
   const items=visible.map(key=>{
     const type=!normalize(q)?'browse':result.exactKeys.includes(key)?'exact':relatedKeys.includes(key)?'related':'partial';
-    const title={browse:'연결된 제공 항목이 많은 순서',exact:'등록 이름·별칭 일치',related:'관련 결과 · 동의어 병합 아님',partial:'부분 일치 · 탐색 결과'}[type];
+    const title={browse:'정렬: 연결된 항목 많은 순',exact:'등록 이름·별칭 일치',related:'관련 결과 · 동의어 병합 아님',partial:'부분 일치 · 탐색 결과'}[type];
     const group=previousGroup!==type?`<div class="result-group-label">${title}</div>`:''; previousGroup=type;
     return group+resultButton(key,type,type==='exact'?result.exactAliases:type==='browse'?[]:data.aliases.filter(a=>a.concept_key===key && normalize(a.term).includes(normalize(q))));
   }).join('');
@@ -274,6 +274,7 @@ async function loadCandidates(id) {
   }
 }
 
+const decisionOptions=[['PROVISIONAL_MAP','개념 연결'],['LOCAL_CONCEPT','자체 관리 개념'],['ROUTE_ENTITY','별도 개체'],['SPLIT_EXPRESSION','OR 조건'],['HOLD','보류']];
 function recordsPage() {
   const selected=recordById.get(route.params.get('record'));
   if(selected) {
@@ -283,20 +284,24 @@ function recordsPage() {
   }
   $('#main-content').innerHTML=`<div class="container">${heading('제공 키워드 300건','키워드별 분류 결과','항목을 선택하면 제공 문맥과 판단 이유, 참고한 출처를 볼 수 있습니다.')}
     <div class="filter-bar"><label class="search-box">${icon}<input id="record-search" type="search" placeholder="항목 번호·키워드·문맥 검색" aria-label="분류 결과 검색"></label>
-    <select id="decision-filter" aria-label="처리 상태 필터"><option value="">모든 처리 상태</option>${[['PROVISIONAL_MAP','개념 연결'],['LOCAL_CONCEPT','자체 관리 개념'],['ROUTE_ENTITY','별도 개체'],['SPLIT_EXPRESSION','OR 조건'],['HOLD','보류']].map(([v,l])=>`<option value="${v}">${l}</option>`).join('')}</select>
+    <select id="decision-filter" aria-label="처리 상태 필터"><option value="">모든 처리 상태</option>${decisionOptions.map(([v,l])=>`<option value="${v}">${l}</option>`).join('')}</select>
     <select id="entity-filter" aria-label="개체 유형 필터"><option value="">모든 개체 유형</option>${[...new Set(data.records.map(r=>r.entity_type))].map(e=>`<option value="${e}">${esc(entityLabels[e] ?? e)}</option>`).join('')}</select></div>
+    <div class="status-chips" role="group" aria-label="처리 상태별 건수">${decisionOptions.map(([v,l])=>`<button class="example-chip" data-decision-chip="${v}">${l} ${data.records.filter(r=>r.research_decision.startsWith(v)).length}</button>`).join('')}</div>
     <div id="record-table" class="panel section-space"></div></div>`;
+  const chips=[...document.querySelectorAll('[data-decision-chip]')];
+  const markChips=()=>chips.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.decisionChip===$('#decision-filter').value)));
+  chips.forEach(b=>b.addEventListener('click',()=>{const f=$('#decision-filter');f.value=f.value===b.dataset.decisionChip?'':b.dataset.decisionChip;update();}));
   $('#record-search').value=route.params.get('q') ?? '';
   $('#decision-filter').value=route.params.get('decision') ?? '';
   $('#entity-filter').value=route.params.get('entity') ?? '';
   const update=()=>{
     recordPage=0; const params={q:$('#record-search').value,decision:$('#decision-filter').value,entity:$('#entity-filter').value};
-    history.replaceState(null,'',pathFor('records',params)); route=readRoute(); updateRecords();
+    history.replaceState(null,'',pathFor('records',params)); route=readRoute(); markChips(); updateRecords();
   };
   $('#record-search').addEventListener('input',update);
   $('#decision-filter').addEventListener('change',update);
   $('#entity-filter').addEventListener('change',update);
-  recordPage=0; updateRecords();
+  recordPage=0; markChips(); updateRecords();
 }
 
 function updateRecords() {
@@ -322,7 +327,7 @@ function updateAliases() {
   const rows=data.aliases.filter(a=>!q || [a.term,a.source_id,conceptByKey.get(a.concept_key)?.preferred_name ?? ''].some(value=>normalize(value).includes(q)));
   const pages=Math.max(1,Math.ceil(rows.length/rowPageSize));aliasPage=Math.min(aliasPage,pages-1);
   $('#alias-table').innerHTML=`<div class="table-caption"><span id="alias-count">${rows.length} / ${data.aliases.length}건</span><a href="./downloads/aliases.csv" download>전체 별칭 CSV 내려받기 ↓</a></div>
-    <p class="alias-scroll-note">표를 좌우로 밀면 연결한 개념과 근거 항목을 확인할 수 있습니다.</p><div class="table-wrap" tabindex="0" role="region" aria-label="별칭 연결 표 · 좌우 스크롤 가능"><table class="alias-table"><thead><tr><th>등록된 표현</th><th>연결한 개념</th><th>근거 항목</th><th>적용 조건</th></tr></thead><tbody>${rows.slice(aliasPage*rowPageSize,(aliasPage+1)*rowPageSize).map(a=>`<tr><td><strong>${esc(a.term)}</strong><br><span class="source-note">${esc(kindLabels[a.kind] ?? a.kind)}</span></td><td><a class="source-link" href="${esc(pathFor('dictionary',{concept:a.concept_key,record:a.source_id}))}">${esc(conceptByKey.get(a.concept_key)?.preferred_name ?? a.concept_key)} ↗</a></td><td><a class="source-link" href="${esc(pathFor('records',{record:a.source_id}))}">${esc(a.source_id)} · 판단 근거 ↗</a></td><td>${a.context_required?badge('문맥 확인 필요','amber'):badge('검토한 개념 연결','gray')}</td></tr>`).join('') || '<tr><td colspan="4"><div class="empty-state">일치하는 별칭 연결이 없습니다. 다른 표현으로 검색해 보세요.</div></td></tr>'}</tbody></table></div>
+    <p class="alias-scroll-note">표를 좌우로 밀면 연결한 개념과 근거 항목을 확인할 수 있습니다.</p><div class="table-wrap" tabindex="0" role="region" aria-label="별칭 연결 표 · 좌우 스크롤 가능"><table class="alias-table"><thead><tr><th>등록된 표현</th><th>연결한 개념</th><th>근거 항목</th></tr></thead><tbody>${rows.slice(aliasPage*rowPageSize,(aliasPage+1)*rowPageSize).map(a=>`<tr><td><strong>${esc(a.term)}</strong>${a.context_required?' '+badge('문맥 확인 필요','amber'):''}<br><span class="source-note">${esc(kindLabels[a.kind] ?? a.kind)}</span></td><td><a class="source-link" href="${esc(pathFor('dictionary',{concept:a.concept_key,record:a.source_id}))}">${esc(conceptByKey.get(a.concept_key)?.preferred_name ?? a.concept_key)} ↗</a></td><td><a class="source-link" href="${esc(pathFor('records',{record:a.source_id}))}">${esc(a.source_id)} · 판단 근거 ↗</a></td></tr>`).join('') || '<tr><td colspan="3"><div class="empty-state">일치하는 별칭 연결이 없습니다. 다른 표현으로 검색해 보세요.</div></td></tr>'}</tbody></table></div>
     <div class="pager"><button data-alias-page="-1" ${aliasPage===0?'disabled':''} aria-label="이전 별칭 목록">← 이전</button><span>${aliasPage+1} / ${pages}</span><button data-alias-page="1" ${aliasPage>=pages-1?'disabled':''} aria-label="다음 별칭 목록">다음 →</button></div>`;
 }
 
@@ -348,8 +353,8 @@ function casesPage() {
     loadDocument($('#document-content'),'guidelines',route.params.get('section'));return;
   }
   if(!story) {
-    $('#main-content').innerHTML=`<div class="container">${intro}${criteriaTabs('examples')}${caseGroups.map(([title,ids])=>`<section class="case-group"><h2>${esc(title)}</h2><div class="case-grid">${featureCards(ids.map(id=>data.stories.find(s=>s.id===id)))}</div></section>`).join('')}
-    <section class="section-space"><details><summary>${data.comparisons.length}쌍의 비교 기록</summary><div class="table-wrap"><table><thead><tr><th>비교한 항목</th><th>판단 이유</th></tr></thead><tbody>${data.comparisons.map(c=>`<tr><td><a href="${pathFor('records',{record:c.left_source_id})}">${esc(c.left_keyword)} · ${c.left_source_id}</a><br><a href="${pathFor('records',{record:c.right_source_id})}">${esc(c.right_keyword)} · ${c.right_source_id}</a></td><td>${esc(c.rationale_ko)}</td></tr>`).join('')}</tbody></table></div></details><p class="source-note">구축에 사용한 규칙의 일관성을 확인한 기록입니다. 독립 평가셋은 아닙니다.</p></section><section id="concept-comparison" tabindex="-1" class="panel document embedded-comparison"></section></div>`;
+    $('#main-content').innerHTML=`<div class="container">${intro}${criteriaTabs('examples')}${caseGroups.map(([title,ids])=>`<section class="case-group"><h2>${esc(title)}</h2><div class="case-grid">${featureCards(ids.map(id=>data.stories.find(s=>s.id===id)),false)}</div></section>`).join('')}
+    <section class="section-space"><details><summary>${data.comparisons.length}쌍의 비교 기록 · 비슷한 두 항목을 같은 개념으로 볼지 비교한 이유</summary><div class="table-wrap"><table><thead><tr><th>비교한 항목</th><th>판단 이유</th></tr></thead><tbody>${data.comparisons.map(c=>`<tr><td><a href="${pathFor('records',{record:c.left_source_id})}">${esc(c.left_keyword)} · ${c.left_source_id}</a><br><a href="${pathFor('records',{record:c.right_source_id})}">${esc(c.right_keyword)} · ${c.right_source_id}</a></td><td>${esc(c.rationale_ko)}</td></tr>`).join('')}</tbody></table></div></details><p class="source-note">구축에 사용한 규칙의 일관성을 확인한 기록입니다. 독립 평가셋은 아닙니다.</p></section><section id="concept-comparison" tabindex="-1" class="panel document embedded-comparison"></section></div>`;
     mountCompare($('#concept-comparison'),data);focusMaterialsSection($('#main-content'),route.params.get('section'));return;
   }
   $('#main-content').innerHTML=`<div class="container">${intro}${criteriaTabs('examples')}<a class="back-link" href="#cases/examples">← 사례 목록</a><div class="case-layout"><nav class="case-sidebar" aria-label="판단 사례 목록">${data.stories.map(s=>`<a class="${s.id===story.id?'active':''}" href="#cases/${s.id}">${esc((storyTitles[s.id] ?? s.short_title).split(':')[0])}</a>`).join('')}</nav><article class="panel case-story"><span class="feature-kicker">${esc(caseTag(story.tag))}</span><h2>${esc(storyTitles[story.id] ?? story.title)}</h2><p>${esc(story.explanation)}</p><div class="info-note"><strong>판단 원칙</strong>${esc(story.principle)}</div>${structuredReviewHTML(story)}<h3 class="case-final-heading">최종 처리와 원문 근거</h3>${story.source_ids.map(id=>{

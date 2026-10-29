@@ -148,6 +148,13 @@ def run(base_url,browser_executable=None,output=None):
         expect(page.locator('#dictionary-detail')).to_contain_text('기간')
         results.append('PASC alias and definition warning')
         page.get_by_role('link',name='분류 결과',exact=True).click()
+        expect(page.locator('[data-decision-chip]')).to_have_count(5)
+        assert page.locator('[data-decision-chip]').evaluate_all('(els)=>els.map(e=>e.textContent.trim())')==['개념 연결 276','자체 관리 개념 17','별도 개체 4','OR 조건 1','보류 2']
+        page.locator('[data-decision-chip="LOCAL_CONCEPT"]').click()
+        expect(page.locator('#record-count')).to_have_text('17 / 300건')
+        expect(page.locator('[data-decision-chip="LOCAL_CONCEPT"]')).to_have_attribute('aria-pressed','true')
+        page.locator('[data-decision-chip="LOCAL_CONCEPT"]').click()
+        expect(page.locator('#record-count')).to_have_text('300 / 300건')
         page.locator('#decision-filter').select_option('HOLD')
         expect(page.locator('#record-count')).to_have_text('2 / 300건')
         page.get_by_role('button',name='K024 판단 상세 보기').click()

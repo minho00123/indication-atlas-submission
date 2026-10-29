@@ -724,3 +724,5 @@ summary>.badge { flex-shrink:0; }
 .audit-summary ul { margin:0; padding-left:18px; font-size:13px; line-height:1.75; }
 @media (max-width:760px) { .audit-summary { grid-template-columns:1fr; } }
 .audit-summary h2 { border:0; padding-top:0; }
+.status-chips { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+.example-chip[aria-pressed="true"] { background:var(--tint); border-color:var(--accent); color:var(--accent); font-weight:600; }
