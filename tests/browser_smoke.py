@@ -394,9 +394,15 @@ def run(base_url,browser_executable=None,output=None):
         page.locator('#audit-reset').click()
         page.locator('#audit-search').fill('K007')
         expect(page.locator('#audit-rows tr')).to_have_count(1)
-        expect(page.locator('#audit-rows')).to_contain_text('HOLD_AMBIGUOUS')
-        page.locator('#audit-rows summary').click()
-        expect(page.locator('#audit-rows')).to_contain_text('제거: 별칭')
+        expect(page.locator('#audit-rows')).to_contain_text('약어 의미 보류')
+        widths=page.locator('.audit-table > thead th').evaluate_all('(els)=>els.map(e=>Math.round(e.getBoundingClientRect().width))')
+        page.locator('[data-audit-open="K007"]').click()
+        expect(page.locator('.audit-detail-row')).to_have_count(1)
+        expect(page.locator('.audit-detail-row')).to_contain_text('제거한 출처')
+        expect(page.locator('.audit-detail-row .audit-checks tbody tr').first).to_be_visible()
+        assert page.locator('.audit-table > thead th').evaluate_all('(els)=>els.map(e=>Math.round(e.getBoundingClientRect().width))')==widths  # no column reflow
+        page.locator('[data-audit-open="K007"]').click()
+        expect(page.locator('.audit-detail-row')).to_have_count(0)
         for suffix in ['A','B','C']:
             payload=page.request.get(base_url+'downloads/rule-audit-'+suffix+'.json')
             assert payload.ok and len(payload.json()['rows'])==300

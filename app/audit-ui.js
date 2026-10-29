@@ -1,6 +1,21 @@
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const categories={MATCH:'개념 연결 일치',MATCH_HOLD:'보류 행동 일치',MATCH_EXPRESSION:'논리식 일치',REVIEW_REQUIRED:'검토 필요',RULE_UNSUPPORTED:'규칙 미지원',UNREGISTERED:'색인에서 미등록',DIFFERENT_RESULT:'다른 실행 결과'};
 const statuses={PASS:'검사 일관',DIFFERENCE:'차이',UNSUPPORTED:'미지원',MANUAL_REVIEW_REQUIRED:'사람 검토',REVIEW_REQUIRED:'검토 필요'};
+const expectedLabels={PROVISIONAL_MAP:'개념 연결 · 잠정',LOCAL_CONCEPT:'자체 관리 개념',ROUTE_ENTITY:'별도 개체',SPLIT_EXPRESSION:'OR 조건',HOLD_AMBIGUOUS:'문맥 부족 · 보류',HOLD_SOURCE_CONFLICT:'입력 충돌 · 보류'};
+const runLabels={LINKED:'기존 개념에 연결',LOCAL_LINKED:'기존 자체 개념에 연결',ROUTE_ENTITY:'별도 개체로 연결',SPLIT_OR:'OR 조건 보존',HOLD_AMBIGUOUS:'약어 의미 보류',HOLD_DEFINITION:'문서 정의 검토 필요',HOLD_SOURCE_CONFLICT:'입력 충돌 · 보류',HOLD_RELATION_UNREVIEWED:'개념 차이 · 관계 미검토',HOLD_TARGET_NOT_IN_TEXT:'원문 근거 미확인',HOLD_MODIFIED_MENTION:'수식된 이름 · 범위 검토',HOLD_EXPRESSION_UNRESOLVED:'논리식 해소 검토',HOLD_SCOPE_REVIEW:'범위 차이 · 검토',UNREGISTERED:'미등록 표현'};
+const evidenceLabels={NO_CUE_DETECTED:'부정·추정 표지 없음',NEGATED:'직접 부정 표지',UNCERTAIN:'직접 추정 표지',UNKNOWN:'원문 주장 범위 미상',UNSUPPORTED_REQUIREMENT:'필수성 해석 미지원',NO_TEXT:'원문 없음',NOT_FOUND:'대상 근거 미확인',UNRESOLVED:'대상 의미 미해소',MIXED:'서로 다른 표지 혼재'};
+const tone={MATCH:'',MATCH_HOLD:'',MATCH_EXPRESSION:'',REVIEW_REQUIRED:'amber',RULE_UNSUPPORTED:'amber',UNREGISTERED:'gray',DIFFERENT_RESULT:'amber'};
+// Details open as a full-width row under the selected row, so the table columns never reflow.
+function detailRow(row,run,mode) {
+  const r=run.result;
+  return `<tr class="audit-detail-row"><td colspan="4"><div class="audit-detail">
+    <section><h3>제공 문맥</h3><blockquote>${esc(row.raw_context)}</blockquote>
+      <h3>대조 결과</h3><p>${esc(run.reason)}</p>
+      ${mode==='B'?`<h3>제거한 출처</h3><p>별칭 ${run.removed.aliases}개 · 비교 ${run.removed.comparisons}쌍 · 식 ${run.removed.expression}개<br>남은 같은 키워드 출처: ${esc(run.remaining_keyword_sources.join(', ')||'없음')}</p>`:''}</section>
+    <section><h3>실행 근거</h3><ul class="audit-reasons">${r.reasons.map(x=>`<li><span class="badge gray">${esc(x.rule)}</span> ${esc(x.message)} <small>${esc(x.code)}</small></li>`).join('')}</ul>
+      <h3>규칙 검사</h3><table class="audit-checks"><thead><tr><th>규칙</th><th>상태</th><th>설명</th></tr></thead><tbody>${run.checks.map(c=>`<tr><td>${esc(c.rule)}<br><small>${esc(c.check)}</small></td><td><span class="badge ${c.status==='PASS'?'':c.status==='DIFFERENCE'?'amber':'gray'}">${esc(statuses[c.status])}</span></td><td>${esc(c.reason)}</td></tr>`).join('')}</tbody></table></section>
+  </div></td></tr>`;
+}
 let cached,state={mode:'A',category:'',query:'',page:0};
 const perPage=20;
 export async function mountAudit(root) {
@@ -24,7 +39,13 @@ export async function mountAudit(root) {
       $('#audit-counts').innerHTML=Object.entries(summary.categories).map(([key,count])=>`<button data-audit-category="${key}" aria-pressed="${state.category===key}"><strong>${count}<small> / 300행</small></strong><span>${esc(categories[key])}</span></button>`).join('');
       const rows=audit.rows.filter(r=>(!state.category || r[mode].category===state.category) && `${r.source_id} ${r.keyword}`.toLowerCase().includes(state.query.toLowerCase())),pages=Math.max(1,Math.ceil(rows.length/perPage));state.page=Math.min(state.page,pages-1);
       $('#audit-row-count').textContent=`${rows.length} / 300행`;
-      $('#audit-rows').innerHTML=rows.slice(state.page*perPage,(state.page+1)*perPage).map(row=>{const run=row[mode],r=run.result;return `<tr><td><a href="#records?record=${row.source_id}">${row.source_id}</a><br><strong>${esc(row.keyword)}</strong></td><td>${esc(row.expected.decision)}<br><code>${esc(row.expected.concept_key??'단일 개념 없음')}</code></td><td>${esc(r.decision)}<br><code>${esc(r.concept_keys.join(' / ')||'단일 개념 미선택')}</code><br><small>원문 표지: ${esc(r.target_evidence_status)} · 적격성 미평가</small></td><td><strong>${esc(categories[run.category])}</strong><details><summary>결과·규칙 감사</summary><p>${esc(run.reason)}</p><blockquote>${esc(row.raw_context)}</blockquote>${mode==='B'?`<p>제거: 별칭 ${run.removed.aliases}개 · 비교 ${run.removed.comparisons}쌍 · 식 ${run.removed.expression}개<br>남은 동일 키워드 출처: ${esc(run.remaining_keyword_sources.join(', ')||'없음')}</p>`:''}<ul>${r.reasons.map(x=>`<li>${esc(x.rule)} / ${esc(x.code)}: ${esc(x.message)}</li>`).join('')}</ul><ul>${run.checks.map(c=>`<li>${esc(c.rule)} / ${esc(c.check)} · ${esc(statuses[c.status])}: ${esc(c.reason)}</li>`).join('')}</ul></details></td></tr>`;}).join('')||'<tr><td colspan="4">조건에 맞는 행이 없습니다.</td></tr>';
+      $('#audit-rows').innerHTML=rows.slice(state.page*perPage,(state.page+1)*perPage).map(row=>{const run=row[mode],r=run.result;return `<tr data-audit-row="${row.source_id}"><td><a href="#records?record=${row.source_id}">${row.source_id}</a><br><strong>${esc(row.keyword)}</strong></td><td>${esc(expectedLabels[row.expected.decision] ?? row.expected.decision)}<br><code>${esc(row.expected.concept_key??'단일 개념 없음')}</code><br><small>${esc(row.expected.decision)}</small></td><td>${esc(runLabels[r.decision] ?? r.decision)}<br><code>${esc(r.concept_keys.join(' / ')||'단일 개념 미선택')}</code><br><small>원문 표지: ${esc(evidenceLabels[r.target_evidence_status] ?? r.target_evidence_status)} · 적격성 미평가</small></td><td><span class="badge ${tone[run.category] ?? 'gray'}">${esc(categories[run.category])}</span><br><button class="text-button audit-toggle" type="button" aria-expanded="false" data-audit-open="${row.source_id}">상세 보기 ↓</button></td></tr>`;}).join('')||'<tr><td colspan="4">조건에 맞는 행이 없습니다.</td></tr>';
+      $('#audit-rows').querySelectorAll('[data-audit-open]').forEach(button=>button.onclick=()=>{
+        const tr=button.closest('tr'),next=tr.nextElementSibling,open=next?.classList.contains('audit-detail-row');
+        if(open){next.remove();button.setAttribute('aria-expanded','false');button.textContent='상세 보기 ↓';return;}
+        const row=audit.rows.find(x=>x.source_id===button.dataset.auditOpen);
+        tr.insertAdjacentHTML('afterend',detailRow(row,row[mode],mode));button.setAttribute('aria-expanded','true');button.textContent='상세 닫기 ↑';
+      });
       $('#audit-page').textContent=`${state.page+1} / ${pages}`;$('#audit-prev').disabled=state.page===0;$('#audit-next').disabled=state.page===pages-1;
       $('#audit-rules').innerHTML=summary.rules.map(r=>`<tr><td>${r.rule}</td><td>${r.rows} / 300행</td><td>${r.applications}회</td><td>${r.applications?Object.entries(r.statuses).map(([s,n])=>`${esc(statuses[s])} ${n}회`).join(' · '):'행별 실행 없음 · 위 지원표와 빌드 검사 범위 참조'}</td></tr>`).join('');
       $('#audit-counts').querySelectorAll('[data-audit-category]').forEach(b=>b.onclick=()=>{state.category=b.dataset.auditCategory;state.page=0;render();});
