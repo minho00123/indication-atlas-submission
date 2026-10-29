@@ -126,7 +126,7 @@ const download=(name,body,type)=>{
 
 export function mountAnalyzer(root,catalog) {
   const analyzer=createAnalyzer(catalog);let current=remembered.report;
-  root.innerHTML=`<div class="container"><div class="page-heading"><p class="eyebrow">직접 입력과 후보 비교</p><h1>새 키워드 확인</h1><p>기존 사전에서 찾고, 없는 표현은 MONDO·NCIt·MeSH 후보를 비교합니다. 문맥을 함께 넣으면 문서 내 약어 정의와 지원하는 추가 조건을 확인할 수 있습니다. 문장은 브라우저에서 처리하고, 후보 비교를 누를 때만 대상 표현을 공개 용어 API로 보냅니다.</p></div>
+  root.innerHTML=`<div class="container"><div class="page-heading"><p class="eyebrow">직접 입력과 후보 비교</p><h1>직접 입력해 보기</h1><p>기존 사전에서 찾고, 없는 표현은 MONDO·NCIt·MeSH 후보를 비교합니다. 문맥을 함께 넣으면 문서 내 약어 정의와 지원하는 추가 조건을 확인할 수 있습니다. 문장은 브라우저에서 처리하고, 후보 비교를 누를 때만 대상 표현을 공개 용어 API로 보냅니다.</p></div>
     <div class="runtime-scope"><strong>현재 구현 범위</strong><span>기존 ${catalog.metadata.concepts}개 개념·검토한 별칭, 문서 내 긴 이름–약어 정의, 일부 조건 구간을 처리합니다. 개념 식별·원문 주장·조건 범위를 구별하며 환자의 진단·적격성은 평가하지 않습니다. 일반적인 의학적 의미 추론이나 독립 정확도 검증을 마친 분류기는 아닙니다.</span></div>
     <div class="runtime-examples" aria-label="분석 예제">${samples.map((s,i)=>`<button class="example-chip" data-runtime-example="${i}">${esc(s.label)}</button>`).join('')}</div>
     <div class="runtime-layout"><section class="panel runtime-input"><h2>새 입력</h2><form id="analyzer-form"><label for="analyzer-keyword">대상 표현</label><input id="analyzer-keyword" type="text" maxlength="200" required autocomplete="off"><label for="analyzer-text">원문 문장·문단</label><textarea id="analyzer-text" rows="8" maxlength="10000" spellcheck="false"></textarea><p class="source-note">원문은 선택 입력입니다. 뜻을 구별할 근거가 부족하면 보류합니다.</p><button class="runtime-submit" type="submit">이 원문 분석하기</button><p id="analyzer-error" role="alert"></p></form><button id="download-analysis" class="subtle-button">분석 JSON 내려받기 ↓</button>

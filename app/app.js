@@ -19,7 +19,7 @@ const scopeLabels = {
   PULMONARY_EMPHYSEMA:'폐기종의 의미를 적용합니다. 피하 등 비폐성 위치를 명시한 문맥에는 적용하지 않습니다.',
   MYELOFIBROSIS_UNSPECIFIED_CAUSE:'원인 미지정 골수 섬유화의 범위를 유지합니다. MPN 또는 특정 약물의 적응증 문맥이 있으면 그 제한을 별도로 검토합니다.'
 };
-let data, conceptByKey, recordById, route, searchPage=0, recordPage=0, aliasPage=0, selectedKey=null;
+let data, conceptByKey, recordById, route, searchPage=0, recordPage=0, aliasPage=0, selectedKey=null, featuredTab='split';
 const detailCache=new Map(), docCache=new Map();
 const pageSize=6, rowPageSize=25;
 const storyTitles={cd:'CD·AML: 문맥에 따라 달라지는 약어',eczema:'Eczema: 일반명과 아형의 범위',nsclc:'NSCLC: 같은 질환, 다른 추가 조건',masld:'NAFLD·MASLD: 명칭과 기준의 차이',conflict:'키워드와 문맥이 충돌한 입력',or:'MDS/AML: OR 조건을 유지한 표현',her2:'HER2 양성: 외부 정의와 자체 관리 개념',gca:'GCA·측두동맥염: 이름과 침범 범위',sense:'문맥이 적을 때의 기본 의미', 'long-covid':'Long COVID·PASC: 명칭과 기간 기준'};
@@ -101,17 +101,12 @@ function structuredReviewHTML(story) {
 function dictionaryPage() {
   const m=data.metadata;
   $('#main-content').innerHTML=`<div class="container home-page">
-    <section class="home-head" aria-labelledby="hero-title"><div class="home-title"><h1 id="hero-title">질환 동의어 사전</h1><p>제공된 키워드와 문맥을 대조해 같은 개념을 묶었습니다.</p></div>
+    <section class="home-head" aria-labelledby="hero-title"><div class="home-title"><h1 id="hero-title">질환 동의어 사전</h1></div>
     <div class="stats" aria-label="사전 요약">${[['검토한 키워드',m.records,'건','#records','전체 분류 결과'],['개념 그룹',m.concepts,'개','#dictionary?view=concepts','개념 목록'],['별칭 연결',m.aliases,'건','#aliases','별칭 목록'],['판단 보류',m.holds,'건','#records?decision=HOLD','보류 사유 확인']].map(([label,n,u,href,action])=>`<a class="stat" href="${href}"${href.includes('view=concepts')?' data-concept-list':''} aria-label="${label} ${n}${u} · ${action}"><span class="stat-value">${n}<small>${u}</small></span><span class="stat-label">${label}</span></a>`).join('')}</div></section>
-    <section class="key-points" aria-label="핵심 포인트">${[
-      ['공통 규칙','같은 뜻으로 묶는 기준 읽기','#cases'],
-      ['이 사전의 방향','항목별 판단 이유와 출처','#materials/methodology'],
-      ['반례와 수정','발견한 오류와 수정 내용','#materials/methodology?section=counterexamples']
-    ].map(([label,title,href])=>`<a class="key-point" href="${href}"><span>${label}</span><strong>${title} <span aria-hidden="true">↗</span></strong></a>`).join('')}</section>
-    <section id="concept-explorer" aria-labelledby="search-heading"><div class="search-heading-row"><h2 id="search-heading" tabindex="-1">등록된 표현 검색</h2><div class="examples"><span>예시</span>${['CD','T2DM','eczema','NAFLD'].map(q=>`<button class="example-chip" data-query="${q}">${q}</button>`).join('')}</div></div>
-    <div class="search-toolbar"><label class="search-box">${icon}<input id="dictionary-search" type="search" autocomplete="off" aria-label="질환명·약어·항목 번호 검색" placeholder="질환명, 약어 또는 항목 번호 검색"><span class="search-key" aria-hidden="true">/</span></label><a class="new-keyword-link" href="#analyze" aria-label="직접 입력해 보기" aria-describedby="new-input-description"><span class="new-keyword-title">직접 입력해 보기 <span aria-hidden="true">↗</span></span><span class="new-keyword-description" id="new-input-description">키워드와 문맥을 넣어 결과 확인</span></a></div>
+    <section id="concept-explorer" aria-labelledby="search-heading"><div class="search-heading-row"><h2 id="search-heading" tabindex="-1">등록된 표현 검색</h2><div class="examples"><span>예시</span>${['CD','NSCLC','eczema','NAFLD'].map(q=>`<button class="example-chip" data-query="${q}">${q}</button>`).join('')}</div></div>
+    <div class="search-toolbar"><label class="search-box">${icon}<input id="dictionary-search" type="search" autocomplete="off" aria-label="질환명·약어·항목 번호 검색" placeholder="질환명, 약어 또는 항목 번호 검색"><span class="search-key" aria-hidden="true">/</span></label></div>
+    <p class="direct-input-note">다른 키워드·문맥의 처리도 확인할 수 있습니다. <a href="#analyze">직접 입력해 보기 ↗</a></p>
     <div class="explorer"><div id="results" class="panel result-panel"></div><div id="dictionary-detail" class="panel detail"></div></div></section>
-    <section class="featured-section"><div class="section-heading"><div><h2>사례로 보는 분류 과정</h2><p>공통 규칙을 약어, 범위 차이, 추가 조건과 입력 충돌에 적용한 사례입니다.</p></div><a href="#cases/examples">전체 사례 ↗</a></div><div class="featured-grid">${featureCards(['cd','eczema','nsclc','masld','conflict'].map(id=>data.stories.find(s=>s.id===id)))}</div></section>
   </div>`;
   const input=$('#dictionary-search'); input.value=route.params.get('q') ?? '';
   selectedKey=route.params.get('concept'); searchPage=0;
@@ -167,7 +162,7 @@ function updateSearch({autoSelect=true}={}) {
     target.innerHTML=detailHTML(c,row,true);
     loadCandidates(row.source_id);
   } else if(!normalize(q)) {
-    target.innerHTML=ambiguityHTML('CD',sameSpelling('CD'),true);
+    target.innerHTML=featuredHTML(featuredTab);
   } else if(ambiguous) {
     target.innerHTML=ambiguityHTML(q.trim(),sameSpelling(q),false);
   } else {
@@ -175,9 +170,30 @@ function updateSearch({autoSelect=true}={}) {
   }
 }
 
+// First screen without a search: two representative judgments, one split and one merge.
+function featuredHTML(tab) {
+  const tabs=[['split','나눈 사례: CD'],['merge','묶은 사례: NSCLC']];
+  const body=tab==='merge'?mergedHTML('MONDO:0005233'):ambiguityHTML('CD',data.records.filter(r=>normalize(r.keyword)==='cd'),true);
+  return `<div class="featured-head"><div class="featured-tabs" role="tablist" aria-label="대표 사례">${tabs.map(([key,label])=>`<button role="tab" aria-selected="${key===tab}" class="${key===tab?'active':''}" data-featured-tab="${key}">${label}</button>`).join('')}</div>${badge('대표 사례 표시 중','gray')}</div>
+    <div role="tabpanel">${body}</div>
+    <p class="example-other featured-links">다른 판단: <a href="#cases/eczema">범위 차이: 습진·아토피 ↗</a> · <a href="#cases/conflict">입력 충돌: K024 ↗</a> · <a href="#cases/long-covid">명칭·기간 기준: Long COVID·PASC ↗</a> · <a href="#cases/examples">전체 판단 사례 ↗</a></p>`;
+}
+function mergedHTML(key) {
+  const c=conceptByKey.get(key),rows=c.source_ids.map(id=>recordById.get(id));
+  return `<h2 class="ambiguity-title">NSCLC: 다른 표현을 같은 개념으로 묶은 근거</h2>
+    <p class="ambiguity-lead">서로 다른 표현을 같은 기본 개념(${esc(c.preferred_name)}, ${esc(key)})으로 연결했습니다. 추가 조건은 해당 입력에만 남기며, 같은 개념이라고 환자 조건까지 같다고 보지 않습니다.</p>
+    <ol class="ambiguity-rows">${rows.map(r=>{
+      const conditions=[...new Set((r.clinical_attributes ?? []).map(a=>a.source_span))];
+      return `<li class="ambiguity-row"><div class="ambiguity-source"><span class="ambiguity-id">${esc(r.source_id)} · 제공 키워드 “${esc(r.keyword)}”</span><blockquote>${esc(r.raw_context)}</blockquote></div>
+        <div class="ambiguity-result"><div class="ambiguity-outcome"><strong>${esc(c.preferred_name)}</strong>${decisionBadge(r)}</div>
+        <p class="merge-conditions">추가 조건: ${conditions.length?conditions.map(x=>`<span class="atom">${esc(x)}</span>`).join(' '):'원문에 명시되지 않음'}</p>
+        <p>${esc(r.rationale_ko)} <button class="text-button" data-concept="${esc(key)}" data-record="${esc(r.source_id)}">전체 근거 ↗</button></p></div></li>`;
+    }).join('')}</ol>`;
+}
+
 function ambiguityHTML(term,rows,featured) {
   const several=new Set(rows.map(r=>r.concept_key).filter(Boolean)).size>1;
-  return `<div class="badge-row">${featured?badge('대표 사례 표시 중','gray'):''}${badge('같은 표기 · 다른 처리','amber')}</div>
+  return `${featured?'':`<div class="badge-row">${badge('같은 표기 · 다른 처리','amber')}</div>`}
     <h2 class="ambiguity-title">${esc(term)}: ${several?'문맥에 따라 다른 처리':'같은 표기, 항목별 처리'}</h2>
     <p class="ambiguity-lead">${several?'이 표기는 하나의 질환으로 확정하지 않았습니다. ':''}같은 표기를 가진 항목의 문맥과 처리 결과를 비교했습니다. 연결·보류한 이유는 각 항목에 표시했습니다.</p>
     <ol class="ambiguity-rows">${rows.map(r=>{
@@ -185,7 +201,7 @@ function ambiguityHTML(term,rows,featured) {
       return `<li class="ambiguity-row${c?'':' held'}"><div class="ambiguity-source"><span class="ambiguity-id">${esc(r.source_id)} · 제공 문맥</span><blockquote>${esc(r.raw_context)}</blockquote></div>
         <div class="ambiguity-result"><div class="ambiguity-outcome"><strong>${c?esc(c.preferred_name):'단일 개념 없음'}</strong>${decisionBadge(r)}</div><p>${esc(r.rationale_ko)} ${c?`<button class="text-button" data-concept="${esc(c.concept_key)}" data-record="${esc(r.source_id)}">전체 근거 ↗</button>`:`<button class="text-button" data-open-record="${esc(r.source_id)}">보류 사유 ↗</button>`}</p></div></li>`;
     }).join('')}</ol>
-    <p class="example-other"><a href="#cases/cd">판단 기준: 약어의 여러 뜻 ↗</a>${featured?' · 다른 예시: <button class="text-button" data-query="T2DM">T2DM 표기 변형 ↗</button>':''}</p>`;
+    ${featured?'':'<p class="example-other"><a href="#cases/cd">판단 기준: 약어의 여러 뜻 ↗</a></p>'}`;
 }
 
 function atomsHTML(atoms) {
@@ -362,7 +378,7 @@ function render() {
     const active=a.dataset.nav===(['aliases','analyze'].includes(route.page)?'dictionary':route.page);a.classList.toggle('active',active);
     if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');
   });
-  const titles={dictionary:'동의어 사전',aliases:'별칭 연결',analyze:'새 키워드 확인',records:'분류 결과',cases:'판단 기준',materials:'구축 보고서'};
+  const titles={dictionary:'동의어 사전',aliases:'별칭 연결',analyze:'직접 입력해 보기',records:'분류 결과',cases:'판단 기준',materials:'구축 보고서'};
   document.title=`${titles[route.page] ?? '동의어 사전'} | Indication Atlas`;
   if(route.page==='records')recordsPage();
   else if(route.page==='aliases')aliasesPage();
@@ -375,6 +391,7 @@ function render() {
 document.addEventListener('click', async event=>{
   const button=event.target.closest('button'); if(!button)return;
   const d=button.dataset;
+  if(d.featuredTab) { featuredTab=d.featuredTab;updateSearch();document.querySelector(`[data-featured-tab="${featuredTab}"]`)?.focus();return; }
   if(d.query!=null) { navigate('dictionary',{q:d.query}); return; }
   if(d.case) { navigate('cases/'+d.case); return; }
   if(d.concept) { navigate('dictionary',{q:$('#dictionary-search')?.value ?? '',concept:d.concept,...(d.record?{record:d.record}:{})}); return; }

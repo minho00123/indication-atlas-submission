@@ -677,3 +677,14 @@ summary>.badge { flex-shrink:0; }
   .search-heading-row { display:block; }
   .search-heading-row .examples { margin:7px 0 0; }
 }
+.direct-input-note { margin:8px 0 0; font-size:13px; color:var(--muted); }
+.direct-input-note a { font-weight:600; }
+.featured-tabs { display:flex; gap:6px; margin:0 0 12px; flex-wrap:wrap; }
+.featured-tabs button { border:1px solid var(--line); background:var(--surface); color:var(--muted); border-radius:999px; padding:5px 14px; font-size:13px; font-weight:600; }
+.featured-tabs button.active { background:var(--tint); border-color:#a4dfff; color:var(--accent-dark); }
+.featured-tabs button:hover { border-color:#a4dfff; }
+.featured-links { margin-top:12px; font-size:13px; line-height:1.9; }
+.merge-conditions { font-size:13px; color:var(--muted); margin:0 0 4px !important; }
+.merge-conditions .atom { margin:0 2px; }
+.featured-head { display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:6px; }
+.featured-head .featured-tabs { margin:0; }

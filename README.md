@@ -15,7 +15,7 @@
 - **동의어 사전:** CD·AML의 다의 후보, T2DM 동의어, PASC, NAFLD/MASLD 관련 결과.
 - **[검증 리포트](https://indication-atlas.netlify.app/#materials/audit):** 전체 사전 A·행 출처 제거 B·규칙/조건 감사 C의 전체 결과와 미지원 이유. 개발 자료의 일관성·의존성 검사입니다.
 - **분류 결과:** 전체 판정표와 원문·이유·출처.
-- **[새 키워드 확인](https://indication-atlas.netlify.app/#analyze):** 입력한 문서 정의로 CD·AML 등을 연결하거나 보류하고, 일부 추가 조건을 원문 구간으로 추출하는 시제품.
+- **[직접 입력해 보기](https://indication-atlas.netlify.app/#analyze):** 입력한 문서 정의로 CD·AML 등을 연결하거나 보류하고, 일부 추가 조건을 원문 구간으로 추출하는 시제품.
 - **판단 기준:** 공통 규칙 G01–G12와 범위 차이·문맥·OR 조건·입력 충돌의 적용 사례.
 - **구축 보고서:** 구축 과정, 서비스 조사, 검증과 한계, 파일과 실행 방법. 판단 가이드라인과 사례별 개념 비교는 판단 기준에서 제공합니다.
 
@@ -38,7 +38,7 @@ python3 -m unittest discover -s tests -p 'test_*.py'
 
 `serve.py`는 빌드한 뒤 로컬 서버를 시작합니다. 결과는 `dist/`이며 Git에는 생성 파일 대신 소스와 기준 데이터를 올립니다. 네트워크·계정·모델 API 없이 빌드할 수 있습니다.
 
-선택적인 분석 모듈 개발 검사는 Node.js 22에서 `node --test tests/test_*.mjs`로 실행합니다. 같은 검사를 웹의 새 키워드 확인 화면에서도 실행할 수 있습니다. 작성자 구성 사례에 대한 기능 검사이며 독립 임상 정확도가 아닙니다. 자세한 지원 범위는 [분석 시제품 문서](docs/ANALYZER.md)에 기록했습니다.
+선택적인 분석 모듈 개발 검사는 Node.js 22에서 `node --test tests/test_*.mjs`로 실행합니다. 같은 검사를 웹의 직접 입력해 보기 화면에서도 실행할 수 있습니다. 작성자 구성 사례에 대한 기능 검사이며 독립 임상 정확도가 아닙니다. 자세한 지원 범위는 [분석 시제품 문서](docs/ANALYZER.md)에 기록했습니다.
 
 새 규칙 대조를 재현하려면 Node.js 22에서 `node tools/run_rule_audit.mjs --check`를 실행합니다. Python 빌드는 저장된 대조의 입력 해시·집계를 검증하며 새 의학 판정을 생성하지 않습니다. [대조 설계](docs/RULE_AUDIT.md)를 제공합니다.
 
