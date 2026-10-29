@@ -17,8 +17,7 @@ def run(base_url,browser_executable=None,output=None):
         page.goto(base_url,wait_until='networkidle')
         # Entry: the overview explains the result before the search tool.
         expect(page.locator('#hero-title')).to_have_text('질환 동의어 사전')
-        expect(page.locator('.footer-links a')).to_have_count(12)
-        expect(page.locator('.footer-bottom')).to_contain_text('진단·치료 판단에 쓰지 않습니다')
+        expect(page.locator('.footer-repo')).to_have_attribute('href','https://github.com/minho00123/indication-atlas-submission')
         expect(page.locator('.main-nav a[data-nav="overview"]')).to_have_attribute('aria-current','page')
         results.append('Desktop entry and snapshot counts')
         assert page.locator('.stats .stat-value').evaluate_all('(els)=>els.map(e=>e.textContent.replace(/[^0-9]/g,""))')==['300','287','419','2']
@@ -110,7 +109,7 @@ def run(base_url,browser_executable=None,output=None):
         page.locator('.main-nav').get_by_role('link',name='개요',exact=True).click()
         page.locator('[data-concept-list]').click()
         expect(page.locator('#search-heading')).to_be_focused()
-        assert 80 <= page.locator('#search-heading').bounding_box()['y'] <= 180
+        assert 80 <= page.locator('#search-heading').bounding_box()['y'] <= 220  # short pages cannot scroll the heading fully to the top
         page.locator('.main-nav').get_by_role('link',name='개요',exact=True).click()
         page.locator('.stat[href="#aliases"]').click()
         expect(page.locator('#alias-count')).to_have_text('419 / 419건')
