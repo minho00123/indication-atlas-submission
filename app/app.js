@@ -8,6 +8,7 @@ const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;',
 const safeURL = value => { try { const u=new URL(value); return ['https:','http:'].includes(u.protocol) ? u.href : ''; } catch { return ''; } };
 const icon = '<svg class="search-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" stroke-width="1.6"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
 const entityLabels = {DISEASE_OR_CONDITION:'질환·조건',DISEASE_GROUP:'질환군',NEOPLASM_GROUP:'신생물군',CLINICAL_CONDITION:'임상 조건',CLINICAL_EVENT:'임상 사건',CLINICAL_FINDING:'임상 소견',CLINICAL_SYNDROME:'임상 증후군',LIFE_STAGE:'생애 단계',PHYSIOLOGICAL_STATE:'생리 상태',SYMPTOM:'증상'};
+const holdReasons = {HOLD_AMBIGUOUS:'구별할 문맥이 없어 보류했습니다.',HOLD_SOURCE_CONFLICT:'키워드와 문맥이 충돌해 보류했습니다.'};
 const decisionLabels = {PROVISIONAL_MAP:'개념 연결 · 잠정',LOCAL_CONCEPT:'자체 관리 개념',ROUTE_ENTITY:'별도 개체',SPLIT_EXPRESSION:'OR 조건',HOLD_AMBIGUOUS:'문맥 부족 · 보류',HOLD_SOURCE_CONFLICT:'입력 충돌 · 보류'};
 const relations = {EXACT:'같은 개념',BROADER:'원문이 더 넓음',NARROWER:'원문이 더 좁음',RELATED:'관련 개념',UNKNOWN:'동등성 미확정',DIFFERENT_ENTITY:'다른 개체',COMPONENT:'OR 구성 개념'};
 const kindLabels = {PROVIDED_INPUT:'제공된 표현',REVIEWED_DISPLAY_NAME:'검토한 표시명',REVIEWED_EXACT_PREFERRED_LABEL:'검토한 공식 명칭',EXPLICIT_CITED_ALIAS:'근거로 추가한 별칭',EXPLICIT_REVIEWED_SOURCE_ALIAS:'근거로 추가한 별칭'};
@@ -139,7 +140,10 @@ function updateSearch({autoSelect=true}={}) {
   } else keys=[...result.exactKeys,...relatedKeys,...result.partialKeys];
   const pages=Math.max(1,Math.ceil(keys.length/pageSize)); searchPage=Math.min(searchPage,pages-1);
   const visible=keys.slice(searchPage*pageSize,(searchPage+1)*pageSize);
-  if(autoSelect && !selectedKey && result.exactKeys.length===1) selectedKey=result.exactKeys[0];
+  // A held row with the same spelling needs the comparison panel even when one concept matches.
+  const sameSpelling=term=>data.records.filter(r=>normalize(r.keyword)===normalize(term));
+  const ambiguous=!!normalize(q) && (result.exactKeys.length>1 || result.holds.some(r=>normalize(r.keyword)===normalize(q)));
+  if(autoSelect && !selectedKey && result.exactKeys.length===1 && !ambiguous) selectedKey=result.exactKeys[0];
   let previousGroup='';
   const items=visible.map(key=>{
     const type=!normalize(q)?'browse':result.exactKeys.includes(key)?'exact':relatedKeys.includes(key)?'related':'partial';
@@ -154,9 +158,6 @@ function updateSearch({autoSelect=true}={}) {
     ${[...result.holds,...result.expressions].map(r=>`<div class="hold-result">${decisionBadge(r)}<p>${esc(r.source_id)} · ${esc(r.keyword)}</p><button data-open-record="${r.source_id}">원문과 판단 이유 보기 ↗</button></div>`).join('')}
     <div class="pager"><button data-search-page="-1" ${searchPage===0?'disabled':''} aria-label="이전 개념 목록">← 이전</button><span>${searchPage+1} / ${pages}</span><button data-search-page="1" ${searchPage>=pages-1?'disabled':''} aria-label="다음 개념 목록">다음 →</button></div>`;
   const target=$('#dictionary-detail');
-  // Same spelling, several concepts or held rows: show every row's context and decision side by side.
-  const sameSpelling=term=>data.records.filter(r=>normalize(r.keyword)===normalize(term));
-  const ambiguous=normalize(q) && (result.exactKeys.length>1 || result.holds.some(r=>normalize(r.keyword)===normalize(q)));
   $('#concept-explorer .explorer').classList.toggle('featured',!selectedKey && !normalize(q));
   if(selectedKey && conceptByKey.has(selectedKey)) {
     const c=conceptByKey.get(selectedKey);
@@ -169,14 +170,15 @@ function updateSearch({autoSelect=true}={}) {
   } else if(ambiguous) {
     target.innerHTML=ambiguityHTML(q.trim(),sameSpelling(q),false);
   } else {
-    target.innerHTML=`<div class="empty-state"><div class="empty-symbol" aria-hidden="true">⌕</div><h3>항목을 선택해 주세요</h3><p>항목을 선택하면 판단 이유, 제공 문맥과 연결된 이름을 볼 수 있습니다.</p>${result.holds.length?`<p>${result.holds.map(r=>`${esc(r.source_id)}는 추가 문맥이 없어 보류했습니다.`).join('<br>')}</p>`:''}</div>`;
+    target.innerHTML=`<div class="empty-state"><div class="empty-symbol" aria-hidden="true">⌕</div><h3>항목을 선택해 주세요</h3><p>항목을 선택하면 판단 이유, 제공 문맥과 연결된 이름을 볼 수 있습니다.</p>${result.holds.length?`<p>${result.holds.map(r=>`${esc(r.source_id)}: ${esc(holdReasons[r.research_decision] ?? '보류했습니다.')}`).join('<br>')}</p>`:''}</div>`;
   }
 }
 
 function ambiguityHTML(term,rows,featured) {
+  const several=new Set(rows.map(r=>r.concept_key).filter(Boolean)).size>1;
   return `<div class="badge-row">${featured?badge('대표 사례 표시 중','gray'):''}${badge('같은 표기 · 다른 처리','amber')}</div>
-    <h2 class="ambiguity-title">${esc(term)}: 문맥에 따라 다른 처리</h2>
-    <p class="ambiguity-lead">이 표기는 하나의 질환으로 확정하지 않았습니다. 문맥이 뜻을 가리키는 항목만 연결했습니다.${rows.some(r=>!r.concept_key)?' 근거가 없는 항목은 보류했습니다.':''}</p>
+    <h2 class="ambiguity-title">${esc(term)}: ${several?'문맥에 따라 다른 처리':'같은 표기, 항목별 처리'}</h2>
+    <p class="ambiguity-lead">${several?'이 표기는 하나의 질환으로 확정하지 않았습니다. ':''}같은 표기를 가진 항목의 문맥과 처리 결과를 비교했습니다. 연결·보류한 이유는 각 항목에 표시했습니다.</p>
     <ol class="ambiguity-rows">${rows.map(r=>{
       const c=r.concept_key?conceptByKey.get(r.concept_key):null;
       return `<li class="ambiguity-row${c?'':' held'}"><div class="ambiguity-source"><span class="ambiguity-id">${esc(r.source_id)} · 제공 문맥</span><blockquote>${esc(r.raw_context)}</blockquote></div>
