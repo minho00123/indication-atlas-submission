@@ -114,15 +114,15 @@ K201은 NCIt의 주 정의와 NICHD 대체 정의의 범위가 다름을 함께 
 
 ## 데이터 필드 대응
 
-본문의 용어는 다운로드한 JSON·CSV의 아래 필드에 해당합니다.
+본문의 용어는 아래 파일의 필드에 해당합니다. `records.json`·`judgments.csv`는 분류 결과 화면에서, `data/dictionary.json`은 전체 ZIP에서 받을 수 있습니다.
 
-| 본문 용어 | 데이터 필드 |
-|---|---|
-| 항목 번호 · 키워드 · 제공 문맥 | source_id · keyword · raw_context |
-| 입력 파일의 정규화 열 | input_normalized_condition |
-| 개념 키 · 개체 유형 | concept_key · entity_type |
-| 처리 상태 | research_decision (개념 연결·잠정 PROVISIONAL_MAP, 자체 관리 개념 LOCAL_CONCEPT, 별도 개체 ROUTE_ENTITY, OR 조건 SPLIT_EXPRESSION, 문맥 부족 보류 HOLD_AMBIGUOUS, 입력 충돌 보류 HOLD_SOURCE_CONFLICT) |
-| 이름 구성 요소 · 추가 조건 | concept_name_components · clinical_attributes |
-| 기본 의미 정책 · 정의 경고 | scope_assumptions · definition_warnings |
-| 관련 결과 | related_matches |
-| 후보와의 범위 관계 | reviewed_candidates[].relation |
+| 본문 용어 | 데이터 필드 | 확인할 파일 |
+|---|---|---|
+| 항목 번호 · 키워드 · 제공 문맥 | source_id · keyword · raw_context | records.json, judgments.csv |
+| 입력 파일의 정규화 열 | input_normalized_condition | records.json, judgments.csv |
+| 개념 키 · 개체 유형 | concept_key · entity_type | records.json, judgments.csv |
+| 처리 상태 | research_decision (개념 연결·잠정 PROVISIONAL_MAP, 자체 관리 개념 LOCAL_CONCEPT, 별도 개체 ROUTE_ENTITY, OR 조건 SPLIT_EXPRESSION, 문맥 부족 보류 HOLD_AMBIGUOUS, 입력 충돌 보류 HOLD_SOURCE_CONFLICT) | records.json, judgments.csv |
+| 이름 구성 요소 · 추가 조건 | concept_name_components · clinical_attributes | records.json, judgments.csv |
+| 기본 의미 정책 · 정의 경고 | scope_assumptions · definition_warnings | records.json(해당 행), judgments.csv |
+| 후보와의 범위 관계 | reviewed_candidates[].relation | records.json |
+| 관련 결과의 바탕이 되는 관련 개념 연결 | concepts[].related_concepts | 전체 ZIP의 data/dictionary.json |

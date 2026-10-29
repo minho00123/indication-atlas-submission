@@ -286,7 +286,7 @@ function recordsPage() {
     <div class="filter-bar"><label class="search-box">${icon}<input id="record-search" type="search" placeholder="항목 번호·키워드·문맥 검색" aria-label="분류 결과 검색"></label>
     <select id="decision-filter" aria-label="처리 상태 필터"><option value="">모든 처리 상태</option>${decisionOptions.map(([v,l])=>`<option value="${v}">${l}</option>`).join('')}</select>
     <select id="entity-filter" aria-label="개체 유형 필터"><option value="">모든 개체 유형</option>${[...new Set(data.records.map(r=>r.entity_type))].map(e=>`<option value="${e}">${esc(entityLabels[e] ?? e)}</option>`).join('')}</select></div>
-    <div class="status-chips" role="group" aria-label="처리 상태별 건수">${decisionOptions.map(([v,l])=>`<button class="example-chip" data-decision-chip="${v}">${l} ${data.records.filter(r=>r.research_decision.startsWith(v)).length}</button>`).join('')}</div>
+    <div class="status-chips" role="group" aria-label="처리 상태별 건수 · 전체 300건 기준"><span class="source-note">전체 ${data.records.length}건 기준</span>${decisionOptions.map(([v,l])=>`<button class="example-chip" data-decision-chip="${v}">${l} ${data.records.filter(r=>r.research_decision.startsWith(v)).length}</button>`).join('')}</div>
     <div id="record-table" class="panel section-space"></div></div>`;
   const chips=[...document.querySelectorAll('[data-decision-chip]')];
   const markChips=()=>chips.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.decisionChip===$('#decision-filter').value)));
@@ -311,7 +311,7 @@ function updateRecords() {
 }
 
 function aliasesPage() {
-  $('#main-content').innerHTML=`<div class="container">${heading('표현과 개념의 연결','별칭 연결 목록',`${data.metadata.aliases}개 연결을 확인할 수 있습니다. 고유 검색 문자열은 ${data.metadata.unique_alias_spellings}개이며, 같은 표현도 제공 항목이나 개념이 다르면 별도 연결로 기록합니다.`)}
+  $('#main-content').innerHTML=`<div class="container">${heading('표현과 개념의 연결','별칭 연결 목록',`출처별 별칭 연결 ${data.metadata.aliases}건입니다. 표기를 정규화한 서로 다른 검색 표현은 ${data.metadata.unique_alias_spellings}개이며, 같은 표현도 제공 항목이나 개념이 다르면 별도 연결로 기록합니다.`)}
     <a class="back-link" href="#dictionary">← 동의어 사전으로 돌아가기</a>
     <label class="search-box">${icon}<input id="alias-search" type="search" placeholder="별칭·개념명·항목 번호 검색" aria-label="별칭 연결 검색"></label>
     <div id="alias-table" class="panel section-space"></div></div>`;
