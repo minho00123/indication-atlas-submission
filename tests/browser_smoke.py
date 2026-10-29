@@ -17,6 +17,8 @@ def run(base_url,browser_executable=None,output=None):
         page.goto(base_url,wait_until='networkidle')
         # Entry: the overview explains the result before the search tool.
         expect(page.locator('#hero-title')).to_have_text('질환 동의어 사전')
+        expect(page.locator('.footer-links a')).to_have_count(12)
+        expect(page.locator('.footer-bottom')).to_contain_text('진단·치료 판단에 쓰지 않습니다')
         expect(page.locator('.main-nav a[data-nav="overview"]')).to_have_attribute('aria-current','page')
         results.append('Desktop entry and snapshot counts')
         assert page.locator('.stats .stat-value').evaluate_all('(els)=>els.map(e=>e.textContent.replace(/[^0-9]/g,""))')==['300','287','419','2']
@@ -94,10 +96,10 @@ def run(base_url,browser_executable=None,output=None):
         page.keyboard.press('Enter')
         expect(page.locator('#main-content')).to_be_focused()
         results.append('Keyboard skip navigation stays on the intended route')
-        page.get_by_role('link',name='개요',exact=True).click()
+        page.locator('.main-nav').get_by_role('link',name='개요',exact=True).click()
         page.locator('.stat[href="#records"]').click()
         expect(page.locator('#record-count')).to_have_text('300 / 300건')
-        page.get_by_role('link',name='개요',exact=True).click()
+        page.locator('.main-nav').get_by_role('link',name='개요',exact=True).click()
         page.locator('.stat[href="#records?decision=HOLD"]').click()
         expect(page.locator('#record-count')).to_have_text('2 / 300건')
         expect(page.locator('#record-table tbody tr')).to_have_count(2)
@@ -105,11 +107,11 @@ def run(base_url,browser_executable=None,output=None):
         expect(page.locator('.detail')).to_contain_text('문맥 부족')
         page.get_by_role('button',name='← 분류 결과 목록').click()
         expect(page.locator('#record-count')).to_have_text('2 / 300건')
-        page.get_by_role('link',name='개요',exact=True).click()
+        page.locator('.main-nav').get_by_role('link',name='개요',exact=True).click()
         page.locator('[data-concept-list]').click()
         expect(page.locator('#search-heading')).to_be_focused()
         assert 80 <= page.locator('#search-heading').bounding_box()['y'] <= 180
-        page.get_by_role('link',name='개요',exact=True).click()
+        page.locator('.main-nav').get_by_role('link',name='개요',exact=True).click()
         page.locator('.stat[href="#aliases"]').click()
         expect(page.locator('#alias-count')).to_have_text('419 / 419건')
         expect(page.locator('#alias-table tbody tr')).to_have_count(25)
@@ -124,7 +126,7 @@ def run(base_url,browser_executable=None,output=None):
         expect(page.locator('#alias-search')).to_have_value('T2DM')
         page.locator('#alias-table a[href^="#records"]').click()
         expect(page.locator('.detail')).to_contain_text('T2DM')
-        page.get_by_role('link',name='동의어 사전',exact=True).click()
+        page.locator('.main-nav').get_by_role('link',name='동의어 사전',exact=True).click()
         results.append('All summary links, two held rows, alias pagination/search and cited detail navigation')
         if output:page.screenshot(path=str(output/'desktop.png'),full_page=True)
         page.locator('#dictionary-search').fill('CD')
@@ -179,7 +181,7 @@ def run(base_url,browser_executable=None,output=None):
         expect(page.locator('#dictionary-detail')).to_contain_text('Long COVID')
         expect(page.locator('#dictionary-detail')).to_contain_text('기간')
         results.append('PASC alias and definition warning')
-        page.get_by_role('link',name='분류 결과',exact=True).click()
+        page.locator('.main-nav').get_by_role('link',name='분류 결과',exact=True).click()
         expect(page.locator('[data-decision-chip]')).to_have_count(5)
         assert page.locator('[data-decision-chip]').evaluate_all('(els)=>els.map(e=>e.textContent.trim())')==['개념 연결 276','자체 관리 개념 17','별도 개체 4','OR 조건 1','보류 2']
         page.locator('[data-decision-chip="LOCAL_CONCEPT"]').click()
@@ -250,7 +252,7 @@ def run(base_url,browser_executable=None,output=None):
         page.goto(base_url+'#materials/downloads',wait_until='networkidle')
         expect(page.locator('#document-content')).to_contain_text('Netlify')
         with page.expect_download() as download:
-            page.locator('a[href="./downloads/indication-atlas-submission.zip"]').click()
+            page.locator('#main-content a[href="./downloads/indication-atlas-submission.zip"]').click()
         with tempfile.TemporaryDirectory() as tmp:
             dest=Path(tmp)/'submission.zip';download.value.save_as(dest)
             with zipfile.ZipFile(dest) as archive:assert any(n.endswith('/tools/build.py') for n in archive.namelist())
