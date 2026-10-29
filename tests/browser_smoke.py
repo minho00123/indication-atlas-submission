@@ -15,16 +15,21 @@ def run(base_url,browser_executable=None,output=None):
         page=browser.new_page(viewport={'width':1440,'height':1050})
         errors=[];console_errors=[];page.on('pageerror',lambda e:errors.append(str(e)));page.on('console',lambda m:console_errors.append(m.text) if m.type=='error' else None)
         page.goto(base_url,wait_until='networkidle')
-        expect(page.get_by_role('heading',name='딕셔너리 탐색')).to_be_visible()
+        expect(page.get_by_role('heading',name='사전 검색')).to_be_visible()
         results.append('Desktop entry and snapshot counts')
-        expect(page.locator('#hero-title')).to_contain_text('300개 입력을 검토해')
-        expect(page.locator('#hero-title')).to_contain_text('287개 개념 그룹')
+        expect(page.locator('#hero-title')).to_have_text('질환 동의어 사전')
+        assert page.locator('.stats .stat-value').evaluate_all('(els)=>els.map(e=>e.textContent.replace(/[^0-9]/g,""))')==['300','287','419','2']
+        assert page.locator('#dictionary-search').bounding_box()['y']+page.locator('#dictionary-search').bounding_box()['height']<1000
+        expect(page.locator('#dictionary-detail')).to_contain_text('대표 예시 표시 중')
+        expect(page.locator('#dictionary-detail h2')).to_have_text('type 2 diabetes mellitus')
+        expect(page.locator('#dictionary-detail .example-evidence')).not_to_have_attribute('open','')
+        expect(page.locator('#dictionary-detail .alias-list').first).to_contain_text('T2DM')
         cards=page.locator('.featured-grid [data-case]')
         assert cards.evaluate_all('(els)=>els.map(e=>e.dataset.case)')==['cd','eczema','nsclc','masld','conflict']
         assert [tag.split(' · ',1)[0] for tag in cards.locator('.feature-kicker').all_text_contents()]==['01','02','03','04','05']
         counts=page.locator('#results .result-meta').all_text_contents()
-        assert all('2개 원본' in text or '6개 원본' in text for text in counts[:6])
-        assert all('1개 원본' in text for text in counts[6:])
+        assert all('제공 항목 2건' in text or '제공 항목 6건' in text for text in counts[:6])
+        assert all('제공 항목 1건' in text for text in counts[6:])
         results.append('Result headline, five cases and all six multi-source groups first')
         page.keyboard.press('Tab')
         expect(page.locator('.skip-link')).to_be_focused()
@@ -33,15 +38,15 @@ def run(base_url,browser_executable=None,output=None):
         results.append('Keyboard skip navigation stays on the intended route')
         page.locator('.stat[href="#records"]').click()
         expect(page.locator('#record-count')).to_have_text('300 / 300건')
-        page.get_by_role('link',name='딕셔너리',exact=True).click()
+        page.get_by_role('link',name='동의어 사전',exact=True).click()
         page.locator('.stat[href="#records?decision=HOLD"]').click()
         expect(page.locator('#record-count')).to_have_text('2 / 300건')
         expect(page.locator('#record-table tbody tr')).to_have_count(2)
         page.get_by_role('button',name='K009 판단 상세 보기').click()
         expect(page.locator('.detail')).to_contain_text('문맥 부족')
-        page.get_by_role('button',name='← 원본 300건 목록').click()
+        page.get_by_role('button',name='← 분류 결과 목록').click()
         expect(page.locator('#record-count')).to_have_text('2 / 300건')
-        page.get_by_role('link',name='딕셔너리',exact=True).click()
+        page.get_by_role('link',name='동의어 사전',exact=True).click()
         page.locator('[data-concept-list]').click()
         expect(page.locator('#search-heading')).to_be_focused()
         assert 80 <= page.locator('#search-heading').bounding_box()['y'] <= 180
@@ -61,7 +66,7 @@ def run(base_url,browser_executable=None,output=None):
         expect(page.locator('#alias-search')).to_have_value('T2DM')
         page.locator('#alias-table a[href^="#records"]').click()
         expect(page.locator('.detail')).to_contain_text('T2DM')
-        page.get_by_role('link',name='딕셔너리',exact=True).click()
+        page.get_by_role('link',name='동의어 사전',exact=True).click()
         results.append('All summary links, two held rows, alias pagination/search and cited detail navigation')
         if output:page.screenshot(path=str(output/'desktop.png'),full_page=True)
         page.locator('#dictionary-search').fill('CD')
@@ -86,13 +91,13 @@ def run(base_url,browser_executable=None,output=None):
         expect(page.locator('#dictionary-detail')).to_contain_text('Long COVID')
         expect(page.locator('#dictionary-detail')).to_contain_text('기간')
         results.append('PASC alias and definition warning')
-        page.get_by_role('link',name='원본 300건',exact=True).click()
+        page.get_by_role('link',name='분류 결과',exact=True).click()
         page.locator('#decision-filter').select_option('HOLD')
         expect(page.locator('#record-count')).to_have_text('2 / 300건')
         page.get_by_role('button',name='K024 판단 상세 보기').click()
         expect(page.locator('.detail')).to_contain_text('plaque psoriasis')
         expect(page.locator('.detail')).to_contain_text('입력 충돌')
-        page.get_by_role('button',name='← 원본 300건 목록').click()
+        page.get_by_role('button',name='← 분류 결과 목록').click()
         expect(page.locator('#decision-filter')).to_have_value('HOLD')
         results.append('300-row filters, K024 detail and retained filter')
         page.goto(base_url+'#records?record=K018',wait_until='networkidle')
@@ -111,7 +116,7 @@ def run(base_url,browser_executable=None,output=None):
         results.append('Case studies and rendered research/guidelines')
         page.goto(base_url,wait_until='networkidle')
         expect(page.locator('.key-point')).to_have_count(3)
-        expect(page.locator('#dictionary-detail .empty-state')).to_be_visible()
+        expect(page.locator('#dictionary-detail')).to_contain_text('대표 예시 표시 중')
         card=page.locator('.key-point').nth(2)
         expect(card).to_contain_text('반례')
         card.click()
@@ -129,7 +134,7 @@ def run(base_url,browser_executable=None,output=None):
         expect(page.locator('.external-supplement').nth(1)).to_contain_text('단일 AI')
         response=page.request.get(base_url+'evidence/boundary_checks/manifest.json')
         assert response.ok and response.json()['clinical_trials']['unique_trials']==40
-        results.append('Key points, collapsed home detail, doc summary, separated exploratory appendices and published evidence')
+        results.append('Compact key points, labeled English example, folded evidence, seven-stage report and separate exploratory appendices')
         for case in ['cd','eczema','nsclc','masld','conflict','or','her2','gca','sense','long-covid']:
             page.goto(base_url+'#cases/'+case,wait_until='networkidle')
             expect(page.locator('.comparison-table')).to_be_visible()
@@ -168,7 +173,7 @@ def run(base_url,browser_executable=None,output=None):
         assert not normalization_errors,normalization_errors
         results.append('Browser normalization equals all reviewed alias keys')
         page.goto(base_url,wait_until='networkidle')
-        page.get_by_role('link',name='새 문장 분석 열기 ↗').click()
+        page.get_by_role('link',name='새 키워드 확인',exact=False).click()
         expect(page.locator('#analyzer-decision')).to_have_text('약어 의미 보류')
         page.get_by_role('button',name='크론병으로 정의',exact=True).click()
         expect(page.locator('.runtime-concepts')).to_contain_text('MONDO:0005011')
@@ -355,25 +360,37 @@ def run(base_url,browser_executable=None,output=None):
         expect(page.locator('.compare-columns')).to_contain_text('NCIT:C35065')
         expect(page.locator('.compare-note')).to_contain_text('같은 개념')
         results.append('Optional comparison distinguishes concept groups, narrower candidates and same-concept names')
-        expect(page.locator('.materials-tabs a')).to_have_count(5)
-        assert page.locator('.materials-tabs a').all_text_contents()==['판단 가이드라인','유사 서비스 조사','구축 방법·한계','검증 리포트','실행·다운로드']
-        for legacy,canonical in [('compare','guidelines?section=compare'),('boundaries','methodology?section=counterexamples'),('analyzer','methodology'),('audit-method','audit?section=method'),('review','methodology')]:
+        page.goto(base_url+'#cases/examples',wait_until='networkidle')
+        expect(page.locator('.case-group')).to_have_count(6)
+        expect(page.locator('.case-grid .feature-card')).to_have_count(10)
+        page.goto(base_url+'#cases',wait_until='networkidle')
+        expect(page.locator('#document-content')).to_contain_text('G12')
+        assert page.locator('.criteria-tabs a').all_text_contents()==['공통 기준','사례별 검토']
+        page.goto(base_url+'#materials',wait_until='networkidle')
+        expect(page.locator('.materials-tabs a')).to_have_count(4)
+        assert page.locator('.materials-tabs a').all_text_contents()==['구축 과정','서비스 조사','검증과 한계','파일과 실행 방법']
+        for legacy,canonical in [('guidelines','cases'),('compare','cases/examples?section=compare'),('boundaries','materials/methodology?section=counterexamples'),('analyzer','materials/methodology'),('audit-method','materials/audit?section=method'),('review','materials/methodology')]:
             page.goto(base_url+'#materials/'+legacy,wait_until='networkidle')
-            expect(page).to_have_url(re.compile(re.escape('#materials/'+canonical)+'$'))
+            expect(page).to_have_url(re.compile(re.escape('#'+canonical)+'$'))
             if legacy=='compare':expect(page.locator('#concept-comparison')).to_be_focused()
             if legacy=='audit-method':expect(page.locator('#audit-method-section')).to_be_focused()
             expect(page.locator('a[href="#materials/review"]')).to_have_count(0)
         assert page.request.get(base_url+'content/review.html').status==404
         evidence=page.request.get(base_url+'evidence/review_process/manifest.json')
         assert evidence.ok and len(evidence.json()['files'])>=5
-        results.append('Five material tabs, legacy canonical redirects, retired review page removed and execution evidence preserved')
+        results.append('Two criteria sections, six groups/ten cases, four report sections, legacy redirects and preserved evidence')
         page.set_viewport_size({'width':390,'height':844})
-        for route in ['#dictionary','#records','#cases','#cases/cd','#materials/guidelines','#materials/research','#materials/methodology','#materials/downloads','#materials/boundaries','#aliases','#analyze','#materials/analyzer','#materials/audit','#materials/review','#materials/audit-method','#materials/compare']:
+        page.goto(base_url+'#dictionary',wait_until='networkidle')
+        search_box=page.locator('#dictionary-search').bounding_box()
+        assert search_box['y']+search_box['height']<844,search_box
+        page.get_by_role('button',name='← 개념 목록',exact=True).click()
+        expect(page.locator('#results')).to_be_visible()
+        for route in ['#cases/examples','#dictionary','#records','#cases','#cases/cd','#materials/guidelines','#materials/research','#materials/methodology','#materials/downloads','#materials/boundaries','#aliases','#analyze','#materials/analyzer','#materials/audit','#materials/review','#materials/audit-method','#materials/compare']:
             page.goto(base_url+route,wait_until='networkidle')
             assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth'),route
         for width in [320,390]:
             page.set_viewport_size({'width':width,'height':844})
-            page.goto(base_url+'#materials/guidelines',wait_until='networkidle')
+            page.goto(base_url+'#materials/methodology',wait_until='networkidle')
             geometry=page.locator('.materials-tabs a').evaluate_all('(els)=>els.map(e=>({top:Math.round(e.getBoundingClientRect().top),overflow:e.scrollWidth>e.clientWidth}))')
             assert len({g['top'] for g in geometry})<=2,(width,geometry)
             assert not any(g['overflow'] for g in geometry),(width,geometry)

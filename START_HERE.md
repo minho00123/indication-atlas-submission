@@ -6,20 +6,21 @@
 
 ## 확인 순서
 
-1. **딕셔너리:** CD·T2DM 등을 검색하고 개념·별칭·관련 원문과 근거를 확인합니다.
-2. **원본 300건:** 전체 판정과 후보 정의·범위 관계를 확인합니다.
-3. **판단 사례:** 같은 개념과 다른 범위를 구별한 사례를 읽습니다.
-4. **구축·제출 자료:** 아래 5개 메뉴에서 과제 자료를 확인합니다.
+1. **동의어 사전:** CD·T2DM 등을 검색하고 개념·별칭·관련 원문과 근거를 확인합니다.
+2. **분류 결과:** 전체 판정과 후보 정의·범위 관계를 확인합니다.
+3. **판단 기준:** 같은 개념과 다른 범위를 구별한 사례를 읽습니다.
+4. **구축 보고서:** 아래 네 구역에서 조사·구축·검증·실행 자료를 확인합니다.
 
-| 메뉴 | 포함한 내용 |
+| 구역 | 포함한 내용 |
 |---|---|
-| [판단 가이드라인](https://indication-atlas.netlify.app/#materials/guidelines) | G01–G12와 하단의 개념 비교 4쌍 |
-| [유사 서비스 조사](https://indication-atlas.netlify.app/#materials/research) | 공식 공개 자료를 바탕으로 조사한 관리·검색 방식 |
-| [구축 방법·한계](https://indication-atlas.netlify.app/#materials/methodology) | 7단계 구축 과정, 반례와 적용 조건, 후속 연구·한계 |
-| [검증 리포트](https://indication-atlas.netlify.app/#materials/audit) | 전체 300행 A/B/C 대조, 규칙 지원표와 하단 대조 방법 |
-| [실행·다운로드](https://indication-atlas.netlify.app/#materials/downloads) | 실행법·CSV·JSON·전체 코드와 자료 ZIP |
+| [구축 과정](https://indication-atlas.netlify.app/#materials/methodology) | 문제 정의부터 반례·후속 연구까지 이어지는 7단계 |
+| [서비스 조사](https://indication-atlas.netlify.app/#materials/research) | 공식 공개 자료에서 확인한 관리·검색 방식과 이 사전의 방향 |
+| [검증과 한계](https://indication-atlas.netlify.app/#materials/audit) | 300행 A/B/C 대조, 규칙 지원표와 대조 방법 |
+| [파일과 실행 방법](https://indication-atlas.netlify.app/#materials/downloads) | 실행법·CSV·JSON·전체 코드와 자료 ZIP |
 
-[새 문장 분석](https://indication-atlas.netlify.app/#analyze)은 딕셔너리의 진입점에서 엽니다. 등록된 표현·명시적 약어 정의·일부 조건 패턴을 처리하는 시제품이며 환자의 진단·적격성을 판정하지 않습니다.
+[판단 기준](https://indication-atlas.netlify.app/#cases)에서 G01–G12를, [사례별 검토](https://indication-atlas.netlify.app/#cases/examples)에서 실제 판단과 개념 비교를 제공합니다.
+
+[새 키워드 확인](https://indication-atlas.netlify.app/#analyze)은 사전 검색 옆 버튼으로 엽니다. 등록된 표현·명시적 약어 정의·일부 조건 패턴을 처리하고, 미등록 표현은 외부 후보와 비교할 수 있습니다. 환자의 진단·적격성은 판정하지 않습니다.
 
 ## 실행
 
