@@ -100,7 +100,7 @@ function structuredReviewHTML(story) {
 function dictionaryPage() {
   const m=data.metadata;
   $('#main-content').innerHTML=`<div class="container home-page">
-    <section class="home-intro" aria-labelledby="hero-title"><div><h1 id="hero-title">질환 동의어 사전</h1><p>제공된 키워드와 문맥을 대조해 같은 개념을 묶었습니다.</p></div><p class="author-note">장민호 · Scientific AI Engineer 과제</p></section>
+    <section class="home-intro" aria-labelledby="hero-title"><div><h1 id="hero-title">질환 동의어 사전</h1><p>제공된 키워드와 문맥을 대조해 같은 개념을 묶었습니다.</p></div></section>
     <div class="stats" aria-label="사전 요약">
       ${[['검토한 키워드',m.records,'건','#records','전체 분류 결과'],['개념 그룹',m.concepts,'개','#dictionary?view=concepts','개념 목록'],['별칭 연결',m.aliases,'건','#aliases','별칭 목록'],['판단 보류',m.holds,'건','#records?decision=HOLD','보류 사유 확인']].map(([label,n,u,href,action])=>`<a class="stat" href="${href}"${href.includes('view=concepts')?' data-concept-list':''} aria-label="${label} ${n}${u} · ${action}"><span class="stat-label">${label}</span><span class="stat-value">${n}<small>${u}</small></span><span class="stat-action">${action} <span aria-hidden="true">↗</span></span></a>`).join('')}
     </div>
